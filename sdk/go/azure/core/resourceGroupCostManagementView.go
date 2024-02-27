@@ -21,45 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	core/resourceGroupCostManagementView "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroupCostManagementView"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourceGroupCostManagementView(ctx, "example", &core.ResourceGroupCostManagementViewArgs{
-//				Name:            pulumi.String("example"),
-//				DisplayName:     pulumi.String("Cost View per Month"),
-//				ChartType:       pulumi.String("StackedColumn"),
-//				Accumulated:     pulumi.Bool(false),
-//				ResourceGroupId: example.ID(),
-//				ReportType:      pulumi.String("Usage"),
-//				Timeframe:       pulumi.String("MonthToDate"),
-//				Dataset: &core.ResourceGroupCostManagementViewDatasetArgs{
-//					Granularity: pulumi.String("Monthly"),
-//					Aggregations: core.ResourceGroupCostManagementViewDatasetAggregationArray{
-//						&core.ResourceGroupCostManagementViewDatasetAggregationArgs{
-//							Name:       pulumi.String("totalCost"),
-//							ColumnName: pulumi.String("Cost"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/resourceGroupCostManagementView.NewResourceGroupCostManagementView(ctx, "example", &core/resourceGroupCostManagementView.ResourceGroupCostManagementViewArgs{
+// Name: "example",
+// DisplayName: "Cost View per Month",
+// ChartType: "StackedColumn",
+// Accumulated: false,
+// ResourceGroupId: example.Id,
+// ReportType: "Usage",
+// Timeframe: "MonthToDate",
+// Dataset: map[string]interface{}{
+// "granularity": "Monthly",
+// "aggregations": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "totalCost",
+// "columnName": "Cost",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -26,23 +26,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/resourceProviderRegistration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceProviderRegistration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
-//				Name: pulumi.String("Microsoft.PolicyInsights"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceProviderRegistration.NewResourceProviderRegistration(ctx, "example", &core/resourceProviderRegistration.ResourceProviderRegistrationArgs{
+// Name: "Microsoft.PolicyInsights",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Registering A Preview Feature)
 //
@@ -51,29 +49,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/resourceProviderRegistration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceProviderRegistration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
-//				Name: pulumi.String("Microsoft.ContainerService"),
-//				Features: core.ResourceProviderRegistrationFeatureArray{
-//					&core.ResourceProviderRegistrationFeatureArgs{
-//						Name:       pulumi.String("AKS-DataPlaneAutoApprove"),
-//						Registered: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceProviderRegistration.NewResourceProviderRegistration(ctx, "example", &core/resourceProviderRegistration.ResourceProviderRegistrationArgs{
+// Name: "Microsoft.ContainerService",
+// Features: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "AKS-DataPlaneAutoApprove",
+// "registered": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

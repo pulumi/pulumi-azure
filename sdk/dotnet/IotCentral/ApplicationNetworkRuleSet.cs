@@ -22,13 +22,13 @@ namespace Pulumi.Azure.IotCentral
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resource",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleApplication = new Azure.IotCentral.Application("example", new()
+    ///     var exampleApplication = new Azure.Iotcentral.Application.Application("example", new()
     ///     {
     ///         Name = "example-iotcentral-app",
     ///         ResourceGroupName = example.Name,
@@ -42,20 +42,20 @@ namespace Pulumi.Azure.IotCentral
     ///         },
     ///     });
     /// 
-    ///     var exampleApplicationNetworkRuleSet = new Azure.IotCentral.ApplicationNetworkRuleSet("example", new()
+    ///     var exampleApplicationNetworkRuleSet = new Azure.Iotcentral.ApplicationNetworkRuleSet.ApplicationNetworkRuleSet("example", new()
     ///     {
     ///         IotcentralApplicationId = exampleApplication.Id,
     ///         IpRules = new[]
     ///         {
-    ///             new Azure.IotCentral.Inputs.ApplicationNetworkRuleSetIpRuleArgs
+    ///             
     ///             {
-    ///                 Name = "rule1",
-    ///                 IpMask = "10.0.1.0/24",
+    ///                 { "name", "rule1" },
+    ///                 { "ipMask", "10.0.1.0/24" },
     ///             },
-    ///             new Azure.IotCentral.Inputs.ApplicationNetworkRuleSetIpRuleArgs
+    ///             
     ///             {
-    ///                 Name = "rule2",
-    ///                 IpMask = "10.1.1.0/24",
+    ///                 { "name", "rule2" },
+    ///                 { "ipMask", "10.1.1.0/24" },
     ///             },
     ///         },
     ///     });

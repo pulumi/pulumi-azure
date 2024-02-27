@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Route Filter.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getRouteFilter({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
 
@@ -73,19 +60,6 @@ export interface GetRouteFilterResult {
 }
 /**
  * Use this data source to access information about an existing Route Filter.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getRouteFilter({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
     return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))

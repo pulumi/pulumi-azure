@@ -14,61 +14,6 @@ import (
 
 // Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
-//				Name:                       pulumi.String("example-psqlserver"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("9.6"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//				SkuName:                    pulumi.String("GP_Gen5_2"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewActiveDirectoryAdministrator(ctx, "example", &postgresql.ActiveDirectoryAdministratorArgs{
-//				ServerName:        exampleServer.Name,
-//				ResourceGroupName: example.Name,
-//				Login:             pulumi.String("sqladmin"),
-//				TenantId:          *pulumi.String(current.TenantId),
-//				ObjectId:          *pulumi.String(current.ObjectId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.

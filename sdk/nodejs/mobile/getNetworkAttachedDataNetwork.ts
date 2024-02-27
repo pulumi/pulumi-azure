@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Mobile Network Attached Data Network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetworkPacketCoreControlPlane({
- *     name: "example-mnpccp",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkAttachedDataNetwork = Promise.all([example, example]).then(([example, example1]) => azure.mobile.getNetworkAttachedDataNetwork({
- *     mobileNetworkDataNetworkName: example.name,
- *     mobileNetworkPacketCoreDataPlaneId: example1.id,
- * }));
- * ```
  */
 export function getNetworkAttachedDataNetwork(args: GetNetworkAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAttachedDataNetworkResult> {
 
@@ -95,22 +79,6 @@ export interface GetNetworkAttachedDataNetworkResult {
 }
 /**
  * Use this data source to access information about an existing Mobile Network Attached Data Network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetworkPacketCoreControlPlane({
- *     name: "example-mnpccp",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkAttachedDataNetwork = Promise.all([example, example]).then(([example, example1]) => azure.mobile.getNetworkAttachedDataNetwork({
- *     mobileNetworkDataNetworkName: example.name,
- *     mobileNetworkPacketCoreDataPlaneId: example1.id,
- * }));
- * ```
  */
 export function getNetworkAttachedDataNetworkOutput(args: GetNetworkAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAttachedDataNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetworkAttachedDataNetwork(a, opts))

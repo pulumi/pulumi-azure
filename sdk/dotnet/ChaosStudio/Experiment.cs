@@ -22,20 +22,20 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example",
     ///         AddressSpaces = new[]
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ChaosStudio
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -57,23 +57,23 @@ namespace Pulumi.Azure.ChaosStudio
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "example" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine.LinuxVirtualMachine("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -86,79 +86,79 @@ namespace Pulumi.Azure.ChaosStudio
     ///         {
     ///             exampleNetworkInterface.Id,
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "Standard_LRS",
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "Standard_LRS" },
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 
-    ///     var exampleTarget = new Azure.ChaosStudio.Target("example", new()
+    ///     var exampleTarget = new Azure.Chaosstudio.Target.Target("example", new()
     ///     {
     ///         Location = example.Location,
     ///         TargetResourceId = exampleLinuxVirtualMachine.Id,
     ///         TargetType = "Microsoft-VirtualMachine",
     ///     });
     /// 
-    ///     var exampleCapability = new Azure.ChaosStudio.Capability("example", new()
+    ///     var exampleCapability = new Azure.Chaosstudio.Capability.Capability("example", new()
     ///     {
     ///         ChaosStudioTargetId = exampleTarget.Id,
     ///         CapabilityType = "Shutdown-1.0",
     ///     });
     /// 
-    ///     var exampleExperiment = new Azure.ChaosStudio.Experiment("example", new()
+    ///     var exampleExperiment = new Azure.Chaosstudio.Experiment.Experiment("example", new()
     ///     {
     ///         Location = example.Location,
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
-    ///         Identity = new Azure.ChaosStudio.Inputs.ExperimentIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Selectors = new[]
     ///         {
-    ///             new Azure.ChaosStudio.Inputs.ExperimentSelectorArgs
+    ///             
     ///             {
-    ///                 Name = "Selector1",
-    ///                 ChaosStudioTargetIds = new[]
+    ///                 { "name", "Selector1" },
+    ///                 { "chaosStudioTargetIds", new[]
     ///                 {
     ///                     exampleTarget.Id,
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Steps = new[]
     ///         {
-    ///             new Azure.ChaosStudio.Inputs.ExperimentStepArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 Branches = new[]
+    ///                 { "name", "example" },
+    ///                 { "branches", new[]
     ///                 {
-    ///                     new Azure.ChaosStudio.Inputs.ExperimentStepBranchArgs
+    ///                     
     ///                     {
-    ///                         Name = "example",
-    ///                         Actions = new[]
+    ///                         { "name", "example" },
+    ///                         { "actions", new[]
     ///                         {
-    ///                             new Azure.ChaosStudio.Inputs.ExperimentStepBranchActionArgs
+    ///                             
     ///                             {
-    ///                                 Urn = exampleCapability.CapabilityUrn,
-    ///                                 SelectorName = "Selector1",
-    ///                                 Parameters = 
+    ///                                 { "urn", exampleCapability.CapabilityUrn },
+    ///                                 { "selectorName", "Selector1" },
+    ///                                 { "parameters", 
     ///                                 {
     ///                                     { "abruptShutdown", "false" },
-    ///                                 },
-    ///                                 ActionType = "continuous",
-    ///                                 Duration = "PT10M",
+    ///                                 } },
+    ///                                 { "actionType", "continuous" },
+    ///                                 { "duration", "PT10M" },
     ///                             },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

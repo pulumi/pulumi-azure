@@ -23,76 +23,77 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iot/endpointServicebusTopic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/endpointServicebusTopic"
+//	iot/ioTHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/ioTHub"
+//	servicebus/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/namespace"
+//	servicebus/topic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topic"
+//	servicebus/topicAuthorizationRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topicAuthorizationRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
-//				Name:              pulumi.String("exampleNamespace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
-//				Name:        pulumi.String("exampleTopic"),
-//				NamespaceId: exampleNamespace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
-//				Name:    pulumi.String("exampleRule"),
-//				TopicId: exampleTopic.ID(),
-//				Listen:  pulumi.Bool(false),
-//				Send:    pulumi.Bool(true),
-//				Manage:  pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("exampleIothub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("B1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//				Tags: pulumi.StringMap{
-//					"purpose": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewEndpointServicebusTopic(ctx, "example", &iot.EndpointServicebusTopicArgs{
-//				ResourceGroupName: example.Name,
-//				IothubId:          exampleIoTHub.ID(),
-//				Name:              pulumi.String("example"),
-//				ConnectionString:  exampleTopicAuthorizationRule.PrimaryConnectionString,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := servicebus/namespace.NewNamespace(ctx, "example", &servicebus/namespace.NamespaceArgs{
+// Name: "exampleNamespace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopic, err := servicebus/topic.NewTopic(ctx, "example", &servicebus/topic.TopicArgs{
+// Name: "exampleTopic",
+// NamespaceId: exampleNamespace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopicAuthorizationRule, err := servicebus/topicAuthorizationRule.NewTopicAuthorizationRule(ctx, "example", &servicebus/topicAuthorizationRule.TopicAuthorizationRuleArgs{
+// Name: "exampleRule",
+// TopicId: exampleTopic.Id,
+// Listen: false,
+// Send: true,
+// Manage: false,
+// })
+// if err != nil {
+// return err
+// }
+// exampleIoTHub, err := iot/ioTHub.NewIoTHub(ctx, "example", &iot/ioTHub.IoTHubArgs{
+// Name: "exampleIothub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "B1",
+// "capacity": "1",
+// },
+// Tags: map[string]interface{}{
+// "purpose": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/endpointServicebusTopic.NewEndpointServicebusTopic(ctx, "example", &iot/endpointServicebusTopic.EndpointServicebusTopicArgs{
+// ResourceGroupName: example.Name,
+// IothubId: exampleIoTHub.Id,
+// Name: "example",
+// ConnectionString: exampleTopicAuthorizationRule.PrimaryConnectionString,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "analysis-services-server-test",
  *     location: "West Europe",
  * });
- * const server = new azure.analysisservices.Server("server", {
+ * const server = new azure.analysisservices/server.Server("server", {
  *     name: "analysisservicesserver",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         rangeEnd: "210.117.252.255",
  *     }],
  *     tags: {
- *         abc: "123",
+ *         abc: 123,
  *     },
  * });
  * ```

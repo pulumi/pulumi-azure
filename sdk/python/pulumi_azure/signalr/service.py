@@ -825,33 +825,33 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-signalr",
-            location="West US")
-        example_service = azure.signalr.Service("example",
-            name="tfex-signalr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-signalr,
+            location=West US)
+        example_service = azure.signalr.service.Service("example",
+            name=tfex-signalr,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Free_F1",
-                capacity=1,
-            ),
-            cors=[azure.signalr.ServiceCorArgs(
-                allowed_origins=["http://www.example.com"],
-            )],
+            sku={
+                name: Free_F1,
+                capacity: 1,
+            },
+            cors=[{
+                allowedOrigins: [http://www.example.com],
+            }],
             public_network_access_enabled=False,
             connectivity_logs_enabled=True,
             messaging_logs_enabled=True,
-            service_mode="Default",
-            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
-                category_patterns=[
-                    "connections",
-                    "messages",
+            service_mode=Default,
+            upstream_endpoints=[{
+                categoryPatterns: [
+                    connections,
+                    messages,
                 ],
-                event_patterns=["*"],
-                hub_patterns=["hub1"],
-                url_template="http://foo.com",
-            )])
+                eventPatterns: [*],
+                hubPatterns: [hub1],
+                urlTemplate: http://foo.com,
+            }])
         ```
 
         ## Import
@@ -903,33 +903,33 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-signalr",
-            location="West US")
-        example_service = azure.signalr.Service("example",
-            name="tfex-signalr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-signalr,
+            location=West US)
+        example_service = azure.signalr.service.Service("example",
+            name=tfex-signalr,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Free_F1",
-                capacity=1,
-            ),
-            cors=[azure.signalr.ServiceCorArgs(
-                allowed_origins=["http://www.example.com"],
-            )],
+            sku={
+                name: Free_F1,
+                capacity: 1,
+            },
+            cors=[{
+                allowedOrigins: [http://www.example.com],
+            }],
             public_network_access_enabled=False,
             connectivity_logs_enabled=True,
             messaging_logs_enabled=True,
-            service_mode="Default",
-            upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
-                category_patterns=[
-                    "connections",
-                    "messages",
+            service_mode=Default,
+            upstream_endpoints=[{
+                categoryPatterns: [
+                    connections,
+                    messages,
                 ],
-                event_patterns=["*"],
-                hub_patterns=["hub1"],
-                url_template="http://foo.com",
-            )])
+                eventPatterns: [*],
+                hubPatterns: [hub1],
+                urlTemplate: http://foo.com,
+            }])
         ```
 
         ## Import

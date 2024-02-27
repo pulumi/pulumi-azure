@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	securitycenter/subscriptionPricing "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/securitycenter/subscriptionPricing"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
-//				Tier:         pulumi.String("Standard"),
-//				ResourceType: pulumi.String("VirtualMachines"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitycenter/subscriptionPricing.NewSubscriptionPricing(ctx, "example", &securitycenter/subscriptionPricing.SubscriptionPricingArgs{
+// Tier: "Standard",
+// ResourceType: "VirtualMachines",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using Extensions with Defender CSPM
 //
@@ -50,41 +48,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	securitycenter/subscriptionPricing "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/securitycenter/subscriptionPricing"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewSubscriptionPricing(ctx, "example1", &securitycenter.SubscriptionPricingArgs{
-//				Tier:         pulumi.String("Standard"),
-//				ResourceType: pulumi.String("CloudPosture"),
-//				Extensions: securitycenter.SubscriptionPricingExtensionArray{
-//					&securitycenter.SubscriptionPricingExtensionArgs{
-//						Name: pulumi.String("ContainerRegistriesVulnerabilityAssessments"),
-//					},
-//					&securitycenter.SubscriptionPricingExtensionArgs{
-//						Name: pulumi.String("AgentlessVmScanning"),
-//						AdditionalExtensionProperties: pulumi.StringMap{
-//							"ExclusionTags": pulumi.String("[]"),
-//						},
-//					},
-//					&securitycenter.SubscriptionPricingExtensionArgs{
-//						Name: pulumi.String("AgentlessDiscoveryForKubernetes"),
-//					},
-//					&securitycenter.SubscriptionPricingExtensionArgs{
-//						Name: pulumi.String("SensitiveDataDiscovery"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitycenter/subscriptionPricing.NewSubscriptionPricing(ctx, "example1", &securitycenter/subscriptionPricing.SubscriptionPricingArgs{
+// Tier: "Standard",
+// ResourceType: "CloudPosture",
+// Extensions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "ContainerRegistriesVulnerabilityAssessments",
+// },
+// map[string]interface{}{
+// "name": "AgentlessVmScanning",
+// "additionalExtensionProperties": map[string]interface{}{
+// "ExclusionTags": "[]",
+// },
+// },
+// map[string]interface{}{
+// "name": "AgentlessDiscoveryForKubernetes",
+// },
+// map[string]interface{}{
+// "name": "SensitiveDataDiscovery",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

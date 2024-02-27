@@ -22,13 +22,13 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     var vault = new Azure.Recoveryservices.Vault.Vault("vault", new()
     ///     {
     ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var policy = new Azure.SiteRecovery.HyperVReplicationPolicy("policy", new()
+    ///     var policy = new Azure.Siterecovery.HyperVReplicationPolicy.HyperVReplicationPolicy("policy", new()
     ///     {
     ///         Name = "policy",
     ///         RecoveryVaultId = vault.Id,

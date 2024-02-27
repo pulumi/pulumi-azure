@@ -341,25 +341,25 @@ class LinkedServiceOdata(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        anonymous = azure.datafactory.LinkedServiceOdata("anonymous",
-            name="anonymous",
+        anonymous = azure.datafactory.linked_service_odata.LinkedServiceOdata("anonymous",
+            name=anonymous,
             data_factory_id=example_factory.id,
-            url="https://services.odata.org/v4/TripPinServiceRW/People")
-        basic_auth = azure.datafactory.LinkedServiceOdata("basic_auth",
-            name="basic_auth",
+            url=https://services.odata.org/v4/TripPinServiceRW/People)
+        basic_auth = azure.datafactory.linked_service_odata.LinkedServiceOdata("basic_auth",
+            name=basic_auth,
             data_factory_id=example_factory.id,
-            url="https://services.odata.org/v4/TripPinServiceRW/People",
-            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
-                username="emma",
-                password="Ch4ngeM3!",
-            ))
+            url=https://services.odata.org/v4/TripPinServiceRW/People,
+            basic_authentication={
+                username: emma,
+                password: Ch4ngeM3!,
+            })
         ```
 
         ## Import
@@ -399,25 +399,25 @@ class LinkedServiceOdata(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        anonymous = azure.datafactory.LinkedServiceOdata("anonymous",
-            name="anonymous",
+        anonymous = azure.datafactory.linked_service_odata.LinkedServiceOdata("anonymous",
+            name=anonymous,
             data_factory_id=example_factory.id,
-            url="https://services.odata.org/v4/TripPinServiceRW/People")
-        basic_auth = azure.datafactory.LinkedServiceOdata("basic_auth",
-            name="basic_auth",
+            url=https://services.odata.org/v4/TripPinServiceRW/People)
+        basic_auth = azure.datafactory.linked_service_odata.LinkedServiceOdata("basic_auth",
+            name=basic_auth,
             data_factory_id=example_factory.id,
-            url="https://services.odata.org/v4/TripPinServiceRW/People",
-            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
-                username="emma",
-                password="Ch4ngeM3!",
-            ))
+            url=https://services.odata.org/v4/TripPinServiceRW/People,
+            basic_authentication={
+                username: emma,
+                password: Ch4ngeM3!,
+            })
         ```
 
         ## Import

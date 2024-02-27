@@ -21,54 +21,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	backup/containerStorageAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/backup/containerStorageAccount"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-network-mapping-primary"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: vault.Name,
-//				StorageAccountId:  sa.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-network-mapping-primary",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// vault, err := recoveryservices/vault.NewVault(ctx, "vault", &recoveryservices/vault.VaultArgs{
+// Name: "example-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// sa, err := storage/account.NewAccount(ctx, "sa", &storage/account.AccountArgs{
+// Name: "examplesa",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = backup/containerStorageAccount.NewContainerStorageAccount(ctx, "container", &backup/containerStorageAccount.ContainerStorageAccountArgs{
+// ResourceGroupName: example.Name,
+// RecoveryVaultName: vault.Name,
+// StorageAccountId: sa.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -12,55 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Operation within an API Management Service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
-    ///     {
-    ///         Name = "search-api",
-    ///         ApiManagementName = "search-api-management",
-    ///         ResourceGroupName = "search-service",
-    ///         Revision = "2",
-    ///     });
-    /// 
-    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("example", new()
-    ///     {
-    ///         OperationId = "user-delete",
-    ///         ApiName = example.Apply(getApiResult =&gt; getApiResult.Name),
-    ///         ApiManagementName = example.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
-    ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
-    ///         DisplayName = "Delete User Operation",
-    ///         Method = "DELETE",
-    ///         UrlTemplate = "/users/{id}/delete",
-    ///         Description = "This can only be done by the logged in user.",
-    ///         TemplateParameters = new[]
-    ///         {
-    ///             new Azure.ApiManagement.Inputs.ApiOperationTemplateParameterArgs
-    ///             {
-    ///                 Name = "id",
-    ///                 Type = "number",
-    ///                 Required = true,
-    ///             },
-    ///         },
-    ///         Responses = new[]
-    ///         {
-    ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
-    ///             {
-    ///                 StatusCode = 200,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management API Operation's can be imported using the `resource id`, e.g.

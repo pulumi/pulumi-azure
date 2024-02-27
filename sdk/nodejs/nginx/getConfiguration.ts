@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Nginx Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.nginx.getConfiguration({
- *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -64,18 +52,6 @@ export interface GetConfigurationResult {
 }
 /**
  * Use this data source to access information about an existing Nginx Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.nginx.getConfiguration({
- *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

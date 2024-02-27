@@ -22,20 +22,20 @@ namespace Pulumi.Azure.RecoveryServices
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleResourceGuard = new Azure.DataProtection.ResourceGuard("example", new()
+    ///     var exampleResourceGuard = new Azure.Dataprotection.ResourceGuard.ResourceGuard("example", new()
     ///     {
     ///         Name = "example-resourceguard",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     var vault = new Azure.Recoveryservices.Vault.Vault("vault", new()
     ///     {
     ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.RecoveryServices
     ///         SoftDeleteEnabled = true,
     ///     });
     /// 
-    ///     var test = new Azure.RecoveryServices.VaultResourceGuardAssociation("test", new()
+    ///     var test = new Azure.Recoveryservices.VaultResourceGuardAssociation.VaultResourceGuardAssociation("test", new()
     ///     {
     ///         Name = "VaultProxy",
     ///         VaultId = testAzurermRecoveryServicesVault.Id,

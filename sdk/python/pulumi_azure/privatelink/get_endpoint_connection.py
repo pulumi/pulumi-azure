@@ -102,17 +102,6 @@ def get_endpoint_connection(name: Optional[str] = None,
     """
     Use this data source to access the connection status information about an existing Private Endpoint Connection.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatelink.get_endpoint_connection(name="example-private-endpoint",
-        resource_group_name="example-rg")
-    pulumi.export("privateEndpointStatus", example.private_service_connections[0].status)
-    ```
-
 
     :param str name: Specifies the Name of the private endpoint.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the private endpoint exists.
@@ -138,17 +127,6 @@ def get_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointConnectionResult]:
     """
     Use this data source to access the connection status information about an existing Private Endpoint Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatelink.get_endpoint_connection(name="example-private-endpoint",
-        resource_group_name="example-rg")
-    pulumi.export("privateEndpointStatus", example.private_service_connections[0].status)
-    ```
 
 
     :param str name: Specifies the Name of the private endpoint.

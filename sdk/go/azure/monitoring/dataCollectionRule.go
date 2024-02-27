@@ -23,284 +23,286 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventhub/eventHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHub"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	monitoring/dataCollectionEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/dataCollectionEndpoint"
+//	monitoring/dataCollectionRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/dataCollectionRule"
+//	operationalinsights/analyticsSolution "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsSolution"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("example-uai"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-workspace"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("WindowsEventForwarding"),
-//				Location:            example.Location,
-//				ResourceGroupName:   example.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/WindowsEventForwarding"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("exeventns"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				Capacity:          pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("exevent2"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(2),
-//				MessageRetention:  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examstorage"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("examplecontainer"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "example", &monitoring.DataCollectionEndpointArgs{
-//				Name:              pulumi.String("example-dcre"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"a": 1,
-//				"b": "hello",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = monitoring.NewDataCollectionRule(ctx, "example", &monitoring.DataCollectionRuleArgs{
-//				Name:                     pulumi.String("example-rule"),
-//				ResourceGroupName:        example.Name,
-//				Location:                 example.Location,
-//				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
-//				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
-//					LogAnalytics: monitoring.DataCollectionRuleDestinationsLogAnalyticArray{
-//						&monitoring.DataCollectionRuleDestinationsLogAnalyticArgs{
-//							WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//							Name:                pulumi.String("example-destination-log"),
-//						},
-//					},
-//					EventHub: &monitoring.DataCollectionRuleDestinationsEventHubArgs{
-//						EventHubId: exampleEventHub.ID(),
-//						Name:       pulumi.String("example-destination-eventhub"),
-//					},
-//					StorageBlobs: monitoring.DataCollectionRuleDestinationsStorageBlobArray{
-//						&monitoring.DataCollectionRuleDestinationsStorageBlobArgs{
-//							StorageAccountId: exampleAccount.ID(),
-//							ContainerName:    exampleContainer.Name,
-//							Name:             pulumi.String("example-destination-storage"),
-//						},
-//					},
-//					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
-//						Name: pulumi.String("example-destination-metrics"),
-//					},
-//				},
-//				DataFlows: monitoring.DataCollectionRuleDataFlowArray{
-//					&monitoring.DataCollectionRuleDataFlowArgs{
-//						Streams: pulumi.StringArray{
-//							pulumi.String("Microsoft-InsightsMetrics"),
-//						},
-//						Destinations: pulumi.StringArray{
-//							pulumi.String("example-destination-metrics"),
-//						},
-//					},
-//					&monitoring.DataCollectionRuleDataFlowArgs{
-//						Streams: pulumi.StringArray{
-//							pulumi.String("Microsoft-InsightsMetrics"),
-//							pulumi.String("Microsoft-Syslog"),
-//							pulumi.String("Microsoft-Perf"),
-//						},
-//						Destinations: pulumi.StringArray{
-//							pulumi.String("example-destination-log"),
-//						},
-//					},
-//					&monitoring.DataCollectionRuleDataFlowArgs{
-//						Streams: pulumi.StringArray{
-//							pulumi.String("Custom-MyTableRawData"),
-//						},
-//						Destinations: pulumi.StringArray{
-//							pulumi.String("example-destination-log"),
-//						},
-//						OutputStream: pulumi.String("Microsoft-Syslog"),
-//						TransformKql: pulumi.String("source | project TimeGenerated = Time, Computer, Message = AdditionalContext"),
-//					},
-//				},
-//				DataSources: &monitoring.DataCollectionRuleDataSourcesArgs{
-//					Syslogs: monitoring.DataCollectionRuleDataSourcesSyslogArray{
-//						&monitoring.DataCollectionRuleDataSourcesSyslogArgs{
-//							FacilityNames: pulumi.StringArray{
-//								pulumi.String("*"),
-//							},
-//							LogLevels: pulumi.StringArray{
-//								pulumi.String("*"),
-//							},
-//							Name: pulumi.String("example-datasource-syslog"),
-//							Streams: pulumi.StringArray{
-//								pulumi.String("Microsoft-Syslog"),
-//							},
-//						},
-//					},
-//					IisLogs: monitoring.DataCollectionRuleDataSourcesIisLogArray{
-//						&monitoring.DataCollectionRuleDataSourcesIisLogArgs{
-//							Streams: pulumi.StringArray{
-//								pulumi.String("Microsoft-W3CIISLog"),
-//							},
-//							Name: pulumi.String("example-datasource-iis"),
-//							LogDirectories: pulumi.StringArray{
-//								pulumi.String("C:\\Logs\\W3SVC1"),
-//							},
-//						},
-//					},
-//					LogFiles: monitoring.DataCollectionRuleDataSourcesLogFileArray{
-//						&monitoring.DataCollectionRuleDataSourcesLogFileArgs{
-//							Name:   pulumi.String("example-datasource-logfile"),
-//							Format: pulumi.String("text"),
-//							Streams: pulumi.StringArray{
-//								pulumi.String("Custom-MyTableRawData"),
-//							},
-//							FilePatterns: pulumi.StringArray{
-//								pulumi.String("C:\\JavaLogs\\*.log"),
-//							},
-//							Settings: &monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs{
-//								Text: &monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs{
-//									RecordStartTimestampFormat: pulumi.String("ISO 8601"),
-//								},
-//							},
-//						},
-//					},
-//					PerformanceCounters: monitoring.DataCollectionRuleDataSourcesPerformanceCounterArray{
-//						&monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs{
-//							Streams: pulumi.StringArray{
-//								pulumi.String("Microsoft-Perf"),
-//								pulumi.String("Microsoft-InsightsMetrics"),
-//							},
-//							SamplingFrequencyInSeconds: pulumi.Int(60),
-//							CounterSpecifiers: pulumi.StringArray{
-//								pulumi.String("Processor(*)\\% Processor Time"),
-//							},
-//							Name: pulumi.String("example-datasource-perfcounter"),
-//						},
-//					},
-//					WindowsEventLogs: monitoring.DataCollectionRuleDataSourcesWindowsEventLogArray{
-//						&monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs{
-//							Streams: pulumi.StringArray{
-//								pulumi.String("Microsoft-WindowsEvent"),
-//							},
-//							XPathQueries: pulumi.StringArray{
-//								pulumi.String("*![System/Level=1]"),
-//							},
-//							Name: pulumi.String("example-datasource-wineventlog"),
-//						},
-//					},
-//					Extensions: monitoring.DataCollectionRuleDataSourcesExtensionArray{
-//						&monitoring.DataCollectionRuleDataSourcesExtensionArgs{
-//							Streams: pulumi.StringArray{
-//								pulumi.String("Microsoft-WindowsEvent"),
-//							},
-//							InputDataSources: pulumi.StringArray{
-//								pulumi.String("example-datasource-wineventlog"),
-//							},
-//							ExtensionName: pulumi.String("example-extension-name"),
-//							ExtensionJson: pulumi.String(json0),
-//							Name:          pulumi.String("example-datasource-extension"),
-//						},
-//					},
-//				},
-//				StreamDeclarations: monitoring.DataCollectionRuleStreamDeclarationArray{
-//					&monitoring.DataCollectionRuleStreamDeclarationArgs{
-//						StreamName: pulumi.String("Custom-MyTableRawData"),
-//						Columns: monitoring.DataCollectionRuleStreamDeclarationColumnArray{
-//							&monitoring.DataCollectionRuleStreamDeclarationColumnArgs{
-//								Name: pulumi.String("Time"),
-//								Type: pulumi.String("datetime"),
-//							},
-//							&monitoring.DataCollectionRuleStreamDeclarationColumnArgs{
-//								Name: pulumi.String("Computer"),
-//								Type: pulumi.String("string"),
-//							},
-//							&monitoring.DataCollectionRuleStreamDeclarationColumnArgs{
-//								Name: pulumi.String("AdditionalContext"),
-//								Type: pulumi.String("string"),
-//							},
-//						},
-//					},
-//				},
-//				Identity: &monitoring.DataCollectionRuleIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
-//					},
-//				},
-//				Description: pulumi.String("data collection rule example"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "example-uai",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "example-workspace",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = operationalinsights/analyticsSolution.NewAnalyticsSolution(ctx, "example", &operationalinsights/analyticsSolution.AnalyticsSolutionArgs{
+// SolutionName: "WindowsEventForwarding",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// WorkspaceResourceId: exampleAnalyticsWorkspace.Id,
+// WorkspaceName: exampleAnalyticsWorkspace.Name,
+// Plan: map[string]interface{}{
+// "publisher": "Microsoft",
+// "product": "OMSGallery/WindowsEventForwarding",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHubNamespace, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "example", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "exeventns",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// Capacity: 1,
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHub, err := eventhub/eventHub.NewEventHub(ctx, "example", &eventhub/eventHub.EventHubArgs{
+// Name: "exevent2",
+// NamespaceName: exampleEventHubNamespace.Name,
+// ResourceGroupName: example.Name,
+// PartitionCount: 2,
+// MessageRetention: 1,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examstorage",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "examplecontainer",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataCollectionEndpoint, err := monitoring/dataCollectionEndpoint.NewDataCollectionEndpoint(ctx, "example", &monitoring/dataCollectionEndpoint.DataCollectionEndpointArgs{
+// Name: "example-dcre",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/dataCollectionRule.NewDataCollectionRule(ctx, "example", &monitoring/dataCollectionRule.DataCollectionRuleArgs{
+// Name: "example-rule",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DataCollectionEndpointId: exampleDataCollectionEndpoint.Id,
+// Destinations: map[string]interface{}{
+// "logAnalytics": []map[string]interface{}{
+// map[string]interface{}{
+// "workspaceResourceId": exampleAnalyticsWorkspace.Id,
+// "name": "example-destination-log",
+// },
+// },
+// "eventHub": map[string]interface{}{
+// "eventHubId": exampleEventHub.Id,
+// "name": "example-destination-eventhub",
+// },
+// "storageBlobs": []map[string]interface{}{
+// map[string]interface{}{
+// "storageAccountId": exampleAccount.Id,
+// "containerName": exampleContainer.Name,
+// "name": "example-destination-storage",
+// },
+// },
+// "azureMonitorMetrics": map[string]interface{}{
+// "name": "example-destination-metrics",
+// },
+// },
+// DataFlows: []map[string]interface{}{
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-InsightsMetrics",
+// },
+// "destinations": []string{
+// "example-destination-metrics",
+// },
+// },
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-InsightsMetrics",
+// "Microsoft-Syslog",
+// "Microsoft-Perf",
+// },
+// "destinations": []string{
+// "example-destination-log",
+// },
+// },
+// map[string]interface{}{
+// "streams": []string{
+// "Custom-MyTableRawData",
+// },
+// "destinations": []string{
+// "example-destination-log",
+// },
+// "outputStream": "Microsoft-Syslog",
+// "transformKql": "source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
+// },
+// },
+// DataSources: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "a": 1,
+// "b": "hello",
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "syslogs": []map[string]interface{}{
+// map[string]interface{}{
+// "facilityNames": []string{
+// "*",
+// },
+// "logLevels": []string{
+// "*",
+// },
+// "name": "example-datasource-syslog",
+// "streams": []string{
+// "Microsoft-Syslog",
+// },
+// },
+// },
+// "iisLogs": []map[string]interface{}{
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-W3CIISLog",
+// },
+// "name": "example-datasource-iis",
+// "logDirectories": []string{
+// "C:\\Logs\\W3SVC1",
+// },
+// },
+// },
+// "logFiles": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example-datasource-logfile",
+// "format": "text",
+// "streams": []string{
+// "Custom-MyTableRawData",
+// },
+// "filePatterns": []string{
+// "C:\\JavaLogs\\*.log",
+// },
+// "settings": map[string]interface{}{
+// "text": map[string]interface{}{
+// "recordStartTimestampFormat": "ISO 8601",
+// },
+// },
+// },
+// },
+// "performanceCounters": []map[string]interface{}{
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-Perf",
+// "Microsoft-InsightsMetrics",
+// },
+// "samplingFrequencyInSeconds": 60,
+// "counterSpecifiers": []string{
+// "Processor(*)\\% Processor Time",
+// },
+// "name": "example-datasource-perfcounter",
+// },
+// },
+// "windowsEventLogs": []map[string]interface{}{
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-WindowsEvent",
+// },
+// "xPathQueries": []string{
+// "*![System/Level=1]",
+// },
+// "name": "example-datasource-wineventlog",
+// },
+// },
+// "extensions": []map[string]interface{}{
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-WindowsEvent",
+// },
+// "inputDataSources": []string{
+// "example-datasource-wineventlog",
+// },
+// "extensionName": "example-extension-name",
+// "extensionJson": json0,
+// "name": "example-datasource-extension",
+// },
+// },
+// },
+// StreamDeclarations: []map[string]interface{}{
+// map[string]interface{}{
+// "streamName": "Custom-MyTableRawData",
+// "columns": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Time",
+// "type": "datetime",
+// },
+// map[string]interface{}{
+// "name": "Computer",
+// "type": "string",
+// },
+// map[string]interface{}{
+// "name": "AdditionalContext",
+// "type": "string",
+// },
+// },
+// },
+// },
+// Identity: map[string]interface{}{
+// "type": "UserAssigned",
+// "identityIds": []interface{}{
+// exampleUserAssignedIdentity.Id,
+// },
+// },
+// Description: "data collection rule example",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

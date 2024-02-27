@@ -332,45 +332,6 @@ class FluxConfiguration(pulumi.CustomResource):
         """
         Manages an Arc Kubernetes Flux Configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "ENV": "Test",
-            })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("example",
-            name="example-ext",
-            cluster_id=test["id"],
-            extension_type="microsoft.flux")
-        example_flux_configuration = azure.arckubernetes.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
-            git_repository=azure.arckubernetes.FluxConfigurationGitRepositoryArgs(
-                url="https://github.com/Azure/arc-k8s-demo",
-                reference_type="branch",
-                reference_value="main",
-            ),
-            kustomizations=[azure.arckubernetes.FluxConfigurationKustomizationArgs(
-                name="kustomization-1",
-            )])
-        ```
-
         ## Import
 
         Arc Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -399,45 +360,6 @@ class FluxConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Arc Kubernetes Flux Configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "ENV": "Test",
-            })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("example",
-            name="example-ext",
-            cluster_id=test["id"],
-            extension_type="microsoft.flux")
-        example_flux_configuration = azure.arckubernetes.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
-            git_repository=azure.arckubernetes.FluxConfigurationGitRepositoryArgs(
-                url="https://github.com/Azure/arc-k8s-demo",
-                reference_type="branch",
-                reference_value="main",
-            ),
-            kustomizations=[azure.arckubernetes.FluxConfigurationKustomizationArgs(
-                name="kustomization-1",
-            )])
-        ```
 
         ## Import
 

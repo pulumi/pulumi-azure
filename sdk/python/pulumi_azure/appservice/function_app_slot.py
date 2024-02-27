@@ -781,32 +781,32 @@ class FunctionAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
-        example_function_app_slot = azure.appservice.FunctionAppSlot("example",
-            name="test-azure-functions_slot",
+        example_function_app_slot = azure.appservice.function_app_slot.FunctionAppSlot("example",
+            name=test-azure-functions_slot,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -871,32 +871,32 @@ class FunctionAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
-        example_function_app_slot = azure.appservice.FunctionAppSlot("example",
-            name="test-azure-functions_slot",
+        example_function_app_slot = azure.appservice.function_app_slot.FunctionAppSlot("example",
+            name=test-azure-functions_slot,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,

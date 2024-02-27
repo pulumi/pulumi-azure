@@ -21,36 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/applicationSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/applicationSecurityGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tf-test"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewApplicationSecurityGroup(ctx, "example", &network.ApplicationSecurityGroupArgs{
-//				Name:              pulumi.String("tf-appsecuritygroup"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Tags: pulumi.StringMap{
-//					"Hello": pulumi.String("World"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tf-test",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/applicationSecurityGroup.NewApplicationSecurityGroup(ctx, "example", &network/applicationSecurityGroup.ApplicationSecurityGroupArgs{
+// Name: "tf-appsecuritygroup",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Tags: map[string]interface{}{
+// "Hello": "World",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

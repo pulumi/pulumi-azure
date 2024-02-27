@@ -201,27 +201,27 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-mariadb-database-RG",
-            location="West Europe")
-        example_server = azure.mariadb.Server("example",
-            name="mariadb-svr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-mariadb-database-RG,
+            location=West Europe)
+        example_server = azure.mariadb.server.Server("example",
+            name=mariadb-svr,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="B_Gen5_2",
+            sku_name=B_Gen5_2,
             storage_mb=51200,
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
-            administrator_login="acctestun",
-            administrator_login_password="H@Sh1CoR3!",
-            version="10.2",
+            administrator_login=acctestun,
+            administrator_login_password=H@Sh1CoR3!,
+            version=10.2,
             ssl_enforcement_enabled=True)
-        example_database = azure.mariadb.Database("example",
-            name="mariadb_database",
+        example_database = azure.mariadb.database.Database("example",
+            name=mariadb_database,
             resource_group_name=example.name,
             server_name=example_server.name,
-            charset="utf8mb4",
-            collation="utf8mb4_unicode_520_ci")
+            charset=utf8mb4,
+            collation=utf8mb4_unicode_520_ci)
         ```
 
         ## Import
@@ -253,27 +253,27 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-mariadb-database-RG",
-            location="West Europe")
-        example_server = azure.mariadb.Server("example",
-            name="mariadb-svr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-mariadb-database-RG,
+            location=West Europe)
+        example_server = azure.mariadb.server.Server("example",
+            name=mariadb-svr,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="B_Gen5_2",
+            sku_name=B_Gen5_2,
             storage_mb=51200,
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
-            administrator_login="acctestun",
-            administrator_login_password="H@Sh1CoR3!",
-            version="10.2",
+            administrator_login=acctestun,
+            administrator_login_password=H@Sh1CoR3!,
+            version=10.2,
             ssl_enforcement_enabled=True)
-        example_database = azure.mariadb.Database("example",
-            name="mariadb_database",
+        example_database = azure.mariadb.database.Database("example",
+            name=mariadb_database,
             resource_group_name=example.name,
             server_name=example_server.name,
-            charset="utf8mb4",
-            collation="utf8mb4_unicode_520_ci")
+            charset=utf8mb4,
+            collation=utf8mb4_unicode_520_ci)
         ```
 
         ## Import

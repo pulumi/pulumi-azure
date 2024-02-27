@@ -462,168 +462,168 @@ class DataCollectionRule(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-uai",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example-uai,
             resource_group_name=example.name,
             location=example.location)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             resource_group_name=example.name,
             location=example.location)
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="WindowsEventForwarding",
+        example_analytics_solution = azure.operationalinsights.analytics_solution.AnalyticsSolution("example",
+            solution_name=WindowsEventForwarding,
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/WindowsEventForwarding",
-            ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="exeventns",
+            plan={
+                publisher: Microsoft,
+                product: OMSGallery/WindowsEventForwarding,
+            })
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=exeventns,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=1)
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="exevent2",
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=exevent2,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=1)
-        example_account = azure.storage.Account("example",
-            name="examstorage",
+        example_account = azure.storage.account.Account("example",
+            name=examstorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
-            name="example-dcre",
+            container_access_type=private)
+        example_data_collection_endpoint = azure.monitoring.data_collection_endpoint.DataCollectionEndpoint("example",
+            name=example-dcre,
             resource_group_name=example.name,
             location=example.location)
-        example_data_collection_rule = azure.monitoring.DataCollectionRule("example",
-            name="example-rule",
+        example_data_collection_rule = azure.monitoring.data_collection_rule.DataCollectionRule("example",
+            name=example-rule,
             resource_group_name=example.name,
             location=example.location,
             data_collection_endpoint_id=example_data_collection_endpoint.id,
-            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
-                log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
-                    workspace_resource_id=example_analytics_workspace.id,
-                    name="example-destination-log",
-                )],
-                event_hub=azure.monitoring.DataCollectionRuleDestinationsEventHubArgs(
-                    event_hub_id=example_event_hub.id,
-                    name="example-destination-eventhub",
-                ),
-                storage_blobs=[azure.monitoring.DataCollectionRuleDestinationsStorageBlobArgs(
-                    storage_account_id=example_account.id,
-                    container_name=example_container.name,
-                    name="example-destination-storage",
-                )],
-                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
-                    name="example-destination-metrics",
-                ),
-            ),
+            destinations={
+                logAnalytics: [{
+                    workspaceResourceId: example_analytics_workspace.id,
+                    name: example-destination-log,
+                }],
+                eventHub: {
+                    eventHubId: example_event_hub.id,
+                    name: example-destination-eventhub,
+                },
+                storageBlobs: [{
+                    storageAccountId: example_account.id,
+                    containerName: example_container.name,
+                    name: example-destination-storage,
+                }],
+                azureMonitorMetrics: {
+                    name: example-destination-metrics,
+                },
+            },
             data_flows=[
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Microsoft-InsightsMetrics"],
-                    destinations=["example-destination-metrics"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=[
-                        "Microsoft-InsightsMetrics",
-                        "Microsoft-Syslog",
-                        "Microsoft-Perf",
+                {
+                    streams: [Microsoft-InsightsMetrics],
+                    destinations: [example-destination-metrics],
+                },
+                {
+                    streams: [
+                        Microsoft-InsightsMetrics,
+                        Microsoft-Syslog,
+                        Microsoft-Perf,
                     ],
-                    destinations=["example-destination-log"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Custom-MyTableRawData"],
-                    destinations=["example-destination-log"],
-                    output_stream="Microsoft-Syslog",
-                    transform_kql="source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
-                ),
+                    destinations: [example-destination-log],
+                },
+                {
+                    streams: [Custom-MyTableRawData],
+                    destinations: [example-destination-log],
+                    outputStream: Microsoft-Syslog,
+                    transformKql: source | project TimeGenerated = Time, Computer, Message = AdditionalContext,
+                },
             ],
-            data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
-                syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
-                    facility_names=["*"],
-                    log_levels=["*"],
-                    name="example-datasource-syslog",
-                    streams=["Microsoft-Syslog"],
-                )],
-                iis_logs=[azure.monitoring.DataCollectionRuleDataSourcesIisLogArgs(
-                    streams=["Microsoft-W3CIISLog"],
-                    name="example-datasource-iis",
-                    log_directories=["C:\\\\Logs\\\\W3SVC1"],
-                )],
-                log_files=[azure.monitoring.DataCollectionRuleDataSourcesLogFileArgs(
-                    name="example-datasource-logfile",
-                    format="text",
-                    streams=["Custom-MyTableRawData"],
-                    file_patterns=["C:\\\\JavaLogs\\\\*.log"],
-                    settings=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs(
-                        text=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs(
-                            record_start_timestamp_format="ISO 8601",
-                        ),
-                    ),
-                )],
-                performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
-                    streams=[
-                        "Microsoft-Perf",
-                        "Microsoft-InsightsMetrics",
+            data_sources={
+                syslogs: [{
+                    facilityNames: [*],
+                    logLevels: [*],
+                    name: example-datasource-syslog,
+                    streams: [Microsoft-Syslog],
+                }],
+                iisLogs: [{
+                    streams: [Microsoft-W3CIISLog],
+                    name: example-datasource-iis,
+                    logDirectories: [C:\\Logs\\W3SVC1],
+                }],
+                logFiles: [{
+                    name: example-datasource-logfile,
+                    format: text,
+                    streams: [Custom-MyTableRawData],
+                    filePatterns: [C:\\JavaLogs\\*.log],
+                    settings: {
+                        text: {
+                            recordStartTimestampFormat: ISO 8601,
+                        },
+                    },
+                }],
+                performanceCounters: [{
+                    streams: [
+                        Microsoft-Perf,
+                        Microsoft-InsightsMetrics,
                     ],
-                    sampling_frequency_in_seconds=60,
-                    counter_specifiers=["Processor(*)\\\\% Processor Time"],
-                    name="example-datasource-perfcounter",
-                )],
-                windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    x_path_queries=["*![System/Level=1]"],
-                    name="example-datasource-wineventlog",
-                )],
-                extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    input_data_sources=["example-datasource-wineventlog"],
-                    extension_name="example-extension-name",
-                    extension_json=json.dumps({
-                        "a": 1,
-                        "b": "hello",
+                    samplingFrequencyInSeconds: 60,
+                    counterSpecifiers: [Processor(*)\\% Processor Time],
+                    name: example-datasource-perfcounter,
+                }],
+                windowsEventLogs: [{
+                    streams: [Microsoft-WindowsEvent],
+                    xPathQueries: [*![System/Level=1]],
+                    name: example-datasource-wineventlog,
+                }],
+                extensions: [{
+                    streams: [Microsoft-WindowsEvent],
+                    inputDataSources: [example-datasource-wineventlog],
+                    extensionName: example-extension-name,
+                    extensionJson: json.dumps({
+                        a: 1,
+                        b: hello,
                     }),
-                    name="example-datasource-extension",
-                )],
-            ),
-            stream_declarations=[azure.monitoring.DataCollectionRuleStreamDeclarationArgs(
-                stream_name="Custom-MyTableRawData",
-                columns=[
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Time",
-                        type="datetime",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Computer",
-                        type="string",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="AdditionalContext",
-                        type="string",
-                    ),
+                    name: example-datasource-extension,
+                }],
+            },
+            stream_declarations=[{
+                streamName: Custom-MyTableRawData,
+                columns: [
+                    {
+                        name: Time,
+                        type: datetime,
+                    },
+                    {
+                        name: Computer,
+                        type: string,
+                    },
+                    {
+                        name: AdditionalContext,
+                        type: string,
+                    },
                 ],
-            )],
-            identity=azure.monitoring.DataCollectionRuleIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            description="data collection rule example",
+            }],
+            identity={
+                type: UserAssigned,
+                identityIds: [example_user_assigned_identity.id],
+            },
+            description=data collection rule example,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -668,168 +668,168 @@ class DataCollectionRule(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-uai",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example-uai,
             resource_group_name=example.name,
             location=example.location)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             resource_group_name=example.name,
             location=example.location)
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="WindowsEventForwarding",
+        example_analytics_solution = azure.operationalinsights.analytics_solution.AnalyticsSolution("example",
+            solution_name=WindowsEventForwarding,
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/WindowsEventForwarding",
-            ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="exeventns",
+            plan={
+                publisher: Microsoft,
+                product: OMSGallery/WindowsEventForwarding,
+            })
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=exeventns,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=1)
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="exevent2",
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=exevent2,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=1)
-        example_account = azure.storage.Account("example",
-            name="examstorage",
+        example_account = azure.storage.account.Account("example",
+            name=examstorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
-            name="example-dcre",
+            container_access_type=private)
+        example_data_collection_endpoint = azure.monitoring.data_collection_endpoint.DataCollectionEndpoint("example",
+            name=example-dcre,
             resource_group_name=example.name,
             location=example.location)
-        example_data_collection_rule = azure.monitoring.DataCollectionRule("example",
-            name="example-rule",
+        example_data_collection_rule = azure.monitoring.data_collection_rule.DataCollectionRule("example",
+            name=example-rule,
             resource_group_name=example.name,
             location=example.location,
             data_collection_endpoint_id=example_data_collection_endpoint.id,
-            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
-                log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
-                    workspace_resource_id=example_analytics_workspace.id,
-                    name="example-destination-log",
-                )],
-                event_hub=azure.monitoring.DataCollectionRuleDestinationsEventHubArgs(
-                    event_hub_id=example_event_hub.id,
-                    name="example-destination-eventhub",
-                ),
-                storage_blobs=[azure.monitoring.DataCollectionRuleDestinationsStorageBlobArgs(
-                    storage_account_id=example_account.id,
-                    container_name=example_container.name,
-                    name="example-destination-storage",
-                )],
-                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
-                    name="example-destination-metrics",
-                ),
-            ),
+            destinations={
+                logAnalytics: [{
+                    workspaceResourceId: example_analytics_workspace.id,
+                    name: example-destination-log,
+                }],
+                eventHub: {
+                    eventHubId: example_event_hub.id,
+                    name: example-destination-eventhub,
+                },
+                storageBlobs: [{
+                    storageAccountId: example_account.id,
+                    containerName: example_container.name,
+                    name: example-destination-storage,
+                }],
+                azureMonitorMetrics: {
+                    name: example-destination-metrics,
+                },
+            },
             data_flows=[
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Microsoft-InsightsMetrics"],
-                    destinations=["example-destination-metrics"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=[
-                        "Microsoft-InsightsMetrics",
-                        "Microsoft-Syslog",
-                        "Microsoft-Perf",
+                {
+                    streams: [Microsoft-InsightsMetrics],
+                    destinations: [example-destination-metrics],
+                },
+                {
+                    streams: [
+                        Microsoft-InsightsMetrics,
+                        Microsoft-Syslog,
+                        Microsoft-Perf,
                     ],
-                    destinations=["example-destination-log"],
-                ),
-                azure.monitoring.DataCollectionRuleDataFlowArgs(
-                    streams=["Custom-MyTableRawData"],
-                    destinations=["example-destination-log"],
-                    output_stream="Microsoft-Syslog",
-                    transform_kql="source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
-                ),
+                    destinations: [example-destination-log],
+                },
+                {
+                    streams: [Custom-MyTableRawData],
+                    destinations: [example-destination-log],
+                    outputStream: Microsoft-Syslog,
+                    transformKql: source | project TimeGenerated = Time, Computer, Message = AdditionalContext,
+                },
             ],
-            data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
-                syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
-                    facility_names=["*"],
-                    log_levels=["*"],
-                    name="example-datasource-syslog",
-                    streams=["Microsoft-Syslog"],
-                )],
-                iis_logs=[azure.monitoring.DataCollectionRuleDataSourcesIisLogArgs(
-                    streams=["Microsoft-W3CIISLog"],
-                    name="example-datasource-iis",
-                    log_directories=["C:\\\\Logs\\\\W3SVC1"],
-                )],
-                log_files=[azure.monitoring.DataCollectionRuleDataSourcesLogFileArgs(
-                    name="example-datasource-logfile",
-                    format="text",
-                    streams=["Custom-MyTableRawData"],
-                    file_patterns=["C:\\\\JavaLogs\\\\*.log"],
-                    settings=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs(
-                        text=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs(
-                            record_start_timestamp_format="ISO 8601",
-                        ),
-                    ),
-                )],
-                performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
-                    streams=[
-                        "Microsoft-Perf",
-                        "Microsoft-InsightsMetrics",
+            data_sources={
+                syslogs: [{
+                    facilityNames: [*],
+                    logLevels: [*],
+                    name: example-datasource-syslog,
+                    streams: [Microsoft-Syslog],
+                }],
+                iisLogs: [{
+                    streams: [Microsoft-W3CIISLog],
+                    name: example-datasource-iis,
+                    logDirectories: [C:\\Logs\\W3SVC1],
+                }],
+                logFiles: [{
+                    name: example-datasource-logfile,
+                    format: text,
+                    streams: [Custom-MyTableRawData],
+                    filePatterns: [C:\\JavaLogs\\*.log],
+                    settings: {
+                        text: {
+                            recordStartTimestampFormat: ISO 8601,
+                        },
+                    },
+                }],
+                performanceCounters: [{
+                    streams: [
+                        Microsoft-Perf,
+                        Microsoft-InsightsMetrics,
                     ],
-                    sampling_frequency_in_seconds=60,
-                    counter_specifiers=["Processor(*)\\\\% Processor Time"],
-                    name="example-datasource-perfcounter",
-                )],
-                windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    x_path_queries=["*![System/Level=1]"],
-                    name="example-datasource-wineventlog",
-                )],
-                extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
-                    streams=["Microsoft-WindowsEvent"],
-                    input_data_sources=["example-datasource-wineventlog"],
-                    extension_name="example-extension-name",
-                    extension_json=json.dumps({
-                        "a": 1,
-                        "b": "hello",
+                    samplingFrequencyInSeconds: 60,
+                    counterSpecifiers: [Processor(*)\\% Processor Time],
+                    name: example-datasource-perfcounter,
+                }],
+                windowsEventLogs: [{
+                    streams: [Microsoft-WindowsEvent],
+                    xPathQueries: [*![System/Level=1]],
+                    name: example-datasource-wineventlog,
+                }],
+                extensions: [{
+                    streams: [Microsoft-WindowsEvent],
+                    inputDataSources: [example-datasource-wineventlog],
+                    extensionName: example-extension-name,
+                    extensionJson: json.dumps({
+                        a: 1,
+                        b: hello,
                     }),
-                    name="example-datasource-extension",
-                )],
-            ),
-            stream_declarations=[azure.monitoring.DataCollectionRuleStreamDeclarationArgs(
-                stream_name="Custom-MyTableRawData",
-                columns=[
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Time",
-                        type="datetime",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="Computer",
-                        type="string",
-                    ),
-                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
-                        name="AdditionalContext",
-                        type="string",
-                    ),
+                    name: example-datasource-extension,
+                }],
+            },
+            stream_declarations=[{
+                streamName: Custom-MyTableRawData,
+                columns: [
+                    {
+                        name: Time,
+                        type: datetime,
+                    },
+                    {
+                        name: Computer,
+                        type: string,
+                    },
+                    {
+                        name: AdditionalContext,
+                        type: string,
+                    },
                 ],
-            )],
-            identity=azure.monitoring.DataCollectionRuleIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            description="data collection rule example",
+            }],
+            identity={
+                type: UserAssigned,
+                identityIds: [example_user_assigned_identity.id],
+            },
+            description=data collection rule example,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

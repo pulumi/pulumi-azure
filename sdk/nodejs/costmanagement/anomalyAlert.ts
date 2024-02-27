@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.costmanagement.AnomalyAlert("example", {
+ * const example = new azure.costmanagement/anomalyAlert.AnomalyAlert("example", {
  *     name: "alertname",
  *     displayName: "Alert DisplayName",
  *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000",

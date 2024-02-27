@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.HybridRunbookWorkerGroupArgs;
  * import com.pulumi.azure.automation.RunBook;
  * import com.pulumi.azure.automation.RunBookArgs;
- * import com.pulumi.azure.automation.inputs.RunBookPublishContentLinkArgs;
  * import com.pulumi.azure.automation.Watcher;
  * import com.pulumi.azure.automation.WatcherArgs;
  * import java.util.List;
@@ -77,9 +76,7 @@ import javax.annotation.Nullable;
  *             .logProgress(&#34;true&#34;)
  *             .description(&#34;This is an example runbook&#34;)
  *             .runbookType(&#34;PowerShellWorkflow&#34;)
- *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
- *                 .uri(&#34;https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1&#34;)
- *                 .build())
+ *             .publishContentLink(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleWatcher = new Watcher(&#34;exampleWatcher&#34;, WatcherArgs.builder()        
@@ -90,8 +87,8 @@ import javax.annotation.Nullable;
  *             .scriptRunOn(exampleHybridRunbookWorkerGroup.name())
  *             .description(&#34;example-watcher desc&#34;)
  *             .executionFrequencyInSeconds(42)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .scriptParameters(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scriptParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

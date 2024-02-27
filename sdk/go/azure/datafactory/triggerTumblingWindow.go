@@ -21,78 +21,78 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/pipeline "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/pipeline"
+//	datafactory/triggerTumblingWindow "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/triggerTumblingWindow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewTriggerTumblingWindow(ctx, "example", &datafactory.TriggerTumblingWindowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				StartTime:     pulumi.String("2022-09-21T00:00:00Z"),
-//				EndTime:       pulumi.String("2022-09-21T08:00:00Z"),
-//				Frequency:     pulumi.String("Minute"),
-//				Interval:      pulumi.Int(15),
-//				Delay:         pulumi.String("16:00:00"),
-//				Annotations: pulumi.StringArray{
-//					pulumi.String("example1"),
-//					pulumi.String("example2"),
-//					pulumi.String("example3"),
-//				},
-//				Description: pulumi.String("example description"),
-//				Retry: &datafactory.TriggerTumblingWindowRetryArgs{
-//					Count:    pulumi.Int(1),
-//					Interval: pulumi.Int(30),
-//				},
-//				Pipeline: &datafactory.TriggerTumblingWindowPipelineArgs{
-//					Name: examplePipeline.Name,
-//					Parameters: pulumi.StringMap{
-//						"Env": pulumi.String("Prod"),
-//					},
-//				},
-//				TriggerDependencies: datafactory.TriggerTumblingWindowTriggerDependencyArray{
-//					&datafactory.TriggerTumblingWindowTriggerDependencyArgs{
-//						Size:   pulumi.String("24:00:00"),
-//						Offset: pulumi.String("-24:00:00"),
-//					},
-//				},
-//				AdditionalProperties: pulumi.StringMap{
-//					"foo": pulumi.String("value1"),
-//					"bar": pulumi.String("value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// examplePipeline, err := datafactory/pipeline.NewPipeline(ctx, "example", &datafactory/pipeline.PipelineArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/triggerTumblingWindow.NewTriggerTumblingWindow(ctx, "example", &datafactory/triggerTumblingWindow.TriggerTumblingWindowArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// StartTime: "2022-09-21T00:00:00Z",
+// EndTime: "2022-09-21T08:00:00Z",
+// Frequency: "Minute",
+// Interval: 15,
+// Delay: "16:00:00",
+// Annotations: []string{
+// "example1",
+// "example2",
+// "example3",
+// },
+// Description: "example description",
+// Retry: map[string]interface{}{
+// "count": 1,
+// "interval": 30,
+// },
+// Pipeline: map[string]interface{}{
+// "name": examplePipeline.Name,
+// "parameters": map[string]interface{}{
+// "Env": "Prod",
+// },
+// },
+// TriggerDependencies: []map[string]interface{}{
+// map[string]interface{}{
+// "size": "24:00:00",
+// "offset": "-24:00:00",
+// },
+// },
+// AdditionalProperties: map[string]interface{}{
+// "foo": "value1",
+// "bar": "value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

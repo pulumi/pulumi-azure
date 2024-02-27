@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     name: "terraform-webpubsub",
- *     location: "east us",
- * });
- * const testService = new azure.webpubsub.Service("test", {
- *     name: "tfex-webpubsub",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     sku: "Standard_S1",
- *     capacity: 1,
- * });
- * const test = azure.webpubsub.getPrivateLinkResourceOutput({
- *     webPubsubId: testService.id,
- * });
- * ```
  */
 export function getPrivateLinkResource(args: GetPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkResourceResult> {
 
@@ -65,28 +43,6 @@ export interface GetPrivateLinkResourceResult {
 }
 /**
  * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     name: "terraform-webpubsub",
- *     location: "east us",
- * });
- * const testService = new azure.webpubsub.Service("test", {
- *     name: "tfex-webpubsub",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     sku: "Standard_S1",
- *     capacity: 1,
- * });
- * const test = azure.webpubsub.getPrivateLinkResourceOutput({
- *     webPubsubId: testService.id,
- * });
- * ```
  */
 export function getPrivateLinkResourceOutput(args: GetPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkResource(a, opts))

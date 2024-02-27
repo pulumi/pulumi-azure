@@ -76,10 +76,7 @@ import javax.annotation.Nullable;
  *                 &#34;/app/resources:/app/classes:/app/libs/*&#34;,
  *                 &#34;hello.Application&#34;)
  *             .commands(&#34;java&#34;)
- *             .environmentVariables(Map.ofEntries(
- *                 Map.entry(&#34;Foo&#34;, &#34;Bar&#34;),
- *                 Map.entry(&#34;Env&#34;, &#34;Staging&#34;)
- *             ))
+ *             .environmentVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .server(&#34;docker.io&#34;)
  *             .image(&#34;springio/gs-spring-boot-docker&#34;)
  *             .languageFramework(&#34;springboot&#34;)

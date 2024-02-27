@@ -28,13 +28,13 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Storage
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "storageaccountname",
     ///         ResourceGroupName = example.Name,
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules("example", new()
+    ///     var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules.AccountNetworkRules("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///         DefaultAction = "Allow",

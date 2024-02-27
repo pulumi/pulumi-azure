@@ -308,31 +308,31 @@ class ActionRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("example",
-            name="example-amar",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_action_rule_suppression = azure.monitoring.action_rule_suppression.ActionRuleSuppression("example",
+            name=example-amar,
             resource_group_name=example.name,
-            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example.id],
-            ),
-            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
-                recurrence_type="Weekly",
-                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
-                    start_date_utc="2019-01-01T01:02:03Z",
-                    end_date_utc="2019-01-03T15:02:07Z",
-                    recurrence_weeklies=[
-                        "Sunday",
-                        "Monday",
-                        "Friday",
-                        "Saturday",
+            scope={
+                type: ResourceGroup,
+                resourceIds: [example.id],
+            },
+            suppression={
+                recurrenceType: Weekly,
+                schedule: {
+                    startDateUtc: 2019-01-01T01:02:03Z,
+                    endDateUtc: 2019-01-03T15:02:07Z,
+                    recurrenceWeeklies: [
+                        Sunday,
+                        Monday,
+                        Friday,
+                        Saturday,
                     ],
-                ),
-            ),
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -372,31 +372,31 @@ class ActionRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("example",
-            name="example-amar",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_action_rule_suppression = azure.monitoring.action_rule_suppression.ActionRuleSuppression("example",
+            name=example-amar,
             resource_group_name=example.name,
-            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example.id],
-            ),
-            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
-                recurrence_type="Weekly",
-                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
-                    start_date_utc="2019-01-01T01:02:03Z",
-                    end_date_utc="2019-01-03T15:02:07Z",
-                    recurrence_weeklies=[
-                        "Sunday",
-                        "Monday",
-                        "Friday",
-                        "Saturday",
+            scope={
+                type: ResourceGroup,
+                resourceIds: [example.id],
+            },
+            suppression={
+                recurrenceType: Weekly,
+                schedule: {
+                    startDateUtc: 2019-01-01T01:02:03Z,
+                    endDateUtc: 2019-01-03T15:02:07Z,
+                    recurrenceWeeklies: [
+                        Sunday,
+                        Monday,
+                        Friday,
+                        Saturday,
                     ],
-                ),
-            ),
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

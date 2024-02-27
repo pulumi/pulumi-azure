@@ -14,59 +14,6 @@ import (
 
 // Manages a Version of a Shared Image within a Shared Image Gallery.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			existing, err := compute.LookupImage(ctx, &compute.LookupImageArgs{
-//				Name:              pulumi.StringRef("search-api"),
-//				ResourceGroupName: "packerimages",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			existingGetSharedImage, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
-//				Name:              "existing-image",
-//				GalleryName:       "existing_gallery",
-//				ResourceGroupName: "existing-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewSharedImageVersion(ctx, "example", &compute.SharedImageVersionArgs{
-//				Name:              pulumi.String("0.0.1"),
-//				GalleryName:       *pulumi.String(existingGetSharedImage.GalleryName),
-//				ImageName:         *pulumi.String(existingGetSharedImage.Name),
-//				ResourceGroupName: *pulumi.String(existingGetSharedImage.ResourceGroupName),
-//				Location:          *pulumi.String(existingGetSharedImage.Location),
-//				ManagedImageId:    *pulumi.String(existing.Id),
-//				TargetRegions: compute.SharedImageVersionTargetRegionArray{
-//					&compute.SharedImageVersionTargetRegionArgs{
-//						Name:                 *pulumi.String(existingGetSharedImage.Location),
-//						RegionalReplicaCount: pulumi.Int(5),
-//						StorageAccountType:   pulumi.String("Standard_LRS"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Shared Image Versions can be imported using the `resource id`, e.g.

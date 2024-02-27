@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .storageAccountId(exampleAccount.id())
- *             .properties(Map.of(&#34;hello&#34;, &#34;aGVsbG8=&#34;))
+ *             .properties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

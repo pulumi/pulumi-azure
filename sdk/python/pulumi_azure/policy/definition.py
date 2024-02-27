@@ -362,17 +362,17 @@ class Definition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        policy = azure.policy.Definition("policy",
-            name="accTestPolicy",
-            policy_type="Custom",
-            mode="Indexed",
-            display_name="acceptance test policy definition",
-            metadata=\"\"\"    {
+        policy = azure.policy.definition.Definition("policy",
+            name=accTestPolicy,
+            policy_type=Custom,
+            mode=Indexed,
+            display_name=acceptance test policy definition,
+            metadata=    {
             "category": "General"
             }
 
-        \"\"\",
-            policy_rule=\"\"\" {
+        ,
+            policy_rule= {
             "if": {
               "not": {
                 "field": "location",
@@ -383,8 +383,8 @@ class Definition(pulumi.CustomResource):
               "effect": "audit"
             }
           }
-        \"\"\",
-            parameters=\"\"\" {
+        ,
+            parameters= {
             "allowedLocations": {
               "type": "Array",
               "metadata": {
@@ -394,7 +394,7 @@ class Definition(pulumi.CustomResource):
               }
             }
           }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -442,17 +442,17 @@ class Definition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        policy = azure.policy.Definition("policy",
-            name="accTestPolicy",
-            policy_type="Custom",
-            mode="Indexed",
-            display_name="acceptance test policy definition",
-            metadata=\"\"\"    {
+        policy = azure.policy.definition.Definition("policy",
+            name=accTestPolicy,
+            policy_type=Custom,
+            mode=Indexed,
+            display_name=acceptance test policy definition,
+            metadata=    {
             "category": "General"
             }
 
-        \"\"\",
-            policy_rule=\"\"\" {
+        ,
+            policy_rule= {
             "if": {
               "not": {
                 "field": "location",
@@ -463,8 +463,8 @@ class Definition(pulumi.CustomResource):
               "effect": "audit"
             }
           }
-        \"\"\",
-            parameters=\"\"\" {
+        ,
+            parameters= {
             "allowedLocations": {
               "type": "Array",
               "metadata": {
@@ -474,7 +474,7 @@ class Definition(pulumi.CustomResource):
               }
             }
           }
-        \"\"\")
+        )
         ```
 
         ## Import

@@ -21,86 +21,86 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/trafficManagerNestedEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/trafficManagerNestedEndpoint"
+//	network/trafficManagerProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/trafficManagerProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-publicip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				DomainNameLabel:   pulumi.String("example-pip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			parent, err := network.NewTrafficManagerProfile(ctx, "parent", &network.TrafficManagerProfileArgs{
-//				Name:                 pulumi.String("parent-profile"),
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Weighted"),
-//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-//					RelativeName: pulumi.String("parent-profile"),
-//					Ttl:          pulumi.Int(100),
-//				},
-//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-//					Protocol:                  pulumi.String("HTTP"),
-//					Port:                      pulumi.Int(80),
-//					Path:                      pulumi.String("/"),
-//					IntervalInSeconds:         pulumi.Int(30),
-//					TimeoutInSeconds:          pulumi.Int(9),
-//					ToleratedNumberOfFailures: pulumi.Int(3),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			nested, err := network.NewTrafficManagerProfile(ctx, "nested", &network.TrafficManagerProfileArgs{
-//				Name:                 pulumi.String("nested-profile"),
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Priority"),
-//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-//					RelativeName: pulumi.String("nested-profile"),
-//					Ttl:          pulumi.Int(30),
-//				},
-//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-//					Protocol: pulumi.String("HTTP"),
-//					Port:     pulumi.Int(443),
-//					Path:     pulumi.String("/"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewTrafficManagerNestedEndpoint(ctx, "example", &network.TrafficManagerNestedEndpointArgs{
-//				Name:                  pulumi.String("example-endpoint"),
-//				TargetResourceId:      nested.ID(),
-//				Priority:              pulumi.Int(1),
-//				ProfileId:             parent.ID(),
-//				MinimumChildEndpoints: pulumi.Int(9),
-//				Weight:                pulumi.Int(5),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-publicip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// DomainNameLabel: "example-pip",
+// })
+// if err != nil {
+// return err
+// }
+// parent, err := network/trafficManagerProfile.NewTrafficManagerProfile(ctx, "parent", &network/trafficManagerProfile.TrafficManagerProfileArgs{
+// Name: "parent-profile",
+// ResourceGroupName: example.Name,
+// TrafficRoutingMethod: "Weighted",
+// DnsConfig: map[string]interface{}{
+// "relativeName": "parent-profile",
+// "ttl": 100,
+// },
+// MonitorConfig: map[string]interface{}{
+// "protocol": "HTTP",
+// "port": 80,
+// "path": "/",
+// "intervalInSeconds": 30,
+// "timeoutInSeconds": 9,
+// "toleratedNumberOfFailures": 3,
+// },
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// nested, err := network/trafficManagerProfile.NewTrafficManagerProfile(ctx, "nested", &network/trafficManagerProfile.TrafficManagerProfileArgs{
+// Name: "nested-profile",
+// ResourceGroupName: example.Name,
+// TrafficRoutingMethod: "Priority",
+// DnsConfig: map[string]interface{}{
+// "relativeName": "nested-profile",
+// "ttl": 30,
+// },
+// MonitorConfig: map[string]interface{}{
+// "protocol": "HTTP",
+// "port": 443,
+// "path": "/",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/trafficManagerNestedEndpoint.NewTrafficManagerNestedEndpoint(ctx, "example", &network/trafficManagerNestedEndpoint.TrafficManagerNestedEndpointArgs{
+// Name: "example-endpoint",
+// TargetResourceId: nested.Id,
+// Priority: 1,
+// ProfileId: parent.Id,
+// MinimumChildEndpoints: 9,
+// Weight: 5,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -12,33 +12,6 @@ import (
 )
 
 // Gets information about an existing Private DNS Resolver Virtual Network Link.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := privatedns.LookupResolverVirtualNetworkLink(ctx, &privatedns.LookupResolverVirtualNetworkLinkArgs{
-//				Name:                   "example-link",
-//				DnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverVirtualNetworkLink(ctx *pulumi.Context, args *LookupResolverVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupResolverVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverVirtualNetworkLinkResult

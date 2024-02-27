@@ -210,12 +210,12 @@ class KubernetesFleetManager(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_kubernetes_fleet_manager = azure.containerservice.kubernetes_fleet_manager.KubernetesFleetManager("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name)
         ```
         ## Blocks Reference
@@ -270,12 +270,12 @@ class KubernetesFleetManager(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_kubernetes_fleet_manager = azure.containerservice.kubernetes_fleet_manager.KubernetesFleetManager("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name)
         ```
         ## Blocks Reference

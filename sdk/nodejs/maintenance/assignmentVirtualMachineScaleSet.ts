@@ -13,29 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "internal",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: example.name,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ * const exampleLoadBalancer = new azure.lb/loadBalancer.LoadBalancer("example", {
  *     name: example.name,
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -44,17 +44,17 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
+ * const exampleBackendAddressPool = new azure.lb/backendAddressPool.BackendAddressPool("example", {
  *     name: "example",
  *     loadbalancerId: exampleLoadBalancer.id,
  * });
- * const exampleProbe = new azure.lb.Probe("example", {
+ * const exampleProbe = new azure.lb/probe.Probe("example", {
  *     name: "example",
  *     loadbalancerId: exampleLoadBalancer.id,
  *     port: 22,
  *     protocol: "Tcp",
  * });
- * const exampleRule = new azure.lb.Rule("example", {
+ * const exampleRule = new azure.lb/rule.Rule("example", {
  *     name: "example",
  *     loadbalancerId: exampleLoadBalancer.id,
  *     probeId: exampleProbe.id,
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *     frontendPort: 22,
  *     backendPort: 22,
  * });
- * const exampleConfiguration = new azure.maintenance.Configuration("example", {
+ * const exampleConfiguration = new azure.maintenance/configuration.Configuration("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *         recurEvery: "1Days",
  *     },
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: "sample-nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ * const exampleLinuxVirtualMachine = new azure.compute/linuxVirtualMachine.LinuxVirtualMachine("example", {
  *     name: "example-machine",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *         storageAccountType: "Standard_LRS",
  *     },
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -140,7 +140,7 @@ import * as utilities from "../utilities";
  *         pauseTimeBetweenBatches: "PT0S",
  *     },
  * });
- * const exampleAssignmentVirtualMachineScaleSet = new azure.maintenance.AssignmentVirtualMachineScaleSet("example", {
+ * const exampleAssignmentVirtualMachineScaleSet = new azure.maintenance/assignmentVirtualMachineScaleSet.AssignmentVirtualMachineScaleSet("example", {
  *     location: example.location,
  *     maintenanceConfigurationId: exampleConfiguration.id,
  *     virtualMachineScaleSetId: exampleLinuxVirtualMachine.id,

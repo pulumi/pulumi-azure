@@ -90,17 +90,6 @@ def get_frontdoor_rule_set(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_rule_set(name="existing-rule-set",
-        profile_name="existing-profile",
-        resource_group_name="existing-resources")
-    ```
-
 
     :param str name: Specifies the name of the Front Door Rule Set to retrieve.
     :param str profile_name: Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
@@ -128,17 +117,6 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorRuleSetResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_rule_set(name="existing-rule-set",
-        profile_name="existing-profile",
-        resource_group_name="existing-resources")
-    ```
 
 
     :param str name: Specifies the name of the Front Door Rule Set to retrieve.

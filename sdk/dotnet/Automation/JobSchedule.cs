@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Automation.JobSchedule("example", new()
+    ///     var example = new Azure.Automation.JobSchedule.JobSchedule("example", new()
     ///     {
     ///         ResourceGroupName = "tf-rgr-automation",
     ///         AutomationAccountName = "tf-automation-account",

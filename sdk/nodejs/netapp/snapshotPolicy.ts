@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "resource-group-01",
  *     location: "East US",
  * });
- * const exampleAccount = new azure.netapp.Account("example", {
+ * const exampleAccount = new azure.netapp/account.Account("example", {
  *     name: "netappaccount-01",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSnapshotPolicy = new azure.netapp.SnapshotPolicy("example", {
+ * const exampleSnapshotPolicy = new azure.netapp/snapshotPolicy.SnapshotPolicy("example", {
  *     name: "snapshotpolicy-01",
  *     location: example.location,
  *     resourceGroupName: example.name,

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,22 +37,22 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleTransform = new Azure.Media.Transform("example", new()
+    ///     var exampleTransform = new Azure.Media.Transform.Transform("example", new()
     ///     {
     ///         Name = "transform1",
     ///         ResourceGroupName = example.Name,
@@ -60,14 +60,14 @@ namespace Pulumi.Azure.Media
     ///         Description = "My transform description",
     ///         Outputs = new[]
     ///         {
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Normal",
-    ///                 OnErrorAction = "ContinueJob",
-    ///                 BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
+    ///                 { "relativePriority", "Normal" },
+    ///                 { "onErrorAction", "ContinueJob" },
+    ///                 { "builtinPreset", 
     ///                 {
-    ///                     PresetName = "AACGoodQualityAudio",
-    ///                 },
+    ///                     { "presetName", "AACGoodQualityAudio" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -84,13 +84,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -99,22 +99,22 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleTransform = new Azure.Media.Transform("example", new()
+    ///     var exampleTransform = new Azure.Media.Transform.Transform("example", new()
     ///     {
     ///         Name = "transform1",
     ///         ResourceGroupName = example.Name,
@@ -122,347 +122,347 @@ namespace Pulumi.Azure.Media
     ///         Description = "My transform description",
     ///         Outputs = new[]
     ///         {
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Normal",
-    ///                 OnErrorAction = "ContinueJob",
-    ///                 BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
+    ///                 { "relativePriority", "Normal" },
+    ///                 { "onErrorAction", "ContinueJob" },
+    ///                 { "builtinPreset", 
     ///                 {
-    ///                     PresetName = "AACGoodQualityAudio",
-    ///                     PresetConfiguration = new Azure.Media.Inputs.TransformOutputBuiltinPresetPresetConfigurationArgs
+    ///                     { "presetName", "AACGoodQualityAudio" },
+    ///                     { "presetConfiguration", 
     ///                     {
-    ///                         Complexity = "Balanced",
-    ///                         InterleaveOutput = "NonInterleavedOutput",
-    ///                         KeyFrameIntervalInSeconds = 123122.5,
-    ///                         MaxBitrateBps = 300000,
-    ///                         MaxHeight = 480,
-    ///                         MaxLayers = 14,
-    ///                         MinBitrateBps = 200000,
-    ///                         MinHeight = 360,
-    ///                     },
-    ///                 },
+    ///                         { "complexity", "Balanced" },
+    ///                         { "interleaveOutput", "NonInterleavedOutput" },
+    ///                         { "keyFrameIntervalInSeconds", 123122.5 },
+    ///                         { "maxBitrateBps", 300000 },
+    ///                         { "maxHeight", 480 },
+    ///                         { "maxLayers", 14 },
+    ///                         { "minBitrateBps", 200000 },
+    ///                         { "minHeight", 360 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Low",
-    ///                 OnErrorAction = "ContinueJob",
-    ///                 AudioAnalyzerPreset = new Azure.Media.Inputs.TransformOutputAudioAnalyzerPresetArgs
+    ///                 { "relativePriority", "Low" },
+    ///                 { "onErrorAction", "ContinueJob" },
+    ///                 { "audioAnalyzerPreset", 
     ///                 {
-    ///                     AudioLanguage = "en-US",
-    ///                     AudioAnalysisMode = "Basic",
-    ///                     ExperimentalOptions = 
+    ///                     { "audioLanguage", "en-US" },
+    ///                     { "audioAnalysisMode", "Basic" },
+    ///                     { "experimentalOptions", 
     ///                     {
     ///                         { "env", "test" },
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Low",
-    ///                 OnErrorAction = "StopProcessingJob",
-    ///                 FaceDetectorPreset = new Azure.Media.Inputs.TransformOutputFaceDetectorPresetArgs
+    ///                 { "relativePriority", "Low" },
+    ///                 { "onErrorAction", "StopProcessingJob" },
+    ///                 { "faceDetectorPreset", 
     ///                 {
-    ///                     AnalysisResolution = "StandardDefinition",
-    ///                     BlurType = "Med",
-    ///                     FaceRedactorMode = "Combined",
-    ///                     ExperimentalOptions = 
+    ///                     { "analysisResolution", "StandardDefinition" },
+    ///                     { "blurType", "Med" },
+    ///                     { "faceRedactorMode", "Combined" },
+    ///                     { "experimentalOptions", 
     ///                     {
     ///                         { "env", "test" },
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Normal",
-    ///                 OnErrorAction = "StopProcessingJob",
-    ///                 VideoAnalyzerPreset = new Azure.Media.Inputs.TransformOutputVideoAnalyzerPresetArgs
+    ///                 { "relativePriority", "Normal" },
+    ///                 { "onErrorAction", "StopProcessingJob" },
+    ///                 { "videoAnalyzerPreset", 
     ///                 {
-    ///                     AudioLanguage = "en-US",
-    ///                     AudioAnalysisMode = "Basic",
-    ///                     InsightsType = "AllInsights",
-    ///                     ExperimentalOptions = 
+    ///                     { "audioLanguage", "en-US" },
+    ///                     { "audioAnalysisMode", "Basic" },
+    ///                     { "insightsType", "AllInsights" },
+    ///                     { "experimentalOptions", 
     ///                     {
     ///                         { "env", "test" },
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Low",
-    ///                 OnErrorAction = "ContinueJob",
-    ///                 CustomPreset = new Azure.Media.Inputs.TransformOutputCustomPresetArgs
+    ///                 { "relativePriority", "Low" },
+    ///                 { "onErrorAction", "ContinueJob" },
+    ///                 { "customPreset", 
     ///                 {
-    ///                     Codecs = new[]
+    ///                     { "codecs", new[]
     ///                     {
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             AacAudio = new Azure.Media.Inputs.TransformOutputCustomPresetCodecAacAudioArgs
+    ///                             { "aacAudio", 
     ///                             {
-    ///                                 Bitrate = 128000,
-    ///                                 Channels = 2,
-    ///                                 SamplingRate = 48000,
-    ///                                 Profile = "AacLc",
-    ///                             },
+    ///                                 { "bitrate", 128000 },
+    ///                                 { "channels", 2 },
+    ///                                 { "samplingRate", 48000 },
+    ///                                 { "profile", "AacLc" },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             CopyAudio = new Azure.Media.Inputs.TransformOutputCustomPresetCodecCopyAudioArgs
+    ///                             { "copyAudio", 
     ///                             {
-    ///                                 Label = "test",
-    ///                             },
+    ///                                 { "label", "test" },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             CopyVideo = new Azure.Media.Inputs.TransformOutputCustomPresetCodecCopyVideoArgs
+    ///                             { "copyVideo", 
     ///                             {
-    ///                                 Label = "test",
-    ///                             },
+    ///                                 { "label", "test" },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             H264Video = new Azure.Media.Inputs.TransformOutputCustomPresetCodecH264VideoArgs
+    ///                             { "h264Video", 
     ///                             {
-    ///                                 KeyFrameInterval = "PT1S",
-    ///                                 StretchMode = "AutoSize",
-    ///                                 SyncMode = "Auto",
-    ///                                 SceneChangeDetectionEnabled = false,
-    ///                                 RateControlMode = "ABR",
-    ///                                 Complexity = "Quality",
-    ///                                 Layers = new[]
+    ///                                 { "keyFrameInterval", "PT1S" },
+    ///                                 { "stretchMode", "AutoSize" },
+    ///                                 { "syncMode", "Auto" },
+    ///                                 { "sceneChangeDetectionEnabled", false },
+    ///                                 { "rateControlMode", "ABR" },
+    ///                                 { "complexity", "Quality" },
+    ///                                 { "layers", new[]
     ///                                 {
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecH264VideoLayerArgs
+    ///                                     
     ///                                     {
-    ///                                         Width = "64",
-    ///                                         Height = "64",
-    ///                                         Bitrate = 1045000,
-    ///                                         MaxBitrate = 1045000,
-    ///                                         BFrames = 3,
-    ///                                         Slices = 0,
-    ///                                         AdaptiveBFrameEnabled = true,
-    ///                                         Profile = "Auto",
-    ///                                         Level = "auto",
-    ///                                         BufferWindow = "PT5S",
-    ///                                         ReferenceFrames = 4,
-    ///                                         Crf = 23,
-    ///                                         EntropyMode = "Cabac",
+    ///                                         { "width", "64" },
+    ///                                         { "height", "64" },
+    ///                                         { "bitrate", 1045000 },
+    ///                                         { "maxBitrate", 1045000 },
+    ///                                         { "bFrames", 3 },
+    ///                                         { "slices", 0 },
+    ///                                         { "adaptiveBFrameEnabled", true },
+    ///                                         { "profile", "Auto" },
+    ///                                         { "level", "auto" },
+    ///                                         { "bufferWindow", "PT5S" },
+    ///                                         { "referenceFrames", 4 },
+    ///                                         { "crf", 23 },
+    ///                                         { "entropyMode", "Cabac" },
     ///                                     },
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecH264VideoLayerArgs
+    ///                                     
     ///                                     {
-    ///                                         Width = "64",
-    ///                                         Height = "64",
-    ///                                         Bitrate = 1000,
-    ///                                         MaxBitrate = 1000,
-    ///                                         BFrames = 3,
-    ///                                         FrameRate = "32",
-    ///                                         Slices = 1,
-    ///                                         AdaptiveBFrameEnabled = true,
-    ///                                         Profile = "High444",
-    ///                                         Level = "auto",
-    ///                                         BufferWindow = "PT5S",
-    ///                                         ReferenceFrames = 4,
-    ///                                         Crf = 23,
-    ///                                         EntropyMode = "Cavlc",
+    ///                                         { "width", "64" },
+    ///                                         { "height", "64" },
+    ///                                         { "bitrate", 1000 },
+    ///                                         { "maxBitrate", 1000 },
+    ///                                         { "bFrames", 3 },
+    ///                                         { "frameRate", "32" },
+    ///                                         { "slices", 1 },
+    ///                                         { "adaptiveBFrameEnabled", true },
+    ///                                         { "profile", "High444" },
+    ///                                         { "level", "auto" },
+    ///                                         { "bufferWindow", "PT5S" },
+    ///                                         { "referenceFrames", 4 },
+    ///                                         { "crf", 23 },
+    ///                                         { "entropyMode", "Cavlc" },
     ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             H265Video = new Azure.Media.Inputs.TransformOutputCustomPresetCodecH265VideoArgs
+    ///                             { "h265Video", 
     ///                             {
-    ///                                 KeyFrameInterval = "PT2S",
-    ///                                 StretchMode = "AutoSize",
-    ///                                 SyncMode = "Auto",
-    ///                                 SceneChangeDetectionEnabled = false,
-    ///                                 Complexity = "Speed",
-    ///                                 Layers = new[]
+    ///                                 { "keyFrameInterval", "PT2S" },
+    ///                                 { "stretchMode", "AutoSize" },
+    ///                                 { "syncMode", "Auto" },
+    ///                                 { "sceneChangeDetectionEnabled", false },
+    ///                                 { "complexity", "Speed" },
+    ///                                 { "layers", new[]
     ///                                 {
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecH265VideoLayerArgs
+    ///                                     
     ///                                     {
-    ///                                         Width = "64",
-    ///                                         Height = "64",
-    ///                                         Bitrate = 1045000,
-    ///                                         MaxBitrate = 1045000,
-    ///                                         BFrames = 3,
-    ///                                         Slices = 5,
-    ///                                         AdaptiveBFrameEnabled = true,
-    ///                                         Profile = "Auto",
-    ///                                         Label = "test",
-    ///                                         Level = "auto",
-    ///                                         BufferWindow = "PT5S",
-    ///                                         FrameRate = "32",
-    ///                                         ReferenceFrames = 4,
-    ///                                         Crf = 23,
+    ///                                         { "width", "64" },
+    ///                                         { "height", "64" },
+    ///                                         { "bitrate", 1045000 },
+    ///                                         { "maxBitrate", 1045000 },
+    ///                                         { "bFrames", 3 },
+    ///                                         { "slices", 5 },
+    ///                                         { "adaptiveBFrameEnabled", true },
+    ///                                         { "profile", "Auto" },
+    ///                                         { "label", "test" },
+    ///                                         { "level", "auto" },
+    ///                                         { "bufferWindow", "PT5S" },
+    ///                                         { "frameRate", "32" },
+    ///                                         { "referenceFrames", 4 },
+    ///                                         { "crf", 23 },
     ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             JpgImage = new Azure.Media.Inputs.TransformOutputCustomPresetCodecJpgImageArgs
+    ///                             { "jpgImage", 
     ///                             {
-    ///                                 StretchMode = "AutoSize",
-    ///                                 SyncMode = "Auto",
-    ///                                 Start = "10",
-    ///                                 Range = "100%%",
-    ///                                 SpriteColumn = 1,
-    ///                                 Step = "10",
-    ///                                 Layers = new[]
+    ///                                 { "stretchMode", "AutoSize" },
+    ///                                 { "syncMode", "Auto" },
+    ///                                 { "start", "10" },
+    ///                                 { "range", "100%%" },
+    ///                                 { "spriteColumn", 1 },
+    ///                                 { "step", "10" },
+    ///                                 { "layers", new[]
     ///                                 {
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecJpgImageLayerArgs
+    ///                                     
     ///                                     {
-    ///                                         Quality = 70,
-    ///                                         Height = "180",
-    ///                                         Label = "test",
-    ///                                         Width = "120",
+    ///                                         { "quality", 70 },
+    ///                                         { "height", "180" },
+    ///                                         { "label", "test" },
+    ///                                         { "width", "120" },
     ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetCodecArgs
+    ///                         
     ///                         {
-    ///                             PngImage = new Azure.Media.Inputs.TransformOutputCustomPresetCodecPngImageArgs
+    ///                             { "pngImage", 
     ///                             {
-    ///                                 StretchMode = "AutoSize",
-    ///                                 SyncMode = "Auto",
-    ///                                 Start = "{Best}",
-    ///                                 Range = "80",
-    ///                                 Step = "10",
-    ///                                 Layers = new[]
+    ///                                 { "stretchMode", "AutoSize" },
+    ///                                 { "syncMode", "Auto" },
+    ///                                 { "start", "{Best}" },
+    ///                                 { "range", "80" },
+    ///                                 { "step", "10" },
+    ///                                 { "layers", new[]
     ///                                 {
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetCodecPngImageLayerArgs
+    ///                                     
     ///                                     {
-    ///                                         Height = "180",
-    ///                                         Label = "test",
-    ///                                         Width = "120",
+    ///                                         { "height", "180" },
+    ///                                         { "label", "test" },
+    ///                                         { "width", "120" },
     ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                     Formats = new[]
+    ///                     } },
+    ///                     { "formats", new[]
     ///                     {
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
+    ///                         
     ///                         {
-    ///                             Jpg = new Azure.Media.Inputs.TransformOutputCustomPresetFormatJpgArgs
+    ///                             { "jpg", 
     ///                             {
-    ///                                 FilenamePattern = "test{Basename}",
-    ///                             },
+    ///                                 { "filenamePattern", "test{Basename}" },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
+    ///                         
     ///                         {
-    ///                             Mp4 = new Azure.Media.Inputs.TransformOutputCustomPresetFormatMp4Args
+    ///                             { "mp4", 
     ///                             {
-    ///                                 FilenamePattern = "test{Bitrate}",
-    ///                                 OutputFiles = new[]
+    ///                                 { "filenamePattern", "test{Bitrate}" },
+    ///                                 { "outputFiles", new[]
     ///                                 {
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetFormatMp4OutputFileArgs
+    ///                                     
     ///                                     {
-    ///                                         Labels = new[]
+    ///                                         { "labels", new[]
     ///                                         {
     ///                                             "test",
     ///                                             "ppe",
-    ///                                         },
+    ///                                         } },
     ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
+    ///                         
     ///                         {
-    ///                             Png = new Azure.Media.Inputs.TransformOutputCustomPresetFormatPngArgs
+    ///                             { "png", 
     ///                             {
-    ///                                 FilenamePattern = "test{Basename}",
-    ///                             },
+    ///                                 { "filenamePattern", "test{Basename}" },
+    ///                             } },
     ///                         },
-    ///                         new Azure.Media.Inputs.TransformOutputCustomPresetFormatArgs
+    ///                         
     ///                         {
-    ///                             TransportStream = new Azure.Media.Inputs.TransformOutputCustomPresetFormatTransportStreamArgs
+    ///                             { "transportStream", 
     ///                             {
-    ///                                 FilenamePattern = "test{Bitrate}",
-    ///                                 OutputFiles = new[]
+    ///                                 { "filenamePattern", "test{Bitrate}" },
+    ///                                 { "outputFiles", new[]
     ///                                 {
-    ///                                     new Azure.Media.Inputs.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs
+    ///                                     
     ///                                     {
-    ///                                         Labels = new[]
+    ///                                         { "labels", new[]
     ///                                         {
     ///                                             "prod",
-    ///                                         },
+    ///                                         } },
     ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                     Filter = new Azure.Media.Inputs.TransformOutputCustomPresetFilterArgs
+    ///                     } },
+    ///                     { "filter", 
     ///                     {
-    ///                         CropRectangle = new Azure.Media.Inputs.TransformOutputCustomPresetFilterCropRectangleArgs
+    ///                         { "cropRectangle", 
     ///                         {
-    ///                             Height = "240",
-    ///                             Left = "30",
-    ///                             Top = "360",
-    ///                             Width = "70",
-    ///                         },
-    ///                         Deinterlace = new Azure.Media.Inputs.TransformOutputCustomPresetFilterDeinterlaceArgs
+    ///                             { "height", "240" },
+    ///                             { "left", "30" },
+    ///                             { "top", "360" },
+    ///                             { "width", "70" },
+    ///                         } },
+    ///                         { "deinterlace", 
     ///                         {
-    ///                             Parity = "TopFieldFirst",
-    ///                             Mode = "AutoPixelAdaptive",
-    ///                         },
-    ///                         FadeIn = new Azure.Media.Inputs.TransformOutputCustomPresetFilterFadeInArgs
+    ///                             { "parity", "TopFieldFirst" },
+    ///                             { "mode", "AutoPixelAdaptive" },
+    ///                         } },
+    ///                         { "fadeIn", 
     ///                         {
-    ///                             Duration = "PT5S",
-    ///                             FadeColor = "0xFF0000",
-    ///                             Start = "10",
-    ///                         },
-    ///                         FadeOut = new Azure.Media.Inputs.TransformOutputCustomPresetFilterFadeOutArgs
+    ///                             { "duration", "PT5S" },
+    ///                             { "fadeColor", "0xFF0000" },
+    ///                             { "start", "10" },
+    ///                         } },
+    ///                         { "fadeOut", 
     ///                         {
-    ///                             Duration = "90%%",
-    ///                             FadeColor = "#FF0C7B",
-    ///                             Start = "10%%",
-    ///                         },
-    ///                         Rotation = "Auto",
-    ///                         Overlays = new[]
+    ///                             { "duration", "90%%" },
+    ///                             { "fadeColor", "#FF0C7B" },
+    ///                             { "start", "10%%" },
+    ///                         } },
+    ///                         { "rotation", "Auto" },
+    ///                         { "overlays", new[]
     ///                         {
-    ///                             new Azure.Media.Inputs.TransformOutputCustomPresetFilterOverlayArgs
+    ///                             
     ///                             {
-    ///                                 Audio = new Azure.Media.Inputs.TransformOutputCustomPresetFilterOverlayAudioArgs
+    ///                                 { "audio", 
     ///                                 {
-    ///                                     InputLabel = "label.jpg",
-    ///                                     Start = "PT5S",
-    ///                                     End = "PT30S",
-    ///                                     FadeInDuration = "PT1S",
-    ///                                     FadeOutDuration = "PT2S",
-    ///                                     AudioGainLevel = 1,
-    ///                                 },
+    ///                                     { "inputLabel", "label.jpg" },
+    ///                                     { "start", "PT5S" },
+    ///                                     { "end", "PT30S" },
+    ///                                     { "fadeInDuration", "PT1S" },
+    ///                                     { "fadeOutDuration", "PT2S" },
+    ///                                     { "audioGainLevel", 1 },
+    ///                                 } },
     ///                             },
-    ///                             new Azure.Media.Inputs.TransformOutputCustomPresetFilterOverlayArgs
+    ///                             
     ///                             {
-    ///                                 Video = new Azure.Media.Inputs.TransformOutputCustomPresetFilterOverlayVideoArgs
+    ///                                 { "video", 
     ///                                 {
-    ///                                     InputLabel = "label.jpg",
-    ///                                     Start = "PT5S",
-    ///                                     End = "PT30S",
-    ///                                     FadeInDuration = "PT1S",
-    ///                                     FadeOutDuration = "PT2S",
-    ///                                     AudioGainLevel = 1,
-    ///                                     Opacity = 1,
-    ///                                     Position = new Azure.Media.Inputs.TransformOutputCustomPresetFilterOverlayVideoPositionArgs
+    ///                                     { "inputLabel", "label.jpg" },
+    ///                                     { "start", "PT5S" },
+    ///                                     { "end", "PT30S" },
+    ///                                     { "fadeInDuration", "PT1S" },
+    ///                                     { "fadeOutDuration", "PT2S" },
+    ///                                     { "audioGainLevel", 1 },
+    ///                                     { "opacity", 1 },
+    ///                                     { "position", 
     ///                                     {
-    ///                                         Height = "180",
-    ///                                         Left = "20",
-    ///                                         Top = "240",
-    ///                                         Width = "140",
-    ///                                     },
-    ///                                     CropRectangle = new Azure.Media.Inputs.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs
+    ///                                         { "height", "180" },
+    ///                                         { "left", "20" },
+    ///                                         { "top", "240" },
+    ///                                         { "width", "140" },
+    ///                                     } },
+    ///                                     { "cropRectangle", 
     ///                                     {
-    ///                                         Height = "240",
-    ///                                         Left = "30",
-    ///                                         Top = "360",
-    ///                                         Width = "70",
-    ///                                     },
-    ///                                 },
+    ///                                         { "height", "240" },
+    ///                                         { "left", "30" },
+    ///                                         { "top", "360" },
+    ///                                         { "width", "70" },
+    ///                                     } },
+    ///                                 } },
     ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
+    ///                         } },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });

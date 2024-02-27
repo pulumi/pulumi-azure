@@ -20,13 +20,13 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-mariadb-database-RG",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MariaDB.Server("example", new()
+    ///     var exampleServer = new Azure.Mariadb.Server.Server("example", new()
     ///     {
     ///         Name = "mariadb-svr",
     ///         Location = example.Location,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.MariaDB
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MariaDB.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mariadb.Database.Database("example", new()
     ///     {
     ///         Name = "mariadb_database",
     ///         ResourceGroupName = example.Name,

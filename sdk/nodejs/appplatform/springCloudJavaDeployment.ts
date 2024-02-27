@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ * const exampleSpringCloudService = new azure.appplatform/springCloudService.SpringCloudService("example", {
  *     name: "example-springcloud",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ * const exampleSpringCloudApp = new azure.appplatform/springCloudApp.SpringCloudApp("example", {
  *     name: "example-springcloudapp",
  *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("example", {
+ * const exampleSpringCloudJavaDeployment = new azure.appplatform/springCloudJavaDeployment.SpringCloudJavaDeployment("example", {
  *     name: "deploy1",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     instanceCount: 2,

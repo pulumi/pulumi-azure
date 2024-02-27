@@ -21,52 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	siterecovery/vMWareReplicationPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/vMWareReplicationPolicy"
+//	siterecovery/vmwareReplicationPolicyAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/vmwareReplicationPolicyAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVMWareReplicationPolicy, err := siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
-//				Name:                            pulumi.String("example-policy"),
-//				RecoveryVaultId:                 exampleVault.ID(),
-//				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
-//				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewVmwareReplicationPolicyAssociation(ctx, "example", &siterecovery.VmwareReplicationPolicyAssociationArgs{
-//				Name:            pulumi.String("example-association"),
-//				RecoveryVaultId: exampleVault.ID(),
-//				PolicyId:        exampleVMWareReplicationPolicy.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVault, err := recoveryservices/vault.NewVault(ctx, "example", &recoveryservices/vault.VaultArgs{
+// Name: "example-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVMWareReplicationPolicy, err := siterecovery/vMWareReplicationPolicy.NewVMWareReplicationPolicy(ctx, "example", &siterecovery/vMWareReplicationPolicy.VMWareReplicationPolicyArgs{
+// Name: "example-policy",
+// RecoveryVaultId: exampleVault.Id,
+// RecoveryPointRetentionInMinutes: 1440,
+// ApplicationConsistentSnapshotFrequencyInMinutes: 240,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/vmwareReplicationPolicyAssociation.NewVmwareReplicationPolicyAssociation(ctx, "example", &siterecovery/vmwareReplicationPolicyAssociation.VmwareReplicationPolicyAssociationArgs{
+// Name: "example-association",
+// RecoveryVaultId: exampleVault.Id,
+// PolicyId: exampleVMWareReplicationPolicy.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

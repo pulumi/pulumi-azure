@@ -12,6 +12,63 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Keyvault.ManagedHardwareSecurityModule.ManagedHardwareSecurityModule("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+    ///         Location = exampleAzurermResourceGroup.Location,
+    ///         SkuName = "Standard_B1",
+    ///         TenantId = current.TenantId,
+    ///         AdminObjectIds = new[]
+    ///         {
+    ///             current.ObjectId,
+    ///         },
+    ///         PurgeProtectionEnabled = false,
+    ///         ActiveConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "securityDomainCertificate", new[]
+    ///                 {
+    ///                     cert[0].Id,
+    ///                     cert[1].Id,
+    ///                     cert[2].Id,
+    ///                 } },
+    ///                 { "securityDomainQuorum", 2 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedHardwareSecurityModuleRoleDefinition = new Azure.Keyvault.ManagedHardwareSecurityModuleRoleDefinition.ManagedHardwareSecurityModuleRoleDefinition("example", new()
+    ///     {
+    ///         Name = "7d206142-bf01-11ed-80bc-00155d61ee9e",
+    ///         VaultBaseUrl = example.HsmUri,
+    ///         Description = "desc foo",
+    ///         Permissions = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "dataActions", new[]
+    ///                 {
+    ///                     "Microsoft.KeyVault/managedHsm/keys/read/action",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// KeyVaults can be imported using the `resource id`, e.g.

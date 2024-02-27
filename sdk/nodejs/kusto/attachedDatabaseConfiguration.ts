@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "my-kusto-rg",
  *     location: "West Europe",
  * });
- * const followerCluster = new azure.kusto.Cluster("follower_cluster", {
+ * const followerCluster = new azure.kusto/cluster.Cluster("follower_cluster", {
  *     name: "cluster1",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *         capacity: 1,
  *     },
  * });
- * const followedCluster = new azure.kusto.Cluster("followed_cluster", {
+ * const followedCluster = new azure.kusto/cluster.Cluster("followed_cluster", {
  *     name: "cluster2",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -37,19 +37,19 @@ import * as utilities from "../utilities";
  *         capacity: 1,
  *     },
  * });
- * const followedDatabase = new azure.kusto.Database("followed_database", {
+ * const followedDatabase = new azure.kusto/database.Database("followed_database", {
  *     name: "my-followed-database",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     clusterName: followerCluster.name,
  * });
- * const exampleDatabase = new azure.kusto.Database("example", {
+ * const exampleDatabase = new azure.kusto/database.Database("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     clusterName: followerCluster.name,
  * });
- * const exampleAttachedDatabaseConfiguration = new azure.kusto.AttachedDatabaseConfiguration("example", {
+ * const exampleAttachedDatabaseConfiguration = new azure.kusto/attachedDatabaseConfiguration.AttachedDatabaseConfiguration("example", {
  *     name: "configuration1",
  *     resourceGroupName: example.name,
  *     location: example.location,

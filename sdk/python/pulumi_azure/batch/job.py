@@ -239,30 +239,30 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="west europe")
-        example_account = azure.batch.Account("example",
-            name="exampleaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=west europe)
+        example_account = azure.batch.account.Account("example",
+            name=exampleaccount,
             resource_group_name=example.name,
             location=example.location)
-        example_pool = azure.batch.Pool("example",
-            name="examplepool",
+        example_pool = azure.batch.pool.Pool("example",
+            name=examplepool,
             resource_group_name=example.name,
             account_name=example_account.name,
-            node_agent_sku_id="batch.node.ubuntu 16.04",
-            vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
-                target_dedicated_nodes=1,
-            ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
-        example_job = azure.batch.Job("example",
-            name="examplejob",
+            node_agent_sku_id=batch.node.ubuntu 16.04,
+            vm_size=Standard_A1,
+            fixed_scale={
+                targetDedicatedNodes: 1,
+            },
+            storage_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            })
+        example_job = azure.batch.job.Job("example",
+            name=examplejob,
             batch_pool_id=example_pool.id)
         ```
 
@@ -298,30 +298,30 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="west europe")
-        example_account = azure.batch.Account("example",
-            name="exampleaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=west europe)
+        example_account = azure.batch.account.Account("example",
+            name=exampleaccount,
             resource_group_name=example.name,
             location=example.location)
-        example_pool = azure.batch.Pool("example",
-            name="examplepool",
+        example_pool = azure.batch.pool.Pool("example",
+            name=examplepool,
             resource_group_name=example.name,
             account_name=example_account.name,
-            node_agent_sku_id="batch.node.ubuntu 16.04",
-            vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
-                target_dedicated_nodes=1,
-            ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
-        example_job = azure.batch.Job("example",
-            name="examplejob",
+            node_agent_sku_id=batch.node.ubuntu 16.04,
+            vm_size=Standard_A1,
+            fixed_scale={
+                targetDedicatedNodes: 1,
+            },
+            storage_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            })
+        example_job = azure.batch.job.Job("example",
+            name=examplejob,
             batch_pool_id=example_pool.id)
         ```
 

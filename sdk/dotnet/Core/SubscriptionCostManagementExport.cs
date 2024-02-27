@@ -12,61 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Cost Management Export for a Subscription.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
-    ///     {
-    ///         Name = "examplecontainer",
-    ///         StorageAccountName = exampleAccount.Name,
-    ///     });
-    /// 
-    ///     var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         RecurrenceType = "Monthly",
-    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
-    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///         ExportDataStorageLocation = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataStorageLocationArgs
-    ///         {
-    ///             ContainerId = exampleContainer.ResourceManagerId,
-    ///             RootFolderPath = "/root/updated",
-    ///         },
-    ///         ExportDataOptions = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataOptionsArgs
-    ///         {
-    ///             Type = "Usage",
-    ///             TimeFrame = "WeekToDate",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Subscription Cost Management Exports can be imported using the `resource id`, e.g.

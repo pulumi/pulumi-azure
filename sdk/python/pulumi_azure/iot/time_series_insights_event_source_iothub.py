@@ -366,40 +366,40 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
-        example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="example",
+            sku={
+                name: B1,
+                capacity: 1,
+            })
+        example_consumer_group = azure.iot.consumer_group.ConsumerGroup("example",
+            name=example,
             iothub_name=example_io_t_hub.name,
-            eventhub_endpoint_name="events",
+            eventhub_endpoint_name=events,
             resource_group_name=example.name)
-        storage = azure.storage.Account("storage",
-            name="example",
+        storage = azure.storage.account.Account("storage",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_time_series_insights_gen2_environment = azure.iot.time_series_insights_gen2_environment.TimeSeriesInsightsGen2Environment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="L1",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
-        example_time_series_insights_event_source_iothub = azure.iot.TimeSeriesInsightsEventSourceIothub("example",
-            name="example",
+            sku_name=L1,
+            id_properties=[id],
+            storage={
+                name: storage.name,
+                key: storage.primary_access_key,
+            })
+        example_time_series_insights_event_source_iothub = azure.iot.time_series_insights_event_source_iothub.TimeSeriesInsightsEventSourceIothub("example",
+            name=example,
             location=example.location,
             environment_id=example_time_series_insights_gen2_environment.id,
             iothub_name=example_io_t_hub.name,
@@ -445,40 +445,40 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
-        example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="example",
+            sku={
+                name: B1,
+                capacity: 1,
+            })
+        example_consumer_group = azure.iot.consumer_group.ConsumerGroup("example",
+            name=example,
             iothub_name=example_io_t_hub.name,
-            eventhub_endpoint_name="events",
+            eventhub_endpoint_name=events,
             resource_group_name=example.name)
-        storage = azure.storage.Account("storage",
-            name="example",
+        storage = azure.storage.account.Account("storage",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_time_series_insights_gen2_environment = azure.iot.time_series_insights_gen2_environment.TimeSeriesInsightsGen2Environment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="L1",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
-        example_time_series_insights_event_source_iothub = azure.iot.TimeSeriesInsightsEventSourceIothub("example",
-            name="example",
+            sku_name=L1,
+            id_properties=[id],
+            storage={
+                name: storage.name,
+                key: storage.primary_access_key,
+            })
+        example_time_series_insights_event_source_iothub = azure.iot.time_series_insights_event_source_iothub.TimeSeriesInsightsEventSourceIothub("example",
+            name=example,
             location=example.location,
             environment_id=example_time_series_insights_gen2_environment.id,
             iothub_name=example_io_t_hub.name,

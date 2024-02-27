@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.ExpressRoutePortArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuit;
  * import com.pulumi.azure.network.ExpressRouteCircuitArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitSkuArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeering;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeeringArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuitConnection;
@@ -69,10 +68,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(5)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example2 = new ExpressRoutePort(&#34;example2&#34;, ExpressRoutePortArgs.builder()        
@@ -90,10 +86,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(example2.id())
  *             .bandwidthInGbps(5)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        

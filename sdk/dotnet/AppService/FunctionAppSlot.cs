@@ -25,13 +25,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azure-functions-test-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "functionsapptestsa",
     ///         ResourceGroupName = example.Name,
@@ -40,19 +40,19 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "azure-functions-test-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azure.Appservice.FunctionApp.FunctionApp("example", new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         Location = example.Location,
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///     });
     /// 
-    ///     var exampleFunctionAppSlot = new Azure.AppService.FunctionAppSlot("example", new()
+    ///     var exampleFunctionAppSlot = new Azure.Appservice.FunctionAppSlot.FunctionAppSlot("example", new()
     ///     {
     ///         Name = "test-azure-functions_slot",
     ///         Location = example.Location,

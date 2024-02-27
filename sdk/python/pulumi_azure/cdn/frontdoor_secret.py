@@ -151,69 +151,6 @@ class FrontdoorSecret(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Secret.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-        import pulumi_std as std
-
-        current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-keyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
-                default_action="Deny",
-                bypass="AzureServices",
-                ip_rules=["10.0.0.0/24"],
-            ),
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=frontdoor.object_id,
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Get",
-                        "Import",
-                        "Delete",
-                        "Purge",
-                    ],
-                    secret_permissions=["Get"],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("example",
-            name="example-cert",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="my-certificate.pfx").result,
-            ))
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-cdn-profile",
-            resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_secret = azure.cdn.FrontdoorSecret("example",
-            name="example-customer-managed-secret",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            secret=azure.cdn.FrontdoorSecretSecretArgs(
-                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=example_certificate.id,
-                )],
-            ))
-        ```
-
         ## Import
 
         Front Door Secrets can be imported using the `resource id`, e.g.
@@ -236,69 +173,6 @@ class FrontdoorSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Secret.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-        import pulumi_std as std
-
-        current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-keyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
-                default_action="Deny",
-                bypass="AzureServices",
-                ip_rules=["10.0.0.0/24"],
-            ),
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=frontdoor.object_id,
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
-                        "Get",
-                        "Import",
-                        "Delete",
-                        "Purge",
-                    ],
-                    secret_permissions=["Get"],
-                ),
-            ])
-        example_certificate = azure.keyvault.Certificate("example",
-            name="example-cert",
-            key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="my-certificate.pfx").result,
-            ))
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-cdn-profile",
-            resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_secret = azure.cdn.FrontdoorSecret("example",
-            name="example-customer-managed-secret",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            secret=azure.cdn.FrontdoorSecretSecretArgs(
-                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
-                    key_vault_certificate_id=example_certificate.id,
-                )],
-            ))
-        ```
 
         ## Import
 

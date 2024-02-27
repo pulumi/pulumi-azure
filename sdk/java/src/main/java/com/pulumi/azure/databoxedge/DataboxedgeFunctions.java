@@ -17,74 +17,12 @@ public final class DataboxedgeFunctions {
     /**
      * Get information about a Databox Edge Device.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databoxedge.DataboxedgeFunctions;
-     * import com.pulumi.azure.databoxedge.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataboxedgeFunctions.getDevice(GetDeviceArgs.builder()
-     *             .name(&#34;example-device&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args) {
         return getDevice(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Databox Edge Device.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databoxedge.DataboxedgeFunctions;
-     * import com.pulumi.azure.databoxedge.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataboxedgeFunctions.getDevice(GetDeviceArgs.builder()
-     *             .name(&#34;example-device&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args) {
@@ -93,74 +31,12 @@ public final class DataboxedgeFunctions {
     /**
      * Get information about a Databox Edge Device.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databoxedge.DataboxedgeFunctions;
-     * import com.pulumi.azure.databoxedge.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataboxedgeFunctions.getDevice(GetDeviceArgs.builder()
-     *             .name(&#34;example-device&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databoxedge/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Databox Edge Device.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databoxedge.DataboxedgeFunctions;
-     * import com.pulumi.azure.databoxedge.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataboxedgeFunctions.getDevice(GetDeviceArgs.builder()
-     *             .name(&#34;example-device&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args, InvokeOptions options) {

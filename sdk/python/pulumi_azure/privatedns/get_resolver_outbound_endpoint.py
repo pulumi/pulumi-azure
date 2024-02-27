@@ -104,16 +104,6 @@ def get_resolver_outbound_endpoint(name: Optional[str] = None,
     """
     Gets information about an existing Private DNS Resolver Outbound Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.get_resolver_outbound_endpoint(name="example-endpoint",
-        private_dns_resolver_id="example-private-dns-resolver-id")
-    ```
-
 
     :param str name: Name of the Private DNS Resolver Outbound Endpoint.
     :param str private_dns_resolver_id: ID of the Private DNS Resolver Outbound Endpoint.
@@ -139,16 +129,6 @@ def get_resolver_outbound_endpoint_output(name: Optional[pulumi.Input[str]] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverOutboundEndpointResult]:
     """
     Gets information about an existing Private DNS Resolver Outbound Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.get_resolver_outbound_endpoint(name="example-endpoint",
-        private_dns_resolver_id="example-private-dns-resolver-id")
-    ```
 
 
     :param str name: Name of the Private DNS Resolver Outbound Endpoint.

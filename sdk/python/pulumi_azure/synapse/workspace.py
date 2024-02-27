@@ -784,123 +784,38 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=StorageV2,
+            is_hns_enabled=true)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            aad_admin={
+                login: AzureAD Admin,
+                objectId: 00000000-0000-0000-0000-000000000000,
+                tenantId: 00000000-0000-0000-0000-000000000000,
+            },
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Env": "production",
+                Env: production,
             })
-        ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
-            storage_account_id=example_account.id)
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        deployer = azure.keyvault.AccessPolicy("deployer",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("example",
-            name="workspaceencryptionkey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "unwrapKey",
-                "wrapKey",
-            ])
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
-                key_versionless_id=example_key.versionless_id,
-                key_name="enckey",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        workspace_policy = azure.keyvault.AccessPolicy("workspace_policy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identity.tenant_id,
-            object_id=example_workspace.identity.principal_id,
-            key_permissions=[
-                "Get",
-                "WrapKey",
-                "UnwrapKey",
-            ])
-        example_workspace_key = azure.synapse.WorkspaceKey("example",
-            customer_managed_key_versionless_id=example_key.versionless_id,
-            synapse_workspace_id=example_workspace.id,
-            active=True,
-            customer_managed_key_name="enckey")
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
-            synapse_workspace_id=example_workspace.id,
-            login="AzureAD Admin",
-            object_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000")
         ```
 
         ## Import
@@ -951,123 +866,38 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=StorageV2,
+            is_hns_enabled=true)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            aad_admin={
+                login: AzureAD Admin,
+                objectId: 00000000-0000-0000-0000-000000000000,
+                tenantId: 00000000-0000-0000-0000-000000000000,
+            },
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Env": "production",
+                Env: production,
             })
-        ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
-            storage_account_id=example_account.id)
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True)
-        deployer = azure.keyvault.AccessPolicy("deployer",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-                "GetRotationPolicy",
-            ])
-        example_key = azure.keyvault.Key("example",
-            name="workspaceencryptionkey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "unwrapKey",
-                "wrapKey",
-            ])
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
-                key_versionless_id=example_key.versionless_id,
-                key_name="enckey",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "Env": "production",
-            })
-        workspace_policy = azure.keyvault.AccessPolicy("workspace_policy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=example_workspace.identity.tenant_id,
-            object_id=example_workspace.identity.principal_id,
-            key_permissions=[
-                "Get",
-                "WrapKey",
-                "UnwrapKey",
-            ])
-        example_workspace_key = azure.synapse.WorkspaceKey("example",
-            customer_managed_key_versionless_id=example_key.versionless_id,
-            synapse_workspace_id=example_workspace.id,
-            active=True,
-            customer_managed_key_name="enckey")
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
-            synapse_workspace_id=example_workspace.id,
-            login="AzureAD Admin",
-            object_id="00000000-0000-0000-0000-000000000000",
-            tenant_id="00000000-0000-0000-0000-000000000000")
         ```
 
         ## Import

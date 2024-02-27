@@ -21,83 +21,85 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
+//	storage/dataLakeGen2Filesystem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/dataLakeGen2Filesystem"
+//	synapse/firewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/firewallRule"
+//	synapse/integrationRuntimeAzure "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/integrationRuntimeAzure"
+//	synapse/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("content"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
-//				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
-//				Name:                            pulumi.String("example"),
-//				Location:                        example.Location,
-//				ResourceGroupName:               example.Name,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewFirewallRule(ctx, "example", &synapse.FirewallRuleArgs{
-//				Name:               pulumi.String("AllowAll"),
-//				SynapseWorkspaceId: exampleWorkspace.ID(),
-//				StartIpAddress:     pulumi.String("0.0.0.0"),
-//				EndIpAddress:       pulumi.String("255.255.255.255"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewIntegrationRuntimeAzure(ctx, "example", &synapse.IntegrationRuntimeAzureArgs{
-//				Name:               pulumi.String("example"),
-//				SynapseWorkspaceId: exampleWorkspace.ID(),
-//				Location:           example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "content",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataLakeGen2Filesystem, err := storage/dataLakeGen2Filesystem.NewDataLakeGen2Filesystem(ctx, "example", &storage/dataLakeGen2Filesystem.DataLakeGen2FilesystemArgs{
+// Name: "example",
+// StorageAccountId: exampleAccount.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkspace, err := synapse/workspace.NewWorkspace(ctx, "example", &synapse/workspace.WorkspaceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.Id,
+// SqlAdministratorLogin: "sqladminuser",
+// SqlAdministratorLoginPassword: "H@Sh1CoR3!",
+// ManagedVirtualNetworkEnabled: true,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = synapse/firewallRule.NewFirewallRule(ctx, "example", &synapse/firewallRule.FirewallRuleArgs{
+// Name: "AllowAll",
+// SynapseWorkspaceId: exampleWorkspace.Id,
+// StartIpAddress: "0.0.0.0",
+// EndIpAddress: "255.255.255.255",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = synapse/integrationRuntimeAzure.NewIntegrationRuntimeAzure(ctx, "example", &synapse/integrationRuntimeAzure.IntegrationRuntimeAzureArgs{
+// Name: "example",
+// SynapseWorkspaceId: exampleWorkspace.Id,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

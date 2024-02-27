@@ -380,23 +380,23 @@ class VpnSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_vpn_site = azure.network.VpnSite("example",
-            name="site1",
+        example_vpn_site = azure.network.vpn_site.VpnSite("example",
+            name=site1,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_cidrs=["10.0.0.0/24"],
-            links=[azure.network.VpnSiteLinkArgs(
-                name="link1",
-                ip_address="10.0.0.1",
-            )])
+            address_cidrs=[10.0.0.0/24],
+            links=[{
+                name: link1,
+                ipAddress: 10.0.0.1,
+            }])
         ```
 
         ## Import
@@ -437,23 +437,23 @@ class VpnSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_vpn_site = azure.network.VpnSite("example",
-            name="site1",
+        example_vpn_site = azure.network.vpn_site.VpnSite("example",
+            name=site1,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_cidrs=["10.0.0.0/24"],
-            links=[azure.network.VpnSiteLinkArgs(
-                name="link1",
-                ip_address="10.0.0.1",
-            )])
+            address_cidrs=[10.0.0.0/24],
+            links=[{
+                name: link1,
+                ipAddress: 10.0.0.1,
+            }])
         ```
 
         ## Import

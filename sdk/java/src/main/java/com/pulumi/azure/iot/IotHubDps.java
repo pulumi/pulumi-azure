@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.iot.IotHubDps;
  * import com.pulumi.azure.iot.IotHubDpsArgs;
- * import com.pulumi.azure.iot.inputs.IotHubDpsSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,10 +57,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .allocationPolicy(&#34;Hashed&#34;)
- *             .sku(IotHubDpsSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

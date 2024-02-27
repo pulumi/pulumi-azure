@@ -13,68 +13,12 @@ namespace Pulumi.Azure.EventHub
     {
         /// <summary>
         /// Use this data source to access information about an existing EventHub.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.EventHub.GetEventHub.Invoke(new()
-        ///     {
-        ///         Name = "search-eventhub",
-        ///         ResourceGroupName = "search-service",
-        ///         NamespaceName = "search-eventhubns",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["eventhubId"] = example.Apply(getEventHubResult =&gt; getEventHubResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing EventHub.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.EventHub.GetEventHub.Invoke(new()
-        ///     {
-        ///         Name = "search-eventhub",
-        ///         ResourceGroupName = "search-service",
-        ///         NamespaceName = "search-eventhubns",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["eventhubId"] = example.Apply(getEventHubResult =&gt; getEventHubResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());

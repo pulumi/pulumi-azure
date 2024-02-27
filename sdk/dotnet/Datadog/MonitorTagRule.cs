@@ -22,57 +22,57 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-datadog",
     ///         Location = "West US 2",
     ///     });
     /// 
-    ///     var exampleMonitor = new Azure.Datadog.Monitor("example", new()
+    ///     var exampleMonitor = new Azure.Datadog.Monitor.Monitor("example", new()
     ///     {
     ///         Name = "example-monitor",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         DatadogOrganization = new Azure.Datadog.Inputs.MonitorDatadogOrganizationArgs
+    ///         DatadogOrganization = 
     ///         {
-    ///             ApiKey = "XXXX",
-    ///             ApplicationKey = "XXXX",
+    ///             { "apiKey", "XXXX" },
+    ///             { "applicationKey", "XXXX" },
     ///         },
-    ///         User = new Azure.Datadog.Inputs.MonitorUserArgs
+    ///         User = 
     ///         {
-    ///             Name = "Example",
-    ///             Email = "abc@xyz.com",
+    ///             { "name", "Example" },
+    ///             { "email", "abc@xyz.com" },
     ///         },
     ///         SkuName = "Linked",
-    ///         Identity = new Azure.Datadog.Inputs.MonitorIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleMonitorTagRule = new Azure.Datadog.MonitorTagRule("example", new()
+    ///     var exampleMonitorTagRule = new Azure.Datadog.MonitorTagRule.MonitorTagRule("example", new()
     ///     {
     ///         DatadogMonitorId = exampleMonitor.Id,
     ///         Logs = new[]
     ///         {
-    ///             new Azure.Datadog.Inputs.MonitorTagRuleLogArgs
+    ///             
     ///             {
-    ///                 SubscriptionLogEnabled = true,
+    ///                 { "subscriptionLogEnabled", true },
     ///             },
     ///         },
     ///         Metrics = new[]
     ///         {
-    ///             new Azure.Datadog.Inputs.MonitorTagRuleMetricArgs
+    ///             
     ///             {
-    ///                 Filters = new[]
+    ///                 { "filters", new[]
     ///                 {
-    ///                     new Azure.Datadog.Inputs.MonitorTagRuleMetricFilterArgs
+    ///                     
     ///                     {
-    ///                         Name = "Test",
-    ///                         Value = "Logs",
-    ///                         Action = "Include",
+    ///                         { "name", "Test" },
+    ///                         { "value", "Logs" },
+    ///                         { "action", "Include" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleCluster = new azure.kusto.Cluster("example", {
+ * const exampleCluster = new azure.kusto/cluster.Cluster("example", {
  *     name: "examplekustocluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         capacity: 2,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("example", {
+ * const exampleDatabase = new azure.kusto/database.Database("example", {
  *     name: "example-kusto-database",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -34,28 +34,28 @@ import * as utilities from "../utilities";
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "exampleIoTHub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "B1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  * });
- * const exampleSharedAccessPolicy = new azure.iot.SharedAccessPolicy("example", {
+ * const exampleSharedAccessPolicy = new azure.iot/sharedAccessPolicy.SharedAccessPolicy("example", {
  *     name: "example-shared-access-policy",
  *     resourceGroupName: example.name,
  *     iothubName: exampleIoTHub.name,
  *     registryRead: true,
  * });
- * const exampleConsumerGroup = new azure.iot.ConsumerGroup("example", {
+ * const exampleConsumerGroup = new azure.iot/consumerGroup.ConsumerGroup("example", {
  *     name: "example-consumer-group",
  *     resourceGroupName: example.name,
  *     iothubName: exampleIoTHub.name,
  *     eventhubEndpointName: "events",
  * });
- * const exampleIotHubDataConnection = new azure.kusto.IotHubDataConnection("example", {
+ * const exampleIotHubDataConnection = new azure.kusto/iotHubDataConnection.IotHubDataConnection("example", {
  *     name: "my-kusto-iothub-data-connection",
  *     resourceGroupName: example.name,
  *     location: example.location,

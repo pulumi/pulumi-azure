@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing EventGrid System Topic
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eventgrid.LookupSystemTopic(ctx, &eventgrid.LookupSystemTopicArgs{
-//				Name:              "eventgrid-system-topic",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSystemTopicResult

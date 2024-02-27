@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "example-account",
     ///         Location = example.Location,
@@ -36,15 +36,15 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleSourceControl = new Azure.Automation.SourceControl("example", new()
+    ///     var exampleSourceControl = new Azure.Automation.SourceControl.SourceControl("example", new()
     ///     {
     ///         Name = "example",
     ///         AutomationAccountId = exampleAccount.Id,
     ///         FolderPath = "runbook",
-    ///         Security = new Azure.Automation.Inputs.SourceControlSecurityArgs
+    ///         Security = 
     ///         {
-    ///             Token = "ghp_xxx",
-    ///             TokenType = "PersonalAccessToken",
+    ///             { "token", "ghp_xxx" },
+    ///             { "tokenType", "PersonalAccessToken" },
     ///         },
     ///         RepositoryUrl = "https://github.com/foo/bat.git",
     ///         SourceControlType = "GitHub",

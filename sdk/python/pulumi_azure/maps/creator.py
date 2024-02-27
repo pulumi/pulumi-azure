@@ -205,23 +205,23 @@ class Creator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.maps.Account("example",
-            name="example-maps-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.maps.account.Account("example",
+            name=example-maps-account,
             resource_group_name=example.name,
-            sku_name="G2",
+            sku_name=G2,
             tags={
-                "environment": "Test",
+                environment: Test,
             })
-        example_creator = azure.maps.Creator("example",
-            name="example-maps-creator",
+        example_creator = azure.maps.creator.Creator("example",
+            name=example-maps-creator,
             maps_account_id=example_account.id,
             location=example.location,
             storage_units=1,
             tags={
-                "environment": "Test",
+                environment: Test,
             })
         ```
 
@@ -256,23 +256,23 @@ class Creator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.maps.Account("example",
-            name="example-maps-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.maps.account.Account("example",
+            name=example-maps-account,
             resource_group_name=example.name,
-            sku_name="G2",
+            sku_name=G2,
             tags={
-                "environment": "Test",
+                environment: Test,
             })
-        example_creator = azure.maps.Creator("example",
-            name="example-maps-creator",
+        example_creator = azure.maps.creator.Creator("example",
+            name=example-maps-creator,
             maps_account_id=example_account.id,
             location=example.location,
             storage_units=1,
             tags={
-                "environment": "Test",
+                environment: Test,
             })
         ```
 

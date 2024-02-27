@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "localNetworkGWTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var home = new Azure.Network.LocalNetworkGateway("home", new()
+    ///     var home = new Azure.Network.LocalNetworkGateway.LocalNetworkGateway("home", new()
     ///     {
     ///         Name = "backHome",
     ///         ResourceGroupName = example.Name,

@@ -31,11 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.monitoring.LogzMonitor;
  * import com.pulumi.azure.monitoring.LogzMonitorArgs;
- * import com.pulumi.azure.monitoring.inputs.LogzMonitorPlanArgs;
- * import com.pulumi.azure.monitoring.inputs.LogzMonitorUserArgs;
  * import com.pulumi.azure.monitoring.LogzTagRule;
  * import com.pulumi.azure.monitoring.LogzTagRuleArgs;
- * import com.pulumi.azure.monitoring.inputs.LogzTagRuleTagFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,32 +55,15 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-monitor&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .plan(LogzMonitorPlanArgs.builder()
- *                 .billingCycle(&#34;MONTHLY&#34;)
- *                 .effectiveDate(&#34;2022-06-06T00:00:00Z&#34;)
- *                 .usageType(&#34;COMMITTED&#34;)
- *                 .build())
- *             .user(LogzMonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLogzTagRule = new LogzTagRule(&#34;exampleLogzTagRule&#34;, LogzTagRuleArgs.builder()        
  *             .logzMonitorId(exampleLogzMonitor.id())
  *             .tagFilters(            
- *                 LogzTagRuleTagFilterArgs.builder()
- *                     .name(&#34;name1&#34;)
- *                     .action(&#34;Include&#34;)
- *                     .value(&#34;value1&#34;)
- *                     .build(),
- *                 LogzTagRuleTagFilterArgs.builder()
- *                     .name(&#34;name2&#34;)
- *                     .action(&#34;Exclude&#34;)
- *                     .value(&#34;value2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sendAadLogs(true)
  *             .sendActivityLogs(true)
  *             .sendSubscriptionLogs(true)

@@ -39,9 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.PipelineArgs;
  * import com.pulumi.azure.datafactory.TriggerTumblingWindow;
  * import com.pulumi.azure.datafactory.TriggerTumblingWindowArgs;
- * import com.pulumi.azure.datafactory.inputs.TriggerTumblingWindowRetryArgs;
- * import com.pulumi.azure.datafactory.inputs.TriggerTumblingWindowPipelineArgs;
- * import com.pulumi.azure.datafactory.inputs.TriggerTumblingWindowTriggerDependencyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,22 +81,10 @@ import javax.annotation.Nullable;
  *                 &#34;example2&#34;,
  *                 &#34;example3&#34;)
  *             .description(&#34;example description&#34;)
- *             .retry(TriggerTumblingWindowRetryArgs.builder()
- *                 .count(1)
- *                 .interval(30)
- *                 .build())
- *             .pipeline(TriggerTumblingWindowPipelineArgs.builder()
- *                 .name(examplePipeline.name())
- *                 .parameters(Map.of(&#34;Env&#34;, &#34;Prod&#34;))
- *                 .build())
- *             .triggerDependencies(TriggerTumblingWindowTriggerDependencyArgs.builder()
- *                 .size(&#34;24:00:00&#34;)
- *                 .offset(&#34;-24:00:00&#34;)
- *                 .build())
- *             .additionalProperties(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;bar&#34;, &#34;value2&#34;)
- *             ))
+ *             .retry(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .pipeline(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .triggerDependencies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .additionalProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

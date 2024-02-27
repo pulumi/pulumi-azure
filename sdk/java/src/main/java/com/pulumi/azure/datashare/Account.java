@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datashare.Account;
  * import com.pulumi.azure.datashare.AccountArgs;
- * import com.pulumi.azure.datashare.inputs.AccountIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,10 +52,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-dsa&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

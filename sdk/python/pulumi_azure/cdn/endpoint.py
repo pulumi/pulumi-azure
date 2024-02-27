@@ -661,23 +661,23 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_profile = azure.cdn.Profile("example",
-            name="example-cdn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_profile = azure.cdn.profile.Profile("example",
+            name=example-cdn,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_Verizon")
-        example_endpoint = azure.cdn.Endpoint("example",
-            name="example",
+            sku=Standard_Verizon)
+        example_endpoint = azure.cdn.endpoint.Endpoint("example",
+            name=example,
             profile_name=example_profile.name,
             location=example.location,
             resource_group_name=example.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name="www.contoso.com",
-            )])
+            origins=[{
+                name: example,
+                hostName: www.contoso.com,
+            }])
         ```
 
         ## Import
@@ -728,23 +728,23 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_profile = azure.cdn.Profile("example",
-            name="example-cdn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_profile = azure.cdn.profile.Profile("example",
+            name=example-cdn,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_Verizon")
-        example_endpoint = azure.cdn.Endpoint("example",
-            name="example",
+            sku=Standard_Verizon)
+        example_endpoint = azure.cdn.endpoint.Endpoint("example",
+            name=example,
             profile_name=example_profile.name,
             location=example.location,
             resource_group_name=example.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name="www.contoso.com",
-            )])
+            origins=[{
+                name: example,
+                hostName: www.contoso.com,
+            }])
         ```
 
         ## Import

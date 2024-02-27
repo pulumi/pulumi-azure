@@ -23,23 +23,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	securitycenter/autoProvisioning "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/securitycenter/autoProvisioning"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewAutoProvisioning(ctx, "example", &securitycenter.AutoProvisioningArgs{
-//				AutoProvision: pulumi.String("On"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitycenter/autoProvisioning.NewAutoProvisioning(ctx, "example", &securitycenter/autoProvisioning.AutoProvisioningArgs{
+// AutoProvision: "On",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,49 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Active Directory Domain Service Trust.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.domainservices.DomainservicesFunctions;
- * import com.pulumi.azure.domainservices.inputs.GetServiceArgs;
- * import com.pulumi.azure.domainservices.ServiceTrust;
- * import com.pulumi.azure.domainservices.ServiceTrustArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-ds&#34;)
- *             .resourceGroupName(&#34;example-rg&#34;)
- *             .build());
- * 
- *         var exampleServiceTrust = new ServiceTrust(&#34;exampleServiceTrust&#34;, ServiceTrustArgs.builder()        
- *             .name(&#34;example-trust&#34;)
- *             .domainServiceId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
- *             .trustedDomainFqdn(&#34;example.com&#34;)
- *             .trustedDomainDnsIps(            
- *                 &#34;10.1.0.3&#34;,
- *                 &#34;10.1.0.4&#34;)
- *             .password(&#34;Password123&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.

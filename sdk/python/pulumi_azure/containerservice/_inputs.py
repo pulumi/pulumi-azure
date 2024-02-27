@@ -2693,13 +2693,13 @@ class KubernetesClusterAciConnectorLinuxArgs:
                import pulumi
                import pulumi_azure as azure
                
-               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
-                   name="aciDelegation",
-                   service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                       name="Microsoft.ContainerInstance/containerGroups",
-                       actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                   ),
-               )])
+               virtual = azure.network.subnet.Subnet("virtual", delegations=[{
+                   name: aciDelegation,
+                   serviceDelegation: {
+                       name: Microsoft.ContainerInstance/containerGroups,
+                       actions: [Microsoft.Network/virtualNetworks/subnets/action],
+                   },
+               }])
                ```
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
@@ -2721,13 +2721,13 @@ class KubernetesClusterAciConnectorLinuxArgs:
         import pulumi
         import pulumi_azure as azure
 
-        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
-            name="aciDelegation",
-            service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                name="Microsoft.ContainerInstance/containerGroups",
-                actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-            ),
-        )])
+        virtual = azure.network.subnet.Subnet("virtual", delegations=[{
+            name: aciDelegation,
+            serviceDelegation: {
+                name: Microsoft.ContainerInstance/containerGroups,
+                actions: [Microsoft.Network/virtualNetworks/subnets/action],
+            },
+        }])
         ```
         """
         return pulumi.get(self, "subnet_name")

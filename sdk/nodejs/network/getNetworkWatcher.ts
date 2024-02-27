@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Network Watcher.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getNetworkWatcher({
- *     name: exampleAzurermNetworkWatcher.name,
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- * });
- * export const networkWatcherId = example.then(example => example.id);
- * ```
  */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
 
@@ -64,19 +51,6 @@ export interface GetNetworkWatcherResult {
 }
 /**
  * Use this data source to access information about an existing Network Watcher.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getNetworkWatcher({
- *     name: exampleAzurermNetworkWatcher.name,
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- * });
- * export const networkWatcherId = example.then(example => example.id);
- * ```
  */
 export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
     return pulumi.output(args).apply((a: any) => getNetworkWatcher(a, opts))

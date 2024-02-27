@@ -12,27 +12,6 @@ namespace Pulumi.Azure.Lighthouse
     /// <summary>
     /// Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var example = new Azure.Lighthouse.Assignment("example", new()
-    ///     {
-    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         LighthouseDefinitionId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Lighthouse Assignments can be imported using the `resource id`, e.g.

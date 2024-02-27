@@ -22,46 +22,46 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-logz",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("example", new()
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor.LogzMonitor("example", new()
     ///     {
     ///         Name = "example-monitor",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
+    ///         Plan = 
     ///         {
-    ///             BillingCycle = "MONTHLY",
-    ///             EffectiveDate = "2022-06-06T00:00:00Z",
-    ///             UsageType = "COMMITTED",
+    ///             { "billingCycle", "MONTHLY" },
+    ///             { "effectiveDate", "2022-06-06T00:00:00Z" },
+    ///             { "usageType", "COMMITTED" },
     ///         },
-    ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
+    ///         User = 
     ///         {
-    ///             Email = "user@example.com",
-    ///             FirstName = "Example",
-    ///             LastName = "User",
-    ///             PhoneNumber = "+12313803556",
+    ///             { "email", "user@example.com" },
+    ///             { "firstName", "Example" },
+    ///             { "lastName", "User" },
+    ///             { "phoneNumber", "+12313803556" },
     ///         },
     ///     });
     /// 
-    ///     var exampleLogzSubAccount = new Azure.Monitoring.LogzSubAccount("example", new()
+    ///     var exampleLogzSubAccount = new Azure.Monitoring.LogzSubAccount.LogzSubAccount("example", new()
     ///     {
     ///         Name = "example-subaccount",
     ///         LogzMonitorId = exampleLogzMonitor.Id,
-    ///         User = new Azure.Monitoring.Inputs.LogzSubAccountUserArgs
+    ///         User = 
     ///         {
-    ///             Email = exampleLogzMonitor.User.Apply(user =&gt; user.Email),
-    ///             FirstName = exampleLogzMonitor.User.Apply(user =&gt; user.FirstName),
-    ///             LastName = exampleLogzMonitor.User.Apply(user =&gt; user.LastName),
-    ///             PhoneNumber = exampleLogzMonitor.User.Apply(user =&gt; user.PhoneNumber),
+    ///             { "email", exampleLogzMonitor.User.Email },
+    ///             { "firstName", exampleLogzMonitor.User.FirstName },
+    ///             { "lastName", exampleLogzMonitor.User.LastName },
+    ///             { "phoneNumber", exampleLogzMonitor.User.PhoneNumber },
     ///         },
     ///     });
     /// 
-    ///     var exampleLogzSubAccountTagRule = new Azure.Monitoring.LogzSubAccountTagRule("example", new()
+    ///     var exampleLogzSubAccountTagRule = new Azure.Monitoring.LogzSubAccountTagRule.LogzSubAccountTagRule("example", new()
     ///     {
     ///         LogzSubAccountId = exampleLogzSubAccount.Id,
     ///         SendAadLogs = true,
@@ -69,17 +69,17 @@ namespace Pulumi.Azure.Monitoring
     ///         SendSubscriptionLogs = true,
     ///         TagFilters = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.LogzSubAccountTagRuleTagFilterArgs
+    ///             
     ///             {
-    ///                 Name = "name1",
-    ///                 Action = "Include",
-    ///                 Value = "value1",
+    ///                 { "name", "name1" },
+    ///                 { "action", "Include" },
+    ///                 { "value", "value1" },
     ///             },
-    ///             new Azure.Monitoring.Inputs.LogzSubAccountTagRuleTagFilterArgs
+    ///             
     ///             {
-    ///                 Name = "name2",
-    ///                 Action = "Exclude",
-    ///                 Value = "value2",
+    ///                 { "name", "name2" },
+    ///                 { "action", "Exclude" },
+    ///                 { "value", "value2" },
     ///             },
     ///         },
     ///     });

@@ -12,44 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleLinkedServiceDataLakeStorageGen2 = new Azure.DataFactory.LinkedServiceDataLakeStorageGen2("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///         ServicePrincipalKey = "exampleKey",
-    ///         Tenant = "11111111-1111-1111-1111-111111111111",
-    ///         Url = "https://datalakestoragegen2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.

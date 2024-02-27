@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "tfex-example-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.automation.Account("example", {
+ * const exampleAccount = new azure.automation/account.Account("example", {
  *     name: "tfex-example-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleStringVariable = new azure.automation.StringVariable("example", {
+ * const exampleStringVariable = new azure.automation/stringVariable.StringVariable("example", {
  *     name: "tfex-example-var",
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,

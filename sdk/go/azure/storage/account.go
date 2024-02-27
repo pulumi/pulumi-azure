@@ -21,38 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("storageaccountname"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "storageaccountname",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Network Rules
 //
@@ -61,74 +59,73 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("virtnetname"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnetname"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Sql"),
-//					pulumi.String("Microsoft.Storage"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("storageaccountname"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				NetworkRules: &storage.AccountNetworkRulesTypeArgs{
-//					DefaultAction: pulumi.String("Deny"),
-//					IpRules: pulumi.StringArray{
-//						pulumi.String("100.0.0.1"),
-//					},
-//					VirtualNetworkSubnetIds: pulumi.StringArray{
-//						exampleSubnet.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "virtnetname",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "subnetname",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// ServiceEndpoints: []string{
+// "Microsoft.Sql",
+// "Microsoft.Storage",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "storageaccountname",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// NetworkRules: map[string]interface{}{
+// "defaultAction": "Deny",
+// "ipRules": []string{
+// "100.0.0.1",
+// },
+// "virtualNetworkSubnetIds": []interface{}{
+// exampleSubnet.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

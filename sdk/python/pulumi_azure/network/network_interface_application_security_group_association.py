@@ -106,33 +106,33 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_application_security_group = azure.network.ApplicationSecurityGroup("example",
-            name="example-asg",
+            address_prefixes=[10.0.1.0/24])
+        example_application_security_group = azure.network.application_security_group.ApplicationSecurityGroup("example",
+            name=example-asg,
             location=example.location,
             resource_group_name=example.name)
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_application_security_group_association = azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("example",
+            ip_configurations=[{
+                name: testconfiguration1,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_network_interface_application_security_group_association = azure.network.network_interface_application_security_group_association.NetworkInterfaceApplicationSecurityGroupAssociation("example",
             network_interface_id=example_network_interface.id,
             application_security_group_id=example_application_security_group.id)
         ```
@@ -165,33 +165,33 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_application_security_group = azure.network.ApplicationSecurityGroup("example",
-            name="example-asg",
+            address_prefixes=[10.0.1.0/24])
+        example_application_security_group = azure.network.application_security_group.ApplicationSecurityGroup("example",
+            name=example-asg,
             location=example.location,
             resource_group_name=example.name)
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_application_security_group_association = azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("example",
+            ip_configurations=[{
+                name: testconfiguration1,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_network_interface_application_security_group_association = azure.network.network_interface_application_security_group_association.NetworkInterfaceApplicationSecurityGroupAssociation("example",
             network_interface_id=example_network_interface.id,
             application_security_group_id=example_application_security_group.id)
         ```

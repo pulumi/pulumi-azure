@@ -22,62 +22,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Mongo Collection within a Cosmos DB Account.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
- * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
- * import com.pulumi.azure.cosmosdb.MongoDatabase;
- * import com.pulumi.azure.cosmosdb.MongoDatabaseArgs;
- * import com.pulumi.azure.cosmosdb.MongoCollection;
- * import com.pulumi.azure.cosmosdb.MongoCollectionArgs;
- * import com.pulumi.azure.cosmosdb.inputs.MongoCollectionIndexArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
- *             .build());
- * 
- *         var exampleMongoDatabase = new MongoDatabase(&#34;exampleMongoDatabase&#34;, MongoDatabaseArgs.builder()        
- *             .name(&#34;tfex-cosmos-mongo-db&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
- *             .build());
- * 
- *         var exampleMongoCollection = new MongoCollection(&#34;exampleMongoCollection&#34;, MongoCollectionArgs.builder()        
- *             .name(&#34;tfex-cosmos-mongo-db&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
- *             .databaseName(exampleMongoDatabase.name())
- *             .defaultTtlSeconds(&#34;777&#34;)
- *             .shardKey(&#34;uniqueKey&#34;)
- *             .throughput(400)
- *             .indices(MongoCollectionIndexArgs.builder()
- *                 .keys(&#34;_id&#34;)
- *                 .unique(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * CosmosDB Mongo Collection can be imported using the `resource id`, e.g.

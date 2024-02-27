@@ -15,32 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "East US",
  * });
- * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("example", {
+ * const exampleIotHubDeviceUpdateAccount = new azure.iot/iotHubDeviceUpdateAccount.IotHubDeviceUpdateAccount("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "S1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleIotHubDeviceUpdateInstance = new azure.iot.IotHubDeviceUpdateInstance("example", {
+ * const exampleIotHubDeviceUpdateInstance = new azure.iot/iotHubDeviceUpdateInstance.IotHubDeviceUpdateInstance("example", {
  *     name: "example",
  *     deviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.id,
  *     iothubId: exampleIoTHub.id,

@@ -21,17 +21,17 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.RandomId("server", {
+ * const server = new random.index/randomId.RandomId("server", {
  *     keepers: {
- *         azi_id: "1",
+ *         azi_id: 1,
  *     },
  *     byteLength: 8,
  * });
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "some-resource-group",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azure.appservice/appService.AppService("example", {
  *     name: server.hex,
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
  * });
- * const exampleSlot = new azure.appservice.Slot("example", {
+ * const exampleSlot = new azure.appservice/slot.Slot("example", {
  *     name: server.hex,
  *     appServiceName: exampleAppService.name,
  *     location: example.location,
@@ -83,17 +83,17 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.RandomId("server", {
+ * const server = new random.index/randomId.RandomId("server", {
  *     keepers: {
- *         azi_id: "1",
+ *         azi_id: 1,
  *     },
  *     byteLength: 8,
  * });
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "some-resource-group",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azure.appservice/appService.AppService("example", {
  *     name: server.hex,
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -113,7 +113,7 @@ import * as utilities from "../utilities";
  *         javaContainerVersion: "9.3",
  *     },
  * });
- * const exampleSlot = new azure.appservice.Slot("example", {
+ * const exampleSlot = new azure.appservice/slot.Slot("example", {
  *     name: server.hex,
  *     appServiceName: exampleAppService.name,
  *     location: example.location,

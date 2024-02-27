@@ -13,68 +13,12 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
-        ///     {
-        ///         Name = exampleAzurermKeyVault.Name,
-        ///         ResourceGroupName = exampleAzurermKeyVault.ResourceGroupName,
-        ///     });
-        /// 
-        ///     var exampleGetDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
-        ///     {
-        ///         ResourceId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDiagnosticCategoriesResult> InvokeAsync(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
-        ///     {
-        ///         Name = exampleAzurermKeyVault.Name,
-        ///         ResourceGroupName = exampleAzurermKeyVault.ResourceGroupName,
-        ///     });
-        /// 
-        ///     var exampleGetDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
-        ///     {
-        ///         ResourceId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDiagnosticCategoriesResult> Invoke(GetDiagnosticCategoriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesInvokeArgs(), options.WithDefaults());

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "database-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var primary = new Azure.MSSql.Server("primary", new()
+    ///     var primary = new Azure.Mssql.Server.Server("primary", new()
     ///     {
     ///         Name = "mssqlserver-primary",
     ///         ResourceGroupName = example.Name,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "thisIsKat11",
     ///     });
     /// 
-    ///     var secondary = new Azure.MSSql.Server("secondary", new()
+    ///     var secondary = new Azure.Mssql.Server.Server("secondary", new()
     ///     {
     ///         Name = "mssqlserver-secondary",
     ///         ResourceGroupName = example.Name,
@@ -48,16 +48,16 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "thisIsKat12",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mssql.Database.Database("example", new()
     ///     {
     ///         Name = "exampledb",
     ///         ServerId = primary.Id,
     ///         SkuName = "S1",
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
-    ///         MaxSizeGb = 200,
+    ///         MaxSizeGb = "200",
     ///     });
     /// 
-    ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("example", new()
+    ///     var exampleFailoverGroup = new Azure.Mssql.FailoverGroup.FailoverGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         ServerId = primary.Id,
@@ -67,15 +67,15 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///         PartnerServers = new[]
     ///         {
-    ///             new Azure.MSSql.Inputs.FailoverGroupPartnerServerArgs
+    ///             
     ///             {
-    ///                 Id = secondary.Id,
+    ///                 { "id", secondary.Id },
     ///             },
     ///         },
-    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         ReadWriteEndpointFailoverPolicy = 
     ///         {
-    ///             Mode = "Automatic",
-    ///             GraceMinutes = 80,
+    ///             { "mode", "Automatic" },
+    ///             { "graceMinutes", 80 },
     ///         },
     ///         Tags = 
     ///         {

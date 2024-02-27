@@ -21,68 +21,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventgrid/systemTopic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventgrid/systemTopic"
+//	eventgrid/systemTopicEventSubscription "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventgrid/systemTopicEventSubscription"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/queue "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageaccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleQueue, err := storage.NewQueue(ctx, "example", &storage.QueueArgs{
-//				Name:               pulumi.String("examplestoragequeue"),
-//				StorageAccountName: exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSystemTopic, err := eventgrid.NewSystemTopic(ctx, "example", &eventgrid.SystemTopicArgs{
-//				Name:                pulumi.String("example-system-topic"),
-//				Location:            pulumi.String("Global"),
-//				ResourceGroupName:   example.Name,
-//				SourceArmResourceId: example.ID(),
-//				TopicType:           pulumi.String("Microsoft.Resources.ResourceGroups"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eventgrid.NewSystemTopicEventSubscription(ctx, "example", &eventgrid.SystemTopicEventSubscriptionArgs{
-//				Name:              pulumi.String("example-event-subscription"),
-//				SystemTopic:       exampleSystemTopic.Name,
-//				ResourceGroupName: example.Name,
-//				StorageQueueEndpoint: &eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs{
-//					StorageAccountId: exampleAccount.ID(),
-//					QueueName:        exampleQueue.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleQueue, err := storage/queue.NewQueue(ctx, "example", &storage/queue.QueueArgs{
+// Name: "examplestoragequeue",
+// StorageAccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSystemTopic, err := eventgrid/systemTopic.NewSystemTopic(ctx, "example", &eventgrid/systemTopic.SystemTopicArgs{
+// Name: "example-system-topic",
+// Location: "Global",
+// ResourceGroupName: example.Name,
+// SourceArmResourceId: example.Id,
+// TopicType: "Microsoft.Resources.ResourceGroups",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eventgrid/systemTopicEventSubscription.NewSystemTopicEventSubscription(ctx, "example", &eventgrid/systemTopicEventSubscription.SystemTopicEventSubscriptionArgs{
+// Name: "example-event-subscription",
+// SystemTopic: exampleSystemTopic.Name,
+// ResourceGroupName: example.Name,
+// StorageQueueEndpoint: map[string]interface{}{
+// "storageAccountId": exampleAccount.Id,
+// "queueName": exampleQueue.Name,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

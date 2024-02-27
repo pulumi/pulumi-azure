@@ -25,51 +25,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	postgresql/configuration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/configuration"
+//	postgresql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
-//				Name:                       pulumi.String("postgresql-server-1"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				SkuName:                    pulumi.String("B_Gen5_2"),
-//				StorageMb:                  pulumi.Int(5120),
-//				BackupRetentionDays:        pulumi.Int(7),
-//				GeoRedundantBackupEnabled:  pulumi.Bool(false),
-//				AutoGrowEnabled:            pulumi.Bool(true),
-//				AdministratorLogin:         pulumi.String("psqladmin"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				Version:                    pulumi.String("9.5"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewConfiguration(ctx, "example", &postgresql.ConfigurationArgs{
-//				Name:              pulumi.String("backslash_quote"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				Value:             pulumi.String("on"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := postgresql/server.NewServer(ctx, "example", &postgresql/server.ServerArgs{
+// Name: "postgresql-server-1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "B_Gen5_2",
+// StorageMb: 5120,
+// BackupRetentionDays: 7,
+// GeoRedundantBackupEnabled: false,
+// AutoGrowEnabled: true,
+// AdministratorLogin: "psqladmin",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// Version: "9.5",
+// SslEnforcementEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = postgresql/configuration.NewConfiguration(ctx, "example", &postgresql/configuration.ConfigurationArgs{
+// Name: "backslash_quote",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// Value: "on",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

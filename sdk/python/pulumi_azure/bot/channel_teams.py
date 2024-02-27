@@ -234,28 +234,6 @@ class ChannelTeams(pulumi.CustomResource):
 
         > **Note** A bot can only have a single MS Teams Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_teams = azure.bot.ChannelTeams("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name)
-        ```
-
         ## Import
 
         The Microsoft Teams Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -283,28 +261,6 @@ class ChannelTeams(pulumi.CustomResource):
         Manages a MS Teams integration for a Bot Channel
 
         > **Note** A bot can only have a single MS Teams Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_teams = azure.bot.ChannelTeams("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name)
-        ```
 
         ## Import
 

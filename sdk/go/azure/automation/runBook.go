@@ -21,113 +21,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	automation/runBook "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/runBook"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("account1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
-//				Name:                  pulumi.String("Get-AzureVMTutorial"),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				LogVerbose:            pulumi.Bool(true),
-//				LogProgress:           pulumi.Bool(true),
-//				Description:           pulumi.String("This is an example runbook"),
-//				RunbookType:           pulumi.String("PowerShellWorkflow"),
-//				PublishContentLink: &automation.RunBookPublishContentLinkArgs{
-//					Uri: pulumi.String("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Custom Content
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-local/sdk/go/local"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("account1"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := local.LookupFile(ctx, &local.LookupFileArgs{
-//				Filename: fmt.Sprintf("%v/example.ps1", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
-//				Name:                  pulumi.String("Get-AzureVMTutorial"),
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				LogVerbose:            pulumi.Bool(true),
-//				LogProgress:           pulumi.Bool(true),
-//				Description:           pulumi.String("This is an example runbook"),
-//				RunbookType:           pulumi.String("PowerShell"),
-//				Content:               *pulumi.String(example.Content),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "account1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automation/runBook.NewRunBook(ctx, "example", &automation/runBook.RunBookArgs{
+// Name: "Get-AzureVMTutorial",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AutomationAccountName: exampleAccount.Name,
+// LogVerbose: "true",
+// LogProgress: "true",
+// Description: "This is an example runbook",
+// RunbookType: "PowerShellWorkflow",
+// PublishContentLink: map[string]interface{}{
+// "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

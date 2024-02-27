@@ -47,13 +47,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.hdinsight.InteractiveQueryCluster;
  * import com.pulumi.azure.hdinsight.InteractiveQueryClusterArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterComponentVersionArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterStorageAccountArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesHeadNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesWorkerNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesZookeeperNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,36 +85,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .clusterVersion(&#34;3.6&#34;)
  *             .tier(&#34;Standard&#34;)
- *             .componentVersion(InteractiveQueryClusterComponentVersionArgs.builder()
- *                 .interactiveHive(&#34;2.1&#34;)
- *                 .build())
- *             .gateway(InteractiveQueryClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password!&#34;)
- *                 .build())
- *             .storageAccounts(InteractiveQueryClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
- *                 .build())
- *             .roles(InteractiveQueryClusterRolesArgs.builder()
- *                 .headNode(InteractiveQueryClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D13_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .workerNode(InteractiveQueryClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D14_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .targetInstanceCount(3)
- *                     .build())
- *                 .zookeeperNode(InteractiveQueryClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Standard_A4_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .build())
+ *             .componentVersion(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .gateway(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .roles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

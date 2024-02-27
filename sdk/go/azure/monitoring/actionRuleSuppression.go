@@ -23,54 +23,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/actionRuleSuppression "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/actionRuleSuppression"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewActionRuleSuppression(ctx, "example", &monitoring.ActionRuleSuppressionArgs{
-//				Name:              pulumi.String("example-amar"),
-//				ResourceGroupName: example.Name,
-//				Scope: &monitoring.ActionRuleSuppressionScopeArgs{
-//					Type: pulumi.String("ResourceGroup"),
-//					ResourceIds: pulumi.StringArray{
-//						example.ID(),
-//					},
-//				},
-//				Suppression: &monitoring.ActionRuleSuppressionSuppressionArgs{
-//					RecurrenceType: pulumi.String("Weekly"),
-//					Schedule: &monitoring.ActionRuleSuppressionSuppressionScheduleArgs{
-//						StartDateUtc: pulumi.String("2019-01-01T01:02:03Z"),
-//						EndDateUtc:   pulumi.String("2019-01-03T15:02:07Z"),
-//						RecurrenceWeeklies: pulumi.StringArray{
-//							pulumi.String("Sunday"),
-//							pulumi.String("Monday"),
-//							pulumi.String("Friday"),
-//							pulumi.String("Saturday"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/actionRuleSuppression.NewActionRuleSuppression(ctx, "example", &monitoring/actionRuleSuppression.ActionRuleSuppressionArgs{
+// Name: "example-amar",
+// ResourceGroupName: example.Name,
+// Scope: map[string]interface{}{
+// "type": "ResourceGroup",
+// "resourceIds": []interface{}{
+// example.Id,
+// },
+// },
+// Suppression: map[string]interface{}{
+// "recurrenceType": "Weekly",
+// "schedule": map[string]interface{}{
+// "startDateUtc": "2019-01-01T01:02:03Z",
+// "endDateUtc": "2019-01-03T15:02:07Z",
+// "recurrenceWeeklies": []string{
+// "Sunday",
+// "Monday",
+// "Friday",
+// "Saturday",
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

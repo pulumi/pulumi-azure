@@ -240,19 +240,19 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_route_table = azure.network.RouteTable("example",
-            name="acceptanceTestRouteTable1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_route_table = azure.network.route_table.RouteTable("example",
+            name=acceptanceTestRouteTable1,
             location=example.location,
             resource_group_name=example.name)
-        example_route = azure.network.Route("example",
-            name="acceptanceTestRoute1",
+        example_route = azure.network.route.Route("example",
+            name=acceptanceTestRoute1,
             resource_group_name=example.name,
             route_table_name=example_route_table.name,
-            address_prefix="10.1.0.0/16",
-            next_hop_type="VnetLocal")
+            address_prefix=10.1.0.0/16,
+            next_hop_type=VnetLocal)
         ```
 
         ## Import
@@ -291,19 +291,19 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_route_table = azure.network.RouteTable("example",
-            name="acceptanceTestRouteTable1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_route_table = azure.network.route_table.RouteTable("example",
+            name=acceptanceTestRouteTable1,
             location=example.location,
             resource_group_name=example.name)
-        example_route = azure.network.Route("example",
-            name="acceptanceTestRoute1",
+        example_route = azure.network.route.Route("example",
+            name=acceptanceTestRoute1,
             resource_group_name=example.name,
             route_table_name=example_route_table.name,
-            address_prefix="10.1.0.0/16",
-            next_hop_type="VnetLocal")
+            address_prefix=10.1.0.0/16,
+            next_hop_type=VnetLocal)
         ```
 
         ## Import

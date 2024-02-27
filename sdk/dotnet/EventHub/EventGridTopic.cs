@@ -24,13 +24,13 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.EventGrid.Topic("example", new()
+    ///     var exampleTopic = new Azure.Eventgrid.Topic.Topic("example", new()
     ///     {
     ///         Name = "my-eventgrid-topic",
     ///         Location = example.Location,

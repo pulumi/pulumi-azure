@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.apimanagement.Gateway;
  * import com.pulumi.azure.apimanagement.GatewayArgs;
- * import com.pulumi.azure.apimanagement.inputs.GatewayLocationDataArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,12 +62,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-gateway&#34;)
  *             .apiManagementId(exampleService.id())
  *             .description(&#34;Example API Management gateway&#34;)
- *             .locationData(GatewayLocationDataArgs.builder()
- *                 .name(&#34;example name&#34;)
- *                 .city(&#34;example city&#34;)
- *                 .district(&#34;example district&#34;)
- *                 .region(&#34;example region&#34;)
- *                 .build())
+ *             .locationData(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

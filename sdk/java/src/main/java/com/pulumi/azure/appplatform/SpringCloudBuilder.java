@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudBuilder;
  * import com.pulumi.azure.appplatform.SpringCloudBuilderArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderBuildPackGroupArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderStackArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,14 +62,8 @@ import javax.annotation.Nullable;
  *         var exampleSpringCloudBuilder = new SpringCloudBuilder(&#34;exampleSpringCloudBuilder&#34;, SpringCloudBuilderArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
- *                 .name(&#34;mix&#34;)
- *                 .buildPackIds(&#34;tanzu-buildpacks/java-azure&#34;)
- *                 .build())
- *             .stack(SpringCloudBuilderStackArgs.builder()
- *                 .id(&#34;io.buildpacks.stacks.bionic&#34;)
- *                 .version(&#34;base&#34;)
- *                 .build())
+ *             .buildPackGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .stack(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

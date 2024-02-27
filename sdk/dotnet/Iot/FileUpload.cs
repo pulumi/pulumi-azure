@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorage",
     ///         ResourceGroupName = example.Name,
@@ -39,26 +39,26 @@ namespace Pulumi.Azure.Iot
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
+    ///             { "name", "S1" },
+    ///             { "capacity", "1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFileUpload = new Azure.Iot.FileUpload("example", new()
+    ///     var exampleFileUpload = new Azure.Iot.FileUpload.FileUpload("example", new()
     ///     {
     ///         IothubId = exampleIoTHub.Id,
     ///         ConnectionString = exampleAccount.PrimaryBlobConnectionString,

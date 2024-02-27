@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const main = new azure.monitoring.ActionGroup("main", {
+ * const main = new azure.monitoring/actionGroup.ActionGroup("main", {
  *     name: "example-actiongroup",
  *     resourceGroupName: example.name,
  *     shortName: "p0action",
@@ -28,14 +28,14 @@ import * as utilities from "../utilities";
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const toMonitor = new azure.storage.Account("to_monitor", {
+ * const toMonitor = new azure.storage/account.Account("to_monitor", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
+ * const mainActivityLogAlert = new azure.monitoring/activityLogAlert.ActivityLogAlert("main", {
  *     name: "example-activitylogalert",
  *     resourceGroupName: example.name,
  *     scopes: [example.id],

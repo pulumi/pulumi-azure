@@ -22,13 +22,13 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vn",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-sn",
     ///         ResourceGroupName = example.Name,
@@ -54,28 +54,28 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "fs",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "fs" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.DBforPostgreSQL/flexibleServers",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.DBforPostgreSQL/flexibleServers" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+    ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
     ///     {
     ///         Name = "example.postgres.database.azure.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
+    ///     var exampleZoneVirtualNetworkLink = new Azure.Privatedns.ZoneVirtualNetworkLink.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "exampleVnetZone.com",
     ///         PrivateDnsZoneName = exampleZone.Name,
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("example", new()
+    ///     var exampleFlexibleServer = new Azure.Postgresql.FlexibleServer.FlexibleServer("example", new()
     ///     {
     ///         Name = "example-psqlflexibleserver",
     ///         ResourceGroupName = example.Name,

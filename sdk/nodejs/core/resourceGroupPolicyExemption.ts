@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Group Policy Exemption.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "resourceGroup1",
- *     location: "westus",
- * });
- * const example = azure.policy.getPolicyDefintion({
- *     displayName: "Allowed locations",
- * });
- * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("example", {
- *     name: "exampleAssignment",
- *     resourceGroupId: exampleResourceGroup.id,
- *     policyDefinitionId: example.then(example => example.id),
- *     parameters: pulumi.jsonStringify({
- *         listOfAllowedLocations: {
- *             value: [exampleResourceGroup.location],
- *         },
- *     }),
- * });
- * const exampleResourceGroupPolicyExemption = new azure.core.ResourceGroupPolicyExemption("example", {
- *     name: "exampleExemption",
- *     resourceGroupId: exampleResourceGroup.id,
- *     policyAssignmentId: exampleResourceGroupPolicyAssignment.id,
- *     exemptionCategory: "Mitigated",
- * });
- * ```
- *
  * ## Import
  *
  * Policy Exemptions can be imported using the `resource id`, e.g.

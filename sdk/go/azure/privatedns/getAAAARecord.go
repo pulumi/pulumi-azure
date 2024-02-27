@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	privatedns/aAAARecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/aAAARecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := privatedns.NewAAAARecord(ctx, "example", &privatedns.AAAARecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := privatedns/aAAARecord.NewAAAARecord(ctx, "example", &privatedns/aAAARecord.AAAARecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.Id)
+// return nil
+// })
+// }
 // ```
 func LookupAAAARecord(ctx *pulumi.Context, args *LookupAAAARecordArgs, opts ...pulumi.InvokeOption) (*LookupAAAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

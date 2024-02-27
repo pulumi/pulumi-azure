@@ -24,20 +24,20 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("example", new()
+    ///     var exampleDevCenter = new Azure.Devcenter.DevCenter.DevCenter("example", new()
     ///     {
     ///         Location = example.Location,
     ///         Name = "example",

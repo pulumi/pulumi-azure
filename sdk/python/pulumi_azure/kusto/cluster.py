@@ -820,19 +820,19 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-kusto-cluster-rg",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-kusto-cluster-rg,
+            location=West Europe)
+        example_cluster = azure.kusto.cluster.Cluster("example",
+            name=kustocluster,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
+            sku={
+                name: Standard_D13_v2,
+                capacity: 2,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -887,19 +887,19 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-kusto-cluster-rg",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-kusto-cluster-rg,
+            location=West Europe)
+        example_cluster = azure.kusto.cluster.Cluster("example",
+            name=kustocluster,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
+            sku={
+                name: Standard_D13_v2,
+                capacity: 2,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

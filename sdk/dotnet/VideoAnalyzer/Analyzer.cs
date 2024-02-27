@@ -24,13 +24,13 @@ namespace Pulumi.Azure.VideoAnalyzer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "video-analyzer-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -39,44 +39,44 @@ namespace Pulumi.Azure.VideoAnalyzer
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "exampleidentity",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var contributor = new Azure.Authorization.Assignment("contributor", new()
+    ///     var contributor = new Azure.Authorization.Assignment.Assignment("contributor", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Blob Data Contributor",
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
-    ///     var reader = new Azure.Authorization.Assignment("reader", new()
+    ///     var reader = new Azure.Authorization.Assignment.Assignment("reader", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Reader",
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleAnalyzer = new Azure.VideoAnalyzer.Analyzer("example", new()
+    ///     var exampleAnalyzer = new Azure.Videoanalyzer.Analyzer.Analyzer("example", new()
     ///     {
     ///         Name = "exampleanalyzer",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         StorageAccount = new Azure.VideoAnalyzer.Inputs.AnalyzerStorageAccountArgs
+    ///         StorageAccount = 
     ///         {
-    ///             Id = exampleAccount.Id,
-    ///             UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///             { "id", exampleAccount.Id },
+    ///             { "userAssignedIdentityId", exampleUserAssignedIdentity.Id },
     ///         },
-    ///         Identity = new Azure.VideoAnalyzer.Inputs.AnalyzerIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             { "type", "UserAssigned" },
+    ///             { "identityIds", new[]
     ///             {
     ///                 exampleUserAssignedIdentity.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

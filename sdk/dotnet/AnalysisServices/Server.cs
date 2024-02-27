@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AnalysisServices
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "analysis-services-server-test",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var server = new Azure.AnalysisServices.Server("server", new()
+    ///     var server = new Azure.Analysisservices.Server.Server("server", new()
     ///     {
     ///         Name = "analysisservicesserver",
     ///         Location = example.Location,
@@ -41,16 +41,16 @@ namespace Pulumi.Azure.AnalysisServices
     ///         EnablePowerBiService = true,
     ///         Ipv4FirewallRules = new[]
     ///         {
-    ///             new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
+    ///             
     ///             {
-    ///                 Name = "myRule1",
-    ///                 RangeStart = "210.117.252.0",
-    ///                 RangeEnd = "210.117.252.255",
+    ///                 { "name", "myRule1" },
+    ///                 { "rangeStart", "210.117.252.0" },
+    ///                 { "rangeEnd", "210.117.252.255" },
     ///             },
     ///         },
     ///         Tags = 
     ///         {
-    ///             { "abc", "123" },
+    ///             { "abc", 123 },
     ///         },
     ///     });
     /// 

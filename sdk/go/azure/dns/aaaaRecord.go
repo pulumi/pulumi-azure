@@ -19,44 +19,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/aaaaRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/aaaaRecord"
+//	dns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
-//				Name:              pulumi.String("mydomain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dns.NewAaaaRecord(ctx, "example", &dns.AaaaRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					pulumi.String("2001:db8::1:0:0:1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := dns/zone.NewZone(ctx, "example", &dns/zone.ZoneArgs{
+// Name: "mydomain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dns/aaaaRecord.NewAaaaRecord(ctx, "example", &dns/aaaaRecord.AaaaRecordArgs{
+// Name: "test",
+// ZoneName: exampleZone.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Records: []string{
+// "2001:db8::1:0:0:1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Alias Record)
 //
@@ -65,53 +64,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/aaaaRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/aaaaRecord"
+//	dns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/zone"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
-//				Name:              pulumi.String("mydomain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("mypublicip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Dynamic"),
-//				IpVersion:         pulumi.String("IPv6"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dns.NewAaaaRecord(ctx, "example", &dns.AaaaRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				TargetResourceId:  examplePublicIp.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := dns/zone.NewZone(ctx, "example", &dns/zone.ZoneArgs{
+// Name: "mydomain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "mypublicip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Dynamic",
+// IpVersion: "IPv6",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dns/aaaaRecord.NewAaaaRecord(ctx, "example", &dns/aaaaRecord.AaaaRecordArgs{
+// Name: "test",
+// ZoneName: exampleZone.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// TargetResourceId: examplePublicIp.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

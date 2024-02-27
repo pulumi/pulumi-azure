@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .eventsOutOfOrderPolicy(&#34;Adjust&#34;)
  *             .outputErrorPolicy(&#34;Drop&#34;)
  *             .streamingUnits(3)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .transformationQuery(&#34;&#34;&#34;
  *     SELECT *
  *     INTO [YourOutputAlias]

@@ -29,12 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.storage.inputs.AccountBlobPropertiesArgs;
  * import com.pulumi.azure.storage.Container;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.storage.BlobInventoryPolicy;
  * import com.pulumi.azure.storage.BlobInventoryPolicyArgs;
- * import com.pulumi.azure.storage.inputs.BlobInventoryPolicyRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,9 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
- *             .blobProperties(AccountBlobPropertiesArgs.builder()
- *                 .versioningEnabled(true)
- *                 .build())
+ *             .blobProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
@@ -72,16 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBlobInventoryPolicy = new BlobInventoryPolicy(&#34;exampleBlobInventoryPolicy&#34;, BlobInventoryPolicyArgs.builder()        
  *             .storageAccountId(exampleAccount.id())
- *             .rules(BlobInventoryPolicyRuleArgs.builder()
- *                 .name(&#34;rule1&#34;)
- *                 .storageContainerName(exampleContainer.name())
- *                 .format(&#34;Csv&#34;)
- *                 .schedule(&#34;Daily&#34;)
- *                 .scope(&#34;Container&#34;)
- *                 .schemaFields(                
- *                     &#34;Name&#34;,
- *                     &#34;Last-Modified&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

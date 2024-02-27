@@ -22,13 +22,13 @@ namespace Pulumi.Azure.NotificationHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "notificationhub-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Notificationhub.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "myappnamespace",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.NotificationHub
     ///         SkuName = "Free",
     ///     });
     /// 
-    ///     var exampleHub = new Azure.NotificationHub.Hub("example", new()
+    ///     var exampleHub = new Azure.Notificationhub.Hub.Hub("example", new()
     ///     {
     ///         Name = "mynotificationhub",
     ///         NamespaceName = exampleNamespace.Name,

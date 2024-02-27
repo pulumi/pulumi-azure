@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.AppService.SourceCodeToken("example", new()
+    ///     var example = new Azure.Appservice.SourceCodeToken.SourceCodeToken("example", new()
     ///     {
     ///         Type = "GitHub",
     ///         Token = "7e57735e77e577e57",

@@ -15,40 +15,40 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus/namespace.Namespace("example", {
  *     name: "exampleNamespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleTopic = new azure.servicebus.Topic("example", {
+ * const exampleTopic = new azure.servicebus/topic.Topic("example", {
  *     name: "exampleTopic",
  *     namespaceId: exampleNamespace.id,
  * });
- * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("example", {
+ * const exampleTopicAuthorizationRule = new azure.servicebus/topicAuthorizationRule.TopicAuthorizationRule("example", {
  *     name: "exampleRule",
  *     topicId: exampleTopic.id,
  *     listen: false,
  *     send: true,
  *     manage: false,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "exampleIothub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "B1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  *     tags: {
  *         purpose: "example",
  *     },
  * });
- * const exampleEndpointServicebusTopic = new azure.iot.EndpointServicebusTopic("example", {
+ * const exampleEndpointServicebusTopic = new azure.iot/endpointServicebusTopic.EndpointServicebusTopic("example", {
  *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,
  *     name: "example",

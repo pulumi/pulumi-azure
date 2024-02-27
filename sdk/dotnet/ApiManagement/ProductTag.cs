@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
     ///     {
     ///         Name = "example-apim",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleProduct = new Azure.ApiManagement.Product("example", new()
+    ///     var exampleProduct = new Azure.Apimanagement.Product.Product("example", new()
     ///     {
     ///         ProductId = "test-product",
     ///         ApiManagementName = exampleService.Name,
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.ApiManagement
     ///         Published = true,
     ///     });
     /// 
-    ///     var exampleTag = new Azure.ApiManagement.Tag("example", new()
+    ///     var exampleTag = new Azure.Apimanagement.Tag.Tag("example", new()
     ///     {
     ///         ApiManagementId = exampleService.Id,
     ///         Name = "example-tag",
     ///     });
     /// 
-    ///     var exampleProductTag = new Azure.ApiManagement.ProductTag("example", new()
+    ///     var exampleProductTag = new Azure.Apimanagement.ProductTag.ProductTag("example", new()
     ///     {
     ///         ApiManagementProductId = exampleProduct.ProductId,
     ///         ApiManagementName = exampleService.Name,

@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.apimanagement.Service("example", {
+ * const exampleService = new azure.apimanagement/service.Service("example", {
  *     name: "example-apim",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApplication = new azuread.Application("example", {displayName: "acctestam-example"});
- * const exampleApplicationPassword = new azuread.ApplicationPassword("example", {
+ * const exampleApplication = new azuread.index/application.Application("example", {displayName: "acctestam-example"});
+ * const exampleApplicationPassword = new azuread.index/applicationPassword.ApplicationPassword("example", {
  *     applicationObjectId: exampleApplication.objectId,
  *     endDateRelative: "36h",
  * });
- * const exampleIdentityProviderAadb2c = new azure.apimanagement.IdentityProviderAadb2c("example", {
+ * const exampleIdentityProviderAadb2c = new azure.apimanagement/identityProviderAadb2c.IdentityProviderAadb2c("example", {
  *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     clientId: exampleApplication.applicationId,

@@ -187,29 +187,29 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-datadog",
-            location="West US 2")
-        example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-datadog,
+            location=West US 2)
+        example_monitor = azure.datadog.monitor.Monitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("example",
+            datadog_organization={
+                apiKey: XXXX,
+                applicationKey: XXXX,
+            },
+            user={
+                name: Example,
+                email: abc@xyz.com,
+            },
+            sku_name=Linked,
+            identity={
+                type: SystemAssigned,
+            })
+        example_monitor_sso_configuration = azure.datadog.monitor_sso_configuration.MonitorSsoConfiguration("example",
             datadog_monitor_id=example_monitor.id,
-            single_sign_on_enabled="Enable",
-            enterprise_application_id="XXXX")
+            single_sign_on_enabled=Enable,
+            enterprise_application_id=XXXX)
         ```
 
         ## Import
@@ -242,29 +242,29 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-datadog",
-            location="West US 2")
-        example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-datadog,
+            location=West US 2)
+        example_monitor = azure.datadog.monitor.Monitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("example",
+            datadog_organization={
+                apiKey: XXXX,
+                applicationKey: XXXX,
+            },
+            user={
+                name: Example,
+                email: abc@xyz.com,
+            },
+            sku_name=Linked,
+            identity={
+                type: SystemAssigned,
+            })
+        example_monitor_sso_configuration = azure.datadog.monitor_sso_configuration.MonitorSsoConfiguration("example",
             datadog_monitor_id=example_monitor.id,
-            single_sign_on_enabled="Enable",
-            enterprise_application_id="XXXX")
+            single_sign_on_enabled=Enable,
+            enterprise_application_id=XXXX)
         ```
 
         ## Import

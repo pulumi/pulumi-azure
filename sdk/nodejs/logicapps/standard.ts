@@ -16,18 +16,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "azure-functions-test-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "functionsapptestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "azure-functions-test-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *         size: "WS1",
  *     },
  * });
- * const exampleStandard = new azure.logicapps.Standard("example", {
+ * const exampleStandard = new azure.logicapps/standard.Standard("example", {
  *     name: "test-azure-functions",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -58,18 +58,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "azure-functions-test-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "functionsapptestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "azure-functions-test-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *         size: "WS1",
  *     },
  * });
- * const exampleStandard = new azure.logicapps.Standard("example", {
+ * const exampleStandard = new azure.logicapps/standard.Standard("example", {
  *     name: "test-azure-functions",
  *     location: example.location,
  *     resourceGroupName: example.name,

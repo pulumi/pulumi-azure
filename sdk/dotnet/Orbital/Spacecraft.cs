@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Orbital
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("example", new()
+    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft.Spacecraft("example", new()
     ///     {
     ///         Name = "example-spacecraft",
     ///         ResourceGroupName = example.Name,
@@ -36,13 +36,13 @@ namespace Pulumi.Azure.Orbital
     ///         NoradId = "12345",
     ///         Links = new[]
     ///         {
-    ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
+    ///             
     ///             {
-    ///                 BandwidthMhz = 30,
-    ///                 CenterFrequencyMhz = 2050,
-    ///                 Direction = "Uplink",
-    ///                 Polarization = "LHCP",
-    ///                 Name = "examplename",
+    ///                 { "bandwidthMhz", 30 },
+    ///                 { "centerFrequencyMhz", 2050 },
+    ///                 { "direction", "Uplink" },
+    ///                 { "polarization", "LHCP" },
+    ///                 { "name", "examplename" },
     ///             },
     ///         },
     ///         TwoLineElements = new[]

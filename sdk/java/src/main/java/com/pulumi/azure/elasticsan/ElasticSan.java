@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.elasticsan.ElasticSan;
  * import com.pulumi.azure.elasticsan.ElasticSanArgs;
- * import com.pulumi.azure.elasticsan.inputs.ElasticSanSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,9 +56,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .baseSizeInTib(1)
  *             .extendedSizeInTib(2)
- *             .sku(ElasticSanSkuArgs.builder()
- *                 .name(&#34;example-value&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

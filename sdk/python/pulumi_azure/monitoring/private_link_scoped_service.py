@@ -171,19 +171,19 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_private_link_scope = azure.monitoring.PrivateLinkScope("example",
-            name="example-ampls",
+            application_type=web)
+        example_private_link_scope = azure.monitoring.private_link_scope.PrivateLinkScope("example",
+            name=example-ampls,
             resource_group_name=example.name)
-        example_private_link_scoped_service = azure.monitoring.PrivateLinkScopedService("example",
-            name="example-amplsservice",
+        example_private_link_scoped_service = azure.monitoring.private_link_scoped_service.PrivateLinkScopedService("example",
+            name=example-amplsservice,
             resource_group_name=example.name,
             scope_name=example_private_link_scope.name,
             linked_resource_id=example_insights.id)
@@ -219,19 +219,19 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_private_link_scope = azure.monitoring.PrivateLinkScope("example",
-            name="example-ampls",
+            application_type=web)
+        example_private_link_scope = azure.monitoring.private_link_scope.PrivateLinkScope("example",
+            name=example-ampls,
             resource_group_name=example.name)
-        example_private_link_scoped_service = azure.monitoring.PrivateLinkScopedService("example",
-            name="example-amplsservice",
+        example_private_link_scoped_service = azure.monitoring.private_link_scoped_service.PrivateLinkScopedService("example",
+            name=example-amplsservice,
             resource_group_name=example.name,
             scope_name=example_private_link_scope.name,
             linked_resource_id=example_insights.id)

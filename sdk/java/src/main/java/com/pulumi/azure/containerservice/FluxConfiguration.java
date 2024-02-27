@@ -34,14 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.containerservice.KubernetesClusterExtension;
  * import com.pulumi.azure.containerservice.KubernetesClusterExtensionArgs;
  * import com.pulumi.azure.containerservice.FluxConfiguration;
  * import com.pulumi.azure.containerservice.FluxConfigurationArgs;
- * import com.pulumi.azure.containerservice.inputs.FluxConfigurationGitRepositoryArgs;
- * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,14 +61,8 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;example-aks&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
- *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension(&#34;exampleKubernetesClusterExtension&#34;, KubernetesClusterExtensionArgs.builder()        
@@ -85,14 +75,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-fc&#34;)
  *             .clusterId(test.id())
  *             .namespace(&#34;flux&#34;)
- *             .gitRepository(FluxConfigurationGitRepositoryArgs.builder()
- *                 .url(&#34;https://github.com/Azure/arc-k8s-demo&#34;)
- *                 .referenceType(&#34;branch&#34;)
- *                 .referenceValue(&#34;main&#34;)
- *                 .build())
- *             .kustomizations(FluxConfigurationKustomizationArgs.builder()
- *                 .name(&#34;kustomization-1&#34;)
- *                 .build())
+ *             .gitRepository(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .kustomizations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

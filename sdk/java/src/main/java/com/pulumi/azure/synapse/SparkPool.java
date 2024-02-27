@@ -39,13 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
  * import com.pulumi.azure.synapse.Workspace;
  * import com.pulumi.azure.synapse.WorkspaceArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.SparkPool;
  * import com.pulumi.azure.synapse.SparkPoolArgs;
- * import com.pulumi.azure.synapse.inputs.SparkPoolAutoScaleArgs;
- * import com.pulumi.azure.synapse.inputs.SparkPoolAutoPauseArgs;
- * import com.pulumi.azure.synapse.inputs.SparkPoolLibraryRequirementArgs;
- * import com.pulumi.azure.synapse.inputs.SparkPoolSparkConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,9 +81,7 @@ import javax.annotation.Nullable;
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSparkPool = new SparkPool(&#34;exampleSparkPool&#34;, SparkPoolArgs.builder()        
@@ -97,27 +90,11 @@ import javax.annotation.Nullable;
  *             .nodeSizeFamily(&#34;MemoryOptimized&#34;)
  *             .nodeSize(&#34;Small&#34;)
  *             .cacheSize(100)
- *             .autoScale(SparkPoolAutoScaleArgs.builder()
- *                 .maxNodeCount(50)
- *                 .minNodeCount(3)
- *                 .build())
- *             .autoPause(SparkPoolAutoPauseArgs.builder()
- *                 .delayInMinutes(15)
- *                 .build())
- *             .libraryRequirement(SparkPoolLibraryRequirementArgs.builder()
- *                 .content(&#34;&#34;&#34;
- * appnope==0.1.0
- * beautifulsoup4==4.6.3
- *                 &#34;&#34;&#34;)
- *                 .filename(&#34;requirements.txt&#34;)
- *                 .build())
- *             .sparkConfig(SparkPoolSparkConfigArgs.builder()
- *                 .content(&#34;&#34;&#34;
- * spark.shuffle.spill                true
- *                 &#34;&#34;&#34;)
- *                 .filename(&#34;config.txt&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;ENV&#34;, &#34;Production&#34;))
+ *             .autoScale(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .autoPause(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .libraryRequirement(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sparkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

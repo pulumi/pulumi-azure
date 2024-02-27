@@ -310,22 +310,22 @@ class AuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="notificationhub-resources",
-            location="West Europe")
-        example_namespace = azure.notificationhub.Namespace("example",
-            name="myappnamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=notificationhub-resources,
+            location=West Europe)
+        example_namespace = azure.notificationhub.namespace.Namespace("example",
+            name=myappnamespace,
             resource_group_name=example.name,
             location=example.location,
-            namespace_type="NotificationHub",
-            sku_name="Free")
-        example_hub = azure.notificationhub.Hub("example",
-            name="mynotificationhub",
+            namespace_type=NotificationHub,
+            sku_name=Free)
+        example_hub = azure.notificationhub.hub.Hub("example",
+            name=mynotificationhub,
             namespace_name=example_namespace.name,
             resource_group_name=example.name,
             location=example.location)
-        example_authorization_rule = azure.notificationhub.AuthorizationRule("example",
-            name="management-auth-rule",
+        example_authorization_rule = azure.notificationhub.authorization_rule.AuthorizationRule("example",
+            name=management-auth-rule,
             notification_hub_name=example_hub.name,
             namespace_name=example_namespace.name,
             resource_group_name=example.name,
@@ -369,22 +369,22 @@ class AuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="notificationhub-resources",
-            location="West Europe")
-        example_namespace = azure.notificationhub.Namespace("example",
-            name="myappnamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=notificationhub-resources,
+            location=West Europe)
+        example_namespace = azure.notificationhub.namespace.Namespace("example",
+            name=myappnamespace,
             resource_group_name=example.name,
             location=example.location,
-            namespace_type="NotificationHub",
-            sku_name="Free")
-        example_hub = azure.notificationhub.Hub("example",
-            name="mynotificationhub",
+            namespace_type=NotificationHub,
+            sku_name=Free)
+        example_hub = azure.notificationhub.hub.Hub("example",
+            name=mynotificationhub,
             namespace_name=example_namespace.name,
             resource_group_name=example.name,
             location=example.location)
-        example_authorization_rule = azure.notificationhub.AuthorizationRule("example",
-            name="management-auth-rule",
+        example_authorization_rule = azure.notificationhub.authorization_rule.AuthorizationRule("example",
+            name=management-auth-rule,
             notification_hub_name=example_hub.name,
             namespace_name=example_namespace.name,
             resource_group_name=example.name,

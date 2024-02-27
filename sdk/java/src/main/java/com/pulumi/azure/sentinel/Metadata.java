@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
  * import com.pulumi.azure.sentinel.AlertRuleNrt;
  * import com.pulumi.azure.sentinel.AlertRuleNrtArgs;
  * import com.pulumi.azure.sentinel.Metadata;
@@ -71,10 +70,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAlertRuleNrt = new AlertRuleNrt(&#34;exampleAlertRuleNrt&#34;, AlertRuleNrtArgs.builder()        

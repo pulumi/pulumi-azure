@@ -22,32 +22,32 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleIotHubDeviceUpdateAccount = new Azure.Iot.IotHubDeviceUpdateAccount("example", new()
+    ///     var exampleIotHubDeviceUpdateAccount = new Azure.Iot.IotHubDeviceUpdateAccount.IotHubDeviceUpdateAccount("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
+    ///             { "name", "S1" },
+    ///             { "capacity", "1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -56,16 +56,16 @@ namespace Pulumi.Azure.Iot
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleIotHubDeviceUpdateInstance = new Azure.Iot.IotHubDeviceUpdateInstance("example", new()
+    ///     var exampleIotHubDeviceUpdateInstance = new Azure.Iot.IotHubDeviceUpdateInstance.IotHubDeviceUpdateInstance("example", new()
     ///     {
     ///         Name = "example",
     ///         DeviceUpdateAccountId = exampleIotHubDeviceUpdateAccount.Id,
     ///         IothubId = exampleIoTHub.Id,
     ///         DiagnosticEnabled = true,
-    ///         DiagnosticStorageAccount = new Azure.Iot.Inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs
+    ///         DiagnosticStorageAccount = 
     ///         {
-    ///             ConnectionString = exampleAccount.PrimaryConnectionString,
-    ///             Id = exampleAccount.Id,
+    ///             { "connectionString", exampleAccount.PrimaryConnectionString },
+    ///             { "id", exampleAccount.Id },
     ///         },
     ///         Tags = 
     ///         {

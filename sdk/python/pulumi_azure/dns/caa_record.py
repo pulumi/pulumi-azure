@@ -252,41 +252,41 @@ class CaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_caa_record = azure.dns.CaaRecord("example",
-            name="test",
+        example_caa_record = azure.dns.caa_record.CaaRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.com",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.net",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issuewild",
-                    value=";",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="iodef",
-                    value="mailto:user@nonexisting.tld",
-                ),
+                {
+                    flags: 0,
+                    tag: issue,
+                    value: example.com,
+                },
+                {
+                    flags: 0,
+                    tag: issue,
+                    value: example.net,
+                },
+                {
+                    flags: 0,
+                    tag: issuewild,
+                    value: ;,
+                },
+                {
+                    flags: 0,
+                    tag: iodef,
+                    value: mailto:user@nonexisting.tld,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -320,41 +320,41 @@ class CaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_caa_record = azure.dns.CaaRecord("example",
-            name="test",
+        example_caa_record = azure.dns.caa_record.CaaRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.com",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.net",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issuewild",
-                    value=";",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="iodef",
-                    value="mailto:user@nonexisting.tld",
-                ),
+                {
+                    flags: 0,
+                    tag: issue,
+                    value: example.com,
+                },
+                {
+                    flags: 0,
+                    tag: issue,
+                    value: example.net,
+                },
+                {
+                    flags: 0,
+                    tag: issuewild,
+                    value: ;,
+                },
+                {
+                    flags: 0,
+                    tag: iodef,
+                    value: mailto:user@nonexisting.tld,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

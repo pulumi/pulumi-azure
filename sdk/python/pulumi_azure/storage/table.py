@@ -142,17 +142,17 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azuretest",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureteststorage1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azuretest,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage1,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("example",
-            name="mysampletable",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_table = azure.storage.table.Table("example",
+            name=mysampletable,
             storage_account_name=example_account.name)
         ```
 
@@ -185,17 +185,17 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azuretest",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureteststorage1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azuretest,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage1,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("example",
-            name="mysampletable",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_table = azure.storage.table.Table("example",
+            name=mysampletable,
             storage_account_name=example_account.name)
         ```
 

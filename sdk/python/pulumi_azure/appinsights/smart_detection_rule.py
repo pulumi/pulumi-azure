@@ -214,16 +214,16 @@ class SmartDetectionRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_smart_detection_rule = azure.appinsights.SmartDetectionRule("example",
-            name="Slow server response time",
+            application_type=web)
+        example_smart_detection_rule = azure.appinsights.smart_detection_rule.SmartDetectionRule("example",
+            name=Slow server response time,
             application_insights_id=example_insights.id,
             enabled=False)
         ```
@@ -261,16 +261,16 @@ class SmartDetectionRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_smart_detection_rule = azure.appinsights.SmartDetectionRule("example",
-            name="Slow server response time",
+            application_type=web)
+        example_smart_detection_rule = azure.appinsights.smart_detection_rule.SmartDetectionRule("example",
+            name=Slow server response time,
             application_insights_id=example_insights.id,
             enabled=False)
         ```

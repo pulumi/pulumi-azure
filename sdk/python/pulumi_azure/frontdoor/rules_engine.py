@@ -221,84 +221,84 @@ class RulesEngine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_frontdoor = azure.frontdoor.frontdoor.Frontdoor("example",
+            name=example,
             resource_group_name=example.name,
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )],
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
+            backend_pools=[{
+                name: exampleBackendBing,
+                loadBalancingName: exampleLoadBalancingSettings1,
+                healthProbeName: exampleHealthProbeSetting1,
+                backends: [{
+                    hostHeader: www.bing.com,
+                    address: www.bing.com,
+                    httpPort: 80,
+                    httpsPort: 443,
+                }],
+            }],
+            backend_pool_health_probes=[{
+                name: exampleHealthProbeSetting1,
+            }],
+            backend_pool_load_balancings=[{
+                name: exampleLoadBalancingSettings1,
+            }],
+            frontend_endpoints=[{
+                name: exampleFrontendEndpoint1,
+                hostName: example-FrontDoor.azurefd.net,
+            }],
+            routing_rules=[{
+                name: exampleRoutingRule1,
+                acceptedProtocols: [
+                    Http,
+                    Https,
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-            )])
-        example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
-            name="exampleRulesEngineConfig1",
+                patternsToMatches: [/*],
+                frontendEndpoints: [exampleFrontendEndpoint1],
+            }])
+        example_rules_engine = azure.frontdoor.rules_engine.RulesEngine("example_rules_engine",
+            name=exampleRulesEngineConfig1,
             frontdoor_name=example_frontdoor.name,
             resource_group_name=example_frontdoor.resource_group_name,
             rules=[
-                azure.frontdoor.RulesEngineRuleArgs(
-                    name="debuggingoutput",
-                    priority=1,
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
-                            header_action_type="Append",
-                            header_name="X-TEST-HEADER",
-                            value="Append Header Rule",
-                        )],
-                    ),
-                ),
-                azure.frontdoor.RulesEngineRuleArgs(
-                    name="overwriteorigin",
-                    priority=2,
-                    match_conditions=[azure.frontdoor.RulesEngineRuleMatchConditionArgs(
-                        variable="RequestMethod",
-                        operator="Equal",
-                        values=[
-                            "GET",
-                            "POST",
+                {
+                    name: debuggingoutput,
+                    priority: 1,
+                    action: {
+                        responseHeaders: [{
+                            headerActionType: Append,
+                            headerName: X-TEST-HEADER,
+                            value: Append Header Rule,
+                        }],
+                    },
+                },
+                {
+                    name: overwriteorigin,
+                    priority: 2,
+                    matchConditions: [{
+                        variable: RequestMethod,
+                        operator: Equal,
+                        values: [
+                            GET,
+                            POST,
                         ],
-                    )],
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_headers=[
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
-                                header_action_type="Overwrite",
-                                header_name="Access-Control-Allow-Origin",
-                                value="*",
-                            ),
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
-                                header_action_type="Overwrite",
-                                header_name="Access-Control-Allow-Credentials",
-                                value="true",
-                            ),
+                    }],
+                    action: {
+                        responseHeaders: [
+                            {
+                                headerActionType: Overwrite,
+                                headerName: Access-Control-Allow-Origin,
+                                value: *,
+                            },
+                            {
+                                headerActionType: Overwrite,
+                                headerName: Access-Control-Allow-Credentials,
+                                value: true,
+                            },
                         ],
-                    ),
-                ),
+                    },
+                },
             ])
         ```
 
@@ -335,84 +335,84 @@ class RulesEngine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_frontdoor = azure.frontdoor.frontdoor.Frontdoor("example",
+            name=example,
             resource_group_name=example.name,
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )],
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
+            backend_pools=[{
+                name: exampleBackendBing,
+                loadBalancingName: exampleLoadBalancingSettings1,
+                healthProbeName: exampleHealthProbeSetting1,
+                backends: [{
+                    hostHeader: www.bing.com,
+                    address: www.bing.com,
+                    httpPort: 80,
+                    httpsPort: 443,
+                }],
+            }],
+            backend_pool_health_probes=[{
+                name: exampleHealthProbeSetting1,
+            }],
+            backend_pool_load_balancings=[{
+                name: exampleLoadBalancingSettings1,
+            }],
+            frontend_endpoints=[{
+                name: exampleFrontendEndpoint1,
+                hostName: example-FrontDoor.azurefd.net,
+            }],
+            routing_rules=[{
+                name: exampleRoutingRule1,
+                acceptedProtocols: [
+                    Http,
+                    Https,
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-            )])
-        example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
-            name="exampleRulesEngineConfig1",
+                patternsToMatches: [/*],
+                frontendEndpoints: [exampleFrontendEndpoint1],
+            }])
+        example_rules_engine = azure.frontdoor.rules_engine.RulesEngine("example_rules_engine",
+            name=exampleRulesEngineConfig1,
             frontdoor_name=example_frontdoor.name,
             resource_group_name=example_frontdoor.resource_group_name,
             rules=[
-                azure.frontdoor.RulesEngineRuleArgs(
-                    name="debuggingoutput",
-                    priority=1,
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
-                            header_action_type="Append",
-                            header_name="X-TEST-HEADER",
-                            value="Append Header Rule",
-                        )],
-                    ),
-                ),
-                azure.frontdoor.RulesEngineRuleArgs(
-                    name="overwriteorigin",
-                    priority=2,
-                    match_conditions=[azure.frontdoor.RulesEngineRuleMatchConditionArgs(
-                        variable="RequestMethod",
-                        operator="Equal",
-                        values=[
-                            "GET",
-                            "POST",
+                {
+                    name: debuggingoutput,
+                    priority: 1,
+                    action: {
+                        responseHeaders: [{
+                            headerActionType: Append,
+                            headerName: X-TEST-HEADER,
+                            value: Append Header Rule,
+                        }],
+                    },
+                },
+                {
+                    name: overwriteorigin,
+                    priority: 2,
+                    matchConditions: [{
+                        variable: RequestMethod,
+                        operator: Equal,
+                        values: [
+                            GET,
+                            POST,
                         ],
-                    )],
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_headers=[
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
-                                header_action_type="Overwrite",
-                                header_name="Access-Control-Allow-Origin",
-                                value="*",
-                            ),
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
-                                header_action_type="Overwrite",
-                                header_name="Access-Control-Allow-Credentials",
-                                value="true",
-                            ),
+                    }],
+                    action: {
+                        responseHeaders: [
+                            {
+                                headerActionType: Overwrite,
+                                headerName: Access-Control-Allow-Origin,
+                                value: *,
+                            },
+                            {
+                                headerActionType: Overwrite,
+                                headerName: Access-Control-Allow-Credentials,
+                                value: true,
+                            },
                         ],
-                    ),
-                ),
+                    },
+                },
             ])
         ```
 

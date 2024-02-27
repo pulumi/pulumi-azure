@@ -22,23 +22,23 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "snapshot-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk.ManagedDisk("example", new()
     ///     {
     ///         Name = "managed-disk",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
-    ///         DiskSizeGb = 10,
+    ///         DiskSizeGb = "10",
     ///     });
     /// 
-    ///     var exampleSnapshot = new Azure.Compute.Snapshot("example", new()
+    ///     var exampleSnapshot = new Azure.Compute.Snapshot.Snapshot("example", new()
     ///     {
     ///         Name = "snapshot",
     ///         Location = example.Location,

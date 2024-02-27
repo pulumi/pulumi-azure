@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleDevice = new azure.databoxedge.Device("example", {
+ * const exampleDevice = new azure.databoxedge/device.Device("example", {
  *     name: "example-device",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     skuName: "EdgeP_Base-Standard",
  * });
- * const exampleNetwork = new azure.mobile.Network("example", {
+ * const exampleNetwork = new azure.mobile/network.Network("example", {
  *     name: "example-mn",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleNetworkSite = new azure.mobile.NetworkSite("example", {
+ * const exampleNetworkSite = new azure.mobile/networkSite.NetworkSite("example", {
  *     name: "example-mns",
  *     mobileNetworkId: exampleNetwork.id,
  *     location: example.location,

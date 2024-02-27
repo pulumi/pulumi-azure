@@ -520,40 +520,40 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_linux_virtual_machine_scale_set = azure.compute.linux_virtual_machine_scale_set.LinuxVirtualMachineScaleSet("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
-            admin_username="adminuser",
+            sku=Standard_F2,
+            admin_username=adminuser,
             instances=1,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ))
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
-            name="example",
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            network_interfaces=[{
+                name: example,
+                ipConfigurations: [{
+                    name: internal,
+                }],
+            }],
+            os_disk={
+                storageAccountType: Standard_LRS,
+                caching: ReadWrite,
+            })
+        example_virtual_machine_scale_set_extension = azure.compute.virtual_machine_scale_set_extension.VirtualMachineScaleSetExtension("example",
+            name=example,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.Extensions",
-            type="CustomScript",
-            type_handler_version="2.0",
+            publisher=Microsoft.Azure.Extensions,
+            type=CustomScript,
+            type_handler_version=2.0,
             settings=json.dumps({
-                "commandToExecute": "echo $HOSTNAME",
+                commandToExecute: echo $HOSTNAME,
             }))
         ```
 
@@ -611,40 +611,40 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_linux_virtual_machine_scale_set = azure.compute.linux_virtual_machine_scale_set.LinuxVirtualMachineScaleSet("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
-            admin_username="adminuser",
+            sku=Standard_F2,
+            admin_username=adminuser,
             instances=1,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ))
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
-            name="example",
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            network_interfaces=[{
+                name: example,
+                ipConfigurations: [{
+                    name: internal,
+                }],
+            }],
+            os_disk={
+                storageAccountType: Standard_LRS,
+                caching: ReadWrite,
+            })
+        example_virtual_machine_scale_set_extension = azure.compute.virtual_machine_scale_set_extension.VirtualMachineScaleSetExtension("example",
+            name=example,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.Extensions",
-            type="CustomScript",
-            type_handler_version="2.0",
+            publisher=Microsoft.Azure.Extensions,
+            type=CustomScript,
+            type_handler_version=2.0,
             settings=json.dumps({
-                "commandToExecute": "echo $HOSTNAME",
+                commandToExecute: echo $HOSTNAME,
             }))
         ```
 

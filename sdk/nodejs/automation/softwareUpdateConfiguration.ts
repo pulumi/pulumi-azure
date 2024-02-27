@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "East US",
  * });
- * const exampleAccount = new azure.automation.Account("example", {
+ * const exampleAccount = new azure.automation/account.Account("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleRunBook = new azure.automation.RunBook("example", {
+ * const exampleRunBook = new azure.automation/runBook.RunBook("example", {
  *     name: "Get-AzureVMTutorial",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
- *     logVerbose: true,
- *     logProgress: true,
+ *     logVerbose: "true",
+ *     logProgress: "true",
  *     description: "This is a example runbook for terraform acceptance example",
  *     runbookType: "Python3",
  *     content: `# Some example content
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         ENV: "runbook_test",
  *     },
  * });
- * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("example", {
+ * const exampleSoftwareUpdateConfiguration = new azure.automation/softwareUpdateConfiguration.SoftwareUpdateConfiguration("example", {
  *     name: "example",
  *     automationAccountId: exampleAccount.id,
  *     operatingSystem: "Linux",

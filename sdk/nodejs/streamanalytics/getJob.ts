@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Stream Analytics Job.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: "example-resources",
- * });
- * export const jobId = example.then(example => example.jobId);
- * ```
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -118,19 +105,6 @@ export interface GetJobResult {
 }
 /**
  * Use this data source to access information about an existing Stream Analytics Job.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: "example-resources",
- * });
- * export const jobId = example.then(example => example.jobId);
- * ```
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))

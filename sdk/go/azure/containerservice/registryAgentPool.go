@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/registry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registry"
+//	containerservice/registryAgentPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryAgentPool"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europ"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Premium"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewRegistryAgentPool(ctx, "example", &containerservice.RegistryAgentPoolArgs{
-//				Name:                  pulumi.String("example"),
-//				ResourceGroupName:     example.Name,
-//				Location:              example.Location,
-//				ContainerRegistryName: exampleRegistry.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europ",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistry, err := containerservice/registry.NewRegistry(ctx, "example", &containerservice/registry.RegistryArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Premium",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/registryAgentPool.NewRegistryAgentPool(ctx, "example", &containerservice/registryAgentPool.RegistryAgentPoolArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ContainerRegistryName: exampleRegistry.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

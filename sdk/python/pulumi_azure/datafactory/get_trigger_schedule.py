@@ -189,17 +189,6 @@ def get_trigger_schedule(data_factory_id: Optional[str] = None,
     """
     Use this data source to access information about a trigger schedule in Azure Data Factory.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.datafactory.get_trigger_schedule(name="example_trigger",
-        data_factory_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str data_factory_id: The ID of the Azure Data Factory to fetch trigger schedule from.
     :param str name: The name of the trigger schedule.
@@ -232,17 +221,6 @@ def get_trigger_schedule_output(data_factory_id: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerScheduleResult]:
     """
     Use this data source to access information about a trigger schedule in Azure Data Factory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.datafactory.get_trigger_schedule(name="example_trigger",
-        data_factory_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str data_factory_id: The ID of the Azure Data Factory to fetch trigger schedule from.

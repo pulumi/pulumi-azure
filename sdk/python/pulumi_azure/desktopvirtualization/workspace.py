@@ -272,15 +272,15 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example-virtualdesktop",
-            location="West Europe")
-        workspace = azure.desktopvirtualization.Workspace("workspace",
-            name="workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example-virtualdesktop,
+            location=West Europe)
+        workspace = azure.desktopvirtualization.workspace.Workspace("workspace",
+            name=workspace,
             location=example.location,
             resource_group_name=example.name,
-            friendly_name="FriendlyName",
-            description="A description of my workspace")
+            friendly_name=FriendlyName,
+            description=A description of my workspace)
         ```
 
         ## Import
@@ -316,15 +316,15 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example-virtualdesktop",
-            location="West Europe")
-        workspace = azure.desktopvirtualization.Workspace("workspace",
-            name="workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example-virtualdesktop,
+            location=West Europe)
+        workspace = azure.desktopvirtualization.workspace.Workspace("workspace",
+            name=workspace,
             location=example.location,
             resource_group_name=example.name,
-            friendly_name="FriendlyName",
-            description="A description of my workspace")
+            friendly_name=FriendlyName,
+            description=A description of my workspace)
         ```
 
         ## Import

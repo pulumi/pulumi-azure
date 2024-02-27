@@ -231,35 +231,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
 
         > **Note:** The `sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_managed_instance = azure.sql.ManagedInstance("example",
-            name="managedsqlinstance",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_azurerm_subnet["id"],
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32)
-        current = azure.core.get_client_config()
-        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("example",
-            managed_instance_name=example_managed_instance.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -287,35 +258,6 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance.
 
         > **Note:** The `sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_managed_instance = azure.sql.ManagedInstance("example",
-            name="managedsqlinstance",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_azurerm_subnet["id"],
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32)
-        current = azure.core.get_client_config()
-        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("example",
-            managed_instance_name=example_managed_instance.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
 
         ## Import
 

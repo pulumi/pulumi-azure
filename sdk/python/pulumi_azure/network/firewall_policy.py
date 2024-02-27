@@ -652,11 +652,11 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_firewall_policy = azure.network.FirewallPolicy("example",
-            name="example-policy",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_firewall_policy = azure.network.firewall_policy.FirewallPolicy("example",
+            name=example-policy,
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -704,11 +704,11 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_firewall_policy = azure.network.FirewallPolicy("example",
-            name="example-policy",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_firewall_policy = azure.network.firewall_policy.FirewallPolicy("example",
+            name=example-policy,
             resource_group_name=example.name,
             location=example.location)
         ```

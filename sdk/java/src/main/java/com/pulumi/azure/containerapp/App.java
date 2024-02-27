@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.EnvironmentArgs;
  * import com.pulumi.azure.containerapp.App;
  * import com.pulumi.azure.containerapp.AppArgs;
- * import com.pulumi.azure.containerapp.inputs.AppTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,14 +78,7 @@ import javax.annotation.Nullable;
  *             .containerAppEnvironmentId(exampleEnvironment.id())
  *             .resourceGroupName(example.name())
  *             .revisionMode(&#34;Single&#34;)
- *             .template(AppTemplateArgs.builder()
- *                 .containers(AppTemplateContainerArgs.builder()
- *                     .name(&#34;examplecontainerapp&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/containerapps-helloworld:latest&#34;)
- *                     .cpu(0.25)
- *                     .memory(&#34;0.5Gi&#34;)
- *                     .build())
- *                 .build())
+ *             .template(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

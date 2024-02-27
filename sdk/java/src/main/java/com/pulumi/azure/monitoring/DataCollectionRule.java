@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
  * import com.pulumi.azure.eventhub.EventHubNamespace;
  * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
  * import com.pulumi.azure.eventhub.EventHub;
@@ -52,13 +51,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.DataCollectionEndpointArgs;
  * import com.pulumi.azure.monitoring.DataCollectionRule;
  * import com.pulumi.azure.monitoring.DataCollectionRuleArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsEventHubArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataFlowArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleStreamDeclarationArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleIdentityArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -96,10 +88,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/WindowsEventForwarding&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
@@ -143,112 +132,16 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())
- *             .destinations(DataCollectionRuleDestinationsArgs.builder()
- *                 .logAnalytics(DataCollectionRuleDestinationsLogAnalyticArgs.builder()
- *                     .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *                     .name(&#34;example-destination-log&#34;)
- *                     .build())
- *                 .eventHub(DataCollectionRuleDestinationsEventHubArgs.builder()
- *                     .eventHubId(exampleEventHub.id())
- *                     .name(&#34;example-destination-eventhub&#34;)
- *                     .build())
- *                 .storageBlobs(DataCollectionRuleDestinationsStorageBlobArgs.builder()
- *                     .storageAccountId(exampleAccount.id())
- *                     .containerName(exampleContainer.name())
- *                     .name(&#34;example-destination-storage&#34;)
- *                     .build())
- *                 .azureMonitorMetrics(DataCollectionRuleDestinationsAzureMonitorMetricsArgs.builder()
- *                     .name(&#34;example-destination-metrics&#34;)
- *                     .build())
- *                 .build())
+ *             .destinations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .dataFlows(            
- *                 DataCollectionRuleDataFlowArgs.builder()
- *                     .streams(&#34;Microsoft-InsightsMetrics&#34;)
- *                     .destinations(&#34;example-destination-metrics&#34;)
- *                     .build(),
- *                 DataCollectionRuleDataFlowArgs.builder()
- *                     .streams(                    
- *                         &#34;Microsoft-InsightsMetrics&#34;,
- *                         &#34;Microsoft-Syslog&#34;,
- *                         &#34;Microsoft-Perf&#34;)
- *                     .destinations(&#34;example-destination-log&#34;)
- *                     .build(),
- *                 DataCollectionRuleDataFlowArgs.builder()
- *                     .streams(&#34;Custom-MyTableRawData&#34;)
- *                     .destinations(&#34;example-destination-log&#34;)
- *                     .outputStream(&#34;Microsoft-Syslog&#34;)
- *                     .transformKql(&#34;source | project TimeGenerated = Time, Computer, Message = AdditionalContext&#34;)
- *                     .build())
- *             .dataSources(DataCollectionRuleDataSourcesArgs.builder()
- *                 .syslogs(DataCollectionRuleDataSourcesSyslogArgs.builder()
- *                     .facilityNames(&#34;*&#34;)
- *                     .logLevels(&#34;*&#34;)
- *                     .name(&#34;example-datasource-syslog&#34;)
- *                     .streams(&#34;Microsoft-Syslog&#34;)
- *                     .build())
- *                 .iisLogs(DataCollectionRuleDataSourcesIisLogArgs.builder()
- *                     .streams(&#34;Microsoft-W3CIISLog&#34;)
- *                     .name(&#34;example-datasource-iis&#34;)
- *                     .logDirectories(&#34;C:\\Logs\\W3SVC1&#34;)
- *                     .build())
- *                 .logFiles(DataCollectionRuleDataSourcesLogFileArgs.builder()
- *                     .name(&#34;example-datasource-logfile&#34;)
- *                     .format(&#34;text&#34;)
- *                     .streams(&#34;Custom-MyTableRawData&#34;)
- *                     .filePatterns(&#34;C:\\JavaLogs\\*.log&#34;)
- *                     .settings(DataCollectionRuleDataSourcesLogFileSettingsArgs.builder()
- *                         .text(DataCollectionRuleDataSourcesLogFileSettingsTextArgs.builder()
- *                             .recordStartTimestampFormat(&#34;ISO 8601&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .performanceCounters(DataCollectionRuleDataSourcesPerformanceCounterArgs.builder()
- *                     .streams(                    
- *                         &#34;Microsoft-Perf&#34;,
- *                         &#34;Microsoft-InsightsMetrics&#34;)
- *                     .samplingFrequencyInSeconds(60)
- *                     .counterSpecifiers(&#34;Processor(*)\\% Processor Time&#34;)
- *                     .name(&#34;example-datasource-perfcounter&#34;)
- *                     .build())
- *                 .windowsEventLogs(DataCollectionRuleDataSourcesWindowsEventLogArgs.builder()
- *                     .streams(&#34;Microsoft-WindowsEvent&#34;)
- *                     .xPathQueries(&#34;*![System/Level=1]&#34;)
- *                     .name(&#34;example-datasource-wineventlog&#34;)
- *                     .build())
- *                 .extensions(DataCollectionRuleDataSourcesExtensionArgs.builder()
- *                     .streams(&#34;Microsoft-WindowsEvent&#34;)
- *                     .inputDataSources(&#34;example-datasource-wineventlog&#34;)
- *                     .extensionName(&#34;example-extension-name&#34;)
- *                     .extensionJson(serializeJson(
- *                         jsonObject(
- *                             jsonProperty(&#34;a&#34;, 1),
- *                             jsonProperty(&#34;b&#34;, &#34;hello&#34;)
- *                         )))
- *                     .name(&#34;example-datasource-extension&#34;)
- *                     .build())
- *                 .build())
- *             .streamDeclarations(DataCollectionRuleStreamDeclarationArgs.builder()
- *                 .streamName(&#34;Custom-MyTableRawData&#34;)
- *                 .columns(                
- *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
- *                         .name(&#34;Time&#34;)
- *                         .type(&#34;datetime&#34;)
- *                         .build(),
- *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
- *                         .name(&#34;Computer&#34;)
- *                         .type(&#34;string&#34;)
- *                         .build(),
- *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
- *                         .name(&#34;AdditionalContext&#34;)
- *                         .type(&#34;string&#34;)
- *                         .build())
- *                 .build())
- *             .identity(DataCollectionRuleIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .dataSources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .streamDeclarations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;data collection rule example&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

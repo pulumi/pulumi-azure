@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exampleResourceGroup1",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "exampleAppServicePlan1",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -30,25 +30,25 @@ import * as utilities from "../utilities";
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azure.appservice/appService.AppService("example", {
  *     name: "exampleAppService1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  * });
- * const exampleNamespace = new azure.relay.Namespace("example", {
+ * const exampleNamespace = new azure.relay/namespace.Namespace("example", {
  *     name: "exampleRN1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
+ * const exampleHybridConnection = new azure.relay/hybridConnection.HybridConnection("example", {
  *     name: "exampleRHC1",
  *     resourceGroupName: example.name,
  *     relayNamespaceName: exampleNamespace.name,
  *     userMetadata: "examplemetadata",
  * });
- * const exampleHybridConnection2 = new azure.appservice.HybridConnection("example", {
+ * const exampleHybridConnection2 = new azure.appservice/hybridConnection.HybridConnection("example", {
  *     appServiceName: exampleAppService.name,
  *     resourceGroupName: example.name,
  *     relayId: exampleHybridConnection.id,

@@ -19,47 +19,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	postgresql/flexibleServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/flexibleServer"
+//	postgresql/flexibleServerDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/flexibleServerDatabase"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "example", &postgresql.FlexibleServerArgs{
-//				Name:                  pulumi.String("example-psqlflexibleserver"),
-//				ResourceGroupName:     example.Name,
-//				Location:              example.Location,
-//				Version:               pulumi.String("12"),
-//				AdministratorLogin:    pulumi.String("psqladmin"),
-//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				StorageMb:             pulumi.Int(32768),
-//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewFlexibleServerDatabase(ctx, "example", &postgresql.FlexibleServerDatabaseArgs{
-//				Name:      pulumi.String("example-db"),
-//				ServerId:  exampleFlexibleServer.ID(),
-//				Collation: pulumi.String("en_US.utf8"),
-//				Charset:   pulumi.String("utf8"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFlexibleServer, err := postgresql/flexibleServer.NewFlexibleServer(ctx, "example", &postgresql/flexibleServer.FlexibleServerArgs{
+// Name: "example-psqlflexibleserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12",
+// AdministratorLogin: "psqladmin",
+// AdministratorPassword: "H@Sh1CoR3!",
+// StorageMb: 32768,
+// SkuName: "GP_Standard_D4s_v3",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = postgresql/flexibleServerDatabase.NewFlexibleServerDatabase(ctx, "example", &postgresql/flexibleServerDatabase.FlexibleServerDatabaseArgs{
+// Name: "example-db",
+// ServerId: exampleFlexibleServer.Id,
+// Collation: "en_US.utf8",
+// Charset: "utf8",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

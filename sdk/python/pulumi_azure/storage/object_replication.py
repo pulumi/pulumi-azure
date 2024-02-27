@@ -172,47 +172,47 @@ class ObjectReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        src = azure.core.ResourceGroup("src",
-            name="srcResourceGroupName",
-            location="West Europe")
-        src_account = azure.storage.Account("src",
-            name="srcstorageaccount",
+        src = azure.core.resource_group.ResourceGroup("src",
+            name=srcResourceGroupName,
+            location=West Europe)
+        src_account = azure.storage.account.Account("src",
+            name=srcstorageaccount,
             resource_group_name=src.name,
             location=src.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        src_container = azure.storage.Container("src",
-            name="srcstrcontainer",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            blob_properties={
+                versioningEnabled: True,
+                changeFeedEnabled: True,
+            })
+        src_container = azure.storage.container.Container("src",
+            name=srcstrcontainer,
             storage_account_name=src_account.name,
-            container_access_type="private")
-        dst = azure.core.ResourceGroup("dst",
-            name="dstResourceGroupName",
-            location="East US")
-        dst_account = azure.storage.Account("dst",
-            name="dststorageaccount",
+            container_access_type=private)
+        dst = azure.core.resource_group.ResourceGroup("dst",
+            name=dstResourceGroupName,
+            location=East US)
+        dst_account = azure.storage.account.Account("dst",
+            name=dststorageaccount,
             resource_group_name=dst.name,
             location=dst.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        dst_container = azure.storage.Container("dst",
-            name="dststrcontainer",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            blob_properties={
+                versioningEnabled: True,
+                changeFeedEnabled: True,
+            })
+        dst_container = azure.storage.container.Container("dst",
+            name=dststrcontainer,
             storage_account_name=dst_account.name,
-            container_access_type="private")
-        example = azure.storage.ObjectReplication("example",
+            container_access_type=private)
+        example = azure.storage.object_replication.ObjectReplication("example",
             source_storage_account_id=src_account.id,
             destination_storage_account_id=dst_account.id,
-            rules=[azure.storage.ObjectReplicationRuleArgs(
-                source_container_name=src_container.name,
-                destination_container_name=dst_container.name,
-            )])
+            rules=[{
+                sourceContainerName: src_container.name,
+                destinationContainerName: dst_container.name,
+            }])
         ```
 
         ## Import
@@ -244,47 +244,47 @@ class ObjectReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        src = azure.core.ResourceGroup("src",
-            name="srcResourceGroupName",
-            location="West Europe")
-        src_account = azure.storage.Account("src",
-            name="srcstorageaccount",
+        src = azure.core.resource_group.ResourceGroup("src",
+            name=srcResourceGroupName,
+            location=West Europe)
+        src_account = azure.storage.account.Account("src",
+            name=srcstorageaccount,
             resource_group_name=src.name,
             location=src.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        src_container = azure.storage.Container("src",
-            name="srcstrcontainer",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            blob_properties={
+                versioningEnabled: True,
+                changeFeedEnabled: True,
+            })
+        src_container = azure.storage.container.Container("src",
+            name=srcstrcontainer,
             storage_account_name=src_account.name,
-            container_access_type="private")
-        dst = azure.core.ResourceGroup("dst",
-            name="dstResourceGroupName",
-            location="East US")
-        dst_account = azure.storage.Account("dst",
-            name="dststorageaccount",
+            container_access_type=private)
+        dst = azure.core.resource_group.ResourceGroup("dst",
+            name=dstResourceGroupName,
+            location=East US)
+        dst_account = azure.storage.account.Account("dst",
+            name=dststorageaccount,
             resource_group_name=dst.name,
             location=dst.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-                change_feed_enabled=True,
-            ))
-        dst_container = azure.storage.Container("dst",
-            name="dststrcontainer",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            blob_properties={
+                versioningEnabled: True,
+                changeFeedEnabled: True,
+            })
+        dst_container = azure.storage.container.Container("dst",
+            name=dststrcontainer,
             storage_account_name=dst_account.name,
-            container_access_type="private")
-        example = azure.storage.ObjectReplication("example",
+            container_access_type=private)
+        example = azure.storage.object_replication.ObjectReplication("example",
             source_storage_account_id=src_account.id,
             destination_storage_account_id=dst_account.id,
-            rules=[azure.storage.ObjectReplicationRuleArgs(
-                source_container_name=src_container.name,
-                destination_container_name=dst_container.name,
-            )])
+            rules=[{
+                sourceContainerName: src_container.name,
+                destinationContainerName: dst_container.name,
+            }])
         ```
 
         ## Import

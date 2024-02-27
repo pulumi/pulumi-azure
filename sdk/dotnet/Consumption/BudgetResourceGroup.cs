@@ -22,88 +22,88 @@ namespace Pulumi.Azure.Consumption
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "eastus",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "example",
     ///     });
     /// 
-    ///     var exampleBudgetResourceGroup = new Azure.Consumption.BudgetResourceGroup("example", new()
+    ///     var exampleBudgetResourceGroup = new Azure.Consumption.BudgetResourceGroup.BudgetResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupId = example.Id,
     ///         Amount = 1000,
     ///         TimeGrain = "Monthly",
-    ///         TimePeriod = new Azure.Consumption.Inputs.BudgetResourceGroupTimePeriodArgs
+    ///         TimePeriod = 
     ///         {
-    ///             StartDate = "2022-06-01T00:00:00Z",
-    ///             EndDate = "2022-07-01T00:00:00Z",
+    ///             { "startDate", "2022-06-01T00:00:00Z" },
+    ///             { "endDate", "2022-07-01T00:00:00Z" },
     ///         },
-    ///         Filter = new Azure.Consumption.Inputs.BudgetResourceGroupFilterArgs
+    ///         Filter = 
     ///         {
-    ///             Dimensions = new[]
+    ///             { "dimensions", new[]
     ///             {
-    ///                 new Azure.Consumption.Inputs.BudgetResourceGroupFilterDimensionArgs
+    ///                 
     ///                 {
-    ///                     Name = "ResourceId",
-    ///                     Values = new[]
+    ///                     { "name", "ResourceId" },
+    ///                     { "values", new[]
     ///                     {
     ///                         exampleActionGroup.Id,
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Tags = new[]
+    ///             } },
+    ///             { "tags", new[]
     ///             {
-    ///                 new Azure.Consumption.Inputs.BudgetResourceGroupFilterTagArgs
+    ///                 
     ///                 {
-    ///                     Name = "foo",
-    ///                     Values = new[]
+    ///                     { "name", "foo" },
+    ///                     { "values", new[]
     ///                     {
     ///                         "bar",
     ///                         "baz",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Notifications = new[]
     ///         {
-    ///             new Azure.Consumption.Inputs.BudgetResourceGroupNotificationArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Threshold = 90,
-    ///                 Operator = "EqualTo",
-    ///                 ThresholdType = "Forecasted",
-    ///                 ContactEmails = new[]
+    ///                 { "enabled", true },
+    ///                 { "threshold", 90 },
+    ///                 { "operator", "EqualTo" },
+    ///                 { "thresholdType", "Forecasted" },
+    ///                 { "contactEmails", new[]
     ///                 {
     ///                     "foo@example.com",
     ///                     "bar@example.com",
-    ///                 },
-    ///                 ContactGroups = new[]
+    ///                 } },
+    ///                 { "contactGroups", new[]
     ///                 {
     ///                     exampleActionGroup.Id,
-    ///                 },
-    ///                 ContactRoles = new[]
+    ///                 } },
+    ///                 { "contactRoles", new[]
     ///                 {
     ///                     "Owner",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.Consumption.Inputs.BudgetResourceGroupNotificationArgs
+    ///             
     ///             {
-    ///                 Enabled = false,
-    ///                 Threshold = 100,
-    ///                 Operator = "GreaterThan",
-    ///                 ContactEmails = new[]
+    ///                 { "enabled", false },
+    ///                 { "threshold", 100 },
+    ///                 { "operator", "GreaterThan" },
+    ///                 { "contactEmails", new[]
     ///                 {
     ///                     "foo@example.com",
     ///                     "bar@example.com",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

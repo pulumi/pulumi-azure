@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
+ * const exampleLinkedServiceSqlServer = new azure.datafactory/linkedServiceSqlServer.LinkedServiceSqlServer("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  * });
- * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("example", {
+ * const exampleDatasetSqlServerTable = new azure.datafactory/datasetSqlServerTable.DatasetSqlServerTable("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceSqlServer.name,

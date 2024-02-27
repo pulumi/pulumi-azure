@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,12 +53,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var workspace = new RandomId(&#34;workspace&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;group_name&#34;, example.name()))
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(workspace.hex().applyValue(hex -&gt; String.format(&#34;k8s-workspace-%s&#34;, hex)))
+ *             .name(String.format(&#34;k8s-workspace-%s&#34;, workspace.hex()))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
@@ -71,10 +70,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/ContainerInsights&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

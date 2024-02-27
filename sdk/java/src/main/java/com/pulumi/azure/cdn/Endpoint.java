@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.ProfileArgs;
  * import com.pulumi.azure.cdn.Endpoint;
  * import com.pulumi.azure.cdn.EndpointArgs;
- * import com.pulumi.azure.cdn.inputs.EndpointOriginArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,10 +69,7 @@ import javax.annotation.Nullable;
  *             .profileName(exampleProfile.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .origins(EndpointOriginArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .hostName(&#34;www.contoso.com&#34;)
- *                 .build())
+ *             .origins(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,69 +21,70 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	digitaltwins/endpointServicebus "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/endpointServicebus"
+//	digitaltwins/instance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/instance"
+//	servicebus/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/namespace"
+//	servicebus/topic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topic"
+//	servicebus/topicAuthorizationRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topicAuthorizationRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example_resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "example", &digitaltwins.InstanceArgs{
-//				Name:              pulumi.String("example-DT"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
-//				Name:              pulumi.String("exampleservicebusnamespace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
-//				Name:        pulumi.String("exampleservicebustopic"),
-//				NamespaceId: exampleNamespace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
-//				Name:    pulumi.String("example-rule"),
-//				TopicId: exampleTopic.ID(),
-//				Listen:  pulumi.Bool(false),
-//				Send:    pulumi.Bool(true),
-//				Manage:  pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = digitaltwins.NewEndpointServicebus(ctx, "example", &digitaltwins.EndpointServicebusArgs{
-//				Name:                                pulumi.String("example-EndpointSB"),
-//				DigitalTwinsId:                      exampleInstance.ID(),
-//				ServicebusPrimaryConnectionString:   exampleTopicAuthorizationRule.PrimaryConnectionString,
-//				ServicebusSecondaryConnectionString: exampleTopicAuthorizationRule.SecondaryConnectionString,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example_resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInstance, err := digitaltwins/instance.NewInstance(ctx, "example", &digitaltwins/instance.InstanceArgs{
+// Name: "example-DT",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := servicebus/namespace.NewNamespace(ctx, "example", &servicebus/namespace.NamespaceArgs{
+// Name: "exampleservicebusnamespace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopic, err := servicebus/topic.NewTopic(ctx, "example", &servicebus/topic.TopicArgs{
+// Name: "exampleservicebustopic",
+// NamespaceId: exampleNamespace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopicAuthorizationRule, err := servicebus/topicAuthorizationRule.NewTopicAuthorizationRule(ctx, "example", &servicebus/topicAuthorizationRule.TopicAuthorizationRuleArgs{
+// Name: "example-rule",
+// TopicId: exampleTopic.Id,
+// Listen: false,
+// Send: true,
+// Manage: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = digitaltwins/endpointServicebus.NewEndpointServicebus(ctx, "example", &digitaltwins/endpointServicebus.EndpointServicebusArgs{
+// Name: "example-EndpointSB",
+// DigitalTwinsId: exampleInstance.Id,
+// ServicebusPrimaryConnectionString: exampleTopicAuthorizationRule.PrimaryConnectionString,
+// ServicebusSecondaryConnectionString: exampleTopicAuthorizationRule.SecondaryConnectionString,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

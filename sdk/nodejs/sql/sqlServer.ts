@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "database-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ * const exampleSqlServer = new azure.sql/sqlServer.SqlServer("example", {
  *     name: "mssqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,

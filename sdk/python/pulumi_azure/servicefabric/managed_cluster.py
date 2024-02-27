@@ -601,32 +601,32 @@ class ManagedCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.servicefabric.ManagedCluster("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe",
+        example = azure.servicefabric.managed_cluster.ManagedCluster("example",
+            name=example,
+            resource_group_name=example,
+            location=West Europe,
             http_gateway_port=4567,
-            lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
-                backend_port=38080,
-                frontend_port=80,
-                probe_protocol="http",
-                probe_request_path="/test",
-                protocol="tcp",
-            )],
+            lb_rules=[{
+                backendPort: 38080,
+                frontendPort: 80,
+                probeProtocol: http,
+                probeRequestPath: /test,
+                protocol: tcp,
+            }],
             client_connection_port=12345,
-            node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
-                data_disk_size_gb=130,
-                name="test1",
-                primary=True,
-                application_port_range="30000-49000",
-                ephemeral_port_range="10000-20000",
-                vm_size="Standard_DS1_v2",
-                vm_image_publisher="MicrosoftWindowsServer",
-                vm_image_sku="2019-Datacenter-with-Containers",
-                vm_image_offer="WindowsServer",
-                vm_image_version="latest",
-                vm_instance_count=5,
-            )])
+            node_types=[{
+                dataDiskSizeGb: 130,
+                name: test1,
+                primary: True,
+                applicationPortRange: 30000-49000,
+                ephemeralPortRange: 10000-20000,
+                vmSize: Standard_DS1_v2,
+                vmImagePublisher: MicrosoftWindowsServer,
+                vmImageSku: 2019-Datacenter-with-Containers,
+                vmImageOffer: WindowsServer,
+                vmImageVersion: latest,
+                vmInstanceCount: 5,
+            }])
         ```
 
         ## Import
@@ -672,32 +672,32 @@ class ManagedCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.servicefabric.ManagedCluster("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe",
+        example = azure.servicefabric.managed_cluster.ManagedCluster("example",
+            name=example,
+            resource_group_name=example,
+            location=West Europe,
             http_gateway_port=4567,
-            lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
-                backend_port=38080,
-                frontend_port=80,
-                probe_protocol="http",
-                probe_request_path="/test",
-                protocol="tcp",
-            )],
+            lb_rules=[{
+                backendPort: 38080,
+                frontendPort: 80,
+                probeProtocol: http,
+                probeRequestPath: /test,
+                protocol: tcp,
+            }],
             client_connection_port=12345,
-            node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
-                data_disk_size_gb=130,
-                name="test1",
-                primary=True,
-                application_port_range="30000-49000",
-                ephemeral_port_range="10000-20000",
-                vm_size="Standard_DS1_v2",
-                vm_image_publisher="MicrosoftWindowsServer",
-                vm_image_sku="2019-Datacenter-with-Containers",
-                vm_image_offer="WindowsServer",
-                vm_image_version="latest",
-                vm_instance_count=5,
-            )])
+            node_types=[{
+                dataDiskSizeGb: 130,
+                name: test1,
+                primary: True,
+                applicationPortRange: 30000-49000,
+                ephemeralPortRange: 10000-20000,
+                vmSize: Standard_DS1_v2,
+                vmImagePublisher: MicrosoftWindowsServer,
+                vmImageSku: 2019-Datacenter-with-Containers,
+                vmImageOffer: WindowsServer,
+                vmImageVersion: latest,
+                vmInstanceCount: 5,
+            }])
         ```
 
         ## Import

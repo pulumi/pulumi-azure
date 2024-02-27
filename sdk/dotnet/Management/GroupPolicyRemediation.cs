@@ -12,54 +12,6 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages an Azure Management Group Policy Remediation.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGroup = new Azure.Management.Group("example", new()
-    ///     {
-    ///         DisplayName = "Example Management Group",
-    ///     });
-    /// 
-    ///     var example = Azure.Policy.GetPolicyDefintion.Invoke(new()
-    ///     {
-    ///         DisplayName = "Allowed locations",
-    ///     });
-    /// 
-    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("example", new()
-    ///     {
-    ///         Name = "exampleAssignment",
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyDefinitionId = example.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
-    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["value"] = new[]
-    ///                 {
-    ///                     "East US",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleGroupPolicyRemediation = new Azure.Management.GroupPolicyRemediation("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyAssignmentId = exampleGroupPolicyAssignment.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Policy Remediations can be imported using the `resource id`, e.g.

@@ -6,23 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Encryption Scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getAccount({
- *     name: "storageaccountname",
- *     resourceGroupName: "resourcegroupname",
- * });
- * const exampleGetEncryptionScope = example.then(example => azure.storage.getEncryptionScope({
- *     name: "existingStorageES",
- *     storageAccountId: example.id,
- * }));
- * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);
- * ```
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
 
@@ -68,23 +51,6 @@ export interface GetEncryptionScopeResult {
 }
 /**
  * Use this data source to access information about an existing Storage Encryption Scope.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getAccount({
- *     name: "storageaccountname",
- *     resourceGroupName: "resourcegroupname",
- * });
- * const exampleGetEncryptionScope = example.then(example => azure.storage.getEncryptionScope({
- *     name: "existingStorageES",
- *     storageAccountId: example.id,
- * }));
- * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);
- * ```
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
     return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))

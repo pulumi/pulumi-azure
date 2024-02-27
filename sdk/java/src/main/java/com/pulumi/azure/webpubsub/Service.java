@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.webpubsub.Service;
  * import com.pulumi.azure.webpubsub.ServiceArgs;
- * import com.pulumi.azure.webpubsub.inputs.ServiceLiveTraceArgs;
- * import com.pulumi.azure.webpubsub.inputs.ServiceIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,14 +59,8 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard_S1&#34;)
  *             .capacity(1)
  *             .publicNetworkAccessEnabled(false)
- *             .liveTrace(ServiceLiveTraceArgs.builder()
- *                 .enabled(true)
- *                 .messagingLogsEnabled(true)
- *                 .connectivityLogsEnabled(false)
- *                 .build())
- *             .identity(ServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .liveTrace(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

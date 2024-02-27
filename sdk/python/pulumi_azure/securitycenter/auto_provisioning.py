@@ -76,7 +76,7 @@ class AutoProvisioning(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
+        example = azure.securitycenter.auto_provisioning.AutoProvisioning("example", auto_provision=On)
         ```
 
         ## Import
@@ -108,7 +108,7 @@ class AutoProvisioning(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
+        example = azure.securitycenter.auto_provisioning.AutoProvisioning("example", auto_provision=On)
         ```
 
         ## Import

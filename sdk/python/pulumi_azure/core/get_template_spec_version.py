@@ -102,18 +102,6 @@ def get_template_spec_version(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Template Spec Version.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.core.get_template_spec_version(name="exampleTemplateSpec",
-        resource_group_name="MyResourceGroup",
-        version="v1.0.4")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Template Spec.
     :param str resource_group_name: The name of the Resource Group where the Template Spec exists.
@@ -142,18 +130,6 @@ def get_template_spec_version_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
     Use this data source to access information about an existing Template Spec Version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.core.get_template_spec_version(name="exampleTemplateSpec",
-        resource_group_name="MyResourceGroup",
-        version="v1.0.4")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Template Spec.

@@ -11,66 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.network.NetworkManagerConnectivityConfiguration` deployment may modify or delete existing Network Peering resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     scope: {
- *         subscriptionIds: [current.then(current => current.id)],
- *     },
- *     scopeAccesses: [
- *         "Connectivity",
- *         "SecurityAdmin",
- *     ],
- *     description: "example network manager",
- * });
- * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("example", {
- *     name: "example-group",
- *     networkManagerId: exampleNetworkManager.id,
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example-net",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     addressSpaces: ["10.0.0.0/16"],
- *     flowTimeoutInMinutes: 10,
- * });
- * const example2 = new azure.network.NetworkManagerNetworkGroup("example2", {
- *     name: "example-group2",
- *     networkManagerId: exampleNetworkManager.id,
- * });
- * const exampleNetworkManagerConnectivityConfiguration = new azure.network.NetworkManagerConnectivityConfiguration("example", {
- *     name: "example-connectivity-conf",
- *     networkManagerId: exampleNetworkManager.id,
- *     connectivityTopology: "HubAndSpoke",
- *     appliesToGroups: [
- *         {
- *             groupConnectivity: "DirectlyConnected",
- *             networkGroupId: exampleNetworkManagerNetworkGroup.id,
- *         },
- *         {
- *             groupConnectivity: "DirectlyConnected",
- *             networkGroupId: example2.id,
- *         },
- *     ],
- *     hub: {
- *         resourceId: exampleVirtualNetwork.id,
- *         resourceType: "Microsoft.Network/virtualNetworks",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Network Manager Connectivity Configuration can be imported using the `resource id`, e.g.

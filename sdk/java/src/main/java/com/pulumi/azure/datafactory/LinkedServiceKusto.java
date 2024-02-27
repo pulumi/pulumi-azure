@@ -31,10 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datafactory.Factory;
  * import com.pulumi.azure.datafactory.FactoryArgs;
- * import com.pulumi.azure.datafactory.inputs.FactoryIdentityArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import com.pulumi.azure.kusto.Database;
  * import com.pulumi.azure.kusto.DatabaseArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceKusto;
@@ -63,19 +61,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .identity(FactoryIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
  *             .name(&#34;kustocluster&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
- *                 .capacity(2)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
@@ -98,8 +91,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(exampleFactory.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .principalId(exampleFactory.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .tenantId(exampleFactory.identity().tenantId())
+ *             .principalId(exampleFactory.identity().principalId())
  *             .principalType(&#34;App&#34;)
  *             .role(&#34;Viewer&#34;)
  *             .build());

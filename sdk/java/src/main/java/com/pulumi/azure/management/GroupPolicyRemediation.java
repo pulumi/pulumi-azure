@@ -20,65 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Management Group Policy Remediation.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.management.Group;
- * import com.pulumi.azure.management.GroupArgs;
- * import com.pulumi.azure.policy.PolicyFunctions;
- * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
- * import com.pulumi.azure.management.GroupPolicyAssignment;
- * import com.pulumi.azure.management.GroupPolicyAssignmentArgs;
- * import com.pulumi.azure.management.GroupPolicyRemediation;
- * import com.pulumi.azure.management.GroupPolicyRemediationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .displayName(&#34;Example Management Group&#34;)
- *             .build());
- * 
- *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
- *             .displayName(&#34;Allowed locations&#34;)
- *             .build());
- * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
- *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
- *             .parameters(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(&#34;East US&#34;))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         var exampleGroupPolicyRemediation = new GroupPolicyRemediation(&#34;exampleGroupPolicyRemediation&#34;, GroupPolicyRemediationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .managementGroupId(exampleGroup.id())
- *             .policyAssignmentId(exampleGroupPolicyAssignment.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Policy Remediations can be imported using the `resource id`, e.g.

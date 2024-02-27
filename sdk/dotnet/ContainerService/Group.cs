@@ -26,13 +26,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleGroup = new Azure.ContainerService.Group("example", new()
+    ///     var exampleGroup = new Azure.Containerservice.Group.Group("example", new()
     ///     {
     ///         Name = "example-continst",
     ///         Location = example.Location,
@@ -42,27 +42,27 @@ namespace Pulumi.Azure.ContainerService
     ///         OsType = "Linux",
     ///         Containers = new[]
     ///         {
-    ///             new Azure.ContainerService.Inputs.GroupContainerArgs
+    ///             
     ///             {
-    ///                 Name = "hello-world",
-    ///                 Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-    ///                 Cpu = 0.5,
-    ///                 Memory = 1.5,
-    ///                 Ports = new[]
+    ///                 { "name", "hello-world" },
+    ///                 { "image", "mcr.microsoft.com/azuredocs/aci-helloworld:latest" },
+    ///                 { "cpu", "0.5" },
+    ///                 { "memory", "1.5" },
+    ///                 { "ports", new[]
     ///                 {
-    ///                     new Azure.ContainerService.Inputs.GroupContainerPortArgs
+    ///                     
     ///                     {
-    ///                         Port = 443,
-    ///                         Protocol = "TCP",
+    ///                         { "port", 443 },
+    ///                         { "protocol", "TCP" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.ContainerService.Inputs.GroupContainerArgs
+    ///             
     ///             {
-    ///                 Name = "sidecar",
-    ///                 Image = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
-    ///                 Cpu = 0.5,
-    ///                 Memory = 1.5,
+    ///                 { "name", "sidecar" },
+    ///                 { "image", "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar" },
+    ///                 { "cpu", "0.5" },
+    ///                 { "memory", "1.5" },
     ///             },
     ///         },
     ///         Tags = 

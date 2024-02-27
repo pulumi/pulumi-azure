@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-aset&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

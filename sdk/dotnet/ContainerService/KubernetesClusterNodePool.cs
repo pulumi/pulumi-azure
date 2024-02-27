@@ -26,32 +26,32 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example-aks1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "exampleaks1",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_D2_v2",
+    ///             { "name", "default" },
+    ///             { "nodeCount", 1 },
+    ///             { "vmSize", "Standard_D2_v2" },
     ///         },
-    ///         ServicePrincipal = new Azure.ContainerService.Inputs.KubernetesClusterServicePrincipalArgs
+    ///         ServicePrincipal = 
     ///         {
-    ///             ClientId = "00000000-0000-0000-0000-000000000000",
-    ///             ClientSecret = "00000000000000000000000000000000",
+    ///             { "clientId", "00000000-0000-0000-0000-000000000000" },
+    ///             { "clientSecret", "00000000000000000000000000000000" },
     ///         },
     ///     });
     /// 
-    ///     var exampleKubernetesClusterNodePool = new Azure.ContainerService.KubernetesClusterNodePool("example", new()
+    ///     var exampleKubernetesClusterNodePool = new Azure.Containerservice.KubernetesClusterNodePool.KubernetesClusterNodePool("example", new()
     ///     {
     ///         Name = "internal",
     ///         KubernetesClusterId = exampleKubernetesCluster.Id,

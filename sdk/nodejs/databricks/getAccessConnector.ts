@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Databricks Access Connector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databricks.getAccessConnector({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
 
@@ -70,19 +57,6 @@ export interface GetAccessConnectorResult {
 }
 /**
  * Use this data source to access information about an existing Databricks Access Connector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databricks.getAccessConnector({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))

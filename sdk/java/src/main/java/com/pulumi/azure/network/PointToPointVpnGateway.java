@@ -31,17 +31,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
- * import com.pulumi.azure.network.VpnServerConfiguration;
- * import com.pulumi.azure.network.VpnServerConfigurationArgs;
- * import com.pulumi.azure.network.inputs.VpnServerConfigurationClientRootCertificateArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
+ * import com.pulumi.azure.network_vpnServerConfiguration.VpnServerConfiguration;
+ * import com.pulumi.azure.network_vpnServerConfiguration.VpnServerConfigurationArgs;
  * import com.pulumi.azure.network.PointToPointVpnGateway;
  * import com.pulumi.azure.network.PointToPointVpnGatewayArgs;
- * import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigurationArgs;
- * import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,31 +76,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .vpnAuthenticationTypes(&#34;Certificate&#34;)
- *             .clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs.builder()
- *                 .name(&#34;DigiCert-Federated-ID-Root-CA&#34;)
- *                 .publicCertData(&#34;&#34;&#34;
- * MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
- * MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
- * d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
- * Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
- * BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
- * Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
- * MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
- * QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
- * zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
- * GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
- * GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
- * Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
- * DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
- * HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
- * jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
- * 9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
- * QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
- * uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
- * WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
- * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
- *                 &#34;&#34;&#34;)
- *                 .build())
+ *             .clientRootCertificates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePointToPointVpnGateway = new PointToPointVpnGateway(&#34;examplePointToPointVpnGateway&#34;, PointToPointVpnGatewayArgs.builder()        
@@ -113,12 +86,7 @@ import javax.annotation.Nullable;
  *             .virtualHubId(exampleVirtualHub.id())
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .scaleUnit(1)
- *             .connectionConfiguration(PointToPointVpnGatewayConnectionConfigurationArgs.builder()
- *                 .name(&#34;example-gateway-config&#34;)
- *                 .vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs.builder()
- *                     .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *                     .build())
- *                 .build())
+ *             .connectionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

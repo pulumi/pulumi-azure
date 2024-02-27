@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getSnapshot({
- *     name: "my-snapshot",
- *     resourceGroupName: "my-resource-group",
- * });
- * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -81,18 +69,6 @@ export interface GetSnapshotResult {
 }
 /**
  * Use this data source to access information about an existing Snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getSnapshot({
- *     name: "my-snapshot",
- *     resourceGroupName: "my-resource-group",
- * });
- * ```
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

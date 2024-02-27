@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("example", new()
+    ///     var exampleDefinition = new Azure.Policy.Definition.Definition("example", new()
     ///     {
     ///         Name = "only-deploy-in-westeurope",
     ///         PolicyType = "Custom",
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Core
     /// ",
     ///     });
     /// 
-    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("example", new()
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment.ResourceGroupPolicyAssignment("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupId = example.Id,

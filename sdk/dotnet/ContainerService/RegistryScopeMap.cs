@@ -20,13 +20,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
+    ///     var exampleRegistry = new Azure.Containerservice.Registry.Registry("example", new()
     ///     {
     ///         Name = "exampleregistry",
     ///         ResourceGroupName = example.Name,
@@ -35,18 +35,18 @@ namespace Pulumi.Azure.ContainerService
     ///         AdminEnabled = false,
     ///         Georeplications = new[]
     ///         {
-    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             
     ///             {
-    ///                 Location = "East US",
+    ///                 { "location", "East US" },
     ///             },
-    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             
     ///             {
-    ///                 Location = "West Europe",
+    ///                 { "location", "West Europe" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("example", new()
+    ///     var exampleRegistryScopeMap = new Azure.Containerservice.RegistryScopeMap.RegistryScopeMap("example", new()
     ///     {
     ///         Name = "example-scope-map",
     ///         ContainerRegistryName = exampleRegistry.Name,

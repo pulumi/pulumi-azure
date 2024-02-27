@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.containerapp.getApp({
- *     name: "example-app",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
 
@@ -105,18 +93,6 @@ export interface GetAppResult {
 }
 /**
  * Use this data source to access information about an existing Container App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.containerapp.getApp({
- *     name: "example-app",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))

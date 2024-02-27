@@ -253,17 +253,17 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="east us")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=east us)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             resource_group_name=example.name,
             location=example.location,
-            mobile_country_code="001",
-            mobile_network_code="01",
+            mobile_country_code=001,
+            mobile_network_code=01,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -299,17 +299,17 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="east us")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=east us)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             resource_group_name=example.name,
             location=example.location,
-            mobile_country_code="001",
-            mobile_network_code="01",
+            mobile_country_code=001,
+            mobile_network_code=01,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

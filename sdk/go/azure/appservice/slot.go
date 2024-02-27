@@ -26,92 +26,92 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	appservice/appService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/appService"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	appservice/slot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/slot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	index/randomId "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomId"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
-//					"azi_id": pulumi.String("1"),
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("some-resource-group"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("some-app-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              server.Hex,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
-//				SiteConfig: &appservice.AppServiceSiteConfigArgs{
-//					DotnetFrameworkVersion: pulumi.String("v4.0"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"SOME_KEY": pulumi.String("some-value"),
-//				},
-//				ConnectionStrings: appservice.AppServiceConnectionStringArray{
-//					&appservice.AppServiceConnectionStringArgs{
-//						Name:  pulumi.String("Database"),
-//						Type:  pulumi.String("SQLServer"),
-//						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewSlot(ctx, "example", &appservice.SlotArgs{
-//				Name:              server.Hex,
-//				AppServiceName:    exampleAppService.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
-//				SiteConfig: &appservice.SlotSiteConfigArgs{
-//					DotnetFrameworkVersion: pulumi.String("v4.0"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"SOME_KEY": pulumi.String("some-value"),
-//				},
-//				ConnectionStrings: appservice.SlotConnectionStringArray{
-//					&appservice.SlotConnectionStringArgs{
-//						Name:  pulumi.String("Database"),
-//						Type:  pulumi.String("SQLServer"),
-//						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+// Keepers: map[string]interface{}{
+// "azi_id": 1,
+// },
+// ByteLength: 8,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "some-resource-group",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "some-app-service-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAppService, err := appservice/appService.NewAppService(ctx, "example", &appservice/appService.AppServiceArgs{
+// Name: server.Hex,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// SiteConfig: map[string]interface{}{
+// "dotnetFrameworkVersion": "v4.0",
+// },
+// AppSettings: map[string]interface{}{
+// "SOME_KEY": "some-value",
+// },
+// ConnectionStrings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Database",
+// "type": "SQLServer",
+// "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/slot.NewSlot(ctx, "example", &appservice/slot.SlotArgs{
+// Name: server.Hex,
+// AppServiceName: exampleAppService.Name,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// SiteConfig: map[string]interface{}{
+// "dotnetFrameworkVersion": "v4.0",
+// },
+// AppSettings: map[string]interface{}{
+// "SOME_KEY": "some-value",
+// },
+// ConnectionStrings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Database",
+// "type": "SQLServer",
+// "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Java 1.8)
 //
@@ -120,76 +120,76 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	appservice/appService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/appService"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	appservice/slot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/slot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	index/randomId "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomId"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
-//					"azi_id": pulumi.String("1"),
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("some-resource-group"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("some-app-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              server.Hex,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
-//				SiteConfig: &appservice.AppServiceSiteConfigArgs{
-//					JavaVersion:          pulumi.String("1.8"),
-//					JavaContainer:        pulumi.String("JETTY"),
-//					JavaContainerVersion: pulumi.String("9.3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewSlot(ctx, "example", &appservice.SlotArgs{
-//				Name:              server.Hex,
-//				AppServiceName:    exampleAppService.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
-//				SiteConfig: &appservice.SlotSiteConfigArgs{
-//					JavaVersion:          pulumi.String("1.8"),
-//					JavaContainer:        pulumi.String("JETTY"),
-//					JavaContainerVersion: pulumi.String("9.3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+// Keepers: map[string]interface{}{
+// "azi_id": 1,
+// },
+// ByteLength: 8,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "some-resource-group",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "some-app-service-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAppService, err := appservice/appService.NewAppService(ctx, "example", &appservice/appService.AppServiceArgs{
+// Name: server.Hex,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// SiteConfig: map[string]interface{}{
+// "javaVersion": "1.8",
+// "javaContainer": "JETTY",
+// "javaContainerVersion": "9.3",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/slot.NewSlot(ctx, "example", &appservice/slot.SlotArgs{
+// Name: server.Hex,
+// AppServiceName: exampleAppService.Name,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// SiteConfig: map[string]interface{}{
+// "javaVersion": "1.8",
+// "javaContainer": "JETTY",
+// "javaContainerVersion": "9.3",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

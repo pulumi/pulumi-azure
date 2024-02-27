@@ -107,17 +107,17 @@ class HyperVSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="eastus")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=eastus)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             soft_delete_enabled=False)
-        example_hyper_v_site = azure.siterecovery.HyperVSite("example",
-            name="example-site",
+        example_hyper_v_site = azure.siterecovery.hyper_v_site.HyperVSite("example",
+            name=example-site,
             recovery_vault_id=example_vault.id)
         ```
 
@@ -149,17 +149,17 @@ class HyperVSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="eastus")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=eastus)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             soft_delete_enabled=False)
-        example_hyper_v_site = azure.siterecovery.HyperVSite("example",
-            name="example-site",
+        example_hyper_v_site = azure.siterecovery.hyper_v_site.HyperVSite("example",
+            name=example-site,
             recovery_vault_id=example_vault.id)
         ```
 

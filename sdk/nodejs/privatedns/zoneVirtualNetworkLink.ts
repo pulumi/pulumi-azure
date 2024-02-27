@@ -13,21 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleZone = new azure.privatedns.Zone("example", {
+ * const exampleZone = new azure.privatedns/zone.Zone("example", {
  *     name: "mydomain.com",
  *     resourceGroupName: example.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "test-network",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns/zoneVirtualNetworkLink.ZoneVirtualNetworkLink("example", {
  *     name: "test",
  *     resourceGroupName: example.name,
  *     privateDnsZoneName: exampleZone.name,

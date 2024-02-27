@@ -21,57 +21,55 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnetServiceEndpointStoragePolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetServiceEndpointStoragePolicy"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetServiceEndpointStoragePolicy(ctx, "example", &network.SubnetServiceEndpointStoragePolicyArgs{
-//				Name:              pulumi.String("example-policy"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Definition: &network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
-//					Name:        pulumi.String("name2"),
-//					Description: pulumi.String("definition2"),
-//					Service:     pulumi.String("Global"),
-//					ServiceResources: pulumi.StringArray{
-//						pulumi.String("/services/Azure"),
-//						pulumi.String("/services/Azure/Batch"),
-//						pulumi.String("/services/Azure/DataFactory"),
-//						pulumi.String("/services/Azure/MachineLearning"),
-//						pulumi.String("/services/Azure/ManagedInstance"),
-//						pulumi.String("/services/Azure/WebPI"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageacct"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetServiceEndpointStoragePolicy.NewSubnetServiceEndpointStoragePolicy(ctx, "example", &network/subnetServiceEndpointStoragePolicy.SubnetServiceEndpointStoragePolicyArgs{
+// Name: "example-policy",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Definition: map[string]interface{}{
+// "name": "name2",
+// "description": "definition2",
+// "service": "Global",
+// "serviceResources": []string{
+// "/services/Azure",
+// "/services/Azure/Batch",
+// "/services/Azure/DataFactory",
+// "/services/Azure/MachineLearning",
+// "/services/Azure/ManagedInstance",
+// "/services/Azure/WebPI",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageacct",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

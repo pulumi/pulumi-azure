@@ -23,104 +23,106 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/dataFlow "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/dataFlow"
+//	datafactory/datasetJson "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/datasetJson"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/flowletDataFlow "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/flowletDataFlow"
+//	datafactory/linkedCustomService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedCustomService"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinkedCustomService, err := datafactory/linkedCustomService.NewLinkedCustomService(ctx, "example", &datafactory/linkedCustomService.LinkedCustomServiceArgs{
+// Name: "linked_service",
+// DataFactoryId: exampleFactory.Id,
+// Type: "AzureBlobStorage",
+// TypePropertiesJson: fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", exampleAccount.PrimaryConnectionString),
+// })
+// if err != nil {
+// return err
+// }
+// example1, err := datafactory/datasetJson.NewDatasetJson(ctx, "example1", &datafactory/datasetJson.DatasetJsonArgs{
+// Name: "dataset1",
+// DataFactoryId: exampleFactory.Id,
+// LinkedServiceName: exampleLinkedCustomService.Name,
+// AzureBlobStorageLocation: map[string]interface{}{
+// "container": "container",
+// "path": "foo/bar/",
+// "filename": "foo.txt",
+// },
+// Encoding: "UTF-8",
+// })
+// if err != nil {
+// return err
+// }
+// example2, err := datafactory/datasetJson.NewDatasetJson(ctx, "example2", &datafactory/datasetJson.DatasetJsonArgs{
+// Name: "dataset2",
+// DataFactoryId: exampleFactory.Id,
+// LinkedServiceName: exampleLinkedCustomService.Name,
+// AzureBlobStorageLocation: map[string]interface{}{
+// "container": "container",
+// "path": "foo/bar/",
+// "filename": "bar.txt",
+// },
+// Encoding: "UTF-8",
+// })
+// if err != nil {
+// return err
+// }
+// example1FlowletDataFlow, err := datafactory/flowletDataFlow.NewFlowletDataFlow(ctx, "example1", &datafactory/flowletDataFlow.FlowletDataFlowArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// Sources: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "source1",
+// "linkedService": map[string]interface{}{
+// "name": exampleLinkedCustomService.Name,
+// },
+// },
+// },
+// Sinks: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "sink1",
+// "linkedService": map[string]interface{}{
+// "name": exampleLinkedCustomService.Name,
+// },
+// },
+// },
+// Script: `source(
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
-//				Name:          pulumi.String("linked_service"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Type:          pulumi.String("AzureBlobStorage"),
-//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-//					return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example1, err := datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
-//				Name:              pulumi.String("dataset1"),
-//				DataFactoryId:     exampleFactory.ID(),
-//				LinkedServiceName: exampleLinkedCustomService.Name,
-//				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
-//					Container: pulumi.String("container"),
-//					Path:      pulumi.String("foo/bar/"),
-//					Filename:  pulumi.String("foo.txt"),
-//				},
-//				Encoding: pulumi.String("UTF-8"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example2, err := datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
-//				Name:              pulumi.String("dataset2"),
-//				DataFactoryId:     exampleFactory.ID(),
-//				LinkedServiceName: exampleLinkedCustomService.Name,
-//				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
-//					Container: pulumi.String("container"),
-//					Path:      pulumi.String("foo/bar/"),
-//					Filename:  pulumi.String("bar.txt"),
-//				},
-//				Encoding: pulumi.String("UTF-8"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1", &datafactory.FlowletDataFlowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Sources: datafactory.FlowletDataFlowSourceArray{
-//					&datafactory.FlowletDataFlowSourceArgs{
-//						Name: pulumi.String("source1"),
-//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
-//				Sinks: datafactory.FlowletDataFlowSinkArray{
-//					&datafactory.FlowletDataFlowSinkArgs{
-//						Name: pulumi.String("sink1"),
-//						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
-//				Script: pulumi.String(`source(
-//	  allowSchemaDrift: true,
-//	  validateSchema: false,
-//	  limit: 100,
-//	  ignoreNoFilesFound: false,
-//	  documentForm: 'documentPerLine') ~> source1
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	limit: 100,
+//	ignoreNoFilesFound: false,
+//	documentForm: 'documentPerLine') ~> source1
 //
 // source1 sink(
 //
@@ -129,37 +131,37 @@ import (
 //	skipDuplicateMapInputs: true,
 //	skipDuplicateMapOutputs: true) ~> sink1
 //
-// `),
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// example2FlowletDataFlow, err := datafactory/flowletDataFlow.NewFlowletDataFlow(ctx, "example2", &datafactory/flowletDataFlow.FlowletDataFlowArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// Sources: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "source1",
+// "linkedService": map[string]interface{}{
+// "name": exampleLinkedCustomService.Name,
+// },
+// },
+// },
+// Sinks: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "sink1",
+// "linkedService": map[string]interface{}{
+// "name": exampleLinkedCustomService.Name,
+// },
+// },
+// },
+// Script: `source(
 //
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2", &datafactory.FlowletDataFlowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Sources: datafactory.FlowletDataFlowSourceArray{
-//					&datafactory.FlowletDataFlowSourceArgs{
-//						Name: pulumi.String("source1"),
-//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
-//				Sinks: datafactory.FlowletDataFlowSinkArray{
-//					&datafactory.FlowletDataFlowSinkArgs{
-//						Name: pulumi.String("sink1"),
-//						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
-//				Script: pulumi.String(`source(
-//	  allowSchemaDrift: true,
-//	  validateSchema: false,
-//	  limit: 100,
-//	  ignoreNoFilesFound: false,
-//	  documentForm: 'documentPerLine') ~> source1
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	limit: 100,
+//	ignoreNoFilesFound: false,
+//	documentForm: 'documentPerLine') ~> source1
 //
 // source1 sink(
 //
@@ -168,49 +170,49 @@ import (
 //	skipDuplicateMapInputs: true,
 //	skipDuplicateMapOutputs: true) ~> sink1
 //
-// `),
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/dataFlow.NewDataFlow(ctx, "example", &datafactory/dataFlow.DataFlowArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// Sources: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "source1",
+// "flowlet": map[string]interface{}{
+// "name": example1FlowletDataFlow.Name,
+// "parameters": map[string]interface{}{
+// "Key1": "value1",
+// },
+// },
+// "dataset": map[string]interface{}{
+// "name": example1.Name,
+// },
+// },
+// },
+// Sinks: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "sink1",
+// "flowlet": map[string]interface{}{
+// "name": example2FlowletDataFlow.Name,
+// "parameters": map[string]interface{}{
+// "Key1": "value1",
+// },
+// },
+// "dataset": map[string]interface{}{
+// "name": example2.Name,
+// },
+// },
+// },
+// Script: `source(
 //
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewDataFlow(ctx, "example", &datafactory.DataFlowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Sources: datafactory.DataFlowSourceArray{
-//					&datafactory.DataFlowSourceArgs{
-//						Name: pulumi.String("source1"),
-//						Flowlet: &datafactory.DataFlowSourceFlowletArgs{
-//							Name: example1FlowletDataFlow.Name,
-//							Parameters: pulumi.StringMap{
-//								"Key1": pulumi.String("value1"),
-//							},
-//						},
-//						Dataset: &datafactory.DataFlowSourceDatasetArgs{
-//							Name: example1.Name,
-//						},
-//					},
-//				},
-//				Sinks: datafactory.DataFlowSinkArray{
-//					&datafactory.DataFlowSinkArgs{
-//						Name: pulumi.String("sink1"),
-//						Flowlet: &datafactory.DataFlowSinkFlowletArgs{
-//							Name: example2FlowletDataFlow.Name,
-//							Parameters: pulumi.StringMap{
-//								"Key1": pulumi.String("value1"),
-//							},
-//						},
-//						Dataset: &datafactory.DataFlowSinkDatasetArgs{
-//							Name: example2.Name,
-//						},
-//					},
-//				},
-//				Script: pulumi.String(`source(
-//	  allowSchemaDrift: true,
-//	  validateSchema: false,
-//	  limit: 100,
-//	  ignoreNoFilesFound: false,
-//	  documentForm: 'documentPerLine') ~> source1
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	limit: 100,
+//	ignoreNoFilesFound: false,
+//	documentForm: 'documentPerLine') ~> source1
 //
 // source1 sink(
 //
@@ -219,16 +221,14 @@ import (
 //	skipDuplicateMapInputs: true,
 //	skipDuplicateMapOutputs: true) ~> sink1
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

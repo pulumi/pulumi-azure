@@ -22,34 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	search/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/search/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = search.NewService(ctx, "example", &search.ServiceArgs{
-//				Name:              pulumi.String("example-resource"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = search/service.NewService(ctx, "example", &search/service.ServiceArgs{
+// Name: "example-resource",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "standard",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using Both AzureAD And API Keys)
 //
@@ -58,36 +56,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	search/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/search/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = search.NewService(ctx, "example", &search.ServiceArgs{
-//				Name:                       pulumi.String("example-resource"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Sku:                        pulumi.String("standard"),
-//				LocalAuthenticationEnabled: pulumi.Bool(true),
-//				AuthenticationFailureMode:  pulumi.String("http403"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = search/service.NewService(ctx, "example", &search/service.ServiceArgs{
+// Name: "example-resource",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "standard",
+// LocalAuthenticationEnabled: true,
+// AuthenticationFailureMode: "http403",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Supporting Only AzureAD Authentication)
 //
@@ -96,35 +92,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	search/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/search/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = search.NewService(ctx, "example", &search.ServiceArgs{
-//				Name:                       pulumi.String("example-resource"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Sku:                        pulumi.String("standard"),
-//				LocalAuthenticationEnabled: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = search/service.NewService(ctx, "example", &search/service.ServiceArgs{
+// Name: "example-resource",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "standard",
+// LocalAuthenticationEnabled: false,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

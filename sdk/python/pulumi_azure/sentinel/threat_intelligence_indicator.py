@@ -826,25 +826,25 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="east us")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-law",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=east us)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-law,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example",
             resource_group_name=example.name,
             workspace_name=example_analytics_workspace.name)
-        example_threat_intelligence_indicator = azure.sentinel.ThreatIntelligenceIndicator("example",
+        example_threat_intelligence_indicator = azure.sentinel.threat_intelligence_indicator.ThreatIntelligenceIndicator("example",
             workspace_id=example_analytics_workspace.id,
-            pattern_type="domain-name",
-            pattern="http://example.com",
-            source="Microsoft Sentinel",
-            validate_from_utc="2022-12-14T16:00:00Z",
-            display_name="example-indicator")
+            pattern_type=domain-name,
+            pattern=http://example.com,
+            source=Microsoft Sentinel,
+            validate_from_utc=2022-12-14T16:00:00Z,
+            display_name=example-indicator)
         ```
 
         ## Import
@@ -893,25 +893,25 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="east us")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-law",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=east us)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-law,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example",
             resource_group_name=example.name,
             workspace_name=example_analytics_workspace.name)
-        example_threat_intelligence_indicator = azure.sentinel.ThreatIntelligenceIndicator("example",
+        example_threat_intelligence_indicator = azure.sentinel.threat_intelligence_indicator.ThreatIntelligenceIndicator("example",
             workspace_id=example_analytics_workspace.id,
-            pattern_type="domain-name",
-            pattern="http://example.com",
-            source="Microsoft Sentinel",
-            validate_from_utc="2022-12-14T16:00:00Z",
-            display_name="example-indicator")
+            pattern_type=domain-name,
+            pattern=http://example.com,
+            source=Microsoft Sentinel,
+            validate_from_utc=2022-12-14T16:00:00Z,
+            display_name=example-indicator)
         ```
 
         ## Import

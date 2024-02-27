@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;S0&#34;)
  *             .zoneRedundant(true)
  *             .enclaveType(&#34;VBS&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -107,12 +107,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Key;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.mssql.Database;
  * import com.pulumi.azure.mssql.DatabaseArgs;
- * import com.pulumi.azure.mssql.inputs.DatabaseIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -164,27 +162,8 @@ import javax.annotation.Nullable;
  *             .purgeProtectionEnabled(true)
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(            
- *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.tenantId())
- *                     .objectId(current.objectId())
- *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
- *                     .build(),
- *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleUserAssignedIdentity.tenantId())
- *                     .objectId(exampleUserAssignedIdentity.principalId())
- *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
@@ -207,11 +186,8 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;S0&#34;)
  *             .zoneRedundant(true)
  *             .enclaveType(&#34;VBS&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .identity(DatabaseIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
  *             .build());
  * 

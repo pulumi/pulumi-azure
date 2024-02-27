@@ -22,13 +22,13 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "exampleasa",
     ///         ResourceGroupName = example.Name,
@@ -41,20 +41,20 @@ namespace Pulumi.Azure.EventHub
     ///         },
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.Storage.Queue("example", new()
+    ///     var exampleQueue = new Azure.Storage.Queue.Queue("example", new()
     ///     {
     ///         Name = "example-astq",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("example", new()
+    ///     var exampleEventSubscription = new Azure.Eventgrid.EventSubscription.EventSubscription("example", new()
     ///     {
     ///         Name = "example-aees",
     ///         Scope = example.Id,
-    ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
+    ///         StorageQueueEndpoint = 
     ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             QueueName = exampleQueue.Name,
+    ///             { "storageAccountId", exampleAccount.Id },
+    ///             { "queueName", exampleQueue.Name },
     ///         },
     ///     });
     /// 

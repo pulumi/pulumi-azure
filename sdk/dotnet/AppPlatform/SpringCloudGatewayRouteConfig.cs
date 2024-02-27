@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -38,20 +38,20 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("example", new()
+    ///     var exampleSpringCloudGateway = new Azure.Appplatform.SpringCloudGateway.SpringCloudGateway("example", new()
     ///     {
     ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
-    ///     var exampleSpringCloudGatewayRouteConfig = new Azure.AppPlatform.SpringCloudGatewayRouteConfig("example", new()
+    ///     var exampleSpringCloudGatewayRouteConfig = new Azure.Appplatform.SpringCloudGatewayRouteConfig.SpringCloudGatewayRouteConfig("example", new()
     ///     {
     ///         Name = "example",
     ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
@@ -59,28 +59,28 @@ namespace Pulumi.Azure.AppPlatform
     ///         Protocol = "HTTPS",
     ///         Routes = new[]
     ///         {
-    ///             new Azure.AppPlatform.Inputs.SpringCloudGatewayRouteConfigRouteArgs
+    ///             
     ///             {
-    ///                 Description = "example description",
-    ///                 Filters = new[]
+    ///                 { "description", "example description" },
+    ///                 { "filters", new[]
     ///                 {
     ///                     "StripPrefix=2",
     ///                     "RateLimit=1,1s",
-    ///                 },
-    ///                 Order = 1,
-    ///                 Predicates = new[]
+    ///                 } },
+    ///                 { "order", 1 },
+    ///                 { "predicates", new[]
     ///                 {
     ///                     "Path=/api5/customer/**",
-    ///                 },
-    ///                 SsoValidationEnabled = true,
-    ///                 Title = "myApp route config",
-    ///                 TokenRelay = true,
-    ///                 Uri = "https://www.example.com",
-    ///                 ClassificationTags = new[]
+    ///                 } },
+    ///                 { "ssoValidationEnabled", true },
+    ///                 { "title", "myApp route config" },
+    ///                 { "tokenRelay", true },
+    ///                 { "uri", "https://www.example.com" },
+    ///                 { "classificationTags", new[]
     ///                 {
     ///                     "tag1",
     ///                     "tag2",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

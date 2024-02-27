@@ -11,17 +11,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exampleRG-ehn-schemaGroup",
  *     location: "East US",
  * });
- * const test = new azure.eventhub.EventHubNamespace("test", {
+ * const test = new azure.eventhub/eventHubNamespace.EventHubNamespace("test", {
  *     name: "example-ehn-schemaGroup",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     sku: "Standard",
  * });
- * const testNamespaceSchemaGroup = new azure.eventhub.NamespaceSchemaGroup("test", {
+ * const testNamespaceSchemaGroup = new azure.eventhub/namespaceSchemaGroup.NamespaceSchemaGroup("test", {
  *     name: "example-schemaGroup",
  *     namespaceId: test.id,
  *     schemaCompatibility: "Forward",

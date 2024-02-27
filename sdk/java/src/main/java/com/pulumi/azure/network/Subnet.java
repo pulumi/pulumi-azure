@@ -33,12 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,15 +67,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;delegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

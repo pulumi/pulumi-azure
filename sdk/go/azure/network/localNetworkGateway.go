@@ -21,37 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/localNetworkGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/localNetworkGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("localNetworkGWTest"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewLocalNetworkGateway(ctx, "home", &network.LocalNetworkGatewayArgs{
-//				Name:              pulumi.String("backHome"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				GatewayAddress:    pulumi.String("12.13.14.15"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "localNetworkGWTest",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/localNetworkGateway.NewLocalNetworkGateway(ctx, "home", &network/localNetworkGateway.LocalNetworkGatewayArgs{
+// Name: "backHome",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// GatewayAddress: "12.13.14.15",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

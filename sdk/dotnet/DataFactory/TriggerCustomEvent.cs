@@ -22,33 +22,33 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePipeline = new Azure.DataFactory.Pipeline("example", new()
+    ///     var examplePipeline = new Azure.Datafactory.Pipeline.Pipeline("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.EventGrid.Topic("example", new()
+    ///     var exampleTopic = new Azure.Eventgrid.Topic.Topic("example", new()
     ///     {
     ///         Name = "example-topic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleTriggerCustomEvent = new Azure.DataFactory.TriggerCustomEvent("example", new()
+    ///     var exampleTriggerCustomEvent = new Azure.Datafactory.TriggerCustomEvent.TriggerCustomEvent("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
@@ -69,13 +69,13 @@ namespace Pulumi.Azure.DataFactory
     ///         Description = "example description",
     ///         Pipelines = new[]
     ///         {
-    ///             new Azure.DataFactory.Inputs.TriggerCustomEventPipelineArgs
+    ///             
     ///             {
-    ///                 Name = examplePipeline.Name,
-    ///                 Parameters = 
+    ///                 { "name", examplePipeline.Name },
+    ///                 { "parameters", 
     ///                 {
     ///                     { "Env", "Prod" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         AdditionalProperties = 

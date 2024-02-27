@@ -304,24 +304,24 @@ class SystemTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracct",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracct,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_system_topic = azure.eventgrid.SystemTopic("example",
-            name="example-topic",
+        example_system_topic = azure.eventgrid.system_topic.SystemTopic("example",
+            name=example-topic,
             resource_group_name=example.name,
             location=example.location,
             source_arm_resource_id=example_account.id,
-            topic_type="Microsoft.Storage.StorageAccounts")
+            topic_type=Microsoft.Storage.StorageAccounts)
         ```
 
         ## Import
@@ -361,24 +361,24 @@ class SystemTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracct",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracct,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_system_topic = azure.eventgrid.SystemTopic("example",
-            name="example-topic",
+        example_system_topic = azure.eventgrid.system_topic.SystemTopic("example",
+            name=example-topic,
             resource_group_name=example.name,
             location=example.location,
             source_arm_resource_id=example_account.id,
-            topic_type="Microsoft.Storage.StorageAccounts")
+            topic_type=Microsoft.Storage.StorageAccounts)
         ```
 
         ## Import

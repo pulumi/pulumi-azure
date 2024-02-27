@@ -135,19 +135,6 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Redis Enterprise Database
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.redis.get_enterprise_database(name="default",
-        resource_group_name=example_azurerm_resource_group["name"],
-        cluster_id=example_azurerm_redis_enterprise_cluster["id"])
-    pulumi.export("redisEnterpriseDatabasePrimaryKey", example.primary_access_key)
-    pulumi.export("redisEnterpriseDatabaseSecondaryKey", example.secondary_access_key)
-    ```
-
 
     :param str cluster_id: The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.
     :param str name: The name of the Redis Enterprise Database.
@@ -178,19 +165,6 @@ def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = Non
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
     """
     Use this data source to access information about an existing Redis Enterprise Database
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.redis.get_enterprise_database(name="default",
-        resource_group_name=example_azurerm_resource_group["name"],
-        cluster_id=example_azurerm_redis_enterprise_cluster["id"])
-    pulumi.export("redisEnterpriseDatabasePrimaryKey", example.primary_access_key)
-    pulumi.export("redisEnterpriseDatabaseSecondaryKey", example.secondary_access_key)
-    ```
 
 
     :param str cluster_id: The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.

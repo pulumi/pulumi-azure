@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "monitoring-resources",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "loganalytics",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ * const exampleActionGroup = new azure.monitoring/actionGroup.ActionGroup("example", {
  *     name: "example-actiongroup",
  *     resourceGroupName: example.name,
  *     shortName: "exampleact",
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Example: Creates alert using the new Scheduled Query Rules metric
- * const exampleMetricAlert = new azure.monitoring.MetricAlert("example", {
+ * const exampleMetricAlert = new azure.monitoring/metricAlert.MetricAlert("example", {
  *     name: "example-metricalert",
  *     resourceGroupName: example.name,
  *     scopes: [exampleAnalyticsWorkspace.id],
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Example: LogToMetric Action for the named Computer
- * const exampleScheduledQueryRulesLog = new azure.monitoring.ScheduledQueryRulesLog("example", {
+ * const exampleScheduledQueryRulesLog = new azure.monitoring/scheduledQueryRulesLog.ScheduledQueryRulesLog("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,

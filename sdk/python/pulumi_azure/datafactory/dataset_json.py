@@ -454,28 +454,28 @@ class DatasetJson(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
-            name="example",
+        example_linked_service_web = azure.datafactory.linked_service_web.LinkedServiceWeb("example",
+            name=example,
             data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_json = azure.datafactory.DatasetJson("example",
-            name="example",
+            authentication_type=Anonymous,
+            url=https://www.bing.com)
+        example_dataset_json = azure.datafactory.dataset_json.DatasetJson("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetJsonHttpServerLocationArgs(
-                relative_url="/fizz/buzz/",
-                path="foo/bar/",
-                filename="foo.txt",
-            ),
-            encoding="UTF-8")
+            http_server_location={
+                relativeUrl: /fizz/buzz/,
+                path: foo/bar/,
+                filename: foo.txt,
+            },
+            encoding=UTF-8)
         ```
 
         ## Import
@@ -520,28 +520,28 @@ class DatasetJson(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
-            name="example",
+        example_linked_service_web = azure.datafactory.linked_service_web.LinkedServiceWeb("example",
+            name=example,
             data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_json = azure.datafactory.DatasetJson("example",
-            name="example",
+            authentication_type=Anonymous,
+            url=https://www.bing.com)
+        example_dataset_json = azure.datafactory.dataset_json.DatasetJson("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetJsonHttpServerLocationArgs(
-                relative_url="/fizz/buzz/",
-                path="foo/bar/",
-                filename="foo.txt",
-            ),
-            encoding="UTF-8")
+            http_server_location={
+                relativeUrl: /fizz/buzz/,
+                path: foo/bar/,
+                filename: foo.txt,
+            },
+            encoding=UTF-8)
         ```
 
         ## Import

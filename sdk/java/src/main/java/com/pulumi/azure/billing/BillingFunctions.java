@@ -23,76 +23,12 @@ public final class BillingFunctions {
     /**
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnrollmentAccountScopeResult> getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs args) {
         return getEnrollmentAccountScope(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnrollmentAccountScopeResult> getEnrollmentAccountScopePlain(GetEnrollmentAccountScopePlainArgs args) {
@@ -101,76 +37,12 @@ public final class BillingFunctions {
     /**
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnrollmentAccountScopeResult> getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", TypeShape.of(GetEnrollmentAccountScopeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Enrollment Account Billing Scope.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetEnrollmentAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;existing&#34;)
-     *             .enrollmentAccountName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnrollmentAccountScopeResult> getEnrollmentAccountScopePlain(GetEnrollmentAccountScopePlainArgs args, InvokeOptions options) {
@@ -179,78 +51,12 @@ public final class BillingFunctions {
     /**
      * Use this data source to access an ID for your MCA Account billing scope.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMcaAccountScopeResult> getMcaAccountScope(GetMcaAccountScopeArgs args) {
         return getMcaAccountScope(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access an ID for your MCA Account billing scope.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMcaAccountScopeResult> getMcaAccountScopePlain(GetMcaAccountScopePlainArgs args) {
@@ -259,78 +65,12 @@ public final class BillingFunctions {
     /**
      * Use this data source to access an ID for your MCA Account billing scope.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMcaAccountScopeResult> getMcaAccountScope(GetMcaAccountScopeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:billing/getMcaAccountScope:getMcaAccountScope", TypeShape.of(GetMcaAccountScopeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access an ID for your MCA Account billing scope.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMcaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
-     *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMcaAccountScopeResult> getMcaAccountScopePlain(GetMcaAccountScopePlainArgs args, InvokeOptions options) {
@@ -339,76 +79,12 @@ public final class BillingFunctions {
     /**
      * Use this data source to access an ID for your MPA Account billing scope.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMpaAccountScopeResult> getMpaAccountScope(GetMpaAccountScopeArgs args) {
         return getMpaAccountScope(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access an ID for your MPA Account billing scope.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMpaAccountScopeResult> getMpaAccountScopePlain(GetMpaAccountScopePlainArgs args) {
@@ -417,76 +93,12 @@ public final class BillingFunctions {
     /**
      * Use this data source to access an ID for your MPA Account billing scope.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMpaAccountScopeResult> getMpaAccountScope(GetMpaAccountScopeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:billing/getMpaAccountScope:getMpaAccountScope", TypeShape.of(GetMpaAccountScopeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access an ID for your MPA Account billing scope.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.billing.BillingFunctions;
-     * import com.pulumi.azure.billing.inputs.GetMpaAccountScopeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
-     *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
-     *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMpaAccountScopeResult> getMpaAccountScopePlain(GetMpaAccountScopePlainArgs args, InvokeOptions options) {

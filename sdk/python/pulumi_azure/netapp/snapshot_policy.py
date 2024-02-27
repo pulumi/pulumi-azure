@@ -371,48 +371,48 @@ class SnapshotPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="resource-group-01",
-            location="East US")
-        example_account = azure.netapp.Account("example",
-            name="netappaccount-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=resource-group-01,
+            location=East US)
+        example_account = azure.netapp.account.Account("example",
+            name=netappaccount-01,
             location=example.location,
             resource_group_name=example.name)
-        example_snapshot_policy = azure.netapp.SnapshotPolicy("example",
-            name="snapshotpolicy-01",
+        example_snapshot_policy = azure.netapp.snapshot_policy.SnapshotPolicy("example",
+            name=snapshotpolicy-01,
             location=example.location,
             resource_group_name=example.name,
             account_name=example_account.name,
             enabled=True,
-            hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
-                snapshots_to_keep=4,
-                minute=15,
-            ),
-            daily_schedule=azure.netapp.SnapshotPolicyDailyScheduleArgs(
-                snapshots_to_keep=2,
-                hour=20,
-                minute=15,
-            ),
-            weekly_schedule=azure.netapp.SnapshotPolicyWeeklyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_weeks=[
-                    "Monday",
-                    "Friday",
+            hourly_schedule={
+                snapshotsToKeep: 4,
+                minute: 15,
+            },
+            daily_schedule={
+                snapshotsToKeep: 2,
+                hour: 20,
+                minute: 15,
+            },
+            weekly_schedule={
+                snapshotsToKeep: 1,
+                daysOfWeeks: [
+                    Monday,
+                    Friday,
                 ],
-                hour=23,
-                minute=0,
-            ),
-            monthly_schedule=azure.netapp.SnapshotPolicyMonthlyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_months=[
+                hour: 23,
+                minute: 0,
+            },
+            monthly_schedule={
+                snapshotsToKeep: 1,
+                daysOfMonths: [
                     1,
                     15,
                     20,
                     30,
                 ],
-                hour=5,
-                minute=45,
-            ))
+                hour: 5,
+                minute: 45,
+            })
         ```
 
         ## Import
@@ -451,48 +451,48 @@ class SnapshotPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="resource-group-01",
-            location="East US")
-        example_account = azure.netapp.Account("example",
-            name="netappaccount-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=resource-group-01,
+            location=East US)
+        example_account = azure.netapp.account.Account("example",
+            name=netappaccount-01,
             location=example.location,
             resource_group_name=example.name)
-        example_snapshot_policy = azure.netapp.SnapshotPolicy("example",
-            name="snapshotpolicy-01",
+        example_snapshot_policy = azure.netapp.snapshot_policy.SnapshotPolicy("example",
+            name=snapshotpolicy-01,
             location=example.location,
             resource_group_name=example.name,
             account_name=example_account.name,
             enabled=True,
-            hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
-                snapshots_to_keep=4,
-                minute=15,
-            ),
-            daily_schedule=azure.netapp.SnapshotPolicyDailyScheduleArgs(
-                snapshots_to_keep=2,
-                hour=20,
-                minute=15,
-            ),
-            weekly_schedule=azure.netapp.SnapshotPolicyWeeklyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_weeks=[
-                    "Monday",
-                    "Friday",
+            hourly_schedule={
+                snapshotsToKeep: 4,
+                minute: 15,
+            },
+            daily_schedule={
+                snapshotsToKeep: 2,
+                hour: 20,
+                minute: 15,
+            },
+            weekly_schedule={
+                snapshotsToKeep: 1,
+                daysOfWeeks: [
+                    Monday,
+                    Friday,
                 ],
-                hour=23,
-                minute=0,
-            ),
-            monthly_schedule=azure.netapp.SnapshotPolicyMonthlyScheduleArgs(
-                snapshots_to_keep=1,
-                days_of_months=[
+                hour: 23,
+                minute: 0,
+            },
+            monthly_schedule={
+                snapshotsToKeep: 1,
+                daysOfMonths: [
                     1,
                     15,
                     20,
                     30,
                 ],
-                hour=5,
-                minute=45,
-            ))
+                hour: 5,
+                minute: 45,
+            })
         ```
 
         ## Import

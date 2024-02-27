@@ -22,24 +22,24 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -49,47 +49,47 @@ namespace Pulumi.Azure.DataFactory
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("example", new()
+    ///     var exampleLinkedCustomService = new Azure.Datafactory.LinkedCustomService.LinkedCustomService("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "AzureBlobStorage",
-    ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
-    ///   ""connectionString"":""{primaryConnectionString}""
+    ///         TypePropertiesJson = @$"{{
+    ///   ""connectionString"":""{exampleAccount.PrimaryConnectionString}""
     /// }}
-    /// "),
+    /// ",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "content",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleCustomDataset = new Azure.DataFactory.CustomDataset("example", new()
+    ///     var exampleCustomDataset = new Azure.Datafactory.CustomDataset.CustomDataset("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "Json",
-    ///         LinkedService = new Azure.DataFactory.Inputs.CustomDatasetLinkedServiceArgs
+    ///         LinkedService = 
     ///         {
-    ///             Name = exampleLinkedCustomService.Name,
-    ///             Parameters = 
+    ///             { "name", exampleLinkedCustomService.Name },
+    ///             { "parameters", 
     ///             {
     ///                 { "key1", "value1" },
-    ///             },
+    ///             } },
     ///         },
-    ///         TypePropertiesJson = exampleContainer.Name.Apply(name =&gt; @$"{{
+    ///         TypePropertiesJson = @$"{{
     ///   ""location"": {{
-    ///     ""container"":""{name}"",
+    ///     ""container"":""{exampleContainer.Name}"",
     ///     ""fileName"":""foo.txt"",
     ///     ""folderPath"": ""foo/bar/"",
     ///     ""type"":""AzureBlobStorageLocation""
     ///   }},
     ///   ""encodingName"":""UTF-8""
     /// }}
-    /// "),
+    /// ",
     ///         Description = "test description",
     ///         Annotations = new[]
     ///         {

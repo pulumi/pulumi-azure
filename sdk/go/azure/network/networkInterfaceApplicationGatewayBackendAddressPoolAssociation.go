@@ -23,175 +23,167 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/applicationGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/applicationGateway"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
+//	  panic(message)
 //	}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-network"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			frontend, err := network.NewSubnet(ctx, "frontend", &network.SubnetArgs{
-//				Name:               pulumi.String("frontend"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnet(ctx, "backend", &network.SubnetArgs{
-//				Name:               pulumi.String("backend"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-pip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Dynamic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			backendAddressPoolName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
-//				return fmt.Sprintf("%v-beap", name), nil
-//			}).(pulumi.StringOutput)
-//			frontendPortName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
-//				return fmt.Sprintf("%v-feport", name), nil
-//			}).(pulumi.StringOutput)
-//			frontendIpConfigurationName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
-//				return fmt.Sprintf("%v-feip", name), nil
-//			}).(pulumi.StringOutput)
-//			httpSettingName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
-//				return fmt.Sprintf("%v-be-htst", name), nil
-//			}).(pulumi.StringOutput)
-//			listenerName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
-//				return fmt.Sprintf("%v-httplstn", name), nil
-//			}).(pulumi.StringOutput)
-//			requestRoutingRuleName := exampleVirtualNetwork.Name.ApplyT(func(name string) (string, error) {
-//				return fmt.Sprintf("%v-rqrt", name), nil
-//			}).(pulumi.StringOutput)
-//			_, err = network.NewApplicationGateway(ctx, "network", &network.ApplicationGatewayArgs{
-//				Name:              pulumi.String("example-appgateway"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &network.ApplicationGatewaySkuArgs{
-//					Name:     pulumi.String("Standard_Small"),
-//					Tier:     pulumi.String("Standard"),
-//					Capacity: pulumi.Int(2),
-//				},
-//				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
-//					&network.ApplicationGatewayGatewayIpConfigurationArgs{
-//						Name:     pulumi.String("my-gateway-ip-configuration"),
-//						SubnetId: frontend.ID(),
-//					},
-//				},
-//				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
-//					&network.ApplicationGatewayFrontendPortArgs{
-//						Name: pulumi.String(frontendPortName),
-//						Port: pulumi.Int(80),
-//					},
-//				},
-//				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
-//					&network.ApplicationGatewayFrontendIpConfigurationArgs{
-//						Name:              pulumi.String(frontendIpConfigurationName),
-//						PublicIpAddressId: examplePublicIp.ID(),
-//					},
-//				},
-//				BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
-//					&network.ApplicationGatewayBackendAddressPoolArgs{
-//						Name: pulumi.String(backendAddressPoolName),
-//					},
-//				},
-//				BackendHttpSettings: network.ApplicationGatewayBackendHttpSettingArray{
-//					&network.ApplicationGatewayBackendHttpSettingArgs{
-//						Name:                pulumi.String(httpSettingName),
-//						CookieBasedAffinity: pulumi.String("Disabled"),
-//						Port:                pulumi.Int(80),
-//						Protocol:            pulumi.String("Http"),
-//						RequestTimeout:      pulumi.Int(1),
-//					},
-//				},
-//				HttpListeners: network.ApplicationGatewayHttpListenerArray{
-//					&network.ApplicationGatewayHttpListenerArgs{
-//						Name:                        pulumi.String(listenerName),
-//						FrontendIpConfigurationName: pulumi.String(frontendIpConfigurationName),
-//						FrontendPortName:            pulumi.String(frontendPortName),
-//						Protocol:                    pulumi.String("Http"),
-//					},
-//				},
-//				RequestRoutingRules: network.ApplicationGatewayRequestRoutingRuleArray{
-//					&network.ApplicationGatewayRequestRoutingRuleArgs{
-//						Name:                    pulumi.String(requestRoutingRuleName),
-//						RuleType:                pulumi.String("Basic"),
-//						Priority:                pulumi.Int(25),
-//						HttpListenerName:        pulumi.String(listenerName),
-//						BackendAddressPoolName:  pulumi.String(backendAddressPoolName),
-//						BackendHttpSettingsName: pulumi.String(httpSettingName),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   frontend.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "example", &network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
-//				NetworkInterfaceId:   exampleNetworkInterface.ID(),
-//				IpConfigurationName:  pulumi.String("testconfiguration1"),
-//				BackendAddressPoolId: notImplemented("tolist(azurerm_application_gateway.network.backend_address_pool)")[0].Id,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-network",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// frontend, err := network/subnet.NewSubnet(ctx, "frontend", &network/subnet.SubnetArgs{
+// Name: "frontend",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnet.NewSubnet(ctx, "backend", &network/subnet.SubnetArgs{
+// Name: "backend",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-pip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Dynamic",
+// })
+// if err != nil {
+// return err
+// }
+// backendAddressPoolName := fmt.Sprintf("%v-beap", exampleVirtualNetwork.Name);
+// frontendPortName := fmt.Sprintf("%v-feport", exampleVirtualNetwork.Name);
+// frontendIpConfigurationName := fmt.Sprintf("%v-feip", exampleVirtualNetwork.Name);
+// httpSettingName := fmt.Sprintf("%v-be-htst", exampleVirtualNetwork.Name);
+// listenerName := fmt.Sprintf("%v-httplstn", exampleVirtualNetwork.Name);
+// requestRoutingRuleName := fmt.Sprintf("%v-rqrt", exampleVirtualNetwork.Name);
+// _, err = network/applicationGateway.NewApplicationGateway(ctx, "network", &network/applicationGateway.ApplicationGatewayArgs{
+// Name: "example-appgateway",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "Standard_Small",
+// "tier": "Standard",
+// "capacity": 2,
+// },
+// GatewayIpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "my-gateway-ip-configuration",
+// "subnetId": frontend.Id,
+// },
+// },
+// FrontendPorts: []map[string]interface{}{
+// map[string]interface{}{
+// "name": frontendPortName,
+// "port": 80,
+// },
+// },
+// FrontendIpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": frontendIpConfigurationName,
+// "publicIpAddressId": examplePublicIp.Id,
+// },
+// },
+// BackendAddressPools: []map[string]interface{}{
+// map[string]interface{}{
+// "name": backendAddressPoolName,
+// },
+// },
+// BackendHttpSettings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": httpSettingName,
+// "cookieBasedAffinity": "Disabled",
+// "port": 80,
+// "protocol": "Http",
+// "requestTimeout": 1,
+// },
+// },
+// HttpListeners: []map[string]interface{}{
+// map[string]interface{}{
+// "name": listenerName,
+// "frontendIpConfigurationName": frontendIpConfigurationName,
+// "frontendPortName": frontendPortName,
+// "protocol": "Http",
+// },
+// },
+// RequestRoutingRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": requestRoutingRuleName,
+// "ruleType": "Basic",
+// "priority": 25,
+// "httpListenerName": listenerName,
+// "backendAddressPoolName": backendAddressPoolName,
+// "backendHttpSettingsName": httpSettingName,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "example-nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testconfiguration1",
+// "subnetId": frontend.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "example", &network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
+// NetworkInterfaceId: exampleNetworkInterface.Id,
+// IpConfigurationName: "testconfiguration1",
+// BackendAddressPoolId: notImplemented("tolist(azurerm_application_gateway.network.backend_address_pool)")[0].Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

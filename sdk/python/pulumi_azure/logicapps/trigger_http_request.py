@@ -237,17 +237,17 @@ class TriggerHttpRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="workflow-resources",
-            location="West Europe")
-        example_workflow = azure.logicapps.Workflow("example",
-            name="workflow1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=workflow-resources,
+            location=West Europe)
+        example_workflow = azure.logicapps.workflow.Workflow("example",
+            name=workflow1,
             location=example.location,
             resource_group_name=example.name)
-        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("example",
-            name="some-http-trigger",
+        example_trigger_http_request = azure.logicapps.trigger_http_request.TriggerHttpRequest("example",
+            name=some-http-trigger,
             logic_app_id=example_workflow.id,
-            schema=\"\"\"{
+            schema={
             "type": "object",
             "properties": {
                 "hello": {
@@ -255,7 +255,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
                 }
             }
         }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -293,17 +293,17 @@ class TriggerHttpRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="workflow-resources",
-            location="West Europe")
-        example_workflow = azure.logicapps.Workflow("example",
-            name="workflow1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=workflow-resources,
+            location=West Europe)
+        example_workflow = azure.logicapps.workflow.Workflow("example",
+            name=workflow1,
             location=example.location,
             resource_group_name=example.name)
-        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("example",
-            name="some-http-trigger",
+        example_trigger_http_request = azure.logicapps.trigger_http_request.TriggerHttpRequest("example",
+            name=some-http-trigger,
             logic_app_id=example_workflow.id,
-            schema=\"\"\"{
+            schema={
             "type": "object",
             "properties": {
                 "hello": {
@@ -311,7 +311,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
                 }
             }
         }
-        \"\"\")
+        )
         ```
 
         ## Import

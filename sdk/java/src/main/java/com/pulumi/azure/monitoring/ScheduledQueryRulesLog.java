@@ -34,14 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.monitoring.ActionGroup;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
  * import com.pulumi.azure.monitoring.MetricAlert;
  * import com.pulumi.azure.monitoring.MetricAlertArgs;
- * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
- * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesLog;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesLogArgs;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesLogCriteriaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,10 +68,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-actiongroup&#34;)
  *             .resourceGroupName(example.name())
  *             .shortName(&#34;exampleact&#34;)
- *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
- *                 .name(&#34;callmyapi&#34;)
- *                 .serviceUri(&#34;http://example.com/alert&#34;)
- *                 .build())
+ *             .webhookReceivers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
@@ -85,34 +78,19 @@ import javax.annotation.Nullable;
  *             .description(&#34;Action will be triggered when Average_% Idle Time metric is less than 10.&#34;)
  *             .frequency(&#34;PT1M&#34;)
  *             .windowSize(&#34;PT5M&#34;)
- *             .criterias(MetricAlertCriteriaArgs.builder()
- *                 .metricNamespace(&#34;Microsoft.OperationalInsights/workspaces&#34;)
- *                 .metricName(&#34;UsedCapacity&#34;)
- *                 .aggregation(&#34;Average&#34;)
- *                 .operator(&#34;LessThan&#34;)
- *                 .threshold(10)
- *                 .build())
- *             .actions(MetricAlertActionArgs.builder()
- *                 .actionGroupId(exampleActionGroup.id())
- *                 .build())
+ *             .criterias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog(&#34;exampleScheduledQueryRulesLog&#34;, ScheduledQueryRulesLogArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .criteria(ScheduledQueryRulesLogCriteriaArgs.builder()
- *                 .metricName(&#34;Average_% Idle Time&#34;)
- *                 .dimensions(ScheduledQueryRulesLogCriteriaDimensionArgs.builder()
- *                     .name(&#34;Computer&#34;)
- *                     .operator(&#34;Include&#34;)
- *                     .values(&#34;targetVM&#34;)
- *                     .build())
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .dataSourceId(exampleAnalyticsWorkspace.id())
  *             .description(&#34;Scheduled query rule LogToMetric example&#34;)
  *             .enabled(true)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

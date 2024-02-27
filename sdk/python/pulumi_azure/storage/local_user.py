@@ -306,44 +306,44 @@ class LocalUser(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="WestEurope")
-        example_account = azure.storage.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=WestEurope)
+        example_account = azure.storage.account.Account("example",
+            name=example-account,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="StorageV2",
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_kind=StorageV2,
+            account_tier=Standard,
+            account_replication_type=LRS,
             is_hns_enabled=True)
-        example_container = azure.storage.Container("example",
-            name="example-container",
+        example_container = azure.storage.container.Container("example",
+            name=example-container,
             storage_account_name=example_account.name)
-        example_local_user = azure.storage.LocalUser("example",
-            name="user1",
+        example_local_user = azure.storage.local_user.LocalUser("example",
+            name=user1,
             storage_account_id=example_account.id,
             ssh_key_enabled=True,
             ssh_password_enabled=True,
-            home_directory="example_path",
+            home_directory=example_path,
             ssh_authorized_keys=[
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key1",
-                    key=first_public_key,
-                ),
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key2",
-                    key=second_public_key,
-                ),
+                {
+                    description: key1,
+                    key: first_public_key,
+                },
+                {
+                    description: key2,
+                    key: second_public_key,
+                },
             ],
-            permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
-                permissions=azure.storage.LocalUserPermissionScopePermissionsArgs(
-                    read=True,
-                    create=True,
-                ),
-                service="blob",
-                resource_name=example_container.name,
-            )])
+            permission_scopes=[{
+                permissions: {
+                    read: True,
+                    create: True,
+                },
+                service: blob,
+                resourceName: example_container.name,
+            }])
         ```
 
         ## Import
@@ -379,44 +379,44 @@ class LocalUser(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="WestEurope")
-        example_account = azure.storage.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=WestEurope)
+        example_account = azure.storage.account.Account("example",
+            name=example-account,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="StorageV2",
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_kind=StorageV2,
+            account_tier=Standard,
+            account_replication_type=LRS,
             is_hns_enabled=True)
-        example_container = azure.storage.Container("example",
-            name="example-container",
+        example_container = azure.storage.container.Container("example",
+            name=example-container,
             storage_account_name=example_account.name)
-        example_local_user = azure.storage.LocalUser("example",
-            name="user1",
+        example_local_user = azure.storage.local_user.LocalUser("example",
+            name=user1,
             storage_account_id=example_account.id,
             ssh_key_enabled=True,
             ssh_password_enabled=True,
-            home_directory="example_path",
+            home_directory=example_path,
             ssh_authorized_keys=[
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key1",
-                    key=first_public_key,
-                ),
-                azure.storage.LocalUserSshAuthorizedKeyArgs(
-                    description="key2",
-                    key=second_public_key,
-                ),
+                {
+                    description: key1,
+                    key: first_public_key,
+                },
+                {
+                    description: key2,
+                    key: second_public_key,
+                },
             ],
-            permission_scopes=[azure.storage.LocalUserPermissionScopeArgs(
-                permissions=azure.storage.LocalUserPermissionScopePermissionsArgs(
-                    read=True,
-                    create=True,
-                ),
-                service="blob",
-                resource_name=example_container.name,
-            )])
+            permission_scopes=[{
+                permissions: {
+                    read: True,
+                    create: True,
+                },
+                service: blob,
+                resourceName: example_container.name,
+            }])
         ```
 
         ## Import

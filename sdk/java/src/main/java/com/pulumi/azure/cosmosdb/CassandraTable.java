@@ -31,14 +31,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.CassandraKeyspace;
  * import com.pulumi.azure.cosmosdb.CassandraKeyspaceArgs;
  * import com.pulumi.azure.cosmosdb.CassandraTable;
  * import com.pulumi.azure.cosmosdb.CassandraTableArgs;
- * import com.pulumi.azure.cosmosdb.inputs.CassandraTableSchemaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,16 +58,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .offerType(&#34;Standard&#34;)
- *             .capabilities(AccountCapabilityArgs.builder()
- *                 .name(&#34;EnableCassandra&#34;)
- *                 .build())
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(example.location())
- *                 .failoverPriority(0)
- *                 .build())
+ *             .capabilities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .consistencyPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .geoLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleCassandraKeyspace = new CassandraKeyspace(&#34;exampleCassandraKeyspace&#34;, CassandraKeyspaceArgs.builder()        
@@ -84,20 +73,7 @@ import javax.annotation.Nullable;
  *         var exampleCassandraTable = new CassandraTable(&#34;exampleCassandraTable&#34;, CassandraTableArgs.builder()        
  *             .name(&#34;testtable&#34;)
  *             .cassandraKeyspaceId(exampleCassandraKeyspace.id())
- *             .schema(CassandraTableSchemaArgs.builder()
- *                 .columns(                
- *                     CassandraTableSchemaColumnArgs.builder()
- *                         .name(&#34;test1&#34;)
- *                         .type(&#34;ascii&#34;)
- *                         .build(),
- *                     CassandraTableSchemaColumnArgs.builder()
- *                         .name(&#34;test2&#34;)
- *                         .type(&#34;int&#34;)
- *                         .build())
- *                 .partitionKeys(CassandraTableSchemaPartitionKeyArgs.builder()
- *                     .name(&#34;test1&#34;)
- *                     .build())
- *                 .build())
+ *             .schema(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -390,15 +390,15 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_definition = azure.policy.Definition("example",
-            name="my-policy-definition",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\"    {
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_definition = azure.policy.definition.Definition("example",
+            name=my-policy-definition,
+            policy_type=Custom,
+            mode=All,
+            display_name=my-policy-definition,
+            policy_rule=    {
             "if": {
               "not": {
                 "field": "location",
@@ -409,8 +409,8 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
               "effect": "audit"
             }
           }
-        \"\"\",
-            parameters=\"\"\"    {
+        ,
+            parameters=    {
             "allowedLocations": {
               "type": "Array",
               "metadata": {
@@ -420,16 +420,16 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
               }
             }
           }
-        \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
-            name="example",
+        )
+        example_resource_group_policy_assignment = azure.core.resource_group_policy_assignment.ResourceGroupPolicyAssignment("example",
+            name=example,
             resource_group_id=example.id,
             policy_definition_id=example_definition.id)
-        example_resource_group_policy_remediation = azure.core.ResourceGroupPolicyRemediation("example",
-            name="example-policy-remediation",
+        example_resource_group_policy_remediation = azure.core.resource_group_policy_remediation.ResourceGroupPolicyRemediation("example",
+            name=example-policy-remediation,
             resource_group_id=example.id,
             policy_assignment_id=example_resource_group_policy_assignment.id,
-            location_filters=["West Europe"])
+            location_filters=[West Europe])
         ```
 
         ## Import
@@ -470,15 +470,15 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_definition = azure.policy.Definition("example",
-            name="my-policy-definition",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\"    {
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_definition = azure.policy.definition.Definition("example",
+            name=my-policy-definition,
+            policy_type=Custom,
+            mode=All,
+            display_name=my-policy-definition,
+            policy_rule=    {
             "if": {
               "not": {
                 "field": "location",
@@ -489,8 +489,8 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
               "effect": "audit"
             }
           }
-        \"\"\",
-            parameters=\"\"\"    {
+        ,
+            parameters=    {
             "allowedLocations": {
               "type": "Array",
               "metadata": {
@@ -500,16 +500,16 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
               }
             }
           }
-        \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
-            name="example",
+        )
+        example_resource_group_policy_assignment = azure.core.resource_group_policy_assignment.ResourceGroupPolicyAssignment("example",
+            name=example,
             resource_group_id=example.id,
             policy_definition_id=example_definition.id)
-        example_resource_group_policy_remediation = azure.core.ResourceGroupPolicyRemediation("example",
-            name="example-policy-remediation",
+        example_resource_group_policy_remediation = azure.core.resource_group_policy_remediation.ResourceGroupPolicyRemediation("example",
+            name=example-policy-remediation,
             resource_group_id=example.id,
             policy_assignment_id=example_resource_group_policy_assignment.id,
-            location_filters=["West Europe"])
+            location_filters=[West Europe])
         ```
 
         ## Import

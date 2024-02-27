@@ -513,44 +513,44 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exprtTest",
-            location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="expressRoute1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exprtTest,
+            location=West Europe)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
+            service_provider_name=Equinix,
+            peering_location=Silicon Valley,
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            },
             allow_classic_operations=False,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="MicrosoftPeering",
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=MicrosoftPeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
             peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
+            primary_peer_address_prefix=123.0.0.0/30,
+            secondary_peer_address_prefix=123.0.0.4/30,
             ipv4_enabled=True,
             vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.1.0.0/24"],
-            ),
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
-                    advertised_public_prefixes=["2002:db01::/126"],
-                ),
-            ))
+            microsoft_peering_config={
+                advertisedPublicPrefixes: [123.1.0.0/24],
+            },
+            ipv6={
+                primaryPeerAddressPrefix: 2002:db01::/126,
+                secondaryPeerAddressPrefix: 2003:db01::/126,
+                enabled: True,
+                microsoftPeering: {
+                    advertisedPublicPrefixes: [2002:db01::/126],
+                },
+            })
         ```
         ### Creating Azure Private Peering)
 
@@ -558,38 +558,38 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exprtTest",
-            location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="expressRoute1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exprtTest,
+            location=West Europe)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
+            service_provider_name=Equinix,
+            peering_location=Silicon Valley,
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            },
             allow_classic_operations=False,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="AzurePrivatePeering",
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
             peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
+            primary_peer_address_prefix=123.0.0.0/30,
+            secondary_peer_address_prefix=123.0.0.4/30,
             ipv4_enabled=True,
             vlan_id=300,
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-            ))
+            ipv6={
+                primaryPeerAddressPrefix: 2002:db01::/126,
+                secondaryPeerAddressPrefix: 2003:db01::/126,
+                enabled: True,
+            })
         ```
 
         ## Import
@@ -635,44 +635,44 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exprtTest",
-            location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="expressRoute1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exprtTest,
+            location=West Europe)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
+            service_provider_name=Equinix,
+            peering_location=Silicon Valley,
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            },
             allow_classic_operations=False,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="MicrosoftPeering",
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=MicrosoftPeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
             peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
+            primary_peer_address_prefix=123.0.0.0/30,
+            secondary_peer_address_prefix=123.0.0.4/30,
             ipv4_enabled=True,
             vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.1.0.0/24"],
-            ),
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
-                    advertised_public_prefixes=["2002:db01::/126"],
-                ),
-            ))
+            microsoft_peering_config={
+                advertisedPublicPrefixes: [123.1.0.0/24],
+            },
+            ipv6={
+                primaryPeerAddressPrefix: 2002:db01::/126,
+                secondaryPeerAddressPrefix: 2003:db01::/126,
+                enabled: True,
+                microsoftPeering: {
+                    advertisedPublicPrefixes: [2002:db01::/126],
+                },
+            })
         ```
         ### Creating Azure Private Peering)
 
@@ -680,38 +680,38 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exprtTest",
-            location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="expressRoute1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exprtTest,
+            location=West Europe)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
+            service_provider_name=Equinix,
+            peering_location=Silicon Valley,
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            },
             allow_classic_operations=False,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="AzurePrivatePeering",
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
             peer_asn=100,
-            primary_peer_address_prefix="123.0.0.0/30",
-            secondary_peer_address_prefix="123.0.0.4/30",
+            primary_peer_address_prefix=123.0.0.0/30,
+            secondary_peer_address_prefix=123.0.0.4/30,
             ipv4_enabled=True,
             vlan_id=300,
-            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
-                primary_peer_address_prefix="2002:db01::/126",
-                secondary_peer_address_prefix="2003:db01::/126",
-                enabled=True,
-            ))
+            ipv6={
+                primaryPeerAddressPrefix: 2002:db01::/126,
+                secondaryPeerAddressPrefix: 2003:db01::/126,
+                enabled: True,
+            })
         ```
 
         ## Import

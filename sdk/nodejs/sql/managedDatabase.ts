@@ -11,23 +11,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "rg-example",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "test-network",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "acctsub",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleManagedInstance = new azure.sql.ManagedInstance("example", {
+ * const exampleManagedInstance = new azure.sql/managedInstance.ManagedInstance("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     vcores: 4,
  *     storageSizeInGb: 32,
  * });
- * const exampleManagedDatabase = new azure.sql.ManagedDatabase("example", {
+ * const exampleManagedDatabase = new azure.sql/managedDatabase.ManagedDatabase("example", {
  *     sqlManagedInstanceId: exampleManagedInstance.id,
  *     name: "exampledatabase",
  *     location: example.location,

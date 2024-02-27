@@ -22,13 +22,13 @@ namespace Pulumi.Azure.NetworkFunction
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West US 2",
     ///     });
     /// 
-    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("example", new()
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort.ExpressRoutePort("example", new()
     ///     {
     ///         Name = "example-erp",
     ///         ResourceGroupName = example.Name,
@@ -38,21 +38,21 @@ namespace Pulumi.Azure.NetworkFunction
     ///         Encapsulation = "Dot1Q",
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit.ExpressRouteCircuit("example", new()
     ///     {
     ///         Name = "example-erc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
     ///         BandwidthInGbps = 1,
-    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Family = "MeteredData",
+    ///             { "tier", "Standard" },
+    ///             { "family", "MeteredData" },
     ///         },
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering.ExpressRouteCircuitPeering("example", new()
     ///     {
     ///         PeeringType = "MicrosoftPeering",
     ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
@@ -61,37 +61,37 @@ namespace Pulumi.Azure.NetworkFunction
     ///         PrimaryPeerAddressPrefix = "192.168.199.0/30",
     ///         SecondaryPeerAddressPrefix = "192.168.200.0/30",
     ///         VlanId = 300,
-    ///         MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
+    ///         MicrosoftPeeringConfig = 
     ///         {
-    ///             AdvertisedPublicPrefixes = new[]
+    ///             { "advertisedPublicPrefixes", new[]
     ///             {
     ///                 "123.6.0.0/24",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleAzureTrafficCollector = new Azure.NetworkFunction.AzureTrafficCollector("example", new()
+    ///     var exampleAzureTrafficCollector = new Azure.Networkfunction.AzureTrafficCollector.AzureTrafficCollector("example", new()
     ///     {
     ///         Name = "example-nfatc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleCollectorPolicy = new Azure.NetworkFunction.CollectorPolicy("example", new()
+    ///     var exampleCollectorPolicy = new Azure.Networkfunction.CollectorPolicy.CollectorPolicy("example", new()
     ///     {
     ///         Name = "example-nfcp",
     ///         TrafficCollectorId = exampleAzureTrafficCollector.Id,
     ///         Location = example.Location,
-    ///         IpfxEmission = new Azure.NetworkFunction.Inputs.CollectorPolicyIpfxEmissionArgs
+    ///         IpfxEmission = 
     ///         {
-    ///             DestinationTypes = "AzureMonitor",
+    ///             { "destinationTypes", "AzureMonitor" },
     ///         },
-    ///         IpfxIngestion = new Azure.NetworkFunction.Inputs.CollectorPolicyIpfxIngestionArgs
+    ///         IpfxIngestion = 
     ///         {
-    ///             SourceResourceIds = new[]
+    ///             { "sourceResourceIds", new[]
     ///             {
     ///                 exampleExpressRouteCircuit.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

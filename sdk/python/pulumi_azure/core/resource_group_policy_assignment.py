@@ -512,15 +512,15 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_definition = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\" {
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_definition = azure.policy.definition.Definition("example",
+            name=only-deploy-in-westeurope,
+            policy_type=Custom,
+            mode=All,
+            display_name=my-policy-definition,
+            policy_rule= {
             "if": {
               "not": {
                 "field": "location",
@@ -531,12 +531,12 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
               "effect": "Deny"
             }
           }
-        \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
-            name="example",
+        )
+        example_resource_group_policy_assignment = azure.core.resource_group_policy_assignment.ResourceGroupPolicyAssignment("example",
+            name=example,
             resource_group_id=example.id,
             policy_definition_id=example_definition.id,
-            parameters=\"\"\"    {
+            parameters=    {
               "tagName": {
                 "value": "Business Unit"
               },
@@ -544,7 +544,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
                 "value": "BU"
               }
             }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -589,15 +589,15 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_definition = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\" {
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_definition = azure.policy.definition.Definition("example",
+            name=only-deploy-in-westeurope,
+            policy_type=Custom,
+            mode=All,
+            display_name=my-policy-definition,
+            policy_rule= {
             "if": {
               "not": {
                 "field": "location",
@@ -608,12 +608,12 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
               "effect": "Deny"
             }
           }
-        \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
-            name="example",
+        )
+        example_resource_group_policy_assignment = azure.core.resource_group_policy_assignment.ResourceGroupPolicyAssignment("example",
+            name=example,
             resource_group_id=example.id,
             policy_definition_id=example_definition.id,
-            parameters=\"\"\"    {
+            parameters=    {
               "tagName": {
                 "value": "Business Unit"
               },
@@ -621,7 +621,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
                 "value": "BU"
               }
             }
-        \"\"\")
+        )
         ```
 
         ## Import

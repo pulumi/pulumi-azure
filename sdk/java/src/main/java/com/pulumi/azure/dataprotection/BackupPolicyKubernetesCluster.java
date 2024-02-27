@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Manages a Backup Policy to back up Kubernetes Cluster.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -34,9 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesCluster;
  * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesClusterArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,23 +66,8 @@ import javax.annotation.Nullable;
  *             .backupRepeatingTimeIntervals(&#34;R/2021-05-23T02:30:00+00:00/P1W&#34;)
  *             .timeZone(&#34;India Standard Time&#34;)
  *             .defaultRetentionDuration(&#34;P4M&#34;)
- *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
- *                 .name(&#34;Daily&#34;)
- *                 .priority(25)
- *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
- *                     .duration(&#34;P84D&#34;)
- *                     .dataStoreType(&#34;OperationalStore&#34;)
- *                     .build())
- *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
- *                     .absoluteCriteria(&#34;FirstOfDay&#34;)
- *                     .build())
- *                 .build())
- *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
- *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
- *                     .duration(&#34;P7D&#34;)
- *                     .dataStoreType(&#34;OperationalStore&#34;)
- *                     .build())
- *                 .build())
+ *             .retentionRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .defaultRetentionRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

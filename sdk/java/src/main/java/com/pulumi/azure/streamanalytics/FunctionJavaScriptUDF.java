@@ -19,64 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
- * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
- * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
- * import com.pulumi.azure.streamanalytics.FunctionJavaScriptUDF;
- * import com.pulumi.azure.streamanalytics.FunctionJavaScriptUDFArgs;
- * import com.pulumi.azure.streamanalytics.inputs.FunctionJavaScriptUDFInputArgs;
- * import com.pulumi.azure.streamanalytics.inputs.FunctionJavaScriptUDFOutputArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
- *             .name(&#34;example-resources&#34;)
- *             .build());
- * 
- *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
- *             .build());
- * 
- *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF(&#34;exampleFunctionJavaScriptUDF&#34;, FunctionJavaScriptUDFArgs.builder()        
- *             .name(&#34;example-javascript-function&#34;)
- *             .streamAnalyticsJobName(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.name()))
- *             .resourceGroupName(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName()))
- *             .script(&#34;&#34;&#34;
- * function getRandomNumber(in) {
- *   return in;
- * }
- *             &#34;&#34;&#34;)
- *             .inputs(FunctionJavaScriptUDFInputArgs.builder()
- *                 .type(&#34;bigint&#34;)
- *                 .build())
- *             .output(FunctionJavaScriptUDFOutputArgs.builder()
- *                 .type(&#34;bigint&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Stream Analytics JavaScript UDF Functions can be imported using the `resource id`, e.g.

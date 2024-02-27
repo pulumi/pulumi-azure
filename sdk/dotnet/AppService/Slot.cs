@@ -28,42 +28,42 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server", new()
+    ///     var server = new Random.Index.RandomId.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", "1" },
+    ///             { "azi_id", 1 },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "some-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "some-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
-    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         SiteConfig = 
     ///         {
-    ///             DotnetFrameworkVersion = "v4.0",
+    ///             { "dotnetFrameworkVersion", "v4.0" },
     ///         },
     ///         AppSettings = 
     ///         {
@@ -71,25 +71,25 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///         ConnectionStrings = new[]
     ///         {
-    ///             new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///             
     ///             {
-    ///                 Name = "Database",
-    ///                 Type = "SQLServer",
-    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///                 { "name", "Database" },
+    ///                 { "type", "SQLServer" },
+    ///                 { "value", "Server=some-server.mydomain.com;Integrated Security=SSPI" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSlot = new Azure.AppService.Slot("example", new()
+    ///     var exampleSlot = new Azure.Appservice.Slot.Slot("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         AppServiceName = exampleAppService.Name,
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
-    ///         SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
+    ///         SiteConfig = 
     ///         {
-    ///             DotnetFrameworkVersion = "v4.0",
+    ///             { "dotnetFrameworkVersion", "v4.0" },
     ///         },
     ///         AppSettings = 
     ///         {
@@ -97,11 +97,11 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///         ConnectionStrings = new[]
     ///         {
-    ///             new Azure.AppService.Inputs.SlotConnectionStringArgs
+    ///             
     ///             {
-    ///                 Name = "Database",
-    ///                 Type = "SQLServer",
-    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///                 { "name", "Database" },
+    ///                 { "type", "SQLServer" },
+    ///                 { "value", "Server=some-server.mydomain.com;Integrated Security=SSPI" },
     ///             },
     ///         },
     ///     });
@@ -119,59 +119,59 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server", new()
+    ///     var server = new Random.Index.RandomId.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", "1" },
+    ///             { "azi_id", 1 },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "some-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "some-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
-    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         SiteConfig = 
     ///         {
-    ///             JavaVersion = "1.8",
-    ///             JavaContainer = "JETTY",
-    ///             JavaContainerVersion = "9.3",
+    ///             { "javaVersion", "1.8" },
+    ///             { "javaContainer", "JETTY" },
+    ///             { "javaContainerVersion", "9.3" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSlot = new Azure.AppService.Slot("example", new()
+    ///     var exampleSlot = new Azure.Appservice.Slot.Slot("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         AppServiceName = exampleAppService.Name,
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
-    ///         SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
+    ///         SiteConfig = 
     ///         {
-    ///             JavaVersion = "1.8",
-    ///             JavaContainer = "JETTY",
-    ///             JavaContainerVersion = "9.3",
+    ///             { "javaVersion", "1.8" },
+    ///             { "javaContainer", "JETTY" },
+    ///             { "javaContainerVersion", "9.3" },
     ///         },
     ///     });
     /// 

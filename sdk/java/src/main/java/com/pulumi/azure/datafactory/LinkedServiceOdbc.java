@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.FactoryArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceOdbc;
  * import com.pulumi.azure.datafactory.LinkedServiceOdbcArgs;
- * import com.pulumi.azure.datafactory.inputs.LinkedServiceOdbcBasicAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;basic_auth&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString(&#34;Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;&#34;)
- *             .basicAuthentication(LinkedServiceOdbcBasicAuthenticationArgs.builder()
- *                 .username(&#34;onrylmz&#34;)
- *                 .password(&#34;Ch4ngeM3!&#34;)
- *                 .build())
+ *             .basicAuthentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

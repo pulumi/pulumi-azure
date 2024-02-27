@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resource-group",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "example-ca",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDedicatedGateway = new azure.cosmosdb.SqlDedicatedGateway("example", {
+ * const exampleSqlDedicatedGateway = new azure.cosmosdb/sqlDedicatedGateway.SqlDedicatedGateway("example", {
  *     cosmosdbAccountId: exampleAccount.id,
  *     instanceCount: 1,
  *     instanceSize: "Cosmos.D4s",

@@ -21,47 +21,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iot/dpsSharedAccessPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/dpsSharedAccessPolicy"
+//	iot/iotHubDps "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/iotHubDps"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "example", &iot.IotHubDpsArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &iot.IotHubDpsSkuArgs{
-//					Name:     pulumi.String("S1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewDpsSharedAccessPolicy(ctx, "example", &iot.DpsSharedAccessPolicyArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				IothubDpsName:     exampleIotHubDps.Name,
-//				EnrollmentWrite:   pulumi.Bool(true),
-//				EnrollmentRead:    pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIotHubDps, err := iot/iotHubDps.NewIotHubDps(ctx, "example", &iot/iotHubDps.IotHubDpsArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "S1",
+// "capacity": "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/dpsSharedAccessPolicy.NewDpsSharedAccessPolicy(ctx, "example", &iot/dpsSharedAccessPolicy.DpsSharedAccessPolicyArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// IothubDpsName: exampleIotHubDps.Name,
+// EnrollmentWrite: true,
+// EnrollmentRead: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
  * import com.pulumi.azure.cdn.FrontdoorOrigin;
  * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
  * import java.util.List;
@@ -95,15 +94,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
  * import com.pulumi.azure.cdn.FrontdoorProfile;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
  * import com.pulumi.azure.cdn.FrontdoorOrigin;
  * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginPrivateLinkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -129,10 +125,8 @@ import javax.annotation.Nullable;
  *             .accountTier(&#34;Premium&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .allowNestedItemsToBePublic(false)
- *             .networkRules(AccountNetworkRulesArgs.builder()
- *                 .defaultAction(&#34;Deny&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
+ *             .networkRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
@@ -156,146 +150,7 @@ import javax.annotation.Nullable;
  *             .originHostHeader(exampleAccount.primaryBlobHost())
  *             .priority(1)
  *             .weight(500)
- *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
- *                 .requestMessage(&#34;Request access for Private Link Origin CDN Frontdoor&#34;)
- *                 .targetType(&#34;blob&#34;)
- *                 .location(exampleAccount.location())
- *                 .privateLinkTargetId(exampleAccount.id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Private Link Service
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.cdn.FrontdoorProfile;
- * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
- * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
- * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
- * import com.pulumi.azure.network.Subnet;
- * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.PublicIp;
- * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.lb.LoadBalancer;
- * import com.pulumi.azure.lb.LoadBalancerArgs;
- * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
- * import com.pulumi.azure.privatedns.LinkService;
- * import com.pulumi.azure.privatedns.LinkServiceArgs;
- * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
- * import com.pulumi.azure.cdn.FrontdoorOrigin;
- * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginPrivateLinkArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .name(&#34;profile-example&#34;)
- *             .resourceGroupName(example.name())
- *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
- *             .build());
- * 
- *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
- *             .name(&#34;group-example&#34;)
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
- *                 .additionalLatencyInMilliseconds(0)
- *                 .sampleSize(16)
- *                 .successfulSamplesRequired(3)
- *                 .build())
- *             .build());
- * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;vn-example&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .addressSpaces(&#34;10.5.0.0/16&#34;)
- *             .build());
- * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;sn-example&#34;)
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
- *             .privateLinkServiceNetworkPoliciesEnabled(false)
- *             .build());
- * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .name(&#34;ip-example&#34;)
- *             .sku(&#34;Standard&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .allocationMethod(&#34;Static&#34;)
- *             .build());
- * 
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;lb-example&#34;)
- *             .sku(&#34;Standard&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(examplePublicIp.name())
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
- *             .build());
- * 
- *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .name(&#34;pls-example&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .visibilitySubscriptionIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
- *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
- *                 .name(&#34;primary&#34;)
- *                 .privateIpAddress(&#34;10.5.1.17&#34;)
- *                 .privateIpAddressVersion(&#34;IPv4&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .primary(true)
- *                 .build())
- *             .build());
- * 
- *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
- *             .name(&#34;origin-example&#34;)
- *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
- *             .enabled(true)
- *             .hostName(&#34;example.com&#34;)
- *             .originHostHeader(&#34;example.com&#34;)
- *             .priority(1)
- *             .weight(1000)
- *             .certificateNameCheckEnabled(false)
- *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
- *                 .requestMessage(&#34;Request access for Private Link Origin CDN Frontdoor&#34;)
- *                 .location(example.location())
- *                 .privateLinkTargetId(exampleLinkService.id())
- *                 .build())
+ *             .privateLink(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

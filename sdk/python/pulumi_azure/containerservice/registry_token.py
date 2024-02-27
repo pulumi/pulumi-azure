@@ -202,33 +202,33 @@ class RegistryToken(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource-group",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource-group,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    location: East US,
+                },
+                {
+                    location: West Europe,
+                },
             ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
-            name="example-scope-map",
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=example-scope-map,
             container_registry_name=example_registry.name,
             resource_group_name=example.name,
             actions=[
-                "repositories/repo1/content/read",
-                "repositories/repo1/content/write",
+                repositories/repo1/content/read,
+                repositories/repo1/content/write,
             ])
-        example_registry_token = azure.containerservice.RegistryToken("example",
-            name="exampletoken",
+        example_registry_token = azure.containerservice.registry_token.RegistryToken("example",
+            name=exampletoken,
             container_registry_name=example_registry.name,
             resource_group_name=example.name,
             scope_map_id=example_registry_scope_map.id)
@@ -263,33 +263,33 @@ class RegistryToken(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource-group",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource-group,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    location: East US,
+                },
+                {
+                    location: West Europe,
+                },
             ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
-            name="example-scope-map",
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=example-scope-map,
             container_registry_name=example_registry.name,
             resource_group_name=example.name,
             actions=[
-                "repositories/repo1/content/read",
-                "repositories/repo1/content/write",
+                repositories/repo1/content/read,
+                repositories/repo1/content/write,
             ])
-        example_registry_token = azure.containerservice.RegistryToken("example",
-            name="exampletoken",
+        example_registry_token = azure.containerservice.registry_token.RegistryToken("example",
+            name=exampletoken,
             container_registry_name=example_registry.name,
             resource_group_name=example.name,
             scope_map_id=example_registry_scope_map.id)

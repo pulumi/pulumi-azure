@@ -20,19 +20,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleMxRecord = new Azure.Dns.MxRecord("example", new()
+    ///     var exampleMxRecord = new Azure.Dns.MxRecord.MxRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
@@ -40,15 +40,15 @@ namespace Pulumi.Azure.Dns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.Dns.Inputs.MxRecordRecordArgs
+    ///             
     ///             {
-    ///                 Preference = "10",
-    ///                 Exchange = "mail1.contoso.com",
+    ///                 { "preference", 10 },
+    ///                 { "exchange", "mail1.contoso.com" },
     ///             },
-    ///             new Azure.Dns.Inputs.MxRecordRecordArgs
+    ///             
     ///             {
-    ///                 Preference = "20",
-    ///                 Exchange = "mail2.contoso.com",
+    ///                 { "preference", 20 },
+    ///                 { "exchange", "mail2.contoso.com" },
     ///             },
     ///         },
     ///         Tags = 

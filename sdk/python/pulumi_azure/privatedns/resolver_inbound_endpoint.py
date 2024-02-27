@@ -207,41 +207,41 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.0.0.0/16"])
-        example_resolver = azure.privatedns.Resolver("example",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        example_resolver = azure.privatedns.resolver.Resolver("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             virtual_network_id=example_virtual_network.id)
-        example_subnet = azure.network.Subnet("example",
-            name="inbounddns",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=inbounddns,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
-        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
-            name="example-drie",
+            address_prefixes=[10.0.0.0/28],
+            delegations=[{
+                name: Microsoft.Network.dnsResolvers,
+                serviceDelegation: {
+                    actions: [Microsoft.Network/virtualNetworks/subnets/join/action],
+                    name: Microsoft.Network/dnsResolvers,
+                },
+            }])
+        example_resolver_inbound_endpoint = azure.privatedns.resolver_inbound_endpoint.ResolverInboundEndpoint("example",
+            name=example-drie,
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
-                private_ip_allocation_method="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
+            ip_configurations=[{
+                privateIpAllocationMethod: Dynamic,
+                subnetId: example_subnet.id,
+            }],
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -276,41 +276,41 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.0.0.0/16"])
-        example_resolver = azure.privatedns.Resolver("example",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        example_resolver = azure.privatedns.resolver.Resolver("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             virtual_network_id=example_virtual_network.id)
-        example_subnet = azure.network.Subnet("example",
-            name="inbounddns",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=inbounddns,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
-        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
-            name="example-drie",
+            address_prefixes=[10.0.0.0/28],
+            delegations=[{
+                name: Microsoft.Network.dnsResolvers,
+                serviceDelegation: {
+                    actions: [Microsoft.Network/virtualNetworks/subnets/join/action],
+                    name: Microsoft.Network/dnsResolvers,
+                },
+            }])
+        example_resolver_inbound_endpoint = azure.privatedns.resolver_inbound_endpoint.ResolverInboundEndpoint("example",
+            name=example-drie,
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
-                private_ip_allocation_method="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
+            ip_configurations=[{
+                privateIpAllocationMethod: Dynamic,
+                subnetId: example_subnet.id,
+            }],
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

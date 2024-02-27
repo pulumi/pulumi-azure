@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Consumption Budget for a specific resource group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.consumption.getBudgetResourceGroup({
- *     name: "existing",
- *     resourceGroupId: exampleAzurermResourceGroup.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getBudgetResourceGroup(args: GetBudgetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResourceGroupResult> {
 
@@ -81,19 +68,6 @@ export interface GetBudgetResourceGroupResult {
 }
 /**
  * Use this data source to access information about an existing Consumption Budget for a specific resource group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.consumption.getBudgetResourceGroup({
- *     name: "existing",
- *     resourceGroupId: exampleAzurermResourceGroup.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getBudgetResourceGroupOutput(args: GetBudgetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getBudgetResourceGroup(a, opts))

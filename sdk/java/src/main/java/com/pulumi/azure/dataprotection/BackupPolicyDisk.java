@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyDisk;
  * import com.pulumi.azure.dataprotection.BackupPolicyDiskArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyDiskRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyDiskRetentionRuleCriteriaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,22 +65,8 @@ import javax.annotation.Nullable;
  *             .defaultRetentionDuration(&#34;P7D&#34;)
  *             .timeZone(&#34;W. Europe Standard Time&#34;)
  *             .retentionRules(            
- *                 BackupPolicyDiskRetentionRuleArgs.builder()
- *                     .name(&#34;Daily&#34;)
- *                     .duration(&#34;P7D&#34;)
- *                     .priority(25)
- *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria(&#34;FirstOfDay&#34;)
- *                         .build())
- *                     .build(),
- *                 BackupPolicyDiskRetentionRuleArgs.builder()
- *                     .name(&#34;Weekly&#34;)
- *                     .duration(&#34;P7D&#34;)
- *                     .priority(20)
- *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria(&#34;FirstOfWeek&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -205,11 +205,11 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spatial_anchors_account = azure.mixedreality.SpatialAnchorsAccount("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spatial_anchors_account = azure.mixedreality.spatial_anchors_account.SpatialAnchorsAccount("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
         ```
@@ -244,11 +244,11 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spatial_anchors_account = azure.mixedreality.SpatialAnchorsAccount("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spatial_anchors_account = azure.mixedreality.spatial_anchors_account.SpatialAnchorsAccount("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
         ```

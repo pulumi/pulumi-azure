@@ -21,80 +21,80 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/database"
+//	mssql/failoverGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/failoverGroup"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("database-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primary, err := mssql.NewServer(ctx, "primary", &mssql.ServerArgs{
-//				Name:                       pulumi.String("mssqlserver-primary"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("missadministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondary, err := mssql.NewServer(ctx, "secondary", &mssql.ServerArgs{
-//				Name:                       pulumi.String("mssqlserver-secondary"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   pulumi.String("North Europe"),
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("missadministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsKat12"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
-//				Name:      pulumi.String("exampledb"),
-//				ServerId:  primary.ID(),
-//				SkuName:   pulumi.String("S1"),
-//				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				MaxSizeGb: pulumi.Int(200),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewFailoverGroup(ctx, "example", &mssql.FailoverGroupArgs{
-//				Name:     pulumi.String("example"),
-//				ServerId: primary.ID(),
-//				Databases: pulumi.StringArray{
-//					exampleDatabase.ID(),
-//				},
-//				PartnerServers: mssql.FailoverGroupPartnerServerArray{
-//					&mssql.FailoverGroupPartnerServerArgs{
-//						Id: secondary.ID(),
-//					},
-//				},
-//				ReadWriteEndpointFailoverPolicy: &mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
-//					Mode:         pulumi.String("Automatic"),
-//					GraceMinutes: pulumi.Int(80),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("prod"),
-//					"database":    pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "database-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// primary, err := mssql/server.NewServer(ctx, "primary", &mssql/server.ServerArgs{
+// Name: "mssqlserver-primary",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "missadministrator",
+// AdministratorLoginPassword: "thisIsKat11",
+// })
+// if err != nil {
+// return err
+// }
+// secondary, err := mssql/server.NewServer(ctx, "secondary", &mssql/server.ServerArgs{
+// Name: "mssqlserver-secondary",
+// ResourceGroupName: example.Name,
+// Location: "North Europe",
+// Version: "12.0",
+// AdministratorLogin: "missadministrator",
+// AdministratorLoginPassword: "thisIsKat12",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := mssql/database.NewDatabase(ctx, "example", &mssql/database.DatabaseArgs{
+// Name: "exampledb",
+// ServerId: primary.Id,
+// SkuName: "S1",
+// Collation: "SQL_Latin1_General_CP1_CI_AS",
+// MaxSizeGb: "200",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/failoverGroup.NewFailoverGroup(ctx, "example", &mssql/failoverGroup.FailoverGroupArgs{
+// Name: "example",
+// ServerId: primary.Id,
+// Databases: []interface{}{
+// exampleDatabase.Id,
+// },
+// PartnerServers: []map[string]interface{}{
+// map[string]interface{}{
+// "id": secondary.Id,
+// },
+// },
+// ReadWriteEndpointFailoverPolicy: map[string]interface{}{
+// "mode": "Automatic",
+// "graceMinutes": 80,
+// },
+// Tags: map[string]interface{}{
+// "environment": "prod",
+// "database": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

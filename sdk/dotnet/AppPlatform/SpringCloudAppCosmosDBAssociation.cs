@@ -22,48 +22,48 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example-springcloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "example-springcloudapp",
     ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     var exampleAccount = new Azure.Cosmosdb.Account.Account("example", new()
     ///     {
     ///         Name = "example-cosmosdb-account",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             ConsistencyLevel = "Strong",
+    ///             { "consistencyLevel", "Strong" },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = example.Location,
-    ///                 FailoverPriority = 0,
+    ///                 { "location", example.Location },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudAppCosmosDBAssociation = new Azure.AppPlatform.SpringCloudAppCosmosDBAssociation("example", new()
+    ///     var exampleSpringCloudAppCosmosDBAssociation = new Azure.Appplatform.SpringCloudAppCosmosDBAssociation.SpringCloudAppCosmosDBAssociation("example", new()
     ///     {
     ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,

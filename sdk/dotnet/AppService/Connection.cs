@@ -22,36 +22,36 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     var exampleAccount = new Azure.Cosmosdb.Account.Account("example", new()
     ///     {
     ///         Name = "example-cosmosdb-account",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             ConsistencyLevel = "BoundedStaleness",
-    ///             MaxIntervalInSeconds = 10,
-    ///             MaxStalenessPrefix = 200,
+    ///             { "consistencyLevel", "BoundedStaleness" },
+    ///             { "maxIntervalInSeconds", 10 },
+    ///             { "maxStalenessPrefix", 200 },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = example.Location,
-    ///                 FailoverPriority = 0,
+    ///                 { "location", example.Location },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     var exampleSqlDatabase = new Azure.Cosmosdb.SqlDatabase.SqlDatabase("example", new()
     ///     {
     ///         Name = "cosmos-sql-db",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.AppService
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     var exampleSqlContainer = new Azure.Cosmosdb.SqlContainer.SqlContainer("example", new()
     ///     {
     ///         Name = "example-container",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.AppService
     ///         PartitionKeyPath = "/definition",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     var exampleServicePlan = new Azure.Appservice.ServicePlan.ServicePlan("example", new()
     ///     {
     ///         Location = example.Location,
     ///         Name = "example-serviceplan",
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppService
     ///         OsType = "Linux",
     ///     });
     /// 
-    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
+    ///     var exampleLinuxWebApp = new Azure.Appservice.LinuxWebApp.LinuxWebApp("example", new()
     ///     {
     ///         Location = example.Location,
     ///         Name = "example-linuxwebapp",
@@ -86,14 +86,14 @@ namespace Pulumi.Azure.AppService
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleConnection = new Azure.AppService.Connection("example", new()
+    ///     var exampleConnection = new Azure.Appservice.Connection.Connection("example", new()
     ///     {
     ///         Name = "example-serviceconnector",
     ///         AppServiceId = exampleLinuxWebApp.Id,
     ///         TargetResourceId = exampleSqlDatabase.Id,
-    ///         Authentication = new Azure.AppService.Inputs.ConnectionAuthenticationArgs
+    ///         Authentication = 
     ///         {
-    ///             Type = "systemAssignedIdentity",
+    ///             { "type", "systemAssignedIdentity" },
     ///         },
     ///     });
     /// 

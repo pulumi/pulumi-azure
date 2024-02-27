@@ -21,60 +21,60 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	siterecovery/hyperVReplicationPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/hyperVReplicationPolicy"
+//	siterecovery/hyperVReplicationPolicyAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/hyperVReplicationPolicyAssociation"
+//	siterecovery/hyperVSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/hyperVSite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHyperVSite, err := siterecovery.NewHyperVSite(ctx, "example", &siterecovery.HyperVSiteArgs{
-//				RecoveryVaultId: exampleVault.ID(),
-//				Name:            pulumi.String("example-site"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHyperVReplicationPolicy, err := siterecovery.NewHyperVReplicationPolicy(ctx, "example", &siterecovery.HyperVReplicationPolicyArgs{
-//				Name:                          pulumi.String("policy"),
-//				RecoveryVaultId:               exampleVault.ID(),
-//				RecoveryPointRetentionInHours: pulumi.Int(2),
-//				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
-//				ReplicationIntervalInSeconds:                  pulumi.Int(300),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewHyperVReplicationPolicyAssociation(ctx, "example", &siterecovery.HyperVReplicationPolicyAssociationArgs{
-//				Name:         pulumi.String("example-association"),
-//				HypervSiteId: exampleHyperVSite.ID(),
-//				PolicyId:     exampleHyperVReplicationPolicy.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVault, err := recoveryservices/vault.NewVault(ctx, "example", &recoveryservices/vault.VaultArgs{
+// Name: "example-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleHyperVSite, err := siterecovery/hyperVSite.NewHyperVSite(ctx, "example", &siterecovery/hyperVSite.HyperVSiteArgs{
+// RecoveryVaultId: exampleVault.Id,
+// Name: "example-site",
+// })
+// if err != nil {
+// return err
+// }
+// exampleHyperVReplicationPolicy, err := siterecovery/hyperVReplicationPolicy.NewHyperVReplicationPolicy(ctx, "example", &siterecovery/hyperVReplicationPolicy.HyperVReplicationPolicyArgs{
+// Name: "policy",
+// RecoveryVaultId: exampleVault.Id,
+// RecoveryPointRetentionInHours: 2,
+// ApplicationConsistentSnapshotFrequencyInHours: 1,
+// ReplicationIntervalInSeconds: 300,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/hyperVReplicationPolicyAssociation.NewHyperVReplicationPolicyAssociation(ctx, "example", &siterecovery/hyperVReplicationPolicyAssociation.HyperVReplicationPolicyAssociationArgs{
+// Name: "example-association",
+// HypervSiteId: exampleHyperVSite.Id,
+// PolicyId: exampleHyperVReplicationPolicy.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

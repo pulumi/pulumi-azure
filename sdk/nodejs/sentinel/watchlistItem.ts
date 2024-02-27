@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleWatchlist = new azure.sentinel.Watchlist("example", {
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleWatchlist = new azure.sentinel/watchlist.Watchlist("example", {
  *     name: "example-watchlist",
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     displayName: "example-wl",
  *     itemSearchKey: "Key",
  * });
- * const exampleWatchlistItem = new azure.sentinel.WatchlistItem("example", {
+ * const exampleWatchlistItem = new azure.sentinel/watchlistItem.WatchlistItem("example", {
  *     name: "0aac6fa5-223e-49cf-9bfd-3554dc9d2b76",
  *     watchlistId: exampleWatchlist.id,
  *     properties: {

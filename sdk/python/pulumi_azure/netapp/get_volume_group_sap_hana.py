@@ -130,18 +130,6 @@ def get_volume_group_sap_hana(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Application Volume Group for SAP HANA application.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_volume_group_sap_hana(name="existing application volume group name",
-        resource_group_name="resource group name where the account and volume group belong to",
-        account_name="existing account where the application volume group belong to")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str account_name: Name of the account where the application volume group belong to.
     :param str name: The name of this Application Volume Group for SAP HANA application.
@@ -172,18 +160,6 @@ def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupSapHanaResult]:
     """
     Use this data source to access information about an existing Application Volume Group for SAP HANA application.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_volume_group_sap_hana(name="existing application volume group name",
-        resource_group_name="resource group name where the account and volume group belong to",
-        account_name="existing account where the application volume group belong to")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str account_name: Name of the account where the application volume group belong to.

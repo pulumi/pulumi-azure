@@ -19346,7 +19346,7 @@ export namespace compute {
          * import * as pulumi from "@pulumi/pulumi";
          * import * as azure from "@pulumi/azure";
          *
-         * const example = new azure.compute.ScaleSet("example", {
+         * const example = new azure.compute/scaleSet.ScaleSet("example", {
          *     name: "vm-scaleset",
          *     resourceGroupName: exampleAzurermResourceGroup.name,
          *     location: exampleAzurermResourceGroup.location,
@@ -19366,7 +19366,7 @@ export namespace compute {
          *         settings: "{\"port\": 50342}",
          *     }],
          * });
-         * export const principalId = example.identity.apply(identity => identity.principalId);
+         * export const principalId = example.identity.principalId;
          * ```
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -22787,7 +22787,7 @@ export namespace containerservice {
          * import * as pulumi from "@pulumi/pulumi";
          * import * as azure from "@pulumi/azure";
          *
-         * const virtual = new azure.network.Subnet("virtual", {delegations: [{
+         * const virtual = new azure.network/subnet.Subnet("virtual", {delegations: [{
          *     name: "aciDelegation",
          *     serviceDelegation: {
          *         name: "Microsoft.ContainerInstance/containerGroups",
@@ -47577,6 +47577,13 @@ export namespace redis {
         rdbStorageConnectionString?: pulumi.Input<string>;
         /**
          * The ID of the Subscription containing the Storage Account.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * import * as azure from "@pulumi/azure";
+         *
+         * const example = new azure.redis/cache.Cache("example", {ignoreChanges: [redisConfiguration[0].rdbStorageConnectionString]});
+         * ```
          */
         storageAccountSubscriptionId?: pulumi.Input<string>;
     }

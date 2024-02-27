@@ -21,63 +21,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/signalr"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	signalr/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/signalr/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("my-signalr"),
-//				Location: pulumi.String("West US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signalr.NewService(ctx, "example", &signalr.ServiceArgs{
-//				Name:              pulumi.String("tfex-signalr"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &signalr.ServiceSkuArgs{
-//					Name:     pulumi.String("Free_F1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//				Cors: signalr.ServiceCorArray{
-//					&signalr.ServiceCorArgs{
-//						AllowedOrigins: pulumi.StringArray{
-//							pulumi.String("http://www.example.com"),
-//						},
-//					},
-//				},
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
-//				ConnectivityLogsEnabled:    pulumi.Bool(true),
-//				MessagingLogsEnabled:       pulumi.Bool(true),
-//				ServiceMode:                pulumi.String("Default"),
-//				UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
-//					&signalr.ServiceUpstreamEndpointArgs{
-//						CategoryPatterns: pulumi.StringArray{
-//							pulumi.String("connections"),
-//							pulumi.String("messages"),
-//						},
-//						EventPatterns: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//						HubPatterns: pulumi.StringArray{
-//							pulumi.String("hub1"),
-//						},
-//						UrlTemplate: pulumi.String("http://foo.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "my-signalr",
+// Location: "West US",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = signalr/service.NewService(ctx, "example", &signalr/service.ServiceArgs{
+// Name: "tfex-signalr",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Free_F1",
+// "capacity": 1,
+// },
+// Cors: []map[string]interface{}{
+// map[string]interface{}{
+// "allowedOrigins": []string{
+// "http://www.example.com",
+// },
+// },
+// },
+// PublicNetworkAccessEnabled: false,
+// ConnectivityLogsEnabled: true,
+// MessagingLogsEnabled: true,
+// ServiceMode: "Default",
+// UpstreamEndpoints: []map[string]interface{}{
+// map[string]interface{}{
+// "categoryPatterns": []string{
+// "connections",
+// "messages",
+// },
+// "eventPatterns": []string{
+// "*",
+// },
+// "hubPatterns": []string{
+// "hub1",
+// },
+// "urlTemplate": "http://foo.com",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

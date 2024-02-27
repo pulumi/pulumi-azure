@@ -22,60 +22,60 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "resource-group-01",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     var exampleAccount = new Azure.Netapp.Account.Account("example", new()
     ///     {
     ///         Name = "netappaccount-01",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("example", new()
+    ///     var exampleSnapshotPolicy = new Azure.Netapp.SnapshotPolicy.SnapshotPolicy("example", new()
     ///     {
     ///         Name = "snapshotpolicy-01",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
     ///         Enabled = true,
-    ///         HourlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyHourlyScheduleArgs
+    ///         HourlySchedule = 
     ///         {
-    ///             SnapshotsToKeep = 4,
-    ///             Minute = 15,
+    ///             { "snapshotsToKeep", 4 },
+    ///             { "minute", 15 },
     ///         },
-    ///         DailySchedule = new Azure.NetApp.Inputs.SnapshotPolicyDailyScheduleArgs
+    ///         DailySchedule = 
     ///         {
-    ///             SnapshotsToKeep = 2,
-    ///             Hour = 20,
-    ///             Minute = 15,
+    ///             { "snapshotsToKeep", 2 },
+    ///             { "hour", 20 },
+    ///             { "minute", 15 },
     ///         },
-    ///         WeeklySchedule = new Azure.NetApp.Inputs.SnapshotPolicyWeeklyScheduleArgs
+    ///         WeeklySchedule = 
     ///         {
-    ///             SnapshotsToKeep = 1,
-    ///             DaysOfWeeks = new[]
+    ///             { "snapshotsToKeep", 1 },
+    ///             { "daysOfWeeks", new[]
     ///             {
     ///                 "Monday",
     ///                 "Friday",
-    ///             },
-    ///             Hour = 23,
-    ///             Minute = 0,
+    ///             } },
+    ///             { "hour", 23 },
+    ///             { "minute", 0 },
     ///         },
-    ///         MonthlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyMonthlyScheduleArgs
+    ///         MonthlySchedule = 
     ///         {
-    ///             SnapshotsToKeep = 1,
-    ///             DaysOfMonths = new[]
+    ///             { "snapshotsToKeep", 1 },
+    ///             { "daysOfMonths", new[]
     ///             {
     ///                 1,
     ///                 15,
     ///                 20,
     ///                 30,
-    ///             },
-    ///             Hour = 5,
-    ///             Minute = 45,
+    ///             } },
+    ///             { "hour", 5 },
+    ///             { "minute", 45 },
     ///         },
     ///     });
     /// 

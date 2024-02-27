@@ -13,66 +13,12 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.AppService.GetEnvironmentV3.Invoke(new()
-        ///     {
-        ///         Name = "example-ASE",
-        ///         ResourceGroupName = "example-resource-group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getEnvironmentV3Result =&gt; getEnvironmentV3Result.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnvironmentV3Result> InvokeAsync(GetEnvironmentV3Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3Args(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.AppService.GetEnvironmentV3.Invoke(new()
-        ///     {
-        ///         Name = "example-ASE",
-        ///         ResourceGroupName = "example-resource-group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getEnvironmentV3Result =&gt; getEnvironmentV3Result.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnvironmentV3Result> Invoke(GetEnvironmentV3InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3InvokeArgs(), options.WithDefaults());

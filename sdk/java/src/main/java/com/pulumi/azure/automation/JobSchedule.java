@@ -47,10 +47,7 @@ import javax.annotation.Nullable;
  *             .automationAccountName(&#34;tf-automation-account&#34;)
  *             .scheduleName(&#34;hour&#34;)
  *             .runbookName(&#34;Get-VirtualMachine&#34;)
- *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;resourcegroup&#34;, &#34;tf-rgr-vm&#34;),
- *                 Map.entry(&#34;vmname&#34;, &#34;TF-VM-01&#34;)
- *             ))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

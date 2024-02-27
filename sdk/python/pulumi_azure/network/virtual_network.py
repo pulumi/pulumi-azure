@@ -485,35 +485,35 @@ class VirtualNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example-security-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=example-security-group,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"],
+            address_spaces=[10.0.0.0/16],
             dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
+                10.0.0.4,
+                10.0.0.5,
             ],
             subnets=[
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet1",
-                    address_prefix="10.0.1.0/24",
-                ),
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet2",
-                    address_prefix="10.0.2.0/24",
-                    security_group=example_network_security_group.id,
-                ),
+                {
+                    name: subnet1,
+                    addressPrefix: 10.0.1.0/24,
+                },
+                {
+                    name: subnet2,
+                    addressPrefix: 10.0.2.0/24,
+                    securityGroup: example_network_security_group.id,
+                },
             ],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -568,35 +568,35 @@ class VirtualNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example-security-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=example-security-group,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"],
+            address_spaces=[10.0.0.0/16],
             dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
+                10.0.0.4,
+                10.0.0.5,
             ],
             subnets=[
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet1",
-                    address_prefix="10.0.1.0/24",
-                ),
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet2",
-                    address_prefix="10.0.2.0/24",
-                    security_group=example_network_security_group.id,
-                ),
+                {
+                    name: subnet1,
+                    addressPrefix: 10.0.1.0/24,
+                },
+                {
+                    name: subnet2,
+                    addressPrefix: 10.0.2.0/24,
+                    securityGroup: example_network_security_group.id,
+                },
             ],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

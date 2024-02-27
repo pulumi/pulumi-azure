@@ -21,52 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	digitaltwins/endpointEventGrid "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/endpointEventGrid"
+//	digitaltwins/instance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/instance"
+//	eventgrid/topic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventgrid/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example_resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "example", &digitaltwins.InstanceArgs{
-//				Name:              pulumi.String("example-DT"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := eventgrid.NewTopic(ctx, "example", &eventgrid.TopicArgs{
-//				Name:              pulumi.String("example-topic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = digitaltwins.NewEndpointEventGrid(ctx, "example", &digitaltwins.EndpointEventGridArgs{
-//				Name:                             pulumi.String("example-EG"),
-//				DigitalTwinsId:                   exampleInstance.ID(),
-//				EventgridTopicEndpoint:           exampleTopic.Endpoint,
-//				EventgridTopicPrimaryAccessKey:   exampleTopic.PrimaryAccessKey,
-//				EventgridTopicSecondaryAccessKey: exampleTopic.SecondaryAccessKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example_resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInstance, err := digitaltwins/instance.NewInstance(ctx, "example", &digitaltwins/instance.InstanceArgs{
+// Name: "example-DT",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopic, err := eventgrid/topic.NewTopic(ctx, "example", &eventgrid/topic.TopicArgs{
+// Name: "example-topic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = digitaltwins/endpointEventGrid.NewEndpointEventGrid(ctx, "example", &digitaltwins/endpointEventGrid.EndpointEventGridArgs{
+// Name: "example-EG",
+// DigitalTwinsId: exampleInstance.Id,
+// EventgridTopicEndpoint: exampleTopic.Endpoint,
+// EventgridTopicPrimaryAccessKey: exampleTopic.PrimaryAccessKey,
+// EventgridTopicSecondaryAccessKey: exampleTopic.SecondaryAccessKey,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

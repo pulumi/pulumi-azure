@@ -223,37 +223,37 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="examplegroup",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevnet",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=examplegroup,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=examplevnet,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.1.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
+            address_spaces=[10.1.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=examplesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_profile = azure.network.Profile("example",
-            name="examplenetprofile",
+            address_prefixes=[10.1.0.0/24],
+            delegations=[{
+                name: delegation,
+                serviceDelegation: {
+                    name: Microsoft.ContainerInstance/containerGroups,
+                    actions: [Microsoft.Network/virtualNetworks/subnets/action],
+                },
+            }])
+        example_profile = azure.network.profile.Profile("example",
+            name=examplenetprofile,
             location=example.location,
             resource_group_name=example.name,
-            container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
-                name="examplecnic",
-                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
-                    name="exampleipconfig",
-                    subnet_id=example_subnet.id,
-                )],
-            ))
+            container_network_interface={
+                name: examplecnic,
+                ipConfigurations: [{
+                    name: exampleipconfig,
+                    subnetId: example_subnet.id,
+                }],
+            })
         ```
 
         ## Import
@@ -287,37 +287,37 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="examplegroup",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevnet",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=examplegroup,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=examplevnet,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.1.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
+            address_spaces=[10.1.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=examplesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ContainerInstance/containerGroups",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/action"],
-                ),
-            )])
-        example_profile = azure.network.Profile("example",
-            name="examplenetprofile",
+            address_prefixes=[10.1.0.0/24],
+            delegations=[{
+                name: delegation,
+                serviceDelegation: {
+                    name: Microsoft.ContainerInstance/containerGroups,
+                    actions: [Microsoft.Network/virtualNetworks/subnets/action],
+                },
+            }])
+        example_profile = azure.network.profile.Profile("example",
+            name=examplenetprofile,
             location=example.location,
             resource_group_name=example.name,
-            container_network_interface=azure.network.ProfileContainerNetworkInterfaceArgs(
-                name="examplecnic",
-                ip_configurations=[azure.network.ProfileContainerNetworkInterfaceIpConfigurationArgs(
-                    name="exampleipconfig",
-                    subnet_id=example_subnet.id,
-                )],
-            ))
+            container_network_interface={
+                name: examplecnic,
+                ipConfigurations: [{
+                    name: exampleipconfig,
+                    subnetId: example_subnet.id,
+                }],
+            })
         ```
 
         ## Import

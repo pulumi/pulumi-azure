@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .status(&#34;enabled&#34;)
  *             .scope(&#34;mytag:*&#34;)
  *             .actions(&#34;push&#34;)
- *             .customHeaders(Map.of(&#34;Content-Type&#34;, &#34;application/json&#34;))
+ *             .customHeaders(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

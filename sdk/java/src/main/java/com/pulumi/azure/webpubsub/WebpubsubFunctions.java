@@ -20,106 +20,12 @@ public final class WebpubsubFunctions {
     /**
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.webpubsub.Service;
-     * import com.pulumi.azure.webpubsub.ServiceArgs;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
-     *             .build());
-     * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
-     *             .location(testResourceGroup.location())
-     *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
-     *             .capacity(1)
-     *             .build());
-     * 
-     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
-     *             .webPubsubId(testService.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args) {
         return getPrivateLinkResource(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.webpubsub.Service;
-     * import com.pulumi.azure.webpubsub.ServiceArgs;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
-     *             .build());
-     * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
-     *             .location(testResourceGroup.location())
-     *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
-     *             .capacity(1)
-     *             .build());
-     * 
-     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
-     *             .webPubsubId(testService.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args) {
@@ -128,106 +34,12 @@ public final class WebpubsubFunctions {
     /**
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.webpubsub.Service;
-     * import com.pulumi.azure.webpubsub.ServiceArgs;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
-     *             .build());
-     * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
-     *             .location(testResourceGroup.location())
-     *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
-     *             .capacity(1)
-     *             .build());
-     * 
-     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
-     *             .webPubsubId(testService.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", TypeShape.of(GetPrivateLinkResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.webpubsub.Service;
-     * import com.pulumi.azure.webpubsub.ServiceArgs;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;terraform-webpubsub&#34;)
-     *             .location(&#34;east us&#34;)
-     *             .build());
-     * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;tfex-webpubsub&#34;)
-     *             .location(testResourceGroup.location())
-     *             .resourceGroupName(testResourceGroup.name())
-     *             .sku(&#34;Standard_S1&#34;)
-     *             .capacity(1)
-     *             .build());
-     * 
-     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
-     *             .webPubsubId(testService.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args, InvokeOptions options) {
@@ -236,74 +48,12 @@ public final class WebpubsubFunctions {
     /**
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
         return getService(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Azure Web Pubsub service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -312,74 +62,12 @@ public final class WebpubsubFunctions {
     /**
      * Use this data source to access information about an existing Azure Web Pubsub service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:webpubsub/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Azure Web Pubsub service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
-     * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WebpubsubFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;test-webpubsub&#34;)
-     *             .resourceGroupName(&#34;wps-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

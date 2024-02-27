@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.devtest.LabArgs;
  * import com.pulumi.azure.devtest.Schedule;
  * import com.pulumi.azure.devtest.ScheduleArgs;
- * import com.pulumi.azure.devtest.inputs.ScheduleWeeklyRecurrenceArgs;
- * import com.pulumi.azure.devtest.inputs.ScheduleNotificationSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,16 +64,11 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .labName(exampleLab.name())
- *             .weeklyRecurrence(ScheduleWeeklyRecurrenceArgs.builder()
- *                 .time(&#34;1100&#34;)
- *                 .weekDays(                
- *                     &#34;Monday&#34;,
- *                     &#34;Tuesday&#34;)
- *                 .build())
+ *             .weeklyRecurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeZoneId(&#34;Pacific Standard Time&#34;)
  *             .taskType(&#34;LabVmsStartupTask&#34;)
  *             .notificationSettings()
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

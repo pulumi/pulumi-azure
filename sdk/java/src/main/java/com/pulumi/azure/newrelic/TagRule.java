@@ -32,12 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.newrelic.Monitor;
  * import com.pulumi.azure.newrelic.MonitorArgs;
- * import com.pulumi.azure.newrelic.inputs.MonitorPlanArgs;
- * import com.pulumi.azure.newrelic.inputs.MonitorUserArgs;
  * import com.pulumi.azure.newrelic.TagRule;
  * import com.pulumi.azure.newrelic.TagRuleArgs;
- * import com.pulumi.azure.newrelic.inputs.TagRuleLogTagFilterArgs;
- * import com.pulumi.azure.newrelic.inputs.TagRuleMetricTagFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,15 +56,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-nrm&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .plan(MonitorPlanArgs.builder()
- *                 .effectiveDate(&#34;2023-06-06T00:00:00Z&#34;)
- *                 .build())
- *             .user(MonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTagRule = new TagRule(&#34;exampleTagRule&#34;, TagRuleArgs.builder()        
@@ -77,16 +66,8 @@ import javax.annotation.Nullable;
  *             .activityLogEnabled(true)
  *             .metricEnabled(true)
  *             .subscriptionLogEnabled(true)
- *             .logTagFilters(TagRuleLogTagFilterArgs.builder()
- *                 .name(&#34;key&#34;)
- *                 .action(&#34;Include&#34;)
- *                 .value(&#34;value&#34;)
- *                 .build())
- *             .metricTagFilters(TagRuleMetricTagFilterArgs.builder()
- *                 .name(&#34;key&#34;)
- *                 .action(&#34;Exclude&#34;)
- *                 .value(&#34;value&#34;)
- *                 .build())
+ *             .logTagFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .metricTagFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

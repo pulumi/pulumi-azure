@@ -117,18 +117,6 @@ def get_network_sim_group(mobile_network_id: Optional[str] = None,
     """
     Get information about a Mobile Network Sim Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.mobile.get_network(name="example-mn",
-        resource_group_name=example_azurerm_resource_group["name"])
-    example_get_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
-        mobile_network_id=example.id)
-    ```
-
 
     :param str mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to.
     :param str name: Specifies the name which should be used for this Mobile Network Sim Groups.
@@ -155,18 +143,6 @@ def get_network_sim_group_output(mobile_network_id: Optional[pulumi.Input[str]] 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSimGroupResult]:
     """
     Get information about a Mobile Network Sim Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.mobile.get_network(name="example-mn",
-        resource_group_name=example_azurerm_resource_group["name"])
-    example_get_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
-        mobile_network_id=example.id)
-    ```
 
 
     :param str mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to.

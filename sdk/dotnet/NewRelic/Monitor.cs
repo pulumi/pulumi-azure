@@ -22,27 +22,27 @@ namespace Pulumi.Azure.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleMonitor = new Azure.NewRelic.Monitor("example", new()
+    ///     var exampleMonitor = new Azure.Newrelic.Monitor.Monitor("example", new()
     ///     {
     ///         Name = "example-nrm",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Plan = new Azure.NewRelic.Inputs.MonitorPlanArgs
+    ///         Plan = 
     ///         {
-    ///             EffectiveDate = "2023-06-06T00:00:00Z",
+    ///             { "effectiveDate", "2023-06-06T00:00:00Z" },
     ///         },
-    ///         User = new Azure.NewRelic.Inputs.MonitorUserArgs
+    ///         User = 
     ///         {
-    ///             Email = "user@example.com",
-    ///             FirstName = "Example",
-    ///             LastName = "User",
-    ///             PhoneNumber = "+12313803556",
+    ///             { "email", "user@example.com" },
+    ///             { "firstName", "Example" },
+    ///             { "lastName", "User" },
+    ///             { "phoneNumber", "+12313803556" },
     ///         },
     ///     });
     /// 

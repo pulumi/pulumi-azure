@@ -13,112 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
+ * const appconf = new azure.appconfiguration/configurationStore.ConfigurationStore("appconf", {
  *     name: "appConf1",
  *     resourceGroupName: example.name,
  *     location: example.location,
- * });
- * ```
- * ### Encryption)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
- *     name: "example-identity",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "exampleKVt123",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: true,
- * });
- * const server = new azure.keyvault.AccessPolicy("server", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: exampleUserAssignedIdentity.principalId,
- *     keyPermissions: [
- *         "Get",
- *         "UnwrapKey",
- *         "WrapKey",
- *     ],
- *     secretPermissions: ["Get"],
- * });
- * const client = new azure.keyvault.AccessPolicy("client", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: [
- *         "Get",
- *         "Create",
- *         "Delete",
- *         "List",
- *         "Restore",
- *         "Recover",
- *         "UnwrapKey",
- *         "WrapKey",
- *         "Purge",
- *         "Encrypt",
- *         "Decrypt",
- *         "Sign",
- *         "Verify",
- *         "GetRotationPolicy",
- *     ],
- *     secretPermissions: ["Get"],
- * });
- * const exampleKey = new azure.keyvault.Key("example", {
- *     name: "exampleKVkey",
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * });
- * const exampleConfigurationStore = new azure.appconfiguration.ConfigurationStore("example", {
- *     name: "appConf2",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "standard",
- *     localAuthEnabled: true,
- *     publicNetworkAccess: "Enabled",
- *     purgeProtectionEnabled: false,
- *     softDeleteRetentionDays: 1,
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
- *     encryption: {
- *         keyVaultKeyIdentifier: exampleKey.id,
- *         identityClientId: exampleUserAssignedIdentity.clientId,
- *     },
- *     replicas: [{
- *         name: "replica1",
- *         location: "West US",
- *     }],
- *     tags: {
- *         environment: "development",
- *     },
  * });
  * ```
  *

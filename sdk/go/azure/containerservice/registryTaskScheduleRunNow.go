@@ -21,58 +21,58 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/registry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registry"
+//	containerservice/registryTask "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryTask"
+//	containerservice/registryTaskScheduleRunNow "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryTaskScheduleRunNow"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("example-acr"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistryTask, err := containerservice.NewRegistryTask(ctx, "example", &containerservice.RegistryTaskArgs{
-//				Name:                pulumi.String("example-task"),
-//				ContainerRegistryId: exampleRegistry.ID(),
-//				Platform: &containerservice.RegistryTaskPlatformArgs{
-//					Os: pulumi.String("Linux"),
-//				},
-//				DockerStep: &containerservice.RegistryTaskDockerStepArgs{
-//					DockerfilePath:     pulumi.String("Dockerfile"),
-//					ContextPath:        pulumi.String("https://github.com/<user name>/acr-build-helloworld-node#main"),
-//					ContextAccessToken: pulumi.String("<github personal access token>"),
-//					ImageNames: pulumi.StringArray{
-//						pulumi.String("helloworld:{{.Run.ID}}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewRegistryTaskScheduleRunNow(ctx, "example", &containerservice.RegistryTaskScheduleRunNowArgs{
-//				ContainerRegistryTaskId: exampleRegistryTask.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistry, err := containerservice/registry.NewRegistry(ctx, "example", &containerservice/registry.RegistryArgs{
+// Name: "example-acr",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistryTask, err := containerservice/registryTask.NewRegistryTask(ctx, "example", &containerservice/registryTask.RegistryTaskArgs{
+// Name: "example-task",
+// ContainerRegistryId: exampleRegistry.Id,
+// Platform: map[string]interface{}{
+// "os": "Linux",
+// },
+// DockerStep: map[string]interface{}{
+// "dockerfilePath": "Dockerfile",
+// "contextPath": "https://github.com/<user name>/acr-build-helloworld-node#main",
+// "contextAccessToken": "<github personal access token>",
+// "imageNames": []string{
+// "helloworld:{{.Run.ID}}",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/registryTaskScheduleRunNow.NewRegistryTaskScheduleRunNow(ctx, "example", &containerservice/registryTaskScheduleRunNow.RegistryTaskScheduleRunNowArgs{
+// ContainerRegistryTaskId: exampleRegistryTask.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type RegistryTaskScheduleRunNow struct {
 	pulumi.CustomResourceState

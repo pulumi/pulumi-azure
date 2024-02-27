@@ -8,31 +8,17 @@ import * as utilities from "../utilities";
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
  *
  * ## Example Usage
- * ### Subscription Level Lock)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getSubscription({});
- * const subscription_level = new azure.management.Lock("subscription-level", {
- *     name: "subscription-level",
- *     scope: current.then(current => current.id),
- *     lockLevel: "CanNotDelete",
- *     notes: "Items can't be deleted in this subscription!",
- * });
- * ```
  * ### Resource Group Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "locked-resource-group",
  *     location: "West Europe",
  * });
- * const resource_group_level = new azure.management.Lock("resource-group-level", {
+ * const resource_group_level = new azure.management/lock.Lock("resource-group-level", {
  *     name: "resource-group-level",
  *     scope: example.id,
  *     lockLevel: "ReadOnly",
@@ -45,18 +31,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "locked-resource-group",
  *     location: "West Europe",
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "locked-publicip",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     idleTimeoutInMinutes: 30,
  * });
- * const public_ip = new azure.management.Lock("public-ip", {
+ * const public_ip = new azure.management/lock.Lock("public-ip", {
  *     name: "resource-ip",
  *     scope: examplePublicIp.id,
  *     lockLevel: "CanNotDelete",

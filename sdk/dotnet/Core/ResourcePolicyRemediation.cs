@@ -23,13 +23,13 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "resourcegroup1",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "vnet1",
     ///         ResourceGroupName = example.Name,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Core
     ///         },
     ///     });
     /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("example", new()
+    ///     var exampleDefinition = new Azure.Policy.Definition.Definition("example", new()
     ///     {
     ///         Name = "only-deploy-in-westeurope",
     ///         PolicyType = "Custom",
@@ -48,12 +48,12 @@ namespace Pulumi.Azure.Core
     ///         DisplayName = "my-policy-definition",
     ///     });
     /// 
-    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("example", new()
+    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment.ResourcePolicyAssignment("example", new()
     ///     {
     ///         Name = "assignment1",
     ///         ResourceId = exampleVirtualNetwork.Id,
     ///         PolicyDefinitionId = exampleDefinition.Id,
-    ///         Parameters = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
     ///             {
@@ -63,17 +63,17 @@ namespace Pulumi.Azure.Core
     ///                     "East US",
     ///                 },
     ///             },
-    ///         })),
+    ///         }),
     ///     });
     /// 
-    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("example", new()
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment.ResourceGroupPolicyAssignment("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupId = example.Id,
     ///         PolicyDefinitionId = exampleDefinition.Id,
     ///     });
     /// 
-    ///     var exampleResourcePolicyRemediation = new Azure.Core.ResourcePolicyRemediation("example", new()
+    ///     var exampleResourcePolicyRemediation = new Azure.Core.ResourcePolicyRemediation.ResourcePolicyRemediation("example", new()
     ///     {
     ///         Name = "remediation1",
     ///         ResourceId = exampleVirtualNetwork.Id,

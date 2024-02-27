@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/aaaaRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/aaaaRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewAaaaRecord(ctx, "example", &dns.AaaaRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsAaaaRecordId", exampleAzurermDnsAaaaRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/aaaaRecord.NewAaaaRecord(ctx, "example", &dns/aaaaRecord.AaaaRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsAaaaRecordId", exampleAzurermDnsAaaaRecord.Id)
+// return nil
+// })
+// }
 // ```
 func GetAAAARecord(ctx *pulumi.Context, args *GetAAAARecordArgs, opts ...pulumi.InvokeOption) (*GetAAAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

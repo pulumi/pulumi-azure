@@ -21,72 +21,70 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	devtest/lab "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/lab"
+//	devtest/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/virtualNetwork"
+//	devtest/windowsVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/windowsVirtualMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
-//				Name:              pulumi.String("example-devtestlab"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Tags: pulumi.StringMap{
-//					"Sydney": pulumi.String("Australia"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "example", &devtest.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-network"),
-//				LabName:           exampleLab.Name,
-//				ResourceGroupName: example.Name,
-//				Subnet: &devtest.VirtualNetworkSubnetArgs{
-//					UsePublicIpAddress:          pulumi.String("Allow"),
-//					UseInVirtualMachineCreation: pulumi.String("Allow"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devtest.NewWindowsVirtualMachine(ctx, "example", &devtest.WindowsVirtualMachineArgs{
-//				Name:                pulumi.String("example-vm03"),
-//				LabName:             exampleLab.Name,
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				Size:                pulumi.String("Standard_DS2"),
-//				Username:            pulumi.String("exampleuser99"),
-//				Password:            pulumi.String("Pa$w0rd1234!"),
-//				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
-//				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
-//					return &subnet.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				StorageType: pulumi.String("Premium"),
-//				Notes:       pulumi.String("Some notes about this Virtual Machine."),
-//				GalleryImageReference: &devtest.WindowsVirtualMachineGalleryImageReferenceArgs{
-//					Offer:     pulumi.String("WindowsServer"),
-//					Publisher: pulumi.String("MicrosoftWindowsServer"),
-//					Sku:       pulumi.String("2019-Datacenter"),
-//					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLab, err := devtest/lab.NewLab(ctx, "example", &devtest/lab.LabArgs{
+// Name: "example-devtestlab",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Tags: map[string]interface{}{
+// "Sydney": "Australia",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := devtest/virtualNetwork.NewVirtualNetwork(ctx, "example", &devtest/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-network",
+// LabName: exampleLab.Name,
+// ResourceGroupName: example.Name,
+// Subnet: map[string]interface{}{
+// "usePublicIpAddress": "Allow",
+// "useInVirtualMachineCreation": "Allow",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devtest/windowsVirtualMachine.NewWindowsVirtualMachine(ctx, "example", &devtest/windowsVirtualMachine.WindowsVirtualMachineArgs{
+// Name: "example-vm03",
+// LabName: exampleLab.Name,
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Size: "Standard_DS2",
+// Username: "exampleuser99",
+// Password: "Pa$w0rd1234!",
+// LabVirtualNetworkId: exampleVirtualNetwork.Id,
+// LabSubnetName: exampleVirtualNetwork.Subnet.Name,
+// StorageType: "Premium",
+// Notes: "Some notes about this Virtual Machine.",
+// GalleryImageReference: map[string]interface{}{
+// "offer": "WindowsServer",
+// "publisher": "MicrosoftWindowsServer",
+// "sku": "2019-Datacenter",
+// "version": "latest",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

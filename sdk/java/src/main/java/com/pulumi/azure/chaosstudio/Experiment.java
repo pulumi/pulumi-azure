@@ -32,26 +32,20 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.authorization.UserAssignedIdentity;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.azure.chaosstudio.Target;
  * import com.pulumi.azure.chaosstudio.TargetArgs;
  * import com.pulumi.azure.chaosstudio.Capability;
  * import com.pulumi.azure.chaosstudio.CapabilityArgs;
  * import com.pulumi.azure.chaosstudio.Experiment;
  * import com.pulumi.azure.chaosstudio.ExperimentArgs;
- * import com.pulumi.azure.chaosstudio.inputs.ExperimentIdentityArgs;
- * import com.pulumi.azure.chaosstudio.inputs.ExperimentSelectorArgs;
- * import com.pulumi.azure.chaosstudio.inputs.ExperimentStepArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -94,11 +88,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
@@ -110,16 +100,8 @@ import javax.annotation.Nullable;
  *             .adminPassword(&#34;example&#34;)
  *             .disablePasswordAuthentication(false)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTarget = new Target(&#34;exampleTarget&#34;, TargetArgs.builder()        
@@ -137,26 +119,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
- *             .identity(ExperimentIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .selectors(ExperimentSelectorArgs.builder()
- *                 .name(&#34;Selector1&#34;)
- *                 .chaosStudioTargetIds(exampleTarget.id())
- *                 .build())
- *             .steps(ExperimentStepArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .branches(ExperimentStepBranchArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .actions(ExperimentStepBranchActionArgs.builder()
- *                         .urn(exampleCapability.capabilityUrn())
- *                         .selectorName(&#34;Selector1&#34;)
- *                         .parameters(Map.of(&#34;abruptShutdown&#34;, &#34;false&#34;))
- *                         .actionType(&#34;continuous&#34;)
- *                         .duration(&#34;PT10M&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .selectors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .steps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

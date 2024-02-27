@@ -37,12 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.LiveEvent;
  * import com.pulumi.azure.media.LiveEventArgs;
- * import com.pulumi.azure.media.inputs.LiveEventInputArgs;
- * import com.pulumi.azure.media.inputs.LiveEventEncodingArgs;
- * import com.pulumi.azure.media.inputs.LiveEventPreviewArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLiveEvent = new LiveEvent(&#34;exampleLiveEvent&#34;, LiveEventArgs.builder()        
@@ -85,27 +78,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;My Event Description&#34;)
- *             .input(LiveEventInputArgs.builder()
- *                 .streamingProtocol(&#34;RTMP&#34;)
- *                 .ipAccessControlAllows(LiveEventInputIpAccessControlAllowArgs.builder()
- *                     .name(&#34;AllowAll&#34;)
- *                     .address(&#34;0.0.0.0&#34;)
- *                     .subnetPrefixLength(0)
- *                     .build())
- *                 .build())
- *             .encoding(LiveEventEncodingArgs.builder()
- *                 .type(&#34;Standard&#34;)
- *                 .presetName(&#34;Default720p&#34;)
- *                 .stretchMode(&#34;AutoFit&#34;)
- *                 .keyFrameInterval(&#34;PT2S&#34;)
- *                 .build())
- *             .preview(LiveEventPreviewArgs.builder()
- *                 .ipAccessControlAllows(LiveEventPreviewIpAccessControlAllowArgs.builder()
- *                     .name(&#34;AllowAll&#34;)
- *                     .address(&#34;0.0.0.0&#34;)
- *                     .subnetPrefixLength(0)
- *                     .build())
- *                 .build())
+ *             .input(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .encoding(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .preview(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .streamOptions(&#34;LowLatency&#34;)
  *             .useStaticHostname(true)
  *             .hostnamePrefix(&#34;special-event&#34;)

@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Allows you to set a user or group as the AD administrator for an MySQL server in Azure
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.mysql.Server("example", {
- *     name: "example-mysqlserver",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     administratorLogin: "mysqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     sslEnforcementEnabled: true,
- *     skuName: "B_Gen5_2",
- *     storageMb: 5120,
- *     version: "5.7",
- * });
- * const exampleActiveDirectoryAdministrator = new azure.mysql.ActiveDirectoryAdministrator("example", {
- *     serverName: exampleServer.name,
- *     resourceGroupName: example.name,
- *     login: "sqladmin",
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- * });
- * ```
- *
  * ## Import
  *
  * A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.

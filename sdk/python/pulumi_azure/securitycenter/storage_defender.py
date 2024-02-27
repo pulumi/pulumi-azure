@@ -206,16 +206,16 @@ class StorageDefender(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="westus2")
-        example_account = azure.storage.Account("example",
-            name="exampleacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=westus2)
+        example_account = azure.storage.account.Account("example",
+            name=exampleacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_storage_defender = azure.securitycenter.StorageDefender("example", storage_account_id=example_account.id)
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_storage_defender = azure.securitycenter.storage_defender.StorageDefender("example", storage_account_id=example_account.id)
         ```
 
         ## Import
@@ -249,16 +249,16 @@ class StorageDefender(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="westus2")
-        example_account = azure.storage.Account("example",
-            name="exampleacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=westus2)
+        example_account = azure.storage.account.Account("example",
+            name=exampleacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_storage_defender = azure.securitycenter.StorageDefender("example", storage_account_id=example_account.id)
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_storage_defender = azure.securitycenter.storage_defender.StorageDefender("example", storage_account_id=example_account.id)
         ```
 
         ## Import

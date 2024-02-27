@@ -29,15 +29,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.network.Profile;
  * import com.pulumi.azure.network.ProfileArgs;
- * import com.pulumi.azure.network.inputs.ProfileContainerNetworkInterfaceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,26 +65,14 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.1.0.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;delegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
  *             .name(&#34;examplenetprofile&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .containerNetworkInterface(ProfileContainerNetworkInterfaceArgs.builder()
- *                 .name(&#34;examplecnic&#34;)
- *                 .ipConfigurations(ProfileContainerNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;exampleipconfig&#34;)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
+ *             .containerNetworkInterface(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

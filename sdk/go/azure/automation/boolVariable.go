@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	automation/boolVariable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/boolVariable"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("tfex-example-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewBoolVariable(ctx, "example", &automation.BoolVariableArgs{
-//				Name:                  pulumi.String("tfex-example-var"),
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				Value:                 pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "tfex-example-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automation/boolVariable.NewBoolVariable(ctx, "example", &automation/boolVariable.BoolVariableArgs{
+// Name: "tfex-example-var",
+// ResourceGroupName: example.Name,
+// AutomationAccountName: exampleAccount.Name,
+// Value: false,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,17 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-databoxedge",
  *     location: "West Europe",
  * });
- * const exampleDevice = new azure.databoxedge.Device("example", {
+ * const exampleDevice = new azure.databoxedge/device.Device("example", {
  *     name: "example-device",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     skuName: "EdgeP_Base-Standard",
  * });
- * const exampleOrder = new azure.databoxedge.Order("example", {
+ * const exampleOrder = new azure.databoxedge/order.Order("example", {
  *     resourceGroupName: example.name,
  *     deviceName: exampleDevice.name,
  *     contact: {

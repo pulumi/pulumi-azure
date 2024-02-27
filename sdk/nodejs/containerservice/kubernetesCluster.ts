@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
  *     name: "example-aks1",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         Environment: "Production",
  *     },
  * });
- * export const clientCertificate = exampleKubernetesCluster.kubeConfigs.apply(kubeConfigs => kubeConfigs[0].clientCertificate);
+ * export const clientCertificate = exampleKubernetesCluster.kubeConfigs[0].clientCertificate;
  * export const kubeConfig = exampleKubernetesCluster.kubeConfigRaw;
  * ```
  *
@@ -317,25 +317,25 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
      *
-     * const example = new azure.core.ResourceGroup("example", {
+     * const example = new azure.core/resourceGroup.ResourceGroup("example", {
      *     name: "example",
      *     location: "West Europe",
      * });
-     * const exampleZone = new azure.privatedns.Zone("example", {
+     * const exampleZone = new azure.privatedns/zone.Zone("example", {
      *     name: "privatelink.eastus2.azmk8s.io",
      *     resourceGroupName: example.name,
      * });
-     * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+     * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
      *     name: "aks-example-identity",
      *     resourceGroupName: example.name,
      *     location: example.location,
      * });
-     * const exampleAssignment = new azure.authorization.Assignment("example", {
+     * const exampleAssignment = new azure.authorization/assignment.Assignment("example", {
      *     scope: exampleZone.id,
      *     roleDefinitionName: "Private DNS Zone Contributor",
      *     principalId: exampleUserAssignedIdentity.principalId,
      * });
-     * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+     * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
      *     name: "aksexamplewithprivatednszone1",
      *     location: example.location,
      *     resourceGroupName: example.name,
@@ -831,25 +831,25 @@ export interface KubernetesClusterState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
      *
-     * const example = new azure.core.ResourceGroup("example", {
+     * const example = new azure.core/resourceGroup.ResourceGroup("example", {
      *     name: "example",
      *     location: "West Europe",
      * });
-     * const exampleZone = new azure.privatedns.Zone("example", {
+     * const exampleZone = new azure.privatedns/zone.Zone("example", {
      *     name: "privatelink.eastus2.azmk8s.io",
      *     resourceGroupName: example.name,
      * });
-     * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+     * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
      *     name: "aks-example-identity",
      *     resourceGroupName: example.name,
      *     location: example.location,
      * });
-     * const exampleAssignment = new azure.authorization.Assignment("example", {
+     * const exampleAssignment = new azure.authorization/assignment.Assignment("example", {
      *     scope: exampleZone.id,
      *     roleDefinitionName: "Private DNS Zone Contributor",
      *     principalId: exampleUserAssignedIdentity.principalId,
      * });
-     * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+     * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
      *     name: "aksexamplewithprivatednszone1",
      *     location: example.location,
      *     resourceGroupName: example.name,
@@ -1147,25 +1147,25 @@ export interface KubernetesClusterArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
      *
-     * const example = new azure.core.ResourceGroup("example", {
+     * const example = new azure.core/resourceGroup.ResourceGroup("example", {
      *     name: "example",
      *     location: "West Europe",
      * });
-     * const exampleZone = new azure.privatedns.Zone("example", {
+     * const exampleZone = new azure.privatedns/zone.Zone("example", {
      *     name: "privatelink.eastus2.azmk8s.io",
      *     resourceGroupName: example.name,
      * });
-     * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+     * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
      *     name: "aks-example-identity",
      *     resourceGroupName: example.name,
      *     location: example.location,
      * });
-     * const exampleAssignment = new azure.authorization.Assignment("example", {
+     * const exampleAssignment = new azure.authorization/assignment.Assignment("example", {
      *     scope: exampleZone.id,
      *     roleDefinitionName: "Private DNS Zone Contributor",
      *     principalId: exampleUserAssignedIdentity.principalId,
      * });
-     * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+     * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
      *     name: "aksexamplewithprivatednszone1",
      *     location: example.location,
      *     resourceGroupName: example.name,

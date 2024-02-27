@@ -341,25 +341,25 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        anonymous = azure.datafactory.LinkedServiceOdbc("anonymous",
-            name="anonymous",
+        anonymous = azure.datafactory.linked_service_odbc.LinkedServiceOdbc("anonymous",
+            name=anonymous,
             data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
-        basic_auth = azure.datafactory.LinkedServiceOdbc("basic_auth",
-            name="basic_auth",
+            connection_string=Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;)
+        basic_auth = azure.datafactory.linked_service_odbc.LinkedServiceOdbc("basic_auth",
+            name=basic_auth,
             data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArgs(
-                username="onrylmz",
-                password="Ch4ngeM3!",
-            ))
+            connection_string=Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;,
+            basic_authentication={
+                username: onrylmz,
+                password: Ch4ngeM3!,
+            })
         ```
 
         ## Import
@@ -399,25 +399,25 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        anonymous = azure.datafactory.LinkedServiceOdbc("anonymous",
-            name="anonymous",
+        anonymous = azure.datafactory.linked_service_odbc.LinkedServiceOdbc("anonymous",
+            name=anonymous,
             data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
-        basic_auth = azure.datafactory.LinkedServiceOdbc("basic_auth",
-            name="basic_auth",
+            connection_string=Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;)
+        basic_auth = azure.datafactory.linked_service_odbc.LinkedServiceOdbc("basic_auth",
+            name=basic_auth,
             data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArgs(
-                username="onrylmz",
-                password="Ch4ngeM3!",
-            ))
+            connection_string=Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;,
+            basic_authentication={
+                username: onrylmz,
+                password: Ch4ngeM3!,
+            })
         ```
 
         ## Import

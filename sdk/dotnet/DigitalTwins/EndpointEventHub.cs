@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
+    ///     var exampleInstance = new Azure.Digitaltwins.Instance.Instance("example", new()
     ///     {
     ///         Name = "example-DT",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "example-eh-ns",
     ///         Location = example.Location,
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+    ///     var exampleEventHub = new Azure.Eventhub.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "example-eh",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("example", new()
+    ///     var exampleAuthorizationRule = new Azure.Eventhub.AuthorizationRule.AuthorizationRule("example", new()
     ///     {
     ///         Name = "example-ar",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleEndpointEventHub = new Azure.DigitalTwins.EndpointEventHub("example", new()
+    ///     var exampleEndpointEventHub = new Azure.Digitaltwins.EndpointEventHub.EndpointEventHub("example", new()
     ///     {
     ///         Name = "example-EH",
     ///         DigitalTwinsId = exampleInstance.Id,

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var toMonitor = new Azure.Storage.Account("to_monitor", new()
+    ///     var toMonitor = new Azure.Storage.Account.Account("to_monitor", new()
     ///     {
     ///         Name = "examplestorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -37,22 +37,22 @@ namespace Pulumi.Azure.Monitoring
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var main = new Azure.Monitoring.ActionGroup("main", new()
+    ///     var main = new Azure.Monitoring.ActionGroup.ActionGroup("main", new()
     ///     {
     ///         Name = "example-actiongroup",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "exampleact",
     ///         WebhookReceivers = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///             
     ///             {
-    ///                 Name = "callmyapi",
-    ///                 ServiceUri = "http://example.com/alert",
+    ///                 { "name", "callmyapi" },
+    ///                 { "serviceUri", "http://example.com/alert" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("example", new()
+    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert.MetricAlert("example", new()
     ///     {
     ///         Name = "example-metricalert",
     ///         ResourceGroupName = example.Name,
@@ -63,32 +63,32 @@ namespace Pulumi.Azure.Monitoring
     ///         Description = "Action will be triggered when Transactions count is greater than 50.",
     ///         Criterias = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
+    ///             
     ///             {
-    ///                 MetricNamespace = "Microsoft.Storage/storageAccounts",
-    ///                 MetricName = "Transactions",
-    ///                 Aggregation = "Total",
-    ///                 Operator = "GreaterThan",
-    ///                 Threshold = 50,
-    ///                 Dimensions = new[]
+    ///                 { "metricNamespace", "Microsoft.Storage/storageAccounts" },
+    ///                 { "metricName", "Transactions" },
+    ///                 { "aggregation", "Total" },
+    ///                 { "operator", "GreaterThan" },
+    ///                 { "threshold", 50 },
+    ///                 { "dimensions", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.MetricAlertCriteriaDimensionArgs
+    ///                     
     ///                     {
-    ///                         Name = "ApiName",
-    ///                         Operator = "Include",
-    ///                         Values = new[]
+    ///                         { "name", "ApiName" },
+    ///                         { "operator", "Include" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "*",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Actions = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///             
     ///             {
-    ///                 ActionGroupId = main.Id,
+    ///                 { "actionGroupId", main.Id },
     ///             },
     ///         },
     ///     });

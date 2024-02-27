@@ -127,18 +127,6 @@ def get_hub(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.notificationhub.get_hub(name="notification-hub",
-        namespace_name="namespace-name",
-        resource_group_name="resource-group-name")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: Specifies the Name of the Notification Hub.
     :param str namespace_name: Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
@@ -169,18 +157,6 @@ def get_hub_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubResult]:
     """
     Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.notificationhub.get_hub(name="notification-hub",
-        namespace_name="namespace-name",
-        resource_group_name="resource-group-name")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: Specifies the Name of the Notification Hub.

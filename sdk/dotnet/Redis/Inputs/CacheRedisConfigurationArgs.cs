@@ -144,6 +144,25 @@ namespace Pulumi.Azure.Redis.Inputs
 
         /// <summary>
         /// The ID of the Subscription containing the Storage Account.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Azure.Redis.Cache.Cache("example", new()
+        ///     {
+        ///         IgnoreChanges = new[]
+        ///         {
+        ///             redisConfiguration[0].RdbStorageConnectionString,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("storageAccountSubscriptionId")]
         public Input<string>? StorageAccountSubscriptionId { get; set; }

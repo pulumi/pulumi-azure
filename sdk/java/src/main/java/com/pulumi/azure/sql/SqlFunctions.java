@@ -25,39 +25,6 @@ public final class SqlFunctions {
      * 
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
         return getDatabase(args, InvokeOptions.Empty);
@@ -66,39 +33,6 @@ public final class SqlFunctions {
      * Use this data source to access information about an existing SQL Azure Database.
      * 
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -109,39 +43,6 @@ public final class SqlFunctions {
      * 
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sql/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
@@ -150,39 +51,6 @@ public final class SqlFunctions {
      * Use this data source to access information about an existing SQL Azure Database.
      * 
      * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example_db&#34;)
-     *             .serverName(&#34;example_db_server&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlDatabaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
@@ -193,38 +61,6 @@ public final class SqlFunctions {
      * 
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
         return getServer(args, InvokeOptions.Empty);
@@ -233,38 +69,6 @@ public final class SqlFunctions {
      * Use this data source to access information about an existing SQL Azure Database Server.
      * 
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -275,38 +79,6 @@ public final class SqlFunctions {
      * 
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
@@ -315,38 +87,6 @@ public final class SqlFunctions {
      * Use this data source to access information about an existing SQL Azure Database Server.
      * 
      * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;examplesqlservername&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {
@@ -357,38 +97,6 @@ public final class SqlFunctions {
      * 
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSqlManagedInstanceResult> getSqlManagedInstance(GetSqlManagedInstanceArgs args) {
         return getSqlManagedInstance(args, InvokeOptions.Empty);
@@ -397,38 +105,6 @@ public final class SqlFunctions {
      * Use this data source to access information about an existing SQL Managed Instance.
      * 
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSqlManagedInstanceResult> getSqlManagedInstancePlain(GetSqlManagedInstancePlainArgs args) {
@@ -439,38 +115,6 @@ public final class SqlFunctions {
      * 
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSqlManagedInstanceResult> getSqlManagedInstance(GetSqlManagedInstanceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sql/getSqlManagedInstance:getSqlManagedInstance", TypeShape.of(GetSqlManagedInstanceResult.class), args, Utilities.withVersion(options));
@@ -479,38 +123,6 @@ public final class SqlFunctions {
      * Use this data source to access information about an existing SQL Managed Instance.
      * 
      * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.sql.inputs.GetSqlManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SqlFunctions.getSqlManagedInstance(GetSqlManagedInstanceArgs.builder()
-     *             .name(&#34;example_mi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;sqlInstanceId&#34;, example.applyValue(getSqlManagedInstanceResult -&gt; getSqlManagedInstanceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSqlManagedInstanceResult> getSqlManagedInstancePlain(GetSqlManagedInstancePlainArgs args, InvokeOptions options) {

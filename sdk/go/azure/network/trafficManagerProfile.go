@@ -21,58 +21,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/trafficManagerProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/trafficManagerProfile"
+//	index/randomId "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomId"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
-//					"azi_id": pulumi.String("1"),
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("trafficmanagerProfile"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewTrafficManagerProfile(ctx, "example", &network.TrafficManagerProfileArgs{
-//				Name:                 server.Hex,
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Weighted"),
-//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-//					RelativeName: server.Hex,
-//					Ttl:          pulumi.Int(100),
-//				},
-//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-//					Protocol:                  pulumi.String("HTTP"),
-//					Port:                      pulumi.Int(80),
-//					Path:                      pulumi.String("/"),
-//					IntervalInSeconds:         pulumi.Int(30),
-//					TimeoutInSeconds:          pulumi.Int(9),
-//					ToleratedNumberOfFailures: pulumi.Int(3),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+// Keepers: map[string]interface{}{
+// "azi_id": 1,
+// },
+// ByteLength: 8,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "trafficmanagerProfile",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/trafficManagerProfile.NewTrafficManagerProfile(ctx, "example", &network/trafficManagerProfile.TrafficManagerProfileArgs{
+// Name: server.Hex,
+// ResourceGroupName: example.Name,
+// TrafficRoutingMethod: "Weighted",
+// DnsConfig: map[string]interface{}{
+// "relativeName": server.Hex,
+// "ttl": 100,
+// },
+// MonitorConfig: map[string]interface{}{
+// "protocol": "HTTP",
+// "port": 80,
+// "path": "/",
+// "intervalInSeconds": 30,
+// "timeoutInSeconds": 9,
+// "toleratedNumberOfFailures": 3,
+// },
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

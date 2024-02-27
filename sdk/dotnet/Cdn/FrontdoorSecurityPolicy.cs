@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-cdn-frontdoor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorFirewallPolicy = new Azure.Cdn.FrontdoorFirewallPolicy("example", new()
+    ///     var exampleFrontdoorFirewallPolicy = new Azure.Cdn.FrontdoorFirewallPolicy.FrontdoorFirewallPolicy("example", new()
     ///     {
     ///         Name = "exampleWAF",
     ///         ResourceGroupName = example.Name,
@@ -47,73 +47,73 @@ namespace Pulumi.Azure.Cdn
     ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///         CustomRules = new[]
     ///         {
-    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
+    ///             
     ///             {
-    ///                 Name = "Rule1",
-    ///                 Enabled = true,
-    ///                 Priority = 1,
-    ///                 RateLimitDurationInMinutes = 1,
-    ///                 RateLimitThreshold = 10,
-    ///                 Type = "MatchRule",
-    ///                 Action = "Block",
-    ///                 MatchConditions = new[]
+    ///                 { "name", "Rule1" },
+    ///                 { "enabled", true },
+    ///                 { "priority", 1 },
+    ///                 { "rateLimitDurationInMinutes", 1 },
+    ///                 { "rateLimitThreshold", 10 },
+    ///                 { "type", "MatchRule" },
+    ///                 { "action", "Block" },
+    ///                 { "matchConditions", new[]
     ///                 {
-    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
+    ///                     
     ///                     {
-    ///                         MatchVariable = "RemoteAddr",
-    ///                         Operator = "IPMatch",
-    ///                         NegationCondition = false,
-    ///                         MatchValues = new[]
+    ///                         { "matchVariable", "RemoteAddr" },
+    ///                         { "operator", "IPMatch" },
+    ///                         { "negationCondition", false },
+    ///                         { "matchValues", new[]
     ///                         {
     ///                             "192.168.1.0/24",
     ///                             "10.0.1.0/24",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "sub-domain.domain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
+    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain.FrontdoorCustomDomain("example", new()
     ///     {
     ///         Name = "example-customDomain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
     ///         HostName = "contoso.fabrikam.com",
-    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         Tls = 
     ///         {
-    ///             CertificateType = "ManagedCertificate",
-    ///             MinimumTlsVersion = "TLS12",
+    ///             { "certificateType", "ManagedCertificate" },
+    ///             { "minimumTlsVersion", "TLS12" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFrontdoorSecurityPolicy = new Azure.Cdn.FrontdoorSecurityPolicy("example", new()
+    ///     var exampleFrontdoorSecurityPolicy = new Azure.Cdn.FrontdoorSecurityPolicy.FrontdoorSecurityPolicy("example", new()
     ///     {
     ///         Name = "Example-Security-Policy",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         SecurityPolicies = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesArgs
+    ///         SecurityPolicies = 
     ///         {
-    ///             Firewall = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs
+    ///             { "firewall", 
     ///             {
-    ///                 CdnFrontdoorFirewallPolicyId = exampleFrontdoorFirewallPolicy.Id,
-    ///                 Association = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs
+    ///                 { "cdnFrontdoorFirewallPolicyId", exampleFrontdoorFirewallPolicy.Id },
+    ///                 { "association", 
     ///                 {
-    ///                     Domains = new[]
+    ///                     { "domains", new[]
     ///                     {
-    ///                         new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs
+    ///                         
     ///                         {
-    ///                             CdnFrontdoorDomainId = exampleFrontdoorCustomDomain.Id,
+    ///                             { "cdnFrontdoorDomainId", exampleFrontdoorCustomDomain.Id },
     ///                         },
-    ///                     },
-    ///                     PatternsToMatch = "/*",
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                     { "patternsToMatch", "/*" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

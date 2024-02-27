@@ -35,10 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.streamanalytics.JobArgs;
  * import com.pulumi.azure.streamanalytics.StreamInputBlob;
  * import com.pulumi.azure.streamanalytics.StreamInputBlobArgs;
- * import com.pulumi.azure.streamanalytics.inputs.StreamInputBlobSerializationArgs;
  * import com.pulumi.azure.streamanalytics.OutputBlob;
  * import com.pulumi.azure.streamanalytics.OutputBlobArgs;
- * import com.pulumi.azure.streamanalytics.inputs.OutputBlobSerializationArgs;
  * import com.pulumi.azure.streamanalytics.JobSchedule;
  * import com.pulumi.azure.streamanalytics.JobScheduleArgs;
  * import com.pulumi.asset.FileAsset;
@@ -93,7 +91,7 @@ import javax.annotation.Nullable;
  *             .eventsOutOfOrderPolicy(&#34;Adjust&#34;)
  *             .outputErrorPolicy(&#34;Drop&#34;)
  *             .streamingUnits(3)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .transformationQuery(&#34;&#34;&#34;
  *     SELECT *
  *     INTO [exampleoutput]
@@ -111,11 +109,7 @@ import javax.annotation.Nullable;
  *             .pathPattern(&#34;&#34;)
  *             .dateFormat(&#34;yyyy/MM/dd&#34;)
  *             .timeFormat(&#34;HH&#34;)
- *             .serialization(StreamInputBlobSerializationArgs.builder()
- *                 .type(&#34;Csv&#34;)
- *                 .encoding(&#34;UTF8&#34;)
- *                 .fieldDelimiter(&#34;,&#34;)
- *                 .build())
+ *             .serialization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleOutputBlob = new OutputBlob(&#34;exampleOutputBlob&#34;, OutputBlobArgs.builder()        
@@ -128,9 +122,7 @@ import javax.annotation.Nullable;
  *             .pathPattern(&#34;example-{date}-{time}&#34;)
  *             .dateFormat(&#34;yyyy-MM-dd&#34;)
  *             .timeFormat(&#34;HH&#34;)
- *             .serialization(OutputBlobSerializationArgs.builder()
- *                 .type(&#34;Avro&#34;)
- *                 .build())
+ *             .serialization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleJobSchedule = new JobSchedule(&#34;exampleJobSchedule&#34;, JobScheduleArgs.builder()        

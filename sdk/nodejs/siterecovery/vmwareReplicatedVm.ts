@@ -15,28 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West US",
  * });
- * const exampleVault = new azure.recoveryservices.Vault("example", {
+ * const exampleVault = new azure.recoveryservices/vault.Vault("example", {
  *     name: "example-recovery-vault",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleVMWareReplicationPolicy = new azure.siterecovery.VMWareReplicationPolicy("example", {
+ * const exampleVMWareReplicationPolicy = new azure.siterecovery/vMWareReplicationPolicy.VMWareReplicationPolicy("example", {
  *     recoveryVaultId: exampleVault.id,
  *     name: "example-policy",
  *     recoveryPointRetentionInMinutes: 1440,
  *     applicationConsistentSnapshotFrequencyInMinutes: 240,
  * });
- * const test = new azure.siterecovery.VmwareReplicationPolicyAssociation("test", {
+ * const test = new azure.siterecovery/vmwareReplicationPolicyAssociation.VmwareReplicationPolicyAssociation("test", {
  *     name: "example-association",
  *     recoveryVaultId: exampleVault.id,
  *     policyId: exampleVMWareReplicationPolicy.id,
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageacc",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -44,19 +44,19 @@ import * as utilities from "../utilities";
  *     accountKind: "StorageV2",
  *     accountReplicationType: "LRS",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-net",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["192.168.2.0/24"],
  *     location: example.location,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["192.168.2.0/24"],
  * });
- * const exampleVmwareReplicatedVm = new azure.siterecovery.VmwareReplicatedVm("example", {
+ * const exampleVmwareReplicatedVm = new azure.siterecovery/vmwareReplicatedVm.VmwareReplicatedVm("example", {
  *     name: "example-vmware-vm",
  *     recoveryVaultId: exampleVault.id,
  *     sourceVmName: "example-vm",

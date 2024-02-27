@@ -308,23 +308,23 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-action-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-action-group,
             resource_group_name=example.name,
-            short_name="example")
-        example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("example",
-            name="example-amar",
+            short_name=example)
+        example_action_rule_action_group = azure.monitoring.action_rule_action_group.ActionRuleActionGroup("example",
+            name=example-amar,
             resource_group_name=example.name,
             action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example.id],
-            ),
+            scope={
+                type: ResourceGroup,
+                resourceIds: [example.id],
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -364,23 +364,23 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-action-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-action-group,
             resource_group_name=example.name,
-            short_name="example")
-        example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("example",
-            name="example-amar",
+            short_name=example)
+        example_action_rule_action_group = azure.monitoring.action_rule_action_group.ActionRuleActionGroup("example",
+            name=example-amar,
             resource_group_name=example.name,
             action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example.id],
-            ),
+            scope={
+                type: ResourceGroup,
+                resourceIds: [example.id],
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

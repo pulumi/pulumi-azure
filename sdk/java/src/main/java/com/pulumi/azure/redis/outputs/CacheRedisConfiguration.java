@@ -100,7 +100,6 @@ public final class CacheRedisConfiguration {
     private @Nullable String rdbStorageConnectionString;
     /**
      * @return The ID of the Subscription containing the Storage Account.
-     * 
      * ```java
      * package generated_program;
      * 
@@ -251,7 +250,6 @@ public final class CacheRedisConfiguration {
     }
     /**
      * @return The ID of the Subscription containing the Storage Account.
-     * 
      * ```java
      * package generated_program;
      * 

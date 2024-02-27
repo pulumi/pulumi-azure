@@ -20,74 +20,12 @@ public final class KustoFunctions {
     /**
      * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -96,74 +34,12 @@ public final class KustoFunctions {
     /**
      * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:kusto/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;kustocluster&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -172,76 +48,12 @@ public final class KustoFunctions {
     /**
      * Use this data source to access information about an existing Kusto Database
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
         return getDatabase(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Kusto Database
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -250,76 +62,12 @@ public final class KustoFunctions {
     /**
      * Use this data source to access information about an existing Kusto Database
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:kusto/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Kusto Database
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.kusto.KustoFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;my-kusto-database&#34;)
-     *             .resourceGroupName(&#34;test_resource_group&#34;)
-     *             .clusterName(&#34;test_cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {

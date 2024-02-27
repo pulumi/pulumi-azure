@@ -28,18 +28,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.Firewall;
  * import com.pulumi.azure.network.FirewallArgs;
- * import com.pulumi.azure.network.inputs.FirewallIpConfigurationArgs;
  * import com.pulumi.azure.network.FirewallApplicationRuleCollection;
  * import com.pulumi.azure.network.FirewallApplicationRuleCollectionArgs;
- * import com.pulumi.azure.network.inputs.FirewallApplicationRuleCollectionRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,11 +84,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;AZFW_VNet&#34;)
  *             .skuTier(&#34;Standard&#34;)
- *             .ipConfigurations(FirewallIpConfigurationArgs.builder()
- *                 .name(&#34;configuration&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFirewallApplicationRuleCollection = new FirewallApplicationRuleCollection(&#34;exampleFirewallApplicationRuleCollection&#34;, FirewallApplicationRuleCollectionArgs.builder()        
@@ -99,15 +93,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .priority(100)
  *             .action(&#34;Allow&#34;)
- *             .rules(FirewallApplicationRuleCollectionRuleArgs.builder()
- *                 .name(&#34;testrule&#34;)
- *                 .sourceAddresses(&#34;10.0.0.0/16&#34;)
- *                 .targetFqdns(&#34;*.google.com&#34;)
- *                 .protocols(FirewallApplicationRuleCollectionRuleProtocolArgs.builder()
- *                     .port(&#34;443&#34;)
- *                     .type(&#34;Https&#34;)
- *                     .build())
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

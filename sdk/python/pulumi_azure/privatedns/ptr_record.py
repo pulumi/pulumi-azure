@@ -252,18 +252,18 @@ class PTRRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="2.0.192.in-addr.arpa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=2.0.192.in-addr.arpa,
             resource_group_name=example.name)
-        example_ptr_record = azure.privatedns.PTRRecord("example",
-            name="15",
+        example_ptr_record = azure.privatedns.p_tr_record.PTRRecord("example",
+            name=15,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["test.example.com"])
+            records=[test.example.com])
         ```
 
         ## Import
@@ -298,18 +298,18 @@ class PTRRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="2.0.192.in-addr.arpa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=2.0.192.in-addr.arpa,
             resource_group_name=example.name)
-        example_ptr_record = azure.privatedns.PTRRecord("example",
-            name="15",
+        example_ptr_record = azure.privatedns.p_tr_record.PTRRecord("example",
+            name=15,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["test.example.com"])
+            records=[test.example.com])
         ```
 
         ## Import

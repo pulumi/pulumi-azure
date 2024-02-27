@@ -21,48 +21,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maps"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	maps/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/maps/account"
+//	maps/creator "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/maps/creator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := maps.NewAccount(ctx, "example", &maps.AccountArgs{
-//				Name:              pulumi.String("example-maps-account"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("G2"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = maps.NewCreator(ctx, "example", &maps.CreatorArgs{
-//				Name:          pulumi.String("example-maps-creator"),
-//				MapsAccountId: exampleAccount.ID(),
-//				Location:      example.Location,
-//				StorageUnits:  pulumi.Int(1),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := maps/account.NewAccount(ctx, "example", &maps/account.AccountArgs{
+// Name: "example-maps-account",
+// ResourceGroupName: example.Name,
+// SkuName: "G2",
+// Tags: map[string]interface{}{
+// "environment": "Test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = maps/creator.NewCreator(ctx, "example", &maps/creator.CreatorArgs{
+// Name: "example-maps-creator",
+// MapsAccountId: exampleAccount.Id,
+// Location: example.Location,
+// StorageUnits: 1,
+// Tags: map[string]interface{}{
+// "environment": "Test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

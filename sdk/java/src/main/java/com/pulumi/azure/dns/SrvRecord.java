@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.ZoneArgs;
  * import com.pulumi.azure.dns.SrvRecord;
  * import com.pulumi.azure.dns.SrvRecordArgs;
- * import com.pulumi.azure.dns.inputs.SrvRecordRecordArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,13 +60,8 @@ import javax.annotation.Nullable;
  *             .zoneName(exampleZone.name())
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .records(SrvRecordRecordArgs.builder()
- *                 .priority(1)
- *                 .weight(5)
- *                 .port(8080)
- *                 .target(&#34;target1.contoso.com&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .records(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

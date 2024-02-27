@@ -21,75 +21,75 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	appconfiguration/licationLoadBalancer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appconfiguration/licationLoadBalancer"
+//	appconfiguration/licationLoadBalancerSubnetAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appconfiguration/licationLoadBalancerSubnetAssociation"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("westeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLicationLoadBalancer, err := appconfiguration.NewLicationLoadBalancer(ctx, "example", &appconfiguration.LicationLoadBalancerArgs{
-//				Name:              pulumi.String("example-alb"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.ServiceNetworking/trafficControllers"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appconfiguration.NewLicationLoadBalancerSubnetAssociation(ctx, "example", &appconfiguration.LicationLoadBalancerSubnetAssociationArgs{
-//				Name:                      pulumi.String("example"),
-//				ApplicationLoadBalancerId: exampleLicationLoadBalancer.ID(),
-//				SubnetId:                  exampleSubnet.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "westeurope",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLicationLoadBalancer, err := appconfiguration/licationLoadBalancer.NewLicationLoadBalancer(ctx, "example", &appconfiguration/licationLoadBalancer.LicationLoadBalancerArgs{
+// Name: "example-alb",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "delegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.ServiceNetworking/trafficControllers",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appconfiguration/licationLoadBalancerSubnetAssociation.NewLicationLoadBalancerSubnetAssociation(ctx, "example", &appconfiguration/licationLoadBalancerSubnetAssociation.LicationLoadBalancerSubnetAssociationArgs{
+// Name: "example",
+// ApplicationLoadBalancerId: exampleLicationLoadBalancer.Id,
+// SubnetId: exampleSubnet.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

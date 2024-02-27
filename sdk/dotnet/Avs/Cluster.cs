@@ -22,21 +22,21 @@ namespace Pulumi.Azure.Avs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePrivateCloud = new Azure.Avs.PrivateCloud("example", new()
+    ///     var examplePrivateCloud = new Azure.Avs.PrivateCloud.PrivateCloud("example", new()
     ///     {
     ///         Name = "example-vmware-private-cloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         SkuName = "av36",
-    ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
+    ///         ManagementCluster = 
     ///         {
-    ///             Size = 3,
+    ///             { "size", 3 },
     ///         },
     ///         NetworkSubnetCidr = "192.168.48.0/22",
     ///         InternetConnectionEnabled = false,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Avs
     ///         VcenterPassword = "WsxEdc23$Rfv",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Avs.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Avs.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "example-Cluster",
     ///         VmwareCloudId = examplePrivateCloud.Id,

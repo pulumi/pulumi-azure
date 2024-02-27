@@ -1177,34 +1177,34 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("example",
-            name="example-sqlserver",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_server = azure.mssql.server.Server("example",
+            name=example-sqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("example",
-            name="example-db",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_database = azure.mssql.database.Database("example",
+            name=example-db,
             server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
+            collation=SQL_Latin1_General_CP1_CI_AS,
+            license_type=LicenseIncluded,
             max_size_gb=4,
             read_scale=True,
-            sku_name="S0",
+            sku_name=S0,
             zone_redundant=True,
-            enclave_type="VBS",
+            enclave_type=VBS,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
         ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
@@ -1212,87 +1212,87 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-admin",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example-admin,
             location=example.location,
             resource_group_name=example.name)
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("example",
-            name="example-sqlserver",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_server = azure.mssql.server.Server("example",
+            name=example-sqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
         # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="mssqltdeexample",
+        example_key_vault = azure.keyvault.key_vault.KeyVault("example",
+            name=mssqltdeexample,
             location=example.location,
             resource_group_name=example.name,
             enabled_for_disk_encryption=True,
             tenant_id=example_user_assigned_identity.tenant_id,
             soft_delete_retention_days=7,
             purge_protection_enabled=True,
-            sku_name="standard",
+            sku_name=standard,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current["tenantId"],
-                    object_id=current["objectId"],
-                    key_permissions=[
-                        "Get",
-                        "List",
-                        "Create",
-                        "Delete",
-                        "Update",
-                        "Recover",
-                        "Purge",
-                        "GetRotationPolicy",
+                {
+                    tenantId: current.tenant_id,
+                    objectId: current.object_id,
+                    keyPermissions: [
+                        Get,
+                        List,
+                        Create,
+                        Delete,
+                        Update,
+                        Recover,
+                        Purge,
+                        GetRotationPolicy,
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_user_assigned_identity.tenant_id,
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
-                        "Get",
-                        "WrapKey",
-                        "UnwrapKey",
+                },
+                {
+                    tenantId: example_user_assigned_identity.tenant_id,
+                    objectId: example_user_assigned_identity.principal_id,
+                    keyPermissions: [
+                        Get,
+                        WrapKey,
+                        UnwrapKey,
                     ],
-                ),
+                },
             ])
-        example_key = azure.keyvault.Key("example",
-            name="example-key",
+        example_key = azure.keyvault.key.Key("example",
+            name=example-key,
             key_vault_id=example_key_vault.id,
-            key_type="RSA",
+            key_type=RSA,
             key_size=2048,
             key_opts=[
-                "unwrapKey",
-                "wrapKey",
+                unwrapKey,
+                wrapKey,
             ])
-        example_database = azure.mssql.Database("example",
-            name="example-db",
+        example_database = azure.mssql.database.Database("example",
+            name=example-db,
             server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
+            collation=SQL_Latin1_General_CP1_CI_AS,
+            license_type=LicenseIncluded,
             max_size_gb=4,
             read_scale=True,
-            sku_name="S0",
+            sku_name=S0,
             zone_redundant=True,
-            enclave_type="VBS",
+            enclave_type=VBS,
             tags={
-                "foo": "bar",
+                foo: bar,
             },
-            identity=azure.mssql.DatabaseIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            identity={
+                type: UserAssigned,
+                identityIds: [example_user_assigned_identity.id],
+            },
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 
@@ -1372,34 +1372,34 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("example",
-            name="example-sqlserver",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_server = azure.mssql.server.Server("example",
+            name=example-sqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("example",
-            name="example-db",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_database = azure.mssql.database.Database("example",
+            name=example-db,
             server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
+            collation=SQL_Latin1_General_CP1_CI_AS,
+            license_type=LicenseIncluded,
             max_size_gb=4,
             read_scale=True,
-            sku_name="S0",
+            sku_name=S0,
             zone_redundant=True,
-            enclave_type="VBS",
+            enclave_type=VBS,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
         ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
@@ -1407,87 +1407,87 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-admin",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example-admin,
             location=example.location,
             resource_group_name=example.name)
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_server = azure.mssql.Server("example",
-            name="example-sqlserver",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_server = azure.mssql.server.Server("example",
+            name=example-sqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
         # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="mssqltdeexample",
+        example_key_vault = azure.keyvault.key_vault.KeyVault("example",
+            name=mssqltdeexample,
             location=example.location,
             resource_group_name=example.name,
             enabled_for_disk_encryption=True,
             tenant_id=example_user_assigned_identity.tenant_id,
             soft_delete_retention_days=7,
             purge_protection_enabled=True,
-            sku_name="standard",
+            sku_name=standard,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current["tenantId"],
-                    object_id=current["objectId"],
-                    key_permissions=[
-                        "Get",
-                        "List",
-                        "Create",
-                        "Delete",
-                        "Update",
-                        "Recover",
-                        "Purge",
-                        "GetRotationPolicy",
+                {
+                    tenantId: current.tenant_id,
+                    objectId: current.object_id,
+                    keyPermissions: [
+                        Get,
+                        List,
+                        Create,
+                        Delete,
+                        Update,
+                        Recover,
+                        Purge,
+                        GetRotationPolicy,
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_user_assigned_identity.tenant_id,
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
-                        "Get",
-                        "WrapKey",
-                        "UnwrapKey",
+                },
+                {
+                    tenantId: example_user_assigned_identity.tenant_id,
+                    objectId: example_user_assigned_identity.principal_id,
+                    keyPermissions: [
+                        Get,
+                        WrapKey,
+                        UnwrapKey,
                     ],
-                ),
+                },
             ])
-        example_key = azure.keyvault.Key("example",
-            name="example-key",
+        example_key = azure.keyvault.key.Key("example",
+            name=example-key,
             key_vault_id=example_key_vault.id,
-            key_type="RSA",
+            key_type=RSA,
             key_size=2048,
             key_opts=[
-                "unwrapKey",
-                "wrapKey",
+                unwrapKey,
+                wrapKey,
             ])
-        example_database = azure.mssql.Database("example",
-            name="example-db",
+        example_database = azure.mssql.database.Database("example",
+            name=example-db,
             server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            license_type="LicenseIncluded",
+            collation=SQL_Latin1_General_CP1_CI_AS,
+            license_type=LicenseIncluded,
             max_size_gb=4,
             read_scale=True,
-            sku_name="S0",
+            sku_name=S0,
             zone_redundant=True,
-            enclave_type="VBS",
+            enclave_type=VBS,
             tags={
-                "foo": "bar",
+                foo: bar,
             },
-            identity=azure.mssql.DatabaseIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            identity={
+                type: UserAssigned,
+                identityIds: [example_user_assigned_identity.id],
+            },
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 

@@ -15,27 +15,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSync = new azure.storage.Sync("example", {
+ * const exampleSync = new azure.storage/sync.Sync("example", {
  *     name: "example-ss",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleSyncGroup = new azure.storage.SyncGroup("example", {
+ * const exampleSyncGroup = new azure.storage/syncGroup.SyncGroup("example", {
  *     name: "example-ss-group",
  *     storageSyncId: exampleSync.id,
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("example", {
+ * const exampleShare = new azure.storage/share.Share("example", {
  *     name: "example-share",
  *     storageAccountName: exampleAccount.name,
  *     quota: 50,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleSyncCloudEndpoint = new azure.storage.SyncCloudEndpoint("example", {
+ * const exampleSyncCloudEndpoint = new azure.storage/syncCloudEndpoint.SyncCloudEndpoint("example", {
  *     name: "example-ss-ce",
  *     storageSyncGroupId: exampleSyncGroup.id,
  *     fileShareName: exampleShare.name,

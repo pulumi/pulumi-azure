@@ -42,8 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
  * import com.pulumi.azure.containerservice.KubernetesClusterNodePool;
  * import com.pulumi.azure.containerservice.KubernetesClusterNodePoolArgs;
  * import java.util.List;
@@ -69,15 +67,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;exampleaks1&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
- *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_D2_v2&#34;)
- *                 .build())
- *             .servicePrincipal(KubernetesClusterServicePrincipalArgs.builder()
- *                 .clientId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .clientSecret(&#34;00000000000000000000000000000000&#34;)
- *                 .build())
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .servicePrincipal(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleKubernetesClusterNodePool = new KubernetesClusterNodePool(&#34;exampleKubernetesClusterNodePool&#34;, KubernetesClusterNodePoolArgs.builder()        
@@ -85,7 +76,7 @@ import javax.annotation.Nullable;
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
  *             .vmSize(&#34;Standard_DS2_v2&#34;)
  *             .nodeCount(1)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -355,18 +355,6 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Kubernetes Cluster Node Pool.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerservice.get_cluster_node_pool(name="existing",
-        kubernetes_cluster_name="existing-cluster",
-        resource_group_name="existing-resource-group")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.
     :param str name: The name of this Kubernetes Cluster Node Pool.
@@ -416,18 +404,6 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterNodePoolResult]:
     """
     Use this data source to access information about an existing Kubernetes Cluster Node Pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerservice.get_cluster_node_pool(name="existing",
-        kubernetes_cluster_name="existing-cluster",
-        resource_group_name="existing-resource-group")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.

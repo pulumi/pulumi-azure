@@ -237,38 +237,6 @@ class Account(pulumi.CustomResource):
 
         > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
 
-        ## NetApp Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        current = azure.core.get_client_config()
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="anf-user-assigned-identity",
-            location=example.location,
-            resource_group_name=example.name)
-        example_account = azure.netapp.Account("example",
-            name="netappaccount",
-            location=example.location,
-            resource_group_name=example.name,
-            active_directory=azure.netapp.AccountActiveDirectoryArgs(
-                username="aduser",
-                password="aduserpwd",
-                smb_server_name="SMBSERVER",
-                dns_servers=["1.2.3.4"],
-                domain="westcentralus.com",
-                organizational_unit="OU=FirstLevel",
-            ),
-            identity=azure.netapp.AccountIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
-        ```
-
         ## Import
 
         NetApp Accounts can be imported using the `resource id`, e.g.
@@ -296,38 +264,6 @@ class Account(pulumi.CustomResource):
         Manages a NetApp Account.
 
         > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
-
-        ## NetApp Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        current = azure.core.get_client_config()
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="anf-user-assigned-identity",
-            location=example.location,
-            resource_group_name=example.name)
-        example_account = azure.netapp.Account("example",
-            name="netappaccount",
-            location=example.location,
-            resource_group_name=example.name,
-            active_directory=azure.netapp.AccountActiveDirectoryArgs(
-                username="aduser",
-                password="aduserpwd",
-                smb_server_name="SMBSERVER",
-                dns_servers=["1.2.3.4"],
-                domain="westcentralus.com",
-                organizational_unit="OU=FirstLevel",
-            ),
-            identity=azure.netapp.AccountIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
-        ```
 
         ## Import
 

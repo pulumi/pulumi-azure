@@ -21,93 +21,95 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkAttachedDataNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkAttachedDataNetwork"
+//	mobile/networkSim "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSim"
+//	mobile/networkSimGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSimGroup"
+//	mobile/networkSlice "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSlice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
-//				Name:              pulumi.String("example-mn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				MobileCountryCode: pulumi.String("001"),
-//				MobileNetworkCode: pulumi.String("01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSimGroup, err := mobile.NewNetworkSimGroup(ctx, "example", &mobile.NetworkSimGroupArgs{
-//				Name:            pulumi.String("example-mnsg"),
-//				Location:        example.Location,
-//				MobileNetworkId: exampleNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkSlice(ctx, "example", &mobile.NetworkSliceArgs{
-//				Name:            pulumi.String("example-slice"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//				SingleNetworkSliceSelectionAssistanceInformation: &mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{
-//					SliceServiceType: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkAttachedDataNetwork(ctx, "example", &mobile.NetworkAttachedDataNetworkArgs{
-//				MobileNetworkDataNetworkName:       pulumi.Any(exampleAzurermMobileNetworkDataNetwork.Name),
-//				MobileNetworkPacketCoreDataPlaneId: pulumi.Any(exampleAzurermMobileNetworkPacketCoreDataPlane.Id),
-//				Location:                           example.Location,
-//				DnsAddresses: pulumi.StringArray{
-//					pulumi.String("1.1.1.1"),
-//				},
-//				UserEquipmentAddressPoolPrefixes: pulumi.StringArray{
-//					pulumi.String("2.4.0.0/24"),
-//				},
-//				UserEquipmentStaticAddressPoolPrefixes: pulumi.StringArray{
-//					pulumi.String("2.4.1.0/24"),
-//				},
-//				UserPlaneAccessName:        pulumi.String("test"),
-//				UserPlaneAccessIpv4Address: pulumi.String("10.204.141.4"),
-//				UserPlaneAccessIpv4Gateway: pulumi.String("10.204.141.1"),
-//				UserPlaneAccessIpv4Subnet:  pulumi.String("10.204.141.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkSim(ctx, "example", &mobile.NetworkSimArgs{
-//				Name:                                  pulumi.String("example-sim"),
-//				MobileNetworkSimGroupId:               exampleNetworkSimGroup.ID(),
-//				AuthenticationKey:                     pulumi.String("00000000000000000000000000000000"),
-//				IntegratedCircuitCardIdentifier:       pulumi.String("8900000000000000000"),
-//				InternationalMobileSubscriberIdentity: pulumi.String("000000000000000"),
-//				OperatorKeyCode:                       pulumi.String("00000000000000000000000000000000"),
-//				StaticIpConfigurations: mobile.NetworkSimStaticIpConfigurationArray{
-//					&mobile.NetworkSimStaticIpConfigurationArgs{
-//						AttachedDataNetworkId: pulumi.Any(test.Id),
-//						SliceId:               pulumi.Any(testAzurermMobileNetworkSlice.Id),
-//						StaticIpv4Address:     pulumi.String("2.4.0.1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetwork, err := mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSimGroup, err := mobile/networkSimGroup.NewNetworkSimGroup(ctx, "example", &mobile/networkSimGroup.NetworkSimGroupArgs{
+// Name: "example-mnsg",
+// Location: example.Location,
+// MobileNetworkId: exampleNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkSlice.NewNetworkSlice(ctx, "example", &mobile/networkSlice.NetworkSliceArgs{
+// Name: "example-slice",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// SingleNetworkSliceSelectionAssistanceInformation: map[string]interface{}{
+// "sliceServiceType": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkAttachedDataNetwork.NewNetworkAttachedDataNetwork(ctx, "example", &mobile/networkAttachedDataNetwork.NetworkAttachedDataNetworkArgs{
+// MobileNetworkDataNetworkName: exampleAzurermMobileNetworkDataNetwork.Name,
+// MobileNetworkPacketCoreDataPlaneId: exampleAzurermMobileNetworkPacketCoreDataPlane.Id,
+// Location: example.Location,
+// DnsAddresses: []string{
+// "1.1.1.1",
+// },
+// UserEquipmentAddressPoolPrefixes: []string{
+// "2.4.0.0/24",
+// },
+// UserEquipmentStaticAddressPoolPrefixes: []string{
+// "2.4.1.0/24",
+// },
+// UserPlaneAccessName: "test",
+// UserPlaneAccessIpv4Address: "10.204.141.4",
+// UserPlaneAccessIpv4Gateway: "10.204.141.1",
+// UserPlaneAccessIpv4Subnet: "10.204.141.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkSim.NewNetworkSim(ctx, "example", &mobile/networkSim.NetworkSimArgs{
+// Name: "example-sim",
+// MobileNetworkSimGroupId: exampleNetworkSimGroup.Id,
+// AuthenticationKey: "00000000000000000000000000000000",
+// IntegratedCircuitCardIdentifier: "8900000000000000000",
+// InternationalMobileSubscriberIdentity: "000000000000000",
+// OperatorKeyCode: "00000000000000000000000000000000",
+// StaticIpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "attachedDataNetworkId": test.Id,
+// "sliceId": testAzurermMobileNetworkSlice.Id,
+// "staticIpv4Address": "2.4.0.1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

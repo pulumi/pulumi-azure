@@ -25,74 +25,66 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/linuxVirtualMachineScaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachineScaleSet"
+//	compute/virtualMachineScaleSetExtension "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/virtualMachineScaleSetExtension"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Standard_F2"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				Instances:         pulumi.Int(1),
-//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
-//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name: pulumi.String("example"),
-//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-//								Name: pulumi.String("internal"),
-//							},
-//						},
-//					},
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//					Caching:            pulumi.String("ReadWrite"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"commandToExecute": "echo $HOSTNAME",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
-//				Name:                     pulumi.String("example"),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
-//				Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
-//				Type:                     pulumi.String("CustomScript"),
-//				TypeHandlerVersion:       pulumi.String("2.0"),
-//				Settings:                 pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachineScaleSet, err := compute/linuxVirtualMachineScaleSet.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSetArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Standard_F2",
+// AdminUsername: "adminuser",
+// Instances: 1,
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// NetworkInterfaces: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "ipConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// },
+// },
+// },
+// },
+// OsDisk: map[string]interface{}{
+// "storageAccountType": "Standard_LRS",
+// "caching": "ReadWrite",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/virtualMachineScaleSetExtension.NewVirtualMachineScaleSetExtension(ctx, "example", &compute/virtualMachineScaleSetExtension.VirtualMachineScaleSetExtensionArgs{
+// Name: "example",
+// VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.Id,
+// Publisher: "Microsoft.Azure.Extensions",
+// Type: "CustomScript",
+// TypeHandlerVersion: "2.0",
+// Settings: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

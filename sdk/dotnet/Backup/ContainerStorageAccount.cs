@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-network-mapping-primary",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     var vault = new Azure.Recoveryservices.Vault.Vault("vault", new()
     ///     {
     ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Backup
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var sa = new Azure.Storage.Account("sa", new()
+    ///     var sa = new Azure.Storage.Account.Account("sa", new()
     ///     {
     ///         Name = "examplesa",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Backup
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var container = new Azure.Backup.ContainerStorageAccount("container", new()
+    ///     var container = new Azure.Backup.ContainerStorageAccount.ContainerStorageAccount("container", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = vault.Name,

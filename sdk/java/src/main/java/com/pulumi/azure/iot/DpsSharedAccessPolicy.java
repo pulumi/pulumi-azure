@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.iot.IotHubDps;
  * import com.pulumi.azure.iot.IotHubDpsArgs;
- * import com.pulumi.azure.iot.inputs.IotHubDpsSkuArgs;
  * import com.pulumi.azure.iot.DpsSharedAccessPolicy;
  * import com.pulumi.azure.iot.DpsSharedAccessPolicyArgs;
  * import java.util.List;
@@ -55,10 +54,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(IotHubDpsSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDpsSharedAccessPolicy = new DpsSharedAccessPolicy(&#34;exampleDpsSharedAccessPolicy&#34;, DpsSharedAccessPolicyArgs.builder()        

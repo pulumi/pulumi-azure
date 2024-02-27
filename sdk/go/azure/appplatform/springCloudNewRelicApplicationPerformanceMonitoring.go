@@ -23,49 +23,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudNewRelicApplicationPerformanceMonitoring "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudNewRelicApplicationPerformanceMonitoring"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudNewRelicApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudNewRelicApplicationPerformanceMonitoringArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				AppName:              pulumi.String("example-app-name"),
-//				LicenseKey:           pulumi.String("example-license-key"),
-//				AppServerPort:        pulumi.Int(8080),
-//				Labels: pulumi.StringMap{
-//					"tagName1": pulumi.String("tagValue1"),
-//					"tagName2": pulumi.String("tagValue2"),
-//				},
-//				GloballyEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudNewRelicApplicationPerformanceMonitoring.NewSpringCloudNewRelicApplicationPerformanceMonitoring(ctx, "example", &appplatform/springCloudNewRelicApplicationPerformanceMonitoring.SpringCloudNewRelicApplicationPerformanceMonitoringArgs{
+// Name: "example",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// AppName: "example-app-name",
+// LicenseKey: "example-license-key",
+// AppServerPort: 8080,
+// Labels: map[string]interface{}{
+// "tagName1": "tagValue1",
+// "tagName2": "tagValue2",
+// },
+// GloballyEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

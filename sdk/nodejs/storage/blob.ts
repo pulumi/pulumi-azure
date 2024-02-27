@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "content",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleBlob = new azure.storage.Blob("example", {
+ * const exampleBlob = new azure.storage/blob.Blob("example", {
  *     name: "my-awesome-content.zip",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,

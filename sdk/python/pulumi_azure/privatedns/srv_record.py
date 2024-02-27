@@ -254,33 +254,33 @@ class SRVRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="contoso.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=contoso.com,
             resource_group_name=example.name)
-        example_srv_record = azure.privatedns.SRVRecord("example",
-            name="test",
+        example_srv_record = azure.privatedns.s_rv_record.SRVRecord("example",
+            name=test,
             resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=1,
-                    weight=5,
-                    port=8080,
-                    target="target1.contoso.com",
-                ),
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=10,
-                    weight=10,
-                    port=8080,
-                    target="target2.contoso.com",
-                ),
+                {
+                    priority: 1,
+                    weight: 5,
+                    port: 8080,
+                    target: target1.contoso.com,
+                },
+                {
+                    priority: 10,
+                    weight: 10,
+                    port: 8080,
+                    target: target2.contoso.com,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -316,33 +316,33 @@ class SRVRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="contoso.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=contoso.com,
             resource_group_name=example.name)
-        example_srv_record = azure.privatedns.SRVRecord("example",
-            name="test",
+        example_srv_record = azure.privatedns.s_rv_record.SRVRecord("example",
+            name=test,
             resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=1,
-                    weight=5,
-                    port=8080,
-                    target="target1.contoso.com",
-                ),
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=10,
-                    weight=10,
-                    port=8080,
-                    target="target2.contoso.com",
-                ),
+                {
+                    priority: 1,
+                    weight: 5,
+                    port: 8080,
+                    target: target1.contoso.com,
+                },
+                {
+                    priority: 10,
+                    weight: 10,
+                    port: 8080,
+                    target: target2.contoso.com,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

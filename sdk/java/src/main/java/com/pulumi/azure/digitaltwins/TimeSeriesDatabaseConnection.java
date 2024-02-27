@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.digitaltwins.Instance;
  * import com.pulumi.azure.digitaltwins.InstanceArgs;
- * import com.pulumi.azure.digitaltwins.inputs.InstanceIdentityArgs;
  * import com.pulumi.azure.eventhub.EventHubNamespace;
  * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
  * import com.pulumi.azure.eventhub.EventHub;
@@ -37,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.eventhub.ConsumerGroupArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import com.pulumi.azure.kusto.Database;
  * import com.pulumi.azure.kusto.DatabaseArgs;
  * import com.pulumi.azure.authorization.Assignment;
@@ -68,9 +66,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-DT&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .identity(InstanceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
@@ -99,10 +95,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplekc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
- *                 .capacity(1)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
@@ -114,13 +107,13 @@ import javax.annotation.Nullable;
  * 
  *         var databaseContributor = new Assignment(&#34;databaseContributor&#34;, AssignmentArgs.builder()        
  *             .scope(exampleDatabase.id())
- *             .principalId(exampleInstance.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .principalId(exampleInstance.identity().principalId())
  *             .roleDefinitionName(&#34;Contributor&#34;)
  *             .build());
  * 
  *         var eventhubDataOwner = new Assignment(&#34;eventhubDataOwner&#34;, AssignmentArgs.builder()        
  *             .scope(exampleEventHub.id())
- *             .principalId(exampleInstance.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .principalId(exampleInstance.identity().principalId())
  *             .roleDefinitionName(&#34;Azure Event Hubs Data Owner&#34;)
  *             .build());
  * 
@@ -129,8 +122,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(exampleInstance.identity().applyValue(identity -&gt; identity.tenantId()))
- *             .principalId(exampleInstance.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .tenantId(exampleInstance.identity().tenantId())
+ *             .principalId(exampleInstance.identity().principalId())
  *             .principalType(&#34;App&#34;)
  *             .role(&#34;Admin&#34;)
  *             .build());
@@ -140,7 +133,7 @@ import javax.annotation.Nullable;
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventhubName(exampleEventHub.name())
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
- *             .eventhubNamespaceEndpointUri(exampleEventHubNamespace.name().applyValue(name -&gt; String.format(&#34;sb://%s.servicebus.windows.net&#34;, name)))
+ *             .eventhubNamespaceEndpointUri(String.format(&#34;sb://%s.servicebus.windows.net&#34;, exampleEventHubNamespace.name()))
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
  *             .kustoClusterId(exampleCluster.id())
  *             .kustoClusterUri(exampleCluster.uri())

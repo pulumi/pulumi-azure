@@ -27,30 +27,24 @@ import javax.annotation.Nullable;
  * import com.pulumi.random.RandomStringArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.proximity.PlacementGroup;
  * import com.pulumi.azure.proximity.PlacementGroupArgs;
  * import com.pulumi.azure.compute.AvailabilitySet;
  * import com.pulumi.azure.compute.AvailabilitySetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.netapp.Account;
  * import com.pulumi.azure.netapp.AccountArgs;
  * import com.pulumi.azure.netapp.Pool;
  * import com.pulumi.azure.netapp.PoolArgs;
- * import com.pulumi.azure.netapp.VolumeGroupSapHana;
- * import com.pulumi.azure.netapp.VolumeGroupSapHanaArgs;
- * import com.pulumi.azure.netapp.inputs.VolumeGroupSapHanaVolumeArgs;
+ * import com.pulumi.azure.netapp_volumeGroupSapHana.VolumeGroupSapHana;
+ * import com.pulumi.azure.netapp_volumeGroupSapHana.VolumeGroupSapHanaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,15 +84,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.6.2.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;testdelegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Netapp/volumes&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example1 = new Subnet(&#34;example1&#34;, SubnetArgs.builder()        
@@ -125,11 +111,7 @@ import javax.annotation.Nullable;
  *             .name(String.format(&#34;%s-nic&#34;, prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
- *                 .subnetId(example1.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
@@ -143,16 +125,8 @@ import javax.annotation.Nullable;
  *             .proximityPlacementGroupId(examplePlacementGroup.id())
  *             .availabilitySetId(exampleAvailabilitySet.id())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .build())
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
@@ -179,77 +153,9 @@ import javax.annotation.Nullable;
  *             .groupDescription(&#34;Test volume group&#34;)
  *             .applicationIdentifier(&#34;TST&#34;)
  *             .volumes(            
- *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-1&#34;, prefix))
- *                     .volumePath(&#34;my-unique-file-path-1&#34;)
- *                     .serviceLevel(&#34;Standard&#34;)
- *                     .capacityPoolId(examplePool.id())
- *                     .subnetId(exampleSubnet.id())
- *                     .proximityPlacementGroupId(examplePlacementGroup.id())
- *                     .volumeSpecName(&#34;data&#34;)
- *                     .storageQuotaInGb(1024)
- *                     .throughputInMibps(24)
- *                     .protocols(&#34;NFSv4.1&#34;)
- *                     .securityStyle(&#34;unix&#34;)
- *                     .snapshotDirectoryVisible(false)
- *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
- *                         .ruleIndex(1)
- *                         .allowedClients(&#34;0.0.0.0/0&#34;)
- *                         .nfsv3Enabled(false)
- *                         .nfsv41Enabled(true)
- *                         .unixReadOnly(false)
- *                         .unixReadWrite(true)
- *                         .rootAccessEnabled(false)
- *                         .build())
- *                     .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *                     .build(),
- *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-2&#34;, prefix))
- *                     .volumePath(&#34;my-unique-file-path-2&#34;)
- *                     .serviceLevel(&#34;Standard&#34;)
- *                     .capacityPoolId(examplePool.id())
- *                     .subnetId(exampleSubnet.id())
- *                     .proximityPlacementGroupId(examplePlacementGroup.id())
- *                     .volumeSpecName(&#34;log&#34;)
- *                     .storageQuotaInGb(1024)
- *                     .throughputInMibps(24)
- *                     .protocols(&#34;NFSv4.1&#34;)
- *                     .securityStyle(&#34;unix&#34;)
- *                     .snapshotDirectoryVisible(false)
- *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
- *                         .ruleIndex(1)
- *                         .allowedClients(&#34;0.0.0.0/0&#34;)
- *                         .nfsv3Enabled(false)
- *                         .nfsv41Enabled(true)
- *                         .unixReadOnly(false)
- *                         .unixReadWrite(true)
- *                         .rootAccessEnabled(false)
- *                         .build())
- *                     .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *                     .build(),
- *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-3&#34;, prefix))
- *                     .volumePath(&#34;my-unique-file-path-3&#34;)
- *                     .serviceLevel(&#34;Standard&#34;)
- *                     .capacityPoolId(examplePool.id())
- *                     .subnetId(exampleSubnet.id())
- *                     .proximityPlacementGroupId(examplePlacementGroup.id())
- *                     .volumeSpecName(&#34;shared&#34;)
- *                     .storageQuotaInGb(1024)
- *                     .throughputInMibps(24)
- *                     .protocols(&#34;NFSv4.1&#34;)
- *                     .securityStyle(&#34;unix&#34;)
- *                     .snapshotDirectoryVisible(false)
- *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
- *                         .ruleIndex(1)
- *                         .allowedClients(&#34;0.0.0.0/0&#34;)
- *                         .nfsv3Enabled(false)
- *                         .nfsv41Enabled(true)
- *                         .unixReadOnly(false)
- *                         .unixReadWrite(true)
- *                         .rootAccessEnabled(false)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

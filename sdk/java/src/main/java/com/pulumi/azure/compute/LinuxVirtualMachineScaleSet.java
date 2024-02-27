@@ -56,16 +56,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,29 +103,10 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard_F2&#34;)
  *             .instances(1)
  *             .adminUsername(&#34;adminuser&#34;)
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username(&#34;adminuser&#34;)
- *                 .publicKey(firstPublicKey)
- *                 .build())
- *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
- *                     .primary(true)
- *                     .subnetId(internal.id())
- *                     .build())
- *                 .build())
+ *             .adminSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -23,58 +23,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudApiPortal "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApiPortal"
+//	appplatform/springCloudApiPortalCustomDomain "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApiPortalCustomDomain"
+//	appplatform/springCloudGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGateway"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudApiPortal, err := appplatform.NewSpringCloudApiPortal(ctx, "example", &appplatform.SpringCloudApiPortalArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				GatewayIds: pulumi.StringArray{
-//					exampleSpringCloudGateway.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudApiPortalCustomDomain(ctx, "example", &appplatform.SpringCloudApiPortalCustomDomainArgs{
-//				Name:                   pulumi.String("example.com"),
-//				SpringCloudApiPortalId: exampleSpringCloudApiPortal.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudGateway, err := appplatform/springCloudGateway.NewSpringCloudGateway(ctx, "example", &appplatform/springCloudGateway.SpringCloudGatewayArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudApiPortal, err := appplatform/springCloudApiPortal.NewSpringCloudApiPortal(ctx, "example", &appplatform/springCloudApiPortal.SpringCloudApiPortalArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// GatewayIds: []interface{}{
+// exampleSpringCloudGateway.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudApiPortalCustomDomain.NewSpringCloudApiPortalCustomDomain(ctx, "example", &appplatform/springCloudApiPortalCustomDomain.SpringCloudApiPortalCustomDomainArgs{
+// Name: "example.com",
+// SpringCloudApiPortalId: exampleSpringCloudApiPortal.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

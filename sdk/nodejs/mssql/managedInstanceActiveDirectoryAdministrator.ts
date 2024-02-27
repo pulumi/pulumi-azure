@@ -7,64 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Allows you to set a user, group or service principal as the AAD Administrator for an Azure SQL Managed Instance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "rg-example",
- *     location: "West Europe",
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
- *     name: "managedsqlinstance",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     licenseType: "BasePrice",
- *     skuName: "GP_Gen5",
- *     storageSizeInGb: 32,
- *     subnetId: exampleSubnet.id,
- *     vcores: 4,
- *     administratorLogin: "msadministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const reader = new azuread.DirectoryRole("reader", {displayName: "Directory Readers"});
- * const exampleDirectoryRoleMember = new azuread.DirectoryRoleMember("example", {
- *     roleObjectId: reader.objectId,
- *     memberObjectId: exampleManagedInstance.identity.apply(identity => identity?.principalId),
- * });
- * const admin = new azuread.User("admin", {
- *     userPrincipalName: "ms.admin@example.com",
- *     displayName: "Ms Admin",
- *     mailNickname: "ms.admin",
- *     password: "SecretP@sswd99!",
- * });
- * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example", {
- *     managedInstanceId: exampleManagedInstance.id,
- *     loginUsername: "msadmin",
- *     objectId: admin.objectId,
- *     tenantId: current.then(current => current.tenantId),
- * });
- * ```
- *
  * ## Import
  *
  * An Azure SQL Active Directory Administrator can be imported using the `resource id`, e.g.

@@ -21,49 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	eventhub/eventHubNamespaceAuthorizationRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespaceAuthorizationRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("resourcegroup"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("acceptanceTestEventHubNamespace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Basic"),
-//				Capacity:          pulumi.Int(2),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eventhub.NewEventHubNamespaceAuthorizationRule(ctx, "example", &eventhub.EventHubNamespaceAuthorizationRuleArgs{
-//				Name:              pulumi.String("navi"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				Listen:            pulumi.Bool(true),
-//				Send:              pulumi.Bool(false),
-//				Manage:            pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "resourcegroup",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHubNamespace, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "example", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "acceptanceTestEventHubNamespace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Basic",
+// Capacity: 2,
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eventhub/eventHubNamespaceAuthorizationRule.NewEventHubNamespaceAuthorizationRule(ctx, "example", &eventhub/eventHubNamespaceAuthorizationRule.EventHubNamespaceAuthorizationRuleArgs{
+// Name: "navi",
+// NamespaceName: exampleEventHubNamespace.Name,
+// ResourceGroupName: example.Name,
+// Listen: true,
+// Send: false,
+// Manage: false,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

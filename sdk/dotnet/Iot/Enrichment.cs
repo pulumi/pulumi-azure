@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -39,22 +39,22 @@ namespace Pulumi.Azure.Iot
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "example",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "exampleIothub",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
+    ///             { "name", "S1" },
+    ///             { "capacity", "1" },
     ///         },
     ///         Tags = 
     ///         {
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Iot
     ///         },
     ///     });
     /// 
-    ///     var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer("example", new()
+    ///     var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer.EndpointStorageContainer("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         IothubId = exampleIoTHub.Id,
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Iot
     ///         FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
     ///     });
     /// 
-    ///     var exampleRoute = new Azure.Iot.Route("example", new()
+    ///     var exampleRoute = new Azure.Iot.Route.Route("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         IothubName = exampleIoTHub.Name,
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Iot
     ///         Enabled = true,
     ///     });
     /// 
-    ///     var exampleEnrichment = new Azure.Iot.Enrichment("example", new()
+    ///     var exampleEnrichment = new Azure.Iot.Enrichment.Enrichment("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         IothubName = exampleIoTHub.Name,

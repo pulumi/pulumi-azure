@@ -304,57 +304,57 @@ class BudgetResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=eastus)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example,
             resource_group_name=example.name,
-            short_name="example")
-        example_budget_resource_group = azure.consumption.BudgetResourceGroup("example",
-            name="example",
+            short_name=example)
+        example_budget_resource_group = azure.consumption.budget_resource_group.BudgetResourceGroup("example",
+            name=example,
             resource_group_id=example.id,
             amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetResourceGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetResourceGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetResourceGroupFilterDimensionArgs(
-                    name="ResourceId",
-                    values=[example_action_group.id],
-                )],
-                tags=[azure.consumption.BudgetResourceGroupFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
+            time_grain=Monthly,
+            time_period={
+                startDate: 2022-06-01T00:00:00Z,
+                endDate: 2022-07-01T00:00:00Z,
+            },
+            filter={
+                dimensions: [{
+                    name: ResourceId,
+                    values: [example_action_group.id],
+                }],
+                tags: [{
+                    name: foo,
+                    values: [
+                        bar,
+                        baz,
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetResourceGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                {
+                    enabled: True,
+                    threshold: 90,
+                    operator: EqualTo,
+                    thresholdType: Forecasted,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                    contact_groups=[example_action_group.id],
-                    contact_roles=["Owner"],
-                ),
-                azure.consumption.BudgetResourceGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                    contactGroups: [example_action_group.id],
+                    contactRoles: [Owner],
+                },
+                {
+                    enabled: False,
+                    threshold: 100,
+                    operator: GreaterThan,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                ),
+                },
             ])
         ```
 
@@ -392,57 +392,57 @@ class BudgetResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=eastus)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example,
             resource_group_name=example.name,
-            short_name="example")
-        example_budget_resource_group = azure.consumption.BudgetResourceGroup("example",
-            name="example",
+            short_name=example)
+        example_budget_resource_group = azure.consumption.budget_resource_group.BudgetResourceGroup("example",
+            name=example,
             resource_group_id=example.id,
             amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetResourceGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetResourceGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetResourceGroupFilterDimensionArgs(
-                    name="ResourceId",
-                    values=[example_action_group.id],
-                )],
-                tags=[azure.consumption.BudgetResourceGroupFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
+            time_grain=Monthly,
+            time_period={
+                startDate: 2022-06-01T00:00:00Z,
+                endDate: 2022-07-01T00:00:00Z,
+            },
+            filter={
+                dimensions: [{
+                    name: ResourceId,
+                    values: [example_action_group.id],
+                }],
+                tags: [{
+                    name: foo,
+                    values: [
+                        bar,
+                        baz,
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetResourceGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                {
+                    enabled: True,
+                    threshold: 90,
+                    operator: EqualTo,
+                    thresholdType: Forecasted,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                    contact_groups=[example_action_group.id],
-                    contact_roles=["Owner"],
-                ),
-                azure.consumption.BudgetResourceGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                    contactGroups: [example_action_group.id],
+                    contactRoles: [Owner],
+                },
+                {
+                    enabled: False,
+                    threshold: 100,
+                    operator: GreaterThan,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                ),
+                },
             ])
         ```
 

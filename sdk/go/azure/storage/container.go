@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoraccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("vhds"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoraccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "vhds",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

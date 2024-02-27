@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Marketplace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var barracuda = new Azure.Marketplace.Agreement("barracuda", new()
+    ///     var barracuda = new Azure.Marketplace.Agreement.Agreement("barracuda", new()
     ///     {
     ///         Publisher = "barracudanetworks",
     ///         Offer = "waf",

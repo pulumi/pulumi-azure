@@ -46,13 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.hdinsight.HBaseCluster;
  * import com.pulumi.azure.hdinsight.HBaseClusterArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterComponentVersionArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterStorageAccountArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesHeadNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesWorkerNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesZookeeperNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,36 +84,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .clusterVersion(&#34;3.6&#34;)
  *             .tier(&#34;Standard&#34;)
- *             .componentVersion(HBaseClusterComponentVersionArgs.builder()
- *                 .hbase(&#34;1.1&#34;)
- *                 .build())
- *             .gateway(HBaseClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password123!&#34;)
- *                 .build())
- *             .storageAccounts(HBaseClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
- *                 .build())
- *             .roles(HBaseClusterRolesArgs.builder()
- *                 .headNode(HBaseClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .workerNode(HBaseClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .targetInstanceCount(3)
- *                     .build())
- *                 .zookeeperNode(HBaseClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .build())
+ *             .componentVersion(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .gateway(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .roles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

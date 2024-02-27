@@ -21,41 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServicePostgresql "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServicePostgresql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServicePostgresql(ctx, "example", &datafactory.LinkedServicePostgresqlArgs{
-//				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				ConnectionString: pulumi.String("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedServicePostgresql.NewLinkedServicePostgresql(ctx, "example", &datafactory/linkedServicePostgresql.LinkedServicePostgresqlArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// ConnectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

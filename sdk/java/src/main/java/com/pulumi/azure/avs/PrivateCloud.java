@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.avs.PrivateCloud;
  * import com.pulumi.azure.avs.PrivateCloudArgs;
- * import com.pulumi.azure.avs.inputs.PrivateCloudManagementClusterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,9 +58,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName(&#34;av36&#34;)
- *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
- *                 .size(3)
- *                 .build())
+ *             .managementCluster(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .networkSubnetCidr(&#34;192.168.48.0/22&#34;)
  *             .internetConnectionEnabled(false)
  *             .nsxtPassword(&#34;QazWsx13$Edc&#34;)

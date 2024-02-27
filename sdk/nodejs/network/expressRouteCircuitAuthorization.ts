@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exprtTest",
  *     location: "West Europe",
  * });
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ * const exampleExpressRouteCircuit = new azure.network/expressRouteCircuit.ExpressRouteCircuit("example", {
  *     name: "expressRoute1",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleExpressRouteCircuitAuthorization = new azure.network.ExpressRouteCircuitAuthorization("example", {
+ * const exampleExpressRouteCircuitAuthorization = new azure.network/expressRouteCircuitAuthorization.ExpressRouteCircuitAuthorization("example", {
  *     name: "exampleERCAuth",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,

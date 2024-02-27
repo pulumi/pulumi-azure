@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleDdosProtectionPlan = new azure.network.DdosProtectionPlan("example", {
+ * const exampleDdosProtectionPlan = new azure.network/ddosProtectionPlan.DdosProtectionPlan("example", {
  *     name: "example-protection-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,

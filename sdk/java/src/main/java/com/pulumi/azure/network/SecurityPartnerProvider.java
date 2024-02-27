@@ -27,12 +27,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
- * import com.pulumi.azure.network.VpnGateway;
- * import com.pulumi.azure.network.VpnGatewayArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
+ * import com.pulumi.azure.network_vpnGateway.VpnGateway;
+ * import com.pulumi.azure.network_vpnGateway.VpnGatewayArgs;
  * import com.pulumi.azure.network.SecurityPartnerProvider;
  * import com.pulumi.azure.network.SecurityPartnerProviderArgs;
  * import java.util.List;
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .securityProviderName(&#34;IBoss&#34;)
- *             .tags(Map.of(&#34;ENV&#34;, &#34;Prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

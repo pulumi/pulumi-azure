@@ -23,38 +23,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	cognitive/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cognitive/account"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
-//				Name:              pulumi.String("example-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.String("Face"),
-//				SkuName:           pulumi.String("S0"),
-//				Tags: pulumi.StringMap{
-//					"Acceptance": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cognitive/account.NewAccount(ctx, "example", &cognitive/account.AccountArgs{
+// Name: "example-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "Face",
+// SkuName: "S0",
+// Tags: map[string]interface{}{
+// "Acceptance": "Test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

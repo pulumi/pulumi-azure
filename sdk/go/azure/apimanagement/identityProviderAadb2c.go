@@ -21,64 +21,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	apimanagement/identityProviderAadb2c "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/identityProviderAadb2c"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	index/application "github.com/pulumi/pulumi-azuread/sdk/v1/go/azuread/index/application"
+//	index/applicationPassword "github.com/pulumi/pulumi-azuread/sdk/v1/go/azuread/index/applicationPassword"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@terraform.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApplication, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
-//				DisplayName: pulumi.String("acctestam-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuread.NewApplicationPassword(ctx, "example", &azuread.ApplicationPasswordArgs{
-//				ApplicationObjectId: exampleApplication.ObjectId,
-//				EndDateRelative:     pulumi.String("36h"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "example", &apimanagement.IdentityProviderAadb2cArgs{
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				ClientId:          exampleApplication.ApplicationId,
-//				ClientSecret:      pulumi.String("P@55w0rD!"),
-//				AllowedTenant:     pulumi.String("myb2ctenant.onmicrosoft.com"),
-//				SigninTenant:      pulumi.String("myb2ctenant.onmicrosoft.com"),
-//				Authority:         pulumi.String("myb2ctenant.b2clogin.com"),
-//				SigninPolicy:      pulumi.String("B2C_1_Login"),
-//				SignupPolicy:      pulumi.String("B2C_1_Signup"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@terraform.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApplication, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
+// DisplayName: "acctestam-example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = azuread.NewApplicationPassword(ctx, "example", &azuread.ApplicationPasswordArgs{
+// ApplicationObjectId: exampleApplication.ObjectId,
+// EndDateRelative: "36h",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/identityProviderAadb2c.NewIdentityProviderAadb2c(ctx, "example", &apimanagement/identityProviderAadb2c.IdentityProviderAadb2cArgs{
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// ClientId: exampleApplication.ApplicationId,
+// ClientSecret: "P@55w0rD!",
+// AllowedTenant: "myb2ctenant.onmicrosoft.com",
+// SigninTenant: "myb2ctenant.onmicrosoft.com",
+// Authority: "myb2ctenant.b2clogin.com",
+// SigninPolicy: "B2C_1_Login",
+// SignupPolicy: "B2C_1_Signup",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

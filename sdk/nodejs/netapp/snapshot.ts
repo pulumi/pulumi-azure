@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-virtualnetwork",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -39,20 +39,20 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleAccount = new azure.netapp.Account("example", {
+ * const exampleAccount = new azure.netapp/account.Account("example", {
  *     name: "example-netappaccount",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const examplePool = new azure.netapp.Pool("example", {
+ * const examplePool = new azure.netapp/pool.Pool("example", {
  *     name: "example-netapppool",
  *     accountName: exampleAccount.name,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     serviceLevel: "Premium",
- *     sizeInTb: 4,
+ *     sizeInTb: "4",
  * });
- * const exampleVolume = new azure.netapp.Volume("example", {
+ * const exampleVolume = new azure.netapp/volume.Volume("example", {
  *     name: "example-netappvolume",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -61,9 +61,9 @@ import * as utilities from "../utilities";
  *     volumePath: "my-unique-file-path",
  *     serviceLevel: "Premium",
  *     subnetId: exampleSubnet.id,
- *     storageQuotaInGb: 100,
+ *     storageQuotaInGb: "100",
  * });
- * const exampleSnapshot = new azure.netapp.Snapshot("example", {
+ * const exampleSnapshot = new azure.netapp/snapshot.Snapshot("example", {
  *     name: "example-netappsnapshot",
  *     accountName: exampleAccount.name,
  *     poolName: examplePool.name,

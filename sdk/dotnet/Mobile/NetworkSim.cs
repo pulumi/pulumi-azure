@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network.Network("example", new()
     ///     {
     ///         Name = "example-mn",
     ///         Location = example.Location,
@@ -37,25 +37,25 @@ namespace Pulumi.Azure.Mobile
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("example", new()
+    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup.NetworkSimGroup("example", new()
     ///     {
     ///         Name = "example-mnsg",
     ///         Location = example.Location,
     ///         MobileNetworkId = exampleNetwork.Id,
     ///     });
     /// 
-    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("example", new()
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice.NetworkSlice("example", new()
     ///     {
     ///         Name = "example-slice",
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
-    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
+    ///         SingleNetworkSliceSelectionAssistanceInformation = 
     ///         {
-    ///             SliceServiceType = 1,
+    ///             { "sliceServiceType", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkAttachedDataNetwork = new Azure.Mobile.NetworkAttachedDataNetwork("example", new()
+    ///     var exampleNetworkAttachedDataNetwork = new Azure.Mobile.NetworkAttachedDataNetwork.NetworkAttachedDataNetwork("example", new()
     ///     {
     ///         MobileNetworkDataNetworkName = exampleAzurermMobileNetworkDataNetwork.Name,
     ///         MobileNetworkPacketCoreDataPlaneId = exampleAzurermMobileNetworkPacketCoreDataPlane.Id,
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Mobile
     ///         UserPlaneAccessIpv4Subnet = "10.204.141.0/24",
     ///     });
     /// 
-    ///     var exampleNetworkSim = new Azure.Mobile.NetworkSim("example", new()
+    ///     var exampleNetworkSim = new Azure.Mobile.NetworkSim.NetworkSim("example", new()
     ///     {
     ///         Name = "example-sim",
     ///         MobileNetworkSimGroupId = exampleNetworkSimGroup.Id,
@@ -88,11 +88,11 @@ namespace Pulumi.Azure.Mobile
     ///         OperatorKeyCode = "00000000000000000000000000000000",
     ///         StaticIpConfigurations = new[]
     ///         {
-    ///             new Azure.Mobile.Inputs.NetworkSimStaticIpConfigurationArgs
+    ///             
     ///             {
-    ///                 AttachedDataNetworkId = test.Id,
-    ///                 SliceId = testAzurermMobileNetworkSlice.Id,
-    ///                 StaticIpv4Address = "2.4.0.1",
+    ///                 { "attachedDataNetworkId", test.Id },
+    ///                 { "sliceId", testAzurermMobileNetworkSlice.Id },
+    ///                 { "staticIpv4Address", "2.4.0.1" },
     ///             },
     ///         },
     ///     });

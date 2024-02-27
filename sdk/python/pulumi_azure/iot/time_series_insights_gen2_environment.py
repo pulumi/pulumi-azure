@@ -320,26 +320,26 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        storage = azure.storage.Account("storage",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        storage = azure.storage.account.Account("storage",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_time_series_insights_gen2_environment = azure.iot.time_series_insights_gen2_environment.TimeSeriesInsightsGen2Environment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="L1",
-            warm_store_data_retention_time="P30D",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
+            sku_name=L1,
+            warm_store_data_retention_time=P30D,
+            id_properties=[id],
+            storage={
+                name: storage.name,
+                key: storage.primary_access_key,
+            })
         ```
 
         ## Import
@@ -376,26 +376,26 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        storage = azure.storage.Account("storage",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        storage = azure.storage.account.Account("storage",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_time_series_insights_gen2_environment = azure.iot.time_series_insights_gen2_environment.TimeSeriesInsightsGen2Environment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="L1",
-            warm_store_data_retention_time="P30D",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
+            sku_name=L1,
+            warm_store_data_retention_time=P30D,
+            id_properties=[id],
+            storage={
+                name: storage.name,
+                key: storage.primary_access_key,
+            })
         ```
 
         ## Import

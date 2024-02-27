@@ -12,33 +12,6 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a SQL Database within a Cosmos DB Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
-    ///     {
-    ///         Name = "tfex-cosmosdb-account",
-    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///     });
-    /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
-    ///     {
-    ///         Name = "tfex-cosmos-sql-db",
-    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
-    ///         Throughput = 400,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Cosmos SQL Database can be imported using the `resource id`, e.g.

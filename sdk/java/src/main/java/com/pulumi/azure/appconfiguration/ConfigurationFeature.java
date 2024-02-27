@@ -25,66 +25,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appconfiguration.ConfigurationStore;
- * import com.pulumi.azure.appconfiguration.ConfigurationStoreArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.authorization.Assignment;
- * import com.pulumi.azure.authorization.AssignmentArgs;
- * import com.pulumi.azure.appconfiguration.ConfigurationFeature;
- * import com.pulumi.azure.appconfiguration.ConfigurationFeatureArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
- *             .name(&#34;appConf1&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .build());
- * 
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
- *             .scope(appconf.id())
- *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
- *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .build());
- * 
- *         var test = new ConfigurationFeature(&#34;test&#34;, ConfigurationFeatureArgs.builder()        
- *             .configurationStoreId(appconf.id())
- *             .description(&#34;test description&#34;)
- *             .name(&#34;test-ackey&#34;)
- *             .label(&#34;test-ackeylabel&#34;)
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * App Configuration Features can be imported using the `resource id`, e.g.

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub.VirtualHub("example", new()
     ///     {
     ///         Name = "example-vhub",
     ///         ResourceGroupName = example.Name,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example-pip",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Network
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "RouteServerSubnet",
     ///         ResourceGroupName = example.Name,
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("example", new()
+    ///     var exampleVirtualHubIp = new Azure.Network.VirtualHubIp.VirtualHubIp("example", new()
     ///     {
     ///         Name = "example-vhubip",
     ///         VirtualHubId = exampleVirtualHub.Id,
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
     ///         SubnetId = exampleSubnet.Id,
     ///     });
     /// 
-    ///     var exampleBgpConnection = new Azure.Network.BgpConnection("example", new()
+    ///     var exampleBgpConnection = new Azure.Network.BgpConnection.BgpConnection("example", new()
     ///     {
     ///         Name = "example-vhub-bgpconnection",
     ///         VirtualHubId = exampleVirtualHub.Id,

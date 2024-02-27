@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -35,21 +35,21 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleLinkedCustomService = new azure.datafactory.LinkedCustomService("example", {
+ * const exampleLinkedCustomService = new azure.datafactory/linkedCustomService.LinkedCustomService("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     type: "AzureBlobStorage",
- *     typePropertiesJson: pulumi.interpolate`{
+ *     typePropertiesJson: `{
  *   "connectionString":"${exampleAccount.primaryConnectionString}"
  * }
  * `,
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "content",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleCustomDataset = new azure.datafactory.CustomDataset("example", {
+ * const exampleCustomDataset = new azure.datafactory/customDataset.CustomDataset("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     type: "Json",
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *             key1: "value1",
  *         },
  *     },
- *     typePropertiesJson: pulumi.interpolate`{
+ *     typePropertiesJson: `{
  *   "location": {
  *     "container":"${exampleContainer.name}",
  *     "fileName":"foo.txt",

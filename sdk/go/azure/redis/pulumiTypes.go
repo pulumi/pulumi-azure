@@ -370,6 +370,28 @@ type CacheRedisConfiguration struct {
 	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
 	// The ID of the Subscription containing the Storage Account.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	// func main() {
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := redis/cache.NewCache(ctx, "example", &redis/cache.CacheArgs{
+	// IgnoreChanges: []interface{}{
+	// redisConfiguration[0].RdbStorageConnectionString,
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
+	// }
+	// ```
 	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
 }
 
@@ -426,6 +448,28 @@ type CacheRedisConfigurationArgs struct {
 	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 	// The ID of the Subscription containing the Storage Account.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	// func main() {
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := redis/cache.NewCache(ctx, "example", &redis/cache.CacheArgs{
+	// IgnoreChanges: []interface{}{
+	// redisConfiguration[0].RdbStorageConnectionString,
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
+	// }
+	// ```
 	StorageAccountSubscriptionId pulumi.StringPtrInput `pulumi:"storageAccountSubscriptionId"`
 }
 
@@ -592,6 +636,30 @@ func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.Strin
 }
 
 // The ID of the Subscription containing the Storage Account.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redis/cache.NewCache(ctx, "example", &redis/cache.CacheArgs{
+// IgnoreChanges: []interface{}{
+// redisConfiguration[0].RdbStorageConnectionString,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func (o CacheRedisConfigurationOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -781,6 +849,30 @@ func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.St
 }
 
 // The ID of the Subscription containing the Storage Account.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redis/cache.NewCache(ctx, "example", &redis/cache.CacheArgs{
+// IgnoreChanges: []interface{}{
+// redisConfiguration[0].RdbStorageConnectionString,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func (o CacheRedisConfigurationPtrOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {

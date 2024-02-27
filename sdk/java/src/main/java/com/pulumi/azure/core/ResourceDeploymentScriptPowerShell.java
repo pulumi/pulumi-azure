@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import com.pulumi.azure.core.ResourceDeploymentScriptPowerShell;
  * import com.pulumi.azure.core.ResourceDeploymentScriptPowerShellArgs;
- * import com.pulumi.azure.core.inputs.ResourceDeploymentScriptPowerShellIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,11 +77,8 @@ import javax.annotation.Nullable;
  *             $DeploymentScriptOutputs = @{}
  *             $DeploymentScriptOutputs[&#39;text&#39;] = $output
  *             &#34;&#34;&#34;)
- *             .identity(ResourceDeploymentScriptPowerShellIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

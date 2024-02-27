@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exampleRG1",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/22"],
  * });
- * const isesubnet1 = new azure.network.Subnet("isesubnet1", {
+ * const isesubnet1 = new azure.network/subnet.Subnet("isesubnet1", {
  *     name: "isesubnet1",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -37,25 +37,25 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const isesubnet2 = new azure.network.Subnet("isesubnet2", {
+ * const isesubnet2 = new azure.network/subnet.Subnet("isesubnet2", {
  *     name: "isesubnet2",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.32/27"],
  * });
- * const isesubnet3 = new azure.network.Subnet("isesubnet3", {
+ * const isesubnet3 = new azure.network/subnet.Subnet("isesubnet3", {
  *     name: "isesubnet3",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.64/27"],
  * });
- * const isesubnet4 = new azure.network.Subnet("isesubnet4", {
+ * const isesubnet4 = new azure.network/subnet.Subnet("isesubnet4", {
  *     name: "isesubnet4",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.96/27"],
  * });
- * const exampleInterationServiceEnvironment = new azure.logicapps.InterationServiceEnvironment("example", {
+ * const exampleInterationServiceEnvironment = new azure.logicapps/interationServiceEnvironment.InterationServiceEnvironment("example", {
  *     name: "example-ise",
  *     location: example.location,
  *     resourceGroupName: example.name,

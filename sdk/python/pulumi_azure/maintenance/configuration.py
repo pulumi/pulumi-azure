@@ -380,16 +380,16 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_configuration = azure.maintenance.Configuration("example",
-            name="example-mc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_configuration = azure.maintenance.configuration.Configuration("example",
+            name=example-mc,
             resource_group_name=example.name,
             location=example.location,
-            scope="SQLDB",
+            scope=SQLDB,
             tags={
-                "Env": "prod",
+                Env: prod,
             })
         ```
 
@@ -431,16 +431,16 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_configuration = azure.maintenance.Configuration("example",
-            name="example-mc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_configuration = azure.maintenance.configuration.Configuration("example",
+            name=example-mc,
             resource_group_name=example.name,
             location=example.location,
-            scope="SQLDB",
+            scope=SQLDB,
             tags={
-                "Env": "prod",
+                Env: prod,
             })
         ```
 

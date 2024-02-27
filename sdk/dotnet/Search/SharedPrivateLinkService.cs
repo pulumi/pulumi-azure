@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Search
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Core.ResourceGroup("test", new()
+    ///     var test = new Azure.Core.ResourceGroup.ResourceGroup("test", new()
     ///     {
     ///         Name = "example-resourceGroup",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var testService = new Azure.Search.Service("test", new()
+    ///     var testService = new Azure.Search.Service.Service("test", new()
     ///     {
     ///         Name = "example-search",
     ///         ResourceGroupName = test.Name,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Search
     ///         Sku = "standard",
     ///     });
     /// 
-    ///     var testAccount = new Azure.Storage.Account("test", new()
+    ///     var testAccount = new Azure.Storage.Account.Account("test", new()
     ///     {
     ///         Name = "xiaxintestsaforsearchspl",
     ///         ResourceGroupName = test.Name,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Search
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var testSharedPrivateLinkService = new Azure.Search.SharedPrivateLinkService("test", new()
+    ///     var testSharedPrivateLinkService = new Azure.Search.SharedPrivateLinkService.SharedPrivateLinkService("test", new()
     ///     {
     ///         Name = "example-spl",
     ///         SearchServiceId = testService.Id,

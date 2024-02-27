@@ -20,7 +20,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.AppService.SourceControlToken("example", new()
+    ///     var example = new Azure.Appservice.SourceControlToken.SourceControlToken("example", new()
     ///     {
     ///         Type = "GitHub",
     ///         Token = "ghp_sometokenvaluesecretsauce",

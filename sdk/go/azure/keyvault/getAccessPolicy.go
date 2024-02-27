@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to access information about the permissions from the Management Key Vault Templates.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			contributor, err := keyvault.LookupAccessPolicy(ctx, &keyvault.LookupAccessPolicyArgs{
-//				Name: "Key Management",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("accessPolicyKeyPermissions", contributor.KeyPermissions)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessPolicyResult

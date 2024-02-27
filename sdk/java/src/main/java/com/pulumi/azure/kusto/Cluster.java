@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,11 +57,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;kustocluster&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
- *                 .capacity(2)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

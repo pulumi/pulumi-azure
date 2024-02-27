@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const example = new azure.containerservice.KubernetesCluster("example", {
+ * const example = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
  *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  *         type: "example-value",
  *     },
  * });
- * const exampleTarget = new azure.chaosstudio.Target("example", {
+ * const exampleTarget = new azure.chaosstudio/target.Target("example", {
  *     location: exampleResourceGroup.location,
  *     targetResourceId: example.id,
  *     targetType: "example-value",
  * });
- * const exampleCapability = new azure.chaosstudio.Capability("example", {
+ * const exampleCapability = new azure.chaosstudio/capability.Capability("example", {
  *     capabilityType: "example-value",
  *     chaosStudioTargetId: exampleTarget.id,
  * });

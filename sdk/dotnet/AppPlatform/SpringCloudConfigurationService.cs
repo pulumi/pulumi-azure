@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -38,29 +38,29 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudConfigurationService = new Azure.AppPlatform.SpringCloudConfigurationService("example", new()
+    ///     var exampleSpringCloudConfigurationService = new Azure.Appplatform.SpringCloudConfigurationService.SpringCloudConfigurationService("example", new()
     ///     {
     ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///         Repositories = new[]
     ///         {
-    ///             new Azure.AppPlatform.Inputs.SpringCloudConfigurationServiceRepositoryArgs
+    ///             
     ///             {
-    ///                 Name = "fake",
-    ///                 Label = "master",
-    ///                 Patterns = new[]
+    ///                 { "name", "fake" },
+    ///                 { "label", "master" },
+    ///                 { "patterns", new[]
     ///                 {
     ///                     "app/dev",
-    ///                 },
-    ///                 Uri = "https://github.com/Azure-Samples/piggymetrics",
-    ///                 SearchPaths = new[]
+    ///                 } },
+    ///                 { "uri", "https://github.com/Azure-Samples/piggymetrics" },
+    ///                 { "searchPaths", new[]
     ///                 {
     ///                     "dir1",
     ///                     "dir2",
-    ///                 },
-    ///                 StrictHostKeyChecking = false,
-    ///                 Username = "adminuser",
-    ///                 Password = "H@Sh1CoR3!",
+    ///                 } },
+    ///                 { "strictHostKeyChecking", false },
+    ///                 { "username", "adminuser" },
+    ///                 { "password", "H@Sh1CoR3!" },
     ///             },
     ///         },
     ///     });

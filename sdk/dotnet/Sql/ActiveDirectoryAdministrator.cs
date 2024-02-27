@@ -14,46 +14,6 @@ namespace Pulumi.Azure.Sql
     /// 
     /// &gt; **Note:** The `azure.sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `azure.mssql.Server` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
-    ///     {
-    ///         Name = "mysqlserver",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "4dm1n157r470r",
-    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///     });
-    /// 
-    ///     var exampleActiveDirectoryAdministrator = new Azure.Sql.ActiveDirectoryAdministrator("example", new()
-    ///     {
-    ///         ServerName = exampleSqlServer.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Login = "sqladmin",
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

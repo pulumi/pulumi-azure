@@ -258,30 +258,30 @@ class SubscriptionRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-subscription-rule-sql",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-subscription-rule-sql,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("example",
-            name="tfex_servicebus_subscription",
+        example_subscription = azure.servicebus.subscription.Subscription("example",
+            name=tfex_servicebus_subscription,
             topic_id=example_topic.id,
             max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
-            name="tfex_servicebus_rule",
+        example_subscription_rule = azure.servicebus.subscription_rule.SubscriptionRule("example",
+            name=tfex_servicebus_rule,
             subscription_id=example_subscription.id,
-            filter_type="SqlFilter",
-            sql_filter="colour = 'red'")
+            filter_type=SqlFilter,
+            sql_filter=colour = 'red')
         ```
         ### Correlation Filter)
 
@@ -289,36 +289,36 @@ class SubscriptionRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-subscription-rule-cor",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-subscription-rule-cor,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("example",
-            name="tfex_servicebus_subscription",
+        example_subscription = azure.servicebus.subscription.Subscription("example",
+            name=tfex_servicebus_subscription,
             topic_id=example_topic.id,
             max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
-            name="tfex_servicebus_rule",
+        example_subscription_rule = azure.servicebus.subscription_rule.SubscriptionRule("example",
+            name=tfex_servicebus_rule,
             subscription_id=example_subscription.id,
-            filter_type="CorrelationFilter",
-            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
-                correlation_id="high",
-                label="red",
-                properties={
-                    "customProperty": "value",
+            filter_type=CorrelationFilter,
+            correlation_filter={
+                correlationId: high,
+                label: red,
+                properties: {
+                    customProperty: value,
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -354,30 +354,30 @@ class SubscriptionRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-subscription-rule-sql",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-subscription-rule-sql,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("example",
-            name="tfex_servicebus_subscription",
+        example_subscription = azure.servicebus.subscription.Subscription("example",
+            name=tfex_servicebus_subscription,
             topic_id=example_topic.id,
             max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
-            name="tfex_servicebus_rule",
+        example_subscription_rule = azure.servicebus.subscription_rule.SubscriptionRule("example",
+            name=tfex_servicebus_rule,
             subscription_id=example_subscription.id,
-            filter_type="SqlFilter",
-            sql_filter="colour = 'red'")
+            filter_type=SqlFilter,
+            sql_filter=colour = 'red')
         ```
         ### Correlation Filter)
 
@@ -385,36 +385,36 @@ class SubscriptionRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-subscription-rule-cor",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-subscription-rule-cor,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("example",
-            name="tfex_servicebus_subscription",
+        example_subscription = azure.servicebus.subscription.Subscription("example",
+            name=tfex_servicebus_subscription,
             topic_id=example_topic.id,
             max_delivery_count=1)
-        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
-            name="tfex_servicebus_rule",
+        example_subscription_rule = azure.servicebus.subscription_rule.SubscriptionRule("example",
+            name=tfex_servicebus_rule,
             subscription_id=example_subscription.id,
-            filter_type="CorrelationFilter",
-            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
-                correlation_id="high",
-                label="red",
-                properties={
-                    "customProperty": "value",
+            filter_type=CorrelationFilter,
+            correlation_filter={
+                correlationId: high,
+                label: red,
+                properties: {
+                    customProperty: value,
                 },
-            ))
+            })
         ```
 
         ## Import

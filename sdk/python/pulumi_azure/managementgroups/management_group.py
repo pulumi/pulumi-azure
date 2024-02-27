@@ -183,22 +183,6 @@ class ManagementGroup(pulumi.CustomResource):
 
         !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example_parent = azure.management.Group("example_parent",
-            display_name="ParentGroup",
-            subscription_ids=[current.subscription_id])
-        example_child = azure.management.Group("example_child",
-            display_name="ChildGroup",
-            parent_management_group_id=example_parent.id,
-            subscription_ids=[current.subscription_id])
-        ```
-
         ## Import
 
         Management Groups can be imported using the `management group resource id`, e.g.
@@ -226,22 +210,6 @@ class ManagementGroup(pulumi.CustomResource):
         Manages a Management Group.
 
         !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example_parent = azure.management.Group("example_parent",
-            display_name="ParentGroup",
-            subscription_ids=[current.subscription_id])
-        example_child = azure.management.Group("example_child",
-            display_name="ChildGroup",
-            parent_management_group_id=example_parent.id,
-            subscription_ids=[current.subscription_id])
-        ```
 
         ## Import
 

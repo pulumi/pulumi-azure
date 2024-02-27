@@ -25,15 +25,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.AppService;
  * import com.pulumi.azure.appservice.AppServiceArgs;
  * import com.pulumi.azure.appservice.Slot;
@@ -70,23 +67,14 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;example-delegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Web/serverFarms&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
  *             .name(&#34;example-service-plan&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        

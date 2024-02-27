@@ -101,30 +101,6 @@ class ApiTag(pulumi.CustomResource):
         """
         Manages the Assignment of an API Management API Tag to an API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.apimanagement.get_service_output(name="example-apim",
-            resource_group_name=example_resource_group.name)
-        example_api = azure.apimanagement.Api("example",
-            name="example-api",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example.name,
-            revision="1")
-        example_tag = azure.apimanagement.Tag("example",
-            api_management_id=example.id,
-            name="example-tag")
-        example_api_tag = azure.apimanagement.ApiTag("example",
-            api_id=example_api.id,
-            name=example_tag.name)
-        ```
-
         ## Import
 
         API Management API Tags can be imported using the `resource id`, e.g.
@@ -146,30 +122,6 @@ class ApiTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Assignment of an API Management API Tag to an API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.apimanagement.get_service_output(name="example-apim",
-            resource_group_name=example_resource_group.name)
-        example_api = azure.apimanagement.Api("example",
-            name="example-api",
-            resource_group_name=example_resource_group.name,
-            api_management_name=example.name,
-            revision="1")
-        example_tag = azure.apimanagement.Tag("example",
-            api_management_id=example.id,
-            name="example-tag")
-        example_api_tag = azure.apimanagement.ApiTag("example",
-            api_id=example_api.id,
-            name=example_tag.name)
-        ```
 
         ## Import
 

@@ -270,27 +270,27 @@ class ExpressRouteGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-virtualwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-virtualwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-virtualhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-virtualhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_express_route_gateway = azure.network.ExpressRouteGateway("example",
-            name="expressRoute1",
+            address_prefix=10.0.1.0/24)
+        example_express_route_gateway = azure.network.express_route_gateway.ExpressRouteGateway("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
             virtual_hub_id=example_virtual_hub.id,
             scale_units=1,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -327,27 +327,27 @@ class ExpressRouteGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-virtualwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-virtualwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-virtualhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-virtualhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_express_route_gateway = azure.network.ExpressRouteGateway("example",
-            name="expressRoute1",
+            address_prefix=10.0.1.0/24)
+        example_express_route_gateway = azure.network.express_route_gateway.ExpressRouteGateway("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
             virtual_hub_id=example_virtual_hub.id,
             scale_units=1,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

@@ -630,24 +630,6 @@ class ChannelsRegistration(pulumi.CustomResource):
         """
         Manages a Bot Channels Registration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        ```
-
         ## Import
 
         Bot Channels Registration can be imported using the `resource id`, e.g.
@@ -690,24 +672,6 @@ class ChannelsRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bot Channels Registration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        ```
 
         ## Import
 

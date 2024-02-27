@@ -21,125 +21,127 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	compute/linuxVirtualMachineScaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachineScaleSet"
+//	compute/scaleSetPacketCapture "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/scaleSetPacketCapture"
+//	compute/virtualMachineScaleSetExtension "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/virtualMachineScaleSetExtension"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkWatcher "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkWatcher"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "example", &network.NetworkWatcherArgs{
-//				Name:              pulumi.String("example-nw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vn"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:                          pulumi.String("example-vmss"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Sku:                           pulumi.String("Standard_F2"),
-//				Instances:                     pulumi.Int(4),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("P@ssword1234!"),
-//				ComputerNamePrefix:            pulumi.String("my-linux-computer-name-prefix"),
-//				UpgradeMode:                   pulumi.String("Automatic"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//					Caching:            pulumi.String("ReadWrite"),
-//				},
-//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
-//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
-//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-//								Name:     pulumi.String("internal"),
-//								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
-//				Name:                     pulumi.String("network-watcher"),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
-//				Publisher:                pulumi.String("Microsoft.Azure.NetworkWatcher"),
-//				Type:                     pulumi.String("NetworkWatcherAgentLinux"),
-//				TypeHandlerVersion:       pulumi.String("1.4"),
-//				AutoUpgradeMinorVersion:  pulumi.Bool(true),
-//				AutomaticUpgradeEnabled:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewScaleSetPacketCapture(ctx, "example", &compute.ScaleSetPacketCaptureArgs{
-//				Name:                     pulumi.String("example-pc"),
-//				NetworkWatcherId:         exampleNetworkWatcher.ID(),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
-//				StorageLocation: &compute.ScaleSetPacketCaptureStorageLocationArgs{
-//					FilePath: pulumi.String("/var/captures/packet.cap"),
-//				},
-//				MachineScope: &compute.ScaleSetPacketCaptureMachineScopeArgs{
-//					IncludeInstanceIds: pulumi.StringArray{
-//						pulumi.String("0"),
-//					},
-//					ExcludeInstanceIds: pulumi.StringArray{
-//						pulumi.String("1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkWatcher, err := network/networkWatcher.NewNetworkWatcher(ctx, "example", &network/networkWatcher.NetworkWatcherArgs{
+// Name: "example-nw",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vn",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachineScaleSet, err := compute/linuxVirtualMachineScaleSet.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSetArgs{
+// Name: "example-vmss",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Standard_F2",
+// Instances: 4,
+// AdminUsername: "adminuser",
+// AdminPassword: "P@ssword1234!",
+// ComputerNamePrefix: "my-linux-computer-name-prefix",
+// UpgradeMode: "Automatic",
+// DisablePasswordAuthentication: false,
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// OsDisk: map[string]interface{}{
+// "storageAccountType": "Standard_LRS",
+// "caching": "ReadWrite",
+// },
+// NetworkInterfaces: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "primary": true,
+// "ipConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "primary": true,
+// "subnetId": exampleSubnet.Id,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/virtualMachineScaleSetExtension.NewVirtualMachineScaleSetExtension(ctx, "example", &compute/virtualMachineScaleSetExtension.VirtualMachineScaleSetExtensionArgs{
+// Name: "network-watcher",
+// VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.Id,
+// Publisher: "Microsoft.Azure.NetworkWatcher",
+// Type: "NetworkWatcherAgentLinux",
+// TypeHandlerVersion: "1.4",
+// AutoUpgradeMinorVersion: true,
+// AutomaticUpgradeEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/scaleSetPacketCapture.NewScaleSetPacketCapture(ctx, "example", &compute/scaleSetPacketCapture.ScaleSetPacketCaptureArgs{
+// Name: "example-pc",
+// NetworkWatcherId: exampleNetworkWatcher.Id,
+// VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.Id,
+// StorageLocation: map[string]interface{}{
+// "filePath": "/var/captures/packet.cap",
+// },
+// MachineScope: map[string]interface{}{
+// "includeInstanceIds": []string{
+// "0",
+// },
+// "excludeInstanceIds": []string{
+// "1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.

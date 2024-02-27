@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ * const exampleActionGroup = new azure.monitoring/actionGroup.ActionGroup("example", {
  *     name: "example-mag",
  *     resourceGroupName: example.name,
  *     shortName: "testag",
  * });
- * const exampleWorkspace = new azure.monitoring.Workspace("example", {
+ * const exampleWorkspace = new azure.monitoring/workspace.Workspace("example", {
  *     name: "example-amw",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
  *     name: "example-cluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleAlertPrometheusRuleGroup = new azure.monitoring.AlertPrometheusRuleGroup("example", {
+ * const exampleAlertPrometheusRuleGroup = new azure.monitoring/alertPrometheusRuleGroup.AlertPrometheusRuleGroup("example", {
  *     name: "example-amprg",
  *     location: "West Europe",
  *     resourceGroupName: example.name,

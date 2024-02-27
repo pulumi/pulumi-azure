@@ -14,6 +14,74 @@ import (
 
 // Manages an Azure Managed Lustre File System.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	managedlustre/fileSystem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/managedlustre/fileSystem"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = managedlustre/fileSystem.NewFileSystem(ctx, "example", &managedlustre/fileSystem.FileSystemArgs{
+// Name: "example-amlfs",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "AMLFS-Durable-Premium-250",
+// SubnetId: exampleSubnet.Id,
+// StorageCapacityInTb: 8,
+// Zones: []string{
+// "2",
+// },
+// MaintenanceWindow: map[string]interface{}{
+// "dayOfWeek": "Friday",
+// "timeOfDayUtc": "22:00",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.

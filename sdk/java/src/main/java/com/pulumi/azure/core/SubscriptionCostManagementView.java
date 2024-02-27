@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.SubscriptionCostManagementView;
  * import com.pulumi.azure.core.SubscriptionCostManagementViewArgs;
- * import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewDatasetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,13 +52,7 @@ import javax.annotation.Nullable;
  *             .subscriptionId(&#34;/subscription/00000000-0000-0000-0000-000000000000&#34;)
  *             .reportType(&#34;Usage&#34;)
  *             .timeframe(&#34;MonthToDate&#34;)
- *             .dataset(SubscriptionCostManagementViewDatasetArgs.builder()
- *                 .granularity(&#34;Monthly&#34;)
- *                 .aggregations(SubscriptionCostManagementViewDatasetAggregationArgs.builder()
- *                     .name(&#34;totalCost&#34;)
- *                     .columnName(&#34;Cost&#34;)
- *                     .build())
- *                 .build())
+ *             .dataset(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

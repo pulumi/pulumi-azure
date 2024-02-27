@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information a Mobile Network Packet Core Data Plane.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetworkPacketCoreControlPlane({
- *     name: "example-mnpccp",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkPacketCoreDataPlane = example.then(example => azure.mobile.getNetworkPacketCoreDataPlane({
- *     name: "example-mnpcdp",
- *     mobileNetworkPacketCoreControlPlaneId: example.id,
- * }));
- * ```
  */
 export function getNetworkPacketCoreDataPlane(args: GetNetworkPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreDataPlaneResult> {
 
@@ -83,22 +67,6 @@ export interface GetNetworkPacketCoreDataPlaneResult {
 }
 /**
  * Get information a Mobile Network Packet Core Data Plane.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetworkPacketCoreControlPlane({
- *     name: "example-mnpccp",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkPacketCoreDataPlane = example.then(example => azure.mobile.getNetworkPacketCoreDataPlane({
- *     name: "example-mnpcdp",
- *     mobileNetworkPacketCoreControlPlaneId: example.id,
- * }));
- * ```
  */
 export function getNetworkPacketCoreDataPlaneOutput(args: GetNetworkPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreDataPlaneResult> {
     return pulumi.output(args).apply((a: any) => getNetworkPacketCoreDataPlane(a, opts))

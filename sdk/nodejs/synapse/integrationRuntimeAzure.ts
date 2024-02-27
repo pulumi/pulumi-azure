@@ -13,27 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "content",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage/dataLakeGen2Filesystem.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ * const exampleWorkspace = new azure.synapse/workspace.Workspace("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -45,13 +45,13 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
+ * const exampleFirewallRule = new azure.synapse/firewallRule.FirewallRule("example", {
  *     name: "AllowAll",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "255.255.255.255",
  * });
- * const exampleIntegrationRuntimeAzure = new azure.synapse.IntegrationRuntimeAzure("example", {
+ * const exampleIntegrationRuntimeAzure = new azure.synapse/integrationRuntimeAzure.IntegrationRuntimeAzure("example", {
  *     name: "example",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     location: example.location,

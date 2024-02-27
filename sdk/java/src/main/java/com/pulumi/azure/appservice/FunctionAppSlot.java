@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
  * import com.pulumi.azure.appservice.FunctionAppSlot;
@@ -77,10 +76,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;azure-functions-test-service-plan&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        

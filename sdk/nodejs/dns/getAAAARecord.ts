@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.AaaaRecord("example", {
+ * const example = new azure.dns/aaaaRecord.AaaaRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
@@ -86,7 +86,7 @@ export interface GetAAAARecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.AaaaRecord("example", {
+ * const example = new azure.dns/aaaaRecord.AaaaRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",

@@ -22,78 +22,78 @@ namespace Pulumi.Azure.Consumption
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Management.Group("example", new()
+    ///     var example = new Azure.Management.Group.Group("example", new()
     ///     {
     ///         DisplayName = "example",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "eastus",
     ///     });
     /// 
-    ///     var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup("example", new()
+    ///     var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup.BudgetManagementGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         ManagementGroupId = example.Id,
     ///         Amount = 1000,
     ///         TimeGrain = "Monthly",
-    ///         TimePeriod = new Azure.Consumption.Inputs.BudgetManagementGroupTimePeriodArgs
+    ///         TimePeriod = 
     ///         {
-    ///             StartDate = "2022-06-01T00:00:00Z",
-    ///             EndDate = "2022-07-01T00:00:00Z",
+    ///             { "startDate", "2022-06-01T00:00:00Z" },
+    ///             { "endDate", "2022-07-01T00:00:00Z" },
     ///         },
-    ///         Filter = new Azure.Consumption.Inputs.BudgetManagementGroupFilterArgs
+    ///         Filter = 
     ///         {
-    ///             Dimensions = new[]
+    ///             { "dimensions", new[]
     ///             {
-    ///                 new Azure.Consumption.Inputs.BudgetManagementGroupFilterDimensionArgs
+    ///                 
     ///                 {
-    ///                     Name = "ResourceGroupName",
-    ///                     Values = new[]
+    ///                     { "name", "ResourceGroupName" },
+    ///                     { "values", new[]
     ///                     {
     ///                         exampleResourceGroup.Name,
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Tags = new[]
+    ///             } },
+    ///             { "tags", new[]
     ///             {
-    ///                 new Azure.Consumption.Inputs.BudgetManagementGroupFilterTagArgs
+    ///                 
     ///                 {
-    ///                     Name = "foo",
-    ///                     Values = new[]
+    ///                     { "name", "foo" },
+    ///                     { "values", new[]
     ///                     {
     ///                         "bar",
     ///                         "baz",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Notifications = new[]
     ///         {
-    ///             new Azure.Consumption.Inputs.BudgetManagementGroupNotificationArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Threshold = 90,
-    ///                 Operator = "EqualTo",
-    ///                 ContactEmails = new[]
+    ///                 { "enabled", true },
+    ///                 { "threshold", 90 },
+    ///                 { "operator", "EqualTo" },
+    ///                 { "contactEmails", new[]
     ///                 {
     ///                     "foo@example.com",
     ///                     "bar@example.com",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.Consumption.Inputs.BudgetManagementGroupNotificationArgs
+    ///             
     ///             {
-    ///                 Enabled = false,
-    ///                 Threshold = 100,
-    ///                 Operator = "GreaterThan",
-    ///                 ThresholdType = "Forecasted",
-    ///                 ContactEmails = new[]
+    ///                 { "enabled", false },
+    ///                 { "threshold", 100 },
+    ///                 { "operator", "GreaterThan" },
+    ///                 { "thresholdType", "Forecasted" },
+    ///                 { "contactEmails", new[]
     ///                 {
     ///                     "foo@example.com",
     ///                     "bar@example.com",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

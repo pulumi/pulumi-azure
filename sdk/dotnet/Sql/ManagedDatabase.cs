@@ -20,13 +20,13 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "test-network",
     ///         AddressSpaces = new[]
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Sql
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "acctsub",
     ///         ResourceGroupName = example.Name,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Sql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance("example", new()
+    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance.ManagedInstance("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Sql
     ///         StorageSizeInGb = 32,
     ///     });
     /// 
-    ///     var exampleManagedDatabase = new Azure.Sql.ManagedDatabase("example", new()
+    ///     var exampleManagedDatabase = new Azure.Sql.ManagedDatabase.ManagedDatabase("example", new()
     ///     {
     ///         SqlManagedInstanceId = exampleManagedInstance.Id,
     ///         Name = "exampledatabase",

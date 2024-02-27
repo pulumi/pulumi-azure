@@ -179,38 +179,38 @@ class MongoUserDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-ca,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="MongoDB",
+            offer_type=Standard,
+            kind=MongoDB,
             capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongoRoleBasedAccessControl",
-                ),
+                {
+                    name: EnableMongo,
+                },
+                {
+                    name: EnableMongoRoleBasedAccessControl,
+                },
             ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
-            name="example-mongodb",
+            consistency_policy={
+                consistencyLevel: Strong,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_mongo_database = azure.cosmosdb.mongo_database.MongoDatabase("example",
+            name=example-mongodb,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
-        example_mongo_user_definition = azure.cosmosdb.MongoUserDefinition("example",
+        example_mongo_user_definition = azure.cosmosdb.mongo_user_definition.MongoUserDefinition("example",
             cosmos_mongo_database_id=example_mongo_database.id,
-            username="myUserName",
-            password="myPassword")
+            username=myUserName,
+            password=myPassword)
         ```
 
         ## Import
@@ -245,38 +245,38 @@ class MongoUserDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-ca,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="MongoDB",
+            offer_type=Standard,
+            kind=MongoDB,
             capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongoRoleBasedAccessControl",
-                ),
+                {
+                    name: EnableMongo,
+                },
+                {
+                    name: EnableMongoRoleBasedAccessControl,
+                },
             ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
-            name="example-mongodb",
+            consistency_policy={
+                consistencyLevel: Strong,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_mongo_database = azure.cosmosdb.mongo_database.MongoDatabase("example",
+            name=example-mongodb,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
-        example_mongo_user_definition = azure.cosmosdb.MongoUserDefinition("example",
+        example_mongo_user_definition = azure.cosmosdb.mongo_user_definition.MongoUserDefinition("example",
             cosmos_mongo_database_id=example_mongo_database.id,
-            username="myUserName",
-            password="myPassword")
+            username=myUserName,
+            password=myPassword)
         ```
 
         ## Import

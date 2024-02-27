@@ -13,70 +13,12 @@ namespace Pulumi.Azure.Mobile
     {
         /// <summary>
         /// Get information a Mobile Network Packet Core Data Plane.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
-        ///     {
-        ///         Name = "example-mnpccp",
-        ///         ResourceGroupName = "example-rg",
-        ///     });
-        /// 
-        ///     var exampleGetNetworkPacketCoreDataPlane = Azure.Mobile.GetNetworkPacketCoreDataPlane.Invoke(new()
-        ///     {
-        ///         Name = "example-mnpcdp",
-        ///         MobileNetworkPacketCoreControlPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkPacketCoreDataPlaneResult> InvokeAsync(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information a Mobile Network Packet Core Data Plane.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
-        ///     {
-        ///         Name = "example-mnpccp",
-        ///         ResourceGroupName = "example-rg",
-        ///     });
-        /// 
-        ///     var exampleGetNetworkPacketCoreDataPlane = Azure.Mobile.GetNetworkPacketCoreDataPlane.Invoke(new()
-        ///     {
-        ///         Name = "example-mnpcdp",
-        ///         MobileNetworkPacketCoreControlPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkPacketCoreDataPlaneResult> Invoke(GetNetworkPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());

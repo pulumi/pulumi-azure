@@ -255,15 +255,15 @@ class PlacementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_placement_group = azure.proximity.PlacementGroup("example",
-            name="exampleProximityPlacementGroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_placement_group = azure.proximity.placement_group.PlacementGroup("example",
+            name=exampleProximityPlacementGroup,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -303,15 +303,15 @@ class PlacementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_placement_group = azure.proximity.PlacementGroup("example",
-            name="exampleProximityPlacementGroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_placement_group = azure.proximity.placement_group.PlacementGroup("example",
+            name=exampleProximityPlacementGroup,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

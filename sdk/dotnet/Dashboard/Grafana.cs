@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Dashboard
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleGrafana = new Azure.Dashboard.Grafana("example", new()
+    ///     var exampleGrafana = new Azure.Dashboard.Grafana.Grafana("example", new()
     ///     {
     ///         Name = "example-dg",
     ///         ResourceGroupName = example.Name,
@@ -36,9 +36,9 @@ namespace Pulumi.Azure.Dashboard
     ///         ApiKeyEnabled = true,
     ///         DeterministicOutboundIpEnabled = true,
     ///         PublicNetworkAccessEnabled = false,
-    ///         Identity = new Azure.Dashboard.Inputs.GrafanaIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {

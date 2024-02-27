@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.automation.JobSchedule("example", {
+ * const example = new azure.automation/jobSchedule.JobSchedule("example", {
  *     resourceGroupName: "tf-rgr-automation",
  *     automationAccountName: "tf-automation-account",
  *     scheduleName: "hour",

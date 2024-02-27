@@ -23,13 +23,13 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network.Network("example", new()
     ///     {
     ///         Name = "example-mn",
     ///         ResourceGroupName = example.Name,
@@ -38,14 +38,14 @@ namespace Pulumi.Azure.Mobile
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite("example", new()
+    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite.NetworkSite("example", new()
     ///     {
     ///         Name = "example-mns",
     ///         MobileNetworkId = test.Id,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleDevice = new Azure.DataboxEdge.Device("example", new()
+    ///     var exampleDevice = new Azure.Databoxedge.Device.Device("example", new()
     ///     {
     ///         Name = "example-device",
     ///         ResourceGroupName = example.Name,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Mobile
     ///         SkuName = "EdgeP_Base-Standard",
     ///     });
     /// 
-    ///     var exampleNetworkPacketCoreControlPlane = new Azure.Mobile.NetworkPacketCoreControlPlane("example", new()
+    ///     var exampleNetworkPacketCoreControlPlane = new Azure.Mobile.NetworkPacketCoreControlPlane.NetworkPacketCoreControlPlane("example", new()
     ///     {
     ///         Name = "example-mnpccp",
     ///         ResourceGroupName = example.Name,
@@ -67,14 +67,14 @@ namespace Pulumi.Azure.Mobile
     ///         {
     ///             exampleNetworkSite.Id,
     ///         },
-    ///         LocalDiagnosticsAccess = new Azure.Mobile.Inputs.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs
+    ///         LocalDiagnosticsAccess = 
     ///         {
-    ///             AuthenticationType = "AAD",
+    ///             { "authenticationType", "AAD" },
     ///         },
-    ///         Platform = new Azure.Mobile.Inputs.NetworkPacketCoreControlPlanePlatformArgs
+    ///         Platform = 
     ///         {
-    ///             Type = "AKS-HCI",
-    ///             EdgeDeviceId = exampleDevice.Id,
+    ///             { "type", "AKS-HCI" },
+    ///             { "edgeDeviceId", exampleDevice.Id },
     ///         },
     ///         InteroperabilitySettingsJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {

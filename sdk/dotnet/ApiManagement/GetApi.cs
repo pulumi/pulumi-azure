@@ -13,70 +13,12 @@ namespace Pulumi.Azure.ApiManagement
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management API.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
-        ///     {
-        ///         Name = "search-api",
-        ///         ApiManagementName = "search-api-management",
-        ///         ResourceGroupName = "search-service",
-        ///         Revision = "2",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["apiManagementApiId"] = example.Apply(getApiResult =&gt; getApiResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management API.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
-        ///     {
-        ///         Name = "search-api",
-        ///         ApiManagementName = "search-api-management",
-        ///         ResourceGroupName = "search-service",
-        ///         Revision = "2",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["apiManagementApiId"] = example.Apply(getApiResult =&gt; getApiResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());

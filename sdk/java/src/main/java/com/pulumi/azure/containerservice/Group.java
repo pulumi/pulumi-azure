@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.Group;
  * import com.pulumi.azure.containerservice.GroupArgs;
- * import com.pulumi.azure.containerservice.inputs.GroupContainerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,23 +67,9 @@ import javax.annotation.Nullable;
  *             .dnsNameLabel(&#34;aci-label&#34;)
  *             .osType(&#34;Linux&#34;)
  *             .containers(            
- *                 GroupContainerArgs.builder()
- *                     .name(&#34;hello-world&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/aci-helloworld:latest&#34;)
- *                     .cpu(&#34;0.5&#34;)
- *                     .memory(&#34;1.5&#34;)
- *                     .ports(GroupContainerPortArgs.builder()
- *                         .port(443)
- *                         .protocol(&#34;TCP&#34;)
- *                         .build())
- *                     .build(),
- *                 GroupContainerArgs.builder()
- *                     .name(&#34;sidecar&#34;)
- *                     .image(&#34;mcr.microsoft.com/azuredocs/aci-tutorial-sidecar&#34;)
- *                     .cpu(&#34;0.5&#34;)
- *                     .memory(&#34;1.5&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;testing&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -13,66 +13,12 @@ namespace Pulumi.Azure.AppConfiguration
     {
         /// <summary>
         /// Use this data source to access information about an existing App Configuration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.AppConfiguration.GetConfigurationStore.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getConfigurationStoreResult =&gt; getConfigurationStoreResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing App Configuration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.AppConfiguration.GetConfigurationStore.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getConfigurationStoreResult =&gt; getConfigurationStoreResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());

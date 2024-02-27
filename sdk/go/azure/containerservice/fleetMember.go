@@ -23,61 +23,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/fleetMember "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/fleetMember"
+//	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+//	containerservice/kubernetesFleetManager "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesFleetManager"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				DnsPrefix:         pulumi.String("acctestaksexample"),
-//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("example-value"),
-//					NodeCount: pulumi.Int("example-value"),
-//					VmSize:    pulumi.String("example-value"),
-//				},
-//				Identity: &containerservice.KubernetesClusterIdentityArgs{
-//					Type: pulumi.String("example-value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKubernetesFleetManager, err := containerservice.NewKubernetesFleetManager(ctx, "example", &containerservice.KubernetesFleetManagerArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				HubProfile: &containerservice.KubernetesFleetManagerHubProfileArgs{
-//					DnsPrefix: pulumi.String("val-example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewFleetMember(ctx, "example", &containerservice.FleetMemberArgs{
-//				KubernetesClusterId: example.ID(),
-//				KubernetesFleetId:   exampleKubernetesFleetManager.ID(),
-//				Name:                pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleResourceGroup, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// example, err := containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+// Name: "example",
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// DnsPrefix: "acctestaksexample",
+// DefaultNodePool: map[string]interface{}{
+// "name": "example-value",
+// "nodeCount": "example-value",
+// "vmSize": "example-value",
+// },
+// Identity: map[string]interface{}{
+// "type": "example-value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleKubernetesFleetManager, err := containerservice/kubernetesFleetManager.NewKubernetesFleetManager(ctx, "example", &containerservice/kubernetesFleetManager.KubernetesFleetManagerArgs{
+// Name: "example",
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// HubProfile: map[string]interface{}{
+// "dnsPrefix": "val-example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/fleetMember.NewFleetMember(ctx, "example", &containerservice/fleetMember.FleetMemberArgs{
+// KubernetesClusterId: example.Id,
+// KubernetesFleetId: exampleKubernetesFleetManager.Id,
+// Name: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

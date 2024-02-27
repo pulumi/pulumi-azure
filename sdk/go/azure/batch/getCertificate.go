@@ -12,35 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing certificate in a Batch Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := batch.LookupCertificate(ctx, &batch.LookupCertificateArgs{
-//				Name:              "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-//				AccountName:       "examplebatchaccount",
-//				ResourceGroupName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("thumbprint", example.Thumbprint)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateResult

@@ -224,35 +224,6 @@ class ApiConnection(pulumi.CustomResource):
         """
         Manages an API Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.connections.get_managed_api_output(name="servicebus",
-            location=example_resource_group.location)
-        example_namespace = azure.servicebus.Namespace("example",
-            name="acctestsbn-conn-example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Basic")
-        example_api_connection = azure.connections.ApiConnection("example",
-            name="example-connection",
-            resource_group_name=example_resource_group.name,
-            managed_api_id=example.id,
-            display_name="Example 1",
-            parameter_values={
-                "connectionString": example_namespace.default_primary_connection_string,
-            },
-            tags={
-                "Hello": "World",
-            })
-        ```
-
         ## Import
 
         API Connections can be imported using the `resource id`, e.g.
@@ -277,35 +248,6 @@ class ApiConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Connection.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.connections.get_managed_api_output(name="servicebus",
-            location=example_resource_group.location)
-        example_namespace = azure.servicebus.Namespace("example",
-            name="acctestsbn-conn-example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Basic")
-        example_api_connection = azure.connections.ApiConnection("example",
-            name="example-connection",
-            resource_group_name=example_resource_group.name,
-            managed_api_id=example.id,
-            display_name="Example 1",
-            parameter_values={
-                "connectionString": example_namespace.default_primary_connection_string,
-            },
-            tags={
-                "Hello": "World",
-            })
-        ```
 
         ## Import
 

@@ -24,20 +24,20 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-cdn-frontdoor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Premium_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorEndpoint = new Azure.Cdn.FrontdoorEndpoint("example", new()
+    ///     var exampleFrontdoorEndpoint = new Azure.Cdn.FrontdoorEndpoint.FrontdoorEndpoint("example", new()
     ///     {
     ///         Name = "example-endpoint",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
@@ -47,28 +47,28 @@ namespace Pulumi.Azure.Cdn
     ///         },
     ///     });
     /// 
-    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup.FrontdoorOriginGroup("example", new()
     ///     {
     ///         Name = "example-originGroup",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         SessionAffinityEnabled = true,
     ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
-    ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
+    ///         HealthProbe = 
     ///         {
-    ///             IntervalInSeconds = 240,
-    ///             Path = "/healthProbe",
-    ///             Protocol = "Https",
-    ///             RequestType = "GET",
+    ///             { "intervalInSeconds", 240 },
+    ///             { "path", "/healthProbe" },
+    ///             { "protocol", "Https" },
+    ///             { "requestType", "GET" },
     ///         },
-    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
+    ///         LoadBalancing = 
     ///         {
-    ///             AdditionalLatencyInMilliseconds = 0,
-    ///             SampleSize = 16,
-    ///             SuccessfulSamplesRequired = 3,
+    ///             { "additionalLatencyInMilliseconds", 0 },
+    ///             { "sampleSize", 16 },
+    ///             { "successfulSamplesRequired", 3 },
     ///         },
     ///     });
     /// 
-    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
+    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin.FrontdoorOrigin("example", new()
     ///     {
     ///         Name = "example-origin",
     ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
@@ -82,121 +82,121 @@ namespace Pulumi.Azure.Cdn
     ///         Weight = 500,
     ///     });
     /// 
-    ///     var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet("example", new()
+    ///     var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet.FrontdoorRuleSet("example", new()
     ///     {
     ///         Name = "exampleruleset",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///     });
     /// 
-    ///     var exampleFrontdoorRule = new Azure.Cdn.FrontdoorRule("example", new()
+    ///     var exampleFrontdoorRule = new Azure.Cdn.FrontdoorRule.FrontdoorRule("example", new()
     ///     {
     ///         Name = "examplerule",
     ///         CdnFrontdoorRuleSetId = exampleFrontdoorRuleSet.Id,
     ///         Order = 1,
     ///         BehaviorOnMatch = "Continue",
-    ///         Actions = new Azure.Cdn.Inputs.FrontdoorRuleActionsArgs
+    ///         Actions = 
     ///         {
-    ///             RouteConfigurationOverrideAction = new Azure.Cdn.Inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs
+    ///             { "routeConfigurationOverrideAction", 
     ///             {
-    ///                 CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
-    ///                 ForwardingProtocol = "HttpsOnly",
-    ///                 QueryStringCachingBehavior = "IncludeSpecifiedQueryStrings",
-    ///                 QueryStringParameters = new[]
+    ///                 { "cdnFrontdoorOriginGroupId", exampleFrontdoorOriginGroup.Id },
+    ///                 { "forwardingProtocol", "HttpsOnly" },
+    ///                 { "queryStringCachingBehavior", "IncludeSpecifiedQueryStrings" },
+    ///                 { "queryStringParameters", new[]
     ///                 {
     ///                     "foo",
     ///                     "clientIp={client_ip}",
-    ///                 },
-    ///                 CompressionEnabled = true,
-    ///                 CacheBehavior = "OverrideIfOriginMissing",
-    ///                 CacheDuration = "365.23:59:59",
-    ///             },
-    ///             UrlRedirectAction = new Azure.Cdn.Inputs.FrontdoorRuleActionsUrlRedirectActionArgs
+    ///                 } },
+    ///                 { "compressionEnabled", true },
+    ///                 { "cacheBehavior", "OverrideIfOriginMissing" },
+    ///                 { "cacheDuration", "365.23:59:59" },
+    ///             } },
+    ///             { "urlRedirectAction", 
     ///             {
-    ///                 RedirectType = "PermanentRedirect",
-    ///                 RedirectProtocol = "MatchRequest",
-    ///                 QueryString = "clientIp={client_ip}",
-    ///                 DestinationPath = "/exampleredirection",
-    ///                 DestinationHostname = "contoso.com",
-    ///                 DestinationFragment = "UrlRedirect",
-    ///             },
+    ///                 { "redirectType", "PermanentRedirect" },
+    ///                 { "redirectProtocol", "MatchRequest" },
+    ///                 { "queryString", "clientIp={client_ip}" },
+    ///                 { "destinationPath", "/exampleredirection" },
+    ///                 { "destinationHostname", "contoso.com" },
+    ///                 { "destinationFragment", "UrlRedirect" },
+    ///             } },
     ///         },
-    ///         Conditions = new Azure.Cdn.Inputs.FrontdoorRuleConditionsArgs
+    ///         Conditions = 
     ///         {
-    ///             HostNameConditions = new[]
+    ///             { "hostNameConditions", new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsHostNameConditionArgs
+    ///                 
     ///                 {
-    ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = new[]
+    ///                     { "operator", "Equal" },
+    ///                     { "negateCondition", false },
+    ///                     { "matchValues", new[]
     ///                     {
     ///                         "www.contoso.com",
     ///                         "images.contoso.com",
     ///                         "video.contoso.com",
-    ///                     },
-    ///                     Transforms = new[]
+    ///                     } },
+    ///                     { "transforms", new[]
     ///                     {
     ///                         "Lowercase",
     ///                         "Trim",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             IsDeviceConditions = new[]
+    ///             } },
+    ///             { "isDeviceConditions", new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsIsDeviceConditionArgs
+    ///                 
     ///                 {
-    ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = "Mobile",
+    ///                     { "operator", "Equal" },
+    ///                     { "negateCondition", false },
+    ///                     { "matchValues", "Mobile" },
     ///                 },
-    ///             },
-    ///             PostArgsConditions = new[]
+    ///             } },
+    ///             { "postArgsConditions", new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsPostArgsConditionArgs
+    ///                 
     ///                 {
-    ///                     PostArgsName = "customerName",
-    ///                     Operator = "BeginsWith",
-    ///                     MatchValues = new[]
+    ///                     { "postArgsName", "customerName" },
+    ///                     { "operator", "BeginsWith" },
+    ///                     { "matchValues", new[]
     ///                     {
     ///                         "J",
     ///                         "K",
-    ///                     },
-    ///                     Transforms = new[]
+    ///                     } },
+    ///                     { "transforms", new[]
     ///                     {
     ///                         "Uppercase",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             RequestMethodConditions = new[]
+    ///             } },
+    ///             { "requestMethodConditions", new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsRequestMethodConditionArgs
+    ///                 
     ///                 {
-    ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = new[]
+    ///                     { "operator", "Equal" },
+    ///                     { "negateCondition", false },
+    ///                     { "matchValues", new[]
     ///                     {
     ///                         "DELETE",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             UrlFilenameConditions = new[]
+    ///             } },
+    ///             { "urlFilenameConditions", new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs
+    ///                 
     ///                 {
-    ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = new[]
+    ///                     { "operator", "Equal" },
+    ///                     { "negateCondition", false },
+    ///                     { "matchValues", new[]
     ///                     {
     ///                         "media.mp4",
-    ///                     },
-    ///                     Transforms = new[]
+    ///                     } },
+    ///                     { "transforms", new[]
     ///                     {
     ///                         "Lowercase",
     ///                         "RemoveNulls",
     ///                         "Trim",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

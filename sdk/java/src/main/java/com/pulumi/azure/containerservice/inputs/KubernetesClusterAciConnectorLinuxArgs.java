@@ -47,8 +47,6 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.Subnet;
      * import com.pulumi.azure.network.SubnetArgs;
-     * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
-     * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -63,13 +61,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      * 
      *     public static void stack(Context ctx) {
      *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
-     *             .delegations(SubnetDelegationArgs.builder()
-     *                 .name(&#34;aciDelegation&#34;)
-     *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-     *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
-     *                     .build())
-     *                 .build())
+     *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -94,8 +86,6 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.Subnet;
      * import com.pulumi.azure.network.SubnetArgs;
-     * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
-     * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -110,13 +100,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
      * 
      *     public static void stack(Context ctx) {
      *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
-     *             .delegations(SubnetDelegationArgs.builder()
-     *                 .name(&#34;aciDelegation&#34;)
-     *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-     *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
-     *                     .build())
-     *                 .build())
+     *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -198,8 +182,6 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          * import com.pulumi.core.Output;
          * import com.pulumi.azure.network.Subnet;
          * import com.pulumi.azure.network.SubnetArgs;
-         * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
-         * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -214,13 +196,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          * 
          *     public static void stack(Context ctx) {
          *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
-         *             .delegations(SubnetDelegationArgs.builder()
-         *                 .name(&#34;aciDelegation&#34;)
-         *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-         *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-         *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
-         *                     .build())
-         *                 .build())
+         *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
          *     }
@@ -249,8 +225,6 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          * import com.pulumi.core.Output;
          * import com.pulumi.azure.network.Subnet;
          * import com.pulumi.azure.network.SubnetArgs;
-         * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
-         * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -265,13 +239,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
          * 
          *     public static void stack(Context ctx) {
          *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
-         *             .delegations(SubnetDelegationArgs.builder()
-         *                 .name(&#34;aciDelegation&#34;)
-         *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-         *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
-         *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
-         *                     .build())
-         *                 .build())
+         *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
          *     }

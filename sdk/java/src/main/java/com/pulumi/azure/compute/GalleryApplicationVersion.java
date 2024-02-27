@@ -44,9 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.BlobArgs;
  * import com.pulumi.azure.compute.GalleryApplicationVersion;
  * import com.pulumi.azure.compute.GalleryApplicationVersionArgs;
- * import com.pulumi.azure.compute.inputs.GalleryApplicationVersionManageActionArgs;
- * import com.pulumi.azure.compute.inputs.GalleryApplicationVersionSourceArgs;
- * import com.pulumi.azure.compute.inputs.GalleryApplicationVersionTargetRegionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -104,17 +101,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;0.0.1&#34;)
  *             .galleryApplicationId(exampleGalleryApplication.id())
  *             .location(exampleGalleryApplication.location())
- *             .manageAction(GalleryApplicationVersionManageActionArgs.builder()
- *                 .install(&#34;[install command]&#34;)
- *                 .remove(&#34;[remove command]&#34;)
- *                 .build())
- *             .source(GalleryApplicationVersionSourceArgs.builder()
- *                 .mediaLink(exampleBlob.id())
- *                 .build())
- *             .targetRegions(GalleryApplicationVersionTargetRegionArgs.builder()
- *                 .name(exampleGalleryApplication.location())
- *                 .regionalReplicaCount(1)
- *                 .build())
+ *             .manageAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .targetRegions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

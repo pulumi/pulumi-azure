@@ -22,28 +22,28 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleMover = new Azure.Storage.Mover("example", new()
+    ///     var exampleMover = new Azure.Storage.Mover.Mover("example", new()
     ///     {
     ///         Name = "example-ssm",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent("example", new()
+    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent.MoverAgent("example", new()
     ///     {
     ///         Name = "example-agent",
     ///         StorageMoverId = exampleMover.Id,
-    ///         ArcVirtualMachineId = example.Id.Apply(id =&gt; $"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
+    ///         ArcVirtualMachineId = $"{example.Id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
     ///         ArcVirtualMachineUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -53,14 +53,14 @@ namespace Pulumi.Azure.Storage
     ///         AllowNestedItemsToBePublic = true,
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "acccontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "blob",
     ///     });
     /// 
-    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("example", new()
+    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint.MoverTargetEndpoint("example", new()
     ///     {
     ///         Name = "example-smte",
     ///         StorageMoverId = exampleMover.Id,
@@ -68,20 +68,20 @@ namespace Pulumi.Azure.Storage
     ///         StorageContainerName = exampleContainer.Name,
     ///     });
     /// 
-    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint("example", new()
+    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint.MoverSourceEndpoint("example", new()
     ///     {
     ///         Name = "example-smse",
     ///         StorageMoverId = exampleMover.Id,
     ///         Host = "192.168.0.1",
     ///     });
     /// 
-    ///     var exampleMoverProject = new Azure.Storage.MoverProject("example", new()
+    ///     var exampleMoverProject = new Azure.Storage.MoverProject.MoverProject("example", new()
     ///     {
     ///         Name = "example-sp",
     ///         StorageMoverId = exampleMover.Id,
     ///     });
     /// 
-    ///     var exampleMoverJobDefinition = new Azure.Storage.MoverJobDefinition("example", new()
+    ///     var exampleMoverJobDefinition = new Azure.Storage.MoverJobDefinition.MoverJobDefinition("example", new()
     ///     {
     ///         Name = "example-sjd",
     ///         StorageMoverProjectId = exampleMoverProject.Id,

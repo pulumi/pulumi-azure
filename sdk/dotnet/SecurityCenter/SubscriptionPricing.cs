@@ -25,7 +25,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.SecurityCenter.SubscriptionPricing("example", new()
+    ///     var example = new Azure.Securitycenter.SubscriptionPricing.SubscriptionPricing("example", new()
     ///     {
     ///         Tier = "Standard",
     ///         ResourceType = "VirtualMachines",
@@ -43,31 +43,31 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example1 = new Azure.SecurityCenter.SubscriptionPricing("example1", new()
+    ///     var example1 = new Azure.Securitycenter.SubscriptionPricing.SubscriptionPricing("example1", new()
     ///     {
     ///         Tier = "Standard",
     ///         ResourceType = "CloudPosture",
     ///         Extensions = new[]
     ///         {
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
+    ///             
     ///             {
-    ///                 Name = "ContainerRegistriesVulnerabilityAssessments",
+    ///                 { "name", "ContainerRegistriesVulnerabilityAssessments" },
     ///             },
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
+    ///             
     ///             {
-    ///                 Name = "AgentlessVmScanning",
-    ///                 AdditionalExtensionProperties = 
+    ///                 { "name", "AgentlessVmScanning" },
+    ///                 { "additionalExtensionProperties", 
     ///                 {
     ///                     { "ExclusionTags", "[]" },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
+    ///             
     ///             {
-    ///                 Name = "AgentlessDiscoveryForKubernetes",
+    ///                 { "name", "AgentlessDiscoveryForKubernetes" },
     ///             },
-    ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
+    ///             
     ///             {
-    ///                 Name = "SensitiveDataDiscovery",
+    ///                 { "name", "SensitiveDataDiscovery" },
     ///             },
     ///         },
     ///     });

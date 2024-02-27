@@ -593,24 +593,24 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="testbatch",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="teststorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=testbatch,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=teststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account2 = azure.batch.Account("example",
-            name="testbatchaccount",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_account2 = azure.batch.account.Account("example",
+            name=testbatchaccount,
             resource_group_name=example.name,
             location=example.location,
-            pool_allocation_mode="BatchService",
+            pool_allocation_mode=BatchService,
             storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys",
+            storage_account_authentication_mode=StorageKeys,
             tags={
-                "env": "test",
+                env: test,
             })
         ```
 
@@ -664,24 +664,24 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="testbatch",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="teststorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=testbatch,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=teststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account2 = azure.batch.Account("example",
-            name="testbatchaccount",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_account2 = azure.batch.account.Account("example",
+            name=testbatchaccount,
             resource_group_name=example.name,
             location=example.location,
-            pool_allocation_mode="BatchService",
+            pool_allocation_mode=BatchService,
             storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys",
+            storage_account_authentication_mode=StorageKeys,
             tags={
-                "env": "test",
+                env: test,
             })
         ```
 

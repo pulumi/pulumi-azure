@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databricks.getWorkspacePrivateEndpointConnection({
- *     workspaceId: exampleAzurermDatabricksWorkspace.id,
- *     privateEndpointId: exampleAzurermPrivateEndpoint.id,
- * });
- * export const databricksWorkspacePrivateEndpointConnectionStatus = example.then(example => example.connections?.[0]?.status);
- * ```
  */
 export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePrivateEndpointConnectionResult> {
 
@@ -68,19 +55,6 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
 }
 /**
  * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.databricks.getWorkspacePrivateEndpointConnection({
- *     workspaceId: exampleAzurermDatabricksWorkspace.id,
- *     privateEndpointId: exampleAzurermPrivateEndpoint.id,
- * });
- * export const databricksWorkspacePrivateEndpointConnectionStatus = example.then(example => example.connections?.[0]?.status);
- * ```
  */
 export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWorkspacePrivateEndpointConnection(a, opts))

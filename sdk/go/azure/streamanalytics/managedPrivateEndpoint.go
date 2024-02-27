@@ -21,57 +21,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	streamanalytics/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/cluster"
+//	streamanalytics/managedPrivateEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/managedPrivateEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageacc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				IsHnsEnabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := streamanalytics.NewCluster(ctx, "example", &streamanalytics.ClusterArgs{
-//				Name:              pulumi.String("examplestreamanalyticscluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				StreamingCapacity: pulumi.Int(36),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewManagedPrivateEndpoint(ctx, "example", &streamanalytics.ManagedPrivateEndpointArgs{
-//				Name:                       pulumi.String("exampleprivateendpoint"),
-//				ResourceGroupName:          example.Name,
-//				StreamAnalyticsClusterName: exampleCluster.Name,
-//				TargetResourceId:           exampleAccount.ID(),
-//				SubresourceName:            pulumi.String("blob"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageacc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// AccountKind: "StorageV2",
+// IsHnsEnabled: "true",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCluster, err := streamanalytics/cluster.NewCluster(ctx, "example", &streamanalytics/cluster.ClusterArgs{
+// Name: "examplestreamanalyticscluster",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// StreamingCapacity: 36,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = streamanalytics/managedPrivateEndpoint.NewManagedPrivateEndpoint(ctx, "example", &streamanalytics/managedPrivateEndpoint.ManagedPrivateEndpointArgs{
+// Name: "exampleprivateendpoint",
+// ResourceGroupName: example.Name,
+// StreamAnalyticsClusterName: exampleCluster.Name,
+// TargetResourceId: exampleAccount.Id,
+// SubresourceName: "blob",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

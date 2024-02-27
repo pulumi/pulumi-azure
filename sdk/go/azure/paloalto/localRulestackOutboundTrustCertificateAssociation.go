@@ -21,47 +21,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	paloalto/localRulestack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestack"
+//	paloalto/localRulestackCertificate "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestackCertificate"
+//	paloalto/localRulestackOutboundTrustCertificateAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestackOutboundTrustCertificateAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestackCertificate, err := paloalto.NewLocalRulestackCertificate(ctx, "example", &paloalto.LocalRulestackCertificateArgs{
-//				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID(),
-//				SelfSigned:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackOutboundTrustCertificateAssociation(ctx, "example", &paloalto.LocalRulestackOutboundTrustCertificateAssociationArgs{
-//				CertificateId: exampleLocalRulestackCertificate.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLocalRulestack, err := paloalto/localRulestack.NewLocalRulestack(ctx, "example", &paloalto/localRulestack.LocalRulestackArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleLocalRulestackCertificate, err := paloalto/localRulestackCertificate.NewLocalRulestackCertificate(ctx, "example", &paloalto/localRulestackCertificate.LocalRulestackCertificateArgs{
+// Name: "example",
+// RulestackId: exampleLocalRulestack.Id,
+// SelfSigned: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = paloalto/localRulestackOutboundTrustCertificateAssociation.NewLocalRulestackOutboundTrustCertificateAssociation(ctx, "example", &paloalto/localRulestackOutboundTrustCertificateAssociation.LocalRulestackOutboundTrustCertificateAssociationArgs{
+// CertificateId: exampleLocalRulestackCertificate.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type LocalRulestackOutboundTrustCertificateAssociation struct {
 	pulumi.CustomResourceState

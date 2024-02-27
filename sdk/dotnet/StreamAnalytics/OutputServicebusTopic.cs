@@ -12,67 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to a ServiceBus Topic.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "rg-example",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
-    ///     {
-    ///         Name = "example-namespace",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Standard",
-    ///     });
-    /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
-    ///     {
-    ///         Name = "example-topic",
-    ///         NamespaceId = exampleNamespace.Id,
-    ///         EnablePartitioning = true,
-    ///     });
-    /// 
-    ///     var exampleOutputServicebusTopic = new Azure.StreamAnalytics.OutputServicebusTopic("example", new()
-    ///     {
-    ///         Name = "service-bus-topic-output",
-    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         TopicName = exampleTopic.Name,
-    ///         ServicebusNamespace = exampleNamespace.Name,
-    ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
-    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///         PropertyColumns = new[]
-    ///         {
-    ///             "col1",
-    ///             "col2",
-    ///         },
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServicebusTopicSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Format = "Array",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Output ServiceBus Topic's can be imported using the `resource id`, e.g.

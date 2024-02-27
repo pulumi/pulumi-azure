@@ -149,109 +149,109 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.PublicIp("test",
-            name="example-public-ip",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            allocation_method="Static",
-            sku="Standard")
-        test_virtual_network = azure.network.VirtualNetwork("test",
-            name="example-VirtualNetwork",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            address_spaces=["10.6.0.0/16"])
-        netapp_subnet = azure.network.Subnet("netappSubnet",
-            name="example-Subnet",
-            resource_group_name=test_azurerm_resource_group["name"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.network.public_ip.PublicIp("test",
+            name=example-public-ip,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            allocation_method=Static,
+            sku=Standard)
+        test_virtual_network = azure.network.virtual_network.VirtualNetwork("test",
+            name=example-VirtualNetwork,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            address_spaces=[10.6.0.0/16])
+        netapp_subnet = azure.network.subnet.Subnet("netappSubnet",
+            name=example-Subnet,
+            resource_group_name=test_azurerm_resource_group.name,
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="testdelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+            address_prefixes=[10.6.2.0/24],
+            delegations=[{
+                name: testdelegation,
+                serviceDelegation: {
+                    name: Microsoft.Netapp/volumes,
+                    actions: [
+                        Microsoft.Network/networkinterfaces/*,
+                        Microsoft.Network/virtualNetworks/subnets/join/action,
                     ],
-                ),
-            )])
-        gateway_subnet = azure.network.Subnet("gatewaySubnet",
-            name="GatewaySubnet",
-            resource_group_name=test_azurerm_resource_group["name"],
+                },
+            }])
+        gateway_subnet = azure.network.subnet.Subnet("gatewaySubnet",
+            name=GatewaySubnet,
+            resource_group_name=test_azurerm_resource_group.name,
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.1.0/24"])
-        test_virtual_network_gateway = azure.network.VirtualNetworkGateway("test",
-            name="example-vnet-gateway",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            type="ExpressRoute",
-            sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=test.id,
-                subnet_id=gateway_subnet.id,
-            )])
-        test_account = azure.netapp.Account("test",
-            name="example-NetAppAccount",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"])
-        test_pool = azure.netapp.Pool("test",
-            name="example-NetAppPool",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
+            address_prefixes=[10.6.1.0/24])
+        test_virtual_network_gateway = azure.network.virtual_network_gateway.VirtualNetworkGateway("test",
+            name=example-vnet-gateway,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            type=ExpressRoute,
+            sku=Standard,
+            ip_configurations=[{
+                name: vnetGatewayConfig,
+                publicIpAddressId: test.id,
+                subnetId: gateway_subnet.id,
+            }])
+        test_account = azure.netapp.account.Account("test",
+            name=example-NetAppAccount,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name)
+        test_pool = azure.netapp.pool.Pool("test",
+            name=example-NetAppPool,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
             account_name=test_account.name,
-            service_level="Standard",
+            service_level=Standard,
             size_in_tb=4)
-        test_volume = azure.netapp.Volume("test",
-            name="example-NetAppVolume",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
+        test_volume = azure.netapp.volume.Volume("test",
+            name=example-NetAppVolume,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
             account_name=test_account.name,
             pool_name=test_pool.name,
-            volume_path="my-unique-file-path-%d",
-            service_level="Standard",
+            volume_path=my-unique-file-path-%d,
+            service_level=Standard,
             subnet_id=netapp_subnet.id,
-            protocols=["NFSv3"],
+            protocols=[NFSv3],
             storage_quota_in_gb=100,
             azure_vmware_data_store_enabled=True,
-            export_policy_rules=[azure.netapp.VolumeExportPolicyRuleArgs(
-                rule_index=1,
-                allowed_clients=["0.0.0.0/0"],
-                protocols_enabled="NFSv3",
-                unix_read_only=False,
-                unix_read_write=True,
-                root_access_enabled=True,
-            )])
-        test_private_cloud = azure.avs.PrivateCloud("test",
-            name="example-PC",
-            resource_group_name=test_azurerm_resource_group["name"],
-            location=test_azurerm_resource_group["location"],
-            sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
-            network_subnet_cidr="192.168.48.0/22")
-        test_cluster = azure.avs.Cluster("test",
-            name="example-vm-cluster",
+            export_policy_rules=[{
+                ruleIndex: 1,
+                allowedClients: [0.0.0.0/0],
+                protocolsEnabled: NFSv3,
+                unixReadOnly: False,
+                unixReadWrite: True,
+                rootAccessEnabled: True,
+            }])
+        test_private_cloud = azure.avs.private_cloud.PrivateCloud("test",
+            name=example-PC,
+            resource_group_name=test_azurerm_resource_group.name,
+            location=test_azurerm_resource_group.location,
+            sku_name=av36,
+            management_cluster={
+                size: 3,
+            },
+            network_subnet_cidr=192.168.48.0/22)
+        test_cluster = azure.avs.cluster.Cluster("test",
+            name=example-vm-cluster,
             vmware_cloud_id=test_private_cloud.id,
             cluster_node_count=3,
-            sku_name="av36")
-        test_express_route_authorization = azure.avs.ExpressRouteAuthorization("test",
-            name="example-VmwareAuthorization",
+            sku_name=av36)
+        test_express_route_authorization = azure.avs.express_route_authorization.ExpressRouteAuthorization("test",
+            name=example-VmwareAuthorization,
             private_cloud_id=test_private_cloud.id)
-        test_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("test",
-            name="example-vnetgwconn",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            type="ExpressRoute",
+        test_virtual_network_gateway_connection = azure.network.virtual_network_gateway_connection.VirtualNetworkGatewayConnection("test",
+            name=example-vnetgwconn,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            type=ExpressRoute,
             virtual_network_gateway_id=test_virtual_network_gateway.id,
             express_route_circuit_id=test_private_cloud.circuits[0].express_route_id,
             authorization_key=test_express_route_authorization.express_route_authorization_key)
-        test_netapp_volume_attachment = azure.avs.NetappVolumeAttachment("test",
-            name="example-vmwareattachment",
+        test_netapp_volume_attachment = azure.avs.netapp_volume_attachment.NetappVolumeAttachment("test",
+            name=example-vmwareattachment,
             netapp_volume_id=test_volume.id,
             vmware_cluster_id=test_cluster.id)
         ```
@@ -289,109 +289,109 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.PublicIp("test",
-            name="example-public-ip",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            allocation_method="Static",
-            sku="Standard")
-        test_virtual_network = azure.network.VirtualNetwork("test",
-            name="example-VirtualNetwork",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            address_spaces=["10.6.0.0/16"])
-        netapp_subnet = azure.network.Subnet("netappSubnet",
-            name="example-Subnet",
-            resource_group_name=test_azurerm_resource_group["name"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.network.public_ip.PublicIp("test",
+            name=example-public-ip,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            allocation_method=Static,
+            sku=Standard)
+        test_virtual_network = azure.network.virtual_network.VirtualNetwork("test",
+            name=example-VirtualNetwork,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            address_spaces=[10.6.0.0/16])
+        netapp_subnet = azure.network.subnet.Subnet("netappSubnet",
+            name=example-Subnet,
+            resource_group_name=test_azurerm_resource_group.name,
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="testdelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+            address_prefixes=[10.6.2.0/24],
+            delegations=[{
+                name: testdelegation,
+                serviceDelegation: {
+                    name: Microsoft.Netapp/volumes,
+                    actions: [
+                        Microsoft.Network/networkinterfaces/*,
+                        Microsoft.Network/virtualNetworks/subnets/join/action,
                     ],
-                ),
-            )])
-        gateway_subnet = azure.network.Subnet("gatewaySubnet",
-            name="GatewaySubnet",
-            resource_group_name=test_azurerm_resource_group["name"],
+                },
+            }])
+        gateway_subnet = azure.network.subnet.Subnet("gatewaySubnet",
+            name=GatewaySubnet,
+            resource_group_name=test_azurerm_resource_group.name,
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.1.0/24"])
-        test_virtual_network_gateway = azure.network.VirtualNetworkGateway("test",
-            name="example-vnet-gateway",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            type="ExpressRoute",
-            sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=test.id,
-                subnet_id=gateway_subnet.id,
-            )])
-        test_account = azure.netapp.Account("test",
-            name="example-NetAppAccount",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"])
-        test_pool = azure.netapp.Pool("test",
-            name="example-NetAppPool",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
+            address_prefixes=[10.6.1.0/24])
+        test_virtual_network_gateway = azure.network.virtual_network_gateway.VirtualNetworkGateway("test",
+            name=example-vnet-gateway,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            type=ExpressRoute,
+            sku=Standard,
+            ip_configurations=[{
+                name: vnetGatewayConfig,
+                publicIpAddressId: test.id,
+                subnetId: gateway_subnet.id,
+            }])
+        test_account = azure.netapp.account.Account("test",
+            name=example-NetAppAccount,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name)
+        test_pool = azure.netapp.pool.Pool("test",
+            name=example-NetAppPool,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
             account_name=test_account.name,
-            service_level="Standard",
+            service_level=Standard,
             size_in_tb=4)
-        test_volume = azure.netapp.Volume("test",
-            name="example-NetAppVolume",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
+        test_volume = azure.netapp.volume.Volume("test",
+            name=example-NetAppVolume,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
             account_name=test_account.name,
             pool_name=test_pool.name,
-            volume_path="my-unique-file-path-%d",
-            service_level="Standard",
+            volume_path=my-unique-file-path-%d,
+            service_level=Standard,
             subnet_id=netapp_subnet.id,
-            protocols=["NFSv3"],
+            protocols=[NFSv3],
             storage_quota_in_gb=100,
             azure_vmware_data_store_enabled=True,
-            export_policy_rules=[azure.netapp.VolumeExportPolicyRuleArgs(
-                rule_index=1,
-                allowed_clients=["0.0.0.0/0"],
-                protocols_enabled="NFSv3",
-                unix_read_only=False,
-                unix_read_write=True,
-                root_access_enabled=True,
-            )])
-        test_private_cloud = azure.avs.PrivateCloud("test",
-            name="example-PC",
-            resource_group_name=test_azurerm_resource_group["name"],
-            location=test_azurerm_resource_group["location"],
-            sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
-            network_subnet_cidr="192.168.48.0/22")
-        test_cluster = azure.avs.Cluster("test",
-            name="example-vm-cluster",
+            export_policy_rules=[{
+                ruleIndex: 1,
+                allowedClients: [0.0.0.0/0],
+                protocolsEnabled: NFSv3,
+                unixReadOnly: False,
+                unixReadWrite: True,
+                rootAccessEnabled: True,
+            }])
+        test_private_cloud = azure.avs.private_cloud.PrivateCloud("test",
+            name=example-PC,
+            resource_group_name=test_azurerm_resource_group.name,
+            location=test_azurerm_resource_group.location,
+            sku_name=av36,
+            management_cluster={
+                size: 3,
+            },
+            network_subnet_cidr=192.168.48.0/22)
+        test_cluster = azure.avs.cluster.Cluster("test",
+            name=example-vm-cluster,
             vmware_cloud_id=test_private_cloud.id,
             cluster_node_count=3,
-            sku_name="av36")
-        test_express_route_authorization = azure.avs.ExpressRouteAuthorization("test",
-            name="example-VmwareAuthorization",
+            sku_name=av36)
+        test_express_route_authorization = azure.avs.express_route_authorization.ExpressRouteAuthorization("test",
+            name=example-VmwareAuthorization,
             private_cloud_id=test_private_cloud.id)
-        test_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("test",
-            name="example-vnetgwconn",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            type="ExpressRoute",
+        test_virtual_network_gateway_connection = azure.network.virtual_network_gateway_connection.VirtualNetworkGatewayConnection("test",
+            name=example-vnetgwconn,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            type=ExpressRoute,
             virtual_network_gateway_id=test_virtual_network_gateway.id,
             express_route_circuit_id=test_private_cloud.circuits[0].express_route_id,
             authorization_key=test_express_route_authorization.express_route_authorization_key)
-        test_netapp_volume_attachment = azure.avs.NetappVolumeAttachment("test",
-            name="example-vmwareattachment",
+        test_netapp_volume_attachment = azure.avs.netapp_volume_attachment.NetappVolumeAttachment("test",
+            name=example-vmwareattachment,
             netapp_volume_id=test_volume.id,
             vmware_cluster_id=test_cluster.id)
         ```

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "exampleasa",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const exampleQueue = new azure.storage.Queue("example", {
+ * const exampleQueue = new azure.storage/queue.Queue("example", {
  *     name: "example-astq",
  *     storageAccountName: exampleAccount.name,
  * });
- * const exampleEventSubscription = new azure.eventgrid.EventSubscription("example", {
+ * const exampleEventSubscription = new azure.eventgrid/eventSubscription.EventSubscription("example", {
  *     name: "example-aees",
  *     scope: example.id,
  *     storageQueueEndpoint: {

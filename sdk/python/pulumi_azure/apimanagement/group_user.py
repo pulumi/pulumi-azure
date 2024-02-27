@@ -164,22 +164,6 @@ class GroupUser(pulumi.CustomResource):
         """
         Manages an API Management User Assignment to a Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_user(user_id="my-user",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_group_user = azure.apimanagement.GroupUser("example",
-            user_id=example.id,
-            group_name="example-group",
-            resource_group_name=example.resource_group_name,
-            api_management_name=example.api_management_name)
-        ```
-
         ## Import
 
         API Management Group Users can be imported using the `resource id`, e.g.
@@ -203,22 +187,6 @@ class GroupUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management User Assignment to a Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_user(user_id="my-user",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_group_user = azure.apimanagement.GroupUser("example",
-            user_id=example.id,
-            group_name="example-group",
-            resource_group_name=example.resource_group_name,
-            api_management_name=example.api_management_name)
-        ```
 
         ## Import
 

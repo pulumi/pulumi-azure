@@ -302,32 +302,32 @@ class AccountCostManagementExport(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name)
-        example_account_cost_management_export = azure.billing.AccountCostManagementExport("example",
-            name="example",
-            billing_account_id="example",
-            recurrence_type="Monthly",
-            recurrence_period_start_date="2020-08-18T00:00:00Z",
-            recurrence_period_end_date="2020-09-18T00:00:00Z",
-            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArgs(
-                container_id=example_container.resource_manager_id,
-                root_folder_path="/root/updated",
-            ),
-            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArgs(
-                type="Usage",
-                time_frame="WeekToDate",
-            ))
+        example_account_cost_management_export = azure.billing.account_cost_management_export.AccountCostManagementExport("example",
+            name=example,
+            billing_account_id=example,
+            recurrence_type=Monthly,
+            recurrence_period_start_date=2020-08-18T00:00:00Z,
+            recurrence_period_end_date=2020-09-18T00:00:00Z,
+            export_data_storage_location={
+                containerId: example_container.resource_manager_id,
+                rootFolderPath: /root/updated,
+            },
+            export_data_options={
+                type: Usage,
+                timeFrame: WeekToDate,
+            })
         ```
 
         ## Import
@@ -364,32 +364,32 @@ class AccountCostManagementExport(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name)
-        example_account_cost_management_export = azure.billing.AccountCostManagementExport("example",
-            name="example",
-            billing_account_id="example",
-            recurrence_type="Monthly",
-            recurrence_period_start_date="2020-08-18T00:00:00Z",
-            recurrence_period_end_date="2020-09-18T00:00:00Z",
-            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArgs(
-                container_id=example_container.resource_manager_id,
-                root_folder_path="/root/updated",
-            ),
-            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArgs(
-                type="Usage",
-                time_frame="WeekToDate",
-            ))
+        example_account_cost_management_export = azure.billing.account_cost_management_export.AccountCostManagementExport("example",
+            name=example,
+            billing_account_id=example,
+            recurrence_type=Monthly,
+            recurrence_period_start_date=2020-08-18T00:00:00Z,
+            recurrence_period_end_date=2020-09-18T00:00:00Z,
+            export_data_storage_location={
+                containerId: example_container.resource_manager_id,
+                rootFolderPath: /root/updated,
+            },
+            export_data_options={
+                type: Usage,
+                timeFrame: WeekToDate,
+            })
         ```
 
         ## Import

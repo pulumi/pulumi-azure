@@ -445,52 +445,52 @@ class PolicyVM(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="tfex-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-recovery_vault,
+            location=West Europe)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=tfex-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_policy_vm = azure.backup.PolicyVM("example",
-            name="tfex-recovery-vault-policy",
+            sku=Standard)
+        example_policy_vm = azure.backup.policy_vm.PolicyVM("example",
+            name=tfex-recovery-vault-policy,
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
-            timezone="UTC",
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyVMRetentionWeeklyArgs(
-                count=42,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                    "Friday",
-                    "Saturday",
+            timezone=UTC,
+            backup={
+                frequency: Daily,
+                time: 23:00,
+            },
+            retention_daily={
+                count: 10,
+            },
+            retention_weekly={
+                count: 42,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
+                    Friday,
+                    Saturday,
                 ],
-            ),
-            retention_monthly=azure.backup.PolicyVMRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
+            },
+            retention_monthly={
+                count: 7,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
                 ],
-                weeks=[
-                    "First",
-                    "Last",
+                weeks: [
+                    First,
+                    Last,
                 ],
-            ),
-            retention_yearly=azure.backup.PolicyVMRetentionYearlyArgs(
-                count=77,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
+            },
+            retention_yearly={
+                count: 77,
+                weekdays: [Sunday],
+                weeks: [Last],
+                months: [January],
+            })
         ```
 
         ## Import
@@ -533,52 +533,52 @@ class PolicyVM(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="tfex-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-recovery_vault,
+            location=West Europe)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=tfex-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_policy_vm = azure.backup.PolicyVM("example",
-            name="tfex-recovery-vault-policy",
+            sku=Standard)
+        example_policy_vm = azure.backup.policy_vm.PolicyVM("example",
+            name=tfex-recovery-vault-policy,
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
-            timezone="UTC",
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyVMRetentionWeeklyArgs(
-                count=42,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                    "Friday",
-                    "Saturday",
+            timezone=UTC,
+            backup={
+                frequency: Daily,
+                time: 23:00,
+            },
+            retention_daily={
+                count: 10,
+            },
+            retention_weekly={
+                count: 42,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
+                    Friday,
+                    Saturday,
                 ],
-            ),
-            retention_monthly=azure.backup.PolicyVMRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
+            },
+            retention_monthly={
+                count: 7,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
                 ],
-                weeks=[
-                    "First",
-                    "Last",
+                weeks: [
+                    First,
+                    Last,
                 ],
-            ),
-            retention_yearly=azure.backup.PolicyVMRetentionYearlyArgs(
-                count=77,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
+            },
+            retention_yearly={
+                count: 77,
+                weekdays: [Sunday],
+                weeks: [Last],
+                months: [January],
+            })
         ```
 
         ## Import

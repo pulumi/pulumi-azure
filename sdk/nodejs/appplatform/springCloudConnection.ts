@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "example-cosmosdb-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -35,25 +35,25 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ * const exampleSqlDatabase = new azure.cosmosdb/sqlDatabase.SqlDatabase("example", {
  *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ * const exampleSqlContainer = new azure.cosmosdb/sqlContainer.SqlContainer("example", {
  *     name: "example-container",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/definition",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ * const exampleSpringCloudService = new azure.appplatform/springCloudService.SpringCloudService("example", {
  *     name: "examplespringcloud",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ * const exampleSpringCloudApp = new azure.appplatform/springCloudApp.SpringCloudApp("example", {
  *     name: "examplespringcloudapp",
  *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("example", {
+ * const exampleSpringCloudJavaDeployment = new azure.appplatform/springCloudJavaDeployment.SpringCloudJavaDeployment("example", {
  *     name: "exampledeployment",
  *     springCloudAppId: exampleSpringCloudApp.id,
  * });
- * const exampleSpringCloudConnection = new azure.appplatform.SpringCloudConnection("example", {
+ * const exampleSpringCloudConnection = new azure.appplatform/springCloudConnection.SpringCloudConnection("example", {
  *     name: "example-serviceconnector",
  *     springCloudId: exampleSpringCloudJavaDeployment.id,
  *     targetResourceId: exampleSqlDatabase.id,

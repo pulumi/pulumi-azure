@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.SqlDatabase;
  * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
  * import com.pulumi.azure.cosmosdb.SqlContainer;
@@ -40,10 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.LinuxWebApp;
  * import com.pulumi.azure.appservice.LinuxWebAppArgs;
- * import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigArgs;
  * import com.pulumi.azure.appservice.Connection;
  * import com.pulumi.azure.appservice.ConnectionArgs;
- * import com.pulumi.azure.appservice.inputs.ConnectionAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,15 +64,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
- *                 .maxIntervalInSeconds(10)
- *                 .maxStalenessPrefix(200)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(example.location())
- *                 .failoverPriority(0)
- *                 .build())
+ *             .consistencyPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .geoLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
@@ -114,9 +103,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-serviceconnector&#34;)
  *             .appServiceId(exampleLinuxWebApp.id())
  *             .targetResourceId(exampleSqlDatabase.id())
- *             .authentication(ConnectionAuthenticationArgs.builder()
- *                 .type(&#34;systemAssignedIdentity&#34;)
- *                 .build())
+ *             .authentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -15,39 +15,6 @@ namespace Pulumi.Azure.KeyVault
         /// Use this data source to access data stored in an existing Key Vault Certificate.
         /// 
         /// &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
-        ///     {
-        ///         Name = "examplekv",
-        ///         ResourceGroupName = "some-resource-group",
-        ///     });
-        /// 
-        ///     var exampleGetCertificateData = Azure.KeyVault.GetCertificateData.Invoke(new()
-        ///     {
-        ///         Name = "secret-sauce",
-        ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["examplePem"] = exampleGetCertificateData.Apply(getCertificateDataResult =&gt; getCertificateDataResult.Pem),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateDataResult> InvokeAsync(GetCertificateDataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataArgs(), options.WithDefaults());
@@ -56,39 +23,6 @@ namespace Pulumi.Azure.KeyVault
         /// Use this data source to access data stored in an existing Key Vault Certificate.
         /// 
         /// &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
-        ///     {
-        ///         Name = "examplekv",
-        ///         ResourceGroupName = "some-resource-group",
-        ///     });
-        /// 
-        ///     var exampleGetCertificateData = Azure.KeyVault.GetCertificateData.Invoke(new()
-        ///     {
-        ///         Name = "secret-sauce",
-        ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["examplePem"] = exampleGetCertificateData.Apply(getCertificateDataResult =&gt; getCertificateDataResult.Pem),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateDataResult> Invoke(GetCertificateDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataInvokeArgs(), options.WithDefaults());

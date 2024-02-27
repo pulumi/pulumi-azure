@@ -214,34 +214,6 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         """
         Manages a Network Manager Scope Connection which may cross tenants.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        current = azure.core.get_client_config()
-        current_get_subscription = azure.core.get_subscription()
-        alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_network_manager = azure.network.NetworkManager("example",
-            name="example-networkmanager",
-            location=example.location,
-            resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_get_subscription.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("example",
-            name="example-nsc",
-            network_manager_id=example_network_manager.id,
-            tenant_id=current.tenant_id,
-            target_scope_id=alt.id,
-            description="example")
-        ```
-
         ## Import
 
         Network Manager Scope Connection can be imported using the `resource id`, e.g.
@@ -266,34 +238,6 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Scope Connection which may cross tenants.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        current = azure.core.get_client_config()
-        current_get_subscription = azure.core.get_subscription()
-        alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_network_manager = azure.network.NetworkManager("example",
-            name="example-networkmanager",
-            location=example.location,
-            resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_get_subscription.id],
-            ),
-            scope_accesses=["SecurityAdmin"])
-        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("example",
-            name="example-nsc",
-            network_manager_id=example_network_manager.id,
-            tenant_id=current.tenant_id,
-            target_scope_id=alt.id,
-            description="example")
-        ```
 
         ## Import
 

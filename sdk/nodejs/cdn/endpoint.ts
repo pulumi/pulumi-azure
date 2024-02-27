@@ -17,17 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleProfile = new azure.cdn.Profile("example", {
+ * const exampleProfile = new azure.cdn/profile.Profile("example", {
  *     name: "example-cdn",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard_Verizon",
  * });
- * const exampleEndpoint = new azure.cdn.Endpoint("example", {
+ * const exampleEndpoint = new azure.cdn/endpoint.Endpoint("example", {
  *     name: "example",
  *     profileName: exampleProfile.name,
  *     location: example.location,

@@ -183,25 +183,25 @@ class DscNodeConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="account1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=account1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_dsc_configuration = azure.automation.DscConfiguration("example",
-            name="test",
+            sku_name=Basic)
+        example_dsc_configuration = azure.automation.dsc_configuration.DscConfiguration("example",
+            name=test,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             location=example.location,
-            content_embedded="configuration test {}")
-        example_dsc_node_configuration = azure.automation.DscNodeConfiguration("example",
-            name="test.localhost",
+            content_embedded=configuration test {})
+        example_dsc_node_configuration = azure.automation.dsc_node_configuration.DscNodeConfiguration("example",
+            name=test.localhost,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            content_embedded=\"\"\"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+            content_embedded=instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
         {
           ResourceID = "[File]bla";
           Ensure = "Present";
@@ -222,7 +222,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
           GenerationHost="bogusComputer";
           Name="test";
         };
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -255,25 +255,25 @@ class DscNodeConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="account1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=account1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_dsc_configuration = azure.automation.DscConfiguration("example",
-            name="test",
+            sku_name=Basic)
+        example_dsc_configuration = azure.automation.dsc_configuration.DscConfiguration("example",
+            name=test,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             location=example.location,
-            content_embedded="configuration test {}")
-        example_dsc_node_configuration = azure.automation.DscNodeConfiguration("example",
-            name="test.localhost",
+            content_embedded=configuration test {})
+        example_dsc_node_configuration = azure.automation.dsc_node_configuration.DscNodeConfiguration("example",
+            name=test.localhost,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            content_embedded=\"\"\"instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+            content_embedded=instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
         {
           ResourceID = "[File]bla";
           Ensure = "Present";
@@ -294,7 +294,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
           GenerationHost="bogusComputer";
           Name="test";
         };
-        \"\"\")
+        )
         ```
 
         ## Import

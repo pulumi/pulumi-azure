@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	privatedns/sRVRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/sRVRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := privatedns.NewSRVRecord(ctx, "example", &privatedns.SRVRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := privatedns/sRVRecord.NewSRVRecord(ctx, "example", &privatedns/sRVRecord.SRVRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.Id)
+// return nil
+// })
+// }
 // ```
 func GetSrvRecord(ctx *pulumi.Context, args *GetSrvRecordArgs, opts ...pulumi.InvokeOption) (*GetSrvRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

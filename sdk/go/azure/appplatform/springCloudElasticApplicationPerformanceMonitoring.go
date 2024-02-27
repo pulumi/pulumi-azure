@@ -23,48 +23,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudElasticApplicationPerformanceMonitoring "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudElasticApplicationPerformanceMonitoring"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudElasticApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudElasticApplicationPerformanceMonitoringArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				GloballyEnabled:      pulumi.Bool(true),
-//				ApplicationPackages: pulumi.StringArray{
-//					pulumi.String("org.example"),
-//					pulumi.String("org.another.example"),
-//				},
-//				ServiceName: pulumi.String("example-service-name"),
-//				ServerUrl:   pulumi.String("http://127.0.0.1:8200"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudElasticApplicationPerformanceMonitoring.NewSpringCloudElasticApplicationPerformanceMonitoring(ctx, "example", &appplatform/springCloudElasticApplicationPerformanceMonitoring.SpringCloudElasticApplicationPerformanceMonitoringArgs{
+// Name: "example",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// GloballyEnabled: true,
+// ApplicationPackages: []string{
+// "org.example",
+// "org.another.example",
+// },
+// ServiceName: "example-service-name",
+// ServerUrl: "http://127.0.0.1:8200",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

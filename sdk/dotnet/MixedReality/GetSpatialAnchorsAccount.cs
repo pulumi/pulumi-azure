@@ -13,66 +13,12 @@ namespace Pulumi.Azure.MixedReality
     {
         /// <summary>
         /// Get information about an Azure Spatial Anchors Account.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.MixedReality.GetSpatialAnchorsAccount.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["accountDomain"] = accountDomainAzurermSpatialAnchorsAccount,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about an Azure Spatial Anchors Account.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.MixedReality.GetSpatialAnchorsAccount.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["accountDomain"] = accountDomainAzurermSpatialAnchorsAccount,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());

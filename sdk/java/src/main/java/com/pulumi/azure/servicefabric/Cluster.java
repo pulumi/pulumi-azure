@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.servicefabric.Cluster;
  * import com.pulumi.azure.servicefabric.ClusterArgs;
- * import com.pulumi.azure.servicefabric.inputs.ClusterNodeTypeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,13 +68,7 @@ import javax.annotation.Nullable;
  *             .clusterCodeVersion(&#34;7.1.456.959&#34;)
  *             .vmImage(&#34;Windows&#34;)
  *             .managementEndpoint(&#34;https://example:80&#34;)
- *             .nodeTypes(ClusterNodeTypeArgs.builder()
- *                 .name(&#34;first&#34;)
- *                 .instanceCount(3)
- *                 .isPrimary(true)
- *                 .clientEndpointPort(2020)
- *                 .httpEndpointPort(80)
- *                 .build())
+ *             .nodeTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

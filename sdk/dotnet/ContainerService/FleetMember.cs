@@ -24,42 +24,42 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var example = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         DnsPrefix = "acctestaksexample",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "example-value",
-    ///             NodeCount = "example-value",
-    ///             VmSize = "example-value",
+    ///             { "name", "example-value" },
+    ///             { "nodeCount", "example-value" },
+    ///             { "vmSize", "example-value" },
     ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "example-value",
+    ///             { "type", "example-value" },
     ///         },
     ///     });
     /// 
-    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("example", new()
+    ///     var exampleKubernetesFleetManager = new Azure.Containerservice.KubernetesFleetManager.KubernetesFleetManager("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         HubProfile = new Azure.ContainerService.Inputs.KubernetesFleetManagerHubProfileArgs
+    ///         HubProfile = 
     ///         {
-    ///             DnsPrefix = "val-example",
+    ///             { "dnsPrefix", "val-example" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFleetMember = new Azure.ContainerService.FleetMember("example", new()
+    ///     var exampleFleetMember = new Azure.Containerservice.FleetMember.FleetMember("example", new()
     ///     {
     ///         KubernetesClusterId = example.Id,
     ///         KubernetesFleetId = exampleKubernetesFleetManager.Id,

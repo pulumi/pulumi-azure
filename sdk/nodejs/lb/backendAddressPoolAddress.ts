@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getVirtualNetwork({
- *     name: "example-network",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetLB = azure.lb.getLB({
- *     name: "example-lb",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetBackendAddressPool = exampleGetLB.then(exampleGetLB => azure.lb.getBackendAddressPool({
- *     name: "first",
- *     loadbalancerId: exampleGetLB.id,
- * }));
- * const exampleBackendAddressPoolAddress = new azure.lb.BackendAddressPoolAddress("example", {
- *     name: "example",
- *     backendAddressPoolId: exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id),
- *     virtualNetworkId: example.then(example => example.id),
- *     ipAddress: "10.0.0.1",
- * });
- * const backend-pool-cr = exampleGetLB.then(exampleGetLB => azure.lb.getBackendAddressPool({
- *     name: "globalLBBackendPool",
- *     loadbalancerId: exampleGetLB.id,
- * }));
- * const example_1 = new azure.lb.BackendAddressPoolAddress("example-1", {
- *     name: "address1",
- *     backendAddressPoolId: backend_pool_cr.then(backend_pool_cr => backend_pool_cr.id),
- *     backendAddressIpConfigurationId: backend_lb_R1.frontendIpConfiguration[0].id,
- * });
- * const example_2 = new azure.lb.BackendAddressPoolAddress("example-2", {
- *     name: "address2",
- *     backendAddressPoolId: backend_pool_cr.then(backend_pool_cr => backend_pool_cr.id),
- *     backendAddressIpConfigurationId: backend_lb_R2.frontendIpConfiguration[0].id,
- * });
- * ```
- *
  * ## Import
  *
  * Backend Address Pool Addresses can be imported using the `resource id`, e.g.

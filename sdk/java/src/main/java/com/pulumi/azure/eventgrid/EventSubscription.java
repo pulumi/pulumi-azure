@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.QueueArgs;
  * import com.pulumi.azure.eventgrid.EventSubscription;
  * import com.pulumi.azure.eventgrid.EventSubscriptionArgs;
- * import com.pulumi.azure.eventgrid.inputs.EventSubscriptionStorageQueueEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,7 +69,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        
@@ -81,10 +80,7 @@ import javax.annotation.Nullable;
  *         var exampleEventSubscription = new EventSubscription(&#34;exampleEventSubscription&#34;, EventSubscriptionArgs.builder()        
  *             .name(&#34;example-aees&#34;)
  *             .scope(example.id())
- *             .storageQueueEndpoint(EventSubscriptionStorageQueueEndpointArgs.builder()
- *                 .storageAccountId(exampleAccount.id())
- *                 .queueName(exampleQueue.name())
- *                 .build())
+ *             .storageQueueEndpoint(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

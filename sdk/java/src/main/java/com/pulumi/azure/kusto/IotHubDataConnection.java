@@ -29,12 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import com.pulumi.azure.kusto.Database;
  * import com.pulumi.azure.kusto.DatabaseArgs;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
  * import com.pulumi.azure.iot.SharedAccessPolicy;
  * import com.pulumi.azure.iot.SharedAccessPolicyArgs;
  * import com.pulumi.azure.iot.ConsumerGroup;
@@ -63,10 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplekustocluster&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
- *                 .capacity(2)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
@@ -82,10 +77,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;exampleIoTHub&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSharedAccessPolicy = new SharedAccessPolicy(&#34;exampleSharedAccessPolicy&#34;, SharedAccessPolicyArgs.builder()        

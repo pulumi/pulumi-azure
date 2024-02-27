@@ -470,20 +470,20 @@ class SpringCloudApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example-springcloudapp,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                type: SystemAssigned,
+            })
         ```
 
         ## Import
@@ -524,20 +524,20 @@ class SpringCloudApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example-springcloudapp,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                type: SystemAssigned,
+            })
         ```
 
         ## Import

@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.devcenter.DevCenter;
  * import com.pulumi.azure.devcenter.DevCenterArgs;
- * import com.pulumi.azure.devcenter.inputs.DevCenterIdentityArgs;
  * import com.pulumi.azure.devcenter.Project;
  * import com.pulumi.azure.devcenter.ProjectArgs;
  * import java.util.List;
@@ -57,9 +56,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .identity(DevCenterIdentityArgs.builder()
- *                 .type(&#34;example-value&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        

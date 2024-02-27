@@ -21,85 +21,85 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	appservice/functionApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/functionApp"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	streamanalytics/job "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/job"
+//	streamanalytics/outputFunction "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/outputFunction"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageaccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("exampleappserviceplan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("FunctionApp"),
-//				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Dynamic"),
-//					Size: pulumi.String("Y1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "example", &appservice.FunctionAppArgs{
-//				Name:                    pulumi.String("examplefunctionapp"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
-//				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				OsType:                  pulumi.String("linux"),
-//				Version:                 pulumi.String("~3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleJob, err := streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
-//				Name:                pulumi.String("examplestreamanalyticsjob"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				StreamingUnits:      pulumi.Int(3),
-//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewOutputFunction(ctx, "example", &streamanalytics.OutputFunctionArgs{
-//				Name:                   pulumi.String("exampleoutput"),
-//				ResourceGroupName:      exampleJob.ResourceGroupName,
-//				StreamAnalyticsJobName: exampleJob.Name,
-//				FunctionApp:            exampleFunctionApp.Name,
-//				FunctionName:           pulumi.String("examplefunctionname"),
-//				ApiKey:                 pulumi.String("exampleapikey"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "exampleappserviceplan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "FunctionApp",
+// Reserved: true,
+// Sku: map[string]interface{}{
+// "tier": "Dynamic",
+// "size": "Y1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleFunctionApp, err := appservice/functionApp.NewFunctionApp(ctx, "example", &appservice/functionApp.FunctionAppArgs{
+// Name: "examplefunctionapp",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// OsType: "linux",
+// Version: "~3",
+// })
+// if err != nil {
+// return err
+// }
+// exampleJob, err := streamanalytics/job.NewJob(ctx, "example", &streamanalytics/job.JobArgs{
+// Name: "examplestreamanalyticsjob",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// StreamingUnits: 3,
+// TransformationQuery: "    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = streamanalytics/outputFunction.NewOutputFunction(ctx, "example", &streamanalytics/outputFunction.OutputFunctionArgs{
+// Name: "exampleoutput",
+// ResourceGroupName: exampleJob.ResourceGroupName,
+// StreamAnalyticsJobName: exampleJob.Name,
+// FunctionApp: exampleFunctionApp.Name,
+// FunctionName: "examplefunctionname",
+// ApiKey: "exampleapikey",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

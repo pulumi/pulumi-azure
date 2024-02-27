@@ -110,8 +110,8 @@ class Setting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.Setting("example",
-            setting_name="MCAS",
+        example = azure.securitycenter.setting.Setting("example",
+            setting_name=MCAS,
             enabled=True)
         ```
 
@@ -147,8 +147,8 @@ class Setting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.Setting("example",
-            setting_name="MCAS",
+        example = azure.securitycenter.setting.Setting("example",
+            setting_name=MCAS,
             enabled=True)
         ```
 

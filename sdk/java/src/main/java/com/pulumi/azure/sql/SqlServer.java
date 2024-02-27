@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

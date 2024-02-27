@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "rg-example",
- *     location: "West Europe",
- * });
- * const exampleManagedInstance = new azure.sql.ManagedInstance("example", {
- *     name: "managedsqlinstance",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     administratorLogin: "mradministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     licenseType: "BasePrice",
- *     subnetId: exampleAzurermSubnet.id,
- *     skuName: "GP_Gen5",
- *     vcores: 4,
- *     storageSizeInGb: 32,
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.sql.ManagedInstanceActiveDirectoryAdministrator("example", {
- *     managedInstanceName: exampleManagedInstance.name,
- *     resourceGroupName: example.name,
- *     login: "sqladmin",
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- * });
- * ```
- *
  * ## Import
  *
  * A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

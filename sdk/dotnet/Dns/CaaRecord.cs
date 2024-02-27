@@ -20,19 +20,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleCaaRecord = new Azure.Dns.CaaRecord("example", new()
+    ///     var exampleCaaRecord = new Azure.Dns.CaaRecord.CaaRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
@@ -40,29 +40,29 @@ namespace Pulumi.Azure.Dns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             
     ///             {
-    ///                 Flags = 0,
-    ///                 Tag = "issue",
-    ///                 Value = "example.com",
+    ///                 { "flags", 0 },
+    ///                 { "tag", "issue" },
+    ///                 { "value", "example.com" },
     ///             },
-    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             
     ///             {
-    ///                 Flags = 0,
-    ///                 Tag = "issue",
-    ///                 Value = "example.net",
+    ///                 { "flags", 0 },
+    ///                 { "tag", "issue" },
+    ///                 { "value", "example.net" },
     ///             },
-    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             
     ///             {
-    ///                 Flags = 0,
-    ///                 Tag = "issuewild",
-    ///                 Value = ";",
+    ///                 { "flags", 0 },
+    ///                 { "tag", "issuewild" },
+    ///                 { "value", ";" },
     ///             },
-    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             
     ///             {
-    ///                 Flags = 0,
-    ///                 Tag = "iodef",
-    ///                 Value = "mailto:user@nonexisting.tld",
+    ///                 { "flags", 0 },
+    ///                 { "tag", "iodef" },
+    ///                 { "value", "mailto:user@nonexisting.tld" },
     ///             },
     ///         },
     ///         Tags = 

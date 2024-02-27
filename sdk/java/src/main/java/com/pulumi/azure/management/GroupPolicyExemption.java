@@ -18,64 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Management Group Policy Exemption.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.management.Group;
- * import com.pulumi.azure.management.GroupArgs;
- * import com.pulumi.azure.policy.PolicyFunctions;
- * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
- * import com.pulumi.azure.management.GroupPolicyAssignment;
- * import com.pulumi.azure.management.GroupPolicyAssignmentArgs;
- * import com.pulumi.azure.management.inputs.GroupPolicyAssignmentIdentityArgs;
- * import com.pulumi.azure.management.GroupPolicyExemption;
- * import com.pulumi.azure.management.GroupPolicyExemptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .displayName(&#34;Example MgmtGroup&#34;)
- *             .build());
- * 
- *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
- *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
- *             .build());
- * 
- *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;assignment1&#34;)
- *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
- *             .location(&#34;westus&#34;)
- *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleGroupPolicyExemption = new GroupPolicyExemption(&#34;exampleGroupPolicyExemption&#34;, GroupPolicyExemptionArgs.builder()        
- *             .name(&#34;exemption1&#34;)
- *             .managementGroupId(exampleGroup.id())
- *             .policyAssignmentId(exampleGroupPolicyAssignment.id())
- *             .exemptionCategory(&#34;Mitigated&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Policy Exemptions can be imported using the `resource id`, e.g.

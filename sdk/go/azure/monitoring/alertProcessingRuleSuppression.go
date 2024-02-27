@@ -21,75 +21,73 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/alertProcessingRuleSuppression "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/alertProcessingRuleSuppression"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewAlertProcessingRuleSuppression(ctx, "example", &monitoring.AlertProcessingRuleSuppressionArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Scopes: pulumi.StringArray{
-//					example.ID(),
-//				},
-//				Condition: &monitoring.AlertProcessingRuleSuppressionConditionArgs{
-//					TargetResourceType: &monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs{
-//						Operator: pulumi.String("Equals"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Microsoft.Compute/VirtualMachines"),
-//						},
-//					},
-//					Severity: &monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs{
-//						Operator: pulumi.String("Equals"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Sev0"),
-//							pulumi.String("Sev1"),
-//							pulumi.String("Sev2"),
-//						},
-//					},
-//				},
-//				Schedule: &monitoring.AlertProcessingRuleSuppressionScheduleArgs{
-//					EffectiveFrom:  pulumi.String("2022-01-01T01:02:03"),
-//					EffectiveUntil: pulumi.String("2022-02-02T01:02:03"),
-//					TimeZone:       pulumi.String("Pacific Standard Time"),
-//					Recurrence: &monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs{
-//						Dailies: monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray{
-//							&monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs{
-//								StartTime: pulumi.String("17:00:00"),
-//								EndTime:   pulumi.String("09:00:00"),
-//							},
-//						},
-//						Weeklies: monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray{
-//							&monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs{
-//								DaysOfWeeks: pulumi.StringArray{
-//									pulumi.String("Saturday"),
-//									pulumi.String("Sunday"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/alertProcessingRuleSuppression.NewAlertProcessingRuleSuppression(ctx, "example", &monitoring/alertProcessingRuleSuppression.AlertProcessingRuleSuppressionArgs{
+// Name: "example",
+// ResourceGroupName: "example",
+// Scopes: []interface{}{
+// example.Id,
+// },
+// Condition: map[string]interface{}{
+// "targetResourceType": map[string]interface{}{
+// "operator": "Equals",
+// "values": []string{
+// "Microsoft.Compute/VirtualMachines",
+// },
+// },
+// "severity": map[string]interface{}{
+// "operator": "Equals",
+// "values": []string{
+// "Sev0",
+// "Sev1",
+// "Sev2",
+// },
+// },
+// },
+// Schedule: map[string]interface{}{
+// "effectiveFrom": "2022-01-01T01:02:03",
+// "effectiveUntil": "2022-02-02T01:02:03",
+// "timeZone": "Pacific Standard Time",
+// "recurrence": map[string]interface{}{
+// "dailies": []map[string]interface{}{
+// map[string]interface{}{
+// "startTime": "17:00:00",
+// "endTime": "09:00:00",
+// },
+// },
+// "weeklies": []map[string]interface{}{
+// map[string]interface{}{
+// "daysOfWeeks": []string{
+// "Saturday",
+// "Sunday",
+// },
+// },
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,97 +21,99 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	appservice/connection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/connection"
+//	appservice/linuxWebApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/linuxWebApp"
+//	appservice/servicePlan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/servicePlan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/account"
+//	cosmosdb/sqlContainer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/sqlContainer"
+//	cosmosdb/sqlDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/sqlDatabase"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
-//					MaxIntervalInSeconds: pulumi.Int(10),
-//					MaxStalenessPrefix:   pulumi.Int(200),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         example.Location,
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
-//				Name:              pulumi.String("cosmos-sql-db"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//				Throughput:        pulumi.Int(400),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-//				Name:              pulumi.String("example-container"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//				DatabaseName:      exampleSqlDatabase.Name,
-//				PartitionKeyPath:  pulumi.String("/definition"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
-//				Location:          example.Location,
-//				Name:              pulumi.String("example-serviceplan"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("P1v2"),
-//				OsType:            pulumi.String("Linux"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
-//				Location:          example.Location,
-//				Name:              pulumi.String("example-linuxwebapp"),
-//				ResourceGroupName: example.Name,
-//				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewConnection(ctx, "example", &appservice.ConnectionArgs{
-//				Name:             pulumi.String("example-serviceconnector"),
-//				AppServiceId:     exampleLinuxWebApp.ID(),
-//				TargetResourceId: exampleSqlDatabase.ID(),
-//				Authentication: &appservice.ConnectionAuthenticationArgs{
-//					Type: pulumi.String("systemAssignedIdentity"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cosmosdb/account.NewAccount(ctx, "example", &cosmosdb/account.AccountArgs{
+// Name: "example-cosmosdb-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// OfferType: "Standard",
+// Kind: "GlobalDocumentDB",
+// ConsistencyPolicy: map[string]interface{}{
+// "consistencyLevel": "BoundedStaleness",
+// "maxIntervalInSeconds": 10,
+// "maxStalenessPrefix": 200,
+// },
+// GeoLocations: []map[string]interface{}{
+// map[string]interface{}{
+// "location": example.Location,
+// "failoverPriority": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlDatabase, err := cosmosdb/sqlDatabase.NewSqlDatabase(ctx, "example", &cosmosdb/sqlDatabase.SqlDatabaseArgs{
+// Name: "cosmos-sql-db",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// Throughput: 400,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/sqlContainer.NewSqlContainer(ctx, "example", &cosmosdb/sqlContainer.SqlContainerArgs{
+// Name: "example-container",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// DatabaseName: exampleSqlDatabase.Name,
+// PartitionKeyPath: "/definition",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServicePlan, err := appservice/servicePlan.NewServicePlan(ctx, "example", &appservice/servicePlan.ServicePlanArgs{
+// Location: example.Location,
+// Name: "example-serviceplan",
+// ResourceGroupName: example.Name,
+// SkuName: "P1v2",
+// OsType: "Linux",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxWebApp, err := appservice/linuxWebApp.NewLinuxWebApp(ctx, "example", &appservice/linuxWebApp.LinuxWebAppArgs{
+// Location: example.Location,
+// Name: "example-linuxwebapp",
+// ResourceGroupName: example.Name,
+// ServicePlanId: exampleServicePlan.Id,
+// SiteConfig: nil,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/connection.NewConnection(ctx, "example", &appservice/connection.ConnectionArgs{
+// Name: "example-serviceconnector",
+// AppServiceId: exampleLinuxWebApp.Id,
+// TargetResourceId: exampleSqlDatabase.Id,
+// Authentication: map[string]interface{}{
+// "type": "systemAssignedIdentity",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

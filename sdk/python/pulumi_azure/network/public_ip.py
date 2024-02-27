@@ -691,16 +691,16 @@ class PublicIp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="acceptanceTestPublicIp1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=acceptanceTestPublicIp1,
             resource_group_name=example.name,
             location=example.location,
-            allocation_method="Static",
+            allocation_method=Static,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -763,16 +763,16 @@ class PublicIp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="acceptanceTestPublicIp1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=acceptanceTestPublicIp1,
             resource_group_name=example.name,
             location=example.location,
-            allocation_method="Static",
+            allocation_method=Static,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

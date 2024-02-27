@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "west europe",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ * const exampleSpringCloudService = new azure.appplatform/springCloudService.SpringCloudService("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudAccelerator = new azure.appplatform.SpringCloudAccelerator("example", {
+ * const exampleSpringCloudAccelerator = new azure.appplatform/springCloudAccelerator.SpringCloudAccelerator("example", {
  *     name: "default",
  *     springCloudServiceId: exampleSpringCloudService.id,
  * });
- * const exampleSpringCloudCustomizedAccelerator = new azure.appplatform.SpringCloudCustomizedAccelerator("example", {
+ * const exampleSpringCloudCustomizedAccelerator = new azure.appplatform/springCloudCustomizedAccelerator.SpringCloudCustomizedAccelerator("example", {
  *     name: "example",
  *     springCloudAcceleratorId: exampleSpringCloudAccelerator.id,
  *     gitRepository: {

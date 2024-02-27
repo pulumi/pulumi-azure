@@ -240,38 +240,38 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_iot_hub_device_update_account = azure.iot.iot_hub_device_update_account.IotHubDeviceUpdateAccount("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("example",
-            name="example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_iot_hub_device_update_instance = azure.iot.IotHubDeviceUpdateInstance("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_iot_hub_device_update_instance = azure.iot.iot_hub_device_update_instance.IotHubDeviceUpdateInstance("example",
+            name=example,
             device_update_account_id=example_iot_hub_device_update_account.id,
             iothub_id=example_io_t_hub.id,
             diagnostic_enabled=True,
-            diagnostic_storage_account=azure.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(
-                connection_string=example_account.primary_connection_string,
-                id=example_account.id,
-            ),
+            diagnostic_storage_account={
+                connectionString: example_account.primary_connection_string,
+                id: example_account.id,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -307,38 +307,38 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_iot_hub_device_update_account = azure.iot.iot_hub_device_update_account.IotHubDeviceUpdateAccount("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("example",
-            name="example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_iot_hub_device_update_instance = azure.iot.IotHubDeviceUpdateInstance("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_iot_hub_device_update_instance = azure.iot.iot_hub_device_update_instance.IotHubDeviceUpdateInstance("example",
+            name=example,
             device_update_account_id=example_iot_hub_device_update_account.id,
             iothub_id=example_io_t_hub.id,
             diagnostic_enabled=True,
-            diagnostic_storage_account=azure.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs(
-                connection_string=example_account.primary_connection_string,
-                id=example_account.id,
-            ),
+            diagnostic_storage_account={
+                connectionString: example_account.primary_connection_string,
+                id: example_account.id,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

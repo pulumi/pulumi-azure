@@ -21,62 +21,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	apimanagement/redisCache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/redisCache"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("pub1"),
-//				PublisherEmail:    pulumi.String("pub1@email.com"),
-//				SkuName:           pulumi.String("Consumption_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
-//				Name:               pulumi.String("example-cache"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				Capacity:           pulumi.Int(1),
-//				Family:             pulumi.String("C"),
-//				SkuName:            pulumi.String("Basic"),
-//				EnableNonSslPort:   pulumi.Bool(false),
-//				MinimumTlsVersion:  pulumi.String("1.2"),
-//				RedisConfiguration: nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewRedisCache(ctx, "example", &apimanagement.RedisCacheArgs{
-//				Name:             pulumi.String("example-Redis-Cache"),
-//				ApiManagementId:  exampleService.ID(),
-//				ConnectionString: exampleCache.PrimaryConnectionString,
-//				Description:      pulumi.String("Redis cache instances"),
-//				RedisCacheId:     exampleCache.ID(),
-//				CacheLocation:    pulumi.String("East Us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "pub1",
+// PublisherEmail: "pub1@email.com",
+// SkuName: "Consumption_0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCache, err := redis/cache.NewCache(ctx, "example", &redis/cache.CacheArgs{
+// Name: "example-cache",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Capacity: 1,
+// Family: "C",
+// SkuName: "Basic",
+// EnableNonSslPort: false,
+// MinimumTlsVersion: "1.2",
+// RedisConfiguration: nil,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/redisCache.NewRedisCache(ctx, "example", &apimanagement/redisCache.RedisCacheArgs{
+// Name: "example-Redis-Cache",
+// ApiManagementId: exampleService.Id,
+// ConnectionString: exampleCache.PrimaryConnectionString,
+// Description: "Redis cache instances",
+// RedisCacheId: exampleCache.Id,
+// CacheLocation: "East Us",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

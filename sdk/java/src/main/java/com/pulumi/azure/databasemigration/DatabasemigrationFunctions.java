@@ -20,78 +20,12 @@ public final class DatabasemigrationFunctions {
     /**
      * Use this data source to access information about an existing Database Migration Project.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args) {
         return getProject(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Database Migration Project.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
@@ -100,78 +34,12 @@ public final class DatabasemigrationFunctions {
     /**
      * Use this data source to access information about an existing Database Migration Project.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databasemigration/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Database Migration Project.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetProjectArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getProject(GetProjectArgs.builder()
-     *             .name(&#34;example-dbms-project&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .serviceName(&#34;example-dbms&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getProjectResult -&gt; getProjectResult.name()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
@@ -180,76 +48,12 @@ public final class DatabasemigrationFunctions {
     /**
      * Use this data source to access information about an existing Database Migration Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
         return getService(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Database Migration Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -258,76 +62,12 @@ public final class DatabasemigrationFunctions {
     /**
      * Use this data source to access information about an existing Database Migration Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databasemigration/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Database Migration Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databasemigration.DatabasemigrationFunctions;
-     * import com.pulumi.azure.databasemigration.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabasemigrationFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-dms&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDmsId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

@@ -238,24 +238,24 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account2 = azure.batch.Account("example",
-            name="exampleba",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_account2 = azure.batch.account.Account("example",
+            name=exampleba,
             resource_group_name=example.name,
             location=example.location,
-            pool_allocation_mode="BatchService",
+            pool_allocation_mode=BatchService,
             storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys")
-        example_application = azure.batch.Application("example",
-            name="example-batch-application",
+            storage_account_authentication_mode=StorageKeys)
+        example_application = azure.batch.application.Application("example",
+            name=example-batch-application,
             resource_group_name=example.name,
             account_name=example_account2.name)
         ```
@@ -292,24 +292,24 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account2 = azure.batch.Account("example",
-            name="exampleba",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_account2 = azure.batch.account.Account("example",
+            name=exampleba,
             resource_group_name=example.name,
             location=example.location,
-            pool_allocation_mode="BatchService",
+            pool_allocation_mode=BatchService,
             storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys")
-        example_application = azure.batch.Application("example",
-            name="example-batch-application",
+            storage_account_authentication_mode=StorageKeys)
+        example_application = azure.batch.application.Application("example",
+            name=example-batch-application,
             resource_group_name=example.name,
             account_name=example_account2.name)
         ```

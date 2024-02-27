@@ -236,40 +236,40 @@ class ApiOperationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("example",
-            name="example-api",
+            publisher_name=My Company,
+            publisher_email=company@terraform.io,
+            sku_name=Developer_1)
+        example_api = azure.apimanagement.api.Api("example",
+            name=example-api,
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            revision="1")
-        example_api_operation = azure.apimanagement.ApiOperation("example",
-            operation_id="acctest-operation",
+            revision=1)
+        example_api_operation = azure.apimanagement.api_operation.ApiOperation("example",
+            operation_id=acctest-operation,
             api_name=example_api.name,
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            display_name="DELETE Resource",
-            method="DELETE",
-            url_template="/resource")
-        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("example",
+            display_name=DELETE Resource,
+            method=DELETE,
+            url_template=/resource)
+        example_api_operation_policy = azure.apimanagement.api_operation_policy.ApiOperationPolicy("example",
             api_name=example_api_operation.api_name,
             api_management_name=example_api_operation.api_management_name,
             resource_group_name=example_api_operation.resource_group_name,
             operation_id=example_api_operation.operation_id,
-            xml_content=\"\"\"<policies>
+            xml_content=<policies>
           <inbound>
             <find-and-replace from="xyz" to="abc" />
           </inbound>
         </policies>
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -304,40 +304,40 @@ class ApiOperationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@terraform.io",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("example",
-            name="example-api",
+            publisher_name=My Company,
+            publisher_email=company@terraform.io,
+            sku_name=Developer_1)
+        example_api = azure.apimanagement.api.Api("example",
+            name=example-api,
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            revision="1")
-        example_api_operation = azure.apimanagement.ApiOperation("example",
-            operation_id="acctest-operation",
+            revision=1)
+        example_api_operation = azure.apimanagement.api_operation.ApiOperation("example",
+            operation_id=acctest-operation,
             api_name=example_api.name,
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            display_name="DELETE Resource",
-            method="DELETE",
-            url_template="/resource")
-        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("example",
+            display_name=DELETE Resource,
+            method=DELETE,
+            url_template=/resource)
+        example_api_operation_policy = azure.apimanagement.api_operation_policy.ApiOperationPolicy("example",
             api_name=example_api_operation.api_name,
             api_management_name=example_api_operation.api_management_name,
             resource_group_name=example_api_operation.resource_group_name,
             operation_id=example_api_operation.operation_id,
-            xml_content=\"\"\"<policies>
+            xml_content=<policies>
           <inbound>
             <find-and-replace from="xyz" to="abc" />
           </inbound>
         </policies>
-        \"\"\")
+        )
         ```
 
         ## Import

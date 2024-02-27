@@ -22,13 +22,13 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-virtualnetwork",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.NetApp
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -50,30 +50,30 @@ namespace Pulumi.Azure.NetApp
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "netapp",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "netapp" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Netapp/volumes",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Netapp/volumes" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/networkinterfaces/*",
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     var exampleAccount = new Azure.Netapp.Account.Account("example", new()
     ///     {
     ///         Name = "example-netappaccount",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePool = new Azure.NetApp.Pool("example", new()
+    ///     var examplePool = new Azure.Netapp.Pool.Pool("example", new()
     ///     {
     ///         Name = "example-netapppool",
     ///         Location = example.Location,
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.NetApp
     ///         SizeInTb = 4,
     ///     });
     /// 
-    ///     var exampleVolume = new Azure.NetApp.Volume("example", new()
+    ///     var exampleVolume = new Azure.Netapp.Volume.Volume("example", new()
     ///     {
     ///         Name = "example-netappvolume",
     ///         Location = example.Location,
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.NetApp
     ///         SnapshotDirectoryVisible = false,
     ///     });
     /// 
-    ///     var quota1 = new Azure.NetApp.VolumeQuotaRule("quota1", new()
+    ///     var quota1 = new Azure.Netapp.VolumeQuotaRule.VolumeQuotaRule("quota1", new()
     ///     {
     ///         Name = "example-quota-rule-1",
     ///         Location = example.Location,
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.NetApp
     ///         QuotaType = "IndividualGroupQuota",
     ///     });
     /// 
-    ///     var quota2 = new Azure.NetApp.VolumeQuotaRule("quota2", new()
+    ///     var quota2 = new Azure.Netapp.VolumeQuotaRule.VolumeQuotaRule("quota2", new()
     ///     {
     ///         Name = "example-quota-rule-2",
     ///         Location = example.Location,
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.NetApp
     ///         QuotaType = "IndividualUserQuota",
     ///     });
     /// 
-    ///     var quota3 = new Azure.NetApp.VolumeQuotaRule("quota3", new()
+    ///     var quota3 = new Azure.Netapp.VolumeQuotaRule.VolumeQuotaRule("quota3", new()
     ///     {
     ///         Name = "example-quota-rule-3",
     ///         Location = example.Location,
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.NetApp
     ///         QuotaType = "DefaultUserQuota",
     ///     });
     /// 
-    ///     var quota4 = new Azure.NetApp.VolumeQuotaRule("quota4", new()
+    ///     var quota4 = new Azure.Netapp.VolumeQuotaRule.VolumeQuotaRule("quota4", new()
     ///     {
     ///         Name = "example-quota-rule-4",
     ///         Location = example.Location,

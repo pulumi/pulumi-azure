@@ -20,11 +20,11 @@ import {Kind} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "api-appserviceplan-pro",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -40,11 +40,11 @@ import {Kind} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "api-appserviceplan-pro",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -61,11 +61,11 @@ import {Kind} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "api-appserviceplan-pro",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -83,11 +83,11 @@ import {Kind} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "api-appserviceplan-pro",
  *     location: example.location,
  *     resourceGroupName: example.name,

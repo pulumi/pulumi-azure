@@ -12,46 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Map.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
-    ///     {
-    ///         Name = "example-ia",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Standard",
-    ///     });
-    /// 
-    ///     var exampleIntegrationAccountMap = new Azure.LogicApps.IntegrationAccountMap("example", new()
-    ///     {
-    ///         Name = "example-iamap",
-    ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///         MapType = "Xslt",
-    ///         Content = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "testdata/integration_account_map_content.xsd",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Maps can be imported using the `resource id`, e.g.

@@ -21,53 +21,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/servicePlan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/servicePlan"
+//	appservice/windowsWebApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/windowsWebApp"
+//	appservice/windowsWebAppSlot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/windowsWebAppSlot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
-//				Name:              pulumi.String("example-plan"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				OsType:            pulumi.String("Windows"),
-//				SkuName:           pulumi.String("P1v2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
-//				Name:              pulumi.String("example-windows-web-app"),
-//				ResourceGroupName: example.Name,
-//				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewWindowsWebAppSlot(ctx, "example", &appservice.WindowsWebAppSlotArgs{
-//				Name:         pulumi.String("example-slot"),
-//				AppServiceId: exampleWindowsWebApp.ID(),
-//				SiteConfig:   nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServicePlan, err := appservice/servicePlan.NewServicePlan(ctx, "example", &appservice/servicePlan.ServicePlanArgs{
+// Name: "example-plan",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// OsType: "Windows",
+// SkuName: "P1v2",
+// })
+// if err != nil {
+// return err
+// }
+// exampleWindowsWebApp, err := appservice/windowsWebApp.NewWindowsWebApp(ctx, "example", &appservice/windowsWebApp.WindowsWebAppArgs{
+// Name: "example-windows-web-app",
+// ResourceGroupName: example.Name,
+// Location: exampleServicePlan.Location,
+// ServicePlanId: exampleServicePlan.Id,
+// SiteConfig: nil,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/windowsWebAppSlot.NewWindowsWebAppSlot(ctx, "example", &appservice/windowsWebAppSlot.WindowsWebAppSlotArgs{
+// Name: "example-slot",
+// AppServiceId: exampleWindowsWebApp.Id,
+// SiteConfig: nil,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

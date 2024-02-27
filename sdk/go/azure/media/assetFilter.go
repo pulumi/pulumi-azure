@@ -21,110 +21,110 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/asset "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/asset"
+//	media/assetFilter "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/assetFilter"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAsset, err := media.NewAsset(ctx, "example", &media.AssetArgs{
-//				Name:                     pulumi.String("Asset1"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("Asset description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewAssetFilter(ctx, "example", &media.AssetFilterArgs{
-//				Name:                pulumi.String("Filter1"),
-//				AssetId:             exampleAsset.ID(),
-//				FirstQualityBitrate: pulumi.Int(128000),
-//				PresentationTimeRange: &media.AssetFilterPresentationTimeRangeArgs{
-//					StartInUnits:               pulumi.Int(0),
-//					EndInUnits:                 pulumi.Int(15),
-//					PresentationWindowInUnits:  pulumi.Int(90),
-//					LiveBackoffInUnits:         pulumi.Int(0),
-//					UnitTimescaleInMiliseconds: pulumi.Int(1000),
-//					ForceEnd:                   pulumi.Bool(false),
-//				},
-//				TrackSelections: media.AssetFilterTrackSelectionArray{
-//					&media.AssetFilterTrackSelectionArgs{
-//						Conditions: media.AssetFilterTrackSelectionConditionArray{
-//							&media.AssetFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Type"),
-//								Operation: pulumi.String("Equal"),
-//								Value:     pulumi.String("Audio"),
-//							},
-//							&media.AssetFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Language"),
-//								Operation: pulumi.String("NotEqual"),
-//								Value:     pulumi.String("en"),
-//							},
-//							&media.AssetFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("FourCC"),
-//								Operation: pulumi.String("NotEqual"),
-//								Value:     pulumi.String("EC-3"),
-//							},
-//						},
-//					},
-//					&media.AssetFilterTrackSelectionArgs{
-//						Conditions: media.AssetFilterTrackSelectionConditionArray{
-//							&media.AssetFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Type"),
-//								Operation: pulumi.String("Equal"),
-//								Value:     pulumi.String("Video"),
-//							},
-//							&media.AssetFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Bitrate"),
-//								Operation: pulumi.String("Equal"),
-//								Value:     pulumi.String("3000000-5000000"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAsset, err := media/asset.NewAsset(ctx, "example", &media/asset.AssetArgs{
+// Name: "Asset1",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "Asset description",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/assetFilter.NewAssetFilter(ctx, "example", &media/assetFilter.AssetFilterArgs{
+// Name: "Filter1",
+// AssetId: exampleAsset.Id,
+// FirstQualityBitrate: 128000,
+// PresentationTimeRange: map[string]interface{}{
+// "startInUnits": 0,
+// "endInUnits": 15,
+// "presentationWindowInUnits": 90,
+// "liveBackoffInUnits": 0,
+// "unitTimescaleInMiliseconds": 1000,
+// "forceEnd": false,
+// },
+// TrackSelections: []interface{}{
+// map[string]interface{}{
+// "conditions": []map[string]interface{}{
+// map[string]interface{}{
+// "property": "Type",
+// "operation": "Equal",
+// "value": "Audio",
+// },
+// map[string]interface{}{
+// "property": "Language",
+// "operation": "NotEqual",
+// "value": "en",
+// },
+// map[string]interface{}{
+// "property": "FourCC",
+// "operation": "NotEqual",
+// "value": "EC-3",
+// },
+// },
+// },
+// map[string]interface{}{
+// "conditions": []map[string]interface{}{
+// map[string]interface{}{
+// "property": "Type",
+// "operation": "Equal",
+// "value": "Video",
+// },
+// map[string]interface{}{
+// "property": "Bitrate",
+// "operation": "Equal",
+// "value": "3000000-5000000",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

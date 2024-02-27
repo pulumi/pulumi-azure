@@ -914,29 +914,29 @@ class SharedImage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
-            name="example_image_gallery",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_shared_image_gallery = azure.compute.shared_image_gallery.SharedImageGallery("example",
+            name=example_image_gallery,
             resource_group_name=example.name,
             location=example.location,
-            description="Shared images and things.",
+            description=Shared images and things.,
             tags={
-                "Hello": "There",
-                "World": "Example",
+                Hello: There,
+                World: Example,
             })
-        example_shared_image = azure.compute.SharedImage("example",
-            name="my-image",
+        example_shared_image = azure.compute.shared_image.SharedImage("example",
+            name=my-image,
             gallery_name=example_shared_image_gallery.name,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            identifier=azure.compute.SharedImageIdentifierArgs(
-                publisher="PublisherName",
-                offer="OfferName",
-                sku="ExampleSku",
-            ))
+            os_type=Linux,
+            identifier={
+                publisher: PublisherName,
+                offer: OfferName,
+                sku: ExampleSku,
+            })
         ```
 
         ## Import
@@ -995,29 +995,29 @@ class SharedImage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
-            name="example_image_gallery",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_shared_image_gallery = azure.compute.shared_image_gallery.SharedImageGallery("example",
+            name=example_image_gallery,
             resource_group_name=example.name,
             location=example.location,
-            description="Shared images and things.",
+            description=Shared images and things.,
             tags={
-                "Hello": "There",
-                "World": "Example",
+                Hello: There,
+                World: Example,
             })
-        example_shared_image = azure.compute.SharedImage("example",
-            name="my-image",
+        example_shared_image = azure.compute.shared_image.SharedImage("example",
+            name=my-image,
             gallery_name=example_shared_image_gallery.name,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            identifier=azure.compute.SharedImageIdentifierArgs(
-                publisher="PublisherName",
-                offer="OfferName",
-                sku="ExampleSku",
-            ))
+            os_type=Linux,
+            identifier={
+                publisher: PublisherName,
+                offer: OfferName,
+                sku: ExampleSku,
+            })
         ```
 
         ## Import

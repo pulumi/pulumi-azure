@@ -481,17 +481,17 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                tier: Standard,
+                size: S1,
+            })
         ```
         ### Shared / Consumption Plan)
 
@@ -499,18 +499,18 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
+            kind=FunctionApp,
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
         ```
         ### Linux)
 
@@ -518,19 +518,19 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
+            kind=Linux,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                tier: Standard,
+                size: S1,
+            })
         ```
         ### Windows Container)
 
@@ -538,19 +538,19 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            kind="xenon",
+            kind=xenon,
             is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="PremiumContainer",
-                size="PC2",
-            ))
+            sku={
+                tier: PremiumContainer,
+                size: PC2,
+            })
         ```
 
         ## Import
@@ -600,17 +600,17 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                tier: Standard,
+                size: S1,
+            })
         ```
         ### Shared / Consumption Plan)
 
@@ -618,18 +618,18 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
+            kind=FunctionApp,
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
         ```
         ### Linux)
 
@@ -637,19 +637,19 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
+            kind=Linux,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                tier: Standard,
+                size: S1,
+            })
         ```
         ### Windows Container)
 
@@ -657,19 +657,19 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=api-appserviceplan-pro,
             location=example.location,
             resource_group_name=example.name,
-            kind="xenon",
+            kind=xenon,
             is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="PremiumContainer",
-                size="PC2",
-            ))
+            sku={
+                tier: PremiumContainer,
+                size: PC2,
+            })
         ```
 
         ## Import

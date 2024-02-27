@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.databricks.AccessConnector;
  * import com.pulumi.azure.databricks.AccessConnectorArgs;
- * import com.pulumi.azure.databricks.inputs.AccessConnectorIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,10 +52,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-resource&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .identity(AccessConnectorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

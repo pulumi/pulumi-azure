@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example-springcloud",
     ///         ResourceGroupName = example.Name,
@@ -38,25 +38,25 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("example", new()
+    ///     var exampleSpringCloudBuilder = new Azure.Appplatform.SpringCloudBuilder.SpringCloudBuilder("example", new()
     ///     {
     ///         Name = "example",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///         BuildPackGroups = new[]
     ///         {
-    ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
+    ///             
     ///             {
-    ///                 Name = "mix",
-    ///                 BuildPackIds = new[]
+    ///                 { "name", "mix" },
+    ///                 { "buildPackIds", new[]
     ///                 {
     ///                     "tanzu-buildpacks/java-azure",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         Stack = 
     ///         {
-    ///             Id = "io.buildpacks.stacks.bionic",
-    ///             Version = "base",
+    ///             { "id", "io.buildpacks.stacks.bionic" },
+    ///             { "version", "base" },
     ///         },
     ///     });
     /// 

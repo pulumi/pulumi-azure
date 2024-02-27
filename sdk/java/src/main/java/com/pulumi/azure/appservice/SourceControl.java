@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.LinuxWebApp;
  * import com.pulumi.azure.appservice.LinuxWebAppArgs;
- * import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigArgs;
  * import com.pulumi.azure.appservice.SourceControl;
  * import com.pulumi.azure.appservice.SourceControlArgs;
  * import java.util.List;

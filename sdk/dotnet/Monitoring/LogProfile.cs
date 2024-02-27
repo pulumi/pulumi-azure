@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "logprofiletest-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "afscsdfytw",
     ///         ResourceGroupName = example.Name,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Monitoring
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "logprofileeventhub",
     ///         Location = example.Location,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Monitoring
     ///         Capacity = 2,
     ///     });
     /// 
-    ///     var exampleLogProfile = new Azure.Monitoring.LogProfile("example", new()
+    ///     var exampleLogProfile = new Azure.Monitoring.LogProfile.LogProfile("example", new()
     ///     {
     ///         Name = "default",
     ///         Categories = new[]
@@ -64,12 +64,12 @@ namespace Pulumi.Azure.Monitoring
     ///             "westus",
     ///             "global",
     ///         },
-    ///         ServicebusRuleId = exampleEventHubNamespace.Id.Apply(id =&gt; $"{id}/authorizationrules/RootManageSharedAccessKey"),
+    ///         ServicebusRuleId = $"{exampleEventHubNamespace.Id}/authorizationrules/RootManageSharedAccessKey",
     ///         StorageAccountId = exampleAccount.Id,
-    ///         RetentionPolicy = new Azure.Monitoring.Inputs.LogProfileRetentionPolicyArgs
+    ///         RetentionPolicy = 
     ///         {
-    ///             Enabled = true,
-    ///             Days = 7,
+    ///             { "enabled", true },
+    ///             { "days", 7 },
     ///         },
     ///     });
     /// 

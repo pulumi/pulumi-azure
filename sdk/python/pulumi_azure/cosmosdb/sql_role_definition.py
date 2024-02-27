@@ -273,40 +273,6 @@ class SqlRoleDefinition(pulumi.CustomResource):
         """
         Manages a Cosmos DB SQL Role Definition.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
-            role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            name="acctestsqlrole",
-            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
-                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            )])
-        ```
-
         ## Import
 
         Cosmos DB SQL Role Definitions can be imported using the `resource id`, e.g.
@@ -335,40 +301,6 @@ class SqlRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB SQL Role Definition.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
-            role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            name="acctestsqlrole",
-            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
-                data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            )])
-        ```
 
         ## Import
 

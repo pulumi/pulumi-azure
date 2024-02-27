@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.stack.getHciCluster({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * export const location = example.then(example => example.location);
- * export const clientId = example.then(example => example.clientId);
- * ```
  */
 export function getHciCluster(args: GetHciClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHciClusterResult> {
 
@@ -78,21 +63,6 @@ export interface GetHciClusterResult {
 }
 /**
  * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.stack.getHciCluster({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * export const location = example.then(example => example.location);
- * export const clientId = example.then(example => example.clientId);
- * ```
  */
 export function getHciClusterOutput(args: GetHciClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciClusterResult> {
     return pulumi.output(args).apply((a: any) => getHciCluster(a, opts))

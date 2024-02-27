@@ -13,64 +13,12 @@ namespace Pulumi.Azure.Storage
     {
         /// <summary>
         /// Use this data source to access information about the existing Storage Containers within a Storage Account.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Storage.GetContainers.Invoke(new()
-        ///     {
-        ///         StorageAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["containerId"] = example.Apply(getContainersResult =&gt; getContainersResult.Containers[0]?.ResourceManagerId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetContainersResult> InvokeAsync(GetContainersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainersResult>("azure:storage/getContainers:getContainers", args ?? new GetContainersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the existing Storage Containers within a Storage Account.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Storage.GetContainers.Invoke(new()
-        ///     {
-        ///         StorageAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["containerId"] = example.Apply(getContainersResult =&gt; getContainersResult.Containers[0]?.ResourceManagerId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetContainersResult> Invoke(GetContainersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainersResult>("azure:storage/getContainers:getContainers", args ?? new GetContainersInvokeArgs(), options.WithDefaults());

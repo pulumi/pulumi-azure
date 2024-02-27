@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-sql-server-vnet-rule",
  *     location: "West Europe",
  * });
- * const vnet = new azure.network.VirtualNetwork("vnet", {
+ * const vnet = new azure.network/virtualNetwork.VirtualNetwork("vnet", {
  *     name: "example-vnet",
  *     addressSpaces: ["10.7.29.0/29"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const subnet = new azure.network.Subnet("subnet", {
+ * const subnet = new azure.network/subnet.Subnet("subnet", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: vnet.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
- * const sqlserver = new azure.sql.SqlServer("sqlserver", {
+ * const sqlserver = new azure.sql/sqlServer.SqlServer("sqlserver", {
  *     name: "uniqueazuresqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ * const sqlvnetrule = new azure.sql/virtualNetworkRule.VirtualNetworkRule("sqlvnetrule", {
  *     name: "sql-vnet-rule",
  *     resourceGroupName: example.name,
  *     serverName: sqlserver.name,

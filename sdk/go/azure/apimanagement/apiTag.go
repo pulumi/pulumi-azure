@@ -14,65 +14,6 @@ import (
 
 // Manages the Assignment of an API Management API Tag to an API.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := apimanagement.LookupServiceOutput(ctx, apimanagement.GetServiceOutputArgs{
-//				Name:              pulumi.String("example-apim"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			}, nil)
-//			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
-//				Name:              pulumi.String("example-api"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				ApiManagementName: example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
-//					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				Revision: pulumi.String("1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
-//				ApiManagementId: example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
-//					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput),
-//				Name: pulumi.String("example-tag"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewApiTag(ctx, "example", &apimanagement.ApiTagArgs{
-//				ApiId: exampleApi.ID(),
-//				Name:  exampleTag.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management API Tags can be imported using the `resource id`, e.g.

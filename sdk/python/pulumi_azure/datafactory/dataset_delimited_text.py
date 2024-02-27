@@ -751,34 +751,34 @@ class DatasetDelimitedText(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
-            name="example",
+        example_linked_service_web = azure.datafactory.linked_service_web.LinkedServiceWeb("example",
+            name=example,
             data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("example",
-            name="example",
+            authentication_type=Anonymous,
+            url=https://www.bing.com)
+        example_dataset_delimited_text = azure.datafactory.dataset_delimited_text.DatasetDelimitedText("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
-                relative_url="http://www.bing.com",
-                path="foo/bar/",
-                filename="fizz.txt",
-            ),
-            column_delimiter=",",
-            row_delimiter="NEW",
-            encoding="UTF-8",
-            quote_character="x",
-            escape_character="f",
+            http_server_location={
+                relativeUrl: http://www.bing.com,
+                path: foo/bar/,
+                filename: fizz.txt,
+            },
+            column_delimiter=,,
+            row_delimiter=NEW,
+            encoding=UTF-8,
+            quote_character=x,
+            escape_character=f,
             first_row_as_header=True,
-            null_value="NULL")
+            null_value=NULL)
         ```
 
         ## Import
@@ -832,34 +832,34 @@ class DatasetDelimitedText(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
-            name="example",
+        example_linked_service_web = azure.datafactory.linked_service_web.LinkedServiceWeb("example",
+            name=example,
             data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("example",
-            name="example",
+            authentication_type=Anonymous,
+            url=https://www.bing.com)
+        example_dataset_delimited_text = azure.datafactory.dataset_delimited_text.DatasetDelimitedText("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
-                relative_url="http://www.bing.com",
-                path="foo/bar/",
-                filename="fizz.txt",
-            ),
-            column_delimiter=",",
-            row_delimiter="NEW",
-            encoding="UTF-8",
-            quote_character="x",
-            escape_character="f",
+            http_server_location={
+                relativeUrl: http://www.bing.com,
+                path: foo/bar/,
+                filename: fizz.txt,
+            },
+            column_delimiter=,,
+            row_delimiter=NEW,
+            encoding=UTF-8,
+            quote_character=x,
+            escape_character=f,
             first_row_as_header=True,
-            null_value="NULL")
+            null_value=NULL)
         ```
 
         ## Import

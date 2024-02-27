@@ -386,22 +386,22 @@ class ElasticPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-resource-group",
-            location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="my-sql-server",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-resource-group,
+            location=West Europe)
+        example_sql_server = azure.sql.sql_server.SqlServer("example",
+            name=my-sql-server,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_elastic_pool = azure.sql.ElasticPool("example",
-            name="test",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_elastic_pool = azure.sql.elastic_pool.ElasticPool("example",
+            name=test,
             resource_group_name=example.name,
             location=example.location,
             server_name=example_sql_server.name,
-            edition="Basic",
+            edition=Basic,
             dtu=50,
             db_dtu_min=0,
             db_dtu_max=5,
@@ -448,22 +448,22 @@ class ElasticPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-resource-group",
-            location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="my-sql-server",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-resource-group,
+            location=West Europe)
+        example_sql_server = azure.sql.sql_server.SqlServer("example",
+            name=my-sql-server,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_elastic_pool = azure.sql.ElasticPool("example",
-            name="test",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_elastic_pool = azure.sql.elastic_pool.ElasticPool("example",
+            name=test,
             resource_group_name=example.name,
             location=example.location,
             server_name=example_sql_server.name,
-            edition="Basic",
+            edition=Basic,
             dtu=50,
             db_dtu_min=0,
             db_dtu_max=5,

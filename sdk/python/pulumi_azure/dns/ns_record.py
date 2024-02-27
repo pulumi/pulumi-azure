@@ -250,23 +250,23 @@ class NsRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_ns_record = azure.dns.NsRecord("example",
-            name="test",
+        example_ns_record = azure.dns.ns_record.NsRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                "ns1.contoso.com.",
-                "ns2.contoso.com.",
+                ns1.contoso.com.,
+                ns2.contoso.com.,
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -300,23 +300,23 @@ class NsRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_ns_record = azure.dns.NsRecord("example",
-            name="test",
+        example_ns_record = azure.dns.ns_record.NsRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                "ns1.contoso.com.",
-                "ns2.contoso.com.",
+                ns1.contoso.com.,
+                ns2.contoso.com.,
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

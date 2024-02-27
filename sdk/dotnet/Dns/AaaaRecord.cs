@@ -20,19 +20,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleAaaaRecord = new Azure.Dns.AaaaRecord("example", new()
+    ///     var exampleAaaaRecord = new Azure.Dns.AaaaRecord.AaaaRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
@@ -56,19 +56,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "mypublicip",
     ///         Location = example.Location,
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Dns
     ///         IpVersion = "IPv6",
     ///     });
     /// 
-    ///     var exampleAaaaRecord = new Azure.Dns.AaaaRecord("example", new()
+    ///     var exampleAaaaRecord = new Azure.Dns.AaaaRecord.AaaaRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,

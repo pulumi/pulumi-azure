@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "testvnet",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "AzureFirewallSubnet",
     ///         ResourceGroupName = example.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "testpip",
     ///         Location = example.Location,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
+    ///     var exampleFirewall = new Azure.Network.Firewall.Firewall("example", new()
     ///     {
     ///         Name = "testfirewall",
     ///         Location = example.Location,
@@ -68,16 +68,16 @@ namespace Pulumi.Azure.Network
     ///         SkuTier = "Standard",
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.FirewallIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "configuration",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 { "name", "configuration" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "publicIpAddressId", examplePublicIp.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleFirewallApplicationRuleCollection = new Azure.Network.FirewallApplicationRuleCollection("example", new()
+    ///     var exampleFirewallApplicationRuleCollection = new Azure.Network.FirewallApplicationRuleCollection.FirewallApplicationRuleCollection("example", new()
     ///     {
     ///         Name = "testcollection",
     ///         AzureFirewallName = exampleFirewall.Name,
@@ -86,25 +86,25 @@ namespace Pulumi.Azure.Network
     ///         Action = "Allow",
     ///         Rules = new[]
     ///         {
-    ///             new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleArgs
+    ///             
     ///             {
-    ///                 Name = "testrule",
-    ///                 SourceAddresses = new[]
+    ///                 { "name", "testrule" },
+    ///                 { "sourceAddresses", new[]
     ///                 {
     ///                     "10.0.0.0/16",
-    ///                 },
-    ///                 TargetFqdns = new[]
+    ///                 } },
+    ///                 { "targetFqdns", new[]
     ///                 {
     ///                     "*.google.com",
-    ///                 },
-    ///                 Protocols = new[]
+    ///                 } },
+    ///                 { "protocols", new[]
     ///                 {
-    ///                     new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs
+    ///                     
     ///                     {
-    ///                         Port = 443,
-    ///                         Type = "Https",
+    ///                         { "port", "443" },
+    ///                         { "type", "Https" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

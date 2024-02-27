@@ -206,11 +206,11 @@ class CapacityReservationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("example",
-            name="example-capacity-reservation-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_capacity_reservation_group = azure.compute.capacity_reservation_group.CapacityReservationGroup("example",
+            name=example-capacity-reservation-group,
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -246,11 +246,11 @@ class CapacityReservationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("example",
-            name="example-capacity-reservation-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_capacity_reservation_group = azure.compute.capacity_reservation_group.CapacityReservationGroup("example",
+            name=example-capacity-reservation-group,
             resource_group_name=example.name,
             location=example.location)
         ```

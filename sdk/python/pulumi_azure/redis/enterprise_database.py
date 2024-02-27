@@ -433,32 +433,32 @@ class EnterpriseDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-redisenterprise",
-            location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("example",
-            name="example-redisenterprise",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-redisenterprise,
+            location=West Europe)
+        example_enterprise_cluster = azure.redis.enterprise_cluster.EnterpriseCluster("example",
+            name=example-redisenterprise,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="Enterprise_E20-4")
-        example1 = azure.redis.EnterpriseCluster("example1",
-            name="example-redisenterprise1",
+            sku_name=Enterprise_E20-4)
+        example1 = azure.redis.enterprise_cluster.EnterpriseCluster("example1",
+            name=example-redisenterprise1,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="Enterprise_E20-4")
-        example_enterprise_database = azure.redis.EnterpriseDatabase("example",
-            name="default",
+            sku_name=Enterprise_E20-4)
+        example_enterprise_database = azure.redis.enterprise_database.EnterpriseDatabase("example",
+            name=default,
             resource_group_name=example.name,
             cluster_id=example_enterprise_cluster.id,
-            client_protocol="Encrypted",
-            clustering_policy="EnterpriseCluster",
-            eviction_policy="NoEviction",
+            client_protocol=Encrypted,
+            clustering_policy=EnterpriseCluster,
+            eviction_policy=NoEviction,
             port=10000,
             linked_database_ids=[
-                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
-                example1.id.apply(lambda id: f"{id}/databases/default"),
+                f{example_enterprise_cluster.id}/databases/default,
+                f{example1.id}/databases/default,
             ],
-            linked_database_group_nickname="tftestGeoGroup")
+            linked_database_group_nickname=tftestGeoGroup)
         ```
 
         ## Import
@@ -501,32 +501,32 @@ class EnterpriseDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-redisenterprise",
-            location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("example",
-            name="example-redisenterprise",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-redisenterprise,
+            location=West Europe)
+        example_enterprise_cluster = azure.redis.enterprise_cluster.EnterpriseCluster("example",
+            name=example-redisenterprise,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="Enterprise_E20-4")
-        example1 = azure.redis.EnterpriseCluster("example1",
-            name="example-redisenterprise1",
+            sku_name=Enterprise_E20-4)
+        example1 = azure.redis.enterprise_cluster.EnterpriseCluster("example1",
+            name=example-redisenterprise1,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="Enterprise_E20-4")
-        example_enterprise_database = azure.redis.EnterpriseDatabase("example",
-            name="default",
+            sku_name=Enterprise_E20-4)
+        example_enterprise_database = azure.redis.enterprise_database.EnterpriseDatabase("example",
+            name=default,
             resource_group_name=example.name,
             cluster_id=example_enterprise_cluster.id,
-            client_protocol="Encrypted",
-            clustering_policy="EnterpriseCluster",
-            eviction_policy="NoEviction",
+            client_protocol=Encrypted,
+            clustering_policy=EnterpriseCluster,
+            eviction_policy=NoEviction,
             port=10000,
             linked_database_ids=[
-                example_enterprise_cluster.id.apply(lambda id: f"{id}/databases/default"),
-                example1.id.apply(lambda id: f"{id}/databases/default"),
+                f{example_enterprise_cluster.id}/databases/default,
+                f{example1.id}/databases/default,
             ],
-            linked_database_group_nickname="tftestGeoGroup")
+            linked_database_group_nickname=tftestGeoGroup)
         ```
 
         ## Import

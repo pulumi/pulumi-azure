@@ -13,58 +13,12 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// Use this data source to fetch the Host Keys of an existing Function App
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.AppService.GetFunctionAppHostKeys.Invoke(new()
-        ///     {
-        ///         Name = "example-function",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFunctionAppHostKeysResult> InvokeAsync(GetFunctionAppHostKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to fetch the Host Keys of an existing Function App
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.AppService.GetFunctionAppHostKeys.Invoke(new()
-        ///     {
-        ///         Name = "example-function",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFunctionAppHostKeysResult> Invoke(GetFunctionAppHostKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysInvokeArgs(), options.WithDefaults());

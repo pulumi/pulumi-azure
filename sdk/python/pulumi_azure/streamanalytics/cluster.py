@@ -205,11 +205,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.streamanalytics.Cluster("example",
-            name="examplestreamanalyticscluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.streamanalytics.cluster.Cluster("example",
+            name=examplestreamanalyticscluster,
             resource_group_name=example.name,
             location=example.location,
             streaming_capacity=36)
@@ -246,11 +246,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.streamanalytics.Cluster("example",
-            name="examplestreamanalyticscluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.streamanalytics.cluster.Cluster("example",
+            name=examplestreamanalyticscluster,
             resource_group_name=example.name,
             location=example.location,
             streaming_capacity=36)

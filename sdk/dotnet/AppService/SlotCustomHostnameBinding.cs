@@ -22,25 +22,25 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "some-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "some-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example", new()
     ///     {
     ///         Name = "some-app-service",
     ///         Location = example.Location,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.AppService
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
-    ///     var exampleSlot = new Azure.AppService.Slot("example", new()
+    ///     var exampleSlot = new Azure.Appservice.Slot.Slot("example", new()
     ///     {
     ///         Name = "staging",
     ///         Location = example.Location,
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.AppService
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
-    ///     var exampleSlotCustomHostnameBinding = new Azure.AppService.SlotCustomHostnameBinding("example", new()
+    ///     var exampleSlotCustomHostnameBinding = new Azure.Appservice.SlotCustomHostnameBinding.SlotCustomHostnameBinding("example", new()
     ///     {
     ///         AppServiceSlotId = exampleSlot.Id,
     ///         Hostname = "www.mywebsite.com",

@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.lb.LoadBalancer;
  * import com.pulumi.azure.lb.LoadBalancerArgs;
- * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
  * import com.pulumi.azure.lb.Rule;
  * import com.pulumi.azure.lb.RuleArgs;
  * import java.util.List;
@@ -67,10 +66,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;TestLoadBalancer&#34;)
  *             .location(&#34;West US&#34;)
  *             .resourceGroupName(example.name())
- *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        

@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management API Assignment to a Product.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.apimanagement.getService({
- *     name: "example-api",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetApi = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getApi({
- *     name: "search-api",
- *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
- *     revision: "2",
- * }));
- * const exampleGetProduct = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getProduct({
- *     productId: "my-product",
- *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
- * }));
- * const exampleProductApi = new azure.apimanagement.ProductApi("example", {
- *     apiName: exampleGetApi.then(exampleGetApi => exampleGetApi.name),
- *     productId: exampleGetProduct.then(exampleGetProduct => exampleGetProduct.productId),
- *     apiManagementName: example.then(example => example.name),
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- * });
- * ```
- *
  * ## Import
  *
  * API Management Product API's can be imported using the `resource id`, e.g.

@@ -28,13 +28,13 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("example", new()
+    ///     var exampleTemplateDeployment = new Azure.Core.TemplateDeployment.TemplateDeployment("example", new()
     ///     {
     ///         Name = "acctesttemplate-01",
     ///         ResourceGroupName = example.Name,
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Core
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["storageAccountName"] = exampleTemplateDeployment.Outputs.Apply(outputs =&gt; outputs.StorageAccountName),
+    ///         ["storageAccountName"] = exampleTemplateDeployment.Outputs.StorageAccountName,
     ///     };
     /// });
     /// ```

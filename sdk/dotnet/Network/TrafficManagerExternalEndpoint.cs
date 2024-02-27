@@ -22,30 +22,30 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("example", new()
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile.TrafficManagerProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
-    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             RelativeName = "example-profile",
-    ///             Ttl = 100,
+    ///             { "relativeName", "example-profile" },
+    ///             { "ttl", 100 },
     ///         },
-    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         MonitorConfig = 
     ///         {
-    ///             Protocol = "HTTP",
-    ///             Port = 80,
-    ///             Path = "/",
-    ///             IntervalInSeconds = 30,
-    ///             TimeoutInSeconds = 9,
-    ///             ToleratedNumberOfFailures = 3,
+    ///             { "protocol", "HTTP" },
+    ///             { "port", 80 },
+    ///             { "path", "/" },
+    ///             { "intervalInSeconds", 30 },
+    ///             { "timeoutInSeconds", 9 },
+    ///             { "toleratedNumberOfFailures", 3 },
     ///         },
     ///         Tags = 
     ///         {
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("example", new()
+    ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint.TrafficManagerExternalEndpoint("example", new()
     ///     {
     ///         Name = "example-endpoint",
     ///         ProfileId = exampleTrafficManagerProfile.Id,

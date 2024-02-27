@@ -12,68 +12,6 @@ import (
 )
 
 // Encrypts or Decrypts a value using a Key Vault Key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//	  panic(message)
-//	}
-//
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-// Name: "mykeyvault",
-// ResourceGroupName: "some-resource-group",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
-// Name: "some-key",
-// KeyVaultId: example.Id,
-// }, nil);
-// if err != nil {
-// return err
-// }
-// encrypted, err := keyvault.GetEncryptedValue(ctx, invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-// Input: "some-encrypted-value",
-// }, nil)
-// if err != nil {
-// return err
-// }
-// &keyvault.GetEncryptedValueArgs{
-// KeyVaultKeyId: test.Id,
-// Algorithm: "RSA1_5",
-// PlainTextValue: pulumi.StringRef(invokeBase64encode.Result),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = keyvault.GetEncryptedValue(ctx, &keyvault.GetEncryptedValueArgs{
-// KeyVaultKeyId: test.Id,
-// Algorithm: "RSA1_5",
-// EncryptedData: pulumi.StringRef(encrypted.EncryptedData),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// ctx.Export("id", exampleAzurermKeyVaultEncryptedValue.EncryptedData)
-// ctx.Export("decryptedText", notImplemented("nonsensitive(data.azurerm_key_vault_encrypted_value.decrypted.decoded_plain_text_value)"))
-// return nil
-// })
-// }
-// ```
 func GetEncryptedValue(ctx *pulumi.Context, args *GetEncryptedValueArgs, opts ...pulumi.InvokeOption) (*GetEncryptedValueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEncryptedValueResult

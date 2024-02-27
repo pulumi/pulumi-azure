@@ -30,12 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VpnServerConfiguration;
- * import com.pulumi.azure.network.VpnServerConfigurationArgs;
- * import com.pulumi.azure.network.inputs.VpnServerConfigurationRadiusArgs;
- * import com.pulumi.azure.network.VpnServerConfigurationPolicyGroup;
- * import com.pulumi.azure.network.VpnServerConfigurationPolicyGroupArgs;
- * import com.pulumi.azure.network.inputs.VpnServerConfigurationPolicyGroupPolicyArgs;
+ * import com.pulumi.azure.network_vpnServerConfiguration.VpnServerConfiguration;
+ * import com.pulumi.azure.network_vpnServerConfiguration.VpnServerConfigurationArgs;
+ * import com.pulumi.azure.network_vpnServerConfigurationPolicyGroup.VpnServerConfigurationPolicyGroup;
+ * import com.pulumi.azure.network_vpnServerConfigurationPolicyGroup.VpnServerConfigurationPolicyGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,23 +57,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .vpnAuthenticationTypes(&#34;Radius&#34;)
- *             .radius(VpnServerConfigurationRadiusArgs.builder()
- *                 .servers(VpnServerConfigurationRadiusServerArgs.builder()
- *                     .address(&#34;10.105.1.1&#34;)
- *                     .secret(&#34;vindicators-the-return-of-worldender&#34;)
- *                     .score(15)
- *                     .build())
- *                 .build())
+ *             .radius(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup(&#34;exampleVpnServerConfigurationPolicyGroup&#34;, VpnServerConfigurationPolicyGroupArgs.builder()        
  *             .name(&#34;example-VPNSCPG&#34;)
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
- *             .policies(VpnServerConfigurationPolicyGroupPolicyArgs.builder()
- *                 .name(&#34;policy1&#34;)
- *                 .type(&#34;RadiusAzureGroupId&#34;)
- *                 .value(&#34;6ad1bd08&#34;)
- *                 .build())
+ *             .policies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

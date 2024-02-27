@@ -24,37 +24,37 @@ namespace Pulumi.Azure.Compute.Outputs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Compute.ScaleSet("example", new()
+        ///     var example = new Azure.Compute.ScaleSet.ScaleSet("example", new()
         ///     {
         ///         Name = "vm-scaleset",
         ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///         Location = exampleAzurermResourceGroup.Location,
-        ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+        ///         Sku = 
         ///         {
-        ///             Name = vmSku,
-        ///             Tier = "Standard",
-        ///             Capacity = instanceCount,
+        ///             { "name", vmSku },
+        ///             { "tier", "Standard" },
+        ///             { "capacity", instanceCount },
         ///         },
-        ///         Identity = new Azure.Compute.Inputs.ScaleSetIdentityArgs
+        ///         Identity = 
         ///         {
-        ///             Type = "SystemAssigned",
+        ///             { "type", "SystemAssigned" },
         ///         },
         ///         Extensions = new[]
         ///         {
-        ///             new Azure.Compute.Inputs.ScaleSetExtensionArgs
+        ///             
         ///             {
-        ///                 Name = "MSILinuxExtension",
-        ///                 Publisher = "Microsoft.ManagedIdentity",
-        ///                 Type = "ManagedIdentityExtensionForLinux",
-        ///                 TypeHandlerVersion = "1.0",
-        ///                 Settings = "{\"port\": 50342}",
+        ///                 { "name", "MSILinuxExtension" },
+        ///                 { "publisher", "Microsoft.ManagedIdentity" },
+        ///                 { "type", "ManagedIdentityExtensionForLinux" },
+        ///                 { "typeHandlerVersion", "1.0" },
+        ///                 { "settings", "{\"port\": 50342}" },
         ///             },
         ///         },
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["principalId"] = example.Identity.Apply(identity =&gt; identity.PrincipalId),
+        ///         ["principalId"] = example.Identity.PrincipalId,
         ///     };
         /// });
         /// ```

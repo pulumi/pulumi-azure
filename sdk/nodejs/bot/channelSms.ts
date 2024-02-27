@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single SMS Channel associated with it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
- *     name: "example-bcr",
- *     location: "global",
- *     resourceGroupName: example.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelSms = new azure.bot.ChannelSms("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: example.name,
- *     smsChannelAccountSecurityId: "BG61f7cf5157f439b084e98256409c2815",
- *     smsChannelAuthToken: "jh8980432610052ed4e29565c5e232f",
- *     phoneNumber: "+12313803556",
- * });
- * ```
- *
  * ## Import
  *
  * The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.

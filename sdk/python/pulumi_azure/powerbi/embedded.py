@@ -270,15 +270,15 @@ class Embedded(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_embedded = azure.powerbi.Embedded("example",
-            name="examplepowerbi",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_embedded = azure.powerbi.embedded.Embedded("example",
+            name=examplepowerbi,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="A1",
-            administrators=["azsdktest@microsoft.com"])
+            sku_name=A1,
+            administrators=[azsdktest@microsoft.com])
         ```
 
         ## Import
@@ -314,15 +314,15 @@ class Embedded(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_embedded = azure.powerbi.Embedded("example",
-            name="examplepowerbi",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_embedded = azure.powerbi.embedded.Embedded("example",
+            name=examplepowerbi,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="A1",
-            administrators=["azsdktest@microsoft.com"])
+            sku_name=A1,
+            administrators=[azsdktest@microsoft.com])
         ```
 
         ## Import

@@ -21,62 +21,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
+//	storage/mover "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/mover"
+//	storage/moverTargetEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverTargetEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                       pulumi.String("examplestr"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				AccountTier:                pulumi.String("Standard"),
-//				AccountReplicationType:     pulumi.String("LRS"),
-//				AllowNestedItemsToBePublic: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("example-sc"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("blob"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMover, err := storage.NewMover(ctx, "example", &storage.MoverArgs{
-//				Name:              pulumi.String("example-ssm"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewMoverTargetEndpoint(ctx, "example", &storage.MoverTargetEndpointArgs{
-//				Name:                 pulumi.String("example-se"),
-//				StorageMoverId:       exampleMover.ID(),
-//				StorageAccountId:     exampleAccount.ID(),
-//				StorageContainerName: exampleContainer.Name,
-//				Description:          pulumi.String("Example Storage Container Endpoint Description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestr",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// AllowNestedItemsToBePublic: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "example-sc",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "blob",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMover, err := storage/mover.NewMover(ctx, "example", &storage/mover.MoverArgs{
+// Name: "example-ssm",
+// ResourceGroupName: example.Name,
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/moverTargetEndpoint.NewMoverTargetEndpoint(ctx, "example", &storage/moverTargetEndpoint.MoverTargetEndpointArgs{
+// Name: "example-se",
+// StorageMoverId: exampleMover.Id,
+// StorageAccountId: exampleAccount.Id,
+// StorageContainerName: exampleContainer.Name,
+// Description: "Example Storage Container Endpoint Description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

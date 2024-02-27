@@ -37,14 +37,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkDataNetworkArgs;
  * import com.pulumi.azure.mobile.NetworkService;
  * import com.pulumi.azure.mobile.NetworkServiceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleArgs;
  * import com.pulumi.azure.mobile.NetworkSlice;
  * import com.pulumi.azure.mobile.NetworkSliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
  * import com.pulumi.azure.mobile.NetworkSimPolicy;
  * import com.pulumi.azure.mobile.NetworkSimPolicyArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSimPolicySliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,27 +78,14 @@ import javax.annotation.Nullable;
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .servicePrecedence(0)
- *             .pccRules(NetworkServicePccRuleArgs.builder()
- *                 .name(&#34;default-rule&#34;)
- *                 .precedence(1)
- *                 .trafficControlEnabled(true)
- *                 .serviceDataFlowTemplates(NetworkServicePccRuleServiceDataFlowTemplateArgs.builder()
- *                     .direction(&#34;Uplink&#34;)
- *                     .name(&#34;IP-to-server&#34;)
- *                     .ports()
- *                     .protocols(&#34;ip&#34;)
- *                     .remoteIpLists(&#34;10.3.4.0/24&#34;)
- *                     .build())
- *                 .build())
+ *             .pccRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkSlice = new NetworkSlice(&#34;exampleNetworkSlice&#34;, NetworkSliceArgs.builder()        
  *             .name(&#34;example-mns&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
- *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
- *                 .sliceServiceType(1)
- *                 .build())
+ *             .singleNetworkSliceSelectionAssistanceInformation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkSimPolicy = new NetworkSimPolicy(&#34;exampleNetworkSimPolicy&#34;, NetworkSimPolicyArgs.builder()        
@@ -111,28 +94,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .registrationTimerInSeconds(3240)
  *             .defaultSliceId(exampleNetworkSlice.id())
- *             .slices(NetworkSimPolicySliceArgs.builder()
- *                 .defaultDataNetworkId(exampleNetworkDataNetwork.id())
- *                 .sliceId(exampleNetworkSlice.id())
- *                 .dataNetworks(NetworkSimPolicySliceDataNetworkArgs.builder()
- *                     .dataNetworkId(exampleNetworkDataNetwork.id())
- *                     .allocationAndRetentionPriorityLevel(9)
- *                     .defaultSessionType(&#34;IPv4&#34;)
- *                     .qosIndicator(9)
- *                     .preemptionCapability(&#34;NotPreempt&#34;)
- *                     .preemptionVulnerability(&#34;Preemptable&#34;)
- *                     .allowedServicesIds(exampleNetworkService.id())
- *                     .sessionAggregateMaximumBitRate(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs.builder()
- *                         .downlink(&#34;1 Gbps&#34;)
- *                         .uplink(&#34;500 Mbps&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .userEquipmentAggregateMaximumBitRate(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs.builder()
- *                 .downlink(&#34;1 Gbps&#34;)
- *                 .uplink(&#34;500 Mbps&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .slices(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .userEquipmentAggregateMaximumBitRate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

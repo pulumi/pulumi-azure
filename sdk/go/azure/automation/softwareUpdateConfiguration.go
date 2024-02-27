@@ -21,80 +21,80 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	automation/runBook "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/runBook"
+//	automation/softwareUpdateConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/softwareUpdateConfiguration"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRunBook, err := automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
-//				Name:                  pulumi.String("Get-AzureVMTutorial"),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				LogVerbose:            pulumi.Bool(true),
-//				LogProgress:           pulumi.Bool(true),
-//				Description:           pulumi.String("This is a example runbook for terraform acceptance example"),
-//				RunbookType:           pulumi.String("Python3"),
-//				Content:               pulumi.String("# Some example content\n# for Terraform acceptance example\n"),
-//				Tags: pulumi.StringMap{
-//					"ENV": pulumi.String("runbook_test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
-//				Name:                pulumi.String("example"),
-//				AutomationAccountId: exampleAccount.ID(),
-//				OperatingSystem:     pulumi.String("Linux"),
-//				Linuxes: automation.SoftwareUpdateConfigurationLinuxArray{
-//					&automation.SoftwareUpdateConfigurationLinuxArgs{
-//						ClassificationIncluded: pulumi.String("Security"),
-//						ExcludedPackages: pulumi.StringArray{
-//							pulumi.String("apt"),
-//						},
-//						IncludedPackages: pulumi.StringArray{
-//							pulumi.String("vim"),
-//						},
-//						Reboot: pulumi.String("IfRequired"),
-//					},
-//				},
-//				PreTasks: automation.SoftwareUpdateConfigurationPreTaskArray{
-//					&automation.SoftwareUpdateConfigurationPreTaskArgs{
-//						Source: exampleRunBook.Name,
-//						Parameters: pulumi.StringMap{
-//							"COMPUTER_NAME": pulumi.String("Foo"),
-//						},
-//					},
-//				},
-//				Duration: pulumi.String("PT2H2M2S"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRunBook, err := automation/runBook.NewRunBook(ctx, "example", &automation/runBook.RunBookArgs{
+// Name: "Get-AzureVMTutorial",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AutomationAccountName: exampleAccount.Name,
+// LogVerbose: "true",
+// LogProgress: "true",
+// Description: "This is a example runbook for terraform acceptance example",
+// RunbookType: "Python3",
+// Content: "# Some example content\n# for Terraform acceptance example\n",
+// Tags: map[string]interface{}{
+// "ENV": "runbook_test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automation/softwareUpdateConfiguration.NewSoftwareUpdateConfiguration(ctx, "example", &automation/softwareUpdateConfiguration.SoftwareUpdateConfigurationArgs{
+// Name: "example",
+// AutomationAccountId: exampleAccount.Id,
+// OperatingSystem: "Linux",
+// Linuxes: []map[string]interface{}{
+// map[string]interface{}{
+// "classificationIncluded": "Security",
+// "excludedPackages": []string{
+// "apt",
+// },
+// "includedPackages": []string{
+// "vim",
+// },
+// "reboot": "IfRequired",
+// },
+// },
+// PreTasks: []map[string]interface{}{
+// map[string]interface{}{
+// "source": exampleRunBook.Name,
+// "parameters": map[string]interface{}{
+// "COMPUTER_NAME": "Foo",
+// },
+// },
+// },
+// Duration: "PT2H2M2S",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

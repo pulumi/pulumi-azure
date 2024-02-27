@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleRegistry = new azure.containerservice.Registry("example", {
+ * const exampleRegistry = new azure.containerservice/registry.Registry("example", {
  *     name: "exampleacr",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: "Premium",
  *     dataEndpointEnabled: true,
  * });
- * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("example", {
+ * const exampleRegistryScopeMap = new azure.containerservice/registryScopeMap.RegistryScopeMap("example", {
  *     name: "examplescopemap",
  *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: exampleRegistry.resourceGroupName,
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *         "gateway/examplecr/message/write",
  *     ],
  * });
- * const exampleRegistryToken = new azure.containerservice.RegistryToken("example", {
+ * const exampleRegistryToken = new azure.containerservice/registryToken.RegistryToken("example", {
  *     name: "exampletoken",
  *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: exampleRegistry.resourceGroupName,
  *     scopeMapId: exampleRegistryScopeMap.id,
  * });
- * const exampleConnectedRegistry = new azure.containerservice.ConnectedRegistry("example", {
+ * const exampleConnectedRegistry = new azure.containerservice/connectedRegistry.ConnectedRegistry("example", {
  *     name: "examplecr",
  *     containerRegistryId: exampleRegistry.id,
  *     syncTokenId: exampleRegistryToken.id,

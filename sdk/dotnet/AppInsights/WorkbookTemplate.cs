@@ -23,13 +23,13 @@ namespace Pulumi.Azure.AppInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWorkbookTemplate = new Azure.AppInsights.WorkbookTemplate("example", new()
+    ///     var exampleWorkbookTemplate = new Azure.Appinsights.WorkbookTemplate.WorkbookTemplate("example", new()
     ///     {
     ///         Name = "example-aiwt",
     ///         ResourceGroupName = example.Name,
@@ -38,13 +38,13 @@ namespace Pulumi.Azure.AppInsights
     ///         Priority = 1,
     ///         Galleries = new[]
     ///         {
-    ///             new Azure.AppInsights.Inputs.WorkbookTemplateGalleryArgs
+    ///             
     ///             {
-    ///                 Category = "workbook",
-    ///                 Name = "test",
-    ///                 Order = 100,
-    ///                 ResourceType = "microsoft.insights/components",
-    ///                 Type = "tsg",
+    ///                 { "category", "workbook" },
+    ///                 { "name", "test" },
+    ///                 { "order", 100 },
+    ///                 { "resourceType", "microsoft.insights/components" },
+    ///                 { "type", "tsg" },
     ///             },
     ///         },
     ///         TemplateData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

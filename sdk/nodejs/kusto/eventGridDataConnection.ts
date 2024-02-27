@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleCluster = new azure.kusto.Cluster("example", {
+ * const exampleCluster = new azure.kusto/cluster.Cluster("example", {
  *     name: "examplekustocluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         capacity: 2,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("example", {
+ * const exampleDatabase = new azure.kusto/database.Database("example", {
  *     name: "example-kusto-database",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -34,33 +34,33 @@ import * as utilities from "../utilities";
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "storageaccountname",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "eventhubnamespace-example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ * const exampleEventHub = new azure.eventhub/eventHub.EventHub("example", {
  *     name: "eventhub-example",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ * const exampleConsumerGroup = new azure.eventhub/consumerGroup.ConsumerGroup("example", {
  *     name: "consumergroup-example",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: example.name,
  * });
- * const exampleEventSubscription = new azure.eventgrid.EventSubscription("example", {
+ * const exampleEventSubscription = new azure.eventgrid/eventSubscription.EventSubscription("example", {
  *     name: "eventgrid-example",
  *     scope: exampleAccount.id,
  *     eventhubEndpointId: exampleEventHub.id,
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *         maxDeliveryAttempts: 10,
  *     },
  * });
- * const exampleEventGridDataConnection = new azure.kusto.EventGridDataConnection("example", {
+ * const exampleEventGridDataConnection = new azure.kusto/eventGridDataConnection.EventGridDataConnection("example", {
  *     name: "my-kusto-eventgrid-data-connection",
  *     resourceGroupName: example.name,
  *     location: example.location,

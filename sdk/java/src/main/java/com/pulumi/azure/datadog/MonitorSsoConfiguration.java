@@ -28,9 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datadog.Monitor;
  * import com.pulumi.azure.datadog.MonitorArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorDatadogOrganizationArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorUserArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorIdentityArgs;
  * import com.pulumi.azure.datadog.MonitorSsoConfiguration;
  * import com.pulumi.azure.datadog.MonitorSsoConfigurationArgs;
  * import java.util.List;
@@ -55,18 +52,10 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-monitor&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
- *                 .apiKey(&#34;XXXX&#34;)
- *                 .applicationKey(&#34;XXXX&#34;)
- *                 .build())
- *             .user(MonitorUserArgs.builder()
- *                 .name(&#34;Example&#34;)
- *                 .email(&#34;abc@xyz.com&#34;)
- *                 .build())
+ *             .datadogOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .skuName(&#34;Linked&#34;)
- *             .identity(MonitorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleMonitorSsoConfiguration = new MonitorSsoConfiguration(&#34;exampleMonitorSsoConfiguration&#34;, MonitorSsoConfigurationArgs.builder()        

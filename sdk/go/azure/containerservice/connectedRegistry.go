@@ -21,71 +21,72 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/connectedRegistry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/connectedRegistry"
+//	containerservice/registry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registry"
+//	containerservice/registryScopeMap "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryScopeMap"
+//	containerservice/registryToken "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryToken"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
-//				Name:                pulumi.String("exampleacr"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				Sku:                 pulumi.String("Premium"),
-//				DataEndpointEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "example", &containerservice.RegistryScopeMapArgs{
-//				Name:                  pulumi.String("examplescopemap"),
-//				ContainerRegistryName: exampleRegistry.Name,
-//				ResourceGroupName:     exampleRegistry.ResourceGroupName,
-//				Actions: pulumi.StringArray{
-//					pulumi.String("repositories/hello-world/content/delete"),
-//					pulumi.String("repositories/hello-world/content/read"),
-//					pulumi.String("repositories/hello-world/content/write"),
-//					pulumi.String("repositories/hello-world/metadata/read"),
-//					pulumi.String("repositories/hello-world/metadata/write"),
-//					pulumi.String("gateway/examplecr/config/read"),
-//					pulumi.String("gateway/examplecr/config/write"),
-//					pulumi.String("gateway/examplecr/message/read"),
-//					pulumi.String("gateway/examplecr/message/write"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "example", &containerservice.RegistryTokenArgs{
-//				Name:                  pulumi.String("exampletoken"),
-//				ContainerRegistryName: exampleRegistry.Name,
-//				ResourceGroupName:     exampleRegistry.ResourceGroupName,
-//				ScopeMapId:            exampleRegistryScopeMap.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewConnectedRegistry(ctx, "example", &containerservice.ConnectedRegistryArgs{
-//				Name:                pulumi.String("examplecr"),
-//				ContainerRegistryId: exampleRegistry.ID(),
-//				SyncTokenId:         exampleRegistryToken.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistry, err := containerservice/registry.NewRegistry(ctx, "example", &containerservice/registry.RegistryArgs{
+// Name: "exampleacr",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Premium",
+// DataEndpointEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistryScopeMap, err := containerservice/registryScopeMap.NewRegistryScopeMap(ctx, "example", &containerservice/registryScopeMap.RegistryScopeMapArgs{
+// Name: "examplescopemap",
+// ContainerRegistryName: exampleRegistry.Name,
+// ResourceGroupName: exampleRegistry.ResourceGroupName,
+// Actions: []string{
+// "repositories/hello-world/content/delete",
+// "repositories/hello-world/content/read",
+// "repositories/hello-world/content/write",
+// "repositories/hello-world/metadata/read",
+// "repositories/hello-world/metadata/write",
+// "gateway/examplecr/config/read",
+// "gateway/examplecr/config/write",
+// "gateway/examplecr/message/read",
+// "gateway/examplecr/message/write",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistryToken, err := containerservice/registryToken.NewRegistryToken(ctx, "example", &containerservice/registryToken.RegistryTokenArgs{
+// Name: "exampletoken",
+// ContainerRegistryName: exampleRegistry.Name,
+// ResourceGroupName: exampleRegistry.ResourceGroupName,
+// ScopeMapId: exampleRegistryScopeMap.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/connectedRegistry.NewConnectedRegistry(ctx, "example", &containerservice/connectedRegistry.ConnectedRegistryArgs{
+// Name: "examplecr",
+// ContainerRegistryId: exampleRegistry.Id,
+// SyncTokenId: exampleRegistryToken.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

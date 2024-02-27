@@ -21,65 +21,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devcenter"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	compute/sharedImageGallery "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/sharedImageGallery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	devcenter/devCenter "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devcenter/devCenter"
+//	devcenter/gallery "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devcenter/gallery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "test", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("example-uai"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devcenter.NewDevCenter(ctx, "test", &devcenter.DevCenterArgs{
-//				Name:              pulumi.String("example-devcenter"),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				Identity: &devcenter.DevCenterIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						testUserAssignedIdentity.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
-//				Name:              pulumi.String("example-image-gallery"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devcenter.NewGallery(ctx, "example", &devcenter.GalleryArgs{
-//				DevCenterId:     pulumi.Any(exampleAzurermDevCenter.Id),
-//				SharedGalleryId: exampleSharedImageGallery.ID(),
-//				Name:            pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// testUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "test", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "example-uai",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devcenter/devCenter.NewDevCenter(ctx, "test", &devcenter/devCenter.DevCenterArgs{
+// Name: "example-devcenter",
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// Location: testAzurermResourceGroup.Location,
+// Identity: map[string]interface{}{
+// "type": "UserAssigned",
+// "identityIds": []interface{}{
+// testUserAssignedIdentity.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSharedImageGallery, err := compute/sharedImageGallery.NewSharedImageGallery(ctx, "example", &compute/sharedImageGallery.SharedImageGalleryArgs{
+// Name: "example-image-gallery",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devcenter/gallery.NewGallery(ctx, "example", &devcenter/gallery.GalleryArgs{
+// DevCenterId: exampleAzurermDevCenter.Id,
+// SharedGalleryId: exampleSharedImageGallery.Id,
+// Name: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

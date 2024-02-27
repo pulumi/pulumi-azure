@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tf-test",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     var exampleInsights = new Azure.Appinsights.Insights.Insights("example", new()
     ///     {
     ///         Name = "tf-test-appinsights",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppInsights
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var readTelemetry = new Azure.AppInsights.ApiKey("read_telemetry", new()
+    ///     var readTelemetry = new Azure.Appinsights.ApiKey.ApiKey("read_telemetry", new()
     ///     {
     ///         Name = "tf-test-appinsights-read-telemetry-api-key",
     ///         ApplicationInsightsId = exampleInsights.Id,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppInsights
     ///         },
     ///     });
     /// 
-    ///     var writeAnnotations = new Azure.AppInsights.ApiKey("write_annotations", new()
+    ///     var writeAnnotations = new Azure.Appinsights.ApiKey.ApiKey("write_annotations", new()
     ///     {
     ///         Name = "tf-test-appinsights-write-annotations-api-key",
     ///         ApplicationInsightsId = exampleInsights.Id,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.AppInsights
     ///         },
     ///     });
     /// 
-    ///     var authenticateSdkControlChannel = new Azure.AppInsights.ApiKey("authenticate_sdk_control_channel", new()
+    ///     var authenticateSdkControlChannel = new Azure.Appinsights.ApiKey.ApiKey("authenticate_sdk_control_channel", new()
     ///     {
     ///         Name = "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
     ///         ApplicationInsightsId = exampleInsights.Id,
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.AppInsights
     ///         },
     ///     });
     /// 
-    ///     var fullPermissions = new Azure.AppInsights.ApiKey("full_permissions", new()
+    ///     var fullPermissions = new Azure.Appinsights.ApiKey.ApiKey("full_permissions", new()
     ///     {
     ///         Name = "tf-test-appinsights-full-permissions-api-key",
     ///         ApplicationInsightsId = exampleInsights.Id,

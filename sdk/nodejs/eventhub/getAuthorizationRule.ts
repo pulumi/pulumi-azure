@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.eventhub.getAuthorizationRule({
- *     name: "test",
- *     namespaceName: testAzurermEventhubNamespace.name,
- *     eventhubName: testAzurermEventhub.name,
- *     resourceGroupName: testAzurermResourceGroup.name,
- * });
- * ```
  */
 export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {
 
@@ -102,20 +88,6 @@ export interface GetAuthorizationRuleResult {
 }
 /**
  * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const test = azure.eventhub.getAuthorizationRule({
- *     name: "test",
- *     namespaceName: testAzurermEventhubNamespace.name,
- *     eventhubName: testAzurermEventhub.name,
- *     resourceGroupName: testAzurermResourceGroup.name,
- * });
- * ```
  */
 export function getAuthorizationRuleOutput(args: GetAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationRule(a, opts))

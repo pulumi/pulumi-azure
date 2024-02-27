@@ -17,76 +17,12 @@ public final class HdinsightFunctions {
     /**
      * Use this data source to access information about an existing HDInsight Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing HDInsight Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -95,76 +31,12 @@ public final class HdinsightFunctions {
     /**
      * Use this data source to access information about an existing HDInsight Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:hdinsight/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing HDInsight Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HdinsightFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;httpsEndpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.httpsEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {

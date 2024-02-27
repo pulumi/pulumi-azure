@@ -384,43 +384,43 @@ class Watcher(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("example",
-            name="example",
+            sku_name=Basic)
+        example_hybrid_runbook_worker_group = azure.automation.hybrid_runbook_worker_group.HybridRunbookWorkerGroup("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name)
-        example_run_book = azure.automation.RunBook("example",
-            name="Get-AzureVMTutorial",
+        example_run_book = azure.automation.run_book.RunBook("example",
+            name=Get-AzureVMTutorial,
             location=example.location,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        example_watcher = azure.automation.Watcher("example",
-            name="example",
+            log_verbose=true,
+            log_progress=true,
+            description=This is an example runbook,
+            runbook_type=PowerShellWorkflow,
+            publish_content_link={
+                uri: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1,
+            })
+        example_watcher = azure.automation.watcher.Watcher("example",
+            name=example,
             automation_account_id=example_account.id,
-            location="West Europe",
+            location=West Europe,
             script_name=example_run_book.name,
             script_run_on=example_hybrid_runbook_worker_group.name,
-            description="example-watcher desc",
+            description=example-watcher desc,
             execution_frequency_in_seconds=42,
             tags={
-                "foo": "bar",
+                foo: bar,
             },
             script_parameters={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -460,43 +460,43 @@ class Watcher(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("example",
-            name="example",
+            sku_name=Basic)
+        example_hybrid_runbook_worker_group = azure.automation.hybrid_runbook_worker_group.HybridRunbookWorkerGroup("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name)
-        example_run_book = azure.automation.RunBook("example",
-            name="Get-AzureVMTutorial",
+        example_run_book = azure.automation.run_book.RunBook("example",
+            name=Get-AzureVMTutorial,
             location=example.location,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
-                uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            ))
-        example_watcher = azure.automation.Watcher("example",
-            name="example",
+            log_verbose=true,
+            log_progress=true,
+            description=This is an example runbook,
+            runbook_type=PowerShellWorkflow,
+            publish_content_link={
+                uri: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1,
+            })
+        example_watcher = azure.automation.watcher.Watcher("example",
+            name=example,
             automation_account_id=example_account.id,
-            location="West Europe",
+            location=West Europe,
             script_name=example_run_book.name,
             script_run_on=example_hybrid_runbook_worker_group.name,
-            description="example-watcher desc",
+            description=example-watcher desc,
             execution_frequency_in_seconds=42,
             tags={
-                "foo": "bar",
+                foo: bar,
             },
             script_parameters={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

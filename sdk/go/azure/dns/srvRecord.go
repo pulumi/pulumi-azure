@@ -19,52 +19,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/srvRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/srvRecord"
+//	dns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
-//				Name:              pulumi.String("mydomain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dns.NewSrvRecord(ctx, "example", &dns.SrvRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: dns.SrvRecordRecordArray{
-//					&dns.SrvRecordRecordArgs{
-//						Priority: pulumi.Int(1),
-//						Weight:   pulumi.Int(5),
-//						Port:     pulumi.Int(8080),
-//						Target:   pulumi.String("target1.contoso.com"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := dns/zone.NewZone(ctx, "example", &dns/zone.ZoneArgs{
+// Name: "mydomain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dns/srvRecord.NewSrvRecord(ctx, "example", &dns/srvRecord.SrvRecordArgs{
+// Name: "test",
+// ZoneName: exampleZone.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Records: []map[string]interface{}{
+// map[string]interface{}{
+// "priority": 1,
+// "weight": 5,
+// "port": 8080,
+// "target": "target1.contoso.com",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

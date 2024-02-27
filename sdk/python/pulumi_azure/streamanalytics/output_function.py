@@ -301,50 +301,50 @@ class OutputFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="exampleappserviceplan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=exampleappserviceplan,
             location=example.location,
             resource_group_name=example.name,
-            kind="FunctionApp",
+            kind=FunctionApp,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="examplefunctionapp",
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=examplefunctionapp,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            os_type="linux",
-            version="~3")
-        example_job = azure.streamanalytics.Job("example",
-            name="examplestreamanalyticsjob",
+            os_type=linux,
+            version=~3)
+        example_job = azure.streamanalytics.job.Job("example",
+            name=examplestreamanalyticsjob,
             resource_group_name=example.name,
             location=example.location,
             streaming_units=3,
-            transformation_query=\"\"\"    SELECT *
+            transformation_query=    SELECT *
             INTO [YourOutputAlias]
             FROM [YourInputAlias]
-        \"\"\")
-        example_output_function = azure.streamanalytics.OutputFunction("example",
-            name="exampleoutput",
+        )
+        example_output_function = azure.streamanalytics.output_function.OutputFunction("example",
+            name=exampleoutput,
             resource_group_name=example_job.resource_group_name,
             stream_analytics_job_name=example_job.name,
             function_app=example_function_app.name,
-            function_name="examplefunctionname",
-            api_key="exampleapikey")
+            function_name=examplefunctionname,
+            api_key=exampleapikey)
         ```
 
         ## Import
@@ -381,50 +381,50 @@ class OutputFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="exampleappserviceplan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=exampleappserviceplan,
             location=example.location,
             resource_group_name=example.name,
-            kind="FunctionApp",
+            kind=FunctionApp,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="examplefunctionapp",
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=examplefunctionapp,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            os_type="linux",
-            version="~3")
-        example_job = azure.streamanalytics.Job("example",
-            name="examplestreamanalyticsjob",
+            os_type=linux,
+            version=~3)
+        example_job = azure.streamanalytics.job.Job("example",
+            name=examplestreamanalyticsjob,
             resource_group_name=example.name,
             location=example.location,
             streaming_units=3,
-            transformation_query=\"\"\"    SELECT *
+            transformation_query=    SELECT *
             INTO [YourOutputAlias]
             FROM [YourInputAlias]
-        \"\"\")
-        example_output_function = azure.streamanalytics.OutputFunction("example",
-            name="exampleoutput",
+        )
+        example_output_function = azure.streamanalytics.output_function.OutputFunction("example",
+            name=exampleoutput,
             resource_group_name=example_job.resource_group_name,
             stream_analytics_job_name=example_job.name,
             function_app=example_function_app.name,
-            function_name="examplefunctionname",
-            api_key="exampleapikey")
+            function_name=examplefunctionname,
+            api_key=exampleapikey)
         ```
 
         ## Import

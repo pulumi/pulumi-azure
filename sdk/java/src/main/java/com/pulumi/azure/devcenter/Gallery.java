@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import com.pulumi.azure.devcenter.DevCenter;
  * import com.pulumi.azure.devcenter.DevCenterArgs;
- * import com.pulumi.azure.devcenter.inputs.DevCenterIdentityArgs;
  * import com.pulumi.azure.compute.SharedImageGallery;
  * import com.pulumi.azure.compute.SharedImageGalleryArgs;
  * import com.pulumi.azure.devcenter.Gallery;
@@ -62,10 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-devcenter&#34;)
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .location(testAzurermResourceGroup.location())
- *             .identity(DevCenterIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(testUserAssignedIdentity.id())
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSharedImageGallery = new SharedImageGallery(&#34;exampleSharedImageGallery&#34;, SharedImageGalleryArgs.builder()        

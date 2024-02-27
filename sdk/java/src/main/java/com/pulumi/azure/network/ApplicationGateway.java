@@ -52,22 +52,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.ApplicationGateway;
  * import com.pulumi.azure.network.ApplicationGatewayArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewaySkuArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendPortArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendAddressPoolArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayHttpListenerArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayRequestRoutingRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,66 +99,32 @@ import javax.annotation.Nullable;
  *             .allocationMethod(&#34;Dynamic&#34;)
  *             .build());
  * 
- *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-beap&#34;, name));
+ *         final var backendAddressPoolName = String.format(&#34;%s-beap&#34;, exampleVirtualNetwork.name());
  * 
- *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-feport&#34;, name));
+ *         final var frontendPortName = String.format(&#34;%s-feport&#34;, exampleVirtualNetwork.name());
  * 
- *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-feip&#34;, name));
+ *         final var frontendIpConfigurationName = String.format(&#34;%s-feip&#34;, exampleVirtualNetwork.name());
  * 
- *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-be-htst&#34;, name));
+ *         final var httpSettingName = String.format(&#34;%s-be-htst&#34;, exampleVirtualNetwork.name());
  * 
- *         final var listenerName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-httplstn&#34;, name));
+ *         final var listenerName = String.format(&#34;%s-httplstn&#34;, exampleVirtualNetwork.name());
  * 
- *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rqrt&#34;, name));
+ *         final var requestRoutingRuleName = String.format(&#34;%s-rqrt&#34;, exampleVirtualNetwork.name());
  * 
- *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rdrcfg&#34;, name));
+ *         final var redirectConfigurationName = String.format(&#34;%s-rdrcfg&#34;, exampleVirtualNetwork.name());
  * 
  *         var network = new ApplicationGateway(&#34;network&#34;, ApplicationGatewayArgs.builder()        
  *             .name(&#34;example-appgateway&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(ApplicationGatewaySkuArgs.builder()
- *                 .name(&#34;Standard_v2&#34;)
- *                 .tier(&#34;Standard_v2&#34;)
- *                 .capacity(2)
- *                 .build())
- *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
- *                 .name(&#34;my-gateway-ip-configuration&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
- *             .frontendPorts(ApplicationGatewayFrontendPortArgs.builder()
- *                 .name(frontendPortName)
- *                 .port(80)
- *                 .build())
- *             .frontendIpConfigurations(ApplicationGatewayFrontendIpConfigurationArgs.builder()
- *                 .name(frontendIpConfigurationName)
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
- *             .backendAddressPools(ApplicationGatewayBackendAddressPoolArgs.builder()
- *                 .name(backendAddressPoolName)
- *                 .build())
- *             .backendHttpSettings(ApplicationGatewayBackendHttpSettingArgs.builder()
- *                 .name(httpSettingName)
- *                 .cookieBasedAffinity(&#34;Disabled&#34;)
- *                 .path(&#34;/path1/&#34;)
- *                 .port(80)
- *                 .protocol(&#34;Http&#34;)
- *                 .requestTimeout(60)
- *                 .build())
- *             .httpListeners(ApplicationGatewayHttpListenerArgs.builder()
- *                 .name(listenerName)
- *                 .frontendIpConfigurationName(frontendIpConfigurationName)
- *                 .frontendPortName(frontendPortName)
- *                 .protocol(&#34;Http&#34;)
- *                 .build())
- *             .requestRoutingRules(ApplicationGatewayRequestRoutingRuleArgs.builder()
- *                 .name(requestRoutingRuleName)
- *                 .priority(9)
- *                 .ruleType(&#34;Basic&#34;)
- *                 .httpListenerName(listenerName)
- *                 .backendAddressPoolName(backendAddressPoolName)
- *                 .backendHttpSettingsName(httpSettingName)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .gatewayIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .frontendPorts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendAddressPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendHttpSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .httpListeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .requestRoutingRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

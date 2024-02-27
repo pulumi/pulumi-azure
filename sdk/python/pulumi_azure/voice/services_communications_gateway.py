@@ -505,47 +505,47 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
-            name="example-vcg",
-            location="West Europe",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_services_communications_gateway = azure.voice.services_communications_gateway.ServicesCommunicationsGateway("example",
+            name=example-vcg,
+            location=West Europe,
             resource_group_name=example.name,
-            connectivity="PublicAddress",
-            codecs="PCMA",
-            e911_type="DirectToEsrp",
+            connectivity=PublicAddress,
+            codecs=PCMA,
+            e911_type=DirectToEsrp,
             platforms=[
-                "OperatorConnect",
-                "TeamsPhoneMobile",
+                OperatorConnect,
+                TeamsPhoneMobile,
             ],
             service_locations=[
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus",
-                    allowed_media_source_address_prefixes=["10.1.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
-                    esrp_addresses=["198.51.100.3"],
-                    operator_addresses=["198.51.100.1"],
-                ),
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus2",
-                    allowed_media_source_address_prefixes=["10.2.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
-                    esrp_addresses=["198.51.100.4"],
-                    operator_addresses=["198.51.100.2"],
-                ),
+                {
+                    location: eastus,
+                    allowedMediaSourceAddressPrefixes: [10.1.2.0/24],
+                    allowedSignalingSourceAddressPrefixes: [10.1.1.0/24],
+                    esrpAddresses: [198.51.100.3],
+                    operatorAddresses: [198.51.100.1],
+                },
+                {
+                    location: eastus2,
+                    allowedMediaSourceAddressPrefixes: [10.2.2.0/24],
+                    allowedSignalingSourceAddressPrefixes: [10.2.1.0/24],
+                    esrpAddresses: [198.51.100.4],
+                    operatorAddresses: [198.51.100.2],
+                },
             ],
-            auto_generated_domain_name_label_scope="SubscriptionReuse",
+            auto_generated_domain_name_label_scope=SubscriptionReuse,
             api_bridge=json.dumps({}),
             emergency_dial_strings=[
-                "911",
-                "933",
+                911,
+                933,
             ],
             on_prem_mcp_enabled=False,
             tags={
-                "key": "value",
+                key: value,
             },
-            microsoft_teams_voicemail_pilot_number="1")
+            microsoft_teams_voicemail_pilot_number=1)
         ```
 
         ## Import
@@ -593,47 +593,47 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
-            name="example-vcg",
-            location="West Europe",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_services_communications_gateway = azure.voice.services_communications_gateway.ServicesCommunicationsGateway("example",
+            name=example-vcg,
+            location=West Europe,
             resource_group_name=example.name,
-            connectivity="PublicAddress",
-            codecs="PCMA",
-            e911_type="DirectToEsrp",
+            connectivity=PublicAddress,
+            codecs=PCMA,
+            e911_type=DirectToEsrp,
             platforms=[
-                "OperatorConnect",
-                "TeamsPhoneMobile",
+                OperatorConnect,
+                TeamsPhoneMobile,
             ],
             service_locations=[
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus",
-                    allowed_media_source_address_prefixes=["10.1.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
-                    esrp_addresses=["198.51.100.3"],
-                    operator_addresses=["198.51.100.1"],
-                ),
-                azure.voice.ServicesCommunicationsGatewayServiceLocationArgs(
-                    location="eastus2",
-                    allowed_media_source_address_prefixes=["10.2.2.0/24"],
-                    allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
-                    esrp_addresses=["198.51.100.4"],
-                    operator_addresses=["198.51.100.2"],
-                ),
+                {
+                    location: eastus,
+                    allowedMediaSourceAddressPrefixes: [10.1.2.0/24],
+                    allowedSignalingSourceAddressPrefixes: [10.1.1.0/24],
+                    esrpAddresses: [198.51.100.3],
+                    operatorAddresses: [198.51.100.1],
+                },
+                {
+                    location: eastus2,
+                    allowedMediaSourceAddressPrefixes: [10.2.2.0/24],
+                    allowedSignalingSourceAddressPrefixes: [10.2.1.0/24],
+                    esrpAddresses: [198.51.100.4],
+                    operatorAddresses: [198.51.100.2],
+                },
             ],
-            auto_generated_domain_name_label_scope="SubscriptionReuse",
+            auto_generated_domain_name_label_scope=SubscriptionReuse,
             api_bridge=json.dumps({}),
             emergency_dial_strings=[
-                "911",
-                "933",
+                911,
+                933,
             ],
             on_prem_mcp_enabled=False,
             tags={
-                "key": "value",
+                key: value,
             },
-            microsoft_teams_voicemail_pilot_number="1")
+            microsoft_teams_voicemail_pilot_number=1)
         ```
 
         ## Import

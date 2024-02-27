@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,22 +37,22 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleTransform = new Azure.Media.Transform("example", new()
+    ///     var exampleTransform = new Azure.Media.Transform.Transform("example", new()
     ///     {
     ///         Name = "transform1",
     ///         ResourceGroupName = example.Name,
@@ -60,19 +60,19 @@ namespace Pulumi.Azure.Media
     ///         Description = "My transform description",
     ///         Outputs = new[]
     ///         {
-    ///             new Azure.Media.Inputs.TransformOutputArgs
+    ///             
     ///             {
-    ///                 RelativePriority = "Normal",
-    ///                 OnErrorAction = "ContinueJob",
-    ///                 BuiltinPreset = new Azure.Media.Inputs.TransformOutputBuiltinPresetArgs
+    ///                 { "relativePriority", "Normal" },
+    ///                 { "onErrorAction", "ContinueJob" },
+    ///                 { "builtinPreset", 
     ///                 {
-    ///                     PresetName = "AACGoodQualityAudio",
-    ///                 },
+    ///                     { "presetName", "AACGoodQualityAudio" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var input = new Azure.Media.Asset("input", new()
+    ///     var input = new Azure.Media.Asset.Asset("input", new()
     ///     {
     ///         Name = "input",
     ///         ResourceGroupName = example.Name,
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Media
     ///         Description = "Input Asset description",
     ///     });
     /// 
-    ///     var output = new Azure.Media.Asset("output", new()
+    ///     var output = new Azure.Media.Asset.Asset("output", new()
     ///     {
     ///         Name = "output",
     ///         ResourceGroupName = example.Name,
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Media
     ///         Description = "Output Asset description",
     ///     });
     /// 
-    ///     var exampleJob = new Azure.Media.Job("example", new()
+    ///     var exampleJob = new Azure.Media.Job.Job("example", new()
     ///     {
     ///         Name = "job1",
     ///         ResourceGroupName = example.Name,
@@ -96,15 +96,15 @@ namespace Pulumi.Azure.Media
     ///         TransformName = exampleTransform.Name,
     ///         Description = "My Job description",
     ///         Priority = "Normal",
-    ///         InputAsset = new Azure.Media.Inputs.JobInputAssetArgs
+    ///         InputAsset = 
     ///         {
-    ///             Name = input.Name,
+    ///             { "name", input.Name },
     ///         },
     ///         OutputAssets = new[]
     ///         {
-    ///             new Azure.Media.Inputs.JobOutputAssetArgs
+    ///             
     ///             {
-    ///                 Name = output.Name,
+    ///                 { "name", output.Name },
     ///             },
     ///         },
     ///     });

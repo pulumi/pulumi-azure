@@ -13,45 +13,45 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const primary = new azure.core.ResourceGroup("primary", {
+ * const primary = new azure.core/resourceGroup.ResourceGroup("primary", {
  *     name: "tfex-network-mapping-primary",
  *     location: "West US",
  * });
- * const secondary = new azure.core.ResourceGroup("secondary", {
+ * const secondary = new azure.core/resourceGroup.ResourceGroup("secondary", {
  *     name: "tfex-network-mapping-secondary",
  *     location: "East US",
  * });
- * const vault = new azure.recoveryservices.Vault("vault", {
+ * const vault = new azure.recoveryservices/vault.Vault("vault", {
  *     name: "example-recovery-vault",
  *     location: secondary.location,
  *     resourceGroupName: secondary.name,
  *     sku: "Standard",
  * });
- * const primaryFabric = new azure.siterecovery.Fabric("primary", {
+ * const primaryFabric = new azure.siterecovery/fabric.Fabric("primary", {
  *     name: "primary-fabric",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     location: primary.location,
  * });
- * const secondaryFabric = new azure.siterecovery.Fabric("secondary", {
+ * const secondaryFabric = new azure.siterecovery/fabric.Fabric("secondary", {
  *     name: "secondary-fabric",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     location: secondary.location,
  * });
- * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
+ * const primaryVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("primary", {
  *     name: "network1",
  *     resourceGroupName: primary.name,
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: primary.location,
  * });
- * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondary", {
+ * const secondaryVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("secondary", {
  *     name: "network2",
  *     resourceGroupName: secondary.name,
  *     addressSpaces: ["192.168.2.0/24"],
  *     location: secondary.location,
  * });
- * const recovery_mapping = new azure.siterecovery.NetworkMapping("recovery-mapping", {
+ * const recovery_mapping = new azure.siterecovery/networkMapping.NetworkMapping("recovery-mapping", {
  *     name: "recovery-network-mapping-1",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,

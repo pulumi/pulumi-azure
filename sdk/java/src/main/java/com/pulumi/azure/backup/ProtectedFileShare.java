@@ -25,8 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.recoveryservices.Vault;
- * import com.pulumi.azure.recoveryservices.VaultArgs;
+ * import com.pulumi.azure.recoveryservices_vault.Vault;
+ * import com.pulumi.azure.recoveryservices_vault.VaultArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.storage.Share;
@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.backup.ContainerStorageAccountArgs;
  * import com.pulumi.azure.backup.PolicyFileShare;
  * import com.pulumi.azure.backup.PolicyFileShareArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareBackupArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionDailyArgs;
  * import com.pulumi.azure.backup.ProtectedFileShare;
  * import com.pulumi.azure.backup.ProtectedFileShareArgs;
  * import java.util.List;
@@ -88,13 +86,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;tfex-recovery-vault-policy&#34;)
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(vault.name())
- *             .backup(PolicyFileShareBackupArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .time(&#34;23:00&#34;)
- *                 .build())
- *             .retentionDaily(PolicyFileShareRetentionDailyArgs.builder()
- *                 .count(10)
- *                 .build())
+ *             .backup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .retentionDaily(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var share1 = new ProtectedFileShare(&#34;share1&#34;, ProtectedFileShareArgs.builder()        

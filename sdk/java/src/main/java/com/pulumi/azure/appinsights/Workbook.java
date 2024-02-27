@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;isLocked&#34;, false),
  *                     jsonProperty(&#34;fallbackResourceIds&#34;, jsonArray(&#34;Azure Monitor&#34;))
  *                 )))
- *             .tags(Map.of(&#34;ENV&#34;, &#34;Test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

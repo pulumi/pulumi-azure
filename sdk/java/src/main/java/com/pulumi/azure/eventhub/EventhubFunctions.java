@@ -41,78 +41,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args) {
         return getAuthorizationRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationRuleResult> getAuthorizationRulePlain(GetAuthorizationRulePlainArgs args) {
@@ -121,78 +55,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", TypeShape.of(GetAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationRuleResult> getAuthorizationRulePlain(GetAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -201,76 +69,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventHub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -279,76 +83,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventHub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -357,78 +97,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args) {
         return getConsumeGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConsumeGroupResult> getConsumeGroupPlain(GetConsumeGroupPlainArgs args) {
@@ -437,78 +111,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getConsumeGroup:getConsumeGroup", TypeShape.of(GetConsumeGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetConsumeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConsumeGroupResult> getConsumeGroupPlain(GetConsumeGroupPlainArgs args, InvokeOptions options) {
@@ -517,78 +125,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args) {
         return getEventHub(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventHub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventHubResult> getEventHubPlain(GetEventHubPlainArgs args) {
@@ -597,39 +139,6 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getEventHub:getEventHub", TypeShape.of(GetEventHubResult.class), args, Utilities.withVersion(options));
@@ -637,77 +146,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetEventHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getEventHub(GetEventHubArgs.builder()
-     *             .name(&#34;search-eventhub&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .namespaceName(&#34;search-eventhubns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubId&#34;, example.applyValue(getEventHubResult -&gt; getEventHubResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetEventHubResult> getEventHubPlain(GetEventHubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventhub/getEventHub:getEventHub", TypeShape.of(GetEventHubResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventHub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -720,38 +164,6 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
@@ -762,38 +174,6 @@ public final class EventhubFunctions {
     }
     /**
      * Use this data source to access information about an existing EventHub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -806,38 +186,6 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
      * 
@@ -849,76 +197,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
         return getNamespace(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventHub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -927,76 +211,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing EventHub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventHub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;search-eventhubns&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubNamespaceId&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -1005,78 +225,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args) {
         return getNamespaceAuthorizationRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args) {
@@ -1085,78 +239,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", TypeShape.of(GetNamespaceAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventhubFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
-     *             .name(&#34;navi&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .namespaceName(&#34;example-ns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventhubAuthorizationRuleId&#34;, exampleAzuremEventhubNamespaceAuthorizationRule.id());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -1165,166 +253,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.eventhub.EventHubNamespace;
-     * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
-     * import com.pulumi.azure.eventhub.EventHub;
-     * import com.pulumi.azure.eventhub.EventHubArgs;
-     * import com.pulumi.azure.eventhub.AuthorizationRule;
-     * import com.pulumi.azure.eventhub.AuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .partitionCount(1)
-     *             .messageRetention(1)
-     *             .build());
-     * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .listen(true)
-     *             .send(true)
-     *             .manage(true)
-     *             .build());
-     * 
-     *         final var example = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(exampleAuthorizationRule.name())
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSasResult> getSas(GetSasArgs args) {
         return getSas(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.eventhub.EventHubNamespace;
-     * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
-     * import com.pulumi.azure.eventhub.EventHub;
-     * import com.pulumi.azure.eventhub.EventHubArgs;
-     * import com.pulumi.azure.eventhub.AuthorizationRule;
-     * import com.pulumi.azure.eventhub.AuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .partitionCount(1)
-     *             .messageRetention(1)
-     *             .build());
-     * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .listen(true)
-     *             .send(true)
-     *             .manage(true)
-     *             .build());
-     * 
-     *         final var example = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(exampleAuthorizationRule.name())
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSasResult> getSasPlain(GetSasPlainArgs args) {
@@ -1333,83 +267,6 @@ public final class EventhubFunctions {
     /**
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.eventhub.EventHubNamespace;
-     * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
-     * import com.pulumi.azure.eventhub.EventHub;
-     * import com.pulumi.azure.eventhub.EventHubArgs;
-     * import com.pulumi.azure.eventhub.AuthorizationRule;
-     * import com.pulumi.azure.eventhub.AuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .partitionCount(1)
-     *             .messageRetention(1)
-     *             .build());
-     * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .listen(true)
-     *             .send(true)
-     *             .manage(true)
-     *             .build());
-     * 
-     *         final var example = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(exampleAuthorizationRule.name())
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSasResult> getSas(GetSasArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventhub/getSas:getSas", TypeShape.of(GetSasResult.class), args, Utilities.withVersion(options));
@@ -1417,121 +274,12 @@ public final class EventhubFunctions {
     /**
      * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.eventhub.EventHubNamespace;
-     * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
-     * import com.pulumi.azure.eventhub.EventHub;
-     * import com.pulumi.azure.eventhub.EventHubArgs;
-     * import com.pulumi.azure.eventhub.AuthorizationRule;
-     * import com.pulumi.azure.eventhub.AuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.EventhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetAuthorizationRuleArgs;
-     * import com.pulumi.azure.eventhub.inputs.GetSasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
-     *             .name(&#34;example-ehn&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;Basic&#34;)
-     *             .build());
-     * 
-     *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
-     *             .name(&#34;example-eh&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .partitionCount(1)
-     *             .messageRetention(1)
-     *             .build());
-     * 
-     *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
-     *             .name(&#34;example-ehar&#34;)
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .listen(true)
-     *             .send(true)
-     *             .manage(true)
-     *             .build());
-     * 
-     *         final var example = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
-     *             .name(exampleAuthorizationRule.name())
-     *             .namespaceName(exampleEventHubNamespace.name())
-     *             .eventhubName(exampleEventHub.name())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult).applyValue(example -&gt; example.applyValue(getAuthorizationRuleResult -&gt; getAuthorizationRuleResult.primaryConnectionString())))
-     *             .expiry(&#34;2023-06-23T00:00:00Z&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSasResult> getSasPlain(GetSasPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventhub/getSas:getSas", TypeShape.of(GetSasResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing ServiceBus Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -1544,38 +292,6 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
@@ -1587,38 +303,6 @@ public final class EventhubFunctions {
     /**
      * Use this data source to access information about an existing ServiceBus Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
      * 
@@ -1629,38 +313,6 @@ public final class EventhubFunctions {
     }
     /**
      * Use this data source to access information about an existing ServiceBus Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;examplenamespace&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;location&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.location()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace

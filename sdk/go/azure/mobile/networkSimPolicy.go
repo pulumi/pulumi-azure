@@ -21,123 +21,126 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkDataNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkDataNetwork"
+//	mobile/networkService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkService"
+//	mobile/networkSimPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSimPolicy"
+//	mobile/networkSlice "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSlice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
-//				Name:              pulumi.String("example-mn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				MobileCountryCode: pulumi.String("001"),
-//				MobileNetworkCode: pulumi.String("01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkDataNetwork, err := mobile.NewNetworkDataNetwork(ctx, "example", &mobile.NetworkDataNetworkArgs{
-//				Name:            pulumi.String("example-mndn"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkService, err := mobile.NewNetworkService(ctx, "example", &mobile.NetworkServiceArgs{
-//				Name:              pulumi.String("example-mns"),
-//				MobileNetworkId:   exampleNetwork.ID(),
-//				Location:          example.Location,
-//				ServicePrecedence: pulumi.Int(0),
-//				PccRules: mobile.NetworkServicePccRuleArray{
-//					&mobile.NetworkServicePccRuleArgs{
-//						Name:                  pulumi.String("default-rule"),
-//						Precedence:            pulumi.Int(1),
-//						TrafficControlEnabled: pulumi.Bool(true),
-//						ServiceDataFlowTemplates: mobile.NetworkServicePccRuleServiceDataFlowTemplateArray{
-//							&mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs{
-//								Direction: pulumi.String("Uplink"),
-//								Name:      pulumi.String("IP-to-server"),
-//								Ports:     pulumi.StringArray{},
-//								Protocols: pulumi.StringArray{
-//									pulumi.String("ip"),
-//								},
-//								RemoteIpLists: pulumi.StringArray{
-//									pulumi.String("10.3.4.0/24"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSlice, err := mobile.NewNetworkSlice(ctx, "example", &mobile.NetworkSliceArgs{
-//				Name:            pulumi.String("example-mns"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//				SingleNetworkSliceSelectionAssistanceInformation: &mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{
-//					SliceServiceType: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkSimPolicy(ctx, "example", &mobile.NetworkSimPolicyArgs{
-//				Name:                       pulumi.String("example-mnsp"),
-//				MobileNetworkId:            exampleNetwork.ID(),
-//				Location:                   example.Location,
-//				RegistrationTimerInSeconds: pulumi.Int(3240),
-//				DefaultSliceId:             exampleNetworkSlice.ID(),
-//				Slices: mobile.NetworkSimPolicySliceArray{
-//					&mobile.NetworkSimPolicySliceArgs{
-//						DefaultDataNetworkId: exampleNetworkDataNetwork.ID(),
-//						SliceId:              exampleNetworkSlice.ID(),
-//						DataNetworks: mobile.NetworkSimPolicySliceDataNetworkArray{
-//							&mobile.NetworkSimPolicySliceDataNetworkArgs{
-//								DataNetworkId:                       exampleNetworkDataNetwork.ID(),
-//								AllocationAndRetentionPriorityLevel: pulumi.Int(9),
-//								DefaultSessionType:                  pulumi.String("IPv4"),
-//								QosIndicator:                        pulumi.Int(9),
-//								PreemptionCapability:                pulumi.String("NotPreempt"),
-//								PreemptionVulnerability:             pulumi.String("Preemptable"),
-//								AllowedServicesIds: pulumi.StringArray{
-//									exampleNetworkService.ID(),
-//								},
-//								SessionAggregateMaximumBitRate: &mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs{
-//									Downlink: pulumi.String("1 Gbps"),
-//									Uplink:   pulumi.String("500 Mbps"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				UserEquipmentAggregateMaximumBitRate: &mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs{
-//					Downlink: pulumi.String("1 Gbps"),
-//					Uplink:   pulumi.String("500 Mbps"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetwork, err := mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkDataNetwork, err := mobile/networkDataNetwork.NewNetworkDataNetwork(ctx, "example", &mobile/networkDataNetwork.NetworkDataNetworkArgs{
+// Name: "example-mndn",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkService, err := mobile/networkService.NewNetworkService(ctx, "example", &mobile/networkService.NetworkServiceArgs{
+// Name: "example-mns",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// ServicePrecedence: 0,
+// PccRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "default-rule",
+// "precedence": 1,
+// "trafficControlEnabled": true,
+// "serviceDataFlowTemplates": []map[string]interface{}{
+// map[string]interface{}{
+// "direction": "Uplink",
+// "name": "IP-to-server",
+// "ports": []interface{}{
+// },
+// "protocols": []string{
+// "ip",
+// },
+// "remoteIpLists": []string{
+// "10.3.4.0/24",
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSlice, err := mobile/networkSlice.NewNetworkSlice(ctx, "example", &mobile/networkSlice.NetworkSliceArgs{
+// Name: "example-mns",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// SingleNetworkSliceSelectionAssistanceInformation: map[string]interface{}{
+// "sliceServiceType": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkSimPolicy.NewNetworkSimPolicy(ctx, "example", &mobile/networkSimPolicy.NetworkSimPolicyArgs{
+// Name: "example-mnsp",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// RegistrationTimerInSeconds: 3240,
+// DefaultSliceId: exampleNetworkSlice.Id,
+// Slices: []map[string]interface{}{
+// map[string]interface{}{
+// "defaultDataNetworkId": exampleNetworkDataNetwork.Id,
+// "sliceId": exampleNetworkSlice.Id,
+// "dataNetworks": []map[string]interface{}{
+// map[string]interface{}{
+// "dataNetworkId": exampleNetworkDataNetwork.Id,
+// "allocationAndRetentionPriorityLevel": 9,
+// "defaultSessionType": "IPv4",
+// "qosIndicator": 9,
+// "preemptionCapability": "NotPreempt",
+// "preemptionVulnerability": "Preemptable",
+// "allowedServicesIds": []interface{}{
+// exampleNetworkService.Id,
+// },
+// "sessionAggregateMaximumBitRate": map[string]interface{}{
+// "downlink": "1 Gbps",
+// "uplink": "500 Mbps",
+// },
+// },
+// },
+// },
+// },
+// UserEquipmentAggregateMaximumBitRate: map[string]interface{}{
+// "downlink": "1 Gbps",
+// "uplink": "500 Mbps",
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

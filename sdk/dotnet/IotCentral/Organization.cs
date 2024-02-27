@@ -22,13 +22,13 @@ namespace Pulumi.Azure.IotCentral
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resource",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleApplication = new Azure.IotCentral.Application("example", new()
+    ///     var exampleApplication = new Azure.Iotcentral.Application.Application("example", new()
     ///     {
     ///         Name = "example-iotcentral-app",
     ///         ResourceGroupName = example.Name,
@@ -43,14 +43,14 @@ namespace Pulumi.Azure.IotCentral
     ///         },
     ///     });
     /// 
-    ///     var exampleParent = new Azure.IotCentral.Organization("example_parent", new()
+    ///     var exampleParent = new Azure.Iotcentral.Organization.Organization("example_parent", new()
     ///     {
     ///         IotcentralApplicationId = exampleApplication.Id,
     ///         OrganizationId = "example-parent-organization-id",
     ///         DisplayName = "Org example parent",
     ///     });
     /// 
-    ///     var exampleOrganization = new Azure.IotCentral.Organization("example", new()
+    ///     var exampleOrganization = new Azure.Iotcentral.Organization.Organization("example", new()
     ///     {
     ///         IotcentralApplicationId = exampleApplication.Id,
     ///         OrganizationId = "example-child-organization-id",

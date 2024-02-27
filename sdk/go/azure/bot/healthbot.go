@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	bot/healthbot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/bot/healthbot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-healthbot"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewHealthbot(ctx, "example", &bot.HealthbotArgs{
-//				Name:              pulumi.String("example-bot"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("F0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-healthbot",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = bot/healthbot.NewHealthbot(ctx, "example", &bot/healthbot.HealthbotArgs{
+// Name: "example-bot",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "F0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

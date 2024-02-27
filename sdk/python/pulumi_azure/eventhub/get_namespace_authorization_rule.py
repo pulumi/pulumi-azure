@@ -186,18 +186,6 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
     """
     Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.eventhub.get_namespace_authorization_rule(name="navi",
-        resource_group_name="example-resources",
-        namespace_name="example-ns")
-    pulumi.export("eventhubAuthorizationRuleId", example_azurem_eventhub_namespace_authorization_rule["id"])
-    ```
-
 
     :param str name: The name of the EventHub Authorization Rule resource.
     :param str namespace_name: Specifies the name of the EventHub Namespace.
@@ -233,18 +221,6 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
     Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.eventhub.get_namespace_authorization_rule(name="navi",
-        resource_group_name="example-resources",
-        namespace_name="example-ns")
-    pulumi.export("eventhubAuthorizationRuleId", example_azurem_eventhub_namespace_authorization_rule["id"])
-    ```
 
 
     :param str name: The name of the EventHub Authorization Rule resource.

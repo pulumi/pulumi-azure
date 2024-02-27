@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
  * import com.pulumi.azure.appplatform.SpringCloudBuildDeployment;
  * import com.pulumi.azure.appplatform.SpringCloudBuildDeploymentArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudBuildDeploymentQuotaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,14 +74,8 @@ import javax.annotation.Nullable;
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .buildResultId(&#34;&lt;default&gt;&#34;)
  *             .instanceCount(2)
- *             .environmentVariables(Map.ofEntries(
- *                 Map.entry(&#34;Foo&#34;, &#34;Bar&#34;),
- *                 Map.entry(&#34;Env&#34;, &#34;Staging&#34;)
- *             ))
- *             .quota(SpringCloudBuildDeploymentQuotaArgs.builder()
- *                 .cpu(&#34;2&#34;)
- *                 .memory(&#34;4Gi&#34;)
- *                 .build())
+ *             .environmentVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .quota(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

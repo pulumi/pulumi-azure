@@ -15,41 +15,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
+ * const exampleSharedImageGallery = new azure.compute/sharedImageGallery.SharedImageGallery("example", {
  *     name: "examplegallery",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleGalleryApplication = new azure.compute.GalleryApplication("example", {
+ * const exampleGalleryApplication = new azure.compute/galleryApplication.GalleryApplication("example", {
  *     name: "example-app",
  *     galleryId: exampleSharedImageGallery.id,
  *     location: example.location,
  *     supportedOsType: "Linux",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorage",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "example-container",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "blob",
  * });
- * const exampleBlob = new azure.storage.Blob("example", {
+ * const exampleBlob = new azure.storage/blob.Blob("example", {
  *     name: "scripts",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
  *     type: "Block",
  *     sourceContent: "[scripts file content]",
  * });
- * const exampleGalleryApplicationVersion = new azure.compute.GalleryApplicationVersion("example", {
+ * const exampleGalleryApplicationVersion = new azure.compute/galleryApplicationVersion.GalleryApplicationVersion("example", {
  *     name: "0.0.1",
  *     galleryApplicationId: exampleGalleryApplication.id,
  *     location: exampleGalleryApplication.location,

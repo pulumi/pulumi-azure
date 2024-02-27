@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vn",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-sn",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -39,17 +39,17 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleZone = new azure.privatedns.Zone("example", {
+ * const exampleZone = new azure.privatedns/zone.Zone("example", {
  *     name: "example.mysql.database.azure.com",
  *     resourceGroupName: example.name,
  * });
- * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns/zoneVirtualNetworkLink.ZoneVirtualNetworkLink("example", {
  *     name: "exampleVnetZone.com",
  *     privateDnsZoneName: exampleZone.name,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  *     resourceGroupName: example.name,
  * });
- * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ * const exampleFlexibleServer = new azure.mysql/flexibleServer.FlexibleServer("example", {
  *     name: "example-fs",
  *     resourceGroupName: example.name,
  *     location: example.location,

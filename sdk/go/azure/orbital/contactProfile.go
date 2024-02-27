@@ -21,95 +21,94 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/orbital"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	orbital/contactProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/orbital/contactProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("testvnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("testsubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("orbitalgateway"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Orbital/orbitalGateways"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/publicIPAddresses/join/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/read"),
-//								pulumi.String("Microsoft.Network/publicIPAddresses/read"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = orbital.NewContactProfile(ctx, "example", &orbital.ContactProfileArgs{
-//				Name:                           pulumi.String("example-contact-profile"),
-//				ResourceGroupName:              example.Name,
-//				Location:                       example.Location,
-//				MinimumVariableContactDuration: pulumi.String("PT1M"),
-//				AutoTracking:                   pulumi.String("disabled"),
-//				Links: orbital.ContactProfileLinkArray{
-//					&orbital.ContactProfileLinkArgs{
-//						Channels: orbital.ContactProfileLinkChannelArray{
-//							&orbital.ContactProfileLinkChannelArgs{
-//								Name:               pulumi.String("channelname"),
-//								BandwidthMhz:       pulumi.Float64(100),
-//								CenterFrequencyMhz: pulumi.Float64(101),
-//								EndPoints: orbital.ContactProfileLinkChannelEndPointArray{
-//									&orbital.ContactProfileLinkChannelEndPointArgs{
-//										EndPointName: pulumi.String("AQUA_command"),
-//										IpAddress:    pulumi.String("10.0.1.0"),
-//										Port:         pulumi.String("49513"),
-//										Protocol:     pulumi.String("TCP"),
-//									},
-//								},
-//							},
-//						},
-//						Direction:    pulumi.String("Uplink"),
-//						Name:         pulumi.String("RHCP_UL"),
-//						Polarization: pulumi.String("RHCP"),
-//					},
-//				},
-//				NetworkConfigurationSubnetId: exampleSubnet.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "testvnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "testsubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "orbitalgateway",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Orbital/orbitalGateways",
+// "actions": []string{
+// "Microsoft.Network/publicIPAddresses/join/action",
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// "Microsoft.Network/virtualNetworks/read",
+// "Microsoft.Network/publicIPAddresses/read",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = orbital/contactProfile.NewContactProfile(ctx, "example", &orbital/contactProfile.ContactProfileArgs{
+// Name: "example-contact-profile",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// MinimumVariableContactDuration: "PT1M",
+// AutoTracking: "disabled",
+// Links: []map[string]interface{}{
+// map[string]interface{}{
+// "channels": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "channelname",
+// "bandwidthMhz": 100,
+// "centerFrequencyMhz": 101,
+// "endPoints": []map[string]interface{}{
+// map[string]interface{}{
+// "endPointName": "AQUA_command",
+// "ipAddress": "10.0.1.0",
+// "port": "49513",
+// "protocol": "TCP",
+// },
+// },
+// },
+// },
+// "direction": "Uplink",
+// "name": "RHCP_UL",
+// "polarization": "RHCP",
+// },
+// },
+// NetworkConfigurationSubnetId: exampleSubnet.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

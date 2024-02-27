@@ -34,9 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datadog.Monitor;
  * import com.pulumi.azure.datadog.MonitorArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorDatadogOrganizationArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorUserArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,18 +56,10 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-monitor&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
- *                 .apiKey(&#34;XXXX&#34;)
- *                 .applicationKey(&#34;XXXX&#34;)
- *                 .build())
- *             .user(MonitorUserArgs.builder()
- *                 .name(&#34;Example&#34;)
- *                 .email(&#34;abc@xyz.com&#34;)
- *                 .build())
+ *             .datadogOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .skuName(&#34;Linked&#34;)
- *             .identity(MonitorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -79,48 +68,6 @@ import javax.annotation.Nullable;
  * ## Role Assignment
  * 
  * To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
- * 
- * ### Role assignment on the monitor created
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.authorization.AuthorizationFunctions;
- * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
- * import com.pulumi.azure.authorization.Assignment;
- * import com.pulumi.azure.authorization.AssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
- * 
- *         final var monitoringReader = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .name(&#34;Monitoring Reader&#34;)
- *             .build());
- * 
- *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
- *             .principalId(exampleAzurermDatadogMonitor.identity()[0].principalId())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

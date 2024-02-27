@@ -125,16 +125,6 @@ def get_shared_image_gallery(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Shared Image Gallery.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_shared_image_gallery(name="my-image-gallery",
-        resource_group_name="example-resources")
-    ```
-
 
     :param str name: The name of the Shared Image Gallery.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
@@ -162,16 +152,6 @@ def get_shared_image_gallery_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedImageGalleryResult]:
     """
     Use this data source to access information about an existing Shared Image Gallery.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_shared_image_gallery(name="my-image-gallery",
-        resource_group_name="example-resources")
-    ```
 
 
     :param str name: The name of the Shared Image Gallery.

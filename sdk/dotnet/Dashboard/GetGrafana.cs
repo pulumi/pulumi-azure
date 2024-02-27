@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Dashboard
     {
         /// <summary>
         /// Use this data source to access information about an existing Grafana Dashboard.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Dashboard.GetGrafana.Invoke(new()
-        ///     {
-        ///         Name = "example-grafana-dashboard",
-        ///         ResourceGroupName = "example-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getGrafanaResult =&gt; getGrafanaResult.Name),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGrafanaResult> InvokeAsync(GetGrafanaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGrafanaResult>("azure:dashboard/getGrafana:getGrafana", args ?? new GetGrafanaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Grafana Dashboard.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Dashboard.GetGrafana.Invoke(new()
-        ///     {
-        ///         Name = "example-grafana-dashboard",
-        ///         ResourceGroupName = "example-rg",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getGrafanaResult =&gt; getGrafanaResult.Name),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure:dashboard/getGrafana:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());

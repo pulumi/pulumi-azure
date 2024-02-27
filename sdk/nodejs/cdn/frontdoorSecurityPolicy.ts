@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-cdn-frontdoor",
  *     location: "West Europe",
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ * const exampleFrontdoorProfile = new azure.cdn/frontdoorProfile.FrontdoorProfile("example", {
  *     name: "example-profile",
  *     resourceGroupName: example.name,
  *     skuName: "Standard_AzureFrontDoor",
  * });
- * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("example", {
+ * const exampleFrontdoorFirewallPolicy = new azure.cdn/frontdoorFirewallPolicy.FrontdoorFirewallPolicy("example", {
  *     name: "exampleWAF",
  *     resourceGroupName: example.name,
  *     skuName: exampleFrontdoorProfile.skuName,
@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleZone = new azure.dns.Zone("example", {
+ * const exampleZone = new azure.dns/zone.Zone("example", {
  *     name: "sub-domain.domain.com",
  *     resourceGroupName: example.name,
  * });
- * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
+ * const exampleFrontdoorCustomDomain = new azure.cdn/frontdoorCustomDomain.FrontdoorCustomDomain("example", {
  *     name: "example-customDomain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *         minimumTlsVersion: "TLS12",
  *     },
  * });
- * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("example", {
+ * const exampleFrontdoorSecurityPolicy = new azure.cdn/frontdoorSecurityPolicy.FrontdoorSecurityPolicy("example", {
  *     name: "Example-Security-Policy",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     securityPolicies: {

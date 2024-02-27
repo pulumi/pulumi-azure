@@ -21,81 +21,81 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/account"
+//	cosmosdb/cassandraKeyspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/cassandraKeyspace"
+//	cosmosdb/cassandraTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/cassandraTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tflex-cosmosdb-account-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("tfex-cosmosdb-account"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				OfferType:         pulumi.String("Standard"),
-//				Capabilities: cosmosdb.AccountCapabilityArray{
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("EnableCassandra"),
-//					},
-//				},
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel: pulumi.String("Strong"),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         example.Location,
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCassandraKeyspace, err := cosmosdb.NewCassandraKeyspace(ctx, "example", &cosmosdb.CassandraKeyspaceArgs{
-//				Name:              pulumi.String("tfex-cosmos-cassandra-keyspace"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//				Throughput:        pulumi.Int(400),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewCassandraTable(ctx, "example", &cosmosdb.CassandraTableArgs{
-//				Name:                pulumi.String("testtable"),
-//				CassandraKeyspaceId: exampleCassandraKeyspace.ID(),
-//				Schema: &cosmosdb.CassandraTableSchemaArgs{
-//					Columns: cosmosdb.CassandraTableSchemaColumnArray{
-//						&cosmosdb.CassandraTableSchemaColumnArgs{
-//							Name: pulumi.String("test1"),
-//							Type: pulumi.String("ascii"),
-//						},
-//						&cosmosdb.CassandraTableSchemaColumnArgs{
-//							Name: pulumi.String("test2"),
-//							Type: pulumi.String("int"),
-//						},
-//					},
-//					PartitionKeys: cosmosdb.CassandraTableSchemaPartitionKeyArray{
-//						&cosmosdb.CassandraTableSchemaPartitionKeyArgs{
-//							Name: pulumi.String("test1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tflex-cosmosdb-account-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cosmosdb/account.NewAccount(ctx, "example", &cosmosdb/account.AccountArgs{
+// Name: "tfex-cosmosdb-account",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// OfferType: "Standard",
+// Capabilities: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "EnableCassandra",
+// },
+// },
+// ConsistencyPolicy: map[string]interface{}{
+// "consistencyLevel": "Strong",
+// },
+// GeoLocations: []map[string]interface{}{
+// map[string]interface{}{
+// "location": example.Location,
+// "failoverPriority": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleCassandraKeyspace, err := cosmosdb/cassandraKeyspace.NewCassandraKeyspace(ctx, "example", &cosmosdb/cassandraKeyspace.CassandraKeyspaceArgs{
+// Name: "tfex-cosmos-cassandra-keyspace",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// Throughput: 400,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/cassandraTable.NewCassandraTable(ctx, "example", &cosmosdb/cassandraTable.CassandraTableArgs{
+// Name: "testtable",
+// CassandraKeyspaceId: exampleCassandraKeyspace.Id,
+// Schema: map[string]interface{}{
+// "columns": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "test1",
+// "type": "ascii",
+// },
+// map[string]interface{}{
+// "name": "test2",
+// "type": "int",
+// },
+// },
+// "partitionKeys": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "test1",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

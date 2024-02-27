@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Manages a Mobile Network Attached Data Network.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -36,15 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkArgs;
  * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlane;
  * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlaneArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlanePlatformArgs;
  * import com.pulumi.azure.mobile.NetworkPacketCoreDataPlane;
  * import com.pulumi.azure.mobile.NetworkPacketCoreDataPlaneArgs;
  * import com.pulumi.azure.mobile.NetworkDataNetwork;
  * import com.pulumi.azure.mobile.NetworkDataNetworkArgs;
  * import com.pulumi.azure.mobile.NetworkAttachedDataNetwork;
  * import com.pulumi.azure.mobile.NetworkAttachedDataNetworkArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,10 +84,7 @@ import javax.annotation.Nullable;
  *             .controlPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
  *             .controlPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
  *             .controlPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
- *             .platform(NetworkPacketCoreControlPlanePlatformArgs.builder()
- *                 .type(&#34;AKS-HCI&#34;)
- *                 .edgeDeviceId(exampleDevice.id())
- *                 .build())
+ *             .platform(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkPacketCoreDataPlane = new NetworkPacketCoreDataPlane(&#34;exampleNetworkPacketCoreDataPlane&#34;, NetworkPacketCoreDataPlaneArgs.builder()        
@@ -121,19 +114,8 @@ import javax.annotation.Nullable;
  *             .userPlaneAccessIpv4Address(&#34;10.204.141.4&#34;)
  *             .userPlaneAccessIpv4Gateway(&#34;10.204.141.1&#34;)
  *             .userPlaneAccessIpv4Subnet(&#34;10.204.141.0/24&#34;)
- *             .networkAddressPortTranslation(NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs.builder()
- *                 .pinholeMaximumNumber(65536)
- *                 .icmpPinholeTimeoutInSeconds(30)
- *                 .tcpPinholeTimeoutInSeconds(100)
- *                 .udpPinholeTimeoutInSeconds(39)
- *                 .portRange(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs.builder()
- *                     .maximum(49999)
- *                     .minimum(1024)
- *                     .build())
- *                 .tcpPortReuseMinimumHoldTimeInSeconds(120)
- *                 .udpTcpPortReuseMinimumHoldTimeInSeconds(60)
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .networkAddressPortTranslation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

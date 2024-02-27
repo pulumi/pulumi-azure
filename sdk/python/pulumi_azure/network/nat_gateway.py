@@ -296,16 +296,16 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="nat-gateway-example-rg",
-            location="West Europe")
-        example_nat_gateway = azure.network.NatGateway("example",
-            name="nat-Gateway",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=nat-gateway-example-rg,
+            location=West Europe)
+        example_nat_gateway = azure.network.nat_gateway.NatGateway("example",
+            name=nat-Gateway,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             idle_timeout_in_minutes=10,
-            zones=["1"])
+            zones=[1])
         ```
 
         For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
@@ -345,16 +345,16 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="nat-gateway-example-rg",
-            location="West Europe")
-        example_nat_gateway = azure.network.NatGateway("example",
-            name="nat-Gateway",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=nat-gateway-example-rg,
+            location=West Europe)
+        example_nat_gateway = azure.network.nat_gateway.NatGateway("example",
+            name=nat-Gateway,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             idle_timeout_in_minutes=10,
-            zones=["1"])
+            zones=[1])
         ```
 
         For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.

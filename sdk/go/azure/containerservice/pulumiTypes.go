@@ -5221,30 +5221,29 @@ type KubernetesClusterAciConnectorLinux struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
-	// 			Delegations: network.SubnetDelegationArray{
-	// 				&network.SubnetDelegationArgs{
-	// 					Name: pulumi.String("aciDelegation"),
-	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-	// 						Actions: pulumi.StringArray{
-	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-	// 						},
-	// 					},
-	// 				},
-	// 			},
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := network/subnet.NewSubnet(ctx, "virtual", &network/subnet.SubnetArgs{
+	// Delegations: []map[string]interface{}{
+	// map[string]interface{}{
+	// "name": "aciDelegation",
+	// "serviceDelegation": map[string]interface{}{
+	// "name": "Microsoft.ContainerInstance/containerGroups",
+	// "actions": []string{
+	// "Microsoft.Network/virtualNetworks/subnets/action",
+	// },
+	// },
+	// },
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	SubnetName string `pulumi:"subnetName"`
@@ -5274,30 +5273,29 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
-	// 			Delegations: network.SubnetDelegationArray{
-	// 				&network.SubnetDelegationArgs{
-	// 					Name: pulumi.String("aciDelegation"),
-	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-	// 						Actions: pulumi.StringArray{
-	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-	// 						},
-	// 					},
-	// 				},
-	// 			},
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := network/subnet.NewSubnet(ctx, "virtual", &network/subnet.SubnetArgs{
+	// Delegations: []map[string]interface{}{
+	// map[string]interface{}{
+	// "name": "aciDelegation",
+	// "serviceDelegation": map[string]interface{}{
+	// "name": "Microsoft.ContainerInstance/containerGroups",
+	// "actions": []string{
+	// "Microsoft.Network/virtualNetworks/subnets/action",
+	// },
+	// },
+	// },
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	SubnetName pulumi.StringInput `pulumi:"subnetName"`
@@ -5398,33 +5396,31 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("aciDelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := network/subnet.NewSubnet(ctx, "virtual", &network/subnet.SubnetArgs{
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "aciDelegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.ContainerInstance/containerGroups",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 func (o KubernetesClusterAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterAciConnectorLinux) string { return v.SubnetName }).(pulumi.StringOutput)
@@ -5475,33 +5471,31 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("aciDelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := network/subnet.NewSubnet(ctx, "virtual", &network/subnet.SubnetArgs{
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "aciDelegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.ContainerInstance/containerGroups",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAciConnectorLinux) *string {

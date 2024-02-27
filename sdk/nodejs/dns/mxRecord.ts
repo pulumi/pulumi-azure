@@ -13,26 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleZone = new azure.dns.Zone("example", {
+ * const exampleZone = new azure.dns/zone.Zone("example", {
  *     name: "mydomain.com",
  *     resourceGroupName: example.name,
  * });
- * const exampleMxRecord = new azure.dns.MxRecord("example", {
+ * const exampleMxRecord = new azure.dns/mxRecord.MxRecord("example", {
  *     name: "test",
  *     zoneName: exampleZone.name,
  *     resourceGroupName: example.name,
  *     ttl: 300,
  *     records: [
  *         {
- *             preference: "10",
+ *             preference: 10,
  *             exchange: "mail1.contoso.com",
  *         },
  *         {
- *             preference: "20",
+ *             preference: 20,
  *             exchange: "mail2.contoso.com",
  *         },
  *     ],

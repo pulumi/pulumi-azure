@@ -578,24 +578,24 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="terraform-webpubsub",
-            location="east us")
-        example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=terraform-webpubsub,
+            location=east us)
+        example_service = azure.webpubsub.service.Service("example",
+            name=tfex-webpubsub,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_S1",
+            sku=Standard_S1,
             capacity=1,
             public_network_access_enabled=False,
-            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
-                enabled=True,
-                messaging_logs_enabled=True,
-                connectivity_logs_enabled=False,
-            ),
-            identity=azure.webpubsub.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            live_trace={
+                enabled: True,
+                messagingLogsEnabled: True,
+                connectivityLogsEnabled: False,
+            },
+            identity={
+                type: SystemAssigned,
+            })
         ```
 
         ## Import
@@ -636,24 +636,24 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="terraform-webpubsub",
-            location="east us")
-        example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=terraform-webpubsub,
+            location=east us)
+        example_service = azure.webpubsub.service.Service("example",
+            name=tfex-webpubsub,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_S1",
+            sku=Standard_S1,
             capacity=1,
             public_network_access_enabled=False,
-            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
-                enabled=True,
-                messaging_logs_enabled=True,
-                connectivity_logs_enabled=False,
-            ),
-            identity=azure.webpubsub.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            live_trace={
+                enabled: True,
+                messagingLogsEnabled: True,
+                connectivityLogsEnabled: False,
+            },
+            identity={
+                type: SystemAssigned,
+            })
         ```
 
         ## Import

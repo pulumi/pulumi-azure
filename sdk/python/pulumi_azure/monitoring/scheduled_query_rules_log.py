@@ -338,59 +338,59 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="monitoring-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="loganalytics",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=monitoring-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=loganalytics,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-actiongroup",
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-actiongroup,
             resource_group_name=example.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
+            short_name=exampleact,
+            webhook_receivers=[{
+                name: callmyapi,
+                serviceUri: http://example.com/alert,
+            }])
         # Example: Creates alert using the new Scheduled Query Rules metric
-        example_metric_alert = azure.monitoring.MetricAlert("example",
-            name="example-metricalert",
+        example_metric_alert = azure.monitoring.metric_alert.MetricAlert("example",
+            name=example-metricalert,
             resource_group_name=example.name,
             scopes=[example_analytics_workspace.id],
-            description="Action will be triggered when Average_% Idle Time metric is less than 10.",
-            frequency="PT1M",
-            window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.OperationalInsights/workspaces",
-                metric_name="UsedCapacity",
-                aggregation="Average",
-                operator="LessThan",
-                threshold=10,
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=example_action_group.id,
-            )])
+            description=Action will be triggered when Average_% Idle Time metric is less than 10.,
+            frequency=PT1M,
+            window_size=PT5M,
+            criterias=[{
+                metricNamespace: Microsoft.OperationalInsights/workspaces,
+                metricName: UsedCapacity,
+                aggregation: Average,
+                operator: LessThan,
+                threshold: 10,
+            }],
+            actions=[{
+                actionGroupId: example_action_group.id,
+            }])
         # Example: LogToMetric Action for the named Computer
-        example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("example",
-            name="example",
+        example_scheduled_query_rules_log = azure.monitoring.scheduled_query_rules_log.ScheduledQueryRulesLog("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
-                metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
-                    name="Computer",
-                    operator="Include",
-                    values=["targetVM"],
-                )],
-            ),
+            criteria={
+                metricName: Average_% Idle Time,
+                dimensions: [{
+                    name: Computer,
+                    operator: Include,
+                    values: [targetVM],
+                }],
+            },
             data_source_id=example_analytics_workspace.id,
-            description="Scheduled query rule LogToMetric example",
+            description=Scheduled query rule LogToMetric example,
             enabled=True,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -429,59 +429,59 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="monitoring-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="loganalytics",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=monitoring-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=loganalytics,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-actiongroup",
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-actiongroup,
             resource_group_name=example.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
+            short_name=exampleact,
+            webhook_receivers=[{
+                name: callmyapi,
+                serviceUri: http://example.com/alert,
+            }])
         # Example: Creates alert using the new Scheduled Query Rules metric
-        example_metric_alert = azure.monitoring.MetricAlert("example",
-            name="example-metricalert",
+        example_metric_alert = azure.monitoring.metric_alert.MetricAlert("example",
+            name=example-metricalert,
             resource_group_name=example.name,
             scopes=[example_analytics_workspace.id],
-            description="Action will be triggered when Average_% Idle Time metric is less than 10.",
-            frequency="PT1M",
-            window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.OperationalInsights/workspaces",
-                metric_name="UsedCapacity",
-                aggregation="Average",
-                operator="LessThan",
-                threshold=10,
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=example_action_group.id,
-            )])
+            description=Action will be triggered when Average_% Idle Time metric is less than 10.,
+            frequency=PT1M,
+            window_size=PT5M,
+            criterias=[{
+                metricNamespace: Microsoft.OperationalInsights/workspaces,
+                metricName: UsedCapacity,
+                aggregation: Average,
+                operator: LessThan,
+                threshold: 10,
+            }],
+            actions=[{
+                actionGroupId: example_action_group.id,
+            }])
         # Example: LogToMetric Action for the named Computer
-        example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("example",
-            name="example",
+        example_scheduled_query_rules_log = azure.monitoring.scheduled_query_rules_log.ScheduledQueryRulesLog("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
-                metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
-                    name="Computer",
-                    operator="Include",
-                    values=["targetVM"],
-                )],
-            ),
+            criteria={
+                metricName: Average_% Idle Time,
+                dimensions: [{
+                    name: Computer,
+                    operator: Include,
+                    values: [targetVM],
+                }],
+            },
             data_source_id=example_analytics_workspace.id,
-            description="Scheduled query rule LogToMetric example",
+            description=Scheduled query rule LogToMetric example,
             enabled=True,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

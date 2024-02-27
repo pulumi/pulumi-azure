@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     resourceGroupName: example.name,
@@ -26,20 +26,20 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "RouteServerSubnet",
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     resourceGroupName: example.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-pip",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const exampleRouteServer = new azure.network.RouteServer("example", {
+ * const exampleRouteServer = new azure.network/routeServer.RouteServer("example", {
  *     name: "example-routerserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  *     branchToBranchTrafficEnabled: true,
  * });
- * const exampleRouteServerBgpConnection = new azure.network.RouteServerBgpConnection("example", {
+ * const exampleRouteServerBgpConnection = new azure.network/routeServerBgpConnection.RouteServerBgpConnection("example", {
  *     name: "example-rs-bgpconnection",
  *     routeServerId: exampleRouteServer.id,
  *     peerAsn: 65501,

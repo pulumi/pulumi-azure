@@ -172,13 +172,13 @@ class EmailService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_email_service = azure.communication.EmailService("example",
-            name="example-emailcommunicationservice",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_email_service = azure.communication.email_service.EmailService("example",
+            name=example-emailcommunicationservice,
             resource_group_name=example.name,
-            data_location="United States")
+            data_location=United States)
         ```
 
         ## Import
@@ -211,13 +211,13 @@ class EmailService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_email_service = azure.communication.EmailService("example",
-            name="example-emailcommunicationservice",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_email_service = azure.communication.email_service.EmailService("example",
+            name=example-emailcommunicationservice,
             resource_group_name=example.name,
-            data_location="United States")
+            data_location=United States)
         ```
 
         ## Import

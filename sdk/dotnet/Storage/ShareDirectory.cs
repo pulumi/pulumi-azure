@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azuretest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "azureteststorage",
     ///         ResourceGroupName = example.Name,
@@ -37,14 +37,14 @@ namespace Pulumi.Azure.Storage
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("example", new()
+    ///     var exampleShare = new Azure.Storage.Share.Share("example", new()
     ///     {
     ///         Name = "sharename",
     ///         StorageAccountName = exampleAccount.Name,
     ///         Quota = 50,
     ///     });
     /// 
-    ///     var exampleShareDirectory = new Azure.Storage.ShareDirectory("example", new()
+    ///     var exampleShareDirectory = new Azure.Storage.ShareDirectory.ShareDirectory("example", new()
     ///     {
     ///         Name = "example",
     ///         ShareName = exampleShare.Name,

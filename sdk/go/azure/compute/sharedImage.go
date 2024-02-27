@@ -21,53 +21,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/sharedImage "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/sharedImage"
+//	compute/sharedImageGallery "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/sharedImageGallery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
-//				Name:              pulumi.String("example_image_gallery"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Description:       pulumi.String("Shared images and things."),
-//				Tags: pulumi.StringMap{
-//					"Hello": pulumi.String("There"),
-//					"World": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewSharedImage(ctx, "example", &compute.SharedImageArgs{
-//				Name:              pulumi.String("my-image"),
-//				GalleryName:       exampleSharedImageGallery.Name,
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				OsType:            pulumi.String("Linux"),
-//				Identifier: &compute.SharedImageIdentifierArgs{
-//					Publisher: pulumi.String("PublisherName"),
-//					Offer:     pulumi.String("OfferName"),
-//					Sku:       pulumi.String("ExampleSku"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSharedImageGallery, err := compute/sharedImageGallery.NewSharedImageGallery(ctx, "example", &compute/sharedImageGallery.SharedImageGalleryArgs{
+// Name: "example_image_gallery",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Description: "Shared images and things.",
+// Tags: map[string]interface{}{
+// "Hello": "There",
+// "World": "Example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/sharedImage.NewSharedImage(ctx, "example", &compute/sharedImage.SharedImageArgs{
+// Name: "my-image",
+// GalleryName: exampleSharedImageGallery.Name,
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// OsType: "Linux",
+// Identifier: map[string]interface{}{
+// "publisher": "PublisherName",
+// "offer": "OfferName",
+// "sku": "ExampleSku",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

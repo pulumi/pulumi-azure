@@ -252,29 +252,29 @@ class MxRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_mx_record = azure.dns.MxRecord("example",
-            name="test",
+        example_mx_record = azure.dns.mx_record.MxRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.MxRecordRecordArgs(
-                    preference="10",
-                    exchange="mail1.contoso.com",
-                ),
-                azure.dns.MxRecordRecordArgs(
-                    preference="20",
-                    exchange="mail2.contoso.com",
-                ),
+                {
+                    preference: 10,
+                    exchange: mail1.contoso.com,
+                },
+                {
+                    preference: 20,
+                    exchange: mail2.contoso.com,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -308,29 +308,29 @@ class MxRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_mx_record = azure.dns.MxRecord("example",
-            name="test",
+        example_mx_record = azure.dns.mx_record.MxRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.MxRecordRecordArgs(
-                    preference="10",
-                    exchange="mail1.contoso.com",
-                ),
-                azure.dns.MxRecordRecordArgs(
-                    preference="20",
-                    exchange="mail2.contoso.com",
-                ),
+                {
+                    preference: 10,
+                    exchange: mail1.contoso.com,
+                },
+                {
+                    preference: 20,
+                    exchange: mail2.contoso.com,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

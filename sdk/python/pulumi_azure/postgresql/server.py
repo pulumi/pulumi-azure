@@ -773,24 +773,24 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.postgresql.Server("example",
-            name="example-psqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_server = azure.postgresql.server.Server("example",
+            name=example-psqlserver,
             location=example.location,
             resource_group_name=example.name,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="GP_Gen5_4",
-            version="11",
+            administrator_login=psqladmin,
+            administrator_login_password=H@Sh1CoR3!,
+            sku_name=GP_Gen5_4,
+            version=11,
             storage_mb=640000,
             backup_retention_days=7,
             geo_redundant_backup_enabled=True,
             auto_grow_enabled=True,
             public_network_access_enabled=False,
             ssl_enforcement_enabled=True,
-            ssl_minimal_tls_version_enforced="TLS1_2")
+            ssl_minimal_tls_version_enforced=TLS1_2)
         ```
 
         ## Import
@@ -846,24 +846,24 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.postgresql.Server("example",
-            name="example-psqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_server = azure.postgresql.server.Server("example",
+            name=example-psqlserver,
             location=example.location,
             resource_group_name=example.name,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="GP_Gen5_4",
-            version="11",
+            administrator_login=psqladmin,
+            administrator_login_password=H@Sh1CoR3!,
+            sku_name=GP_Gen5_4,
+            version=11,
             storage_mb=640000,
             backup_retention_days=7,
             geo_redundant_backup_enabled=True,
             auto_grow_enabled=True,
             public_network_access_enabled=False,
             ssl_enforcement_enabled=True,
-            ssl_minimal_tls_version_enforced="TLS1_2")
+            ssl_minimal_tls_version_enforced=TLS1_2)
         ```
 
         ## Import

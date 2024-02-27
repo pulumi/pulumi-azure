@@ -22,13 +22,13 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageacc",
     ///         ResourceGroupName = example.Name,
@@ -36,10 +36,10 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         AccountKind = "StorageV2",
-    ///         IsHnsEnabled = true,
+    ///         IsHnsEnabled = "true",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.StreamAnalytics.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Streamanalytics.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "examplestreamanalyticscluster",
     ///         ResourceGroupName = example.Name,
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         StreamingCapacity = 36,
     ///     });
     /// 
-    ///     var exampleManagedPrivateEndpoint = new Azure.StreamAnalytics.ManagedPrivateEndpoint("example", new()
+    ///     var exampleManagedPrivateEndpoint = new Azure.Streamanalytics.ManagedPrivateEndpoint.ManagedPrivateEndpoint("example", new()
     ///     {
     ///         Name = "exampleprivateendpoint",
     ///         ResourceGroupName = example.Name,

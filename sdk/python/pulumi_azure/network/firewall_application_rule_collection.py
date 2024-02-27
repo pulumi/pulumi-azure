@@ -237,51 +237,51 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="testvnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=testvnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="AzureFirewallSubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=AzureFirewallSubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="testpip",
+            address_prefixes=[10.0.1.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=testpip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_firewall = azure.network.Firewall("example",
-            name="testfirewall",
+            allocation_method=Static,
+            sku=Standard)
+        example_firewall = azure.network.firewall.Firewall("example",
+            name=testfirewall,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_firewall_application_rule_collection = azure.network.FirewallApplicationRuleCollection("example",
-            name="testcollection",
+            sku_name=AZFW_VNet,
+            sku_tier=Standard,
+            ip_configurations=[{
+                name: configuration,
+                subnetId: example_subnet.id,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_firewall_application_rule_collection = azure.network.firewall_application_rule_collection.FirewallApplicationRuleCollection("example",
+            name=testcollection,
             azure_firewall_name=example_firewall.name,
             resource_group_name=example.name,
             priority=100,
-            action="Allow",
-            rules=[azure.network.FirewallApplicationRuleCollectionRuleArgs(
-                name="testrule",
-                source_addresses=["10.0.0.0/16"],
-                target_fqdns=["*.google.com"],
-                protocols=[azure.network.FirewallApplicationRuleCollectionRuleProtocolArgs(
-                    port=443,
-                    type="Https",
-                )],
-            )])
+            action=Allow,
+            rules=[{
+                name: testrule,
+                sourceAddresses: [10.0.0.0/16],
+                targetFqdns: [*.google.com],
+                protocols: [{
+                    port: 443,
+                    type: Https,
+                }],
+            }])
         ```
 
         ## Import
@@ -316,51 +316,51 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="testvnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=testvnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="AzureFirewallSubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=AzureFirewallSubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="testpip",
+            address_prefixes=[10.0.1.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=testpip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_firewall = azure.network.Firewall("example",
-            name="testfirewall",
+            allocation_method=Static,
+            sku=Standard)
+        example_firewall = azure.network.firewall.Firewall("example",
+            name=testfirewall,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_firewall_application_rule_collection = azure.network.FirewallApplicationRuleCollection("example",
-            name="testcollection",
+            sku_name=AZFW_VNet,
+            sku_tier=Standard,
+            ip_configurations=[{
+                name: configuration,
+                subnetId: example_subnet.id,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_firewall_application_rule_collection = azure.network.firewall_application_rule_collection.FirewallApplicationRuleCollection("example",
+            name=testcollection,
             azure_firewall_name=example_firewall.name,
             resource_group_name=example.name,
             priority=100,
-            action="Allow",
-            rules=[azure.network.FirewallApplicationRuleCollectionRuleArgs(
-                name="testrule",
-                source_addresses=["10.0.0.0/16"],
-                target_fqdns=["*.google.com"],
-                protocols=[azure.network.FirewallApplicationRuleCollectionRuleProtocolArgs(
-                    port=443,
-                    type="Https",
-                )],
-            )])
+            action=Allow,
+            rules=[{
+                name: testrule,
+                sourceAddresses: [10.0.0.0/16],
+                targetFqdns: [*.google.com],
+                protocols: [{
+                    port: 443,
+                    type: Https,
+                }],
+            }])
         ```
 
         ## Import

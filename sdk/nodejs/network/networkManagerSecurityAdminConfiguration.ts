@@ -7,42 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Security Admin Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     scope: {
- *         subscriptionIds: [current.then(current => current.id)],
- *     },
- *     scopeAccesses: [
- *         "Connectivity",
- *         "SecurityAdmin",
- *     ],
- *     description: "example network manager",
- * });
- * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("example", {
- *     name: "example-network-group",
- *     networkManagerId: exampleNetworkManager.id,
- * });
- * const exampleNetworkManagerSecurityAdminConfiguration = new azure.network.NetworkManagerSecurityAdminConfiguration("example", {
- *     name: "example-admin-conf",
- *     networkManagerId: exampleNetworkManager.id,
- *     description: "example admin conf",
- *     applyOnNetworkIntentPolicyBasedServices: "None",
- * });
- * ```
- *
  * ## Import
  *
  * Network Manager Security Admin Configuration can be imported using the `resource id`, e.g.

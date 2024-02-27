@@ -23,76 +23,76 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	sql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/database"
+//	sql/failoverGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/failoverGroup"
+//	sql/sqlServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/sqlServer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primary, err := sql.NewSqlServer(ctx, "primary", &sql.SqlServerArgs{
-//				Name:                       pulumi.String("sql-primary"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("sqladmin"),
-//				AdministratorLoginPassword: pulumi.String("pa$$w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondary, err := sql.NewSqlServer(ctx, "secondary", &sql.SqlServerArgs{
-//				Name:                       pulumi.String("sql-secondary"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("sqladmin"),
-//				AdministratorLoginPassword: pulumi.String("pa$$w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			db1, err := sql.NewDatabase(ctx, "db1", &sql.DatabaseArgs{
-//				Name:              pulumi.String("db1"),
-//				ResourceGroupName: primary.ResourceGroupName,
-//				Location:          primary.Location,
-//				ServerName:        primary.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sql.NewFailoverGroup(ctx, "example", &sql.FailoverGroupArgs{
-//				Name:              pulumi.String("example-failover-group"),
-//				ResourceGroupName: primary.ResourceGroupName,
-//				ServerName:        primary.Name,
-//				Databases: pulumi.StringArray{
-//					db1.ID(),
-//				},
-//				PartnerServers: sql.FailoverGroupPartnerServerArray{
-//					&sql.FailoverGroupPartnerServerArgs{
-//						Id: secondary.ID(),
-//					},
-//				},
-//				ReadWriteEndpointFailoverPolicy: &sql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
-//					Mode:         pulumi.String("Automatic"),
-//					GraceMinutes: pulumi.Int(60),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// primary, err := sql/sqlServer.NewSqlServer(ctx, "primary", &sql/sqlServer.SqlServerArgs{
+// Name: "sql-primary",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "sqladmin",
+// AdministratorLoginPassword: "pa$$w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// secondary, err := sql/sqlServer.NewSqlServer(ctx, "secondary", &sql/sqlServer.SqlServerArgs{
+// Name: "sql-secondary",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "sqladmin",
+// AdministratorLoginPassword: "pa$$w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// db1, err := sql/database.NewDatabase(ctx, "db1", &sql/database.DatabaseArgs{
+// Name: "db1",
+// ResourceGroupName: primary.ResourceGroupName,
+// Location: primary.Location,
+// ServerName: primary.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sql/failoverGroup.NewFailoverGroup(ctx, "example", &sql/failoverGroup.FailoverGroupArgs{
+// Name: "example-failover-group",
+// ResourceGroupName: primary.ResourceGroupName,
+// ServerName: primary.Name,
+// Databases: []interface{}{
+// db1.Id,
+// },
+// PartnerServers: []map[string]interface{}{
+// map[string]interface{}{
+// "id": secondary.Id,
+// },
+// },
+// ReadWriteEndpointFailoverPolicy: map[string]interface{}{
+// "mode": "Automatic",
+// "graceMinutes": 60,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

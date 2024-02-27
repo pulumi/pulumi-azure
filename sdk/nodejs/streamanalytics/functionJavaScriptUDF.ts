@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleGetJob = example.then(example => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: example.name,
- * }));
- * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("example", {
- *     name: "example-javascript-function",
- *     streamAnalyticsJobName: exampleGetJob.then(exampleGetJob => exampleGetJob.name),
- *     resourceGroupName: exampleGetJob.then(exampleGetJob => exampleGetJob.resourceGroupName),
- *     script: `function getRandomNumber(in) {
- *   return in;
- * }
- * `,
- *     inputs: [{
- *         type: "bigint",
- *     }],
- *     output: {
- *         type: "bigint",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics JavaScript UDF Functions can be imported using the `resource id`, e.g.

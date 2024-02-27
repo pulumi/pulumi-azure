@@ -250,60 +250,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         Manages a Pim Active Role Assignment.
 
         ## Example Usage
-        ### Subscription)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        primary = azure.core.get_subscription()
-        example = azure.core.get_client_config()
-        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_static = time.Static("example")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
-            scope=primary.id,
-            role_definition_id=f"{primary.id}{example_get_role_definition.id}",
-            principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
-        ### Management Group)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        example = azure.core.get_client_config()
-        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_group = azure.management.Group("example", name="Example-Management-Group")
-        example_static = time.Static("example")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
-            scope=example_group.id,
-            role_definition_id=example_get_role_definition.id,
-            principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
 
         ## Import
 
@@ -332,60 +278,6 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         Manages a Pim Active Role Assignment.
 
         ## Example Usage
-        ### Subscription)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        primary = azure.core.get_subscription()
-        example = azure.core.get_client_config()
-        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_static = time.Static("example")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
-            scope=primary.id,
-            role_definition_id=f"{primary.id}{example_get_role_definition.id}",
-            principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
-        ### Management Group)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumiverse_time as time
-
-        example = azure.core.get_client_config()
-        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_group = azure.management.Group("example", name="Example-Management-Group")
-        example_static = time.Static("example")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
-            scope=example_group.id,
-            role_definition_id=example_get_role_definition.id,
-            principal_id=example.object_id,
-            schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
-                start_date_time=example_static.rfc3339,
-                expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
-                    duration_hours=8,
-                ),
-            ),
-            justification="Expiration Duration Set",
-            ticket=azure.pim.ActiveRoleAssignmentTicketArgs(
-                number="1",
-                system="example ticket system",
-            ))
-        ```
 
         ## Import
 

@@ -28,18 +28,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.Firewall;
  * import com.pulumi.azure.network.FirewallArgs;
- * import com.pulumi.azure.network.inputs.FirewallIpConfigurationArgs;
  * import com.pulumi.azure.network.FirewallNatRuleCollection;
  * import com.pulumi.azure.network.FirewallNatRuleCollectionArgs;
- * import com.pulumi.azure.network.inputs.FirewallNatRuleCollectionRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,11 +84,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;AZFW_VNet&#34;)
  *             .skuTier(&#34;Standard&#34;)
- *             .ipConfigurations(FirewallIpConfigurationArgs.builder()
- *                 .name(&#34;configuration&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFirewallNatRuleCollection = new FirewallNatRuleCollection(&#34;exampleFirewallNatRuleCollection&#34;, FirewallNatRuleCollectionArgs.builder()        
@@ -99,17 +93,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .priority(100)
  *             .action(&#34;Dnat&#34;)
- *             .rules(FirewallNatRuleCollectionRuleArgs.builder()
- *                 .name(&#34;testrule&#34;)
- *                 .sourceAddresses(&#34;10.0.0.0/16&#34;)
- *                 .destinationPorts(&#34;53&#34;)
- *                 .destinationAddresses(examplePublicIp.ipAddress())
- *                 .translatedPort(53)
- *                 .translatedAddress(&#34;8.8.8.8&#34;)
- *                 .protocols(                
- *                     &#34;TCP&#34;,
- *                     &#34;UDP&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

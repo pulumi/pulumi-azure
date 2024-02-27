@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Management Group Policy Remediation.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleGroup = new azure.management.Group("example", {displayName: "Example Management Group"});
- * const example = azure.policy.getPolicyDefintion({
- *     displayName: "Allowed locations",
- * });
- * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("example", {
- *     name: "exampleAssignment",
- *     managementGroupId: exampleGroup.id,
- *     policyDefinitionId: example.then(example => example.id),
- *     parameters: JSON.stringify({
- *         listOfAllowedLocations: {
- *             value: ["East US"],
- *         },
- *     }),
- * });
- * const exampleGroupPolicyRemediation = new azure.management.GroupPolicyRemediation("example", {
- *     name: "example",
- *     managementGroupId: exampleGroup.id,
- *     policyAssignmentId: exampleGroupPolicyAssignment.id,
- * });
- * ```
- *
  * ## Import
  *
  * Policy Remediations can be imported using the `resource id`, e.g.

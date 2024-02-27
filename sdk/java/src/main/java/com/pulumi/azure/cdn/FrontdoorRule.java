@@ -37,18 +37,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorEndpointArgs;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupHealthProbeArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
  * import com.pulumi.azure.cdn.FrontdoorOrigin;
  * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
  * import com.pulumi.azure.cdn.FrontdoorRuleSet;
  * import com.pulumi.azure.cdn.FrontdoorRuleSetArgs;
  * import com.pulumi.azure.cdn.FrontdoorRule;
  * import com.pulumi.azure.cdn.FrontdoorRuleArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRedirectActionArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,7 +70,7 @@ import javax.annotation.Nullable;
  *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint(&#34;exampleFrontdoorEndpoint&#34;, FrontdoorEndpointArgs.builder()        
  *             .name(&#34;example-endpoint&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .tags(Map.of(&#34;endpoint&#34;, &#34;contoso.com&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
@@ -84,17 +78,8 @@ import javax.annotation.Nullable;
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .sessionAffinityEnabled(true)
  *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
- *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
- *                 .intervalInSeconds(240)
- *                 .path(&#34;/healthProbe&#34;)
- *                 .protocol(&#34;Https&#34;)
- *                 .requestType(&#34;GET&#34;)
- *                 .build())
- *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
- *                 .additionalLatencyInMilliseconds(0)
- *                 .sampleSize(16)
- *                 .successfulSamplesRequired(3)
- *                 .build())
+ *             .healthProbe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .loadBalancing(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
@@ -120,67 +105,8 @@ import javax.annotation.Nullable;
  *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
  *             .order(1)
  *             .behaviorOnMatch(&#34;Continue&#34;)
- *             .actions(FrontdoorRuleActionsArgs.builder()
- *                 .routeConfigurationOverrideAction(FrontdoorRuleActionsRouteConfigurationOverrideActionArgs.builder()
- *                     .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
- *                     .forwardingProtocol(&#34;HttpsOnly&#34;)
- *                     .queryStringCachingBehavior(&#34;IncludeSpecifiedQueryStrings&#34;)
- *                     .queryStringParameters(                    
- *                         &#34;foo&#34;,
- *                         &#34;clientIp={client_ip}&#34;)
- *                     .compressionEnabled(true)
- *                     .cacheBehavior(&#34;OverrideIfOriginMissing&#34;)
- *                     .cacheDuration(&#34;365.23:59:59&#34;)
- *                     .build())
- *                 .urlRedirectAction(FrontdoorRuleActionsUrlRedirectActionArgs.builder()
- *                     .redirectType(&#34;PermanentRedirect&#34;)
- *                     .redirectProtocol(&#34;MatchRequest&#34;)
- *                     .queryString(&#34;clientIp={client_ip}&#34;)
- *                     .destinationPath(&#34;/exampleredirection&#34;)
- *                     .destinationHostname(&#34;contoso.com&#34;)
- *                     .destinationFragment(&#34;UrlRedirect&#34;)
- *                     .build())
- *                 .build())
- *             .conditions(FrontdoorRuleConditionsArgs.builder()
- *                 .hostNameConditions(FrontdoorRuleConditionsHostNameConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
- *                     .negateCondition(false)
- *                     .matchValues(                    
- *                         &#34;www.contoso.com&#34;,
- *                         &#34;images.contoso.com&#34;,
- *                         &#34;video.contoso.com&#34;)
- *                     .transforms(                    
- *                         &#34;Lowercase&#34;,
- *                         &#34;Trim&#34;)
- *                     .build())
- *                 .isDeviceConditions(FrontdoorRuleConditionsIsDeviceConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
- *                     .negateCondition(false)
- *                     .matchValues(&#34;Mobile&#34;)
- *                     .build())
- *                 .postArgsConditions(FrontdoorRuleConditionsPostArgsConditionArgs.builder()
- *                     .postArgsName(&#34;customerName&#34;)
- *                     .operator(&#34;BeginsWith&#34;)
- *                     .matchValues(                    
- *                         &#34;J&#34;,
- *                         &#34;K&#34;)
- *                     .transforms(&#34;Uppercase&#34;)
- *                     .build())
- *                 .requestMethodConditions(FrontdoorRuleConditionsRequestMethodConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
- *                     .negateCondition(false)
- *                     .matchValues(&#34;DELETE&#34;)
- *                     .build())
- *                 .urlFilenameConditions(FrontdoorRuleConditionsUrlFilenameConditionArgs.builder()
- *                     .operator(&#34;Equal&#34;)
- *                     .negateCondition(false)
- *                     .matchValues(&#34;media.mp4&#34;)
- *                     .transforms(                    
- *                         &#34;Lowercase&#34;,
- *                         &#34;RemoveNulls&#34;,
- *                         &#34;Trim&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .conditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

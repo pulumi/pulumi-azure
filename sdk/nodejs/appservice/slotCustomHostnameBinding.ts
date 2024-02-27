@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "some-resource-group",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,20 +26,20 @@ import * as utilities from "../utilities";
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azure.appservice/appService.AppService("example", {
  *     name: "some-app-service",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  * });
- * const exampleSlot = new azure.appservice.Slot("example", {
+ * const exampleSlot = new azure.appservice/slot.Slot("example", {
  *     name: "staging",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServiceName: exampleAppService.name,
  *     appServicePlanId: examplePlan.id,
  * });
- * const exampleSlotCustomHostnameBinding = new azure.appservice.SlotCustomHostnameBinding("example", {
+ * const exampleSlotCustomHostnameBinding = new azure.appservice/slotCustomHostnameBinding.SlotCustomHostnameBinding("example", {
  *     appServiceSlotId: exampleSlot.id,
  *     hostname: "www.mywebsite.com",
  * });

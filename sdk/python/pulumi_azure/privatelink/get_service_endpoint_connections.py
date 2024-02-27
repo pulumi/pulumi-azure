@@ -99,17 +99,6 @@ def get_service_endpoint_connections(resource_group_name: Optional[str] = None,
     """
     Use this data source to access endpoint connection information about an existing Private Link Service.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatelink.get_service_endpoint_connections(service_id=example_azurerm_private_link_service["id"],
-        resource_group_name=example_azurerm_resource_group["name"])
-    pulumi.export("privateEndpointStatus", example.private_endpoint_connections[0].status)
-    ```
-
 
     :param str resource_group_name: The name of the resource group in which the private link service resides.
     :param str service_id: The resource ID of the private link service.
@@ -135,17 +124,6 @@ def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointConnectionsResult]:
     """
     Use this data source to access endpoint connection information about an existing Private Link Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatelink.get_service_endpoint_connections(service_id=example_azurerm_private_link_service["id"],
-        resource_group_name=example_azurerm_resource_group["name"])
-    pulumi.export("privateEndpointStatus", example.private_endpoint_connections[0].status)
-    ```
 
 
     :param str resource_group_name: The name of the resource group in which the private link service resides.

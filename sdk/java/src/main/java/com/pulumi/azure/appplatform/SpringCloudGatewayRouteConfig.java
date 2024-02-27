@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudGatewayArgs;
  * import com.pulumi.azure.appplatform.SpringCloudGatewayRouteConfig;
  * import com.pulumi.azure.appplatform.SpringCloudGatewayRouteConfigArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigRouteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,21 +81,7 @@ import javax.annotation.Nullable;
  *             .springCloudGatewayId(exampleSpringCloudGateway.id())
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .protocol(&#34;HTTPS&#34;)
- *             .routes(SpringCloudGatewayRouteConfigRouteArgs.builder()
- *                 .description(&#34;example description&#34;)
- *                 .filters(                
- *                     &#34;StripPrefix=2&#34;,
- *                     &#34;RateLimit=1,1s&#34;)
- *                 .order(1)
- *                 .predicates(&#34;Path=/api5/customer/**&#34;)
- *                 .ssoValidationEnabled(true)
- *                 .title(&#34;myApp route config&#34;)
- *                 .tokenRelay(true)
- *                 .uri(&#34;https://www.example.com&#34;)
- *                 .classificationTags(                
- *                     &#34;tag1&#34;,
- *                     &#34;tag2&#34;)
- *                 .build())
+ *             .routes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

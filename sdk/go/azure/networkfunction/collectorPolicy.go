@@ -21,95 +21,96 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/networkfunction"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/expressRouteCircuit "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRouteCircuit"
+//	network/expressRouteCircuitPeering "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRouteCircuitPeering"
+//	network/expressRoutePort "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRoutePort"
+//	networkfunction/azureTrafficCollector "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/networkfunction/azureTrafficCollector"
+//	networkfunction/collectorPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/networkfunction/collectorPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West US 2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "example", &network.ExpressRoutePortArgs{
-//				Name:              pulumi.String("example-erp"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				PeeringLocation:   pulumi.String("Equinix-Seattle-SE2"),
-//				BandwidthInGbps:   pulumi.Int(10),
-//				Encapsulation:     pulumi.String("Dot1Q"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
-//				Name:               pulumi.String("example-erc"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				ExpressRoutePortId: exampleExpressRoutePort.ID(),
-//				BandwidthInGbps:    pulumi.Float64(1),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
-//				PeeringType:                pulumi.String("MicrosoftPeering"),
-//				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
-//				ResourceGroupName:          example.Name,
-//				PeerAsn:                    pulumi.Int(100),
-//				PrimaryPeerAddressPrefix:   pulumi.String("192.168.199.0/30"),
-//				SecondaryPeerAddressPrefix: pulumi.String("192.168.200.0/30"),
-//				VlanId:                     pulumi.Int(300),
-//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
-//					AdvertisedPublicPrefixes: pulumi.StringArray{
-//						pulumi.String("123.6.0.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAzureTrafficCollector, err := networkfunction.NewAzureTrafficCollector(ctx, "example", &networkfunction.AzureTrafficCollectorArgs{
-//				Name:              pulumi.String("example-nfatc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkfunction.NewCollectorPolicy(ctx, "example", &networkfunction.CollectorPolicyArgs{
-//				Name:               pulumi.String("example-nfcp"),
-//				TrafficCollectorId: exampleAzureTrafficCollector.ID(),
-//				Location:           example.Location,
-//				IpfxEmission: &networkfunction.CollectorPolicyIpfxEmissionArgs{
-//					DestinationTypes: pulumi.String("AzureMonitor"),
-//				},
-//				IpfxIngestion: &networkfunction.CollectorPolicyIpfxIngestionArgs{
-//					SourceResourceIds: pulumi.StringArray{
-//						exampleExpressRouteCircuit.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West US 2",
+// })
+// if err != nil {
+// return err
+// }
+// exampleExpressRoutePort, err := network/expressRoutePort.NewExpressRoutePort(ctx, "example", &network/expressRoutePort.ExpressRoutePortArgs{
+// Name: "example-erp",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PeeringLocation: "Equinix-Seattle-SE2",
+// BandwidthInGbps: 10,
+// Encapsulation: "Dot1Q",
+// })
+// if err != nil {
+// return err
+// }
+// exampleExpressRouteCircuit, err := network/expressRouteCircuit.NewExpressRouteCircuit(ctx, "example", &network/expressRouteCircuit.ExpressRouteCircuitArgs{
+// Name: "example-erc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ExpressRoutePortId: exampleExpressRoutePort.Id,
+// BandwidthInGbps: 1,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "family": "MeteredData",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/expressRouteCircuitPeering.NewExpressRouteCircuitPeering(ctx, "example", &network/expressRouteCircuitPeering.ExpressRouteCircuitPeeringArgs{
+// PeeringType: "MicrosoftPeering",
+// ExpressRouteCircuitName: exampleExpressRouteCircuit.Name,
+// ResourceGroupName: example.Name,
+// PeerAsn: 100,
+// PrimaryPeerAddressPrefix: "192.168.199.0/30",
+// SecondaryPeerAddressPrefix: "192.168.200.0/30",
+// VlanId: 300,
+// MicrosoftPeeringConfig: map[string]interface{}{
+// "advertisedPublicPrefixes": []string{
+// "123.6.0.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAzureTrafficCollector, err := networkfunction/azureTrafficCollector.NewAzureTrafficCollector(ctx, "example", &networkfunction/azureTrafficCollector.AzureTrafficCollectorArgs{
+// Name: "example-nfatc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkfunction/collectorPolicy.NewCollectorPolicy(ctx, "example", &networkfunction/collectorPolicy.CollectorPolicyArgs{
+// Name: "example-nfcp",
+// TrafficCollectorId: exampleAzureTrafficCollector.Id,
+// Location: example.Location,
+// IpfxEmission: map[string]interface{}{
+// "destinationTypes": "AzureMonitor",
+// },
+// IpfxIngestion: map[string]interface{}{
+// "sourceResourceIds": []interface{}{
+// exampleExpressRouteCircuit.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

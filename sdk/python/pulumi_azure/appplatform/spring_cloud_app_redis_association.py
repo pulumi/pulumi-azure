@@ -204,27 +204,27 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example-springcloudapp,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_cache = azure.redis.Cache("example",
-            name="example-cache",
+        example_cache = azure.redis.cache.Cache("example",
+            name=example-cache,
             location=example.location,
             resource_group_name=example.name,
             capacity=0,
-            family="C",
-            sku_name="Basic",
+            family=C,
+            sku_name=Basic,
             enable_non_ssl_port=True)
-        example_spring_cloud_app_redis_association = azure.appplatform.SpringCloudAppRedisAssociation("example",
-            name="example-bind",
+        example_spring_cloud_app_redis_association = azure.appplatform.spring_cloud_app_redis_association.SpringCloudAppRedisAssociation("example",
+            name=example-bind,
             spring_cloud_app_id=example_spring_cloud_app.id,
             redis_cache_id=example_cache.id,
             redis_access_key=example_cache.primary_access_key,
@@ -262,27 +262,27 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example-springcloudapp,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_cache = azure.redis.Cache("example",
-            name="example-cache",
+        example_cache = azure.redis.cache.Cache("example",
+            name=example-cache,
             location=example.location,
             resource_group_name=example.name,
             capacity=0,
-            family="C",
-            sku_name="Basic",
+            family=C,
+            sku_name=Basic,
             enable_non_ssl_port=True)
-        example_spring_cloud_app_redis_association = azure.appplatform.SpringCloudAppRedisAssociation("example",
-            name="example-bind",
+        example_spring_cloud_app_redis_association = azure.appplatform.spring_cloud_app_redis_association.SpringCloudAppRedisAssociation("example",
+            name=example-bind,
             spring_cloud_app_id=example_spring_cloud_app.id,
             redis_cache_id=example_cache.id,
             redis_access_key=example_cache.primary_access_key,

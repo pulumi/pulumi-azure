@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "my-kusto-rg",
  *     location: "West Europe",
  * });
- * const cluster = new azure.kusto.Cluster("cluster", {
+ * const cluster = new azure.kusto/cluster.Cluster("cluster", {
  *     name: "kustocluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         capacity: 2,
  *     },
  * });
- * const database = new azure.kusto.Database("database", {
+ * const database = new azure.kusto/database.Database("database", {
  *     name: "my-kusto-database",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -34,26 +34,26 @@ import * as utilities from "../utilities";
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
- * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhub_ns", {
+ * const eventhubNs = new azure.eventhub/eventHubNamespace.EventHubNamespace("eventhub_ns", {
  *     name: "my-eventhub-ns",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const eventhub = new azure.eventhub.EventHub("eventhub", {
+ * const eventhub = new azure.eventhub/eventHub.EventHub("eventhub", {
  *     name: "my-eventhub",
  *     namespaceName: eventhubNs.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
- * const consumerGroup = new azure.eventhub.ConsumerGroup("consumer_group", {
+ * const consumerGroup = new azure.eventhub/consumerGroup.ConsumerGroup("consumer_group", {
  *     name: "my-eventhub-consumergroup",
  *     namespaceName: eventhubNs.name,
  *     eventhubName: eventhub.name,
  *     resourceGroupName: example.name,
  * });
- * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhub_connection", {
+ * const eventhubConnection = new azure.kusto/eventhubDataConnection.EventhubDataConnection("eventhub_connection", {
  *     name: "my-kusto-eventhub-data-connection",
  *     resourceGroupName: example.name,
  *     location: example.location,

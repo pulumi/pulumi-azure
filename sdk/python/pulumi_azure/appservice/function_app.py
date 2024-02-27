@@ -867,25 +867,25 @@ class FunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -898,26 +898,26 @@ class FunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-cptest-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-cptest-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            kind=FunctionApp,
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -930,37 +930,80 @@ class FunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-cptest-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-cptest-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
+            kind=Linux,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            os_type="linux",
-            version="~3")
+            os_type=linux,
+            version=~3)
         ```
 
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
+        ### Python In A Consumption Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-example-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsappexamlpesa,
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-example-sp,
+            location=example.location,
+            resource_group_name=example.name,
+            kind=Linux,
+            reserved=True,
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=example-azure-function,
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            os_type=linux,
+            version=~4,
+            app_settings=[{
+                FUNCTIONS_WORKER_RUNTIME: python,
+            }],
+            site_config={
+                linuxFxVersion: python|3.9,
+            })
+        ```
+
+        > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
 
         ## Import
 
@@ -1023,25 +1066,25 @@ class FunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -1054,26 +1097,26 @@ class FunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-cptest-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-cptest-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            kind=FunctionApp,
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -1086,37 +1129,80 @@ class FunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-cptest-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-cptest-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
+            kind=Linux,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
-        example_function_app = azure.appservice.FunctionApp("example",
-            name="test-azure-functions",
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            os_type="linux",
-            version="~3")
+            os_type=linux,
+            version=~3)
         ```
 
         > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
+        ### Python In A Consumption Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-example-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsappexamlpesa,
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-example-sp,
+            location=example.location,
+            resource_group_name=example.name,
+            kind=Linux,
+            reserved=True,
+            sku={
+                tier: Dynamic,
+                size: Y1,
+            })
+        example_function_app = azure.appservice.function_app.FunctionApp("example",
+            name=example-azure-function,
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
+            os_type=linux,
+            version=~4,
+            app_settings=[{
+                FUNCTIONS_WORKER_RUNTIME: python,
+            }],
+            site_config={
+                linuxFxVersion: python|3.9,
+            })
+        ```
+
+        > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
 
         ## Import
 

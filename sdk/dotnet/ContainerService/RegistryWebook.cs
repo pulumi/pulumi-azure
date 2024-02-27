@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var acr = new Azure.ContainerService.Registry("acr", new()
+    ///     var acr = new Azure.Containerservice.Registry.Registry("acr", new()
     ///     {
     ///         Name = "containerRegistry1",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService
     ///         AdminEnabled = false,
     ///     });
     /// 
-    ///     var webhook = new Azure.ContainerService.RegistryWebhook("webhook", new()
+    ///     var webhook = new Azure.Containerservice.RegistryWebhook.RegistryWebhook("webhook", new()
     ///     {
     ///         Name = "mywebhook",
     ///         ResourceGroupName = example.Name,

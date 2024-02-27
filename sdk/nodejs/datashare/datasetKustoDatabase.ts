@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.datashare.Account("example", {
+ * const exampleAccount = new azure.datashare/account.Account("example", {
  *     name: "example-dsa",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleShare = new azure.datashare.Share("example", {
+ * const exampleShare = new azure.datashare/share.Share("example", {
  *     name: "example_ds",
  *     accountId: exampleAccount.id,
  *     kind: "InPlace",
  * });
- * const exampleCluster = new azure.kusto.Cluster("example", {
+ * const exampleCluster = new azure.kusto/cluster.Cluster("example", {
  *     name: "examplekc",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -39,18 +39,18 @@ import * as utilities from "../utilities";
  *         capacity: 1,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("example", {
+ * const exampleDatabase = new azure.kusto/database.Database("example", {
  *     name: "examplekd",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     clusterName: exampleCluster.name,
  * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
+ * const exampleAssignment = new azure.authorization/assignment.Assignment("example", {
  *     scope: exampleCluster.id,
  *     roleDefinitionName: "Contributor",
- *     principalId: exampleAccount.identity.apply(identity => identity.principalId),
+ *     principalId: exampleAccount.identity.principalId,
  * });
- * const exampleDatasetKustoDatabase = new azure.datashare.DatasetKustoDatabase("example", {
+ * const exampleDatasetKustoDatabase = new azure.datashare/datasetKustoDatabase.DatasetKustoDatabase("example", {
  *     name: "example-dskd",
  *     shareId: exampleShare.id,
  *     kustoDatabaseId: exampleDatabase.id,

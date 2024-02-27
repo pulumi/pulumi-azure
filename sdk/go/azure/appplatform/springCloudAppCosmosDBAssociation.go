@@ -21,71 +21,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	appplatform/springCloudApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApp"
+//	appplatform/springCloudAppCosmosDBAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudAppCosmosDBAssociation"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example-springcloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("example-springcloudapp"),
-//				ResourceGroupName: example.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel: pulumi.String("Strong"),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         example.Location,
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudAppCosmosDBAssociation(ctx, "example", &appplatform.SpringCloudAppCosmosDBAssociationArgs{
-//				Name:              pulumi.String("example-bind"),
-//				SpringCloudAppId:  exampleSpringCloudApp.ID(),
-//				CosmosdbAccountId: exampleAccount.ID(),
-//				ApiType:           pulumi.String("table"),
-//				CosmosdbAccessKey: exampleAccount.PrimaryKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example-springcloud",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudApp, err := appplatform/springCloudApp.NewSpringCloudApp(ctx, "example", &appplatform/springCloudApp.SpringCloudAppArgs{
+// Name: "example-springcloudapp",
+// ResourceGroupName: example.Name,
+// ServiceName: exampleSpringCloudService.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cosmosdb/account.NewAccount(ctx, "example", &cosmosdb/account.AccountArgs{
+// Name: "example-cosmosdb-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// OfferType: "Standard",
+// Kind: "GlobalDocumentDB",
+// ConsistencyPolicy: map[string]interface{}{
+// "consistencyLevel": "Strong",
+// },
+// GeoLocations: []map[string]interface{}{
+// map[string]interface{}{
+// "location": example.Location,
+// "failoverPriority": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudAppCosmosDBAssociation.NewSpringCloudAppCosmosDBAssociation(ctx, "example", &appplatform/springCloudAppCosmosDBAssociation.SpringCloudAppCosmosDBAssociationArgs{
+// Name: "example-bind",
+// SpringCloudAppId: exampleSpringCloudApp.Id,
+// CosmosdbAccountId: exampleAccount.Id,
+// ApiType: "table",
+// CosmosdbAccessKey: exampleAccount.PrimaryKey,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

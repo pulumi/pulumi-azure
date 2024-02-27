@@ -22,13 +22,13 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
+    ///     var exampleServer = new Azure.Postgresql.Server.Server("example", new()
     ///     {
     ///         Name = "example-psqlserver",
     ///         Location = example.Location,

@@ -12,34 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management User Assignment to a Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.ApiManagement.GetUser.Invoke(new()
-    ///     {
-    ///         UserId = "my-user",
-    ///         ApiManagementName = "example-apim",
-    ///         ResourceGroupName = "search-service",
-    ///     });
-    /// 
-    ///     var exampleGroupUser = new Azure.ApiManagement.GroupUser("example", new()
-    ///     {
-    ///         UserId = example.Apply(getUserResult =&gt; getUserResult.Id),
-    ///         GroupName = "example-group",
-    ///         ResourceGroupName = example.Apply(getUserResult =&gt; getUserResult.ResourceGroupName),
-    ///         ApiManagementName = example.Apply(getUserResult =&gt; getUserResult.ApiManagementName),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Group Users can be imported using the `resource id`, e.g.

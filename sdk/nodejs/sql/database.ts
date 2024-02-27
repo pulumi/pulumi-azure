@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ * const exampleSqlServer = new azure.sql/sqlServer.SqlServer("example", {
  *     name: "myexamplesqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -28,14 +28,14 @@ import * as utilities from "../utilities";
  *         environment: "production",
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleDatabase = new azure.sql.Database("example", {
+ * const exampleDatabase = new azure.sql/database.Database("example", {
  *     name: "myexamplesqldatabase",
  *     resourceGroupName: example.name,
  *     location: example.location,

@@ -129,16 +129,6 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
     """
     Use this data source to access information about an existing Storage Container.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_storage_container(name="example-container-name",
-        storage_account_name="example-storage-account-name")
-    ```
-
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
@@ -169,16 +159,6 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageContainerResult]:
     """
     Use this data source to access information about an existing Storage Container.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_storage_container(name="example-container-name",
-        storage_account_name="example-storage-account-name")
-    ```
 
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.

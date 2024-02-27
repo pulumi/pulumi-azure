@@ -24,54 +24,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModule;
- * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleManagedHardwareSecurityModule = new ManagedHardwareSecurityModule(&#34;exampleManagedHardwareSecurityModule&#34;, ManagedHardwareSecurityModuleArgs.builder()        
- *             .name(&#34;exampleKVHsm&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .skuName(&#34;Standard_B1&#34;)
- *             .purgeProtectionEnabled(false)
- *             .softDeleteRetentionDays(90)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .adminObjectIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .tags(Map.of(&#34;Env&#34;, &#34;Test&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.

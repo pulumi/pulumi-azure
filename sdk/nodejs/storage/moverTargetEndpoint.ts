@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestr",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,17 +25,17 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     allowNestedItemsToBePublic: true,
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "example-sc",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "blob",
  * });
- * const exampleMover = new azure.storage.Mover("example", {
+ * const exampleMover = new azure.storage/mover.Mover("example", {
  *     name: "example-ssm",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  * });
- * const exampleMoverTargetEndpoint = new azure.storage.MoverTargetEndpoint("example", {
+ * const exampleMoverTargetEndpoint = new azure.storage/moverTargetEndpoint.MoverTargetEndpoint("example", {
  *     name: "example-se",
  *     storageMoverId: exampleMover.id,
  *     storageAccountId: exampleAccount.id,

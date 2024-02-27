@@ -23,78 +23,79 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	network/virtualNetworkGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetworkGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("test"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("test"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("GatewaySubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("test"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Dynamic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
-//				Name:              pulumi.String("test"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("Vpn"),
-//				VpnType:           pulumi.String("RouteBased"),
-//				ActiveActive:      pulumi.Bool(false),
-//				EnableBgp:         pulumi.Bool(false),
-//				Sku:               pulumi.String("Basic"),
-//				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
-//					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						Name:                       pulumi.String("vnetGatewayConfig"),
-//						PublicIpAddressId:          examplePublicIp.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   exampleSubnet.ID(),
-//					},
-//				},
-//				VpnClientConfiguration: &network.VirtualNetworkGatewayVpnClientConfigurationArgs{
-//					AddressSpaces: pulumi.StringArray{
-//						pulumi.String("10.2.0.0/24"),
-//					},
-//					RootCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{
-//						&network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{
-//							Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
-//							PublicCertData: pulumi.String(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "test",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "test",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "GatewaySubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "test",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Dynamic",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetworkGateway.NewVirtualNetworkGateway(ctx, "example", &network/virtualNetworkGateway.VirtualNetworkGatewayArgs{
+// Name: "test",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Type: "Vpn",
+// VpnType: "RouteBased",
+// ActiveActive: false,
+// EnableBgp: false,
+// Sku: "Basic",
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "vnetGatewayConfig",
+// "publicIpAddressId": examplePublicIp.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// "subnetId": exampleSubnet.Id,
+// },
+// },
+// VpnClientConfiguration: map[string]interface{}{
+// "addressSpaces": []string{
+// "10.2.0.0/24",
+// },
+// "rootCertificates": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "DigiCert-Federated-ID-Root-CA",
+// "publicCertData": `MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
 // MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
 // d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
 // Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -114,25 +115,23 @@ import (
 // uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
 // WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
 // M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-// `),
-//
-//						},
-//					},
-//					RevokedCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{
-//						&network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{
-//							Name:       pulumi.String("Verizon-Global-Root-CA"),
-//							Thumbprint: pulumi.String("912198EEF23DCAC40939312FEE97DD560BAE49B1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// },
+// },
+// "revokedCertificates": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Verizon-Global-Root-CA",
+// "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

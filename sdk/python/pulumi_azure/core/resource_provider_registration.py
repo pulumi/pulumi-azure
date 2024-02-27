@@ -108,7 +108,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceProviderRegistration("example", name="Microsoft.PolicyInsights")
+        example = azure.core.resource_provider_registration.ResourceProviderRegistration("example", name=Microsoft.PolicyInsights)
         ```
         ### Registering A Preview Feature)
 
@@ -116,12 +116,12 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceProviderRegistration("example",
-            name="Microsoft.ContainerService",
-            features=[azure.core.ResourceProviderRegistrationFeatureArgs(
-                name="AKS-DataPlaneAutoApprove",
-                registered=True,
-            )])
+        example = azure.core.resource_provider_registration.ResourceProviderRegistration("example",
+            name=Microsoft.ContainerService,
+            features=[{
+                name: AKS-DataPlaneAutoApprove,
+                registered: True,
+            }])
         ```
 
         ## Import
@@ -157,7 +157,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceProviderRegistration("example", name="Microsoft.PolicyInsights")
+        example = azure.core.resource_provider_registration.ResourceProviderRegistration("example", name=Microsoft.PolicyInsights)
         ```
         ### Registering A Preview Feature)
 
@@ -165,12 +165,12 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceProviderRegistration("example",
-            name="Microsoft.ContainerService",
-            features=[azure.core.ResourceProviderRegistrationFeatureArgs(
-                name="AKS-DataPlaneAutoApprove",
-                registered=True,
-            )])
+        example = azure.core.resource_provider_registration.ResourceProviderRegistration("example",
+            name=Microsoft.ContainerService,
+            features=[{
+                name: AKS-DataPlaneAutoApprove,
+                registered: True,
+            }])
         ```
 
         ## Import

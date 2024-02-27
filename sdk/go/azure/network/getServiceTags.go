@@ -12,36 +12,6 @@ import (
 )
 
 // Use this data source to access information about Service Tags.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := network.GetServiceTags(ctx, &network.GetServiceTagsArgs{
-//				Location:       "westcentralus",
-//				Service:        "AzureKeyVault",
-//				LocationFilter: pulumi.StringRef("northeurope"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("addressPrefixes", example.AddressPrefixes)
-//			ctx.Export("ipv4Cidrs", example.Ipv4Cidrs)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetServiceTags(ctx *pulumi.Context, args *GetServiceTagsArgs, opts ...pulumi.InvokeOption) (*GetServiceTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceTagsResult

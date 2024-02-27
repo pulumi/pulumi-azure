@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "pergb2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights/analyticsSolution.AnalyticsSolution("example", {
  *     solutionName: "SecurityInsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/SecurityInsights",
  *     },
  * });
- * const exampleAlertRuleNrt = new azure.sentinel.AlertRuleNrt("example", {
+ * const exampleAlertRuleNrt = new azure.sentinel/alertRuleNrt.AlertRuleNrt("example", {
  *     name: "example",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     displayName: "example",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
  * `,
  * });
- * const exampleMetadata = new azure.sentinel.Metadata("example", {
+ * const exampleMetadata = new azure.sentinel/metadata.Metadata("example", {
  *     name: "exampl",
  *     workspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     contentId: exampleAlertRuleNrt.name,

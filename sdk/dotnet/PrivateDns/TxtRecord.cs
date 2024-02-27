@@ -22,19 +22,19 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+    ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
     ///     {
     ///         Name = "contoso.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleTxtRecord = new Azure.PrivateDns.TxtRecord("example", new()
+    ///     var exampleTxtRecord = new Azure.Privatedns.TxtRecord.TxtRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ResourceGroupName = example.Name,
@@ -42,9 +42,9 @@ namespace Pulumi.Azure.PrivateDns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.PrivateDns.Inputs.TxtRecordRecordArgs
+    ///             
     ///             {
-    ///                 Value = "v=spf1 mx ~all",
+    ///                 { "value", "v=spf1 mx ~all" },
     ///             },
     ///         },
     ///     });

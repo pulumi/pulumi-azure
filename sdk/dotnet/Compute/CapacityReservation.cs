@@ -22,27 +22,27 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup("example", new()
+    ///     var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup.CapacityReservationGroup("example", new()
     ///     {
     ///         Name = "example-capacity-reservation-group",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleCapacityReservation = new Azure.Compute.CapacityReservation("example", new()
+    ///     var exampleCapacityReservation = new Azure.Compute.CapacityReservation.CapacityReservation("example", new()
     ///     {
     ///         Name = "example-capacity-reservation",
     ///         CapacityReservationGroupId = exampleCapacityReservationGroup.Id,
-    ///         Sku = new Azure.Compute.Inputs.CapacityReservationSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Standard_D2s_v3",
-    ///             Capacity = 1,
+    ///             { "name", "Standard_D2s_v3" },
+    ///             { "capacity", 1 },
     ///         },
     ///     });
     /// 

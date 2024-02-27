@@ -21,75 +21,75 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/profile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/profile"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("examplegroup"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("examplevnet"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.1.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("examplesubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.1.0.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewProfile(ctx, "example", &network.ProfileArgs{
-//				Name:              pulumi.String("examplenetprofile"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ContainerNetworkInterface: &network.ProfileContainerNetworkInterfaceArgs{
-//					Name: pulumi.String("examplecnic"),
-//					IpConfigurations: network.ProfileContainerNetworkInterfaceIpConfigurationArray{
-//						&network.ProfileContainerNetworkInterfaceIpConfigurationArgs{
-//							Name:     pulumi.String("exampleipconfig"),
-//							SubnetId: exampleSubnet.ID(),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "examplegroup",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "examplevnet",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.1.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "examplesubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.1.0.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "delegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.ContainerInstance/containerGroups",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/profile.NewProfile(ctx, "example", &network/profile.ProfileArgs{
+// Name: "examplenetprofile",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ContainerNetworkInterface: map[string]interface{}{
+// "name": "examplecnic",
+// "ipConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleipconfig",
+// "subnetId": exampleSubnet.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

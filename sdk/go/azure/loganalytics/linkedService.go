@@ -21,57 +21,55 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	loganalytics/linkedService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/loganalytics/linkedService"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("resourcegroup-01"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("automation-01"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("development"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("workspace-01"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//				RetentionInDays:   pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = loganalytics.NewLinkedService(ctx, "example", &loganalytics.LinkedServiceArgs{
-//				ResourceGroupName: example.Name,
-//				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
-//				ReadAccessId:      exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "resourcegroup-01",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "automation-01",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// Tags: map[string]interface{}{
+// "environment": "development",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "workspace-01",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// RetentionInDays: 30,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = loganalytics/linkedService.NewLinkedService(ctx, "example", &loganalytics/linkedService.LinkedServiceArgs{
+// ResourceGroupName: example.Name,
+// WorkspaceId: exampleAnalyticsWorkspace.Id,
+// ReadAccessId: exampleAccount.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

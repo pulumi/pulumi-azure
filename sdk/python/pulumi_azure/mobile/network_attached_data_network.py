@@ -439,6 +439,80 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         """
         Manages a Mobile Network Attached Data Network.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name=EdgeP_Base-Standard)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
+            resource_group_name=example.name,
+            location=example.location,
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_packet_core_control_plane = azure.mobile.network_packet_core_control_plane.NetworkPacketCoreControlPlane("example",
+            name=example-mnpccp,
+            resource_group_name=example.name,
+            location=West Europe,
+            sku=G0,
+            mobile_network_id=example_network.id,
+            control_plane_access_name=default-interface,
+            control_plane_access_ipv4_address=192.168.1.199,
+            control_plane_access_ipv4_gateway=192.168.1.1,
+            control_plane_access_ipv4_subnet=192.168.1.0/25,
+            platform={
+                type: AKS-HCI,
+                edgeDeviceId: example_device.id,
+            })
+        example_network_packet_core_data_plane = azure.mobile.network_packet_core_data_plane.NetworkPacketCoreDataPlane("example",
+            name=example-mnpcdp,
+            mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id,
+            location=example.location,
+            user_plane_access_name=default-interface,
+            user_plane_access_ipv4_address=192.168.1.199,
+            user_plane_access_ipv4_gateway=192.168.1.1,
+            user_plane_access_ipv4_subnet=192.168.1.0/25)
+        example_network_data_network = azure.mobile.network_data_network.NetworkDataNetwork("example",
+            name=example-data-network,
+            mobile_network_id=example_network.id,
+            location=example.location)
+        example_network_attached_data_network = azure.mobile.network_attached_data_network.NetworkAttachedDataNetwork("example",
+            mobile_network_data_network_name=example_network_data_network.name,
+            mobile_network_packet_core_data_plane_id=example_network_packet_core_data_plane.id,
+            location=example.location,
+            dns_addresses=[1.1.1.1],
+            user_equipment_address_pool_prefixes=[2.4.1.0/24],
+            user_equipment_static_address_pool_prefixes=[2.4.2.0/24],
+            user_plane_access_name=test,
+            user_plane_access_ipv4_address=10.204.141.4,
+            user_plane_access_ipv4_gateway=10.204.141.1,
+            user_plane_access_ipv4_subnet=10.204.141.0/24,
+            network_address_port_translation={
+                pinholeMaximumNumber: 65536,
+                icmpPinholeTimeoutInSeconds: 30,
+                tcpPinholeTimeoutInSeconds: 100,
+                udpPinholeTimeoutInSeconds: 39,
+                portRange: {
+                    maximum: 49999,
+                    minimum: 1024,
+                },
+                tcpPortReuseMinimumHoldTimeInSeconds: 120,
+                udpTcpPortReuseMinimumHoldTimeInSeconds: 60,
+            },
+            tags={
+                key: value,
+            })
+        ```
+
         ## Import
 
         Mobile Network Attached Data Network can be imported using the `resource id`, e.g.
@@ -472,6 +546,80 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Attached Data Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name=EdgeP_Base-Standard)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
+            resource_group_name=example.name,
+            location=example.location,
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_packet_core_control_plane = azure.mobile.network_packet_core_control_plane.NetworkPacketCoreControlPlane("example",
+            name=example-mnpccp,
+            resource_group_name=example.name,
+            location=West Europe,
+            sku=G0,
+            mobile_network_id=example_network.id,
+            control_plane_access_name=default-interface,
+            control_plane_access_ipv4_address=192.168.1.199,
+            control_plane_access_ipv4_gateway=192.168.1.1,
+            control_plane_access_ipv4_subnet=192.168.1.0/25,
+            platform={
+                type: AKS-HCI,
+                edgeDeviceId: example_device.id,
+            })
+        example_network_packet_core_data_plane = azure.mobile.network_packet_core_data_plane.NetworkPacketCoreDataPlane("example",
+            name=example-mnpcdp,
+            mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id,
+            location=example.location,
+            user_plane_access_name=default-interface,
+            user_plane_access_ipv4_address=192.168.1.199,
+            user_plane_access_ipv4_gateway=192.168.1.1,
+            user_plane_access_ipv4_subnet=192.168.1.0/25)
+        example_network_data_network = azure.mobile.network_data_network.NetworkDataNetwork("example",
+            name=example-data-network,
+            mobile_network_id=example_network.id,
+            location=example.location)
+        example_network_attached_data_network = azure.mobile.network_attached_data_network.NetworkAttachedDataNetwork("example",
+            mobile_network_data_network_name=example_network_data_network.name,
+            mobile_network_packet_core_data_plane_id=example_network_packet_core_data_plane.id,
+            location=example.location,
+            dns_addresses=[1.1.1.1],
+            user_equipment_address_pool_prefixes=[2.4.1.0/24],
+            user_equipment_static_address_pool_prefixes=[2.4.2.0/24],
+            user_plane_access_name=test,
+            user_plane_access_ipv4_address=10.204.141.4,
+            user_plane_access_ipv4_gateway=10.204.141.1,
+            user_plane_access_ipv4_subnet=10.204.141.0/24,
+            network_address_port_translation={
+                pinholeMaximumNumber: 65536,
+                icmpPinholeTimeoutInSeconds: 30,
+                tcpPinholeTimeoutInSeconds: 100,
+                udpPinholeTimeoutInSeconds: 39,
+                portRange: {
+                    maximum: 49999,
+                    minimum: 1024,
+                },
+                tcpPortReuseMinimumHoldTimeInSeconds: 120,
+                udpTcpPortReuseMinimumHoldTimeInSeconds: 60,
+            },
+            tags={
+                key: value,
+            })
+        ```
 
         ## Import
 

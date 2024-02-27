@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages anAutomation Connection Type.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "resourceGroup-example",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
-    ///     {
-    ///         Name = "account-example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Basic",
-    ///     });
-    /// 
-    ///     var exampleConnectionType = new Azure.Automation.ConnectionType("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
-    ///         Fields = new[]
-    ///         {
-    ///             new Azure.Automation.Inputs.ConnectionTypeFieldArgs
-    ///             {
-    ///                 Name = "example",
-    ///                 Type = "string",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Automations can be imported using the `resource id`, e.g.

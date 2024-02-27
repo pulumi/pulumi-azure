@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an IotHub Certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///         {
-    ///             Name = "B1",
-    ///             Capacity = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.Iot.Certificate("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         IothubName = exampleIoTHub.Name,
-    ///         IsVerified = true,
-    ///         CertificateContent = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "example.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// IoTHub Certificates can be imported using the `resource id`, e.g.

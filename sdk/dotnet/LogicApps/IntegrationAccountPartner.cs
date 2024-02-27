@@ -22,13 +22,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
+    ///     var exampleIntegrationAccount = new Azure.Logicapps.IntegrationAccount.IntegrationAccount("example", new()
     ///     {
     ///         Name = "example-ia",
     ///         Location = example.Location,
@@ -36,17 +36,17 @@ namespace Pulumi.Azure.LogicApps
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleIntegrationAccountPartner = new Azure.LogicApps.IntegrationAccountPartner("example", new()
+    ///     var exampleIntegrationAccountPartner = new Azure.Logicapps.IntegrationAccountPartner.IntegrationAccountPartner("example", new()
     ///     {
     ///         Name = "example-iap",
     ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         BusinessIdentities = new[]
     ///         {
-    ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
+    ///             
     ///             {
-    ///                 Qualifier = "ZZ",
-    ///                 Value = "AA",
+    ///                 { "qualifier", "ZZ" },
+    ///                 { "value", "AA" },
     ///             },
     ///         },
     ///     });

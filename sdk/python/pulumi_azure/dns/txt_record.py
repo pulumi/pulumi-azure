@@ -252,27 +252,27 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_txt_record = azure.dns.TxtRecord("example",
-            name="test",
+        example_txt_record = azure.dns.txt_record.TxtRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.TxtRecordRecordArgs(
-                    value="google-site-authenticator",
-                ),
-                azure.dns.TxtRecordRecordArgs(
-                    value="more site information here",
-                ),
+                {
+                    value: google-site-authenticator,
+                },
+                {
+                    value: more site information here,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -306,27 +306,27 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_txt_record = azure.dns.TxtRecord("example",
-            name="test",
+        example_txt_record = azure.dns.txt_record.TxtRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.TxtRecordRecordArgs(
-                    value="google-site-authenticator",
-                ),
-                azure.dns.TxtRecordRecordArgs(
-                    value="more site information here",
-                ),
+                {
+                    value: google-site-authenticator,
+                },
+                {
+                    value: more site information here,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

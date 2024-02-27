@@ -206,15 +206,15 @@ class Sync(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_sync = azure.storage.Sync("example",
-            name="example-storage-sync",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_sync = azure.storage.sync.Sync("example",
+            name=example-storage-sync,
             resource_group_name=example.name,
             location=example.location,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -249,15 +249,15 @@ class Sync(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_sync = azure.storage.Sync("example",
-            name="example-storage-sync",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_sync = azure.storage.sync.Sync("example",
+            name=example-storage-sync,
             resource_group_name=example.name,
             location=example.location,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     var exampleInsights = new Azure.Appinsights.Insights.Insights("example", new()
     ///     {
     ///         Name = "example-ai",
     ///         Location = example.Location,
@@ -36,14 +36,14 @@ namespace Pulumi.Azure.Monitoring
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example-mag",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "test mag",
     ///     });
     /// 
-    ///     var exampleScheduledQueryRulesAlertV2 = new Azure.Monitoring.ScheduledQueryRulesAlertV2("example", new()
+    ///     var exampleScheduledQueryRulesAlertV2 = new Azure.Monitoring.ScheduledQueryRulesAlertV2.ScheduledQueryRulesAlertV2("example", new()
     ///     {
     ///         Name = "example-msqrv2",
     ///         ResourceGroupName = example.Name,
@@ -54,33 +54,33 @@ namespace Pulumi.Azure.Monitoring
     ///         Severity = 4,
     ///         Criterias = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaArgs
+    ///             
     ///             {
-    ///                 Query = @"requests
+    ///                 { "query", @"requests
     ///   | summarize CountByCountry=count() by client_CountryOrRegion
-    /// ",
-    ///                 TimeAggregationMethod = "Maximum",
-    ///                 Threshold = 17.5,
-    ///                 Operator = "LessThan",
-    ///                 ResourceIdColumn = "client_CountryOrRegion",
-    ///                 MetricMeasureColumn = "CountByCountry",
-    ///                 Dimensions = new[]
+    /// " },
+    ///                 { "timeAggregationMethod", "Maximum" },
+    ///                 { "threshold", 17.5 },
+    ///                 { "operator", "LessThan" },
+    ///                 { "resourceIdColumn", "client_CountryOrRegion" },
+    ///                 { "metricMeasureColumn", "CountByCountry" },
+    ///                 { "dimensions", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs
+    ///                     
     ///                     {
-    ///                         Name = "client_CountryOrRegion",
-    ///                         Operator = "Exclude",
-    ///                         Values = new[]
+    ///                         { "name", "client_CountryOrRegion" },
+    ///                         { "operator", "Exclude" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "123",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 FailingPeriods = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs
+    ///                 } },
+    ///                 { "failingPeriods", 
     ///                 {
-    ///                     MinimumFailingPeriodsToTriggerAlert = 1,
-    ///                     NumberOfEvaluationPeriods = 1,
-    ///                 },
+    ///                     { "minimumFailingPeriodsToTriggerAlert", 1 },
+    ///                     { "numberOfEvaluationPeriods", 1 },
+    ///                 } },
     ///             },
     ///         },
     ///         AutoMitigationEnabled = true,
@@ -90,17 +90,17 @@ namespace Pulumi.Azure.Monitoring
     ///         Enabled = true,
     ///         QueryTimeRangeOverride = "PT1H",
     ///         SkipQueryValidation = true,
-    ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2ActionArgs
+    ///         Action = 
     ///         {
-    ///             ActionGroups = new[]
+    ///             { "actionGroups", new[]
     ///             {
     ///                 exampleActionGroup.Id,
-    ///             },
-    ///             CustomProperties = 
+    ///             } },
+    ///             { "customProperties", 
     ///             {
     ///                 { "key", "value" },
     ///                 { "key2", "value2" },
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

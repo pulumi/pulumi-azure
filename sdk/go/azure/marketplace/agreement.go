@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/marketplace"
+//	marketplace/agreement "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/marketplace/agreement"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := marketplace.NewAgreement(ctx, "barracuda", &marketplace.AgreementArgs{
-//				Publisher: pulumi.String("barracudanetworks"),
-//				Offer:     pulumi.String("waf"),
-//				Plan:      pulumi.String("hourly"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := marketplace/agreement.NewAgreement(ctx, "barracuda", &marketplace/agreement.AgreementArgs{
+// Publisher: "barracudanetworks",
+// Offer: "waf",
+// Plan: "hourly",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

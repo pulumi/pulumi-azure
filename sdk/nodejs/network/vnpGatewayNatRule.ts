@@ -15,29 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ * const exampleVirtualWan = new azure.network/virtualWan.VirtualWan("example", {
  *     name: "example-vwan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ * const exampleVirtualHub = new azure.network/virtualHub.VirtualHub("example", {
  *     name: "example-vhub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressPrefix: "10.0.1.0/24",
  *     virtualWanId: exampleVirtualWan.id,
  * });
- * const exampleVpnGateway = new azure.network.VpnGateway("example", {
+ * const exampleVpnGateway = new azure.network/vpnGateway.VpnGateway("example", {
  *     name: "example-vpngateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     virtualHubId: exampleVirtualHub.id,
  * });
- * const exampleVnpGatewayNatRule = new azure.network.VnpGatewayNatRule("example", {
+ * const exampleVnpGatewayNatRule = new azure.network/vnpGatewayNatRule.VnpGatewayNatRule("example", {
  *     name: "example-vpngatewaynatrule",
  *     resourceGroupName: example.name,
  *     vpnGatewayId: exampleVpnGateway.id,

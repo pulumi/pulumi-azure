@@ -22,19 +22,19 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+    ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "test-network",
     ///         AddressSpaces = new[]
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
+    ///     var exampleZoneVirtualNetworkLink = new Azure.Privatedns.ZoneVirtualNetworkLink.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "test",
     ///         ResourceGroupName = example.Name,

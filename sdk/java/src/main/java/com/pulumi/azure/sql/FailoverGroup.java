@@ -39,8 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sql.DatabaseArgs;
  * import com.pulumi.azure.sql.FailoverGroup;
  * import com.pulumi.azure.sql.FailoverGroupArgs;
- * import com.pulumi.azure.sql.inputs.FailoverGroupPartnerServerArgs;
- * import com.pulumi.azure.sql.inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,13 +87,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(primary.resourceGroupName())
  *             .serverName(primary.name())
  *             .databases(db1.id())
- *             .partnerServers(FailoverGroupPartnerServerArgs.builder()
- *                 .id(secondary.id())
- *                 .build())
- *             .readWriteEndpointFailoverPolicy(FailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
- *                 .graceMinutes(60)
- *                 .build())
+ *             .partnerServers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .readWriteEndpointFailoverPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

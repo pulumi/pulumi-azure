@@ -370,18 +370,18 @@ class GalleryApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
-            name="examplegallery",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_shared_image_gallery = azure.compute.shared_image_gallery.SharedImageGallery("example",
+            name=examplegallery,
             resource_group_name=example.name,
             location=example.location)
-        example_gallery_application = azure.compute.GalleryApplication("example",
-            name="example-app",
+        example_gallery_application = azure.compute.gallery_application.GalleryApplication("example",
+            name=example-app,
             gallery_id=example_shared_image_gallery.id,
             location=example.location,
-            supported_os_type="Linux")
+            supported_os_type=Linux)
         ```
 
         ## Import
@@ -420,18 +420,18 @@ class GalleryApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
-            name="examplegallery",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_shared_image_gallery = azure.compute.shared_image_gallery.SharedImageGallery("example",
+            name=examplegallery,
             resource_group_name=example.name,
             location=example.location)
-        example_gallery_application = azure.compute.GalleryApplication("example",
-            name="example-app",
+        example_gallery_application = azure.compute.gallery_application.GalleryApplication("example",
+            name=example-app,
             gallery_id=example_shared_image_gallery.id,
             location=example.location,
-            supported_os_type="Linux")
+            supported_os_type=Linux)
         ```
 
         ## Import

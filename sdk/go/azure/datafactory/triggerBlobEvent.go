@@ -21,84 +21,84 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/pipeline "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/pipeline"
+//	datafactory/triggerBlobEvent "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/triggerBlobEvent"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewTriggerBlobEvent(ctx, "example", &datafactory.TriggerBlobEventArgs{
-//				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				StorageAccountId: exampleAccount.ID(),
-//				Events: pulumi.StringArray{
-//					pulumi.String("Microsoft.Storage.BlobCreated"),
-//					pulumi.String("Microsoft.Storage.BlobDeleted"),
-//				},
-//				BlobPathEndsWith: pulumi.String(".txt"),
-//				IgnoreEmptyBlobs: pulumi.Bool(true),
-//				Activated:        pulumi.Bool(true),
-//				Annotations: pulumi.StringArray{
-//					pulumi.String("test1"),
-//					pulumi.String("test2"),
-//					pulumi.String("test3"),
-//				},
-//				Description: pulumi.String("example description"),
-//				Pipelines: datafactory.TriggerBlobEventPipelineArray{
-//					&datafactory.TriggerBlobEventPipelineArgs{
-//						Name: examplePipeline.Name,
-//						Parameters: pulumi.StringMap{
-//							"Env": pulumi.String("Prod"),
-//						},
-//					},
-//				},
-//				AdditionalProperties: pulumi.StringMap{
-//					"foo": pulumi.String("foo1"),
-//					"bar": pulumi.String("bar2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// examplePipeline, err := datafactory/pipeline.NewPipeline(ctx, "example", &datafactory/pipeline.PipelineArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/triggerBlobEvent.NewTriggerBlobEvent(ctx, "example", &datafactory/triggerBlobEvent.TriggerBlobEventArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// StorageAccountId: exampleAccount.Id,
+// Events: []string{
+// "Microsoft.Storage.BlobCreated",
+// "Microsoft.Storage.BlobDeleted",
+// },
+// BlobPathEndsWith: ".txt",
+// IgnoreEmptyBlobs: true,
+// Activated: true,
+// Annotations: []string{
+// "test1",
+// "test2",
+// "test3",
+// },
+// Description: "example description",
+// Pipelines: []map[string]interface{}{
+// map[string]interface{}{
+// "name": examplePipeline.Name,
+// "parameters": map[string]interface{}{
+// "Env": "Prod",
+// },
+// },
+// },
+// AdditionalProperties: map[string]interface{}{
+// "foo": "foo1",
+// "bar": "bar2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

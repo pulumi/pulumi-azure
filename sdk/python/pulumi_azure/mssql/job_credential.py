@@ -171,30 +171,30 @@ class JobCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="northeurope")
-        example_server = azure.mssql.Server("example",
-            name="example-server",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=northeurope)
+        example_server = azure.mssql.server.Server("example",
+            name=example-server,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("example",
-            name="example-db",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_database = azure.mssql.database.Database("example",
+            name=example-db,
             server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            sku_name="S1")
-        example_job_agent = azure.mssql.JobAgent("example",
-            name="example-job-agent",
+            collation=SQL_Latin1_General_CP1_CI_AS,
+            sku_name=S1)
+        example_job_agent = azure.mssql.job_agent.JobAgent("example",
+            name=example-job-agent,
             location=example.location,
             database_id=example_database.id)
-        example_job_credential = azure.mssql.JobCredential("example",
-            name="example-credential",
+        example_job_credential = azure.mssql.job_credential.JobCredential("example",
+            name=example-credential,
             job_agent_id=example_job_agent.id,
-            username="my-username",
-            password="MyP4ssw0rd!!!")
+            username=my-username,
+            password=MyP4ssw0rd!!!)
         ```
 
         ## Import
@@ -227,30 +227,30 @@ class JobCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="northeurope")
-        example_server = azure.mssql.Server("example",
-            name="example-server",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=northeurope)
+        example_server = azure.mssql.server.Server("example",
+            name=example-server,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("example",
-            name="example-db",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_database = azure.mssql.database.Database("example",
+            name=example-db,
             server_id=example_server.id,
-            collation="SQL_Latin1_General_CP1_CI_AS",
-            sku_name="S1")
-        example_job_agent = azure.mssql.JobAgent("example",
-            name="example-job-agent",
+            collation=SQL_Latin1_General_CP1_CI_AS,
+            sku_name=S1)
+        example_job_agent = azure.mssql.job_agent.JobAgent("example",
+            name=example-job-agent,
             location=example.location,
             database_id=example_database.id)
-        example_job_credential = azure.mssql.JobCredential("example",
-            name="example-credential",
+        example_job_credential = azure.mssql.job_credential.JobCredential("example",
+            name=example-credential,
             job_agent_id=example_job_agent.id,
-            username="my-username",
-            password="MyP4ssw0rd!!!")
+            username=my-username,
+            password=MyP4ssw0rd!!!)
         ```
 
         ## Import

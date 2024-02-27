@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "east us",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleDataConnectorMicrosoftThreatIntelligence = new azure.sentinel.DataConnectorMicrosoftThreatIntelligence("example", {
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleDataConnectorMicrosoftThreatIntelligence = new azure.sentinel/dataConnectorMicrosoftThreatIntelligence.DataConnectorMicrosoftThreatIntelligence("example", {
  *     name: "example-dc-msti",
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     microsoftEmergingThreatFeedLookbackDate: "1970-01-01T00:00:00Z",

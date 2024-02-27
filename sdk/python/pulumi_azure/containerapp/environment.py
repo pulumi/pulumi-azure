@@ -518,17 +518,17 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=acctest-01,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="my-environment",
+        example_environment = azure.containerapp.environment.Environment("example",
+            name=my-environment,
             location=example.location,
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
@@ -579,17 +579,17 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=acctest-01,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="my-environment",
+        example_environment = azure.containerapp.environment.Environment("example",
+            name=my-environment,
             location=example.location,
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)

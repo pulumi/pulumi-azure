@@ -12,33 +12,6 @@ import (
 )
 
 // Gets information about an existing Private DNS Resolver Outbound Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := privatedns.LookupResolverOutboundEndpoint(ctx, &privatedns.LookupResolverOutboundEndpointArgs{
-//				Name:                 "example-endpoint",
-//				PrivateDnsResolverId: "example-private-dns-resolver-id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverOutboundEndpoint(ctx *pulumi.Context, args *LookupResolverOutboundEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverOutboundEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverOutboundEndpointResult

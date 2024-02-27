@@ -553,21 +553,21 @@ class Grafana(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_grafana = azure.dashboard.Grafana("example",
-            name="example-dg",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_grafana = azure.dashboard.grafana.Grafana("example",
+            name=example-dg,
             resource_group_name=example.name,
-            location="West Europe",
+            location=West Europe,
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
             public_network_access_enabled=False,
-            identity=azure.dashboard.GrafanaIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -611,21 +611,21 @@ class Grafana(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_grafana = azure.dashboard.Grafana("example",
-            name="example-dg",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_grafana = azure.dashboard.grafana.Grafana("example",
+            name=example-dg,
             resource_group_name=example.name,
-            location="West Europe",
+            location=West Europe,
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
             public_network_access_enabled=False,
-            identity=azure.dashboard.GrafanaIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

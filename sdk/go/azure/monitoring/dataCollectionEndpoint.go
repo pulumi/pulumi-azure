@@ -21,39 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/dataCollectionEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/dataCollectionEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewDataCollectionEndpoint(ctx, "example", &monitoring.DataCollectionEndpointArgs{
-//				Name:                       pulumi.String("example-mdce"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Kind:                       pulumi.String("Windows"),
-//				PublicNetworkAccessEnabled: pulumi.Bool(true),
-//				Description:                pulumi.String("monitor_data_collection_endpoint example"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/dataCollectionEndpoint.NewDataCollectionEndpoint(ctx, "example", &monitoring/dataCollectionEndpoint.DataCollectionEndpointArgs{
+// Name: "example-mdce",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Kind: "Windows",
+// PublicNetworkAccessEnabled: true,
+// Description: "monitor_data_collection_endpoint example",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

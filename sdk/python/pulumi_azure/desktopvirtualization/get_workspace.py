@@ -128,17 +128,6 @@ def get_workspace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Virtual Desktop Workspace.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.desktopvirtualization.get_workspace(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Virtual Desktop Workspace to retrieve.
     :param str resource_group_name: The name of the Resource Group where the Virtual Desktop Workspace exists.
@@ -166,17 +155,6 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Use this data source to access information about an existing Virtual Desktop Workspace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.desktopvirtualization.get_workspace(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Virtual Desktop Workspace to retrieve.

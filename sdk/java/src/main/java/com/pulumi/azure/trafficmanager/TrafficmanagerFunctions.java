@@ -18,36 +18,6 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
-     * ### World)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -61,36 +31,6 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
-     * ### World)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -104,36 +44,6 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
-     * ### World)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -147,36 +57,6 @@ public final class TrafficmanagerFunctions {
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
      * ## Example Usage
-     * ### World)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getTrafficManager(GetTrafficManagerArgs.builder()
-     *             .name(&#34;World&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;locationCode&#34;, example.applyValue(getTrafficManagerResult -&gt; getTrafficManagerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager

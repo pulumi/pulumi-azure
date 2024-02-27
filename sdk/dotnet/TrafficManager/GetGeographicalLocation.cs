@@ -17,29 +17,6 @@ namespace Pulumi.Azure.TrafficManager
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### World)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetTrafficManager.Invoke(new()
-        ///     {
-        ///         Name = "World",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["locationCode"] = example.Apply(getTrafficManagerResult =&gt; getTrafficManagerResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGeographicalLocationResult> InvokeAsync(GetGeographicalLocationArgs args, InvokeOptions? options = null)
@@ -50,29 +27,6 @@ namespace Pulumi.Azure.TrafficManager
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### World)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetTrafficManager.Invoke(new()
-        ///     {
-        ///         Name = "World",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["locationCode"] = example.Apply(getTrafficManagerResult =&gt; getTrafficManagerResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGeographicalLocationResult> Invoke(GetGeographicalLocationInvokeArgs args, InvokeOptions? options = null)

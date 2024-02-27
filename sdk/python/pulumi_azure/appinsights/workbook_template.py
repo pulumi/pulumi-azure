@@ -339,65 +339,65 @@ class WorkbookTemplate(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_workbook_template = azure.appinsights.WorkbookTemplate("example",
-            name="example-aiwt",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_workbook_template = azure.appinsights.workbook_template.WorkbookTemplate("example",
+            name=example-aiwt,
             resource_group_name=example.name,
-            location="West Europe",
-            author="test author",
+            location=West Europe,
+            author=test author,
             priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
-                category="workbook",
-                name="test",
-                order=100,
-                resource_type="microsoft.insights/components",
-                type="tsg",
-            )],
+            galleries=[{
+                category: workbook,
+                name: test,
+                order: 100,
+                resourceType: microsoft.insights/components,
+                type: tsg,
+            }],
             template_data=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": \"\"\"## New workbook
+                version: Notebook/1.0,
+                items: [{
+                    type: 1,
+                    content: {
+                        json: ## New workbook
         ---
 
-        Welcome to your new workbook.\"\"\",
+        Welcome to your new workbook.,
                     },
-                    "name": "text - 2",
+                    name: text - 2,
                 }],
-                "styleSettings": {},
-                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                styleSettings: {},
+                $schema: https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json,
             }),
             localized=json.dumps({
-                "ar": [{
-                    "galleries": [{
-                        "name": "test",
-                        "category": "Failures",
-                        "type": "tsg",
-                        "resourceType": "microsoft.insights/components",
-                        "order": 100,
+                ar: [{
+                    galleries: [{
+                        name: test,
+                        category: Failures,
+                        type: tsg,
+                        resourceType: microsoft.insights/components,
+                        order: 100,
                     }],
-                    "templateData": {
-                        "version": "Notebook/1.0",
-                        "items": [{
-                            "type": 1,
-                            "content": {
-                                "json": \"\"\"## New workbook
+                    templateData: {
+                        version: Notebook/1.0,
+                        items: [{
+                            type: 1,
+                            content: {
+                                json: ## New workbook
         ---
 
-        Welcome to your new workbook.\"\"\",
+        Welcome to your new workbook.,
                             },
-                            "name": "text - 2",
+                            name: text - 2,
                         }],
-                        "styleSettings": {},
-                        "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                        styleSettings: {},
+                        $schema: https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json,
                     },
                 }],
             }),
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -437,65 +437,65 @@ class WorkbookTemplate(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_workbook_template = azure.appinsights.WorkbookTemplate("example",
-            name="example-aiwt",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_workbook_template = azure.appinsights.workbook_template.WorkbookTemplate("example",
+            name=example-aiwt,
             resource_group_name=example.name,
-            location="West Europe",
-            author="test author",
+            location=West Europe,
+            author=test author,
             priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
-                category="workbook",
-                name="test",
-                order=100,
-                resource_type="microsoft.insights/components",
-                type="tsg",
-            )],
+            galleries=[{
+                category: workbook,
+                name: test,
+                order: 100,
+                resourceType: microsoft.insights/components,
+                type: tsg,
+            }],
             template_data=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": \"\"\"## New workbook
+                version: Notebook/1.0,
+                items: [{
+                    type: 1,
+                    content: {
+                        json: ## New workbook
         ---
 
-        Welcome to your new workbook.\"\"\",
+        Welcome to your new workbook.,
                     },
-                    "name": "text - 2",
+                    name: text - 2,
                 }],
-                "styleSettings": {},
-                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                styleSettings: {},
+                $schema: https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json,
             }),
             localized=json.dumps({
-                "ar": [{
-                    "galleries": [{
-                        "name": "test",
-                        "category": "Failures",
-                        "type": "tsg",
-                        "resourceType": "microsoft.insights/components",
-                        "order": 100,
+                ar: [{
+                    galleries: [{
+                        name: test,
+                        category: Failures,
+                        type: tsg,
+                        resourceType: microsoft.insights/components,
+                        order: 100,
                     }],
-                    "templateData": {
-                        "version": "Notebook/1.0",
-                        "items": [{
-                            "type": 1,
-                            "content": {
-                                "json": \"\"\"## New workbook
+                    templateData: {
+                        version: Notebook/1.0,
+                        items: [{
+                            type: 1,
+                            content: {
+                                json: ## New workbook
         ---
 
-        Welcome to your new workbook.\"\"\",
+        Welcome to your new workbook.,
                             },
-                            "name": "text - 2",
+                            name: text - 2,
                         }],
-                        "styleSettings": {},
-                        "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                        styleSettings: {},
+                        $schema: https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json,
                     },
                 }],
             }),
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

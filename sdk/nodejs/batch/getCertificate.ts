@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing certificate in a Batch Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.batch.getCertificate({
- *     name: "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
- *     accountName: "examplebatchaccount",
- *     resourceGroupName: "example",
- * });
- * export const thumbprint = example.then(example => example.thumbprint);
- * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -79,20 +65,6 @@ export interface GetCertificateResult {
 }
 /**
  * Use this data source to access information about an existing certificate in a Batch Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.batch.getCertificate({
- *     name: "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
- *     accountName: "examplebatchaccount",
- *     resourceGroupName: "example",
- * });
- * export const thumbprint = example.then(example => example.thumbprint);
- * ```
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

@@ -367,24 +367,24 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("example",
-            name="example",
-            display_name="Cost View per Month",
-            chart_type="StackedColumn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_resource_group_cost_management_view = azure.core.resource_group_cost_management_view.ResourceGroupCostManagementView("example",
+            name=example,
+            display_name=Cost View per Month,
+            chart_type=StackedColumn,
             accumulated=False,
             resource_group_id=example.id,
-            report_type="Usage",
-            timeframe="MonthToDate",
-            dataset=azure.core.ResourceGroupCostManagementViewDatasetArgs(
-                granularity="Monthly",
-                aggregations=[azure.core.ResourceGroupCostManagementViewDatasetAggregationArgs(
-                    name="totalCost",
-                    column_name="Cost",
-                )],
-            ))
+            report_type=Usage,
+            timeframe=MonthToDate,
+            dataset={
+                granularity: Monthly,
+                aggregations: [{
+                    name: totalCost,
+                    columnName: Cost,
+                }],
+            })
         ```
 
         ## Import
@@ -423,24 +423,24 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("example",
-            name="example",
-            display_name="Cost View per Month",
-            chart_type="StackedColumn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_resource_group_cost_management_view = azure.core.resource_group_cost_management_view.ResourceGroupCostManagementView("example",
+            name=example,
+            display_name=Cost View per Month,
+            chart_type=StackedColumn,
             accumulated=False,
             resource_group_id=example.id,
-            report_type="Usage",
-            timeframe="MonthToDate",
-            dataset=azure.core.ResourceGroupCostManagementViewDatasetArgs(
-                granularity="Monthly",
-                aggregations=[azure.core.ResourceGroupCostManagementViewDatasetAggregationArgs(
-                    name="totalCost",
-                    column_name="Cost",
-                )],
-            ))
+            report_type=Usage,
+            timeframe=MonthToDate,
+            dataset={
+                granularity: Monthly,
+                aggregations: [{
+                    name: totalCost,
+                    columnName: Cost,
+                }],
+            })
         ```
 
         ## Import

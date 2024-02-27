@@ -265,120 +265,120 @@ class FrontdoorRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Premium_AzureFrontDoor")
-        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("example",
-            name="example-endpoint",
+            sku_name=Premium_AzureFrontDoor)
+        example_frontdoor_endpoint = azure.cdn.frontdoor_endpoint.FrontdoorEndpoint("example",
+            name=example-endpoint,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             tags={
-                "endpoint": "contoso.com",
+                endpoint: contoso.com,
             })
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
+        example_frontdoor_origin_group = azure.cdn.frontdoor_origin_group.FrontdoorOriginGroup("example",
+            name=example-originGroup,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="GET",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
-        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
-            name="example-origin",
+            health_probe={
+                intervalInSeconds: 240,
+                path: /healthProbe,
+                protocol: Https,
+                requestType: GET,
+            },
+            load_balancing={
+                additionalLatencyInMilliseconds: 0,
+                sampleSize: 16,
+                successfulSamplesRequired: 3,
+            })
+        example_frontdoor_origin = azure.cdn.frontdoor_origin.FrontdoorOrigin("example",
+            name=example-origin,
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
             enabled=True,
             certificate_name_check_enabled=False,
             host_name=example_frontdoor_endpoint.host_name,
             http_port=80,
             https_port=443,
-            origin_host_header="contoso.com",
+            origin_host_header=contoso.com,
             priority=1,
             weight=500)
-        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("example",
-            name="exampleruleset",
+        example_frontdoor_rule_set = azure.cdn.frontdoor_rule_set.FrontdoorRuleSet("example",
+            name=exampleruleset,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
-        example_frontdoor_rule = azure.cdn.FrontdoorRule("example",
-            name="examplerule",
+        example_frontdoor_rule = azure.cdn.frontdoor_rule.FrontdoorRule("example",
+            name=examplerule,
             cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
             order=1,
-            behavior_on_match="Continue",
-            actions=azure.cdn.FrontdoorRuleActionsArgs(
-                route_configuration_override_action=azure.cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs(
-                    cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
-                    forwarding_protocol="HttpsOnly",
-                    query_string_caching_behavior="IncludeSpecifiedQueryStrings",
-                    query_string_parameters=[
-                        "foo",
-                        "clientIp={client_ip}",
+            behavior_on_match=Continue,
+            actions={
+                routeConfigurationOverrideAction: {
+                    cdnFrontdoorOriginGroupId: example_frontdoor_origin_group.id,
+                    forwardingProtocol: HttpsOnly,
+                    queryStringCachingBehavior: IncludeSpecifiedQueryStrings,
+                    queryStringParameters: [
+                        foo,
+                        clientIp={client_ip},
                     ],
-                    compression_enabled=True,
-                    cache_behavior="OverrideIfOriginMissing",
-                    cache_duration="365.23:59:59",
-                ),
-                url_redirect_action=azure.cdn.FrontdoorRuleActionsUrlRedirectActionArgs(
-                    redirect_type="PermanentRedirect",
-                    redirect_protocol="MatchRequest",
-                    query_string="clientIp={client_ip}",
-                    destination_path="/exampleredirection",
-                    destination_hostname="contoso.com",
-                    destination_fragment="UrlRedirect",
-                ),
-            ),
-            conditions=azure.cdn.FrontdoorRuleConditionsArgs(
-                host_name_conditions=[azure.cdn.FrontdoorRuleConditionsHostNameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=[
-                        "www.contoso.com",
-                        "images.contoso.com",
-                        "video.contoso.com",
+                    compressionEnabled: True,
+                    cacheBehavior: OverrideIfOriginMissing,
+                    cacheDuration: 365.23:59:59,
+                },
+                urlRedirectAction: {
+                    redirectType: PermanentRedirect,
+                    redirectProtocol: MatchRequest,
+                    queryString: clientIp={client_ip},
+                    destinationPath: /exampleredirection,
+                    destinationHostname: contoso.com,
+                    destinationFragment: UrlRedirect,
+                },
+            },
+            conditions={
+                hostNameConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: [
+                        www.contoso.com,
+                        images.contoso.com,
+                        video.contoso.com,
                     ],
-                    transforms=[
-                        "Lowercase",
-                        "Trim",
+                    transforms: [
+                        Lowercase,
+                        Trim,
                     ],
-                )],
-                is_device_conditions=[azure.cdn.FrontdoorRuleConditionsIsDeviceConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values="Mobile",
-                )],
-                post_args_conditions=[azure.cdn.FrontdoorRuleConditionsPostArgsConditionArgs(
-                    post_args_name="customerName",
-                    operator="BeginsWith",
-                    match_values=[
-                        "J",
-                        "K",
+                }],
+                isDeviceConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: Mobile,
+                }],
+                postArgsConditions: [{
+                    postArgsName: customerName,
+                    operator: BeginsWith,
+                    matchValues: [
+                        J,
+                        K,
                     ],
-                    transforms=["Uppercase"],
-                )],
-                request_method_conditions=[azure.cdn.FrontdoorRuleConditionsRequestMethodConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["DELETE"],
-                )],
-                url_filename_conditions=[azure.cdn.FrontdoorRuleConditionsUrlFilenameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["media.mp4"],
-                    transforms=[
-                        "Lowercase",
-                        "RemoveNulls",
-                        "Trim",
+                    transforms: [Uppercase],
+                }],
+                requestMethodConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: [DELETE],
+                }],
+                urlFilenameConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: [media.mp4],
+                    transforms: [
+                        Lowercase,
+                        RemoveNulls,
+                        Trim,
                     ],
-                )],
-            ))
+                }],
+            })
         ```
         ## Specifying IP Address Ranges
 
@@ -537,120 +537,120 @@ class FrontdoorRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Premium_AzureFrontDoor")
-        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("example",
-            name="example-endpoint",
+            sku_name=Premium_AzureFrontDoor)
+        example_frontdoor_endpoint = azure.cdn.frontdoor_endpoint.FrontdoorEndpoint("example",
+            name=example-endpoint,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             tags={
-                "endpoint": "contoso.com",
+                endpoint: contoso.com,
             })
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
+        example_frontdoor_origin_group = azure.cdn.frontdoor_origin_group.FrontdoorOriginGroup("example",
+            name=example-originGroup,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="GET",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
-        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
-            name="example-origin",
+            health_probe={
+                intervalInSeconds: 240,
+                path: /healthProbe,
+                protocol: Https,
+                requestType: GET,
+            },
+            load_balancing={
+                additionalLatencyInMilliseconds: 0,
+                sampleSize: 16,
+                successfulSamplesRequired: 3,
+            })
+        example_frontdoor_origin = azure.cdn.frontdoor_origin.FrontdoorOrigin("example",
+            name=example-origin,
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
             enabled=True,
             certificate_name_check_enabled=False,
             host_name=example_frontdoor_endpoint.host_name,
             http_port=80,
             https_port=443,
-            origin_host_header="contoso.com",
+            origin_host_header=contoso.com,
             priority=1,
             weight=500)
-        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("example",
-            name="exampleruleset",
+        example_frontdoor_rule_set = azure.cdn.frontdoor_rule_set.FrontdoorRuleSet("example",
+            name=exampleruleset,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
-        example_frontdoor_rule = azure.cdn.FrontdoorRule("example",
-            name="examplerule",
+        example_frontdoor_rule = azure.cdn.frontdoor_rule.FrontdoorRule("example",
+            name=examplerule,
             cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
             order=1,
-            behavior_on_match="Continue",
-            actions=azure.cdn.FrontdoorRuleActionsArgs(
-                route_configuration_override_action=azure.cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs(
-                    cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
-                    forwarding_protocol="HttpsOnly",
-                    query_string_caching_behavior="IncludeSpecifiedQueryStrings",
-                    query_string_parameters=[
-                        "foo",
-                        "clientIp={client_ip}",
+            behavior_on_match=Continue,
+            actions={
+                routeConfigurationOverrideAction: {
+                    cdnFrontdoorOriginGroupId: example_frontdoor_origin_group.id,
+                    forwardingProtocol: HttpsOnly,
+                    queryStringCachingBehavior: IncludeSpecifiedQueryStrings,
+                    queryStringParameters: [
+                        foo,
+                        clientIp={client_ip},
                     ],
-                    compression_enabled=True,
-                    cache_behavior="OverrideIfOriginMissing",
-                    cache_duration="365.23:59:59",
-                ),
-                url_redirect_action=azure.cdn.FrontdoorRuleActionsUrlRedirectActionArgs(
-                    redirect_type="PermanentRedirect",
-                    redirect_protocol="MatchRequest",
-                    query_string="clientIp={client_ip}",
-                    destination_path="/exampleredirection",
-                    destination_hostname="contoso.com",
-                    destination_fragment="UrlRedirect",
-                ),
-            ),
-            conditions=azure.cdn.FrontdoorRuleConditionsArgs(
-                host_name_conditions=[azure.cdn.FrontdoorRuleConditionsHostNameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=[
-                        "www.contoso.com",
-                        "images.contoso.com",
-                        "video.contoso.com",
+                    compressionEnabled: True,
+                    cacheBehavior: OverrideIfOriginMissing,
+                    cacheDuration: 365.23:59:59,
+                },
+                urlRedirectAction: {
+                    redirectType: PermanentRedirect,
+                    redirectProtocol: MatchRequest,
+                    queryString: clientIp={client_ip},
+                    destinationPath: /exampleredirection,
+                    destinationHostname: contoso.com,
+                    destinationFragment: UrlRedirect,
+                },
+            },
+            conditions={
+                hostNameConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: [
+                        www.contoso.com,
+                        images.contoso.com,
+                        video.contoso.com,
                     ],
-                    transforms=[
-                        "Lowercase",
-                        "Trim",
+                    transforms: [
+                        Lowercase,
+                        Trim,
                     ],
-                )],
-                is_device_conditions=[azure.cdn.FrontdoorRuleConditionsIsDeviceConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values="Mobile",
-                )],
-                post_args_conditions=[azure.cdn.FrontdoorRuleConditionsPostArgsConditionArgs(
-                    post_args_name="customerName",
-                    operator="BeginsWith",
-                    match_values=[
-                        "J",
-                        "K",
+                }],
+                isDeviceConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: Mobile,
+                }],
+                postArgsConditions: [{
+                    postArgsName: customerName,
+                    operator: BeginsWith,
+                    matchValues: [
+                        J,
+                        K,
                     ],
-                    transforms=["Uppercase"],
-                )],
-                request_method_conditions=[azure.cdn.FrontdoorRuleConditionsRequestMethodConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["DELETE"],
-                )],
-                url_filename_conditions=[azure.cdn.FrontdoorRuleConditionsUrlFilenameConditionArgs(
-                    operator="Equal",
-                    negate_condition=False,
-                    match_values=["media.mp4"],
-                    transforms=[
-                        "Lowercase",
-                        "RemoveNulls",
-                        "Trim",
+                    transforms: [Uppercase],
+                }],
+                requestMethodConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: [DELETE],
+                }],
+                urlFilenameConditions: [{
+                    operator: Equal,
+                    negateCondition: False,
+                    matchValues: [media.mp4],
+                    transforms: [
+                        Lowercase,
+                        RemoveNulls,
+                        Trim,
                     ],
-                )],
-            ))
+                }],
+            })
         ```
         ## Specifying IP Address Ranges
 

@@ -403,48 +403,48 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.NetworkSecurityGroup("test",
-            name="acctestnsg",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.network.network_security_group.NetworkSecurityGroup("test",
+            name=acctestnsg,
             location=example.location,
             resource_group_name=example.name)
-        test_network_watcher = azure.network.NetworkWatcher("test",
-            name="acctestnw",
+        test_network_watcher = azure.network.network_watcher.NetworkWatcher("test",
+            name=acctestnw,
             location=example.location,
             resource_group_name=example.name)
-        test_account = azure.storage.Account("test",
-            name="acctestsa",
+        test_account = azure.storage.account.Account("test",
+            name=acctestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_kind=StorageV2,
+            account_replication_type=LRS,
             enable_https_traffic_only=True)
-        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("test",
-            name="acctestlaw",
+        test_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("test",
+            name=acctestlaw,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
+            sku=PerGB2018)
+        test_network_watcher_flow_log = azure.network.network_watcher_flow_log.NetworkWatcherFlowLog("test",
             network_watcher_name=test_network_watcher.name,
             resource_group_name=example.name,
-            name="example-log",
+            name=example-log,
             network_security_group_id=test.id,
             storage_account_id=test_account.id,
             enabled=True,
-            retention_policy=azure.network.NetworkWatcherFlowLogRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ),
-            traffic_analytics=azure.network.NetworkWatcherFlowLogTrafficAnalyticsArgs(
-                enabled=True,
-                workspace_id=test_analytics_workspace.workspace_id,
-                workspace_region=test_analytics_workspace.location,
-                workspace_resource_id=test_analytics_workspace.id,
-                interval_in_minutes=10,
-            ))
+            retention_policy={
+                enabled: True,
+                days: 7,
+            },
+            traffic_analytics={
+                enabled: True,
+                workspaceId: test_analytics_workspace.workspace_id,
+                workspaceRegion: test_analytics_workspace.location,
+                workspaceResourceId: test_analytics_workspace.id,
+                intervalInMinutes: 10,
+            })
         ```
 
         ## Import
@@ -486,48 +486,48 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.NetworkSecurityGroup("test",
-            name="acctestnsg",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.network.network_security_group.NetworkSecurityGroup("test",
+            name=acctestnsg,
             location=example.location,
             resource_group_name=example.name)
-        test_network_watcher = azure.network.NetworkWatcher("test",
-            name="acctestnw",
+        test_network_watcher = azure.network.network_watcher.NetworkWatcher("test",
+            name=acctestnw,
             location=example.location,
             resource_group_name=example.name)
-        test_account = azure.storage.Account("test",
-            name="acctestsa",
+        test_account = azure.storage.account.Account("test",
+            name=acctestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_kind=StorageV2,
+            account_replication_type=LRS,
             enable_https_traffic_only=True)
-        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("test",
-            name="acctestlaw",
+        test_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("test",
+            name=acctestlaw,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
+            sku=PerGB2018)
+        test_network_watcher_flow_log = azure.network.network_watcher_flow_log.NetworkWatcherFlowLog("test",
             network_watcher_name=test_network_watcher.name,
             resource_group_name=example.name,
-            name="example-log",
+            name=example-log,
             network_security_group_id=test.id,
             storage_account_id=test_account.id,
             enabled=True,
-            retention_policy=azure.network.NetworkWatcherFlowLogRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ),
-            traffic_analytics=azure.network.NetworkWatcherFlowLogTrafficAnalyticsArgs(
-                enabled=True,
-                workspace_id=test_analytics_workspace.workspace_id,
-                workspace_region=test_analytics_workspace.location,
-                workspace_resource_id=test_analytics_workspace.id,
-                interval_in_minutes=10,
-            ))
+            retention_policy={
+                enabled: True,
+                days: 7,
+            },
+            traffic_analytics={
+                enabled: True,
+                workspaceId: test_analytics_workspace.workspace_id,
+                workspaceRegion: test_analytics_workspace.location,
+                workspaceResourceId: test_analytics_workspace.id,
+                intervalInMinutes: 10,
+            })
         ```
 
         ## Import

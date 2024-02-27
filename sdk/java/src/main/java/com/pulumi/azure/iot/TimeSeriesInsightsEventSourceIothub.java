@@ -30,14 +30,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
  * import com.pulumi.azure.iot.ConsumerGroup;
  * import com.pulumi.azure.iot.ConsumerGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.iot.TimeSeriesInsightsGen2Environment;
  * import com.pulumi.azure.iot.TimeSeriesInsightsGen2EnvironmentArgs;
- * import com.pulumi.azure.iot.inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs;
  * import com.pulumi.azure.iot.TimeSeriesInsightsEventSourceIothub;
  * import com.pulumi.azure.iot.TimeSeriesInsightsEventSourceIothubArgs;
  * import java.util.List;
@@ -62,10 +60,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;B1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
@@ -89,10 +84,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;L1&#34;)
  *             .idProperties(&#34;id&#34;)
- *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
- *                 .name(storage.name())
- *                 .key(storage.primaryAccessKey())
- *                 .build())
+ *             .storage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTimeSeriesInsightsEventSourceIothub = new TimeSeriesInsightsEventSourceIothub(&#34;exampleTimeSeriesInsightsEventSourceIothub&#34;, TimeSeriesInsightsEventSourceIothubArgs.builder()        
@@ -100,8 +92,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())
  *             .iothubName(exampleIoTHub.name())
- *             .sharedAccessKey(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -&gt; sharedAccessPolicies[0].primaryKey()))
- *             .sharedAccessKeyName(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -&gt; sharedAccessPolicies[0].keyName()))
+ *             .sharedAccessKey(exampleIoTHub.sharedAccessPolicies()[0].primaryKey())
+ *             .sharedAccessKeyName(exampleIoTHub.sharedAccessPolicies()[0].keyName())
  *             .consumerGroupName(exampleConsumerGroup.name())
  *             .eventSourceResourceId(exampleIoTHub.id())
  *             .build());

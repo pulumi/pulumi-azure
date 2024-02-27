@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing File Share Backup Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const policy = azure.backup.getPolicyFileshare({
- *     name: "policy",
- *     recoveryVaultName: "recovery_vault",
- *     resourceGroupName: "resource_group",
- * });
- * ```
  */
 export function getPolicyFileshare(args: GetPolicyFileshareArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFileshareResult> {
 
@@ -62,19 +49,6 @@ export interface GetPolicyFileshareResult {
 }
 /**
  * Use this data source to access information about an existing File Share Backup Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const policy = azure.backup.getPolicyFileshare({
- *     name: "policy",
- *     recoveryVaultName: "recovery_vault",
- *     resourceGroupName: "resource_group",
- * });
- * ```
  */
 export function getPolicyFileshareOutput(args: GetPolicyFileshareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFileshareResult> {
     return pulumi.output(args).apply((a: any) => getPolicyFileshare(a, opts))

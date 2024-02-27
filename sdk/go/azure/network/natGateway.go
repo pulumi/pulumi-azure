@@ -21,38 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/natGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/natGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("nat-gateway-example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
-//				Name:                 pulumi.String("nat-Gateway"),
-//				Location:             example.Location,
-//				ResourceGroupName:    example.Name,
-//				SkuName:              pulumi.String("Standard"),
-//				IdleTimeoutInMinutes: pulumi.Int(10),
-//				Zones: pulumi.StringArray{
-//					pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "nat-gateway-example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/natGateway.NewNatGateway(ctx, "example", &network/natGateway.NatGatewayArgs{
+// Name: "nat-Gateway",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Standard",
+// IdleTimeoutInMinutes: 10,
+// Zones: []string{
+// "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.

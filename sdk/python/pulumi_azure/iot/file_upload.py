@@ -379,28 +379,28 @@ class FileUpload(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+            container_access_type=private)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_file_upload = azure.iot.FileUpload("example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_file_upload = azure.iot.file_upload.FileUpload("example",
             iothub_id=example_io_t_hub.id,
             connection_string=example_account.primary_blob_connection_string,
             container_name=example_container.name)
@@ -446,28 +446,28 @@ class FileUpload(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+            container_access_type=private)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_file_upload = azure.iot.FileUpload("example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_file_upload = azure.iot.file_upload.FileUpload("example",
             iothub_id=example_io_t_hub.id,
             connection_string=example_account.primary_blob_connection_string,
             container_name=example_container.name)

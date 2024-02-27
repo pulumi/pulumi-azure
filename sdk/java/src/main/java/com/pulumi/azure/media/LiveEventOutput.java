@@ -31,12 +31,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.Asset;
  * import com.pulumi.azure.media.AssetArgs;
  * import com.pulumi.azure.media.LiveEvent;
  * import com.pulumi.azure.media.LiveEventArgs;
- * import com.pulumi.azure.media.inputs.LiveEventInputArgs;
  * import com.pulumi.azure.media.LiveEventOutput;
  * import com.pulumi.azure.media.LiveEventOutputArgs;
  * import java.util.List;
@@ -69,10 +67,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
@@ -87,15 +82,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;My Event Description&#34;)
- *             .input(LiveEventInputArgs.builder()
- *                 .streamingProtocol(&#34;RTMP&#34;)
- *                 .keyFrameIntervalDuration(&#34;PT6S&#34;)
- *                 .ipAccessControlAllows(LiveEventInputIpAccessControlAllowArgs.builder()
- *                     .name(&#34;AllowAll&#34;)
- *                     .address(&#34;0.0.0.0&#34;)
- *                     .subnetPrefixLength(0)
- *                     .build())
- *                 .build())
+ *             .input(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLiveEventOutput = new LiveEventOutput(&#34;exampleLiveEventOutput&#34;, LiveEventOutputArgs.builder()        

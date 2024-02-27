@@ -380,19 +380,19 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource",
-            location="West Europe")
-        example_application = azure.iotcentral.Application("example",
-            name="example-iotcentral-app",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource,
+            location=West Europe)
+        example_application = azure.iotcentral.application.Application("example",
+            name=example-iotcentral-app,
             resource_group_name=example.name,
             location=example.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            template="iotc-default@1.0.0",
+            sub_domain=example-iotcentral-app-subdomain,
+            display_name=example-iotcentral-app-display-name,
+            sku=ST1,
+            template=iotc-default@1.0.0,
             tags={
-                "Foo": "Bar",
+                Foo: Bar,
             })
         ```
 
@@ -434,19 +434,19 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource",
-            location="West Europe")
-        example_application = azure.iotcentral.Application("example",
-            name="example-iotcentral-app",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource,
+            location=West Europe)
+        example_application = azure.iotcentral.application.Application("example",
+            name=example-iotcentral-app,
             resource_group_name=example.name,
             location=example.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            template="iotc-default@1.0.0",
+            sub_domain=example-iotcentral-app-subdomain,
+            display_name=example-iotcentral-app-display-name,
+            sku=ST1,
+            template=iotc-default@1.0.0,
             tags={
-                "Foo": "Bar",
+                Foo: Bar,
             })
         ```
 

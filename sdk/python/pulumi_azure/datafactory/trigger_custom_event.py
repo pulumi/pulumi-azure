@@ -411,45 +411,45 @@ class TriggerCustomEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_pipeline = azure.datafactory.Pipeline("example",
-            name="example",
+        example_pipeline = azure.datafactory.pipeline.Pipeline("example",
+            name=example,
             data_factory_id=example_factory.id)
-        example_topic = azure.eventgrid.Topic("example",
-            name="example-topic",
+        example_topic = azure.eventgrid.topic.Topic("example",
+            name=example-topic,
             location=example.location,
             resource_group_name=example.name)
-        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("example",
-            name="example",
+        example_trigger_custom_event = azure.datafactory.trigger_custom_event.TriggerCustomEvent("example",
+            name=example,
             data_factory_id=example_factory.id,
             eventgrid_topic_id=example_topic.id,
             events=[
-                "event1",
-                "event2",
+                event1,
+                event2,
             ],
-            subject_begins_with="abc",
-            subject_ends_with="xyz",
+            subject_begins_with=abc,
+            subject_ends_with=xyz,
             annotations=[
-                "example1",
-                "example2",
-                "example3",
+                example1,
+                example2,
+                example3,
             ],
-            description="example description",
-            pipelines=[azure.datafactory.TriggerCustomEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
+            description=example description,
+            pipelines=[{
+                name: example_pipeline.name,
+                parameters: {
+                    Env: Prod,
                 },
-            )],
+            }],
             additional_properties={
-                "foo": "foo1",
-                "bar": "bar2",
+                foo: foo1,
+                bar: bar2,
             })
         ```
 
@@ -492,45 +492,45 @@ class TriggerCustomEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_pipeline = azure.datafactory.Pipeline("example",
-            name="example",
+        example_pipeline = azure.datafactory.pipeline.Pipeline("example",
+            name=example,
             data_factory_id=example_factory.id)
-        example_topic = azure.eventgrid.Topic("example",
-            name="example-topic",
+        example_topic = azure.eventgrid.topic.Topic("example",
+            name=example-topic,
             location=example.location,
             resource_group_name=example.name)
-        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("example",
-            name="example",
+        example_trigger_custom_event = azure.datafactory.trigger_custom_event.TriggerCustomEvent("example",
+            name=example,
             data_factory_id=example_factory.id,
             eventgrid_topic_id=example_topic.id,
             events=[
-                "event1",
-                "event2",
+                event1,
+                event2,
             ],
-            subject_begins_with="abc",
-            subject_ends_with="xyz",
+            subject_begins_with=abc,
+            subject_ends_with=xyz,
             annotations=[
-                "example1",
-                "example2",
-                "example3",
+                example1,
+                example2,
+                example3,
             ],
-            description="example description",
-            pipelines=[azure.datafactory.TriggerCustomEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
+            description=example description,
+            pipelines=[{
+                name: example_pipeline.name,
+                parameters: {
+                    Env: Prod,
                 },
-            )],
+            }],
             additional_properties={
-                "foo": "foo1",
-                "bar": "bar2",
+                foo: foo1,
+                bar: bar2,
             })
         ```
 

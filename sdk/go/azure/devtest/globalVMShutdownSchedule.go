@@ -23,105 +23,105 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	compute/linuxVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	devtest/globalVMShutdownSchedule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/globalVMShutdownSchedule"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("sample-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("sample-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("sample-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("sample-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("SampleVM"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				Size: pulumi.String("Standard_B2s"),
-//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					Name:               pulumi.String("myosdisk-example"),
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
-//				AdminUsername:                 pulumi.String("testadmin"),
-//				AdminPassword:                 pulumi.String("Password1234!"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devtest.NewGlobalVMShutdownSchedule(ctx, "example", &devtest.GlobalVMShutdownScheduleArgs{
-//				VirtualMachineId:    exampleLinuxVirtualMachine.ID(),
-//				Location:            example.Location,
-//				Enabled:             pulumi.Bool(true),
-//				DailyRecurrenceTime: pulumi.String("1100"),
-//				Timezone:            pulumi.String("Pacific Standard Time"),
-//				NotificationSettings: &devtest.GlobalVMShutdownScheduleNotificationSettingsArgs{
-//					Enabled:       pulumi.Bool(true),
-//					TimeInMinutes: pulumi.Int(60),
-//					WebhookUrl:    pulumi.String("https://sample-webhook-url.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "sample-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "sample-vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "sample-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "sample-nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testconfiguration1",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachine, err := compute/linuxVirtualMachine.NewLinuxVirtualMachine(ctx, "example", &compute/linuxVirtualMachine.LinuxVirtualMachineArgs{
+// Name: "SampleVM",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// Size: "Standard_B2s",
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// OsDisk: map[string]interface{}{
+// "name": "myosdisk-example",
+// "caching": "ReadWrite",
+// "storageAccountType": "Standard_LRS",
+// },
+// AdminUsername: "testadmin",
+// AdminPassword: "Password1234!",
+// DisablePasswordAuthentication: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devtest/globalVMShutdownSchedule.NewGlobalVMShutdownSchedule(ctx, "example", &devtest/globalVMShutdownSchedule.GlobalVMShutdownScheduleArgs{
+// VirtualMachineId: exampleLinuxVirtualMachine.Id,
+// Location: example.Location,
+// Enabled: true,
+// DailyRecurrenceTime: "1100",
+// Timezone: "Pacific Standard Time",
+// NotificationSettings: map[string]interface{}{
+// "enabled": true,
+// "timeInMinutes": "60",
+// "webhookUrl": "https://sample-webhook-url.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

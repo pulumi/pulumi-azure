@@ -254,29 +254,29 @@ class MxRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="contoso.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=contoso.com,
             resource_group_name=example.name)
-        example_mx_record = azure.privatedns.MxRecord("example",
-            name="example",
+        example_mx_record = azure.privatedns.mx_record.MxRecord("example",
+            name=example,
             resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=10,
-                    exchange="mx1.contoso.com",
-                ),
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=20,
-                    exchange="backupmx.contoso.com",
-                ),
+                {
+                    preference: 10,
+                    exchange: mx1.contoso.com,
+                },
+                {
+                    preference: 20,
+                    exchange: backupmx.contoso.com,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -312,29 +312,29 @@ class MxRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="contoso.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=contoso.com,
             resource_group_name=example.name)
-        example_mx_record = azure.privatedns.MxRecord("example",
-            name="example",
+        example_mx_record = azure.privatedns.mx_record.MxRecord("example",
+            name=example,
             resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=10,
-                    exchange="mx1.contoso.com",
-                ),
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=20,
-                    exchange="backupmx.contoso.com",
-                ),
+                {
+                    preference: 10,
+                    exchange: mx1.contoso.com,
+                },
+                {
+                    preference: 20,
+                    exchange: backupmx.contoso.com,
+                },
             ],
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

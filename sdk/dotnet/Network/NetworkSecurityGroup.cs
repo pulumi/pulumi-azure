@@ -26,30 +26,30 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("example", new()
     ///     {
     ///         Name = "acceptanceTestSecurityGroup1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         SecurityRules = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             
     ///             {
-    ///                 Name = "test123",
-    ///                 Priority = 100,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "*",
-    ///                 SourceAddressPrefix = "*",
-    ///                 DestinationAddressPrefix = "*",
+    ///                 { "name", "test123" },
+    ///                 { "priority", 100 },
+    ///                 { "direction", "Inbound" },
+    ///                 { "access", "Allow" },
+    ///                 { "protocol", "Tcp" },
+    ///                 { "sourcePortRange", "*" },
+    ///                 { "destinationPortRange", "*" },
+    ///                 { "sourceAddressPrefix", "*" },
+    ///                 { "destinationAddressPrefix", "*" },
     ///             },
     ///         },
     ///         Tags = 

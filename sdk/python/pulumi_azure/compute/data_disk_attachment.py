@@ -245,66 +245,66 @@ class DataDiskAttachment(pulumi.CustomResource):
         if prefix is None:
             prefix = "example"
         vm_name = f"{prefix}-vm"
-        example = azure.core.ResourceGroup("example",
-            name=f"{prefix}-resources",
-            location="West Europe")
-        main = azure.network.VirtualNetwork("main",
-            name=f"{prefix}-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=f{prefix}-resources,
+            location=West Europe)
+        main = azure.network.virtual_network.VirtualNetwork("main",
+            name=f{prefix}-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        internal = azure.network.Subnet("internal",
-            name="internal",
+        internal = azure.network.subnet.Subnet("internal",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=main.name,
-            address_prefixes=["10.0.2.0/24"])
-        main_network_interface = azure.network.NetworkInterface("main",
-            name=f"{prefix}-nic",
+            address_prefixes=[10.0.2.0/24])
+        main_network_interface = azure.network.network_interface.NetworkInterface("main",
+            name=f{prefix}-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=internal.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
+            ip_configurations=[{
+                name: internal,
+                subnetId: internal.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_virtual_machine = azure.compute.virtual_machine.VirtualMachine("example",
             name=vm_name,
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name=vm_name,
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        example_managed_disk = azure.compute.ManagedDisk("example",
-            name=f"{vm_name}-disk1",
+            vm_size=Standard_F2,
+            storage_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            storage_os_disk={
+                name: myosdisk1,
+                caching: ReadWrite,
+                createOption: FromImage,
+                managedDiskType: Standard_LRS,
+            },
+            os_profile={
+                computerName: vm_name,
+                adminUsername: testadmin,
+                adminPassword: Password1234!,
+            },
+            os_profile_linux_config={
+                disablePasswordAuthentication: False,
+            })
+        example_managed_disk = azure.compute.managed_disk.ManagedDisk("example",
+            name=f{vm_name}-disk1,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=10)
-        example_data_disk_attachment = azure.compute.DataDiskAttachment("example",
+        example_data_disk_attachment = azure.compute.data_disk_attachment.DataDiskAttachment("example",
             managed_disk_id=example_managed_disk.id,
             virtual_machine_id=example_virtual_machine.id,
             lun=10,
-            caching="ReadWrite")
+            caching=ReadWrite)
         ```
 
         ## Import
@@ -348,66 +348,66 @@ class DataDiskAttachment(pulumi.CustomResource):
         if prefix is None:
             prefix = "example"
         vm_name = f"{prefix}-vm"
-        example = azure.core.ResourceGroup("example",
-            name=f"{prefix}-resources",
-            location="West Europe")
-        main = azure.network.VirtualNetwork("main",
-            name=f"{prefix}-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=f{prefix}-resources,
+            location=West Europe)
+        main = azure.network.virtual_network.VirtualNetwork("main",
+            name=f{prefix}-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        internal = azure.network.Subnet("internal",
-            name="internal",
+        internal = azure.network.subnet.Subnet("internal",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=main.name,
-            address_prefixes=["10.0.2.0/24"])
-        main_network_interface = azure.network.NetworkInterface("main",
-            name=f"{prefix}-nic",
+            address_prefixes=[10.0.2.0/24])
+        main_network_interface = azure.network.network_interface.NetworkInterface("main",
+            name=f{prefix}-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=internal.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
+            ip_configurations=[{
+                name: internal,
+                subnetId: internal.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_virtual_machine = azure.compute.virtual_machine.VirtualMachine("example",
             name=vm_name,
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name=vm_name,
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        example_managed_disk = azure.compute.ManagedDisk("example",
-            name=f"{vm_name}-disk1",
+            vm_size=Standard_F2,
+            storage_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            storage_os_disk={
+                name: myosdisk1,
+                caching: ReadWrite,
+                createOption: FromImage,
+                managedDiskType: Standard_LRS,
+            },
+            os_profile={
+                computerName: vm_name,
+                adminUsername: testadmin,
+                adminPassword: Password1234!,
+            },
+            os_profile_linux_config={
+                disablePasswordAuthentication: False,
+            })
+        example_managed_disk = azure.compute.managed_disk.ManagedDisk("example",
+            name=f{vm_name}-disk1,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=10)
-        example_data_disk_attachment = azure.compute.DataDiskAttachment("example",
+        example_data_disk_attachment = azure.compute.data_disk_attachment.DataDiskAttachment("example",
             managed_disk_id=example_managed_disk.id,
             virtual_machine_id=example_virtual_machine.id,
             lun=10,
-            caching="ReadWrite")
+            caching=ReadWrite)
         ```
 
         ## Import

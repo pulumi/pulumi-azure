@@ -172,9 +172,9 @@ class ResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
         ```
 
         ## Import
@@ -205,9 +205,9 @@ class ResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
         ```
 
         ## Import

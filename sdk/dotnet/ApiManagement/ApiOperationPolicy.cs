@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
     ///     {
     ///         Name = "example-apim",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
+    ///     var exampleApi = new Azure.Apimanagement.Api.Api("example", new()
     ///     {
     ///         Name = "example-api",
     ///         ResourceGroupName = example.Name,
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Revision = "1",
     ///     });
     /// 
-    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("example", new()
+    ///     var exampleApiOperation = new Azure.Apimanagement.ApiOperation.ApiOperation("example", new()
     ///     {
     ///         OperationId = "acctest-operation",
     ///         ApiName = exampleApi.Name,
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         UrlTemplate = "/resource",
     ///     });
     /// 
-    ///     var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("example", new()
+    ///     var exampleApiOperationPolicy = new Azure.Apimanagement.ApiOperationPolicy.ApiOperationPolicy("example", new()
     ///     {
     ///         ApiName = exampleApiOperation.ApiName,
     ///         ApiManagementName = exampleApiOperation.ApiManagementName,

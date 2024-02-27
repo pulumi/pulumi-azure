@@ -22,13 +22,13 @@ namespace Pulumi.Azure.HDInsight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "hdinsightstor",
     ///         ResourceGroupName = example.Name,
@@ -37,59 +37,59 @@ namespace Pulumi.Azure.HDInsight
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "hdinsight",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleSparkCluster = new Azure.HDInsight.SparkCluster("example", new()
+    ///     var exampleSparkCluster = new Azure.Hdinsight.SparkCluster.SparkCluster("example", new()
     ///     {
     ///         Name = "example-hdicluster",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ClusterVersion = "3.6",
     ///         Tier = "Standard",
-    ///         ComponentVersion = new Azure.HDInsight.Inputs.SparkClusterComponentVersionArgs
+    ///         ComponentVersion = 
     ///         {
-    ///             Spark = "2.3",
+    ///             { "spark", "2.3" },
     ///         },
-    ///         Gateway = new Azure.HDInsight.Inputs.SparkClusterGatewayArgs
+    ///         Gateway = 
     ///         {
-    ///             Username = "acctestusrgw",
-    ///             Password = "Password123!",
+    ///             { "username", "acctestusrgw" },
+    ///             { "password", "Password123!" },
     ///         },
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.HDInsight.Inputs.SparkClusterStorageAccountArgs
+    ///             
     ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
-    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                 IsDefault = true,
+    ///                 { "storageContainerId", exampleContainer.Id },
+    ///                 { "storageAccountKey", exampleAccount.PrimaryAccessKey },
+    ///                 { "isDefault", true },
     ///             },
     ///         },
-    ///         Roles = new Azure.HDInsight.Inputs.SparkClusterRolesArgs
+    ///         Roles = 
     ///         {
-    ///             HeadNode = new Azure.HDInsight.Inputs.SparkClusterRolesHeadNodeArgs
+    ///             { "headNode", 
     ///             {
-    ///                 VmSize = "Standard_A3",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///             },
-    ///             WorkerNode = new Azure.HDInsight.Inputs.SparkClusterRolesWorkerNodeArgs
+    ///                 { "vmSize", "Standard_A3" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///             } },
+    ///             { "workerNode", 
     ///             {
-    ///                 VmSize = "Standard_A3",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///                 TargetInstanceCount = 3,
-    ///             },
-    ///             ZookeeperNode = new Azure.HDInsight.Inputs.SparkClusterRolesZookeeperNodeArgs
+    ///                 { "vmSize", "Standard_A3" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///                 { "targetInstanceCount", 3 },
+    ///             } },
+    ///             { "zookeeperNode", 
     ///             {
-    ///                 VmSize = "Medium",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///             },
+    ///                 { "vmSize", "Medium" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///             } },
     ///         },
     ///     });
     /// 

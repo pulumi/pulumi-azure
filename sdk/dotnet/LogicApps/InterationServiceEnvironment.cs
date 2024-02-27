@@ -24,13 +24,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exampleRG1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet1",
     ///         Location = example.Location,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///     });
     /// 
-    ///     var isesubnet1 = new Azure.Network.Subnet("isesubnet1", new()
+    ///     var isesubnet1 = new Azure.Network.Subnet.Subnet("isesubnet1", new()
     ///     {
     ///         Name = "isesubnet1",
     ///         ResourceGroupName = example.Name,
@@ -52,18 +52,18 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "integrationServiceEnvironments",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "integrationServiceEnvironments" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Logic/integrationServiceEnvironments",
-    ///                 },
+    ///                     { "name", "Microsoft.Logic/integrationServiceEnvironments" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var isesubnet2 = new Azure.Network.Subnet("isesubnet2", new()
+    ///     var isesubnet2 = new Azure.Network.Subnet.Subnet("isesubnet2", new()
     ///     {
     ///         Name = "isesubnet2",
     ///         ResourceGroupName = example.Name,
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///     });
     /// 
-    ///     var isesubnet3 = new Azure.Network.Subnet("isesubnet3", new()
+    ///     var isesubnet3 = new Azure.Network.Subnet.Subnet("isesubnet3", new()
     ///     {
     ///         Name = "isesubnet3",
     ///         ResourceGroupName = example.Name,
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///     });
     /// 
-    ///     var isesubnet4 = new Azure.Network.Subnet("isesubnet4", new()
+    ///     var isesubnet4 = new Azure.Network.Subnet.Subnet("isesubnet4", new()
     ///     {
     ///         Name = "isesubnet4",
     ///         ResourceGroupName = example.Name,
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///     });
     /// 
-    ///     var exampleInterationServiceEnvironment = new Azure.LogicApps.InterationServiceEnvironment("example", new()
+    ///     var exampleInterationServiceEnvironment = new Azure.Logicapps.InterationServiceEnvironment.InterationServiceEnvironment("example", new()
     ///     {
     ///         Name = "example-ise",
     ///         Location = example.Location,

@@ -14,54 +14,6 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// &gt; **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
-    ///     {
-    ///         Name = "example-apim",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         PublisherName = "pub1",
-    ///         PublisherEmail = "pub1@email.com",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var exampleNamedValue = new Azure.ApiManagement.NamedValue("example", new()
-    ///     {
-    ///         Name = "example-apimg",
-    ///         ResourceGroupName = example.Name,
-    ///         ApiManagementName = exampleService.Name,
-    ///         DisplayName = "ExampleProperty",
-    ///         Value = "Example Value",
-    ///     });
-    /// 
-    ///     var examplePolicy = new Azure.ApiManagement.Policy("example", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         XmlContent = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "example.xml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management service Policys can be imported using the `resource id`, e.g.

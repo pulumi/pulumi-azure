@@ -10,66 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Pim Active Role Assignment.
  *
  * ## Example Usage
- * ### Subscription)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumiverse/time";
- *
- * const primary = azure.core.getSubscription({});
- * const example = azure.core.getClientConfig({});
- * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
- *     name: "Reader",
- * });
- * const exampleStatic = new time.Static("example", {});
- * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("example", {
- *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: Promise.all([primary, exampleGetRoleDefinition]).then(([primary, exampleGetRoleDefinition]) => `${primary.id}${exampleGetRoleDefinition.id}`),
- *     principalId: example.then(example => example.objectId),
- *     schedule: {
- *         startDateTime: exampleStatic.rfc3339,
- *         expiration: {
- *             durationHours: 8,
- *         },
- *     },
- *     justification: "Expiration Duration Set",
- *     ticket: {
- *         number: "1",
- *         system: "example ticket system",
- *     },
- * });
- * ```
- * ### Management Group)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumiverse/time";
- *
- * const example = azure.core.getClientConfig({});
- * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
- *     name: "Reader",
- * });
- * const exampleGroup = new azure.management.Group("example", {name: "Example-Management-Group"});
- * const exampleStatic = new time.Static("example", {});
- * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("example", {
- *     scope: exampleGroup.id,
- *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
- *     principalId: example.then(example => example.objectId),
- *     schedule: {
- *         startDateTime: exampleStatic.rfc3339,
- *         expiration: {
- *             durationHours: 8,
- *         },
- *     },
- *     justification: "Expiration Duration Set",
- *     ticket: {
- *         number: "1",
- *         system: "example ticket system",
- *     },
- * });
- * ```
  *
  * ## Import
  *

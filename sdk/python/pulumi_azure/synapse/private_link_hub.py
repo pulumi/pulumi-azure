@@ -173,10 +173,10 @@ class PrivateLinkHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.synapse.PrivateLinkHub("example",
-            name="example",
-            resource_group_name="example-rg",
-            location="West Europe")
+        example = azure.synapse.private_link_hub.PrivateLinkHub("example",
+            name=example,
+            resource_group_name=example-rg,
+            location=West Europe)
         ```
 
         ## Import
@@ -209,10 +209,10 @@ class PrivateLinkHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.synapse.PrivateLinkHub("example",
-            name="example",
-            resource_group_name="example-rg",
-            location="West Europe")
+        example = azure.synapse.private_link_hub.PrivateLinkHub("example",
+            name=example,
+            resource_group_name=example-rg,
+            location=West Europe)
         ```
 
         ## Import

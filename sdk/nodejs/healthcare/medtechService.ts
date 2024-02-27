@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "east us",
  * });
- * const exampleWorkspace = new azure.healthcare.Workspace("example", {
+ * const exampleWorkspace = new azure.healthcare/workspace.Workspace("example", {
  *     name: "examplewkspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleMedtechService = new azure.healthcare.MedtechService("example", {
+ * const exampleMedtechService = new azure.healthcare/medtechService.MedtechService("example", {
  *     name: "examplemed",
  *     workspaceId: exampleWorkspace.id,
  *     location: "east us",

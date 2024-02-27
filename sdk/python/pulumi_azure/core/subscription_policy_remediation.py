@@ -384,33 +384,6 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
         """
         Manages an Azure Subscription Policy Remediation.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example = azure.core.get_subscription()
-        example_get_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed resource types")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
-            name="exampleAssignment",
-            subscription_id=example.id,
-            policy_definition_id=example_get_policy_defintion.id,
-            parameters=json.dumps({
-                "listOfAllowedLocations": {
-                    "value": [
-                        "West Europe",
-                        "East US",
-                    ],
-                },
-            }))
-        example_subscription_policy_remediation = azure.core.SubscriptionPolicyRemediation("example",
-            name="example",
-            subscription_id=example.id,
-            policy_assignment_id=example_subscription_policy_assignment.id)
-        ```
-
         ## Import
 
         Policy Remediations can be imported using the `resource id`, e.g.
@@ -442,33 +415,6 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Subscription Policy Remediation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example = azure.core.get_subscription()
-        example_get_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed resource types")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
-            name="exampleAssignment",
-            subscription_id=example.id,
-            policy_definition_id=example_get_policy_defintion.id,
-            parameters=json.dumps({
-                "listOfAllowedLocations": {
-                    "value": [
-                        "West Europe",
-                        "East US",
-                    ],
-                },
-            }))
-        example_subscription_policy_remediation = azure.core.SubscriptionPolicyRemediation("example",
-            name="example",
-            subscription_id=example.id,
-            policy_assignment_id=example_subscription_policy_assignment.id)
-        ```
 
         ## Import
 

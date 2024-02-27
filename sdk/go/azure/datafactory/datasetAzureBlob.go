@@ -14,67 +14,6 @@ import (
 
 // Manages an Azure Blob Dataset inside an Azure Data Factory.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-//				Name:              pulumi.String("storageaccountname"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			}, nil)
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkedServiceAzureBlobStorage, err := datafactory.NewLinkedServiceAzureBlobStorage(ctx, "example", &datafactory.LinkedServiceAzureBlobStorageArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: example.ApplyT(func(example storage.GetAccountResult) (*string, error) {
-//					return &example.PrimaryConnectionString, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewDatasetAzureBlob(ctx, "example", &datafactory.DatasetAzureBlobArgs{
-//				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID(),
-//				LinkedServiceName: exampleLinkedServiceAzureBlobStorage.Name,
-//				Path:              pulumi.String("foo"),
-//				Filename:          pulumi.String("bar.png"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Data Factory Datasets can be imported using the `resource id`, e.g.

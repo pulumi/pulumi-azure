@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     var exampleInsights = new Azure.Appinsights.Insights.Insights("example", new()
     ///     {
     ///         Name = "example-appinsights",
     ///         Location = example.Location,
@@ -36,13 +36,13 @@ namespace Pulumi.Azure.Monitoring
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("example", new()
+    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope.PrivateLinkScope("example", new()
     ///     {
     ///         Name = "example-ampls",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePrivateLinkScopedService = new Azure.Monitoring.PrivateLinkScopedService("example", new()
+    ///     var examplePrivateLinkScopedService = new Azure.Monitoring.PrivateLinkScopedService.PrivateLinkScopedService("example", new()
     ///     {
     ///         Name = "example-amplsservice",
     ///         ResourceGroupName = example.Name,

@@ -21,75 +21,76 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/subnetNetworkSecurityGroupAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetNetworkSecurityGroupAssociation"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-network"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("frontend"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("example-nsg"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
-//					&network.NetworkSecurityGroupSecurityRuleArgs{
-//						Name:                     pulumi.String("test123"),
-//						Priority:                 pulumi.Int(100),
-//						Direction:                pulumi.String("Inbound"),
-//						Access:                   pulumi.String("Allow"),
-//						Protocol:                 pulumi.String("Tcp"),
-//						SourcePortRange:          pulumi.String("*"),
-//						DestinationPortRange:     pulumi.String("*"),
-//						SourceAddressPrefix:      pulumi.String("*"),
-//						DestinationAddressPrefix: pulumi.String("*"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               exampleSubnet.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-network",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "frontend",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSecurityGroup, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "example", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "example-nsg",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SecurityRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "test123",
+// "priority": 100,
+// "direction": "Inbound",
+// "access": "Allow",
+// "protocol": "Tcp",
+// "sourcePortRange": "*",
+// "destinationPortRange": "*",
+// "sourceAddressPrefix": "*",
+// "destinationAddressPrefix": "*",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetNetworkSecurityGroupAssociation.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: exampleSubnet.Id,
+// NetworkSecurityGroupId: exampleNetworkSecurityGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

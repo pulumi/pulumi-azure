@@ -516,17 +516,6 @@ def get_windows_function_app(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Windows Function App.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_windows_function_app(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Windows Function App.
     :param str resource_group_name: The name of the Resource Group where the Windows Function App exists.
@@ -586,17 +575,6 @@ def get_windows_function_app_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWindowsFunctionAppResult]:
     """
     Use this data source to access information about an existing Windows Function App.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_windows_function_app(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Windows Function App.

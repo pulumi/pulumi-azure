@@ -21,61 +21,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
+//	sentinel/logAnalyticsWorkspaceOnboarding "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/logAnalyticsWorkspaceOnboarding"
+//	sentinel/watchlist "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/watchlist"
+//	sentinel/watchlistItem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/watchlistItem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-workspace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWatchlist, err := sentinel.NewWatchlist(ctx, "example", &sentinel.WatchlistArgs{
-//				Name:                    pulumi.String("example-watchlist"),
-//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-//				DisplayName:             pulumi.String("example-wl"),
-//				ItemSearchKey:           pulumi.String("Key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sentinel.NewWatchlistItem(ctx, "example", &sentinel.WatchlistItemArgs{
-//				Name:        pulumi.String("0aac6fa5-223e-49cf-9bfd-3554dc9d2b76"),
-//				WatchlistId: exampleWatchlist.ID(),
-//				Properties: pulumi.StringMap{
-//					"k1": pulumi.String("v1"),
-//					"k2": pulumi.String("v2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "example-workspace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogAnalyticsWorkspaceOnboarding, err := sentinel/logAnalyticsWorkspaceOnboarding.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboardingArgs{
+// WorkspaceId: exampleAnalyticsWorkspace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleWatchlist, err := sentinel/watchlist.NewWatchlist(ctx, "example", &sentinel/watchlist.WatchlistArgs{
+// Name: "example-watchlist",
+// LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+// DisplayName: "example-wl",
+// ItemSearchKey: "Key",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sentinel/watchlistItem.NewWatchlistItem(ctx, "example", &sentinel/watchlistItem.WatchlistItemArgs{
+// Name: "0aac6fa5-223e-49cf-9bfd-3554dc9d2b76",
+// WatchlistId: exampleWatchlist.Id,
+// Properties: map[string]interface{}{
+// "k1": "v1",
+// "k2": "v2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

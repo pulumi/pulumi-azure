@@ -11,41 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
  *
- * ## NetApp Account Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
- *     name: "anf-user-assigned-identity",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const exampleAccount = new azure.netapp.Account("example", {
- *     name: "netappaccount",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     activeDirectory: {
- *         username: "aduser",
- *         password: "aduserpwd",
- *         smbServerName: "SMBSERVER",
- *         dnsServers: ["1.2.3.4"],
- *         domain: "westcentralus.com",
- *         organizationalUnit: "OU=FirstLevel",
- *     },
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * NetApp Accounts can be imported using the `resource id`, e.g.

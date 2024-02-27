@@ -189,16 +189,16 @@ class ServicesAccount(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example = azuread.Application("example", display_name="example-app")
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_services_account = azure.graph.ServicesAccount("example",
-            name="example",
+        example = azuread.index.application.Application("example", display_name=example-app)
+        example_resource_group = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_services_account = azure.graph.services_account.ServicesAccount("example",
+            name=example,
             resource_group_name=example_resource_group.name,
             application_id=example.application_id,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -233,16 +233,16 @@ class ServicesAccount(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example = azuread.Application("example", display_name="example-app")
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_services_account = azure.graph.ServicesAccount("example",
-            name="example",
+        example = azuread.index.application.Application("example", display_name=example-app)
+        example_resource_group = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_services_account = azure.graph.services_account.ServicesAccount("example",
+            name=example,
             resource_group_name=example_resource_group.name,
             application_id=example.application_id,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

@@ -32,104 +32,104 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	compute/virtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/virtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			prefix := "tfvmex"
-//			if param := cfg.Get("prefix"); param != "" {
-//				prefix = param
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := network.NewVirtualNetwork(ctx, "main", &network.VirtualNetworkArgs{
-//				Name: pulumi.String(fmt.Sprintf("%v-network", prefix)),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: main.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   internal.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewVirtualMachine(ctx, "main", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-vm", prefix)),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					mainNetworkInterface.ID(),
-//				},
-//				VmSize: pulumi.String("Standard_DS1_v2"),
-//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-//					Name:            pulumi.String("myosdisk1"),
-//					Caching:         pulumi.String("ReadWrite"),
-//					CreateOption:    pulumi.String("FromImage"),
-//					ManagedDiskType: pulumi.String("Standard_LRS"),
-//				},
-//				OsProfile: &compute.VirtualMachineOsProfileArgs{
-//					ComputerName:  pulumi.String("hostname"),
-//					AdminUsername: pulumi.String("testadmin"),
-//					AdminPassword: pulumi.String("Password1234!"),
-//				},
-//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(false),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// prefix := "tfvmex";
+// if param := cfg.Get("prefix"); param != ""{
+// prefix = param
+// }
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: fmt.Sprintf("%v-resources", prefix),
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// main, err := network/virtualNetwork.NewVirtualNetwork(ctx, "main", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: fmt.Sprintf("%v-network", prefix),
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// internal, err := network/subnet.NewSubnet(ctx, "internal", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: main.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// mainNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "main", &network/networkInterface.NetworkInterfaceArgs{
+// Name: fmt.Sprintf("%v-nic", prefix),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testconfiguration1",
+// "subnetId": internal.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/virtualMachine.NewVirtualMachine(ctx, "main", &compute/virtualMachine.VirtualMachineArgs{
+// Name: fmt.Sprintf("%v-vm", prefix),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// NetworkInterfaceIds: []interface{}{
+// mainNetworkInterface.Id,
+// },
+// VmSize: "Standard_DS1_v2",
+// StorageImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// StorageOsDisk: map[string]interface{}{
+// "name": "myosdisk1",
+// "caching": "ReadWrite",
+// "createOption": "FromImage",
+// "managedDiskType": "Standard_LRS",
+// },
+// OsProfile: map[string]interface{}{
+// "computerName": "hostname",
+// "adminUsername": "testadmin",
+// "adminPassword": "Password1234!",
+// },
+// OsProfileLinuxConfig: map[string]interface{}{
+// "disablePasswordAuthentication": false,
+// },
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

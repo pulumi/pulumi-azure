@@ -21,153 +21,155 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/chaosstudio"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	chaosstudio/capability "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/chaosstudio/capability"
+//	chaosstudio/experiment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/chaosstudio/experiment"
+//	chaosstudio/target "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/chaosstudio/target"
+//	compute/linuxVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("westeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Name:              pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("example"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String("example"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Size:                          pulumi.String("Standard_F2"),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("example"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
-//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTarget, err := chaosstudio.NewTarget(ctx, "example", &chaosstudio.TargetArgs{
-//				Location:         example.Location,
-//				TargetResourceId: exampleLinuxVirtualMachine.ID(),
-//				TargetType:       pulumi.String("Microsoft-VirtualMachine"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCapability, err := chaosstudio.NewCapability(ctx, "example", &chaosstudio.CapabilityArgs{
-//				ChaosStudioTargetId: exampleTarget.ID(),
-//				CapabilityType:      pulumi.String("Shutdown-1.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chaosstudio.NewExperiment(ctx, "example", &chaosstudio.ExperimentArgs{
-//				Location:          example.Location,
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Identity: &chaosstudio.ExperimentIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Selectors: chaosstudio.ExperimentSelectorArray{
-//					&chaosstudio.ExperimentSelectorArgs{
-//						Name: pulumi.String("Selector1"),
-//						ChaosStudioTargetIds: pulumi.StringArray{
-//							exampleTarget.ID(),
-//						},
-//					},
-//				},
-//				Steps: chaosstudio.ExperimentStepArray{
-//					&chaosstudio.ExperimentStepArgs{
-//						Name: pulumi.String("example"),
-//						Branches: chaosstudio.ExperimentStepBranchArray{
-//							&chaosstudio.ExperimentStepBranchArgs{
-//								Name: pulumi.String("example"),
-//								Actions: chaosstudio.ExperimentStepBranchActionArray{
-//									&chaosstudio.ExperimentStepBranchActionArgs{
-//										Urn:          exampleCapability.CapabilityUrn,
-//										SelectorName: pulumi.String("Selector1"),
-//										Parameters: pulumi.StringMap{
-//											"abruptShutdown": pulumi.String("false"),
-//										},
-//										ActionType: pulumi.String("continuous"),
-//										Duration:   pulumi.String("PT10M"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "westeurope",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Name: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachine, err := compute/linuxVirtualMachine.NewLinuxVirtualMachine(ctx, "example", &compute/linuxVirtualMachine.LinuxVirtualMachineArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Size: "Standard_F2",
+// AdminUsername: "adminuser",
+// AdminPassword: "example",
+// DisablePasswordAuthentication: false,
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// OsDisk: map[string]interface{}{
+// "caching": "ReadWrite",
+// "storageAccountType": "Standard_LRS",
+// },
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleTarget, err := chaosstudio/target.NewTarget(ctx, "example", &chaosstudio/target.TargetArgs{
+// Location: example.Location,
+// TargetResourceId: exampleLinuxVirtualMachine.Id,
+// TargetType: "Microsoft-VirtualMachine",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCapability, err := chaosstudio/capability.NewCapability(ctx, "example", &chaosstudio/capability.CapabilityArgs{
+// ChaosStudioTargetId: exampleTarget.Id,
+// CapabilityType: "Shutdown-1.0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = chaosstudio/experiment.NewExperiment(ctx, "example", &chaosstudio/experiment.ExperimentArgs{
+// Location: example.Location,
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Selectors: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Selector1",
+// "chaosStudioTargetIds": []interface{}{
+// exampleTarget.Id,
+// },
+// },
+// },
+// Steps: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "branches": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "actions": []map[string]interface{}{
+// map[string]interface{}{
+// "urn": exampleCapability.CapabilityUrn,
+// "selectorName": "Selector1",
+// "parameters": map[string]interface{}{
+// "abruptShutdown": "false",
+// },
+// "actionType": "continuous",
+// "duration": "PT10M",
+// },
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

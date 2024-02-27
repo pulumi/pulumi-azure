@@ -22,27 +22,27 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
+    ///     var exampleLocalRulestack = new Azure.Paloalto.LocalRulestack.LocalRulestack("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleLocalRulestackCertificate = new Azure.PaloAlto.LocalRulestackCertificate("example", new()
+    ///     var exampleLocalRulestackCertificate = new Azure.Paloalto.LocalRulestackCertificate.LocalRulestackCertificate("example", new()
     ///     {
     ///         Name = "example",
     ///         RulestackId = exampleLocalRulestack.Id,
     ///         SelfSigned = true,
     ///     });
     /// 
-    ///     var exampleLocalRulestackOutboundUntrustCertificateAssociation = new Azure.PaloAlto.LocalRulestackOutboundUntrustCertificateAssociation("example", new()
+    ///     var exampleLocalRulestackOutboundUntrustCertificateAssociation = new Azure.Paloalto.LocalRulestackOutboundUntrustCertificateAssociation.LocalRulestackOutboundUntrustCertificateAssociation("example", new()
     ///     {
     ///         CertificateId = exampleLocalRulestackCertificate.Id,
     ///     });

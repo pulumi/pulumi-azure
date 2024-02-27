@@ -33,13 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.monitoring.ActionGroup;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.monitoring.ActivityLogAlert;
  * import com.pulumi.azure.monitoring.ActivityLogAlertArgs;
- * import com.pulumi.azure.monitoring.inputs.ActivityLogAlertCriteriaArgs;
- * import com.pulumi.azure.monitoring.inputs.ActivityLogAlertActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,10 +59,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-actiongroup&#34;)
  *             .resourceGroupName(example.name())
  *             .shortName(&#34;p0action&#34;)
- *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
- *                 .name(&#34;callmyapi&#34;)
- *                 .serviceUri(&#34;http://example.com/alert&#34;)
- *                 .build())
+ *             .webhookReceivers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var toMonitor = new Account(&#34;toMonitor&#34;, AccountArgs.builder()        
@@ -81,15 +75,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .scopes(example.id())
  *             .description(&#34;This alert will monitor a specific storage account updates.&#34;)
- *             .criteria(ActivityLogAlertCriteriaArgs.builder()
- *                 .resourceId(toMonitor.id())
- *                 .operationName(&#34;Microsoft.Storage/storageAccounts/write&#34;)
- *                 .category(&#34;Recommendation&#34;)
- *                 .build())
- *             .actions(ActivityLogAlertActionArgs.builder()
- *                 .actionGroupId(main.id())
- *                 .webhookProperties(Map.of(&#34;from&#34;, &#34;source&#34;))
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

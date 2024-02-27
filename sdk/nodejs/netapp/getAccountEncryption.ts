@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing NetApp Account Encryption Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getAccountEncryption({
- *     netappAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getAccountEncryption(args: GetAccountEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountEncryptionResult> {
 
@@ -67,18 +55,6 @@ export interface GetAccountEncryptionResult {
 }
 /**
  * Use this data source to access information about an existing NetApp Account Encryption Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getAccountEncryption({
- *     netappAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getAccountEncryption(a, opts))

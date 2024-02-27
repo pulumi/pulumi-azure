@@ -204,34 +204,34 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("example",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant,
+            identity={
+                type: SystemAssigned,
+            })
+        example_assignment = azure.authorization.assignment.Assignment("example",
             scope=example_account.id,
-            role_definition_name="Storage Account Backup Contributor",
+            role_definition_name=Storage Account Backup Contributor,
             principal_id=example_backup_vault.identity.principal_id)
-        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("example",
-            name="example-backup-policy",
+        example_backup_policy_blob_storage = azure.dataprotection.backup_policy_blob_storage.BackupPolicyBlobStorage("example",
+            name=example-backup-policy,
             vault_id=example_backup_vault.id,
-            retention_duration="P30D")
-        example_backup_instance_blog_storage = azure.dataprotection.BackupInstanceBlogStorage("example",
-            name="example-backup-instance",
+            retention_duration=P30D)
+        example_backup_instance_blog_storage = azure.dataprotection.backup_instance_blog_storage.BackupInstanceBlogStorage("example",
+            name=example-backup-instance,
             vault_id=example_backup_vault.id,
             location=example.location,
             storage_account_id=example_account.id,
@@ -269,34 +269,34 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_assignment = azure.authorization.Assignment("example",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant,
+            identity={
+                type: SystemAssigned,
+            })
+        example_assignment = azure.authorization.assignment.Assignment("example",
             scope=example_account.id,
-            role_definition_name="Storage Account Backup Contributor",
+            role_definition_name=Storage Account Backup Contributor,
             principal_id=example_backup_vault.identity.principal_id)
-        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("example",
-            name="example-backup-policy",
+        example_backup_policy_blob_storage = azure.dataprotection.backup_policy_blob_storage.BackupPolicyBlobStorage("example",
+            name=example-backup-policy,
             vault_id=example_backup_vault.id,
-            retention_duration="P30D")
-        example_backup_instance_blog_storage = azure.dataprotection.BackupInstanceBlogStorage("example",
-            name="example-backup-instance",
+            retention_duration=P30D)
+        example_backup_instance_blog_storage = azure.dataprotection.backup_instance_blog_storage.BackupInstanceBlogStorage("example",
+            name=example-backup-instance,
             vault_id=example_backup_vault.id,
             location=example.location,
             storage_account_id=example_account.id,

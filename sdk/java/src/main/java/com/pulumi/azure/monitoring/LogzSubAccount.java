@@ -31,11 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.monitoring.LogzMonitor;
  * import com.pulumi.azure.monitoring.LogzMonitorArgs;
- * import com.pulumi.azure.monitoring.inputs.LogzMonitorPlanArgs;
- * import com.pulumi.azure.monitoring.inputs.LogzMonitorUserArgs;
  * import com.pulumi.azure.monitoring.LogzSubAccount;
  * import com.pulumi.azure.monitoring.LogzSubAccountArgs;
- * import com.pulumi.azure.monitoring.inputs.LogzSubAccountUserArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,28 +55,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-monitor&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .plan(LogzMonitorPlanArgs.builder()
- *                 .billingCycle(&#34;MONTHLY&#34;)
- *                 .effectiveDate(&#34;2022-06-06T00:00:00Z&#34;)
- *                 .usageType(&#34;COMMITTED&#34;)
- *                 .build())
- *             .user(LogzMonitorUserArgs.builder()
- *                 .email(&#34;user@example.com&#34;)
- *                 .firstName(&#34;Example&#34;)
- *                 .lastName(&#34;User&#34;)
- *                 .phoneNumber(&#34;+12313803556&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLogzSubAccount = new LogzSubAccount(&#34;exampleLogzSubAccount&#34;, LogzSubAccountArgs.builder()        
  *             .name(&#34;example-subaccount&#34;)
  *             .logzMonitorId(exampleLogzMonitor.id())
- *             .user(LogzSubAccountUserArgs.builder()
- *                 .email(exampleLogzMonitor.user().applyValue(user -&gt; user.email()))
- *                 .firstName(exampleLogzMonitor.user().applyValue(user -&gt; user.firstName()))
- *                 .lastName(exampleLogzMonitor.user().applyValue(user -&gt; user.lastName()))
- *                 .phoneNumber(exampleLogzMonitor.user().applyValue(user -&gt; user.phoneNumber()))
- *                 .build())
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

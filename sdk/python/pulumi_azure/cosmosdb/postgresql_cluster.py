@@ -825,14 +825,14 @@ class PostgresqlCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("example",
-            name="example-cluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_postgresql_cluster = azure.cosmosdb.postgresql_cluster.PostgresqlCluster("example",
+            name=example-cluster,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login_password="H@Sh1CoR3!",
+            administrator_login_password=H@Sh1CoR3!,
             coordinator_storage_quota_in_mb=131072,
             coordinator_vcore_count=2,
             node_count=0)
@@ -889,14 +889,14 @@ class PostgresqlCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("example",
-            name="example-cluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_postgresql_cluster = azure.cosmosdb.postgresql_cluster.PostgresqlCluster("example",
+            name=example-cluster,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login_password="H@Sh1CoR3!",
+            administrator_login_password=H@Sh1CoR3!,
             coordinator_storage_quota_in_mb=131072,
             coordinator_vcore_count=2,
             node_count=0)

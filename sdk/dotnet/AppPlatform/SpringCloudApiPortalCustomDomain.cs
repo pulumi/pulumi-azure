@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -38,13 +38,13 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("example", new()
+    ///     var exampleSpringCloudGateway = new Azure.Appplatform.SpringCloudGateway.SpringCloudGateway("example", new()
     ///     {
     ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
-    ///     var exampleSpringCloudApiPortal = new Azure.AppPlatform.SpringCloudApiPortal("example", new()
+    ///     var exampleSpringCloudApiPortal = new Azure.Appplatform.SpringCloudApiPortal.SpringCloudApiPortal("example", new()
     ///     {
     ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudApiPortalCustomDomain = new Azure.AppPlatform.SpringCloudApiPortalCustomDomain("example", new()
+    ///     var exampleSpringCloudApiPortalCustomDomain = new Azure.Appplatform.SpringCloudApiPortalCustomDomain.SpringCloudApiPortalCustomDomain("example", new()
     ///     {
     ///         Name = "example.com",
     ///         SpringCloudApiPortalId = exampleSpringCloudApiPortal.Id,

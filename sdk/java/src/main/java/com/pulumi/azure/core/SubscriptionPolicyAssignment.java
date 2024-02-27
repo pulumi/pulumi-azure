@@ -23,64 +23,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Subscription Policy Assignment.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.policy.Definition;
- * import com.pulumi.azure.policy.DefinitionArgs;
- * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
- * import com.pulumi.azure.core.SubscriptionPolicyAssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
- * 
- *         var example = new Definition(&#34;example&#34;, DefinitionArgs.builder()        
- *             .name(&#34;only-deploy-in-westeurope&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;Allowed resource types&#34;)
- *             .policyRule(&#34;&#34;&#34;
- *  {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;equals&#34;: &#34;westeurope&#34;
- *       }
- *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;Deny&#34;
- *     }
- *   }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .policyDefinitionId(example.id())
- *             .subscriptionId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Subscription Policy Assignments can be imported using the `resource id`, e.g.

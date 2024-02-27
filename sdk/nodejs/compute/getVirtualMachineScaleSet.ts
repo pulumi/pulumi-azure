@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Machine Scale Set.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getVirtualMachineScaleSet({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
 
@@ -77,19 +64,6 @@ export interface GetVirtualMachineScaleSetResult {
 }
 /**
  * Use this data source to access information about an existing Virtual Machine Scale Set.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getVirtualMachineScaleSet({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))

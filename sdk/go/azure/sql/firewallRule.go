@@ -23,46 +23,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	sql/firewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/firewallRule"
+//	sql/sqlServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/sqlServer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
-//				Name:                       pulumi.String("mysqlserver"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sql.NewFirewallRule(ctx, "example", &sql.FirewallRuleArgs{
-//				Name:              pulumi.String("FirewallRule1"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleSqlServer.Name,
-//				StartIpAddress:    pulumi.String("10.0.17.62"),
-//				EndIpAddress:      pulumi.String("10.0.17.62"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlServer, err := sql/sqlServer.NewSqlServer(ctx, "example", &sql/sqlServer.SqlServerArgs{
+// Name: "mysqlserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sql/firewallRule.NewFirewallRule(ctx, "example", &sql/firewallRule.FirewallRuleArgs{
+// Name: "FirewallRule1",
+// ResourceGroupName: example.Name,
+// ServerName: exampleSqlServer.Name,
+// StartIpAddress: "10.0.17.62",
+// EndIpAddress: "10.0.17.62",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

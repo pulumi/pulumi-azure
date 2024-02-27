@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.DevTest.Lab("example", new()
+    ///     var exampleLab = new Azure.Devtest.Lab.Lab("example", new()
     ///     {
     ///         Name = "example-devtestlab",
     ///         Location = example.Location,
@@ -39,19 +39,19 @@ namespace Pulumi.Azure.DevTest
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Devtest.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         LabName = exampleLab.Name,
     ///         ResourceGroupName = example.Name,
-    ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///         Subnet = 
     ///         {
-    ///             UsePublicIpAddress = "Allow",
-    ///             UseInVirtualMachineCreation = "Allow",
+    ///             { "usePublicIpAddress", "Allow" },
+    ///             { "useInVirtualMachineCreation", "Allow" },
     ///         },
     ///     });
     /// 
-    ///     var exampleWindowsVirtualMachine = new Azure.DevTest.WindowsVirtualMachine("example", new()
+    ///     var exampleWindowsVirtualMachine = new Azure.Devtest.WindowsVirtualMachine.WindowsVirtualMachine("example", new()
     ///     {
     ///         Name = "example-vm03",
     ///         LabName = exampleLab.Name,
@@ -61,15 +61,15 @@ namespace Pulumi.Azure.DevTest
     ///         Username = "exampleuser99",
     ///         Password = "Pa$w0rd1234!",
     ///         LabVirtualNetworkId = exampleVirtualNetwork.Id,
-    ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
+    ///         LabSubnetName = exampleVirtualNetwork.Subnet.Name,
     ///         StorageType = "Premium",
     ///         Notes = "Some notes about this Virtual Machine.",
-    ///         GalleryImageReference = new Azure.DevTest.Inputs.WindowsVirtualMachineGalleryImageReferenceArgs
+    ///         GalleryImageReference = 
     ///         {
-    ///             Offer = "WindowsServer",
-    ///             Publisher = "MicrosoftWindowsServer",
-    ///             Sku = "2019-Datacenter",
-    ///             Version = "latest",
+    ///             { "offer", "WindowsServer" },
+    ///             { "publisher", "MicrosoftWindowsServer" },
+    ///             { "sku", "2019-Datacenter" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 

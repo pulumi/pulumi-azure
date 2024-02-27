@@ -543,46 +543,46 @@ class Frontdoor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="FrontDoorExampleResourceGroup",
-            location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example-FrontDoor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=FrontDoorExampleResourceGroup,
+            location=West Europe)
+        example_frontdoor = azure.frontdoor.frontdoor.Frontdoor("example",
+            name=example-FrontDoor,
             resource_group_name=example.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
+            routing_rules=[{
+                name: exampleRoutingRule1,
+                acceptedProtocols: [
+                    Http,
+                    Https,
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )])
+                patternsToMatches: [/*],
+                frontendEndpoints: [exampleFrontendEndpoint1],
+                forwardingConfiguration: {
+                    forwardingProtocol: MatchRequest,
+                    backendPoolName: exampleBackendBing,
+                },
+            }],
+            backend_pool_load_balancings=[{
+                name: exampleLoadBalancingSettings1,
+            }],
+            backend_pool_health_probes=[{
+                name: exampleHealthProbeSetting1,
+            }],
+            backend_pools=[{
+                name: exampleBackendBing,
+                backends: [{
+                    hostHeader: www.bing.com,
+                    address: www.bing.com,
+                    httpPort: 80,
+                    httpsPort: 443,
+                }],
+                loadBalancingName: exampleLoadBalancingSettings1,
+                healthProbeName: exampleHealthProbeSetting1,
+            }],
+            frontend_endpoints=[{
+                name: exampleFrontendEndpoint1,
+                hostName: example-FrontDoor.azurefd.net,
+            }])
         ```
 
         ## Import
@@ -634,46 +634,46 @@ class Frontdoor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="FrontDoorExampleResourceGroup",
-            location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example-FrontDoor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=FrontDoorExampleResourceGroup,
+            location=West Europe)
+        example_frontdoor = azure.frontdoor.frontdoor.Frontdoor("example",
+            name=example-FrontDoor,
             resource_group_name=example.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
+            routing_rules=[{
+                name: exampleRoutingRule1,
+                acceptedProtocols: [
+                    Http,
+                    Https,
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )])
+                patternsToMatches: [/*],
+                frontendEndpoints: [exampleFrontendEndpoint1],
+                forwardingConfiguration: {
+                    forwardingProtocol: MatchRequest,
+                    backendPoolName: exampleBackendBing,
+                },
+            }],
+            backend_pool_load_balancings=[{
+                name: exampleLoadBalancingSettings1,
+            }],
+            backend_pool_health_probes=[{
+                name: exampleHealthProbeSetting1,
+            }],
+            backend_pools=[{
+                name: exampleBackendBing,
+                backends: [{
+                    hostHeader: www.bing.com,
+                    address: www.bing.com,
+                    httpPort: 80,
+                    httpsPort: 443,
+                }],
+                loadBalancingName: exampleLoadBalancingSettings1,
+                healthProbeName: exampleHealthProbeSetting1,
+            }],
+            frontend_endpoints=[{
+                name: exampleFrontendEndpoint1,
+                hostName: example-FrontDoor.azurefd.net,
+            }])
         ```
 
         ## Import

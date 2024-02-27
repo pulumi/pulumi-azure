@@ -237,20 +237,20 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Central US")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
-            name="example-vcg",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Central US)
+        example_services_communications_gateway = azure.voice.services_communications_gateway.ServicesCommunicationsGateway("example",
+            name=example-vcg,
             resource_group_name=example.name)
-        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("example",
-            name="example-vtl",
-            location="West Central US",
+        example_services_communications_gateway_test_line = azure.voice.services_communications_gateway_test_line.ServicesCommunicationsGatewayTestLine("example",
+            name=example-vtl,
+            location=West Central US,
             voice_services_communications_gateway_id=example_services_communications_gateway.id,
-            phone_number="123456789",
-            purpose="Automated",
+            phone_number=123456789,
+            purpose=Automated,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -286,20 +286,20 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Central US")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
-            name="example-vcg",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Central US)
+        example_services_communications_gateway = azure.voice.services_communications_gateway.ServicesCommunicationsGateway("example",
+            name=example-vcg,
             resource_group_name=example.name)
-        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("example",
-            name="example-vtl",
-            location="West Central US",
+        example_services_communications_gateway_test_line = azure.voice.services_communications_gateway_test_line.ServicesCommunicationsGatewayTestLine("example",
+            name=example-vtl,
+            location=West Central US,
             voice_services_communications_gateway_id=example_services_communications_gateway.id,
-            phone_number="123456789",
-            purpose="Automated",
+            phone_number=123456789,
+            purpose=Automated,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

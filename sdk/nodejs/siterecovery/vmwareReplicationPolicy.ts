@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "eastus",
  * });
- * const exampleVault = new azure.recoveryservices.Vault("example", {
+ * const exampleVault = new azure.recoveryservices/vault.Vault("example", {
  *     name: "example-vault",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     classicVmwareReplicationEnabled: true,
  *     softDeleteEnabled: false,
  * });
- * const exampleVMWareReplicationPolicy = new azure.siterecovery.VMWareReplicationPolicy("example", {
+ * const exampleVMWareReplicationPolicy = new azure.siterecovery/vMWareReplicationPolicy.VMWareReplicationPolicy("example", {
  *     name: "example-policy",
  *     recoveryVaultId: exampleVault.id,
  *     recoveryPointRetentionInMinutes: 1440,

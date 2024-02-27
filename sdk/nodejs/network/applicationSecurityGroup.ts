@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "tf-test",
  *     location: "West Europe",
  * });
- * const exampleApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("example", {
+ * const exampleApplicationSecurityGroup = new azure.network/applicationSecurityGroup.ApplicationSecurityGroup("example", {
  *     name: "tf-appsecuritygroup",
  *     location: example.location,
  *     resourceGroupName: example.name,

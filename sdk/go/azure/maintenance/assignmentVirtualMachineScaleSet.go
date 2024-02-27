@@ -21,208 +21,214 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	compute/linuxVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachine"
+//	compute/linuxVirtualMachineScaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachineScaleSet"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	lb/backendAddressPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/backendAddressPool"
+//	lb/loadBalancer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/loadBalancer"
+//	lb/probe "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/probe"
+//	lb/rule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/rule"
+//	maintenance/assignmentVirtualMachineScaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/maintenance/assignmentVirtualMachineScaleSet"
+//	maintenance/configuration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/maintenance/configuration"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-network"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              example.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              example.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-//					&lb.LoadBalancerFrontendIpConfigurationArgs{
-//						Name:              pulumi.String("internal"),
-//						PublicIpAddressId: examplePublicIp.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
-//				Name:           pulumi.String("example"),
-//				LoadbalancerId: exampleLoadBalancer.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleProbe, err := lb.NewProbe(ctx, "example", &lb.ProbeArgs{
-//				Name:           pulumi.String("example"),
-//				LoadbalancerId: exampleLoadBalancer.ID(),
-//				Port:           pulumi.Int(22),
-//				Protocol:       pulumi.String("Tcp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewRule(ctx, "example", &lb.RuleArgs{
-//				Name:                        pulumi.String("example"),
-//				LoadbalancerId:              exampleLoadBalancer.ID(),
-//				ProbeId:                     exampleProbe.ID(),
-//				FrontendIpConfigurationName: pulumi.String("internal"),
-//				Protocol:                    pulumi.String("Tcp"),
-//				FrontendPort:                pulumi.Int(22),
-//				BackendPort:                 pulumi.Int(22),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleConfiguration, err := maintenance.NewConfiguration(ctx, "example", &maintenance.ConfigurationArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Scope:             pulumi.String("OSImage"),
-//				Visibility:        pulumi.String("Custom"),
-//				Window: &maintenance.ConfigurationWindowArgs{
-//					StartDateTime:      pulumi.String("2021-12-31 00:00"),
-//					ExpirationDateTime: pulumi.String("9999-12-31 00:00"),
-//					Duration:           pulumi.String("06:00"),
-//					TimeZone:           pulumi.String("Pacific Standard Time"),
-//					RecurEvery:         pulumi.String("1Days"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("sample-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("testconfiguration1"),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("example-machine"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_F2"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:                          pulumi.String("example"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Sku:                           pulumi.String("Standard_F2"),
-//				Instances:                     pulumi.Int(1),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("P@ssword1234!"),
-//				UpgradeMode:                   pulumi.String("Automatic"),
-//				HealthProbeId:                 exampleProbe.ID(),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//					Caching:            pulumi.String("ReadWrite"),
-//				},
-//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
-//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
-//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-//								Name:     pulumi.String("internal"),
-//								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
-//								LoadBalancerBackendAddressPoolIds: pulumi.StringArray{
-//									exampleBackendAddressPool.ID(),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				AutomaticOsUpgradePolicy: &compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{
-//					DisableAutomaticRollback: pulumi.Bool(true),
-//					EnableAutomaticOsUpgrade: pulumi.Bool(true),
-//				},
-//				RollingUpgradePolicy: &compute.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{
-//					MaxBatchInstancePercent:             pulumi.Int(20),
-//					MaxUnhealthyInstancePercent:         pulumi.Int(20),
-//					MaxUnhealthyUpgradedInstancePercent: pulumi.Int(20),
-//					PauseTimeBetweenBatches:             pulumi.String("PT0S"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = maintenance.NewAssignmentVirtualMachineScaleSet(ctx, "example", &maintenance.AssignmentVirtualMachineScaleSetArgs{
-//				Location:                   example.Location,
-//				MaintenanceConfigurationId: exampleConfiguration.ID(),
-//				VirtualMachineScaleSetId:   exampleLinuxVirtualMachine.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-network",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: example.Name,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLoadBalancer, err := lb/loadBalancer.NewLoadBalancer(ctx, "example", &lb/loadBalancer.LoadBalancerArgs{
+// Name: example.Name,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// FrontendIpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "publicIpAddressId": examplePublicIp.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleBackendAddressPool, err := lb/backendAddressPool.NewBackendAddressPool(ctx, "example", &lb/backendAddressPool.BackendAddressPoolArgs{
+// Name: "example",
+// LoadbalancerId: exampleLoadBalancer.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleProbe, err := lb/probe.NewProbe(ctx, "example", &lb/probe.ProbeArgs{
+// Name: "example",
+// LoadbalancerId: exampleLoadBalancer.Id,
+// Port: 22,
+// Protocol: "Tcp",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/rule.NewRule(ctx, "example", &lb/rule.RuleArgs{
+// Name: "example",
+// LoadbalancerId: exampleLoadBalancer.Id,
+// ProbeId: exampleProbe.Id,
+// FrontendIpConfigurationName: "internal",
+// Protocol: "Tcp",
+// FrontendPort: 22,
+// BackendPort: 22,
+// })
+// if err != nil {
+// return err
+// }
+// exampleConfiguration, err := maintenance/configuration.NewConfiguration(ctx, "example", &maintenance/configuration.ConfigurationArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Scope: "OSImage",
+// Visibility: "Custom",
+// Window: map[string]interface{}{
+// "startDateTime": "2021-12-31 00:00",
+// "expirationDateTime": "9999-12-31 00:00",
+// "duration": "06:00",
+// "timeZone": "Pacific Standard Time",
+// "recurEvery": "1Days",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "sample-nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testconfiguration1",
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachine, err := compute/linuxVirtualMachine.NewLinuxVirtualMachine(ctx, "example", &compute/linuxVirtualMachine.LinuxVirtualMachineArgs{
+// Name: "example-machine",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Size: "Standard_F2",
+// AdminUsername: "adminuser",
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// OsDisk: map[string]interface{}{
+// "caching": "ReadWrite",
+// "storageAccountType": "Standard_LRS",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/linuxVirtualMachineScaleSet.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSetArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Standard_F2",
+// Instances: 1,
+// AdminUsername: "adminuser",
+// AdminPassword: "P@ssword1234!",
+// UpgradeMode: "Automatic",
+// HealthProbeId: exampleProbe.Id,
+// DisablePasswordAuthentication: false,
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// OsDisk: map[string]interface{}{
+// "storageAccountType": "Standard_LRS",
+// "caching": "ReadWrite",
+// },
+// NetworkInterfaces: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "primary": true,
+// "ipConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "primary": true,
+// "subnetId": exampleSubnet.Id,
+// "loadBalancerBackendAddressPoolIds": []interface{}{
+// exampleBackendAddressPool.Id,
+// },
+// },
+// },
+// },
+// },
+// AutomaticOsUpgradePolicy: map[string]interface{}{
+// "disableAutomaticRollback": true,
+// "enableAutomaticOsUpgrade": true,
+// },
+// RollingUpgradePolicy: map[string]interface{}{
+// "maxBatchInstancePercent": 20,
+// "maxUnhealthyInstancePercent": 20,
+// "maxUnhealthyUpgradedInstancePercent": 20,
+// "pauseTimeBetweenBatches": "PT0S",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = maintenance/assignmentVirtualMachineScaleSet.NewAssignmentVirtualMachineScaleSet(ctx, "example", &maintenance/assignmentVirtualMachineScaleSet.AssignmentVirtualMachineScaleSetArgs{
+// Location: example.Location,
+// MaintenanceConfigurationId: exampleConfiguration.Id,
+// VirtualMachineScaleSetId: exampleLinuxVirtualMachine.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

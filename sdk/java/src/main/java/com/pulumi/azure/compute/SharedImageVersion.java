@@ -21,61 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.compute.ComputeFunctions;
- * import com.pulumi.azure.compute.inputs.GetImageArgs;
- * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
- * import com.pulumi.azure.compute.SharedImageVersion;
- * import com.pulumi.azure.compute.SharedImageVersionArgs;
- * import com.pulumi.azure.compute.inputs.SharedImageVersionTargetRegionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var existing = ComputeFunctions.getImage(GetImageArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .resourceGroupName(&#34;packerimages&#34;)
- *             .build());
- * 
- *         final var existingGetSharedImage = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
- *             .name(&#34;existing-image&#34;)
- *             .galleryName(&#34;existing_gallery&#34;)
- *             .resourceGroupName(&#34;existing-resources&#34;)
- *             .build());
- * 
- *         var example = new SharedImageVersion(&#34;example&#34;, SharedImageVersionArgs.builder()        
- *             .name(&#34;0.0.1&#34;)
- *             .galleryName(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.galleryName()))
- *             .imageName(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.name()))
- *             .resourceGroupName(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.resourceGroupName()))
- *             .location(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.location()))
- *             .managedImageId(existing.applyValue(getImageResult -&gt; getImageResult.id()))
- *             .targetRegions(SharedImageVersionTargetRegionArgs.builder()
- *                 .name(existingGetSharedImage.applyValue(getSharedImageResult -&gt; getSharedImageResult.location()))
- *                 .regionalReplicaCount(5)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Shared Image Versions can be imported using the `resource id`, e.g.

@@ -22,23 +22,23 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("example", new()
+    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy.SubnetServiceEndpointStoragePolicy("example", new()
     ///     {
     ///         Name = "example-policy",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Definition = new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
+    ///         Definition = 
     ///         {
-    ///             Name = "name2",
-    ///             Description = "definition2",
-    ///             Service = "Global",
-    ///             ServiceResources = new[]
+    ///             { "name", "name2" },
+    ///             { "description", "definition2" },
+    ///             { "service", "Global" },
+    ///             { "serviceResources", new[]
     ///             {
     ///                 "/services/Azure",
     ///                 "/services/Azure/Batch",
@@ -46,11 +46,11 @@ namespace Pulumi.Azure.Network
     ///                 "/services/Azure/MachineLearning",
     ///                 "/services/Azure/ManagedInstance",
     ///                 "/services/Azure/WebPI",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageacct",
     ///         ResourceGroupName = example.Name,

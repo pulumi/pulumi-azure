@@ -33,21 +33,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.NetworkWatcher;
  * import com.pulumi.azure.network.NetworkWatcherArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
- * import com.pulumi.azure.compute.VirtualMachineScaleSetExtension;
- * import com.pulumi.azure.compute.VirtualMachineScaleSetExtensionArgs;
+ * import com.pulumi.azure.compute_virtualMachineScaleSetExtension.VirtualMachineScaleSetExtension;
+ * import com.pulumi.azure.compute_virtualMachineScaleSetExtension.VirtualMachineScaleSetExtensionArgs;
  * import com.pulumi.azure.compute.ScaleSetPacketCapture;
  * import com.pulumi.azure.compute.ScaleSetPacketCaptureArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetPacketCaptureStorageLocationArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetPacketCaptureMachineScopeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,25 +92,9 @@ import javax.annotation.Nullable;
  *             .computerNamePrefix(&#34;my-linux-computer-name-prefix&#34;)
  *             .upgradeMode(&#34;Automatic&#34;)
  *             .disablePasswordAuthentication(false)
- *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualMachineScaleSetExtension = new VirtualMachineScaleSetExtension(&#34;exampleVirtualMachineScaleSetExtension&#34;, VirtualMachineScaleSetExtensionArgs.builder()        
@@ -132,13 +111,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-pc&#34;)
  *             .networkWatcherId(exampleNetworkWatcher.id())
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachineScaleSet.id())
- *             .storageLocation(ScaleSetPacketCaptureStorageLocationArgs.builder()
- *                 .filePath(&#34;/var/captures/packet.cap&#34;)
- *                 .build())
- *             .machineScope(ScaleSetPacketCaptureMachineScopeArgs.builder()
- *                 .includeInstanceIds(&#34;0&#34;)
- *                 .excludeInstanceIds(&#34;1&#34;)
- *                 .build())
+ *             .storageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .machineScope(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

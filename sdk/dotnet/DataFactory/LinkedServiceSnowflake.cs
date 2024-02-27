@@ -22,79 +22,24 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("example", new()
+    ///     var exampleLinkedServiceSnowflake = new Azure.Datafactory.LinkedServiceSnowflake.LinkedServiceSnowflake("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Password In Key Vault
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("example", new()
-    ///     {
-    ///         Name = "kvlink",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
-    ///         KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSnowflakeKeyVaultPasswordArgs
-    ///         {
-    ///             LinkedServiceName = exampleLinkedServiceKeyVault.Name,
-    ///             SecretName = "secret",
-    ///         },
     ///     });
     /// 
     /// });

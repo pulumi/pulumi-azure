@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleSubnetServiceEndpointStoragePolicy = new azure.network.SubnetServiceEndpointStoragePolicy("example", {
+ * const exampleSubnetServiceEndpointStoragePolicy = new azure.network/subnetServiceEndpointStoragePolicy.SubnetServiceEndpointStoragePolicy("example", {
  *     name: "example-policy",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageacct",
  *     resourceGroupName: example.name,
  *     location: example.location,

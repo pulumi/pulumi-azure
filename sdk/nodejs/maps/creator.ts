@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.maps.Account("example", {
+ * const exampleAccount = new azure.maps/account.Account("example", {
  *     name: "example-maps-account",
  *     resourceGroupName: example.name,
  *     skuName: "G2",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *         environment: "Test",
  *     },
  * });
- * const exampleCreator = new azure.maps.Creator("example", {
+ * const exampleCreator = new azure.maps/creator.Creator("example", {
  *     name: "example-maps-creator",
  *     mapsAccountId: exampleAccount.id,
  *     location: example.location,

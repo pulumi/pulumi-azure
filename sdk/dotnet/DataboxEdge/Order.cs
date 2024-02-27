@@ -24,13 +24,13 @@ namespace Pulumi.Azure.DataboxEdge
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-databoxedge",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDevice = new Azure.DataboxEdge.Device("example", new()
+    ///     var exampleDevice = new Azure.Databoxedge.Device.Device("example", new()
     ///     {
     ///         Name = "example-device",
     ///         ResourceGroupName = example.Name,
@@ -38,30 +38,30 @@ namespace Pulumi.Azure.DataboxEdge
     ///         SkuName = "EdgeP_Base-Standard",
     ///     });
     /// 
-    ///     var exampleOrder = new Azure.DataboxEdge.Order("example", new()
+    ///     var exampleOrder = new Azure.Databoxedge.Order.Order("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         DeviceName = exampleDevice.Name,
-    ///         Contact = new Azure.DataboxEdge.Inputs.OrderContactArgs
+    ///         Contact = 
     ///         {
-    ///             Name = "TerraForm Test",
-    ///             Emails = new[]
+    ///             { "name", "TerraForm Test" },
+    ///             { "emails", new[]
     ///             {
     ///                 "creator4983@FlynnsArcade.com",
-    ///             },
-    ///             CompanyName = "Flynn's Arcade",
-    ///             PhoneNumber = "(800) 555-1234",
+    ///             } },
+    ///             { "companyName", "Flynn's Arcade" },
+    ///             { "phoneNumber", "(800) 555-1234" },
     ///         },
-    ///         ShipmentAddress = new Azure.DataboxEdge.Inputs.OrderShipmentAddressArgs
+    ///         ShipmentAddress = 
     ///         {
-    ///             Addresses = new[]
+    ///             { "addresses", new[]
     ///             {
     ///                 "One Microsoft Way",
-    ///             },
-    ///             City = "Redmond",
-    ///             PostalCode = "98052",
-    ///             State = "WA",
-    ///             Country = "United States",
+    ///             } },
+    ///             { "city", "Redmond" },
+    ///             { "postalCode", "98052" },
+    ///             { "state", "WA" },
+    ///             { "country", "United States" },
     ///         },
     ///     });
     /// 

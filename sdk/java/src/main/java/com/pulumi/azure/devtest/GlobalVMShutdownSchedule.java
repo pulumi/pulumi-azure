@@ -31,20 +31,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.devtest.GlobalVMShutdownSchedule;
  * import com.pulumi.azure.devtest.GlobalVMShutdownScheduleArgs;
- * import com.pulumi.azure.devtest.inputs.GlobalVMShutdownScheduleNotificationSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,11 +77,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;sample-nic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
@@ -94,17 +86,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .size(&#34;Standard_B2s&#34;)
- *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .name(&#34;myosdisk-example&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .build())
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .adminUsername(&#34;testadmin&#34;)
  *             .adminPassword(&#34;Password1234!&#34;)
  *             .disablePasswordAuthentication(false)
@@ -116,11 +99,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .dailyRecurrenceTime(&#34;1100&#34;)
  *             .timezone(&#34;Pacific Standard Time&#34;)
- *             .notificationSettings(GlobalVMShutdownScheduleNotificationSettingsArgs.builder()
- *                 .enabled(true)
- *                 .timeInMinutes(&#34;60&#34;)
- *                 .webhookUrl(&#34;https://sample-webhook-url.example.com&#34;)
- *                 .build())
+ *             .notificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

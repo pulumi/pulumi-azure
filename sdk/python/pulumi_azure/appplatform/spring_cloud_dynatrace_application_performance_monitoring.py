@@ -337,24 +337,24 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.spring_cloud_dynatrace_application_performance_monitoring.SpringCloudDynatraceApplicationPerformanceMonitoring("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
             globally_enabled=True,
-            api_url="https://example-api-url.com",
-            api_token="dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-            environment_id="example-environment-id",
-            tenant="example-tenant",
-            tenant_token="dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-            connection_point="https://example.live.dynatrace.com:443")
+            api_url=https://example-api-url.com,
+            api_token=dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB,
+            environment_id=example-environment-id,
+            tenant=example-tenant,
+            tenant_token=dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB,
+            connection_point=https://example.live.dynatrace.com:443)
         ```
 
         ## Import
@@ -394,24 +394,24 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.spring_cloud_dynatrace_application_performance_monitoring.SpringCloudDynatraceApplicationPerformanceMonitoring("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
             globally_enabled=True,
-            api_url="https://example-api-url.com",
-            api_token="dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-            environment_id="example-environment-id",
-            tenant="example-tenant",
-            tenant_token="dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-            connection_point="https://example.live.dynatrace.com:443")
+            api_url=https://example-api-url.com,
+            api_token=dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB,
+            environment_id=example-environment-id,
+            tenant=example-tenant,
+            tenant_token=dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB,
+            connection_point=https://example.live.dynatrace.com:443)
         ```
 
         ## Import

@@ -20,54 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Hybrid Compute Machine Extension.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.arcmachine.ArcmachineFunctions;
- * import com.pulumi.azure.arcmachine.inputs.GetArgs;
- * import com.pulumi.azure.arcmachine.Extension;
- * import com.pulumi.azure.arcmachine.ExtensionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var example = ArcmachineFunctions.get(GetArgs.builder()
- *             .name(&#34;existing-hcmachine&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .arcMachineId(example.applyValue(getResult -&gt; getResult).applyValue(example -&gt; example.applyValue(getResult -&gt; getResult.id())))
- *             .publisher(&#34;Microsoft.Azure.Monitor&#34;)
- *             .type(&#34;AzureMonitorLinuxAgent&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.

@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Maps Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.maps.getAccount({
- *     name: "production",
- *     resourceGroupName: "maps",
- * });
- * export const mapsAccountId = example.then(example => example.id);
- * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -75,19 +62,6 @@ export interface GetAccountResult {
 }
 /**
  * Use this data source to access information about an existing Azure Maps Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.maps.getAccount({
- *     name: "production",
- *     resourceGroupName: "maps",
- * });
- * export const mapsAccountId = example.then(example => example.id);
- * ```
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

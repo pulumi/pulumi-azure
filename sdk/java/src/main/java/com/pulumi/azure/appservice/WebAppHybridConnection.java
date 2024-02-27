@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.relay.HybridConnectionArgs;
  * import com.pulumi.azure.appservice.WindowsWebApp;
  * import com.pulumi.azure.appservice.WindowsWebAppArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigArgs;
  * import com.pulumi.azure.appservice.WebAppHybridConnection;
  * import com.pulumi.azure.appservice.WebAppHybridConnectionArgs;
  * import java.util.List;

@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("example", new()
+    ///     var exampleLinkedServiceSftp = new Azure.Datafactory.LinkedServiceSftp.LinkedServiceSftp("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
@@ -46,15 +46,15 @@ namespace Pulumi.Azure.DataFactory
     ///         Password = "bar",
     ///     });
     /// 
-    ///     var exampleDatasetBinary = new Azure.DataFactory.DatasetBinary("example", new()
+    ///     var exampleDatasetBinary = new Azure.Datafactory.DatasetBinary.DatasetBinary("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedServiceSftp.Name,
-    ///         SftpServerLocation = new Azure.DataFactory.Inputs.DatasetBinarySftpServerLocationArgs
+    ///         SftpServerLocation = 
     ///         {
-    ///             Path = "/test/",
-    ///             Filename = "**",
+    ///             { "path", "/test/" },
+    ///             { "filename", "**" },
     ///         },
     ///     });
     /// 

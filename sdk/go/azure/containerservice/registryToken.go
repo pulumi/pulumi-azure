@@ -19,64 +19,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/registry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registry"
+//	containerservice/registryScopeMap "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryScopeMap"
+//	containerservice/registryToken "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryToken"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resource-group"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Premium"),
-//				AdminEnabled:      pulumi.Bool(false),
-//				Georeplications: containerservice.RegistryGeoreplicationArray{
-//					&containerservice.RegistryGeoreplicationArgs{
-//						Location: pulumi.String("East US"),
-//					},
-//					&containerservice.RegistryGeoreplicationArgs{
-//						Location: pulumi.String("West Europe"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "example", &containerservice.RegistryScopeMapArgs{
-//				Name:                  pulumi.String("example-scope-map"),
-//				ContainerRegistryName: exampleRegistry.Name,
-//				ResourceGroupName:     example.Name,
-//				Actions: pulumi.StringArray{
-//					pulumi.String("repositories/repo1/content/read"),
-//					pulumi.String("repositories/repo1/content/write"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewRegistryToken(ctx, "example", &containerservice.RegistryTokenArgs{
-//				Name:                  pulumi.String("exampletoken"),
-//				ContainerRegistryName: exampleRegistry.Name,
-//				ResourceGroupName:     example.Name,
-//				ScopeMapId:            exampleRegistryScopeMap.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resource-group",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistry, err := containerservice/registry.NewRegistry(ctx, "example", &containerservice/registry.RegistryArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Premium",
+// AdminEnabled: false,
+// Georeplications: []map[string]interface{}{
+// map[string]interface{}{
+// "location": "East US",
+// },
+// map[string]interface{}{
+// "location": "West Europe",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistryScopeMap, err := containerservice/registryScopeMap.NewRegistryScopeMap(ctx, "example", &containerservice/registryScopeMap.RegistryScopeMapArgs{
+// Name: "example-scope-map",
+// ContainerRegistryName: exampleRegistry.Name,
+// ResourceGroupName: example.Name,
+// Actions: []string{
+// "repositories/repo1/content/read",
+// "repositories/repo1/content/write",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/registryToken.NewRegistryToken(ctx, "example", &containerservice/registryToken.RegistryTokenArgs{
+// Name: "exampletoken",
+// ContainerRegistryName: exampleRegistry.Name,
+// ResourceGroupName: example.Name,
+// ScopeMapId: exampleRegistryScopeMap.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

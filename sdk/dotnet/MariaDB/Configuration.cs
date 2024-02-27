@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MariaDB.Server("example", new()
+    ///     var exampleServer = new Azure.Mariadb.Server.Server("example", new()
     ///     {
     ///         Name = "mariadb-server-1",
     ///         Location = example.Location,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.MariaDB
     ///         Version = "10.2",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.MariaDB.Configuration("example", new()
+    ///     var exampleConfiguration = new Azure.Mariadb.Configuration.Configuration("example", new()
     ///     {
     ///         Name = "interactive_timeout",
     ///         ResourceGroupName = example.Name,

@@ -23,76 +23,76 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mysql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mysql/server"
+//	mysql/virtualNetworkRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mysql/virtualNetworkRule"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.7.29.0/29"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.7.29.0/29"),
-//				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Sql"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mysql.NewServer(ctx, "example", &mysql.ServerArgs{
-//				Name:                       pulumi.String("example-mysqlserver"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				AdministratorLogin:         pulumi.String("mysqladminun"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				SkuName:                    pulumi.String("GP_Gen5_2"),
-//				StorageMb:                  pulumi.Int(5120),
-//				Version:                    pulumi.String("5.7"),
-//				BackupRetentionDays:        pulumi.Int(7),
-//				GeoRedundantBackupEnabled:  pulumi.Bool(false),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mysql.NewVirtualNetworkRule(ctx, "example", &mysql.VirtualNetworkRuleArgs{
-//				Name:              pulumi.String("mysql-vnet-rule"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				SubnetId:          internal.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.7.29.0/29",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// internal, err := network/subnet.NewSubnet(ctx, "internal", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.7.29.0/29",
+// },
+// ServiceEndpoints: []string{
+// "Microsoft.Sql",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mysql/server.NewServer(ctx, "example", &mysql/server.ServerArgs{
+// Name: "example-mysqlserver",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AdministratorLogin: "mysqladminun",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// SkuName: "GP_Gen5_2",
+// StorageMb: 5120,
+// Version: "5.7",
+// BackupRetentionDays: 7,
+// GeoRedundantBackupEnabled: false,
+// SslEnforcementEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mysql/virtualNetworkRule.NewVirtualNetworkRule(ctx, "example", &mysql/virtualNetworkRule.VirtualNetworkRuleArgs{
+// Name: "mysql-vnet-rule",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// SubnetId: internal.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

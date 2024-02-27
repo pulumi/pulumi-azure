@@ -201,28 +201,28 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_server = azure.postgresql.Server("example",
-            name="postgresql-server-1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_server = azure.postgresql.server.Server("example",
+            name=postgresql-server-1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="B_Gen5_2",
+            sku_name=B_Gen5_2,
             storage_mb=5120,
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
             auto_grow_enabled=True,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
+            administrator_login=psqladmin,
+            administrator_login_password=H@Sh1CoR3!,
+            version=9.5,
             ssl_enforcement_enabled=True)
-        example_database = azure.postgresql.Database("example",
-            name="exampledb",
+        example_database = azure.postgresql.database.Database("example",
+            name=exampledb,
             resource_group_name=example.name,
             server_name=example_server.name,
-            charset="UTF8",
-            collation="English_United States.1252")
+            charset=UTF8,
+            collation=English_United States.1252)
         ```
 
         ## Import
@@ -254,28 +254,28 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_server = azure.postgresql.Server("example",
-            name="postgresql-server-1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_server = azure.postgresql.server.Server("example",
+            name=postgresql-server-1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="B_Gen5_2",
+            sku_name=B_Gen5_2,
             storage_mb=5120,
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
             auto_grow_enabled=True,
-            administrator_login="psqladmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="9.5",
+            administrator_login=psqladmin,
+            administrator_login_password=H@Sh1CoR3!,
+            version=9.5,
             ssl_enforcement_enabled=True)
-        example_database = azure.postgresql.Database("example",
-            name="exampledb",
+        example_database = azure.postgresql.database.Database("example",
+            name=exampledb,
             resource_group_name=example.name,
             server_name=example_server.name,
-            charset="UTF8",
-            collation="English_United States.1252")
+            charset=UTF8,
+            collation=English_United States.1252)
         ```
 
         ## Import

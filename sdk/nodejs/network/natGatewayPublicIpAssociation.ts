@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-PIP",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const exampleNatGateway = new azure.network.NatGateway("example", {
+ * const exampleNatGateway = new azure.network/natGateway.NatGateway("example", {
  *     name: "example-NatGateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleNatGatewayPublicIpAssociation = new azure.network.NatGatewayPublicIpAssociation("example", {
+ * const exampleNatGatewayPublicIpAssociation = new azure.network/natGatewayPublicIpAssociation.NatGatewayPublicIpAssociation("example", {
  *     natGatewayId: exampleNatGateway.id,
  *     publicIpAddressId: examplePublicIp.id,
  * });

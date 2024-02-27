@@ -21,81 +21,81 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/pipeline "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/pipeline"
+//	datafactory/triggerCustomEvent "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/triggerCustomEvent"
+//	eventgrid/topic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventgrid/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := eventgrid.NewTopic(ctx, "example", &eventgrid.TopicArgs{
-//				Name:              pulumi.String("example-topic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewTriggerCustomEvent(ctx, "example", &datafactory.TriggerCustomEventArgs{
-//				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				EventgridTopicId: exampleTopic.ID(),
-//				Events: pulumi.StringArray{
-//					pulumi.String("event1"),
-//					pulumi.String("event2"),
-//				},
-//				SubjectBeginsWith: pulumi.String("abc"),
-//				SubjectEndsWith:   pulumi.String("xyz"),
-//				Annotations: pulumi.StringArray{
-//					pulumi.String("example1"),
-//					pulumi.String("example2"),
-//					pulumi.String("example3"),
-//				},
-//				Description: pulumi.String("example description"),
-//				Pipelines: datafactory.TriggerCustomEventPipelineArray{
-//					&datafactory.TriggerCustomEventPipelineArgs{
-//						Name: examplePipeline.Name,
-//						Parameters: pulumi.StringMap{
-//							"Env": pulumi.String("Prod"),
-//						},
-//					},
-//				},
-//				AdditionalProperties: pulumi.StringMap{
-//					"foo": pulumi.String("foo1"),
-//					"bar": pulumi.String("bar2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// examplePipeline, err := datafactory/pipeline.NewPipeline(ctx, "example", &datafactory/pipeline.PipelineArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopic, err := eventgrid/topic.NewTopic(ctx, "example", &eventgrid/topic.TopicArgs{
+// Name: "example-topic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/triggerCustomEvent.NewTriggerCustomEvent(ctx, "example", &datafactory/triggerCustomEvent.TriggerCustomEventArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// EventgridTopicId: exampleTopic.Id,
+// Events: []string{
+// "event1",
+// "event2",
+// },
+// SubjectBeginsWith: "abc",
+// SubjectEndsWith: "xyz",
+// Annotations: []string{
+// "example1",
+// "example2",
+// "example3",
+// },
+// Description: "example description",
+// Pipelines: []map[string]interface{}{
+// map[string]interface{}{
+// "name": examplePipeline.Name,
+// "parameters": map[string]interface{}{
+// "Env": "Prod",
+// },
+// },
+// },
+// AdditionalProperties: map[string]interface{}{
+// "foo": "foo1",
+// "bar": "bar2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

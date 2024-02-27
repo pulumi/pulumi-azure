@@ -307,47 +307,47 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        primary = azure.sql.ManagedInstance("primary",
-            name="example-primary",
-            resource_group_name=primary_azurerm_resource_group["name"],
-            location=primary_azurerm_resource_group["location"],
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=primary_azurerm_subnet["id"],
-            sku_name="GP_Gen5",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        primary = azure.sql.managed_instance.ManagedInstance("primary",
+            name=example-primary,
+            resource_group_name=primary_azurerm_resource_group.name,
+            location=primary_azurerm_resource_group.location,
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
+            subnet_id=primary_azurerm_subnet.id,
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        secondary = azure.sql.ManagedInstance("secondary",
-            name="example-secondary",
-            resource_group_name=secondary_azurerm_resource_group["name"],
-            location=secondary_azurerm_resource_group["location"],
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=secondary_azurerm_subnet["id"],
-            sku_name="GP_Gen5",
+        secondary = azure.sql.managed_instance.ManagedInstance("secondary",
+            name=example-secondary,
+            resource_group_name=secondary_azurerm_resource_group.name,
+            location=secondary_azurerm_resource_group.location,
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
+            subnet_id=secondary_azurerm_subnet.id,
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        example_managed_instance_failover_group = azure.sql.ManagedInstanceFailoverGroup("example",
-            name="example-failover-group",
-            resource_group_name=primary_azurerm_resource_group["name"],
+        example_managed_instance_failover_group = azure.sql.managed_instance_failover_group.ManagedInstanceFailoverGroup("example",
+            name=example-failover-group,
+            resource_group_name=primary_azurerm_resource_group.name,
             location=primary.location,
             managed_instance_name=primary.name,
             partner_managed_instance_id=secondary.id,
-            read_write_endpoint_failover_policy=azure.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
+            read_write_endpoint_failover_policy={
+                mode: Automatic,
+                graceMinutes: 60,
+            })
         ```
 
         ## Import
@@ -387,47 +387,47 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        primary = azure.sql.ManagedInstance("primary",
-            name="example-primary",
-            resource_group_name=primary_azurerm_resource_group["name"],
-            location=primary_azurerm_resource_group["location"],
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=primary_azurerm_subnet["id"],
-            sku_name="GP_Gen5",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        primary = azure.sql.managed_instance.ManagedInstance("primary",
+            name=example-primary,
+            resource_group_name=primary_azurerm_resource_group.name,
+            location=primary_azurerm_resource_group.location,
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
+            subnet_id=primary_azurerm_subnet.id,
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        secondary = azure.sql.ManagedInstance("secondary",
-            name="example-secondary",
-            resource_group_name=secondary_azurerm_resource_group["name"],
-            location=secondary_azurerm_resource_group["location"],
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=secondary_azurerm_subnet["id"],
-            sku_name="GP_Gen5",
+        secondary = azure.sql.managed_instance.ManagedInstance("secondary",
+            name=example-secondary,
+            resource_group_name=secondary_azurerm_resource_group.name,
+            location=secondary_azurerm_resource_group.location,
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
+            subnet_id=secondary_azurerm_subnet.id,
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        example_managed_instance_failover_group = azure.sql.ManagedInstanceFailoverGroup("example",
-            name="example-failover-group",
-            resource_group_name=primary_azurerm_resource_group["name"],
+        example_managed_instance_failover_group = azure.sql.managed_instance_failover_group.ManagedInstanceFailoverGroup("example",
+            name=example-failover-group,
+            resource_group_name=primary_azurerm_resource_group.name,
             location=primary.location,
             managed_instance_name=primary.name,
             partner_managed_instance_id=secondary.id,
-            read_write_endpoint_failover_policy=azure.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
+            read_write_endpoint_failover_policy={
+                mode: Automatic,
+                graceMinutes: 60,
+            })
         ```
 
         ## Import

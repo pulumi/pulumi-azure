@@ -21,38 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/subscriptionCostManagementView "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/subscriptionCostManagementView"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewSubscriptionCostManagementView(ctx, "example", &core.SubscriptionCostManagementViewArgs{
-//				Name:           pulumi.String("example"),
-//				DisplayName:    pulumi.String("Cost View per Month"),
-//				ChartType:      pulumi.String("StackedColumn"),
-//				Accumulated:    pulumi.Bool(false),
-//				SubscriptionId: pulumi.String("/subscription/00000000-0000-0000-0000-000000000000"),
-//				ReportType:     pulumi.String("Usage"),
-//				Timeframe:      pulumi.String("MonthToDate"),
-//				Dataset: &core.SubscriptionCostManagementViewDatasetArgs{
-//					Granularity: pulumi.String("Monthly"),
-//					Aggregations: core.SubscriptionCostManagementViewDatasetAggregationArray{
-//						&core.SubscriptionCostManagementViewDatasetAggregationArgs{
-//							Name:       pulumi.String("totalCost"),
-//							ColumnName: pulumi.String("Cost"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/subscriptionCostManagementView.NewSubscriptionCostManagementView(ctx, "example", &core/subscriptionCostManagementView.SubscriptionCostManagementViewArgs{
+// Name: "example",
+// DisplayName: "Cost View per Month",
+// ChartType: "StackedColumn",
+// Accumulated: false,
+// SubscriptionId: "/subscription/00000000-0000-0000-0000-000000000000",
+// ReportType: "Usage",
+// Timeframe: "MonthToDate",
+// Dataset: map[string]interface{}{
+// "granularity": "Monthly",
+// "aggregations": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "totalCost",
+// "columnName": "Cost",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

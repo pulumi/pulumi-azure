@@ -15,46 +15,6 @@ import * as utilities from "../utilities";
  *
  * =======
  * > > > > > > > 8d78c87098 (Update-documentation)
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         keyPermissions: [
- *             "Create",
- *             "Get",
- *         ],
- *         secretPermissions: [
- *             "Set",
- *             "Get",
- *             "Delete",
- *             "Purge",
- *             "Recover",
- *         ],
- *     }],
- * });
- * const exampleSecret = new azure.keyvault.Secret("example", {
- *     name: "secret-sauce",
- *     value: "szechuan",
- *     keyVaultId: exampleKeyVault.id,
- * });
- * ```
  *
  * ## Import
  *

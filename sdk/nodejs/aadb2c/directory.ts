@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.aadb2c.Directory("example", {
+ * const example = new azure.aadb2c/directory.Directory("example", {
  *     countryCode: "US",
  *     dataResidencyLocation: "United States",
  *     displayName: "example-b2c-tenant",

@@ -20,48 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a custom Role Definition, used to assign Roles to Users/Principals. See [&#39;Understand role definitions&#39;](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.authorization.RoleDefinition;
- * import com.pulumi.azure.authorization.RoleDefinitionArgs;
- * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
- * 
- *         var example = new RoleDefinition(&#34;example&#34;, RoleDefinitionArgs.builder()        
- *             .name(&#34;my-custom-role&#34;)
- *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .description(&#34;This is a custom role created&#34;)
- *             .permissions(RoleDefinitionPermissionArgs.builder()
- *                 .actions(&#34;*&#34;)
- *                 .notActions()
- *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Role Definitions can be imported using the `resource id`, e.g.

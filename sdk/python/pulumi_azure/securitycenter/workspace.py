@@ -108,16 +108,16 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-security-workspace",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="tfex-security-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-security-workspace,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=tfex-security-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_workspace = azure.securitycenter.Workspace("example",
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
+            sku=PerGB2018)
+        example_workspace = azure.securitycenter.workspace.Workspace("example",
+            scope=/subscriptions/00000000-0000-0000-0000-000000000000,
             workspace_id=example_analytics_workspace.id)
         ```
 
@@ -151,16 +151,16 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-security-workspace",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="tfex-security-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-security-workspace,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=tfex-security-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_workspace = azure.securitycenter.Workspace("example",
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
+            sku=PerGB2018)
+        example_workspace = azure.securitycenter.workspace.Workspace("example",
+            scope=/subscriptions/00000000-0000-0000-0000-000000000000,
             workspace_id=example_analytics_workspace.id)
         ```
 

@@ -26,13 +26,13 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
+    ///     var exampleFlexibleServer = new Azure.Mysql.FlexibleServer.FlexibleServer("example", new()
     ///     {
     ///         Name = "example-fs",
     ///         ResourceGroupName = example.Name,
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.MySql
     ///         SkuName = "GP_Standard_D2ds_v4",
     ///     });
     /// 
-    ///     var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("example", new()
+    ///     var exampleFlexibleServerConfiguration = new Azure.Mysql.FlexibleServerConfiguration.FlexibleServerConfiguration("example", new()
     ///     {
     ///         Name = "interactive_timeout",
     ///         ResourceGroupName = example.Name,

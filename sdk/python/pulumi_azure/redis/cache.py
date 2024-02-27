@@ -873,20 +873,20 @@ class Cache(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
         # NOTE: the Name used for Redis needs to be globally unique
-        example_cache = azure.redis.Cache("example",
-            name="example-cache",
+        example_cache = azure.redis.cache.Cache("example",
+            name=example-cache,
             location=example.location,
             resource_group_name=example.name,
             capacity=2,
-            family="C",
-            sku_name="Standard",
+            family=C,
+            sku_name=Standard,
             enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
+            minimum_tls_version=1.2,
+            redis_configuration={})
         ```
         ## Relevant Links
 
@@ -950,20 +950,20 @@ class Cache(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
         # NOTE: the Name used for Redis needs to be globally unique
-        example_cache = azure.redis.Cache("example",
-            name="example-cache",
+        example_cache = azure.redis.cache.Cache("example",
+            name=example-cache,
             location=example.location,
             resource_group_name=example.name,
             capacity=2,
-            family="C",
-            sku_name="Standard",
+            family=C,
+            sku_name=Standard,
             enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
+            minimum_tls_version=1.2,
+            redis_configuration={})
         ```
         ## Relevant Links
 

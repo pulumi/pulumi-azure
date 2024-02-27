@@ -7,54 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse Role Assignment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplestorageacc",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
- * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
- *     name: "example",
- *     storageAccountId: exampleAccount.id,
- * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
- *     sqlAdministratorLogin: "sqladminuser",
- *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
- *     name: "AllowAll",
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     startIpAddress: "0.0.0.0",
- *     endIpAddress: "255.255.255.255",
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleRoleAssignment = new azure.synapse.RoleAssignment("example", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     roleName: "Synapse SQL Administrator",
- *     principalId: current.then(current => current.objectId),
- * });
- * ```
- *
  * ## Import
  *
  * Synapse Role Assignment can be imported using the `resource id`, e.g.

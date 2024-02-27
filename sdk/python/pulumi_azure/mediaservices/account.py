@@ -377,23 +377,23 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="media-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=media-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("example",
-            name="examplemediaacc",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_service_account = azure.media.service_account.ServiceAccount("example",
+            name=examplemediaacc,
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                id: example_account.id,
+                isPrimary: True,
+            }])
         ```
 
         ## Import
@@ -432,23 +432,23 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="media-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=media-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("example",
-            name="examplemediaacc",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_service_account = azure.media.service_account.ServiceAccount("example",
+            name=examplemediaacc,
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                id: example_account.id,
+                isPrimary: True,
+            }])
         ```
 
         ## Import

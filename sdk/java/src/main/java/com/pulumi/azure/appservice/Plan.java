@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,10 +57,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;api-appserviceplan-pro&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -78,7 +74,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -102,10 +97,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind(&#34;FunctionApp&#34;)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -122,7 +114,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -147,10 +138,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;Linux&#34;)
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -167,7 +155,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -192,10 +179,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;xenon&#34;)
  *             .isXenon(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;PremiumContainer&#34;)
- *                 .size(&#34;PC2&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

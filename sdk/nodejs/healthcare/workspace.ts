@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = new azure.healthcare.Workspace("test", {
+ * const test = new azure.healthcare/workspace.Workspace("test", {
  *     name: "tfexworkspace",
  *     resourceGroupName: "tfex-resource_group",
  *     location: "east us",

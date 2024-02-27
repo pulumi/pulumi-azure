@@ -106,16 +106,16 @@ class IPGroupCIDR(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="test-rg",
-            location="West Europe")
-        example_ip_group = azure.network.IPGroup("example",
-            name="test-ipgroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=test-rg,
+            location=West Europe)
+        example_ip_group = azure.network.i_p_group.IPGroup("example",
+            name=test-ipgroup,
             location=example.location,
             resource_group_name=example.name)
-        example_ip_group_cidr = azure.network.IPGroupCIDR("example",
+        example_ip_group_cidr = azure.network.i_p_group_cidr.IPGroupCIDR("example",
             ip_group_id=example_ip_group.id,
-            cidr="10.10.10.0/24")
+            cidr=10.10.10.0/24)
         ```
 
         ## Import
@@ -152,16 +152,16 @@ class IPGroupCIDR(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="test-rg",
-            location="West Europe")
-        example_ip_group = azure.network.IPGroup("example",
-            name="test-ipgroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=test-rg,
+            location=West Europe)
+        example_ip_group = azure.network.i_p_group.IPGroup("example",
+            name=test-ipgroup,
             location=example.location,
             resource_group_name=example.name)
-        example_ip_group_cidr = azure.network.IPGroupCIDR("example",
+        example_ip_group_cidr = azure.network.i_p_group_cidr.IPGroupCIDR("example",
             ip_group_id=example_ip_group.id,
-            cidr="10.10.10.0/24")
+            cidr=10.10.10.0/24)
         ```
 
         ## Import

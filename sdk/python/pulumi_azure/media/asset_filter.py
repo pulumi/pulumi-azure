@@ -208,74 +208,74 @@ class AssetFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="media-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=media-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("example",
-            name="examplemediaacc",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_service_account = azure.media.service_account.ServiceAccount("example",
+            name=examplemediaacc,
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_asset = azure.media.Asset("example",
-            name="Asset1",
+            storage_accounts=[{
+                id: example_account.id,
+                isPrimary: True,
+            }])
+        example_asset = azure.media.asset.Asset("example",
+            name=Asset1,
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
-            description="Asset description")
-        example_asset_filter = azure.media.AssetFilter("example",
-            name="Filter1",
+            description=Asset description)
+        example_asset_filter = azure.media.asset_filter.AssetFilter("example",
+            name=Filter1,
             asset_id=example_asset.id,
             first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_miliseconds=1000,
-                force_end=False,
-            ),
+            presentation_time_range={
+                startInUnits: 0,
+                endInUnits: 15,
+                presentationWindowInUnits: 90,
+                liveBackoffInUnits: 0,
+                unitTimescaleInMiliseconds: 1000,
+                forceEnd: False,
+            },
             track_selections=[
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
+                {
+                    conditions: [
+                        {
+                            property: Type,
+                            operation: Equal,
+                            value: Audio,
+                        },
+                        {
+                            property: Language,
+                            operation: NotEqual,
+                            value: en,
+                        },
+                        {
+                            property: FourCC,
+                            operation: NotEqual,
+                            value: EC-3,
+                        },
                     ],
-                ),
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
+                },
+                {
+                    conditions: [
+                        {
+                            property: Type,
+                            operation: Equal,
+                            value: Video,
+                        },
+                        {
+                            property: Bitrate,
+                            operation: Equal,
+                            value: 3000000-5000000,
+                        },
                     ],
-                ),
+                },
             ])
         ```
 
@@ -310,74 +310,74 @@ class AssetFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="media-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=media-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("example",
-            name="examplemediaacc",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_service_account = azure.media.service_account.ServiceAccount("example",
+            name=examplemediaacc,
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
-        example_asset = azure.media.Asset("example",
-            name="Asset1",
+            storage_accounts=[{
+                id: example_account.id,
+                isPrimary: True,
+            }])
+        example_asset = azure.media.asset.Asset("example",
+            name=Asset1,
             resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
-            description="Asset description")
-        example_asset_filter = azure.media.AssetFilter("example",
-            name="Filter1",
+            description=Asset description)
+        example_asset_filter = azure.media.asset_filter.AssetFilter("example",
+            name=Filter1,
             asset_id=example_asset.id,
             first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_miliseconds=1000,
-                force_end=False,
-            ),
+            presentation_time_range={
+                startInUnits: 0,
+                endInUnits: 15,
+                presentationWindowInUnits: 90,
+                liveBackoffInUnits: 0,
+                unitTimescaleInMiliseconds: 1000,
+                forceEnd: False,
+            },
             track_selections=[
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
+                {
+                    conditions: [
+                        {
+                            property: Type,
+                            operation: Equal,
+                            value: Audio,
+                        },
+                        {
+                            property: Language,
+                            operation: NotEqual,
+                            value: en,
+                        },
+                        {
+                            property: FourCC,
+                            operation: NotEqual,
+                            value: EC-3,
+                        },
                     ],
-                ),
-                azure.media.AssetFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
+                },
+                {
+                    conditions: [
+                        {
+                            property: Type,
+                            operation: Equal,
+                            value: Video,
+                        },
+                        {
+                            property: Bitrate,
+                            operation: Equal,
+                            value: 3000000-5000000,
+                        },
                     ],
-                ),
+                },
             ])
         ```
 

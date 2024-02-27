@@ -156,19 +156,6 @@ def get_service(name: Optional[str] = None,
     """
     Manages a Search Service.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_resource_group = azure.core.ResourceGroup("example",
-        name="example-resources",
-        location="West Europe")
-    example = azure.search.get_service_output(name="example-search-service",
-        resource_group_name=example_resource_group.name)
-    ```
-
 
     :param str name: The Name of the Search Service.
     :param str resource_group_name: The name of the Resource Group where the Search Service exists.
@@ -198,19 +185,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Manages a Search Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_resource_group = azure.core.ResourceGroup("example",
-        name="example-resources",
-        location="West Europe")
-    example = azure.search.get_service_output(name="example-search-service",
-        resource_group_name=example_resource_group.name)
-    ```
 
 
     :param str name: The Name of the Search Service.

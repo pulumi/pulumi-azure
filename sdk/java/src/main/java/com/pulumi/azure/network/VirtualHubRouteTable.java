@@ -28,23 +28,22 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
- * import com.pulumi.azure.network.VirtualHubConnection;
- * import com.pulumi.azure.network.VirtualHubConnectionArgs;
- * import com.pulumi.azure.network.VirtualHubRouteTable;
- * import com.pulumi.azure.network.VirtualHubRouteTableArgs;
- * import com.pulumi.azure.network.inputs.VirtualHubRouteTableRouteArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
+ * import com.pulumi.azure.network_virtualHubConnection.VirtualHubConnection;
+ * import com.pulumi.azure.network_virtualHubConnection.VirtualHubConnectionArgs;
+ * import com.pulumi.azure.network_virtualHubRouteTable.VirtualHubRouteTable;
+ * import com.pulumi.azure.network_virtualHubRouteTable.VirtualHubRouteTableArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,13 +111,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-vhubroutetable&#34;)
  *             .virtualHubId(exampleVirtualHub.id())
  *             .labels(&#34;label1&#34;)
- *             .routes(VirtualHubRouteTableRouteArgs.builder()
- *                 .name(&#34;example-route&#34;)
- *                 .destinationsType(&#34;CIDR&#34;)
- *                 .destinations(&#34;10.0.0.0/16&#34;)
- *                 .nextHopType(&#34;ResourceId&#34;)
- *                 .nextHop(exampleVirtualHubConnection.id())
- *                 .build())
+ *             .routes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

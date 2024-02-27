@@ -22,20 +22,20 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "workflow-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("example", new()
+    ///     var exampleWorkflow = new Azure.Logicapps.Workflow.Workflow("example", new()
     ///     {
     ///         Name = "workflow1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleActionHttp = new Azure.LogicApps.ActionHttp("example", new()
+    ///     var exampleActionHttp = new Azure.Logicapps.ActionHttp.ActionHttp("example", new()
     ///     {
     ///         Name = "webhook",
     ///         LogicAppId = exampleWorkflow.Id,

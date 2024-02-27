@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Bot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-healthbot",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleHealthbot = new Azure.Bot.Healthbot("example", new()
+    ///     var exampleHealthbot = new Azure.Bot.Healthbot.Healthbot("example", new()
     ///     {
     ///         Name = "example-bot",
     ///         ResourceGroupName = example.Name,

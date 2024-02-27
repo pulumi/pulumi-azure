@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mysql/flexibleDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mysql/flexibleDatabase"
+//	mysql/flexibleServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mysql/flexibleServer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
-//				Name:                  pulumi.String("example-mysql-flexible-server"),
-//				ResourceGroupName:     example.Name,
-//				Location:              example.Location,
-//				AdministratorLogin:    pulumi.String("mysqladminun"),
-//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				SkuName:               pulumi.String("B_Standard_B1s"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mysql.NewFlexibleDatabase(ctx, "example", &mysql.FlexibleDatabaseArgs{
-//				Name:              pulumi.String("exampledb"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleFlexibleServer.Name,
-//				Charset:           pulumi.String("utf8"),
-//				Collation:         pulumi.String("utf8_unicode_ci"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFlexibleServer, err := mysql/flexibleServer.NewFlexibleServer(ctx, "example", &mysql/flexibleServer.FlexibleServerArgs{
+// Name: "example-mysql-flexible-server",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AdministratorLogin: "mysqladminun",
+// AdministratorPassword: "H@Sh1CoR3!",
+// SkuName: "B_Standard_B1s",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mysql/flexibleDatabase.NewFlexibleDatabase(ctx, "example", &mysql/flexibleDatabase.FlexibleDatabaseArgs{
+// Name: "exampledb",
+// ResourceGroupName: example.Name,
+// ServerName: exampleFlexibleServer.Name,
+// Charset: "utf8",
+// Collation: "utf8_unicode_ci",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

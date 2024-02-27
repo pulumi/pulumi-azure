@@ -21,39 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iot/iotHubDeviceUpdateAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/iotHubDeviceUpdateAccount"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewIotHubDeviceUpdateAccount(ctx, "example", &iot.IotHubDeviceUpdateAccountArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Identity: &iot.IotHubDeviceUpdateAccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/iotHubDeviceUpdateAccount.NewIotHubDeviceUpdateAccount(ctx, "example", &iot/iotHubDeviceUpdateAccount.IotHubDeviceUpdateAccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

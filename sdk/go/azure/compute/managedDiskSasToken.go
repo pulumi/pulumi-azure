@@ -27,44 +27,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/managedDisk "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/managedDisk"
+//	compute/managedDiskSasToken "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/managedDiskSasToken"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("testrg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testManagedDisk, err := compute.NewManagedDisk(ctx, "test", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String("tst-disk-export"),
-//				Location:           test.Location,
-//				ResourceGroupName:  test.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Empty"),
-//				DiskSizeGb:         pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewManagedDiskSasToken(ctx, "test", &compute.ManagedDiskSasTokenArgs{
-//				ManagedDiskId:     testManagedDisk.ID(),
-//				DurationInSeconds: pulumi.Int(300),
-//				AccessLevel:       pulumi.String("Read"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := core/resourceGroup.NewResourceGroup(ctx, "test", &core/resourceGroup.ResourceGroupArgs{
+// Name: "testrg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// testManagedDisk, err := compute/managedDisk.NewManagedDisk(ctx, "test", &compute/managedDisk.ManagedDiskArgs{
+// Name: "tst-disk-export",
+// Location: test.Location,
+// ResourceGroupName: test.Name,
+// StorageAccountType: "Standard_LRS",
+// CreateOption: "Empty",
+// DiskSizeGb: "1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/managedDiskSasToken.NewManagedDiskSasToken(ctx, "test", &compute/managedDiskSasToken.ManagedDiskSasTokenArgs{
+// ManagedDiskId: testManagedDisk.Id,
+// DurationInSeconds: 300,
+// AccessLevel: "Read",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

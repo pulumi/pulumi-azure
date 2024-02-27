@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleResolver = new azure.privatedns.Resolver("example", {
+ * const exampleResolver = new azure.privatedns/resolver.Resolver("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "inbounddns",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleResolverInboundEndpoint = new azure.privatedns.ResolverInboundEndpoint("example", {
+ * const exampleResolverInboundEndpoint = new azure.privatedns/resolverInboundEndpoint.ResolverInboundEndpoint("example", {
  *     name: "example-drie",
  *     privateDnsResolverId: exampleResolver.id,
  *     location: exampleResolver.location,

@@ -81,16 +81,6 @@ def get_containers(name_prefix: Optional[str] = None,
     """
     Use this data source to access information about the existing Storage Containers within a Storage Account.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_containers(storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
-    pulumi.export("containerId", example.containers[0].resource_manager_id)
-    ```
-
 
     :param str name_prefix: A prefix match used for the Storage Container `name` field.
     :param str storage_account_id: The ID of the Storage Account that the Storage Containers reside in.
@@ -114,16 +104,6 @@ def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = N
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainersResult]:
     """
     Use this data source to access information about the existing Storage Containers within a Storage Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_containers(storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
-    pulumi.export("containerId", example.containers[0].resource_manager_id)
-    ```
 
 
     :param str name_prefix: A prefix match used for the Storage Container `name` field.

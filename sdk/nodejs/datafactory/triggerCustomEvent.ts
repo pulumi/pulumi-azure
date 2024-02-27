@@ -15,25 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const examplePipeline = new azure.datafactory.Pipeline("example", {
+ * const examplePipeline = new azure.datafactory/pipeline.Pipeline("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  * });
- * const exampleTopic = new azure.eventgrid.Topic("example", {
+ * const exampleTopic = new azure.eventgrid/topic.Topic("example", {
  *     name: "example-topic",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleTriggerCustomEvent = new azure.datafactory.TriggerCustomEvent("example", {
+ * const exampleTriggerCustomEvent = new azure.datafactory/triggerCustomEvent.TriggerCustomEvent("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     eventgridTopicId: exampleTopic.id,

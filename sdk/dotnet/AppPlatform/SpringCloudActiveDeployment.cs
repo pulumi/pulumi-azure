@@ -22,41 +22,41 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example-springcloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "example-springcloudapp",
     ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
-    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("example", new()
+    ///     var exampleSpringCloudJavaDeployment = new Azure.Appplatform.SpringCloudJavaDeployment.SpringCloudJavaDeployment("example", new()
     ///     {
     ///         Name = "deploy1",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///         InstanceCount = 2,
     ///         JvmOptions = "-XX:+PrintGC",
     ///         RuntimeVersion = "Java_11",
-    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
+    ///         Quota = 
     ///         {
-    ///             Cpu = "2",
-    ///             Memory = "4Gi",
+    ///             { "cpu", "2" },
+    ///             { "memory", "4Gi" },
     ///         },
     ///         EnvironmentVariables = 
     ///         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudActiveDeployment = new Azure.AppPlatform.SpringCloudActiveDeployment("example", new()
+    ///     var exampleSpringCloudActiveDeployment = new Azure.Appplatform.SpringCloudActiveDeployment.SpringCloudActiveDeployment("example", new()
     ///     {
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///         DeploymentName = exampleSpringCloudJavaDeployment.Name,

@@ -14,35 +14,6 @@ import (
 // Use this data source to access information about an existing Azure App Configuration Key.
 //
 // > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := appconfiguration.LookupConfigurationKey(ctx, &appconfiguration.LookupConfigurationKeyArgs{
-//				ConfigurationStoreId: appconf.Id,
-//				Key:                  "appConfKey1",
-//				Label:                pulumi.StringRef("somelabel"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("value", test.Value)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConfigurationKey(ctx *pulumi.Context, args *LookupConfigurationKeyArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationKeyResult

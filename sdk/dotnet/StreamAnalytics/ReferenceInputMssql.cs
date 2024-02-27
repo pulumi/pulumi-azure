@@ -12,64 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
-    ///     {
-    ///         Name = "example-sqlserver",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "admin",
-    ///         AdministratorLoginPassword = "password",
-    ///     });
-    /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
-    ///     {
-    ///         Name = "example-db",
-    ///         ServerId = exampleServer.Id,
-    ///     });
-    /// 
-    ///     var exampleReferenceInputMssql = new Azure.StreamAnalytics.ReferenceInputMssql("example", new()
-    ///     {
-    ///         Name = "example-reference-input",
-    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         Server = exampleServer.FullyQualifiedDomainName,
-    ///         Database = exampleDatabase.Name,
-    ///         Username = "exampleuser",
-    ///         Password = "examplepassword",
-    ///         RefreshType = "RefreshPeriodicallyWithFull",
-    ///         RefreshIntervalDuration = "00:20:00",
-    ///         FullSnapshotQuery = @"    SELECT *
-    ///     INTO [YourOutputAlias]
-    ///     FROM [YourInputAlias]
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics can be imported using the `resource id`, e.g.

@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access data stored in an existing Key Vault Certificate.
  *
  * > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.keyvault.getKeyVault({
- *     name: "examplekv",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetCertificateData = example.then(example => azure.keyvault.getCertificateData({
- *     name: "secret-sauce",
- *     keyVaultId: example.id,
- * }));
- * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
- * ```
  */
 export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateDataResult> {
 
@@ -100,23 +83,6 @@ export interface GetCertificateDataResult {
  * Use this data source to access data stored in an existing Key Vault Certificate.
  *
  * > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.keyvault.getKeyVault({
- *     name: "examplekv",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetCertificateData = example.then(example => azure.keyvault.getCertificateData({
- *     name: "secret-sauce",
- *     keyVaultId: example.id,
- * }));
- * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
- * ```
  */
 export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateDataResult> {
     return pulumi.output(args).apply((a: any) => getCertificateData(a, opts))

@@ -369,25 +369,25 @@ class SourceControl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_source_control = azure.automation.SourceControl("example",
-            name="example",
+            sku_name=Basic)
+        example_source_control = azure.automation.source_control.SourceControl("example",
+            name=example,
             automation_account_id=example_account.id,
-            folder_path="runbook",
-            security=azure.automation.SourceControlSecurityArgs(
-                token="ghp_xxx",
-                token_type="PersonalAccessToken",
-            ),
-            repository_url="https://github.com/foo/bat.git",
-            source_control_type="GitHub",
-            branch="main")
+            folder_path=runbook,
+            security={
+                token: ghp_xxx,
+                tokenType: PersonalAccessToken,
+            },
+            repository_url=https://github.com/foo/bat.git,
+            source_control_type=GitHub,
+            branch=main)
         ```
 
         ## Import
@@ -426,25 +426,25 @@ class SourceControl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_source_control = azure.automation.SourceControl("example",
-            name="example",
+            sku_name=Basic)
+        example_source_control = azure.automation.source_control.SourceControl("example",
+            name=example,
             automation_account_id=example_account.id,
-            folder_path="runbook",
-            security=azure.automation.SourceControlSecurityArgs(
-                token="ghp_xxx",
-                token_type="PersonalAccessToken",
-            ),
-            repository_url="https://github.com/foo/bat.git",
-            source_control_type="GitHub",
-            branch="main")
+            folder_path=runbook,
+            security={
+                token: ghp_xxx,
+                tokenType: PersonalAccessToken,
+            },
+            repository_url=https://github.com/foo/bat.git,
+            source_control_type=GitHub,
+            branch=main)
         ```
 
         ## Import

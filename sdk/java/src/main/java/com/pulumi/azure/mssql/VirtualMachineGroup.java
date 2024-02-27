@@ -28,9 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.mssql.VirtualMachineGroup;
- * import com.pulumi.azure.mssql.VirtualMachineGroupArgs;
- * import com.pulumi.azure.mssql.inputs.VirtualMachineGroupWsfcDomainProfileArgs;
+ * import com.pulumi.azure.mssql_virtualMachineGroup.VirtualMachineGroup;
+ * import com.pulumi.azure.mssql_virtualMachineGroup.VirtualMachineGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,10 +54,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .sqlImageOffer(&#34;SQL2017-WS2016&#34;)
  *             .sqlImageSku(&#34;Developer&#34;)
- *             .wsfcDomainProfile(VirtualMachineGroupWsfcDomainProfileArgs.builder()
- *                 .fqdn(&#34;testdomain.com&#34;)
- *                 .clusterSubnetType(&#34;SingleSubnet&#34;)
- *                 .build())
+ *             .wsfcDomainProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

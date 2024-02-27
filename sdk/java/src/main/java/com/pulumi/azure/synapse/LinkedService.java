@@ -35,14 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
  * import com.pulumi.azure.synapse.Workspace;
  * import com.pulumi.azure.synapse.WorkspaceArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.FirewallRule;
  * import com.pulumi.azure.synapse.FirewallRuleArgs;
  * import com.pulumi.azure.synapse.IntegrationRuntimeAzure;
  * import com.pulumi.azure.synapse.IntegrationRuntimeAzureArgs;
  * import com.pulumi.azure.synapse.LinkedService;
  * import com.pulumi.azure.synapse.LinkedServiceArgs;
- * import com.pulumi.azure.synapse.inputs.LinkedServiceIntegrationRuntimeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,9 +81,7 @@ import javax.annotation.Nullable;
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
  *             .managedVirtualNetworkEnabled(true)
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
@@ -105,14 +101,12 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .type(&#34;AzureBlobStorage&#34;)
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
+ *             .typePropertiesJson(&#34;&#34;&#34;
  * {
  *   &#34;connectionString&#34;: &#34;%s&#34;
  * }
- * &#34;, primaryConnectionString)))
- *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
- *                 .name(exampleIntegrationRuntimeAzure.name())
- *                 .build())
+ * &#34;, exampleAccount.primaryConnectionString()))
+ *             .integrationRuntime(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

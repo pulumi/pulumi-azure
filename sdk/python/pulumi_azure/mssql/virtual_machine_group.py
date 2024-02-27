@@ -271,19 +271,19 @@ class VirtualMachineGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
-            name="examplegroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_machine_group = azure.mssql.virtual_machine_group.VirtualMachineGroup("example",
+            name=examplegroup,
             resource_group_name=example.name,
             location=example.location,
-            sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile=azure.mssql.VirtualMachineGroupWsfcDomainProfileArgs(
-                fqdn="testdomain.com",
-                cluster_subnet_type="SingleSubnet",
-            ))
+            sql_image_offer=SQL2017-WS2016,
+            sql_image_sku=Developer,
+            wsfc_domain_profile={
+                fqdn: testdomain.com,
+                clusterSubnetType: SingleSubnet,
+            })
         ```
 
         ## Import
@@ -319,19 +319,19 @@ class VirtualMachineGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
-            name="examplegroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_machine_group = azure.mssql.virtual_machine_group.VirtualMachineGroup("example",
+            name=examplegroup,
             resource_group_name=example.name,
             location=example.location,
-            sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile=azure.mssql.VirtualMachineGroupWsfcDomainProfileArgs(
-                fqdn="testdomain.com",
-                cluster_subnet_type="SingleSubnet",
-            ))
+            sql_image_offer=SQL2017-WS2016,
+            sql_image_sku=Developer,
+            wsfc_domain_profile={
+                fqdn: testdomain.com,
+                clusterSubnetType: SingleSubnet,
+            })
         ```
 
         ## Import

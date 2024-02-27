@@ -339,27 +339,27 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azuretest",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureteststorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azuretest,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="sharename",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=sharename,
             storage_account_name=example_account.name,
             quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="rwdl",
-                    start="2019-07-02T09:38:21.0000000Z",
-                    expiry="2019-07-02T10:38:21.0000000Z",
-                )],
-            )])
+            acls=[{
+                id: MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI,
+                accessPolicies: [{
+                    permissions: rwdl,
+                    start: 2019-07-02T09:38:21.0000000Z,
+                    expiry: 2019-07-02T10:38:21.0000000Z,
+                }],
+            }])
         ```
 
         ## Import
@@ -405,27 +405,27 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azuretest",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureteststorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azuretest,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="sharename",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=sharename,
             storage_account_name=example_account.name,
             quota=50,
-            acls=[azure.storage.ShareAclArgs(
-                id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-                access_policies=[azure.storage.ShareAclAccessPolicyArgs(
-                    permissions="rwdl",
-                    start="2019-07-02T09:38:21.0000000Z",
-                    expiry="2019-07-02T10:38:21.0000000Z",
-                )],
-            )])
+            acls=[{
+                id: MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI,
+                accessPolicies: [{
+                    permissions: rwdl,
+                    start: 2019-07-02T09:38:21.0000000Z,
+                    expiry: 2019-07-02T10:38:21.0000000Z,
+                }],
+            }])
         ```
 
         ## Import

@@ -30,11 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VpnSite;
- * import com.pulumi.azure.network.VpnSiteArgs;
- * import com.pulumi.azure.network.inputs.VpnSiteLinkArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_vpnSite.VpnSite;
+ * import com.pulumi.azure.network_vpnSite.VpnSiteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,10 +64,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .addressCidrs(&#34;10.0.0.0/24&#34;)
- *             .links(VpnSiteLinkArgs.builder()
- *                 .name(&#34;link1&#34;)
- *                 .ipAddress(&#34;10.0.0.1&#34;)
- *                 .build())
+ *             .links(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

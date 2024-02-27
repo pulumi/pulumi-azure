@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Management Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getAccount({
- *     name: "storageaccountname",
- *     resourceGroupName: "resourcegroupname",
- * });
- * const exampleGetPolicy = example.then(example => azure.storage.getPolicy({
- *     storageAccountId: example.id,
- * }));
- * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -58,21 +43,6 @@ export interface GetPolicyResult {
 }
 /**
  * Use this data source to access information about an existing Storage Management Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getAccount({
- *     name: "storageaccountname",
- *     resourceGroupName: "resourcegroupname",
- * });
- * const exampleGetPolicy = example.then(example => azure.storage.getPolicy({
- *     storageAccountId: example.id,
- * }));
- * ```
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

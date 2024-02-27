@@ -7,48 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Static Member.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     scope: {
- *         subscriptionIds: [current.then(current => current.id)],
- *     },
- *     scopeAccesses: [
- *         "Connectivity",
- *         "SecurityAdmin",
- *     ],
- *     description: "example network manager",
- * });
- * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("example", {
- *     name: "example-group",
- *     networkManagerId: exampleNetworkManager.id,
- *     description: "example network group",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example-vnet",
- *     resourceGroupName: example.name,
- *     addressSpaces: ["192.168.1.0/24"],
- *     location: example.location,
- * });
- * const exampleNetworkManagerStaticMember = new azure.network.NetworkManagerStaticMember("example", {
- *     name: "example-nmsm",
- *     networkGroupId: exampleNetworkManagerNetworkGroup.id,
- *     targetVirtualNetworkId: exampleVirtualNetwork.id,
- * });
- * ```
- *
  * ## Import
  *
  * Network Manager Static Member can be imported using the `resource id`, e.g.

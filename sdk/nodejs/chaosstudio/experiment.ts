@@ -15,28 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "westeurope",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     name: "example",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "internal",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ * const exampleLinuxVirtualMachine = new azure.compute/linuxVirtualMachine.LinuxVirtualMachine("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -66,16 +66,16 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleTarget = new azure.chaosstudio.Target("example", {
+ * const exampleTarget = new azure.chaosstudio/target.Target("example", {
  *     location: example.location,
  *     targetResourceId: exampleLinuxVirtualMachine.id,
  *     targetType: "Microsoft-VirtualMachine",
  * });
- * const exampleCapability = new azure.chaosstudio.Capability("example", {
+ * const exampleCapability = new azure.chaosstudio/capability.Capability("example", {
  *     chaosStudioTargetId: exampleTarget.id,
  *     capabilityType: "Shutdown-1.0",
  * });
- * const exampleExperiment = new azure.chaosstudio.Experiment("example", {
+ * const exampleExperiment = new azure.chaosstudio/experiment.Experiment("example", {
  *     location: example.location,
  *     name: "example",
  *     resourceGroupName: example.name,

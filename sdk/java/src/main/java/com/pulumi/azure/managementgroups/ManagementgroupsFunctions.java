@@ -17,37 +17,6 @@ public final class ManagementgroupsFunctions {
     /**
      * Use this data source to access information about an existing Management Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -58,37 +27,6 @@ public final class ManagementgroupsFunctions {
     }
     /**
      * Use this data source to access information about an existing Management Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -101,37 +39,6 @@ public final class ManagementgroupsFunctions {
     /**
      * Use this data source to access information about an existing Management Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -142,37 +49,6 @@ public final class ManagementgroupsFunctions {
     }
     /**
      * Use this data source to access information about an existing Management Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
@@ -185,37 +61,6 @@ public final class ManagementgroupsFunctions {
     /**
      * Use this data source to access information about an existing Management Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
      * 
@@ -226,37 +71,6 @@ public final class ManagementgroupsFunctions {
     }
     /**
      * Use this data source to access information about an existing Management Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.management.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;displayName&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.displayName()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup

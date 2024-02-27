@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const example = new azuread.Application("example", {displayName: "example-app"});
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ * const example = new azuread.index/application.Application("example", {displayName: "example-app"});
+ * const exampleResourceGroup = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServicesAccount = new azure.graph.ServicesAccount("example", {
+ * const exampleServicesAccount = new azure.graph/servicesAccount.ServicesAccount("example", {
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     applicationId: example.applicationId,

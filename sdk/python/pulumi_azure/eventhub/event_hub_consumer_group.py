@@ -209,30 +209,30 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="acceptanceTestEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=acceptanceTestEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Basic",
+            sku=Basic,
             capacity=2,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="acceptanceTestEventHub",
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=acceptanceTestEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=2)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="acceptanceTestEventHubConsumerGroup",
+        example_consumer_group = azure.eventhub.consumer_group.ConsumerGroup("example",
+            name=acceptanceTestEventHubConsumerGroup,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name,
-            user_metadata="some-meta-data")
+            user_metadata=some-meta-data)
         ```
 
         ## Import
@@ -266,30 +266,30 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="acceptanceTestEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=acceptanceTestEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Basic",
+            sku=Basic,
             capacity=2,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="acceptanceTestEventHub",
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=acceptanceTestEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=2)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="acceptanceTestEventHubConsumerGroup",
+        example_consumer_group = azure.eventhub.consumer_group.ConsumerGroup("example",
+            name=acceptanceTestEventHubConsumerGroup,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name,
-            user_metadata="some-meta-data")
+            user_metadata=some-meta-data)
         ```
 
         ## Import

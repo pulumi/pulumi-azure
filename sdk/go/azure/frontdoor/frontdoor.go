@@ -31,82 +31,80 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/frontdoor"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	frontdoor/frontdoor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/frontdoor/frontdoor"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("FrontDoorExampleResourceGroup"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
-//				Name:              pulumi.String("example-FrontDoor"),
-//				ResourceGroupName: example.Name,
-//				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
-//					&frontdoor.FrontdoorRoutingRuleArgs{
-//						Name: pulumi.String("exampleRoutingRule1"),
-//						AcceptedProtocols: pulumi.StringArray{
-//							pulumi.String("Http"),
-//							pulumi.String("Https"),
-//						},
-//						PatternsToMatches: pulumi.StringArray{
-//							pulumi.String("/*"),
-//						},
-//						FrontendEndpoints: pulumi.StringArray{
-//							pulumi.String("exampleFrontendEndpoint1"),
-//						},
-//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
-//							ForwardingProtocol: pulumi.String("MatchRequest"),
-//							BackendPoolName:    pulumi.String("exampleBackendBing"),
-//						},
-//					},
-//				},
-//				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
-//					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
-//						Name: pulumi.String("exampleLoadBalancingSettings1"),
-//					},
-//				},
-//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
-//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
-//						Name: pulumi.String("exampleHealthProbeSetting1"),
-//					},
-//				},
-//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
-//					&frontdoor.FrontdoorBackendPoolArgs{
-//						Name: pulumi.String("exampleBackendBing"),
-//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
-//							&frontdoor.FrontdoorBackendPoolBackendArgs{
-//								HostHeader: pulumi.String("www.bing.com"),
-//								Address:    pulumi.String("www.bing.com"),
-//								HttpPort:   pulumi.Int(80),
-//								HttpsPort:  pulumi.Int(443),
-//							},
-//						},
-//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
-//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
-//					},
-//				},
-//				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
-//					&frontdoor.FrontdoorFrontendEndpointArgs{
-//						Name:     pulumi.String("exampleFrontendEndpoint1"),
-//						HostName: pulumi.String("example-FrontDoor.azurefd.net"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "FrontDoorExampleResourceGroup",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = frontdoor/frontdoor.NewFrontdoor(ctx, "example", &frontdoor/frontdoor.FrontdoorArgs{
+// Name: "example-FrontDoor",
+// ResourceGroupName: example.Name,
+// RoutingRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleRoutingRule1",
+// "acceptedProtocols": []string{
+// "Http",
+// "Https",
+// },
+// "patternsToMatches": []string{
+// "/*",
+// },
+// "frontendEndpoints": []string{
+// "exampleFrontendEndpoint1",
+// },
+// "forwardingConfiguration": map[string]interface{}{
+// "forwardingProtocol": "MatchRequest",
+// "backendPoolName": "exampleBackendBing",
+// },
+// },
+// },
+// BackendPoolLoadBalancings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleLoadBalancingSettings1",
+// },
+// },
+// BackendPoolHealthProbes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleHealthProbeSetting1",
+// },
+// },
+// BackendPools: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleBackendBing",
+// "backends": []map[string]interface{}{
+// map[string]interface{}{
+// "hostHeader": "www.bing.com",
+// "address": "www.bing.com",
+// "httpPort": 80,
+// "httpsPort": 443,
+// },
+// },
+// "loadBalancingName": "exampleLoadBalancingSettings1",
+// "healthProbeName": "exampleHealthProbeSetting1",
+// },
+// },
+// FrontendEndpoints: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleFrontendEndpoint1",
+// "hostName": "example-FrontDoor.azurefd.net",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

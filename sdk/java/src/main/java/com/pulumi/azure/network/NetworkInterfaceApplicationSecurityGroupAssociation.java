@@ -25,15 +25,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.ApplicationSecurityGroup;
  * import com.pulumi.azure.network.ApplicationSecurityGroupArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.network.NetworkInterfaceApplicationSecurityGroupAssociation;
  * import com.pulumi.azure.network.NetworkInterfaceApplicationSecurityGroupAssociationArgs;
  * import java.util.List;
@@ -78,11 +77,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-nic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkInterfaceApplicationSecurityGroupAssociation = new NetworkInterfaceApplicationSecurityGroupAssociation(&#34;exampleNetworkInterfaceApplicationSecurityGroupAssociation&#34;, NetworkInterfaceApplicationSecurityGroupAssociationArgs.builder()        

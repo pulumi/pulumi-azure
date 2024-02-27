@@ -1146,77 +1146,77 @@ class ApplicationGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.254.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
+            address_spaces=[10.254.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.0.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-pip",
+            address_prefixes=[10.254.0.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-pip,
             resource_group_name=example.name,
             location=example.location,
-            allocation_method="Dynamic")
-        backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
-        frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
-        frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
-        http_setting_name = example_virtual_network.name.apply(lambda name: f"{name}-be-htst")
-        listener_name = example_virtual_network.name.apply(lambda name: f"{name}-httplstn")
-        request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
-        redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
-        network = azure.network.ApplicationGateway("network",
-            name="example-appgateway",
+            allocation_method=Dynamic)
+        backend_address_pool_name = f"{example_virtual_network['name']}-beap"
+        frontend_port_name = f"{example_virtual_network['name']}-feport"
+        frontend_ip_configuration_name = f"{example_virtual_network['name']}-feip"
+        http_setting_name = f"{example_virtual_network['name']}-be-htst"
+        listener_name = f"{example_virtual_network['name']}-httplstn"
+        request_routing_rule_name = f"{example_virtual_network['name']}-rqrt"
+        redirect_configuration_name = f"{example_virtual_network['name']}-rdrcfg"
+        network = azure.network.application_gateway.ApplicationGateway("network",
+            name=example-appgateway,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.network.ApplicationGatewaySkuArgs(
-                name="Standard_v2",
-                tier="Standard_v2",
-                capacity=2,
-            ),
-            gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
-                name="my-gateway-ip-configuration",
-                subnet_id=example_subnet.id,
-            )],
-            frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
-                name=frontend_port_name,
-                port=80,
-            )],
-            frontend_ip_configurations=[azure.network.ApplicationGatewayFrontendIpConfigurationArgs(
-                name=frontend_ip_configuration_name,
-                public_ip_address_id=example_public_ip.id,
-            )],
-            backend_address_pools=[azure.network.ApplicationGatewayBackendAddressPoolArgs(
-                name=backend_address_pool_name,
-            )],
-            backend_http_settings=[azure.network.ApplicationGatewayBackendHttpSettingArgs(
-                name=http_setting_name,
-                cookie_based_affinity="Disabled",
-                path="/path1/",
-                port=80,
-                protocol="Http",
-                request_timeout=60,
-            )],
-            http_listeners=[azure.network.ApplicationGatewayHttpListenerArgs(
-                name=listener_name,
-                frontend_ip_configuration_name=frontend_ip_configuration_name,
-                frontend_port_name=frontend_port_name,
-                protocol="Http",
-            )],
-            request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
-                name=request_routing_rule_name,
-                priority=9,
-                rule_type="Basic",
-                http_listener_name=listener_name,
-                backend_address_pool_name=backend_address_pool_name,
-                backend_http_settings_name=http_setting_name,
-            )])
+            sku={
+                name: Standard_v2,
+                tier: Standard_v2,
+                capacity: 2,
+            },
+            gateway_ip_configurations=[{
+                name: my-gateway-ip-configuration,
+                subnetId: example_subnet.id,
+            }],
+            frontend_ports=[{
+                name: frontend_port_name,
+                port: 80,
+            }],
+            frontend_ip_configurations=[{
+                name: frontend_ip_configuration_name,
+                publicIpAddressId: example_public_ip.id,
+            }],
+            backend_address_pools=[{
+                name: backend_address_pool_name,
+            }],
+            backend_http_settings=[{
+                name: http_setting_name,
+                cookieBasedAffinity: Disabled,
+                path: /path1/,
+                port: 80,
+                protocol: Http,
+                requestTimeout: 60,
+            }],
+            http_listeners=[{
+                name: listener_name,
+                frontendIpConfigurationName: frontend_ip_configuration_name,
+                frontendPortName: frontend_port_name,
+                protocol: Http,
+            }],
+            request_routing_rules=[{
+                name: request_routing_rule_name,
+                priority: 9,
+                ruleType: Basic,
+                httpListenerName: listener_name,
+                backendAddressPoolName: backend_address_pool_name,
+                backendHttpSettingsName: http_setting_name,
+            }])
         ```
 
         ## Import
@@ -1278,77 +1278,77 @@ class ApplicationGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.254.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
+            address_spaces=[10.254.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.0.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-pip",
+            address_prefixes=[10.254.0.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-pip,
             resource_group_name=example.name,
             location=example.location,
-            allocation_method="Dynamic")
-        backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
-        frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
-        frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
-        http_setting_name = example_virtual_network.name.apply(lambda name: f"{name}-be-htst")
-        listener_name = example_virtual_network.name.apply(lambda name: f"{name}-httplstn")
-        request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
-        redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
-        network = azure.network.ApplicationGateway("network",
-            name="example-appgateway",
+            allocation_method=Dynamic)
+        backend_address_pool_name = f"{example_virtual_network['name']}-beap"
+        frontend_port_name = f"{example_virtual_network['name']}-feport"
+        frontend_ip_configuration_name = f"{example_virtual_network['name']}-feip"
+        http_setting_name = f"{example_virtual_network['name']}-be-htst"
+        listener_name = f"{example_virtual_network['name']}-httplstn"
+        request_routing_rule_name = f"{example_virtual_network['name']}-rqrt"
+        redirect_configuration_name = f"{example_virtual_network['name']}-rdrcfg"
+        network = azure.network.application_gateway.ApplicationGateway("network",
+            name=example-appgateway,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.network.ApplicationGatewaySkuArgs(
-                name="Standard_v2",
-                tier="Standard_v2",
-                capacity=2,
-            ),
-            gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
-                name="my-gateway-ip-configuration",
-                subnet_id=example_subnet.id,
-            )],
-            frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
-                name=frontend_port_name,
-                port=80,
-            )],
-            frontend_ip_configurations=[azure.network.ApplicationGatewayFrontendIpConfigurationArgs(
-                name=frontend_ip_configuration_name,
-                public_ip_address_id=example_public_ip.id,
-            )],
-            backend_address_pools=[azure.network.ApplicationGatewayBackendAddressPoolArgs(
-                name=backend_address_pool_name,
-            )],
-            backend_http_settings=[azure.network.ApplicationGatewayBackendHttpSettingArgs(
-                name=http_setting_name,
-                cookie_based_affinity="Disabled",
-                path="/path1/",
-                port=80,
-                protocol="Http",
-                request_timeout=60,
-            )],
-            http_listeners=[azure.network.ApplicationGatewayHttpListenerArgs(
-                name=listener_name,
-                frontend_ip_configuration_name=frontend_ip_configuration_name,
-                frontend_port_name=frontend_port_name,
-                protocol="Http",
-            )],
-            request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
-                name=request_routing_rule_name,
-                priority=9,
-                rule_type="Basic",
-                http_listener_name=listener_name,
-                backend_address_pool_name=backend_address_pool_name,
-                backend_http_settings_name=http_setting_name,
-            )])
+            sku={
+                name: Standard_v2,
+                tier: Standard_v2,
+                capacity: 2,
+            },
+            gateway_ip_configurations=[{
+                name: my-gateway-ip-configuration,
+                subnetId: example_subnet.id,
+            }],
+            frontend_ports=[{
+                name: frontend_port_name,
+                port: 80,
+            }],
+            frontend_ip_configurations=[{
+                name: frontend_ip_configuration_name,
+                publicIpAddressId: example_public_ip.id,
+            }],
+            backend_address_pools=[{
+                name: backend_address_pool_name,
+            }],
+            backend_http_settings=[{
+                name: http_setting_name,
+                cookieBasedAffinity: Disabled,
+                path: /path1/,
+                port: 80,
+                protocol: Http,
+                requestTimeout: 60,
+            }],
+            http_listeners=[{
+                name: listener_name,
+                frontendIpConfigurationName: frontend_ip_configuration_name,
+                frontendPortName: frontend_port_name,
+                protocol: Http,
+            }],
+            request_routing_rules=[{
+                name: request_routing_rule_name,
+                priority: 9,
+                ruleType: Basic,
+                httpListenerName: listener_name,
+                backendAddressPoolName: backend_address_pool_name,
+                backendHttpSettingsName: http_setting_name,
+            }])
         ```
 
         ## Import

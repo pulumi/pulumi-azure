@@ -19,19 +19,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = new azure.core.ResourceGroup("test", {
+ * const test = new azure.core/resourceGroup.ResourceGroup("test", {
  *     name: "testrg",
  *     location: "West Europe",
  * });
- * const testManagedDisk = new azure.compute.ManagedDisk("test", {
+ * const testManagedDisk = new azure.compute/managedDisk.ManagedDisk("test", {
  *     name: "tst-disk-export",
  *     location: test.location,
  *     resourceGroupName: test.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: 1,
+ *     diskSizeGb: "1",
  * });
- * const testManagedDiskSasToken = new azure.compute.ManagedDiskSasToken("test", {
+ * const testManagedDiskSasToken = new azure.compute/managedDiskSasToken.ManagedDiskSasToken("test", {
  *     managedDiskId: testManagedDisk.id,
  *     durationInSeconds: 300,
  *     accessLevel: "Read",

@@ -315,39 +315,39 @@ class HybridConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exampleResourceGroup1",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="exampleAppServicePlan1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exampleResourceGroup1,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=exampleAppServicePlan1,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="exampleAppService1",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_app_service = azure.appservice.app_service.AppService("example",
+            name=exampleAppService1,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
-        example_namespace = azure.relay.Namespace("example",
-            name="exampleRN1",
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=exampleRN1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("example",
-            name="exampleRHC1",
+            sku_name=Standard)
+        example_hybrid_connection = azure.relay.hybrid_connection.HybridConnection("example",
+            name=exampleRHC1,
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name,
-            user_metadata="examplemetadata")
-        example_hybrid_connection2 = azure.appservice.HybridConnection("example",
+            user_metadata=examplemetadata)
+        example_hybrid_connection2 = azure.appservice.hybrid_connection.HybridConnection("example",
             app_service_name=example_app_service.name,
             resource_group_name=example.name,
             relay_id=example_hybrid_connection.id,
-            hostname="testhostname.example",
+            hostname=testhostname.example,
             port=8080,
-            send_key_name="exampleSharedAccessKey")
+            send_key_name=exampleSharedAccessKey)
         ```
 
         ## Import
@@ -386,39 +386,39 @@ class HybridConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exampleResourceGroup1",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="exampleAppServicePlan1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exampleResourceGroup1,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=exampleAppServicePlan1,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="exampleAppService1",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_app_service = azure.appservice.app_service.AppService("example",
+            name=exampleAppService1,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
-        example_namespace = azure.relay.Namespace("example",
-            name="exampleRN1",
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=exampleRN1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("example",
-            name="exampleRHC1",
+            sku_name=Standard)
+        example_hybrid_connection = azure.relay.hybrid_connection.HybridConnection("example",
+            name=exampleRHC1,
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name,
-            user_metadata="examplemetadata")
-        example_hybrid_connection2 = azure.appservice.HybridConnection("example",
+            user_metadata=examplemetadata)
+        example_hybrid_connection2 = azure.appservice.hybrid_connection.HybridConnection("example",
             app_service_name=example_app_service.name,
             resource_group_name=example.name,
             relay_id=example_hybrid_connection.id,
-            hostname="testhostname.example",
+            hostname=testhostname.example,
             port=8080,
-            send_key_name="exampleSharedAccessKey")
+            send_key_name=exampleSharedAccessKey)
         ```
 
         ## Import

@@ -254,15 +254,15 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_workspace = azure.monitoring.Workspace("example",
-            name="example-mamw",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_workspace = azure.monitoring.workspace.Workspace("example",
+            name=example-mamw,
             resource_group_name=example.name,
-            location="West Europe",
+            location=West Europe,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -297,15 +297,15 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_workspace = azure.monitoring.Workspace("example",
-            name="example-mamw",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_workspace = azure.monitoring.workspace.Workspace("example",
+            name=example-mamw,
             resource_group_name=example.name,
-            location="West Europe",
+            location=West Europe,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

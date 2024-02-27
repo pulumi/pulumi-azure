@@ -102,19 +102,6 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
 
         !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.get_group(name="exampleManagementGroup")
-        example_get_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("example",
-            management_group_id=example.id,
-            subscription_id=example_get_subscription.id)
-        ```
-
         ## Import
 
         Managements can be imported using the `resource id`, e.g.
@@ -138,19 +125,6 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         Manages a Management Group Subscription Association.
 
         !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.get_group(name="exampleManagementGroup")
-        example_get_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("example",
-            management_group_id=example.id,
-            subscription_id=example_get_subscription.id)
-        ```
 
         ## Import
 

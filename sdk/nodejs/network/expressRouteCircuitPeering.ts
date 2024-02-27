@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exprtTest",
  *     location: "West Europe",
  * });
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ * const exampleExpressRouteCircuit = new azure.network/expressRouteCircuit.ExpressRouteCircuit("example", {
  *     name: "expressRoute1",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ * const exampleExpressRouteCircuitPeering = new azure.network/expressRouteCircuitPeering.ExpressRouteCircuitPeering("example", {
  *     peeringType: "MicrosoftPeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,
@@ -64,11 +64,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exprtTest",
  *     location: "West Europe",
  * });
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ * const exampleExpressRouteCircuit = new azure.network/expressRouteCircuit.ExpressRouteCircuit("example", {
  *     name: "expressRoute1",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ * const exampleExpressRouteCircuitPeering = new azure.network/expressRouteCircuitPeering.ExpressRouteCircuitPeering("example", {
  *     peeringType: "AzurePrivatePeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,

@@ -24,27 +24,27 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Premium_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup.FrontdoorOriginGroup("example", new()
     ///     {
     ///         Name = "example-origingroup",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         LoadBalancing = null,
     ///     });
     /// 
-    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
+    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin.FrontdoorOrigin("example", new()
     ///     {
     ///         Name = "example-origin",
     ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
@@ -70,13 +70,13 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -84,9 +84,9 @@ namespace Pulumi.Azure.Cdn
     ///         AccountTier = "Premium",
     ///         AccountReplicationType = "LRS",
     ///         AllowNestedItemsToBePublic = false,
-    ///         NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
+    ///         NetworkRules = 
     ///         {
-    ///             DefaultAction = "Deny",
+    ///             { "defaultAction", "Deny" },
     ///         },
     ///         Tags = 
     ///         {
@@ -94,21 +94,21 @@ namespace Pulumi.Azure.Cdn
     ///         },
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Premium_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup.FrontdoorOriginGroup("example", new()
     ///     {
     ///         Name = "example-origin-group",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         LoadBalancing = null,
     ///     });
     /// 
-    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
+    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin.FrontdoorOrigin("example", new()
     ///     {
     ///         Name = "example-origin",
     ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
@@ -118,143 +118,12 @@ namespace Pulumi.Azure.Cdn
     ///         OriginHostHeader = exampleAccount.PrimaryBlobHost,
     ///         Priority = 1,
     ///         Weight = 500,
-    ///         PrivateLink = new Azure.Cdn.Inputs.FrontdoorOriginPrivateLinkArgs
+    ///         PrivateLink = 
     ///         {
-    ///             RequestMessage = "Request access for Private Link Origin CDN Frontdoor",
-    ///             TargetType = "blob",
-    ///             Location = exampleAccount.Location,
-    ///             PrivateLinkTargetId = exampleAccount.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Private Link Service
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
-    ///     {
-    ///         Name = "profile-example",
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Premium_AzureFrontDoor",
-    ///     });
-    /// 
-    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
-    ///     {
-    ///         Name = "group-example",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
-    ///         {
-    ///             AdditionalLatencyInMilliseconds = 0,
-    ///             SampleSize = 16,
-    ///             SuccessfulSamplesRequired = 3,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
-    ///     {
-    ///         Name = "vn-example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.5.0.0/16",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
-    ///     {
-    ///         Name = "sn-example",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.5.1.0/24",
-    ///         },
-    ///         PrivateLinkServiceNetworkPoliciesEnabled = false,
-    ///     });
-    /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
-    ///     {
-    ///         Name = "ip-example",
-    ///         Sku = "Standard",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AllocationMethod = "Static",
-    ///     });
-    /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
-    ///     {
-    ///         Name = "lb-example",
-    ///         Sku = "Standard",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         FrontendIpConfigurations = new[]
-    ///         {
-    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///             {
-    ///                 Name = examplePublicIp.Name,
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("example", new()
-    ///     {
-    ///         Name = "pls-example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         VisibilitySubscriptionIds = new[]
-    ///         {
-    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
-    ///         },
-    ///         LoadBalancerFrontendIpConfigurationIds = new[]
-    ///         {
-    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
-    ///         },
-    ///         NatIpConfigurations = new[]
-    ///         {
-    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
-    ///             {
-    ///                 Name = "primary",
-    ///                 PrivateIpAddress = "10.5.1.17",
-    ///                 PrivateIpAddressVersion = "IPv4",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 Primary = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
-    ///     {
-    ///         Name = "origin-example",
-    ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
-    ///         Enabled = true,
-    ///         HostName = "example.com",
-    ///         OriginHostHeader = "example.com",
-    ///         Priority = 1,
-    ///         Weight = 1000,
-    ///         CertificateNameCheckEnabled = false,
-    ///         PrivateLink = new Azure.Cdn.Inputs.FrontdoorOriginPrivateLinkArgs
-    ///         {
-    ///             RequestMessage = "Request access for Private Link Origin CDN Frontdoor",
-    ///             Location = example.Location,
-    ///             PrivateLinkTargetId = exampleLinkService.Id,
+    ///             { "requestMessage", "Request access for Private Link Origin CDN Frontdoor" },
+    ///             { "targetType", "blob" },
+    ///             { "location", exampleAccount.Location },
+    ///             { "privateLinkTargetId", exampleAccount.Id },
     ///         },
     ///     });
     /// 

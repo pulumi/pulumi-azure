@@ -549,104 +549,13 @@ class ConfigurationStore(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            name="appConf1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        appconf = azure.appconfiguration.configuration_store.ConfigurationStore("appconf",
+            name=appConf1,
             resource_group_name=example.name,
             location=example.location)
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-identity",
-            location=example.location,
-            resource_group_name=example.name)
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="exampleKVt123",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True)
-        server = azure.keyvault.AccessPolicy("server",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_user_assigned_identity.principal_id,
-            key_permissions=[
-                "Get",
-                "UnwrapKey",
-                "WrapKey",
-            ],
-            secret_permissions=["Get"])
-        client = azure.keyvault.AccessPolicy("client",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "Create",
-                "Delete",
-                "List",
-                "Restore",
-                "Recover",
-                "UnwrapKey",
-                "WrapKey",
-                "Purge",
-                "Encrypt",
-                "Decrypt",
-                "Sign",
-                "Verify",
-                "GetRotationPolicy",
-            ],
-            secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("example",
-            name="exampleKVkey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ])
-        example_configuration_store = azure.appconfiguration.ConfigurationStore("example",
-            name="appConf2",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="standard",
-            local_auth_enabled=True,
-            public_network_access="Enabled",
-            purge_protection_enabled=False,
-            soft_delete_retention_days=1,
-            identity=azure.appconfiguration.ConfigurationStoreIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.appconfiguration.ConfigurationStoreEncryptionArgs(
-                key_vault_key_identifier=example_key.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ),
-            replicas=[azure.appconfiguration.ConfigurationStoreReplicaArgs(
-                name="replica1",
-                location="West US",
-            )],
-            tags={
-                "environment": "development",
-            })
         ```
 
         ## Import
@@ -693,104 +602,13 @@ class ConfigurationStore(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        appconf = azure.appconfiguration.ConfigurationStore("appconf",
-            name="appConf1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        appconf = azure.appconfiguration.configuration_store.ConfigurationStore("appconf",
+            name=appConf1,
             resource_group_name=example.name,
             location=example.location)
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-identity",
-            location=example.location,
-            resource_group_name=example.name)
-        current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="exampleKVt123",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True)
-        server = azure.keyvault.AccessPolicy("server",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=example_user_assigned_identity.principal_id,
-            key_permissions=[
-                "Get",
-                "UnwrapKey",
-                "WrapKey",
-            ],
-            secret_permissions=["Get"])
-        client = azure.keyvault.AccessPolicy("client",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Get",
-                "Create",
-                "Delete",
-                "List",
-                "Restore",
-                "Recover",
-                "UnwrapKey",
-                "WrapKey",
-                "Purge",
-                "Encrypt",
-                "Decrypt",
-                "Sign",
-                "Verify",
-                "GetRotationPolicy",
-            ],
-            secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("example",
-            name="exampleKVkey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ])
-        example_configuration_store = azure.appconfiguration.ConfigurationStore("example",
-            name="appConf2",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="standard",
-            local_auth_enabled=True,
-            public_network_access="Enabled",
-            purge_protection_enabled=False,
-            soft_delete_retention_days=1,
-            identity=azure.appconfiguration.ConfigurationStoreIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.appconfiguration.ConfigurationStoreEncryptionArgs(
-                key_vault_key_identifier=example_key.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ),
-            replicas=[azure.appconfiguration.ConfigurationStoreReplicaArgs(
-                name="replica1",
-                location="West US",
-            )],
-            tags={
-                "environment": "development",
-            })
         ```
 
         ## Import

@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Servicebus.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "exampleNamespace",
     ///         Location = example.Location,
@@ -38,13 +38,13 @@ namespace Pulumi.Azure.Iot
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     var exampleTopic = new Azure.Servicebus.Topic.Topic("example", new()
     ///     {
     ///         Name = "exampleTopic",
     ///         NamespaceId = exampleNamespace.Id,
     ///     });
     /// 
-    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("example", new()
+    ///     var exampleTopicAuthorizationRule = new Azure.Servicebus.TopicAuthorizationRule.TopicAuthorizationRule("example", new()
     ///     {
     ///         Name = "exampleRule",
     ///         TopicId = exampleTopic.Id,
@@ -53,15 +53,15 @@ namespace Pulumi.Azure.Iot
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "exampleIothub",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "B1",
-    ///             Capacity = 1,
+    ///             { "name", "B1" },
+    ///             { "capacity", "1" },
     ///         },
     ///         Tags = 
     ///         {
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Iot
     ///         },
     ///     });
     /// 
-    ///     var exampleEndpointServicebusTopic = new Azure.Iot.EndpointServicebusTopic("example", new()
+    ///     var exampleEndpointServicebusTopic = new Azure.Iot.EndpointServicebusTopic.EndpointServicebusTopic("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         IothubId = exampleIoTHub.Id,

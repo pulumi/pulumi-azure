@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account Map.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("example", {
- *     name: "example-ia",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "Standard",
- * });
- * const exampleIntegrationAccountMap = new azure.logicapps.IntegrationAccountMap("example", {
- *     name: "example-iamap",
- *     resourceGroupName: example.name,
- *     integrationAccountName: exampleIntegrationAccount.name,
- *     mapType: "Xslt",
- *     content: std.file({
- *         input: "testdata/integration_account_map_content.xsd",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Integration Account Maps can be imported using the `resource id`, e.g.

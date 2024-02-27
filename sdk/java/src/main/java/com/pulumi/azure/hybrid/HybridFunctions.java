@@ -21,38 +21,6 @@ public final class HybridFunctions {
      * 
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hybrid.HybridFunctions;
-     * import com.pulumi.azure.hybrid.inputs.GetComputeMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetComputeMachineResult> getComputeMachine(GetComputeMachineArgs args) {
         return getComputeMachine(args, InvokeOptions.Empty);
@@ -63,38 +31,6 @@ public final class HybridFunctions {
      * ## Disclaimers
      * 
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hybrid.HybridFunctions;
-     * import com.pulumi.azure.hybrid.inputs.GetComputeMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetComputeMachineResult> getComputeMachinePlain(GetComputeMachinePlainArgs args) {
@@ -107,38 +43,6 @@ public final class HybridFunctions {
      * 
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hybrid.HybridFunctions;
-     * import com.pulumi.azure.hybrid.inputs.GetComputeMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetComputeMachineResult> getComputeMachine(GetComputeMachineArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:hybrid/getComputeMachine:getComputeMachine", TypeShape.of(GetComputeMachineResult.class), args, Utilities.withVersion(options));
@@ -149,38 +53,6 @@ public final class HybridFunctions {
      * ## Disclaimers
      * 
      * &gt; **Note:** The  Data Source `azure.hybrid.getComputeMachine` is deprecated will be removed in v4.0 of the Azure Provider - a replacement can be found in the form of the `azure.arcmachine.get` Data Source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.hybrid.HybridFunctions;
-     * import com.pulumi.azure.hybrid.inputs.GetComputeMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = HybridFunctions.getComputeMachine(GetComputeMachineArgs.builder()
-     *             .name(&#34;existing-hcmachine&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getComputeMachineResult -&gt; getComputeMachineResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetComputeMachineResult> getComputeMachinePlain(GetComputeMachinePlainArgs args, InvokeOptions options) {

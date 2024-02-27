@@ -28,12 +28,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.privatedns.Resolver;
  * import com.pulumi.azure.privatedns.ResolverArgs;
  * import com.pulumi.azure.privatedns.ResolverOutboundEndpoint;
@@ -70,13 +68,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.64/28&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;Microsoft.Network.dnsResolvers&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .name(&#34;Microsoft.Network/dnsResolvers&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleResolver = new Resolver(&#34;exampleResolver&#34;, ResolverArgs.builder()        
@@ -91,7 +83,7 @@ import javax.annotation.Nullable;
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())
  *             .subnetId(exampleSubnet.id())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset(&#34;exampleResolverDnsForwardingRuleset&#34;, ResolverDnsForwardingRulesetArgs.builder()        
@@ -99,7 +91,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .privateDnsResolverOutboundEndpointIds(exampleResolverOutboundEndpoint.id())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

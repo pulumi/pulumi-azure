@@ -14,23 +14,23 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const primary = new azure.core.ResourceGroup("primary", {
+ * const primary = new azure.core/resourceGroup.ResourceGroup("primary", {
  *     name: "aadds-primary-rg",
  *     location: "West Europe",
  * });
- * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
+ * const primaryVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("primary", {
  *     name: "aadds-primary-vnet",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
  *     addressSpaces: ["10.0.1.0/16"],
  * });
- * const primarySubnet = new azure.network.Subnet("primary", {
+ * const primarySubnet = new azure.network/subnet.Subnet("primary", {
  *     name: "aadds-primary-subnet",
  *     resourceGroupName: primary.name,
  *     virtualNetworkName: primaryVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primary", {
+ * const primaryNetworkSecurityGroup = new azure.network/networkSecurityGroup.NetworkSecurityGroup("primary", {
  *     name: "aadds-primary-nsg",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
@@ -81,29 +81,29 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const primarySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("primary", {
+ * const primarySubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("primary", {
  *     subnetId: primarySubnet.id,
  *     networkSecurityGroupId: primaryNetworkSecurityGroup.id,
  * });
- * const dcAdmins = new azuread.Group("dc_admins", {
+ * const dcAdmins = new azuread.index/group.Group("dc_admins", {
  *     displayName: "aad-dc-administrators",
  *     securityEnabled: true,
  * });
- * const admin = new azuread.User("admin", {
+ * const admin = new azuread.index/user.User("admin", {
  *     userPrincipalName: "dc-admin@hashicorp-example.net",
  *     displayName: "DC Administrator",
  *     password: "Pa55w0Rd!!1",
  * });
- * const adminGroupMember = new azuread.GroupMember("admin", {
+ * const adminGroupMember = new azuread.index/groupMember.GroupMember("admin", {
  *     groupObjectId: dcAdmins.objectId,
  *     memberObjectId: admin.objectId,
  * });
- * const example = new azuread.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
- * const aadds = new azure.core.ResourceGroup("aadds", {
+ * const example = new azuread.index/servicePrincipal.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * const aadds = new azure.core/resourceGroup.ResourceGroup("aadds", {
  *     name: "aadds-rg",
  *     location: "westeurope",
  * });
- * const exampleService = new azure.domainservices.Service("example", {
+ * const exampleService = new azure.domainservices/service.Service("example", {
  *     name: "example-aadds",
  *     location: aadds.location,
  *     resourceGroupName: aadds.name,
@@ -131,23 +131,23 @@ import * as utilities from "../utilities";
  *         Environment: "prod",
  *     },
  * });
- * const replica = new azure.core.ResourceGroup("replica", {
+ * const replica = new azure.core/resourceGroup.ResourceGroup("replica", {
  *     name: "aadds-replica-rg",
  *     location: "North Europe",
  * });
- * const replicaVirtualNetwork = new azure.network.VirtualNetwork("replica", {
+ * const replicaVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("replica", {
  *     name: "aadds-replica-vnet",
  *     location: replica.location,
  *     resourceGroupName: replica.name,
  *     addressSpaces: ["10.20.0.0/16"],
  * });
- * const aaddsReplica = new azure.network.Subnet("aadds_replica", {
+ * const aaddsReplica = new azure.network/subnet.Subnet("aadds_replica", {
  *     name: "aadds-replica-subnet",
  *     resourceGroupName: replica.name,
  *     virtualNetworkName: replicaVirtualNetwork.name,
  *     addressPrefixes: ["10.20.0.0/24"],
  * });
- * const aaddsReplicaNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("aadds_replica", {
+ * const aaddsReplicaNetworkSecurityGroup = new azure.network/networkSecurityGroup.NetworkSecurityGroup("aadds_replica", {
  *     name: "aadds-replica-nsg",
  *     location: replica.location,
  *     resourceGroupName: replica.name,
@@ -198,11 +198,11 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const replicaSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("replica", {
+ * const replicaSubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("replica", {
  *     subnetId: aaddsReplica.id,
  *     networkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.id,
  * });
- * const primaryReplica = new azure.network.VirtualNetworkPeering("primary_replica", {
+ * const primaryReplica = new azure.network/virtualNetworkPeering.VirtualNetworkPeering("primary_replica", {
  *     name: "aadds-primary-replica",
  *     resourceGroupName: primaryVirtualNetwork.resourceGroupName,
  *     virtualNetworkName: primaryVirtualNetwork.name,
@@ -212,7 +212,7 @@ import * as utilities from "../utilities";
  *     allowVirtualNetworkAccess: true,
  *     useRemoteGateways: false,
  * });
- * const replicaPrimary = new azure.network.VirtualNetworkPeering("replica_primary", {
+ * const replicaPrimary = new azure.network/virtualNetworkPeering.VirtualNetworkPeering("replica_primary", {
  *     name: "aadds-replica-primary",
  *     resourceGroupName: replicaVirtualNetwork.resourceGroupName,
  *     virtualNetworkName: replicaVirtualNetwork.name,
@@ -222,11 +222,11 @@ import * as utilities from "../utilities";
  *     allowVirtualNetworkAccess: true,
  *     useRemoteGateways: false,
  * });
- * const replicaVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("replica", {
+ * const replicaVirtualNetworkDnsServers = new azure.network/virtualNetworkDnsServers.VirtualNetworkDnsServers("replica", {
  *     virtualNetworkId: replicaVirtualNetwork.id,
- *     dnsServers: exampleService.initialReplicaSet.apply(initialReplicaSet => initialReplicaSet.domainControllerIpAddresses),
+ *     dnsServers: exampleService.initialReplicaSet.domainControllerIpAddresses,
  * });
- * const replicaReplicaSet = new azure.domainservices.ReplicaSet("replica", {
+ * const replicaReplicaSet = new azure.domainservices/replicaSet.ReplicaSet("replica", {
  *     domainServiceId: exampleService.id,
  *     location: replica.location,
  *     subnetId: aaddsReplica.id,

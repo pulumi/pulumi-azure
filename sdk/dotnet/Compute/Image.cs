@@ -12,35 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a custom virtual machine image that can be used to create virtual machines.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &gt; **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
-    ///     {
-    ///         Name = "examplevm",
-    ///         ResourceGroupName = "example-resources",
-    ///     });
-    /// 
-    ///     var exampleImage = new Azure.Compute.Image("example", new()
-    ///     {
-    ///         Name = "exampleimage",
-    ///         Location = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Location),
-    ///         ResourceGroupName = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Name),
-    ///         SourceVirtualMachineId = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Images can be imported using the `resource id`, e.g.

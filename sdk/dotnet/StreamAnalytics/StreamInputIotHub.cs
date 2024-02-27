@@ -12,60 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Stream Input IoTHub.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
-    ///     {
-    ///         Name = "example-iothub",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("example", new()
-    ///     {
-    ///         Name = "example-iothub-input",
-    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         Endpoint = "messages/events",
-    ///         EventhubConsumerGroupName = "$Default",
-    ///         IothubNamespace = exampleIoTHub.Name,
-    ///         SharedAccessPolicyKey = exampleIoTHub.SharedAccessPolicies.Apply(sharedAccessPolicies =&gt; sharedAccessPolicies[0].PrimaryKey),
-    ///         SharedAccessPolicyName = "iothubowner",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputIotHubSerializationArgs
-    ///         {
-    ///             Type = "Json",
-    ///             Encoding = "UTF8",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics Stream Input IoTHub's can be imported using the `resource id`, e.g.

@@ -22,24 +22,24 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
+    ///     var exampleInstance = new Azure.Digitaltwins.Instance.Instance("example", new()
     ///     {
     ///         Name = "example-DT",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Identity = new Azure.DigitalTwins.Inputs.InstanceIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "exampleEventHubNamespace",
     ///         Location = example.Location,
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+    ///     var exampleEventHub = new Azure.Eventhub.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "exampleEventHub",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///         MessageRetention = 7,
     ///     });
     /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("example", new()
+    ///     var exampleConsumerGroup = new Azure.Eventhub.ConsumerGroup.ConsumerGroup("example", new()
     ///     {
     ///         Name = "example-consumergroup",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -64,19 +64,19 @@ namespace Pulumi.Azure.DigitalTwins
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "examplekc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Dev(No SLA)_Standard_D11_v2",
-    ///             Capacity = 1,
+    ///             { "name", "Dev(No SLA)_Standard_D11_v2" },
+    ///             { "capacity", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database.Database("example", new()
     ///     {
     ///         Name = "example-kusto-database",
     ///         ResourceGroupName = example.Name,
@@ -84,39 +84,39 @@ namespace Pulumi.Azure.DigitalTwins
     ///         ClusterName = exampleCluster.Name,
     ///     });
     /// 
-    ///     var databaseContributor = new Azure.Authorization.Assignment("database_contributor", new()
+    ///     var databaseContributor = new Azure.Authorization.Assignment.Assignment("database_contributor", new()
     ///     {
     ///         Scope = exampleDatabase.Id,
-    ///         PrincipalId = exampleInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         PrincipalId = exampleInstance.Identity.PrincipalId,
     ///         RoleDefinitionName = "Contributor",
     ///     });
     /// 
-    ///     var eventhubDataOwner = new Azure.Authorization.Assignment("eventhub_data_owner", new()
+    ///     var eventhubDataOwner = new Azure.Authorization.Assignment.Assignment("eventhub_data_owner", new()
     ///     {
     ///         Scope = exampleEventHub.Id,
-    ///         PrincipalId = exampleInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         PrincipalId = exampleInstance.Identity.PrincipalId,
     ///         RoleDefinitionName = "Azure Event Hubs Data Owner",
     ///     });
     /// 
-    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("example", new()
+    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment.DatabasePrincipalAssignment("example", new()
     ///     {
     ///         Name = "dataadmin",
     ///         ResourceGroupName = example.Name,
     ///         ClusterName = exampleCluster.Name,
     ///         DatabaseName = exampleDatabase.Name,
-    ///         TenantId = exampleInstance.Identity.Apply(identity =&gt; identity?.TenantId),
-    ///         PrincipalId = exampleInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         TenantId = exampleInstance.Identity.TenantId,
+    ///         PrincipalId = exampleInstance.Identity.PrincipalId,
     ///         PrincipalType = "App",
     ///         Role = "Admin",
     ///     });
     /// 
-    ///     var exampleTimeSeriesDatabaseConnection = new Azure.DigitalTwins.TimeSeriesDatabaseConnection("example", new()
+    ///     var exampleTimeSeriesDatabaseConnection = new Azure.Digitaltwins.TimeSeriesDatabaseConnection.TimeSeriesDatabaseConnection("example", new()
     ///     {
     ///         Name = "example-connection",
     ///         DigitalTwinsId = exampleInstance.Id,
     ///         EventhubName = exampleEventHub.Name,
     ///         EventhubNamespaceId = exampleEventHubNamespace.Id,
-    ///         EventhubNamespaceEndpointUri = exampleEventHubNamespace.Name.Apply(name =&gt; $"sb://{name}.servicebus.windows.net"),
+    ///         EventhubNamespaceEndpointUri = $"sb://{exampleEventHubNamespace.Name}.servicebus.windows.net",
     ///         EventhubConsumerGroupName = exampleConsumerGroup.Name,
     ///         KustoClusterId = exampleCluster.Id,
     ///         KustoClusterUri = exampleCluster.Uri,

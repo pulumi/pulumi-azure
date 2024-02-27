@@ -12,51 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Version of a Shared Image within a Shared Image Gallery.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var existing = Azure.Compute.GetImage.Invoke(new()
-    ///     {
-    ///         Name = "search-api",
-    ///         ResourceGroupName = "packerimages",
-    ///     });
-    /// 
-    ///     var existingGetSharedImage = Azure.Compute.GetSharedImage.Invoke(new()
-    ///     {
-    ///         Name = "existing-image",
-    ///         GalleryName = "existing_gallery",
-    ///         ResourceGroupName = "existing-resources",
-    ///     });
-    /// 
-    ///     var example = new Azure.Compute.SharedImageVersion("example", new()
-    ///     {
-    ///         Name = "0.0.1",
-    ///         GalleryName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.GalleryName),
-    ///         ImageName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Name),
-    ///         ResourceGroupName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.ResourceGroupName),
-    ///         Location = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
-    ///         ManagedImageId = existing.Apply(getImageResult =&gt; getImageResult.Id),
-    ///         TargetRegions = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.SharedImageVersionTargetRegionArgs
-    ///             {
-    ///                 Name = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
-    ///                 RegionalReplicaCount = 5,
-    ///                 StorageAccountType = "Standard_LRS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Shared Image Versions can be imported using the `resource id`, e.g.

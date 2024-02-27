@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/caaRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/caaRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewCaaRecord(ctx, "example", &dns.CaaRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsCaaRecordId", exampleAzurermDnsCaaRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/caaRecord.NewCaaRecord(ctx, "example", &dns/caaRecord.CaaRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsCaaRecordId", exampleAzurermDnsCaaRecord.Id)
+// return nil
+// })
+// }
 // ```
 func GetCAARecord(ctx *pulumi.Context, args *GetCAARecordArgs, opts ...pulumi.InvokeOption) (*GetCAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

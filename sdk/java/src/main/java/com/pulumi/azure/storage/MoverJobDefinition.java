@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *         var exampleMoverAgent = new MoverAgent(&#34;exampleMoverAgent&#34;, MoverAgentArgs.builder()        
  *             .name(&#34;example-agent&#34;)
  *             .storageMoverId(exampleMover.id())
- *             .arcVirtualMachineId(example.id().applyValue(id -&gt; String.format(&#34;%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName&#34;, id)))
+ *             .arcVirtualMachineId(String.format(&#34;%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName&#34;, example.id()))
  *             .arcVirtualMachineUuid(&#34;3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9&#34;)
  *             .build());
  * 

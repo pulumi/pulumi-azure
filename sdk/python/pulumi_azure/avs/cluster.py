@@ -203,26 +203,26 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_private_cloud = azure.avs.PrivateCloud("example",
-            name="example-vmware-private-cloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_private_cloud = azure.avs.private_cloud.PrivateCloud("example",
+            name=example-vmware-private-cloud,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
-            network_subnet_cidr="192.168.48.0/22",
+            sku_name=av36,
+            management_cluster={
+                size: 3,
+            },
+            network_subnet_cidr=192.168.48.0/22,
             internet_connection_enabled=False,
-            nsxt_password="QazWsx13$Edc",
-            vcenter_password="WsxEdc23$Rfv")
-        example_cluster = azure.avs.Cluster("example",
-            name="example-Cluster",
+            nsxt_password=QazWsx13$Edc,
+            vcenter_password=WsxEdc23$Rfv)
+        example_cluster = azure.avs.cluster.Cluster("example",
+            name=example-Cluster,
             vmware_cloud_id=example_private_cloud.id,
             cluster_node_count=3,
-            sku_name="av36")
+            sku_name=av36)
         ```
 
         ## Import
@@ -255,26 +255,26 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_private_cloud = azure.avs.PrivateCloud("example",
-            name="example-vmware-private-cloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_private_cloud = azure.avs.private_cloud.PrivateCloud("example",
+            name=example-vmware-private-cloud,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
-            network_subnet_cidr="192.168.48.0/22",
+            sku_name=av36,
+            management_cluster={
+                size: 3,
+            },
+            network_subnet_cidr=192.168.48.0/22,
             internet_connection_enabled=False,
-            nsxt_password="QazWsx13$Edc",
-            vcenter_password="WsxEdc23$Rfv")
-        example_cluster = azure.avs.Cluster("example",
-            name="example-Cluster",
+            nsxt_password=QazWsx13$Edc,
+            vcenter_password=WsxEdc23$Rfv)
+        example_cluster = azure.avs.cluster.Cluster("example",
+            name=example-Cluster,
             vmware_cloud_id=example_private_cloud.id,
             cluster_node_count=3,
-            sku_name="av36")
+            sku_name=av36)
         ```
 
         ## Import

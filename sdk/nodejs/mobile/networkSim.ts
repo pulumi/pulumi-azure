@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNetwork = new azure.mobile.Network("example", {
+ * const exampleNetwork = new azure.mobile/network.Network("example", {
  *     name: "example-mn",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("example", {
+ * const exampleNetworkSimGroup = new azure.mobile/networkSimGroup.NetworkSimGroup("example", {
  *     name: "example-mnsg",
  *     location: example.location,
  *     mobileNetworkId: exampleNetwork.id,
  * });
- * const exampleNetworkSlice = new azure.mobile.NetworkSlice("example", {
+ * const exampleNetworkSlice = new azure.mobile/networkSlice.NetworkSlice("example", {
  *     name: "example-slice",
  *     mobileNetworkId: exampleNetwork.id,
  *     location: example.location,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *         sliceServiceType: 1,
  *     },
  * });
- * const exampleNetworkAttachedDataNetwork = new azure.mobile.NetworkAttachedDataNetwork("example", {
+ * const exampleNetworkAttachedDataNetwork = new azure.mobile/networkAttachedDataNetwork.NetworkAttachedDataNetwork("example", {
  *     mobileNetworkDataNetworkName: exampleAzurermMobileNetworkDataNetwork.name,
  *     mobileNetworkPacketCoreDataPlaneId: exampleAzurermMobileNetworkPacketCoreDataPlane.id,
  *     location: example.location,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     userPlaneAccessIpv4Gateway: "10.204.141.1",
  *     userPlaneAccessIpv4Subnet: "10.204.141.0/24",
  * });
- * const exampleNetworkSim = new azure.mobile.NetworkSim("example", {
+ * const exampleNetworkSim = new azure.mobile/networkSim.NetworkSim("example", {
  *     name: "example-sim",
  *     mobileNetworkSimGroupId: exampleNetworkSimGroup.id,
  *     authenticationKey: "00000000000000000000000000000000",

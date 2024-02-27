@@ -228,62 +228,62 @@ class Hub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="terraform-webpubsub",
-            location="east us")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="tfex-uai",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=terraform-webpubsub,
+            location=east us)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=tfex-uai,
             resource_group_name=example.name,
             location=example.location)
-        example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
+        example_service = azure.webpubsub.service.Service("example",
+            name=tfex-webpubsub,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_S1",
+            sku=Standard_S1,
             capacity=1)
-        example_hub = azure.webpubsub.Hub("example",
-            name="tfex_wpsh",
+        example_hub = azure.webpubsub.hub.Hub("example",
+            name=tfex_wpsh,
             web_pubsub_id=example_service.id,
             event_handlers=[
-                azure.webpubsub.HubEventHandlerArgs(
-                    url_template="https://test.com/api/{hub}/{event}",
-                    user_event_pattern="*",
-                    system_events=[
-                        "connect",
-                        "connected",
+                {
+                    urlTemplate: https://test.com/api/{hub}/{event},
+                    userEventPattern: *,
+                    systemEvents: [
+                        connect,
+                        connected,
                     ],
-                ),
-                azure.webpubsub.HubEventHandlerArgs(
-                    url_template="https://test.com/api/{hub}/{event}",
-                    user_event_pattern="event1, event2",
-                    system_events=["connected"],
-                    auth=azure.webpubsub.HubEventHandlerAuthArgs(
-                        managed_identity_id=example_user_assigned_identity.id,
-                    ),
-                ),
+                },
+                {
+                    urlTemplate: https://test.com/api/{hub}/{event},
+                    userEventPattern: event1, event2,
+                    systemEvents: [connected],
+                    auth: {
+                        managedIdentityId: example_user_assigned_identity.id,
+                    },
+                },
             ],
             event_listeners=[
-                azure.webpubsub.HubEventListenerArgs(
-                    system_event_name_filters=["connected"],
-                    user_event_name_filters=[
-                        "event1",
-                        "event2",
+                {
+                    systemEventNameFilters: [connected],
+                    userEventNameFilters: [
+                        event1,
+                        event2,
                     ],
-                    eventhub_namespace_name=test["name"],
-                    eventhub_name=test1["name"],
-                ),
-                azure.webpubsub.HubEventListenerArgs(
-                    system_event_name_filters=["connected"],
-                    user_event_name_filters=["*"],
-                    eventhub_namespace_name=test["name"],
-                    eventhub_name=test1["name"],
-                ),
-                azure.webpubsub.HubEventListenerArgs(
-                    system_event_name_filters=["connected"],
-                    user_event_name_filters=["event1"],
-                    eventhub_namespace_name=test["name"],
-                    eventhub_name=test1["name"],
-                ),
+                    eventhubNamespaceName: test.name,
+                    eventhubName: test1.name,
+                },
+                {
+                    systemEventNameFilters: [connected],
+                    userEventNameFilters: [*],
+                    eventhubNamespaceName: test.name,
+                    eventhubName: test1.name,
+                },
+                {
+                    systemEventNameFilters: [connected],
+                    userEventNameFilters: [event1],
+                    eventhubNamespaceName: test.name,
+                    eventhubName: test1.name,
+                },
             ],
             anonymous_connections_enabled=True)
         ```
@@ -324,62 +324,62 @@ class Hub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="terraform-webpubsub",
-            location="east us")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="tfex-uai",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=terraform-webpubsub,
+            location=east us)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=tfex-uai,
             resource_group_name=example.name,
             location=example.location)
-        example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
+        example_service = azure.webpubsub.service.Service("example",
+            name=tfex-webpubsub,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_S1",
+            sku=Standard_S1,
             capacity=1)
-        example_hub = azure.webpubsub.Hub("example",
-            name="tfex_wpsh",
+        example_hub = azure.webpubsub.hub.Hub("example",
+            name=tfex_wpsh,
             web_pubsub_id=example_service.id,
             event_handlers=[
-                azure.webpubsub.HubEventHandlerArgs(
-                    url_template="https://test.com/api/{hub}/{event}",
-                    user_event_pattern="*",
-                    system_events=[
-                        "connect",
-                        "connected",
+                {
+                    urlTemplate: https://test.com/api/{hub}/{event},
+                    userEventPattern: *,
+                    systemEvents: [
+                        connect,
+                        connected,
                     ],
-                ),
-                azure.webpubsub.HubEventHandlerArgs(
-                    url_template="https://test.com/api/{hub}/{event}",
-                    user_event_pattern="event1, event2",
-                    system_events=["connected"],
-                    auth=azure.webpubsub.HubEventHandlerAuthArgs(
-                        managed_identity_id=example_user_assigned_identity.id,
-                    ),
-                ),
+                },
+                {
+                    urlTemplate: https://test.com/api/{hub}/{event},
+                    userEventPattern: event1, event2,
+                    systemEvents: [connected],
+                    auth: {
+                        managedIdentityId: example_user_assigned_identity.id,
+                    },
+                },
             ],
             event_listeners=[
-                azure.webpubsub.HubEventListenerArgs(
-                    system_event_name_filters=["connected"],
-                    user_event_name_filters=[
-                        "event1",
-                        "event2",
+                {
+                    systemEventNameFilters: [connected],
+                    userEventNameFilters: [
+                        event1,
+                        event2,
                     ],
-                    eventhub_namespace_name=test["name"],
-                    eventhub_name=test1["name"],
-                ),
-                azure.webpubsub.HubEventListenerArgs(
-                    system_event_name_filters=["connected"],
-                    user_event_name_filters=["*"],
-                    eventhub_namespace_name=test["name"],
-                    eventhub_name=test1["name"],
-                ),
-                azure.webpubsub.HubEventListenerArgs(
-                    system_event_name_filters=["connected"],
-                    user_event_name_filters=["event1"],
-                    eventhub_namespace_name=test["name"],
-                    eventhub_name=test1["name"],
-                ),
+                    eventhubNamespaceName: test.name,
+                    eventhubName: test1.name,
+                },
+                {
+                    systemEventNameFilters: [connected],
+                    userEventNameFilters: [*],
+                    eventhubNamespaceName: test.name,
+                    eventhubName: test1.name,
+                },
+                {
+                    systemEventNameFilters: [connected],
+                    userEventNameFilters: [event1],
+                    eventhubNamespaceName: test.name,
+                    eventhubName: test1.name,
+                },
             ],
             anonymous_connections_enabled=True)
         ```

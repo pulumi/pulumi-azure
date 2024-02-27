@@ -306,29 +306,29 @@ class Logger(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="other")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+            application_type=other)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("example",
-            name="example-logger",
+            publisher_name=My Company,
+            publisher_email=company@exmaple.com,
+            sku_name=Developer_1)
+        example_logger = azure.apimanagement.logger.Logger("example",
+            name=example-logger,
             api_management_name=example_service.name,
             resource_group_name=example.name,
             resource_id=example_insights.id,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
+            application_insights={
+                instrumentationKey: example_insights.instrumentation_key,
+            })
         ```
 
         ## Import
@@ -365,29 +365,29 @@ class Logger(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="other")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+            application_type=other)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("example",
-            name="example-logger",
+            publisher_name=My Company,
+            publisher_email=company@exmaple.com,
+            sku_name=Developer_1)
+        example_logger = azure.apimanagement.logger.Logger("example",
+            name=example-logger,
             api_management_name=example_service.name,
             resource_group_name=example.name,
             resource_id=example_insights.id,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
+            application_insights={
+                instrumentationKey: example_insights.instrumentation_key,
+            })
         ```
 
         ## Import

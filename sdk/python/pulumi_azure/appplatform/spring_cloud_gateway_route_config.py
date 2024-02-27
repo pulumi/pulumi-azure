@@ -350,43 +350,43 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("example",
-            name="example",
+        example_spring_cloud_gateway_route_config = azure.appplatform.spring_cloud_gateway_route_config.SpringCloudGatewayRouteConfig("example",
+            name=example,
             spring_cloud_gateway_id=example_spring_cloud_gateway.id,
             spring_cloud_app_id=example_spring_cloud_app.id,
-            protocol="HTTPS",
-            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
-                description="example description",
-                filters=[
-                    "StripPrefix=2",
-                    "RateLimit=1,1s",
+            protocol=HTTPS,
+            routes=[{
+                description: example description,
+                filters: [
+                    StripPrefix=2,
+                    RateLimit=1,1s,
                 ],
-                order=1,
-                predicates=["Path=/api5/customer/**"],
-                sso_validation_enabled=True,
-                title="myApp route config",
-                token_relay=True,
-                uri="https://www.example.com",
-                classification_tags=[
-                    "tag1",
-                    "tag2",
+                order: 1,
+                predicates: [Path=/api5/customer/**],
+                ssoValidationEnabled: True,
+                title: myApp route config,
+                tokenRelay: True,
+                uri: https://www.example.com,
+                classificationTags: [
+                    tag1,
+                    tag2,
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -428,43 +428,43 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("example",
-            name="example",
+        example_spring_cloud_gateway_route_config = azure.appplatform.spring_cloud_gateway_route_config.SpringCloudGatewayRouteConfig("example",
+            name=example,
             spring_cloud_gateway_id=example_spring_cloud_gateway.id,
             spring_cloud_app_id=example_spring_cloud_app.id,
-            protocol="HTTPS",
-            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
-                description="example description",
-                filters=[
-                    "StripPrefix=2",
-                    "RateLimit=1,1s",
+            protocol=HTTPS,
+            routes=[{
+                description: example description,
+                filters: [
+                    StripPrefix=2,
+                    RateLimit=1,1s,
                 ],
-                order=1,
-                predicates=["Path=/api5/customer/**"],
-                sso_validation_enabled=True,
-                title="myApp route config",
-                token_relay=True,
-                uri="https://www.example.com",
-                classification_tags=[
-                    "tag1",
-                    "tag2",
+                order: 1,
+                predicates: [Path=/api5/customer/**],
+                ssoValidationEnabled: True,
+                title: myApp route config,
+                tokenRelay: True,
+                uri: https://www.example.com,
+                classificationTags: [
+                    tag1,
+                    tag2,
                 ],
-            )])
+            }])
         ```
 
         ## Import

@@ -25,23 +25,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const internal = new azure.network.Subnet("internal", {
+ * const internal = new azure.network/subnet.Subnet("internal", {
  *     name: "internal",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("example", {
+ * const exampleWindowsVirtualMachineScaleSet = new azure.compute/windowsVirtualMachineScaleSet.WindowsVirtualMachineScaleSet("example", {
  *     name: "example-vmss",
  *     resourceGroupName: example.name,
  *     location: example.location,

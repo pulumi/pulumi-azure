@@ -331,59 +331,6 @@ class Automation(pulumi.CustomResource):
         """
         Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `action`, Logic Apps, Log Analytics and Event Hubs
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard",
-            capacity=2)
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="acceptanceTestEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example.name,
-            partition_count=2,
-            message_retention=2)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
-            name="example-rule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example.name,
-            listen=True,
-            send=False,
-            manage=False)
-        example_automation = azure.securitycenter.Automation("example",
-            name="example-automation",
-            location=example.location,
-            resource_group_name=example.name,
-            actions=[azure.securitycenter.AutomationActionArgs(
-                type="EventHub",
-                resource_id=example_event_hub.id,
-                connection_string=example_authorization_rule.primary_connection_string,
-            )],
-            sources=[azure.securitycenter.AutomationSourceArgs(
-                event_source="Alerts",
-                rule_sets=[azure.securitycenter.AutomationSourceRuleSetArgs(
-                    rules=[azure.securitycenter.AutomationSourceRuleSetRuleArgs(
-                        property_path="properties.metadata.severity",
-                        operator="Equals",
-                        expected_value="High",
-                        property_type="String",
-                    )],
-                )],
-            )],
-            scopes=[f"/subscriptions/{current.subscription_id}"])
-        ```
-
         ## Import
 
         Security Center Automations can be imported using the `resource id`, e.g.
@@ -412,59 +359,6 @@ class Automation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `action`, Logic Apps, Log Analytics and Event Hubs
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard",
-            capacity=2)
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="acceptanceTestEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example.name,
-            partition_count=2,
-            message_retention=2)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
-            name="example-rule",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example.name,
-            listen=True,
-            send=False,
-            manage=False)
-        example_automation = azure.securitycenter.Automation("example",
-            name="example-automation",
-            location=example.location,
-            resource_group_name=example.name,
-            actions=[azure.securitycenter.AutomationActionArgs(
-                type="EventHub",
-                resource_id=example_event_hub.id,
-                connection_string=example_authorization_rule.primary_connection_string,
-            )],
-            sources=[azure.securitycenter.AutomationSourceArgs(
-                event_source="Alerts",
-                rule_sets=[azure.securitycenter.AutomationSourceRuleSetArgs(
-                    rules=[azure.securitycenter.AutomationSourceRuleSetRuleArgs(
-                        property_path="properties.metadata.severity",
-                        operator="Equals",
-                        expected_value="High",
-                        property_type="String",
-                    )],
-                )],
-            )],
-            scopes=[f"/subscriptions/{current.subscription_id}"])
-        ```
 
         ## Import
 

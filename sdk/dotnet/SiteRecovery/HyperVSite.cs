@@ -22,13 +22,13 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "eastus",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
+    ///     var exampleVault = new Azure.Recoveryservices.Vault.Vault("example", new()
     ///     {
     ///         Name = "example-vault",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         SoftDeleteEnabled = false,
     ///     });
     /// 
-    ///     var exampleHyperVSite = new Azure.SiteRecovery.HyperVSite("example", new()
+    ///     var exampleHyperVSite = new Azure.Siterecovery.HyperVSite.HyperVSite("example", new()
     ///     {
     ///         Name = "example-site",
     ///         RecoveryVaultId = exampleVault.Id,

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var acr = new Azure.ContainerService.Registry("acr", new()
+    ///     var acr = new Azure.Containerservice.Registry.Registry("acr", new()
     ///     {
     ///         Name = "containerRegistry1",
     ///         ResourceGroupName = example.Name,
@@ -37,71 +37,18 @@ namespace Pulumi.Azure.ContainerService
     ///         AdminEnabled = false,
     ///         Georeplications = new[]
     ///         {
-    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             
     ///             {
-    ///                 Location = "East US",
-    ///                 ZoneRedundancyEnabled = true,
-    ///                 Tags = null,
+    ///                 { "location", "East US" },
+    ///                 { "zoneRedundancyEnabled", true },
+    ///                 { "tags", null },
     ///             },
-    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             
     ///             {
-    ///                 Location = "North Europe",
-    ///                 ZoneRedundancyEnabled = true,
-    ///                 Tags = null,
+    ///                 { "location", "North Europe" },
+    ///                 { "zoneRedundancyEnabled", true },
+    ///                 { "tags", null },
     ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Encryption)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Name = "registry-uai",
-    ///     });
-    /// 
-    ///     var example = Azure.KeyVault.GetKey.Invoke(new()
-    ///     {
-    ///         Name = "super-secret",
-    ///         KeyVaultId = existing.Id,
-    ///     });
-    /// 
-    ///     var acr = new Azure.ContainerService.Registry("acr", new()
-    ///     {
-    ///         Name = "containerRegistry1",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "Premium",
-    ///         Identity = new Azure.ContainerService.Inputs.RegistryIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
-    ///         },
-    ///         Encryption = new Azure.ContainerService.Inputs.RegistryEncryptionArgs
-    ///         {
-    ///             Enabled = true,
-    ///             KeyVaultKeyId = example.Apply(getKeyResult =&gt; getKeyResult.Id),
-    ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
     ///         },
     ///     });
     /// 
@@ -117,13 +64,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
+    ///     var exampleRegistry = new Azure.Containerservice.Registry.Registry("example", new()
     ///     {
     ///         Name = "containerRegistry1",
     ///         ResourceGroupName = example.Name,
@@ -131,21 +78,21 @@ namespace Pulumi.Azure.ContainerService
     ///         Sku = "Premium",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example-aks1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "exampleaks1",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_D2_v2",
+    ///             { "name", "default" },
+    ///             { "nodeCount", 1 },
+    ///             { "vmSize", "Standard_D2_v2" },
     ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {
@@ -153,9 +100,9 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment.Assignment("example", new()
     ///     {
-    ///         PrincipalId = exampleKubernetesCluster.KubeletIdentity.Apply(kubeletIdentity =&gt; kubeletIdentity.ObjectId),
+    ///         PrincipalId = exampleKubernetesCluster.KubeletIdentity.ObjectId,
     ///         RoleDefinitionName = "AcrPull",
     ///         Scope = exampleRegistry.Id,
     ///         SkipServicePrincipalAadCheck = true,

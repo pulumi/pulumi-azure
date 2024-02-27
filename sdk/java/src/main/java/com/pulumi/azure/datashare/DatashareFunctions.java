@@ -32,76 +32,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Share Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -110,76 +46,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Share Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountResult -&gt; getAccountResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -188,76 +60,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args) {
         return getDatasetBlobStorage(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args) {
@@ -266,76 +74,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", TypeShape.of(GetDatasetBlobStorageResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Share Blob Storage Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetBlobStorageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetBlobStorage(GetDatasetBlobStorageArgs.builder()
-     *             .name(&#34;example-dsbsds&#34;)
-     *             .dataShareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetBlobStorageResult -&gt; getDatasetBlobStorageResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args, InvokeOptions options) {
@@ -344,76 +88,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args) {
         return getDatasetDataLakeGen2(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args) {
@@ -422,76 +102,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", TypeShape.of(GetDatasetDataLakeGen2Result.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetDataLakeGen2Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args.builder()
-     *             .name(&#34;example-dsdlg2ds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetDataLakeGen2Result -&gt; getDatasetDataLakeGen2Result.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args, InvokeOptions options) {
@@ -500,76 +116,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args) {
         return getDatasetKustoCluster(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args) {
@@ -578,76 +130,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", TypeShape.of(GetDatasetKustoClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoCluster(GetDatasetKustoClusterArgs.builder()
-     *             .name(&#34;example-dskc&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoClusterResult -&gt; getDatasetKustoClusterResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args, InvokeOptions options) {
@@ -656,76 +144,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args) {
         return getDatasetKustoDatabase(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args) {
@@ -734,76 +158,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", TypeShape.of(GetDatasetKustoDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Share Kusto Database Dataset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetDatasetKustoDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs.builder()
-     *             .name(&#34;example-dskdds&#34;)
-     *             .shareId(&#34;example-share-id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDatasetKustoDatabaseResult -&gt; getDatasetKustoDatabaseResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args, InvokeOptions options) {
@@ -812,88 +172,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
         return getShare(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Share.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -902,88 +186,12 @@ public final class DatashareFunctions {
     /**
      * Use this data source to access information about an existing Data Share.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datashare/getShare:getShare", TypeShape.of(GetShareResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Share.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
-     * import com.pulumi.azure.datashare.inputs.GetShareArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {

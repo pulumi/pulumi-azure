@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.apimanagement.Api;
  * import com.pulumi.azure.apimanagement.ApiArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiImportArgs;
  * import com.pulumi.azure.apimanagement.ApiRelease;
  * import com.pulumi.azure.apimanagement.ApiReleaseArgs;
  * import java.util.List;
@@ -68,10 +67,7 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Example API&#34;)
  *             .path(&#34;example&#34;)
  *             .protocols(&#34;https&#34;)
- *             .import_(ApiImportArgs.builder()
- *                 .contentFormat(&#34;swagger-link-json&#34;)
- *                 .contentValue(&#34;http://conferenceapi.azurewebsites.net/?format=json&#34;)
- *                 .build())
+ *             .import_(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleApiRelease = new ApiRelease(&#34;exampleApiRelease&#34;, ApiReleaseArgs.builder()        

@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "media-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ * const exampleServiceAccount = new azure.media/serviceAccount.ServiceAccount("example", {
  *     name: "examplemediaacc",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         isPrimary: true,
  *     }],
  * });
- * const exampleTransform = new azure.media.Transform("example", {
+ * const exampleTransform = new azure.media/transform.Transform("example", {
  *     name: "transform1",
  *     resourceGroupName: example.name,
  *     mediaServicesAccountName: exampleServiceAccount.name,
@@ -55,18 +55,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "media-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ * const exampleServiceAccount = new azure.media/serviceAccount.ServiceAccount("example", {
  *     name: "examplemediaacc",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *         isPrimary: true,
  *     }],
  * });
- * const exampleTransform = new azure.media.Transform("example", {
+ * const exampleTransform = new azure.media/transform.Transform("example", {
  *     name: "transform1",
  *     resourceGroupName: example.name,
  *     mediaServicesAccountName: exampleServiceAccount.name,

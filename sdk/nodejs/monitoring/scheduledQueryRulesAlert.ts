@@ -19,24 +19,24 @@ import * as utilities from "../utilities";
  *     throw new Error(message);
  * }
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "monitoring-resources",
  *     location: "West Europe",
  * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
+ * const exampleInsights = new azure.appinsights/insights.Insights("example", {
  *     name: "appinsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const example2 = new azure.appinsights.Insights("example2", {
+ * const example2 = new azure.appinsights/insights.Insights("example2", {
  *     name: "appinsights2",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
  * // Example: Alerting Action with result count trigger
- * const exampleScheduledQueryRulesAlert = new azure.monitoring.ScheduledQueryRulesAlert("example", {
+ * const exampleScheduledQueryRulesAlert = new azure.monitoring/scheduledQueryRulesAlert.ScheduledQueryRulesAlert("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // Example: Alerting Action Cross-Resource
- * const example2ScheduledQueryRulesAlert = new azure.monitoring.ScheduledQueryRulesAlert("example2", {
+ * const example2ScheduledQueryRulesAlert = new azure.monitoring/scheduledQueryRulesAlert.ScheduledQueryRulesAlert("example2", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,

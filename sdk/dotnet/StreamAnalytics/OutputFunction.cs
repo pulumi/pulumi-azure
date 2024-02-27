@@ -22,13 +22,13 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -37,21 +37,21 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "exampleappserviceplan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "FunctionApp",
     ///         Reserved = true,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Dynamic",
-    ///             Size = "Y1",
+    ///             { "tier", "Dynamic" },
+    ///             { "size", "Y1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azure.Appservice.FunctionApp.FunctionApp("example", new()
     ///     {
     ///         Name = "examplefunctionapp",
     ///         Location = example.Location,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         Version = "~3",
     ///     });
     /// 
-    ///     var exampleJob = new Azure.StreamAnalytics.Job("example", new()
+    ///     var exampleJob = new Azure.Streamanalytics.Job.Job("example", new()
     ///     {
     ///         Name = "examplestreamanalyticsjob",
     ///         ResourceGroupName = example.Name,
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ",
     ///     });
     /// 
-    ///     var exampleOutputFunction = new Azure.StreamAnalytics.OutputFunction("example", new()
+    ///     var exampleOutputFunction = new Azure.Streamanalytics.OutputFunction.OutputFunction("example", new()
     ///     {
     ///         Name = "exampleoutput",
     ///         ResourceGroupName = exampleJob.ResourceGroupName,

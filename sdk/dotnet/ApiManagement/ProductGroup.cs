@@ -12,47 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Product Assignment to a Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
-    ///     {
-    ///         Name = "example-api",
-    ///         ResourceGroupName = "example-resources",
-    ///     });
-    /// 
-    ///     var exampleGetProduct = Azure.ApiManagement.GetProduct.Invoke(new()
-    ///     {
-    ///         ProductId = "my-product",
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///     });
-    /// 
-    ///     var exampleGetGroup = Azure.ApiManagement.GetGroup.Invoke(new()
-    ///     {
-    ///         Name = "my-group",
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///     });
-    /// 
-    ///     var exampleProductGroup = new Azure.ApiManagement.ProductGroup("example", new()
-    ///     {
-    ///         ProductId = exampleGetProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
-    ///         GroupName = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.Name),
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Product Groups can be imported using the `resource id`, e.g.

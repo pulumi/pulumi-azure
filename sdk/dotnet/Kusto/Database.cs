@@ -20,25 +20,25 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "my-kusto-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var cluster = new Azure.Kusto.Cluster("cluster", new()
+    ///     var cluster = new Azure.Kusto.Cluster.Cluster("cluster", new()
     ///     {
     ///         Name = "kustocluster",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
+    ///             { "name", "Standard_D13_v2" },
+    ///             { "capacity", 2 },
     ///         },
     ///     });
     /// 
-    ///     var database = new Azure.Kusto.Database("database", new()
+    ///     var database = new Azure.Kusto.Database.Database("database", new()
     ///     {
     ///         Name = "my-kusto-database",
     ///         ResourceGroupName = example.Name,

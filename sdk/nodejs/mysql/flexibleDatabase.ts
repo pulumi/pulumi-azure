@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ * const exampleFlexibleServer = new azure.mysql/flexibleServer.FlexibleServer("example", {
  *     name: "example-mysql-flexible-server",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     administratorPassword: "H@Sh1CoR3!",
  *     skuName: "B_Standard_B1s",
  * });
- * const exampleFlexibleDatabase = new azure.mysql.FlexibleDatabase("example", {
+ * const exampleFlexibleDatabase = new azure.mysql/flexibleDatabase.FlexibleDatabase("example", {
  *     name: "exampledb",
  *     resourceGroupName: example.name,
  *     serverName: exampleFlexibleServer.name,

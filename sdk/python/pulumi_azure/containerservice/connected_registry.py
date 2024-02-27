@@ -446,37 +446,37 @@ class ConnectedRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="exampleacr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=exampleacr,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             data_endpoint_enabled=True)
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
-            name="examplescopemap",
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=examplescopemap,
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             actions=[
-                "repositories/hello-world/content/delete",
-                "repositories/hello-world/content/read",
-                "repositories/hello-world/content/write",
-                "repositories/hello-world/metadata/read",
-                "repositories/hello-world/metadata/write",
-                "gateway/examplecr/config/read",
-                "gateway/examplecr/config/write",
-                "gateway/examplecr/message/read",
-                "gateway/examplecr/message/write",
+                repositories/hello-world/content/delete,
+                repositories/hello-world/content/read,
+                repositories/hello-world/content/write,
+                repositories/hello-world/metadata/read,
+                repositories/hello-world/metadata/write,
+                gateway/examplecr/config/read,
+                gateway/examplecr/config/write,
+                gateway/examplecr/message/read,
+                gateway/examplecr/message/write,
             ])
-        example_registry_token = azure.containerservice.RegistryToken("example",
-            name="exampletoken",
+        example_registry_token = azure.containerservice.registry_token.RegistryToken("example",
+            name=exampletoken,
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             scope_map_id=example_registry_scope_map.id)
-        example_connected_registry = azure.containerservice.ConnectedRegistry("example",
-            name="examplecr",
+        example_connected_registry = azure.containerservice.connected_registry.ConnectedRegistry("example",
+            name=examplecr,
             container_registry_id=example_registry.id,
             sync_token_id=example_registry_token.id)
         ```
@@ -521,37 +521,37 @@ class ConnectedRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="exampleacr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=exampleacr,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             data_endpoint_enabled=True)
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
-            name="examplescopemap",
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=examplescopemap,
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             actions=[
-                "repositories/hello-world/content/delete",
-                "repositories/hello-world/content/read",
-                "repositories/hello-world/content/write",
-                "repositories/hello-world/metadata/read",
-                "repositories/hello-world/metadata/write",
-                "gateway/examplecr/config/read",
-                "gateway/examplecr/config/write",
-                "gateway/examplecr/message/read",
-                "gateway/examplecr/message/write",
+                repositories/hello-world/content/delete,
+                repositories/hello-world/content/read,
+                repositories/hello-world/content/write,
+                repositories/hello-world/metadata/read,
+                repositories/hello-world/metadata/write,
+                gateway/examplecr/config/read,
+                gateway/examplecr/config/write,
+                gateway/examplecr/message/read,
+                gateway/examplecr/message/write,
             ])
-        example_registry_token = azure.containerservice.RegistryToken("example",
-            name="exampletoken",
+        example_registry_token = azure.containerservice.registry_token.RegistryToken("example",
+            name=exampletoken,
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             scope_map_id=example_registry_scope_map.id)
-        example_connected_registry = azure.containerservice.ConnectedRegistry("example",
-            name="examplecr",
+        example_connected_registry = azure.containerservice.connected_registry.ConnectedRegistry("example",
+            name=examplecr,
             container_registry_id=example_registry.id,
             sync_token_id=example_registry_token.id)
         ```

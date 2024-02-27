@@ -28,13 +28,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
  * import com.pulumi.azure.network.RouteMap;
  * import com.pulumi.azure.network.RouteMapArgs;
- * import com.pulumi.azure.network.inputs.RouteMapRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,20 +69,7 @@ import javax.annotation.Nullable;
  *         var exampleRouteMap = new RouteMap(&#34;exampleRouteMap&#34;, RouteMapArgs.builder()        
  *             .name(&#34;example-rm&#34;)
  *             .virtualHubId(exampleVirtualHub.id())
- *             .rules(RouteMapRuleArgs.builder()
- *                 .name(&#34;rule1&#34;)
- *                 .nextStepIfMatched(&#34;Continue&#34;)
- *                 .actions(RouteMapRuleActionArgs.builder()
- *                     .type(&#34;Add&#34;)
- *                     .parameters(RouteMapRuleActionParameterArgs.builder()
- *                         .asPaths(&#34;22334&#34;)
- *                         .build())
- *                     .build())
- *                 .matchCriterions(RouteMapRuleMatchCriterionArgs.builder()
- *                     .matchCondition(&#34;Contains&#34;)
- *                     .routePrefixes(&#34;10.0.0.0/8&#34;)
- *                     .build())
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

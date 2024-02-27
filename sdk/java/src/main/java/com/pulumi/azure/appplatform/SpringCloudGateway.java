@@ -43,11 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudGateway;
  * import com.pulumi.azure.appplatform.SpringCloudGatewayArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayApiMetadataArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayCorsArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayQuotaArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewaySsoArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayLocalResponseCachePerInstanceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,35 +74,11 @@ import javax.annotation.Nullable;
  *             .httpsOnly(false)
  *             .publicNetworkAccessEnabled(true)
  *             .instanceCount(2)
- *             .apiMetadata(SpringCloudGatewayApiMetadataArgs.builder()
- *                 .description(&#34;example description&#34;)
- *                 .documentationUrl(&#34;https://www.example.com/docs&#34;)
- *                 .serverUrl(&#34;https://wwww.example.com&#34;)
- *                 .title(&#34;example title&#34;)
- *                 .version(&#34;1.0&#34;)
- *                 .build())
- *             .cors(SpringCloudGatewayCorsArgs.builder()
- *                 .credentialsAllowed(false)
- *                 .allowedHeaders(&#34;*&#34;)
- *                 .allowedMethods(&#34;PUT&#34;)
- *                 .allowedOrigins(&#34;example.com&#34;)
- *                 .exposedHeaders(&#34;x-example-header&#34;)
- *                 .maxAgeSeconds(86400)
- *                 .build())
- *             .quota(SpringCloudGatewayQuotaArgs.builder()
- *                 .cpu(&#34;1&#34;)
- *                 .memory(&#34;2Gi&#34;)
- *                 .build())
- *             .sso(SpringCloudGatewaySsoArgs.builder()
- *                 .clientId(&#34;example id&#34;)
- *                 .clientSecret(&#34;example secret&#34;)
- *                 .issuerUri(&#34;https://www.test.com/issueToken&#34;)
- *                 .scopes(&#34;read&#34;)
- *                 .build())
- *             .localResponseCachePerInstance(SpringCloudGatewayLocalResponseCachePerInstanceArgs.builder()
- *                 .size(&#34;100MB&#34;)
- *                 .timeToLive(&#34;30s&#34;)
- *                 .build())
+ *             .apiMetadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .cors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .quota(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sso(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .localResponseCachePerInstance(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

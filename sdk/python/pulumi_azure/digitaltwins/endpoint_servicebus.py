@@ -204,29 +204,29 @@ class EndpointServicebus(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example_resources",
-            location="West Europe")
-        example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example_resources,
+            location=West Europe)
+        example_instance = azure.digitaltwins.instance.Instance("example",
+            name=example-DT,
             resource_group_name=example.name,
             location=example.location)
-        example_namespace = azure.servicebus.Namespace("example",
-            name="exampleservicebusnamespace",
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=exampleservicebusnamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_topic = azure.servicebus.Topic("example",
-            name="exampleservicebustopic",
+            sku=Standard)
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=exampleservicebustopic,
             namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("example",
-            name="example-rule",
+        example_topic_authorization_rule = azure.servicebus.topic_authorization_rule.TopicAuthorizationRule("example",
+            name=example-rule,
             topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
-        example_endpoint_servicebus = azure.digitaltwins.EndpointServicebus("example",
-            name="example-EndpointSB",
+        example_endpoint_servicebus = azure.digitaltwins.endpoint_servicebus.EndpointServicebus("example",
+            name=example-EndpointSB,
             digital_twins_id=example_instance.id,
             servicebus_primary_connection_string=example_topic_authorization_rule.primary_connection_string,
             servicebus_secondary_connection_string=example_topic_authorization_rule.secondary_connection_string)
@@ -263,29 +263,29 @@ class EndpointServicebus(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example_resources",
-            location="West Europe")
-        example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example_resources,
+            location=West Europe)
+        example_instance = azure.digitaltwins.instance.Instance("example",
+            name=example-DT,
             resource_group_name=example.name,
             location=example.location)
-        example_namespace = azure.servicebus.Namespace("example",
-            name="exampleservicebusnamespace",
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=exampleservicebusnamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_topic = azure.servicebus.Topic("example",
-            name="exampleservicebustopic",
+            sku=Standard)
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=exampleservicebustopic,
             namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("example",
-            name="example-rule",
+        example_topic_authorization_rule = azure.servicebus.topic_authorization_rule.TopicAuthorizationRule("example",
+            name=example-rule,
             topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
-        example_endpoint_servicebus = azure.digitaltwins.EndpointServicebus("example",
-            name="example-EndpointSB",
+        example_endpoint_servicebus = azure.digitaltwins.endpoint_servicebus.EndpointServicebus("example",
+            name=example-EndpointSB,
             digital_twins_id=example_instance.id,
             servicebus_primary_connection_string=example_topic_authorization_rule.primary_connection_string,
             servicebus_secondary_connection_string=example_topic_authorization_rule.secondary_connection_string)

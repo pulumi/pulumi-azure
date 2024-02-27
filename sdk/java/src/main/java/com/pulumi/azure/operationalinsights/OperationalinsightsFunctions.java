@@ -17,76 +17,12 @@ public final class OperationalinsightsFunctions {
     /**
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args) {
         return getAnalyticsWorkspace(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAnalyticsWorkspaceResult> getAnalyticsWorkspacePlain(GetAnalyticsWorkspacePlainArgs args) {
@@ -95,76 +31,12 @@ public final class OperationalinsightsFunctions {
     /**
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", TypeShape.of(GetAnalyticsWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;acctest-01&#34;)
-     *             .resourceGroupName(&#34;acctest&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logAnalyticsWorkspaceId&#34;, example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAnalyticsWorkspaceResult> getAnalyticsWorkspacePlain(GetAnalyticsWorkspacePlainArgs args, InvokeOptions options) {

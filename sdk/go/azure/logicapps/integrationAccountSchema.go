@@ -14,59 +14,6 @@ import (
 
 // Manages a Logic App Integration Account Schema.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
-//				Name:              pulumi.String("example-ia"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "testdata/integration_account_schema_content.xsd",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewIntegrationAccountSchema(ctx, "example", &logicapps.IntegrationAccountSchemaArgs{
-//				Name:                   pulumi.String("example-ias"),
-//				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				Content:                invokeFile.Result,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Logic App Integration Account Schemas can be imported using the `resource id`, e.g.

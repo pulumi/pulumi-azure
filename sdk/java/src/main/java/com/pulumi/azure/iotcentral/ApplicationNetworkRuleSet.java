@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iotcentral.ApplicationArgs;
  * import com.pulumi.azure.iotcentral.ApplicationNetworkRuleSet;
  * import com.pulumi.azure.iotcentral.ApplicationNetworkRuleSetArgs;
- * import com.pulumi.azure.iotcentral.inputs.ApplicationNetworkRuleSetIpRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,20 +58,14 @@ import javax.annotation.Nullable;
  *             .subDomain(&#34;example-iotcentral-app-subdomain&#34;)
  *             .displayName(&#34;example-iotcentral-app-display-name&#34;)
  *             .sku(&#34;ST1&#34;)
- *             .tags(Map.of(&#34;Foo&#34;, &#34;Bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleApplicationNetworkRuleSet = new ApplicationNetworkRuleSet(&#34;exampleApplicationNetworkRuleSet&#34;, ApplicationNetworkRuleSetArgs.builder()        
  *             .iotcentralApplicationId(exampleApplication.id())
  *             .ipRules(            
- *                 ApplicationNetworkRuleSetIpRuleArgs.builder()
- *                     .name(&#34;rule1&#34;)
- *                     .ipMask(&#34;10.0.1.0/24&#34;)
- *                     .build(),
- *                 ApplicationNetworkRuleSetIpRuleArgs.builder()
- *                     .name(&#34;rule2&#34;)
- *                     .ipMask(&#34;10.1.1.0/24&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -371,15 +371,15 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_pipeline = azure.datafactory.Pipeline("example",
-            name="example",
+        example_pipeline = azure.datafactory.pipeline.Pipeline("example",
+            name=example,
             data_factory_id=example_factory.id)
         ```
         ### With Activities
@@ -388,13 +388,13 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.datafactory.Pipeline("test",
-            name="example",
-            data_factory_id=test_azurerm_data_factory["id"],
+        test = azure.datafactory.pipeline.Pipeline("test",
+            name=example,
+            data_factory_id=test_azurerm_data_factory.id,
             variables={
-                "bob": "item1",
+                bob: item1,
             },
-            activities_json=\"\"\"[
+            activities_json=[
             {
                 "name": "Append variable1",
                 "type": "AppendVariable",
@@ -406,7 +406,7 @@ class Pipeline(pulumi.CustomResource):
                 }
             }
         ]
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -445,15 +445,15 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_pipeline = azure.datafactory.Pipeline("example",
-            name="example",
+        example_pipeline = azure.datafactory.pipeline.Pipeline("example",
+            name=example,
             data_factory_id=example_factory.id)
         ```
         ### With Activities
@@ -462,13 +462,13 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.datafactory.Pipeline("test",
-            name="example",
-            data_factory_id=test_azurerm_data_factory["id"],
+        test = azure.datafactory.pipeline.Pipeline("test",
+            name=example,
+            data_factory_id=test_azurerm_data_factory.id,
             variables={
-                "bob": "item1",
+                bob: item1,
             },
-            activities_json=\"\"\"[
+            activities_json=[
             {
                 "name": "Append variable1",
                 "type": "AppendVariable",
@@ -480,7 +480,7 @@ class Pipeline(pulumi.CustomResource):
                 }
             }
         ]
-        \"\"\")
+        )
         ```
 
         ## Import

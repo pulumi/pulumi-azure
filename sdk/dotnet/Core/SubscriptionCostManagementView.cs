@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.SubscriptionCostManagementView("example", new()
+    ///     var example = new Azure.Core.SubscriptionCostManagementView.SubscriptionCostManagementView("example", new()
     ///     {
     ///         Name = "example",
     ///         DisplayName = "Cost View per Month",
@@ -31,17 +31,17 @@ namespace Pulumi.Azure.Core
     ///         SubscriptionId = "/subscription/00000000-0000-0000-0000-000000000000",
     ///         ReportType = "Usage",
     ///         Timeframe = "MonthToDate",
-    ///         Dataset = new Azure.Core.Inputs.SubscriptionCostManagementViewDatasetArgs
+    ///         Dataset = 
     ///         {
-    ///             Granularity = "Monthly",
-    ///             Aggregations = new[]
+    ///             { "granularity", "Monthly" },
+    ///             { "aggregations", new[]
     ///             {
-    ///                 new Azure.Core.Inputs.SubscriptionCostManagementViewDatasetAggregationArgs
+    ///                 
     ///                 {
-    ///                     Name = "totalCost",
-    ///                     ColumnName = "Cost",
+    ///                     { "name", "totalCost" },
+    ///                     { "columnName", "Cost" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

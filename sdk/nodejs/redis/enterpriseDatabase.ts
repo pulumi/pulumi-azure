@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-redisenterprise",
  *     location: "West Europe",
  * });
- * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("example", {
+ * const exampleEnterpriseCluster = new azure.redis/enterpriseCluster.EnterpriseCluster("example", {
  *     name: "example-redisenterprise",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     skuName: "Enterprise_E20-4",
  * });
- * const example1 = new azure.redis.EnterpriseCluster("example1", {
+ * const example1 = new azure.redis/enterpriseCluster.EnterpriseCluster("example1", {
  *     name: "example-redisenterprise1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     skuName: "Enterprise_E20-4",
  * });
- * const exampleEnterpriseDatabase = new azure.redis.EnterpriseDatabase("example", {
+ * const exampleEnterpriseDatabase = new azure.redis/enterpriseDatabase.EnterpriseDatabase("example", {
  *     name: "default",
  *     resourceGroupName: example.name,
  *     clusterId: exampleEnterpriseCluster.id,
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  *     evictionPolicy: "NoEviction",
  *     port: 10000,
  *     linkedDatabaseIds: [
- *         pulumi.interpolate`${exampleEnterpriseCluster.id}/databases/default`,
- *         pulumi.interpolate`${example1.id}/databases/default`,
+ *         `${exampleEnterpriseCluster.id}/databases/default`,
+ *         `${example1.id}/databases/default`,
  *     ],
  *     linkedDatabaseGroupNickname: "tftestGeoGroup",
  * });

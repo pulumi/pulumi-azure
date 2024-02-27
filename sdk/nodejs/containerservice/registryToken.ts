@@ -11,11 +11,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resource-group",
  *     location: "West Europe",
  * });
- * const exampleRegistry = new azure.containerservice.Registry("example", {
+ * const exampleRegistry = new azure.containerservice/registry.Registry("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("example", {
+ * const exampleRegistryScopeMap = new azure.containerservice/registryScopeMap.RegistryScopeMap("example", {
  *     name: "example-scope-map",
  *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: example.name,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *         "repositories/repo1/content/write",
  *     ],
  * });
- * const exampleRegistryToken = new azure.containerservice.RegistryToken("example", {
+ * const exampleRegistryToken = new azure.containerservice/registryToken.RegistryToken("example", {
  *     name: "exampletoken",
  *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: example.name,

@@ -40,8 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appinsights.InsightsArgs;
  * import com.pulumi.azure.appplatform.SpringCloudService;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudServiceConfigServerGitSettingArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudServiceTraceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,18 +70,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName(&#34;S0&#34;)
- *             .configServerGitSetting(SpringCloudServiceConfigServerGitSettingArgs.builder()
- *                 .uri(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)
- *                 .label(&#34;config&#34;)
- *                 .searchPaths(                
- *                     &#34;dir1&#34;,
- *                     &#34;dir2&#34;)
- *                 .build())
- *             .trace(SpringCloudServiceTraceArgs.builder()
- *                 .connectionString(exampleInsights.connectionString())
- *                 .sampleRate(10)
- *                 .build())
- *             .tags(Map.of(&#34;Env&#34;, &#34;staging&#34;))
+ *             .configServerGitSetting(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .trace(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

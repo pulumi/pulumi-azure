@@ -240,30 +240,30 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.datashare.Account("example",
-            name="example-dsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.datashare.account.Account("example",
+            name=example-dsa,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        example_share = azure.datashare.Share("example",
-            name="example_dss",
+        example_share = azure.datashare.share.Share("example",
+            name=example_dss,
             account_id=example_account.id,
-            kind="CopyBased",
-            description="example desc",
-            terms="example terms",
-            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
-                name="example-ss",
-                recurrence="Day",
-                start_time="2020-04-17T04:47:52.9614956Z",
-            ))
+            kind=CopyBased,
+            description=example desc,
+            terms=example terms,
+            snapshot_schedule={
+                name: example-ss,
+                recurrence: Day,
+                startTime: 2020-04-17T04:47:52.9614956Z,
+            })
         ```
 
         ## Import
@@ -298,30 +298,30 @@ class Share(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.datashare.Account("example",
-            name="example-dsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.datashare.account.Account("example",
+            name=example-dsa,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        example_share = azure.datashare.Share("example",
-            name="example_dss",
+        example_share = azure.datashare.share.Share("example",
+            name=example_dss,
             account_id=example_account.id,
-            kind="CopyBased",
-            description="example desc",
-            terms="example terms",
-            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
-                name="example-ss",
-                recurrence="Day",
-                start_time="2020-04-17T04:47:52.9614956Z",
-            ))
+            kind=CopyBased,
+            description=example desc,
+            terms=example terms,
+            snapshot_schedule={
+                name: example-ss,
+                recurrence: Day,
+                startTime: 2020-04-17T04:47:52.9614956Z,
+            })
         ```
 
         ## Import

@@ -23,97 +23,97 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	appservice/environmentV3 "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/environmentV3"
+//	appservice/servicePlan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/servicePlan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exampleRG1"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Web.hostingEnvironments"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Web/hostingEnvironments"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironmentV3, err := appservice.NewEnvironmentV3(ctx, "example", &appservice.EnvironmentV3Args{
-//				Name:                      pulumi.String("example-asev3"),
-//				ResourceGroupName:         example.Name,
-//				SubnetId:                  exampleSubnet.ID(),
-//				InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
-//				ClusterSettings: appservice.EnvironmentV3ClusterSettingArray{
-//					&appservice.EnvironmentV3ClusterSettingArgs{
-//						Name:  pulumi.String("DisableTls1.0"),
-//						Value: pulumi.String("1"),
-//					},
-//					&appservice.EnvironmentV3ClusterSettingArgs{
-//						Name:  pulumi.String("InternalEncryption"),
-//						Value: pulumi.String("true"),
-//					},
-//					&appservice.EnvironmentV3ClusterSettingArgs{
-//						Name:  pulumi.String("FrontEndSSLCipherSuiteOrder"),
-//						Value: pulumi.String("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"env":         pulumi.String("production"),
-//					"terraformed": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
-//				Name:                    pulumi.String("example"),
-//				ResourceGroupName:       example.Name,
-//				Location:                example.Location,
-//				OsType:                  pulumi.String("Linux"),
-//				SkuName:                 pulumi.String("I1v2"),
-//				AppServiceEnvironmentId: exampleEnvironmentV3.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exampleRG1",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Microsoft.Web.hostingEnvironments",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Web/hostingEnvironments",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleEnvironmentV3, err := appservice/environmentV3.NewEnvironmentV3(ctx, "example", &appservice/environmentV3.EnvironmentV3Args{
+// Name: "example-asev3",
+// ResourceGroupName: example.Name,
+// SubnetId: exampleSubnet.Id,
+// InternalLoadBalancingMode: "Web, Publishing",
+// ClusterSettings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "DisableTls1.0",
+// "value": "1",
+// },
+// map[string]interface{}{
+// "name": "InternalEncryption",
+// "value": "true",
+// },
+// map[string]interface{}{
+// "name": "FrontEndSSLCipherSuiteOrder",
+// "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+// },
+// },
+// Tags: map[string]interface{}{
+// "env": "production",
+// "terraformed": "true",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/servicePlan.NewServicePlan(ctx, "example", &appservice/servicePlan.ServicePlanArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// OsType: "Linux",
+// SkuName: "I1v2",
+// AppServiceEnvironmentId: exampleEnvironmentV3.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleLab = new azure.devtest.Lab("example", {
+ * const exampleLab = new azure.devtest/lab.Lab("example", {
  *     name: "example-devtestlab",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *         Sydney: "Australia",
  *     },
  * });
- * const examplePolicy = new azure.devtest.Policy("example", {
+ * const examplePolicy = new azure.devtest/policy.Policy("example", {
  *     name: "LabVmCount",
  *     policySetName: "default",
  *     labName: exampleLab.name,

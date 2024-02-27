@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "WestEurope",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example-account",
     ///         ResourceGroupName = example.Name,
@@ -39,13 +39,13 @@ namespace Pulumi.Azure.Storage
     ///         IsHnsEnabled = true,
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "example-container",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleLocalUser = new Azure.Storage.LocalUser("example", new()
+    ///     var exampleLocalUser = new Azure.Storage.LocalUser.LocalUser("example", new()
     ///     {
     ///         Name = "user1",
     ///         StorageAccountId = exampleAccount.Id,
@@ -54,28 +54,28 @@ namespace Pulumi.Azure.Storage
     ///         HomeDirectory = "example_path",
     ///         SshAuthorizedKeys = new[]
     ///         {
-    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
+    ///             
     ///             {
-    ///                 Description = "key1",
-    ///                 Key = firstPublicKey,
+    ///                 { "description", "key1" },
+    ///                 { "key", firstPublicKey },
     ///             },
-    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
+    ///             
     ///             {
-    ///                 Description = "key2",
-    ///                 Key = secondPublicKey,
+    ///                 { "description", "key2" },
+    ///                 { "key", secondPublicKey },
     ///             },
     ///         },
     ///         PermissionScopes = new[]
     ///         {
-    ///             new Azure.Storage.Inputs.LocalUserPermissionScopeArgs
+    ///             
     ///             {
-    ///                 Permissions = new Azure.Storage.Inputs.LocalUserPermissionScopePermissionsArgs
+    ///                 { "permissions", 
     ///                 {
-    ///                     Read = true,
-    ///                     Create = true,
-    ///                 },
-    ///                 Service = "blob",
-    ///                 ResourceName = exampleContainer.Name,
+    ///                     { "read", true },
+    ///                     { "create", true },
+    ///                 } },
+    ///                 { "service", "blob" },
+    ///                 { "resourceName", exampleContainer.Name },
     ///             },
     ///         },
     ///     });

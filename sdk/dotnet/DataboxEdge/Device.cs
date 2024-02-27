@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DataboxEdge
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-databoxedge",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDevice = new Azure.DataboxEdge.Device("example", new()
+    ///     var exampleDevice = new Azure.Databoxedge.Device.Device("example", new()
     ///     {
     ///         Name = "example-device",
     ///         ResourceGroupName = example.Name,

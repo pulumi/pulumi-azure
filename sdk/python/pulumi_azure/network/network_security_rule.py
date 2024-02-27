@@ -634,23 +634,23 @@ class NetworkSecurityRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="acceptanceTestSecurityGroup1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=acceptanceTestSecurityGroup1,
             location=example.location,
             resource_group_name=example.name)
-        example_network_security_rule = azure.network.NetworkSecurityRule("example",
-            name="test123",
+        example_network_security_rule = azure.network.network_security_rule.NetworkSecurityRule("example",
+            name=test123,
             priority=100,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
+            direction=Outbound,
+            access=Allow,
+            protocol=Tcp,
+            source_port_range=*,
+            destination_port_range=*,
+            source_address_prefix=*,
+            destination_address_prefix=*,
             resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
         ```
@@ -703,23 +703,23 @@ class NetworkSecurityRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="acceptanceTestSecurityGroup1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=acceptanceTestSecurityGroup1,
             location=example.location,
             resource_group_name=example.name)
-        example_network_security_rule = azure.network.NetworkSecurityRule("example",
-            name="test123",
+        example_network_security_rule = azure.network.network_security_rule.NetworkSecurityRule("example",
+            name=test123,
             priority=100,
-            direction="Outbound",
-            access="Allow",
-            protocol="Tcp",
-            source_port_range="*",
-            destination_port_range="*",
-            source_address_prefix="*",
-            destination_address_prefix="*",
+            direction=Outbound,
+            access=Allow,
+            protocol=Tcp,
+            source_port_range=*,
+            destination_port_range=*,
+            source_address_prefix=*,
+            destination_address_prefix=*,
             resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
         ```

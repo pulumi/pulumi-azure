@@ -252,20 +252,20 @@ class AAAARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.privatedns.Zone("test",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.privatedns.zone.Zone("test",
+            name=mydomain.com,
             resource_group_name=example.name)
-        test_aaaa_record = azure.privatedns.AAAARecord("test",
-            name="test",
+        test_aaaa_record = azure.privatedns.a_aaa_record.AAAARecord("test",
+            name=test,
             zone_name=test.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                "fd5d:70bc:930e:d008:0000:0000:0000:7334",
-                "fd5d:70bc:930e:d008::7335",
+                fd5d:70bc:930e:d008:0000:0000:0000:7334,
+                fd5d:70bc:930e:d008::7335,
             ])
         ```
 
@@ -301,20 +301,20 @@ class AAAARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.privatedns.Zone("test",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.privatedns.zone.Zone("test",
+            name=mydomain.com,
             resource_group_name=example.name)
-        test_aaaa_record = azure.privatedns.AAAARecord("test",
-            name="test",
+        test_aaaa_record = azure.privatedns.a_aaa_record.AAAARecord("test",
+            name=test,
             zone_name=test.name,
             resource_group_name=example.name,
             ttl=300,
             records=[
-                "fd5d:70bc:930e:d008:0000:0000:0000:7334",
-                "fd5d:70bc:930e:d008::7335",
+                fd5d:70bc:930e:d008:0000:0000:0000:7334,
+                fd5d:70bc:930e:d008::7335,
             ])
         ```
 

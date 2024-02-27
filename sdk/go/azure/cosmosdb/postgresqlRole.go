@@ -21,45 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/postgresqlCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/postgresqlCluster"
+//	cosmosdb/postgresqlRole "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/postgresqlRole"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePostgresqlCluster, err := cosmosdb.NewPostgresqlCluster(ctx, "example", &cosmosdb.PostgresqlClusterArgs{
-//				Name:                        pulumi.String("examplecluster"),
-//				ResourceGroupName:           example.Name,
-//				Location:                    example.Location,
-//				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
-//				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
-//				CoordinatorVcoreCount:       pulumi.Int(2),
-//				NodeCount:                   pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewPostgresqlRole(ctx, "example", &cosmosdb.PostgresqlRoleArgs{
-//				Name:      pulumi.String("examplerole"),
-//				ClusterId: examplePostgresqlCluster.ID(),
-//				Password:  pulumi.String("H@Sh1CoR3!"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePostgresqlCluster, err := cosmosdb/postgresqlCluster.NewPostgresqlCluster(ctx, "example", &cosmosdb/postgresqlCluster.PostgresqlClusterArgs{
+// Name: "examplecluster",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// CoordinatorStorageQuotaInMb: 131072,
+// CoordinatorVcoreCount: 2,
+// NodeCount: 0,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/postgresqlRole.NewPostgresqlRole(ctx, "example", &cosmosdb/postgresqlRole.PostgresqlRoleArgs{
+// Name: "examplerole",
+// ClusterId: examplePostgresqlCluster.Id,
+// Password: "H@Sh1CoR3!",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

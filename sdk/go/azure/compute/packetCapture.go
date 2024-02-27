@@ -21,136 +21,139 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	compute/extension "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/extension"
+//	compute/packetCapture "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/packetCapture"
+//	compute/virtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/virtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/networkWatcher "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkWatcher"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "example", &network.NetworkWatcherArgs{
-//				Name:              pulumi.String("example-nw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-network"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String("example-vm"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				VmSize: pulumi.String("Standard_F2"),
-//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-//					Name:            pulumi.String("osdisk"),
-//					Caching:         pulumi.String("ReadWrite"),
-//					CreateOption:    pulumi.String("FromImage"),
-//					ManagedDiskType: pulumi.String("Standard_LRS"),
-//				},
-//				OsProfile: &compute.VirtualMachineOsProfileArgs{
-//					ComputerName:  pulumi.String("pctest-vm"),
-//					AdminUsername: pulumi.String("testadmin"),
-//					AdminPassword: pulumi.String("Password1234!"),
-//				},
-//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
-//				Name:                    pulumi.String("network-watcher"),
-//				VirtualMachineId:        exampleVirtualMachine.ID(),
-//				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
-//				Type:                    pulumi.String("NetworkWatcherAgentLinux"),
-//				TypeHandlerVersion:      pulumi.String("1.4"),
-//				AutoUpgradeMinorVersion: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewPacketCapture(ctx, "example", &compute.PacketCaptureArgs{
-//				Name:             pulumi.String("example-pc"),
-//				NetworkWatcherId: exampleNetworkWatcher.ID(),
-//				VirtualMachineId: exampleVirtualMachine.ID(),
-//				StorageLocation: &compute.PacketCaptureStorageLocationArgs{
-//					StorageAccountId: exampleAccount.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkWatcher, err := network/networkWatcher.NewNetworkWatcher(ctx, "example", &network/networkWatcher.NetworkWatcherArgs{
+// Name: "example-nw",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-network",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "example-nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testconfiguration1",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualMachine, err := compute/virtualMachine.NewVirtualMachine(ctx, "example", &compute/virtualMachine.VirtualMachineArgs{
+// Name: "example-vm",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// VmSize: "Standard_F2",
+// StorageImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// StorageOsDisk: map[string]interface{}{
+// "name": "osdisk",
+// "caching": "ReadWrite",
+// "createOption": "FromImage",
+// "managedDiskType": "Standard_LRS",
+// },
+// OsProfile: map[string]interface{}{
+// "computerName": "pctest-vm",
+// "adminUsername": "testadmin",
+// "adminPassword": "Password1234!",
+// },
+// OsProfileLinuxConfig: map[string]interface{}{
+// "disablePasswordAuthentication": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/extension.NewExtension(ctx, "example", &compute/extension.ExtensionArgs{
+// Name: "network-watcher",
+// VirtualMachineId: exampleVirtualMachine.Id,
+// Publisher: "Microsoft.Azure.NetworkWatcher",
+// Type: "NetworkWatcherAgentLinux",
+// TypeHandlerVersion: "1.4",
+// AutoUpgradeMinorVersion: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/packetCapture.NewPacketCapture(ctx, "example", &compute/packetCapture.PacketCaptureArgs{
+// Name: "example-pc",
+// NetworkWatcherId: exampleNetworkWatcher.Id,
+// VirtualMachineId: exampleVirtualMachine.Id,
+// StorageLocation: map[string]interface{}{
+// "storageAccountId": exampleAccount.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.

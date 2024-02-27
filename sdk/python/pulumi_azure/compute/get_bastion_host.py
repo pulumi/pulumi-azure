@@ -204,17 +204,6 @@ def get_bastion_host(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Bastion Host.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_bastion_host(name="existing-bastion",
-        resource_group_name="existing-resources")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of the Bastion Host.
     :param str resource_group_name: The name of the Resource Group where the Bastion Host exists.
@@ -248,17 +237,6 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Use this data source to access information about an existing Bastion Host.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.compute.get_bastion_host(name="existing-bastion",
-        resource_group_name="existing-resources")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of the Bastion Host.

@@ -24,20 +24,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "packet-capture-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("example", new()
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher.NetworkWatcher("example", new()
     ///     {
     ///         Name = "network-watcher",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "production-network",
     ///         AddressSpaces = new[]
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -59,23 +59,23 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("example", new()
     ///     {
     ///         Name = "pctest-nic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "testconfiguration1",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "testconfiguration1" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine.VirtualMachine("example", new()
     ///     {
     ///         Name = "pctest-vm",
     ///         Location = example.Location,
@@ -85,33 +85,33 @@ namespace Pulumi.Azure.Network
     ///             exampleNetworkInterface.Id,
     ///         },
     ///         VmSize = "Standard_F2",
-    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         StorageImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         StorageOsDisk = 
     ///         {
-    ///             Name = "osdisk",
-    ///             Caching = "ReadWrite",
-    ///             CreateOption = "FromImage",
-    ///             ManagedDiskType = "Standard_LRS",
+    ///             { "name", "osdisk" },
+    ///             { "caching", "ReadWrite" },
+    ///             { "createOption", "FromImage" },
+    ///             { "managedDiskType", "Standard_LRS" },
     ///         },
-    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         OsProfile = 
     ///         {
-    ///             ComputerName = "pctest-vm",
-    ///             AdminUsername = "testadmin",
-    ///             AdminPassword = "Password1234!",
+    ///             { "computerName", "pctest-vm" },
+    ///             { "adminUsername", "testadmin" },
+    ///             { "adminPassword", "Password1234!" },
     ///         },
-    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         OsProfileLinuxConfig = 
     ///         {
-    ///             DisablePasswordAuthentication = false,
+    ///             { "disablePasswordAuthentication", false },
     ///         },
     ///     });
     /// 
-    ///     var exampleExtension = new Azure.Compute.Extension("example", new()
+    ///     var exampleExtension = new Azure.Compute.Extension.Extension("example", new()
     ///     {
     ///         Name = "network-watcher",
     ///         VirtualMachineId = exampleVirtualMachine.Id,
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Network
     ///         AutoUpgradeMinorVersion = true,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "pctestsa",
     ///         ResourceGroupName = example.Name,
@@ -130,15 +130,15 @@ namespace Pulumi.Azure.Network
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleNetworkPacketCapture = new Azure.Network.NetworkPacketCapture("example", new()
+    ///     var exampleNetworkPacketCapture = new Azure.Network.NetworkPacketCapture.NetworkPacketCapture("example", new()
     ///     {
     ///         Name = "pctestcapture",
     ///         NetworkWatcherName = exampleNetworkWatcher.Name,
     ///         ResourceGroupName = example.Name,
     ///         TargetResourceId = exampleVirtualMachine.Id,
-    ///         StorageLocation = new Azure.Network.Inputs.NetworkPacketCaptureStorageLocationArgs
+    ///         StorageLocation = 
     ///         {
-    ///             StorageAccountId = exampleAccount.Id,
+    ///             { "storageAccountId", exampleAccount.Id },
     ///         },
     ///     });
     /// 

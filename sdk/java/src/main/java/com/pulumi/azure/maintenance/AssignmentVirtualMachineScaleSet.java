@@ -25,15 +25,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.lb.LoadBalancer;
  * import com.pulumi.azure.lb.LoadBalancerArgs;
- * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
  * import com.pulumi.azure.lb.BackendAddressPool;
  * import com.pulumi.azure.lb.BackendAddressPoolArgs;
  * import com.pulumi.azure.lb.Probe;
@@ -42,20 +41,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.lb.RuleArgs;
  * import com.pulumi.azure.maintenance.Configuration;
  * import com.pulumi.azure.maintenance.ConfigurationArgs;
- * import com.pulumi.azure.maintenance.inputs.ConfigurationWindowArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSet;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSetArgs;
  * import java.util.List;
@@ -101,10 +92,7 @@ import javax.annotation.Nullable;
  *             .name(example.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
@@ -135,23 +123,14 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .scope(&#34;OSImage&#34;)
  *             .visibility(&#34;Custom&#34;)
- *             .window(ConfigurationWindowArgs.builder()
- *                 .startDateTime(&#34;2021-12-31 00:00&#34;)
- *                 .expirationDateTime(&#34;9999-12-31 00:00&#34;)
- *                 .duration(&#34;06:00&#34;)
- *                 .timeZone(&#34;Pacific Standard Time&#34;)
- *                 .recurEvery(&#34;1Days&#34;)
- *                 .build())
+ *             .window(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
  *             .name(&#34;sample-nic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
@@ -161,10 +140,7 @@ import javax.annotation.Nullable;
  *             .size(&#34;Standard_F2&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .build())
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
@@ -178,36 +154,11 @@ import javax.annotation.Nullable;
  *             .upgradeMode(&#34;Automatic&#34;)
  *             .healthProbeId(exampleProbe.id())
  *             .disablePasswordAuthentication(false)
- *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .loadBalancerBackendAddressPoolIds(exampleBackendAddressPool.id())
- *                     .build())
- *                 .build())
- *             .automaticOsUpgradePolicy(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs.builder()
- *                 .disableAutomaticRollback(true)
- *                 .enableAutomaticOsUpgrade(true)
- *                 .build())
- *             .rollingUpgradePolicy(LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs.builder()
- *                 .maxBatchInstancePercent(20)
- *                 .maxUnhealthyInstancePercent(20)
- *                 .maxUnhealthyUpgradedInstancePercent(20)
- *                 .pauseTimeBetweenBatches(&#34;PT0S&#34;)
- *                 .build())
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .automaticOsUpgradePolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rollingUpgradePolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet(&#34;exampleAssignmentVirtualMachineScaleSet&#34;, AssignmentVirtualMachineScaleSetArgs.builder()        

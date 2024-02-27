@@ -358,38 +358,6 @@ class OutputTable(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output Table.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("example",
-            name="exampletable",
-            storage_account_name=example_account.name)
-        example_output_table = azure.streamanalytics.OutputTable("example",
-            name="output-to-storage-table",
-            stream_analytics_job_name=example.name,
-            resource_group_name=example.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            table=example_table.name,
-            partition_key="foo",
-            row_key="bar",
-            batch_size=100)
-        ```
-
         ## Import
 
         Stream Analytics Output to Table can be imported using the `resource id`, e.g.
@@ -419,38 +387,6 @@ class OutputTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output Table.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("example",
-            name="exampletable",
-            storage_account_name=example_account.name)
-        example_output_table = azure.streamanalytics.OutputTable("example",
-            name="output-to-storage-table",
-            stream_analytics_job_name=example.name,
-            resource_group_name=example.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            table=example_table.name,
-            partition_key="foo",
-            row_key="bar",
-            batch_size=100)
-        ```
 
         ## Import
 

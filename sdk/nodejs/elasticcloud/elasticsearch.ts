@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = new azure.core.ResourceGroup("test", {
+ * const test = new azure.core/resourceGroup.ResourceGroup("test", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const testElasticsearch = new azure.elasticcloud.Elasticsearch("test", {
+ * const testElasticsearch = new azure.elasticcloud/elasticsearch.Elasticsearch("test", {
  *     name: "example-elasticsearch",
  *     resourceGroupName: test.name,
  *     location: test.location,

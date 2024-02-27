@@ -374,24 +374,24 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_user = azure.apimanagement.User("example",
-            user_id="5931a75ae4bbd512288c680b",
+            publisher_name=My Company,
+            publisher_email=company@exmaple.com,
+            sku_name=Developer_1)
+        example_user = azure.apimanagement.user.User("example",
+            user_id=5931a75ae4bbd512288c680b,
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            first_name="Example",
-            last_name="User",
-            email="user@example.com",
-            state="active")
+            first_name=Example,
+            last_name=User,
+            email=user@example.com,
+            state=active)
         ```
 
         ## Import
@@ -432,24 +432,24 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_user = azure.apimanagement.User("example",
-            user_id="5931a75ae4bbd512288c680b",
+            publisher_name=My Company,
+            publisher_email=company@exmaple.com,
+            sku_name=Developer_1)
+        example_user = azure.apimanagement.user.User("example",
+            user_id=5931a75ae4bbd512288c680b,
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            first_name="Example",
-            last_name="User",
-            email="user@example.com",
-            state="active")
+            first_name=Example,
+            last_name=User,
+            email=user@example.com,
+            state=active)
         ```
 
         ## Import

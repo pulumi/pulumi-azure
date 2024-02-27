@@ -12,34 +12,6 @@ import (
 )
 
 // Uses this data source to access information about an existing NetApp Account.
-//
-// ## NetApp Account Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := netapp.LookupAccount(ctx, &netapp.LookupAccountArgs{
-//				ResourceGroupName: "acctestRG",
-//				Name:              "acctestnetappaccount",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("netappAccountId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult

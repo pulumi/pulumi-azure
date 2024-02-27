@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Lb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "LoadBalancerRG",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "PublicIPForLB",
     ///         Location = example.Location,
@@ -38,22 +38,22 @@ namespace Pulumi.Azure.Lb
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer.LoadBalancer("example", new()
     ///     {
     ///         Name = "TestLoadBalancer",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
-    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "PublicIPAddress",
-    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 { "name", "PublicIPAddress" },
+    ///                 { "publicIpAddressId", examplePublicIp.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleProbe = new Azure.Lb.Probe("example", new()
+    ///     var exampleProbe = new Azure.Lb.Probe.Probe("example", new()
     ///     {
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///         Name = "ssh-running-probe",

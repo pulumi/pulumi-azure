@@ -48,13 +48,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.hdinsight.KafkaCluster;
  * import com.pulumi.azure.hdinsight.KafkaClusterArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterComponentVersionArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterStorageAccountArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesHeadNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesWorkerNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesZookeeperNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,37 +86,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .clusterVersion(&#34;4.0&#34;)
  *             .tier(&#34;Standard&#34;)
- *             .componentVersion(KafkaClusterComponentVersionArgs.builder()
- *                 .kafka(&#34;2.1&#34;)
- *                 .build())
- *             .gateway(KafkaClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password123!&#34;)
- *                 .build())
- *             .storageAccounts(KafkaClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
- *                 .build())
- *             .roles(KafkaClusterRolesArgs.builder()
- *                 .headNode(KafkaClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .workerNode(KafkaClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .numberOfDisksPerNode(3)
- *                     .targetInstanceCount(3)
- *                     .build())
- *                 .zookeeperNode(KafkaClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .build())
+ *             .componentVersion(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .gateway(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .roles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

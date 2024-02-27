@@ -18,58 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Logic App Integration Account Assembly.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.logicapps.IntegrationAccount;
- * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
- * import com.pulumi.azure.logicapps.IntegrationAccountAssembly;
- * import com.pulumi.azure.logicapps.IntegrationAccountAssemblyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleIntegrationAccount = new IntegrationAccount(&#34;exampleIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
- *             .name(&#34;example-ia&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleIntegrationAccountAssembly = new IntegrationAccountAssembly(&#34;exampleIntegrationAccountAssembly&#34;, IntegrationAccountAssemblyArgs.builder()        
- *             .name(&#34;example-assembly&#34;)
- *             .resourceGroupName(example.name())
- *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .assemblyName(&#34;TestAssembly&#34;)
- *             .content(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;testdata/log4net.dll&#34;)
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.

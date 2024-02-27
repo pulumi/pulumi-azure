@@ -12,61 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Policy Exemption.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "group1",
-    ///         Location = "westus",
-    ///     });
-    /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
-    ///     {
-    ///         Name = "network1",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.0.0.0/16",
-    ///         },
-    ///     });
-    /// 
-    ///     var example = Azure.Policy.GetPolicySetDefinition.Invoke(new()
-    ///     {
-    ///         DisplayName = "Audit machines with insecure password security settings",
-    ///     });
-    /// 
-    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("example", new()
-    ///     {
-    ///         Name = "assignment1",
-    ///         ResourceId = exampleVirtualNetwork.Id,
-    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
-    ///         Location = exampleResourceGroup.Location,
-    ///         Identity = new Azure.Core.Inputs.ResourcePolicyAssignmentIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleResourcePolicyExemption = new Azure.Core.ResourcePolicyExemption("example", new()
-    ///     {
-    ///         Name = "exemption1",
-    ///         ResourceId = exampleResourcePolicyAssignment.ResourceId,
-    ///         PolicyAssignmentId = exampleResourcePolicyAssignment.Id,
-    ///         ExemptionCategory = "Mitigated",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Policy Exemptions can be imported using the `resource id`, e.g.

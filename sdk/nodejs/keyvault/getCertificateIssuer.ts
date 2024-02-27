@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Key Vault Certificate Issuer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.keyvault.getKeyVault({
- *     name: "mykeyvault",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetCertificateIssuer = example.then(example => azure.keyvault.getCertificateIssuer({
- *     name: "existing",
- *     keyVaultId: example.id,
- * }));
- * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
- * ```
  */
 export function getCertificateIssuer(args: GetCertificateIssuerArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateIssuerResult> {
 
@@ -78,23 +61,6 @@ export interface GetCertificateIssuerResult {
 }
 /**
  * Use this data source to access information about an existing Key Vault Certificate Issuer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.keyvault.getKeyVault({
- *     name: "mykeyvault",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetCertificateIssuer = example.then(example => azure.keyvault.getCertificateIssuer({
- *     name: "existing",
- *     keyVaultId: example.id,
- * }));
- * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
- * ```
  */
 export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateIssuerResult> {
     return pulumi.output(args).apply((a: any) => getCertificateIssuer(a, opts))

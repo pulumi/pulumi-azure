@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ElasticCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Core.ResourceGroup("test", new()
+    ///     var test = new Azure.Core.ResourceGroup.ResourceGroup("test", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var testElasticsearch = new Azure.ElasticCloud.Elasticsearch("test", new()
+    ///     var testElasticsearch = new Azure.Elasticcloud.Elasticsearch.Elasticsearch("test", new()
     ///     {
     ///         Name = "example-elasticsearch",
     ///         ResourceGroupName = test.Name,

@@ -146,21 +146,21 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-network-mapping-primary",
-            location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-network-mapping-primary,
+            location=West Europe)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        sa = azure.storage.Account("sa",
-            name="examplesa",
+            sku=Standard)
+        sa = azure.storage.account.Account("sa",
+            name=examplesa,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        container = azure.backup.ContainerStorageAccount("container",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        container = azure.backup.container_storage_account.ContainerStorageAccount("container",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
@@ -199,21 +199,21 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-network-mapping-primary",
-            location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-network-mapping-primary,
+            location=West Europe)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        sa = azure.storage.Account("sa",
-            name="examplesa",
+            sku=Standard)
+        sa = azure.storage.account.Account("sa",
+            name=examplesa,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        container = azure.backup.ContainerStorageAccount("container",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        container = azure.backup.container_storage_account.ContainerStorageAccount("container",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)

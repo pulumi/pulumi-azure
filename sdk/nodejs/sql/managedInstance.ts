@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "database-rg",
  *     location: "West Europe",
  * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ * const exampleNetworkSecurityGroup = new azure.network/networkSecurityGroup.NetworkSecurityGroup("example", {
  *     name: "mi-security-group",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const allowManagementInbound = new azure.network.NetworkSecurityRule("allow_management_inbound", {
+ * const allowManagementInbound = new azure.network/networkSecurityRule.NetworkSecurityRule("allow_management_inbound", {
  *     name: "allow_management_inbound",
  *     priority: 106,
  *     direction: "Inbound",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const allowMisubnetInbound = new azure.network.NetworkSecurityRule("allow_misubnet_inbound", {
+ * const allowMisubnetInbound = new azure.network/networkSecurityRule.NetworkSecurityRule("allow_misubnet_inbound", {
  *     name: "allow_misubnet_inbound",
  *     priority: 200,
  *     direction: "Inbound",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const allowHealthProbeInbound = new azure.network.NetworkSecurityRule("allow_health_probe_inbound", {
+ * const allowHealthProbeInbound = new azure.network/networkSecurityRule.NetworkSecurityRule("allow_health_probe_inbound", {
  *     name: "allow_health_probe_inbound",
  *     priority: 300,
  *     direction: "Inbound",
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const allowTdsInbound = new azure.network.NetworkSecurityRule("allow_tds_inbound", {
+ * const allowTdsInbound = new azure.network/networkSecurityRule.NetworkSecurityRule("allow_tds_inbound", {
  *     name: "allow_tds_inbound",
  *     priority: 1000,
  *     direction: "Inbound",
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const denyAllInbound = new azure.network.NetworkSecurityRule("deny_all_inbound", {
+ * const denyAllInbound = new azure.network/networkSecurityRule.NetworkSecurityRule("deny_all_inbound", {
  *     name: "deny_all_inbound",
  *     priority: 4096,
  *     direction: "Inbound",
@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const allowManagementOutbound = new azure.network.NetworkSecurityRule("allow_management_outbound", {
+ * const allowManagementOutbound = new azure.network/networkSecurityRule.NetworkSecurityRule("allow_management_outbound", {
  *     name: "allow_management_outbound",
  *     priority: 102,
  *     direction: "Outbound",
@@ -116,7 +116,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const allowMisubnetOutbound = new azure.network.NetworkSecurityRule("allow_misubnet_outbound", {
+ * const allowMisubnetOutbound = new azure.network/networkSecurityRule.NetworkSecurityRule("allow_misubnet_outbound", {
  *     name: "allow_misubnet_outbound",
  *     priority: 200,
  *     direction: "Outbound",
@@ -129,7 +129,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const denyAllOutbound = new azure.network.NetworkSecurityRule("deny_all_outbound", {
+ * const denyAllOutbound = new azure.network/networkSecurityRule.NetworkSecurityRule("deny_all_outbound", {
  *     name: "deny_all_outbound",
  *     priority: 4096,
  *     direction: "Outbound",
@@ -142,13 +142,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "vnet-mi",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "subnet-mi",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -165,21 +165,21 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
+ * const exampleRouteTable = new azure.network/routeTable.RouteTable("example", {
  *     name: "routetable-mi",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     disableBgpRoutePropagation: false,
  * });
- * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
+ * const exampleSubnetRouteTableAssociation = new azure.network/subnetRouteTableAssociation.SubnetRouteTableAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     routeTableId: exampleRouteTable.id,
  * });
- * const exampleManagedInstance = new azure.sql.ManagedInstance("example", {
+ * const exampleManagedInstance = new azure.sql/managedInstance.ManagedInstance("example", {
  *     name: "managedsqlinstance",
  *     resourceGroupName: example.name,
  *     location: example.location,

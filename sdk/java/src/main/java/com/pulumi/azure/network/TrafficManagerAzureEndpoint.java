@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.TrafficManagerProfile;
  * import com.pulumi.azure.network.TrafficManagerProfileArgs;
- * import com.pulumi.azure.network.inputs.TrafficManagerProfileDnsConfigArgs;
- * import com.pulumi.azure.network.inputs.TrafficManagerProfileMonitorConfigArgs;
  * import com.pulumi.azure.network.TrafficManagerAzureEndpoint;
  * import com.pulumi.azure.network.TrafficManagerAzureEndpointArgs;
  * import java.util.List;
@@ -69,19 +67,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-profile&#34;)
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod(&#34;Weighted&#34;)
- *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
- *                 .relativeName(&#34;example-profile&#34;)
- *                 .ttl(100)
- *                 .build())
- *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()
- *                 .protocol(&#34;HTTP&#34;)
- *                 .port(80)
- *                 .path(&#34;/&#34;)
- *                 .intervalInSeconds(30)
- *                 .timeoutInSeconds(9)
- *                 .toleratedNumberOfFailures(3)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .dnsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .monitorConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTrafficManagerAzureEndpoint = new TrafficManagerAzureEndpoint(&#34;exampleTrafficManagerAzureEndpoint&#34;, TrafficManagerAzureEndpointArgs.builder()        

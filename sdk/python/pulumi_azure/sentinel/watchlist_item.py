@@ -139,26 +139,26 @@ class WatchlistItem(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_watchlist = azure.sentinel.Watchlist("example",
-            name="example-watchlist",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_watchlist = azure.sentinel.watchlist.Watchlist("example",
+            name=example-watchlist,
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example-wl",
-            item_search_key="Key")
-        example_watchlist_item = azure.sentinel.WatchlistItem("example",
-            name="0aac6fa5-223e-49cf-9bfd-3554dc9d2b76",
+            display_name=example-wl,
+            item_search_key=Key)
+        example_watchlist_item = azure.sentinel.watchlist_item.WatchlistItem("example",
+            name=0aac6fa5-223e-49cf-9bfd-3554dc9d2b76,
             watchlist_id=example_watchlist.id,
             properties={
-                "k1": "v1",
-                "k2": "v2",
+                k1: v1,
+                k2: v2,
             })
         ```
 
@@ -191,26 +191,26 @@ class WatchlistItem(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_watchlist = azure.sentinel.Watchlist("example",
-            name="example-watchlist",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_watchlist = azure.sentinel.watchlist.Watchlist("example",
+            name=example-watchlist,
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example-wl",
-            item_search_key="Key")
-        example_watchlist_item = azure.sentinel.WatchlistItem("example",
-            name="0aac6fa5-223e-49cf-9bfd-3554dc9d2b76",
+            display_name=example-wl,
+            item_search_key=Key)
+        example_watchlist_item = azure.sentinel.watchlist_item.WatchlistItem("example",
+            name=0aac6fa5-223e-49cf-9bfd-3554dc9d2b76,
             watchlist_id=example_watchlist.id,
             properties={
-                "k1": "v1",
-                "k2": "v2",
+                k1: v1,
+                k2: v2,
             })
         ```
 

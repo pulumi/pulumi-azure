@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleProfile = new Azure.Cdn.Profile("example", new()
+    ///     var exampleProfile = new Azure.Cdn.Profile.Profile("example", new()
     ///     {
     ///         Name = "exampleCdnProfile",
     ///         Location = example.Location,

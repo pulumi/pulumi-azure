@@ -15,32 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "servicebus-replication",
  *     location: "West Europe",
  * });
- * const primary = new azure.servicebus.Namespace("primary", {
+ * const primary = new azure.servicebus/namespace.Namespace("primary", {
  *     name: "servicebus-primary",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Premium",
- *     capacity: 1,
+ *     capacity: "1",
  * });
- * const secondary = new azure.servicebus.Namespace("secondary", {
+ * const secondary = new azure.servicebus/namespace.Namespace("secondary", {
  *     name: "servicebus-secondary",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Premium",
- *     capacity: 1,
+ *     capacity: "1",
  * });
- * const exampleNamespaceAuthorizationRule = new azure.servicebus.NamespaceAuthorizationRule("example", {
+ * const exampleNamespaceAuthorizationRule = new azure.servicebus/namespaceAuthorizationRule.NamespaceAuthorizationRule("example", {
  *     name: "examplerule",
  *     namespaceId: exampleAzurermServicebusNamespace.id,
  *     listen: true,
  *     send: true,
  *     manage: false,
  * });
- * const exampleNamespaceDisasterRecoveryConfig = new azure.servicebus.NamespaceDisasterRecoveryConfig("example", {
+ * const exampleNamespaceDisasterRecoveryConfig = new azure.servicebus/namespaceDisasterRecoveryConfig.NamespaceDisasterRecoveryConfig("example", {
  *     name: "servicebus-alias-name",
  *     primaryNamespaceId: primary.id,
  *     partnerNamespaceId: secondary.id,

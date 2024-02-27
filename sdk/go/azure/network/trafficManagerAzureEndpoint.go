@@ -21,68 +21,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/trafficManagerAzureEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/trafficManagerAzureEndpoint"
+//	network/trafficManagerProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/trafficManagerProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-public-ip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				DomainNameLabel:   pulumi.String("example-public-ip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "example", &network.TrafficManagerProfileArgs{
-//				Name:                 pulumi.String("example-profile"),
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Weighted"),
-//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-//					RelativeName: pulumi.String("example-profile"),
-//					Ttl:          pulumi.Int(100),
-//				},
-//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-//					Protocol:                  pulumi.String("HTTP"),
-//					Port:                      pulumi.Int(80),
-//					Path:                      pulumi.String("/"),
-//					IntervalInSeconds:         pulumi.Int(30),
-//					TimeoutInSeconds:          pulumi.Int(9),
-//					ToleratedNumberOfFailures: pulumi.Int(3),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewTrafficManagerAzureEndpoint(ctx, "example", &network.TrafficManagerAzureEndpointArgs{
-//				Name:               pulumi.String("example-endpoint"),
-//				ProfileId:          exampleTrafficManagerProfile.ID(),
-//				AlwaysServeEnabled: pulumi.Bool(true),
-//				Weight:             pulumi.Int(100),
-//				TargetResourceId:   examplePublicIp.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-public-ip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// DomainNameLabel: "example-public-ip",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTrafficManagerProfile, err := network/trafficManagerProfile.NewTrafficManagerProfile(ctx, "example", &network/trafficManagerProfile.TrafficManagerProfileArgs{
+// Name: "example-profile",
+// ResourceGroupName: example.Name,
+// TrafficRoutingMethod: "Weighted",
+// DnsConfig: map[string]interface{}{
+// "relativeName": "example-profile",
+// "ttl": 100,
+// },
+// MonitorConfig: map[string]interface{}{
+// "protocol": "HTTP",
+// "port": 80,
+// "path": "/",
+// "intervalInSeconds": 30,
+// "timeoutInSeconds": 9,
+// "toleratedNumberOfFailures": 3,
+// },
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/trafficManagerAzureEndpoint.NewTrafficManagerAzureEndpoint(ctx, "example", &network/trafficManagerAzureEndpoint.TrafficManagerAzureEndpointArgs{
+// Name: "example-endpoint",
+// ProfileId: exampleTrafficManagerProfile.Id,
+// AlwaysServeEnabled: true,
+// Weight: 100,
+// TargetResourceId: examplePublicIp.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

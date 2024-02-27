@@ -12,55 +12,6 @@ namespace Pulumi.Azure.Connections
     /// <summary>
     /// Manages an API Connection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.Connections.GetManagedApi.Invoke(new()
-    ///     {
-    ///         Name = "servicebus",
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
-    ///     {
-    ///         Name = "acctestsbn-conn-example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "Basic",
-    ///     });
-    /// 
-    ///     var exampleApiConnection = new Azure.Connections.ApiConnection("example", new()
-    ///     {
-    ///         Name = "example-connection",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ManagedApiId = example.Apply(getManagedApiResult =&gt; getManagedApiResult.Id),
-    ///         DisplayName = "Example 1",
-    ///         ParameterValues = 
-    ///         {
-    ///             { "connectionString", exampleNamespace.DefaultPrimaryConnectionString },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Hello", "World" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Connections can be imported using the `resource id`, e.g.

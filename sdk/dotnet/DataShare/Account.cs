@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("example", new()
+    ///     var exampleAccount = new Azure.Datashare.Account.Account("example", new()
     ///     {
     ///         Name = "example-dsa",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {

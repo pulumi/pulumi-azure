@@ -27,122 +27,124 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	compute/dataDiskAttachment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/dataDiskAttachment"
+//	compute/managedDisk "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/managedDisk"
+//	compute/virtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/virtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			prefix := "example"
-//			if param := cfg.Get("prefix"); param != "" {
-//				prefix = param
-//			}
-//			vmName := fmt.Sprintf("%v-vm", prefix)
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := network.NewVirtualNetwork(ctx, "main", &network.VirtualNetworkArgs{
-//				Name: pulumi.String(fmt.Sprintf("%v-network", prefix)),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: main.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("internal"),
-//						SubnetId:                   internal.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String(vmName),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					mainNetworkInterface.ID(),
-//				},
-//				VmSize: pulumi.String("Standard_F2"),
-//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-//					Name:            pulumi.String("myosdisk1"),
-//					Caching:         pulumi.String("ReadWrite"),
-//					CreateOption:    pulumi.String("FromImage"),
-//					ManagedDiskType: pulumi.String("Standard_LRS"),
-//				},
-//				OsProfile: &compute.VirtualMachineOsProfileArgs{
-//					ComputerName:  pulumi.String(vmName),
-//					AdminUsername: pulumi.String("testadmin"),
-//					AdminPassword: pulumi.String("Password1234!"),
-//				},
-//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String(fmt.Sprintf("%v-disk1", vmName)),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Empty"),
-//				DiskSizeGb:         pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewDataDiskAttachment(ctx, "example", &compute.DataDiskAttachmentArgs{
-//				ManagedDiskId:    exampleManagedDisk.ID(),
-//				VirtualMachineId: exampleVirtualMachine.ID(),
-//				Lun:              pulumi.Int(10),
-//				Caching:          pulumi.String("ReadWrite"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// prefix := "example";
+// if param := cfg.Get("prefix"); param != ""{
+// prefix = param
+// }
+// vmName := fmt.Sprintf("%v-vm", prefix);
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: fmt.Sprintf("%v-resources", prefix),
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// main, err := network/virtualNetwork.NewVirtualNetwork(ctx, "main", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: fmt.Sprintf("%v-network", prefix),
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// internal, err := network/subnet.NewSubnet(ctx, "internal", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: main.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// mainNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "main", &network/networkInterface.NetworkInterfaceArgs{
+// Name: fmt.Sprintf("%v-nic", prefix),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "subnetId": internal.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualMachine, err := compute/virtualMachine.NewVirtualMachine(ctx, "example", &compute/virtualMachine.VirtualMachineArgs{
+// Name: vmName,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// NetworkInterfaceIds: []interface{}{
+// mainNetworkInterface.Id,
+// },
+// VmSize: "Standard_F2",
+// StorageImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// StorageOsDisk: map[string]interface{}{
+// "name": "myosdisk1",
+// "caching": "ReadWrite",
+// "createOption": "FromImage",
+// "managedDiskType": "Standard_LRS",
+// },
+// OsProfile: map[string]interface{}{
+// "computerName": vmName,
+// "adminUsername": "testadmin",
+// "adminPassword": "Password1234!",
+// },
+// OsProfileLinuxConfig: map[string]interface{}{
+// "disablePasswordAuthentication": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleManagedDisk, err := compute/managedDisk.NewManagedDisk(ctx, "example", &compute/managedDisk.ManagedDiskArgs{
+// Name: fmt.Sprintf("%v-disk1", vmName),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccountType: "Standard_LRS",
+// CreateOption: "Empty",
+// DiskSizeGb: 10,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/dataDiskAttachment.NewDataDiskAttachment(ctx, "example", &compute/dataDiskAttachment.DataDiskAttachmentArgs{
+// ManagedDiskId: exampleManagedDisk.Id,
+// VirtualMachineId: exampleVirtualMachine.Id,
+// Lun: "10",
+// Caching: "ReadWrite",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

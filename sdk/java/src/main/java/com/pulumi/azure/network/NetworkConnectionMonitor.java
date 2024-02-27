@@ -35,30 +35,20 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.NetworkWatcher;
  * import com.pulumi.azure.network.NetworkWatcherArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.VirtualMachine;
- * import com.pulumi.azure.compute.VirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachine;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachineArgs;
  * import com.pulumi.azure.compute.Extension;
  * import com.pulumi.azure.compute.ExtensionArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.network.NetworkConnectionMonitor;
  * import com.pulumi.azure.network.NetworkConnectionMonitorArgs;
- * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointArgs;
- * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointFilterArgs;
- * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationArgs;
- * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs;
- * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,11 +91,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-Nic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
@@ -114,26 +100,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .vmSize(&#34;Standard_D2s_v3&#34;)
- *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;osdisk-example01&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(&#34;hostnametest01&#34;)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
- *                 .build())
- *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(false)
- *                 .build())
+ *             .storageImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageOsDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfileLinuxConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
@@ -157,35 +127,10 @@ import javax.annotation.Nullable;
  *             .networkWatcherId(exampleNetworkWatcher.id())
  *             .location(exampleNetworkWatcher.location())
  *             .endpoints(            
- *                 NetworkConnectionMonitorEndpointArgs.builder()
- *                     .name(&#34;source&#34;)
- *                     .targetResourceId(exampleVirtualMachine.id())
- *                     .filter(NetworkConnectionMonitorEndpointFilterArgs.builder()
- *                         .items(NetworkConnectionMonitorEndpointFilterItemArgs.builder()
- *                             .address(exampleVirtualMachine.id())
- *                             .type(&#34;AgentAddress&#34;)
- *                             .build())
- *                         .type(&#34;Include&#34;)
- *                         .build())
- *                     .build(),
- *                 NetworkConnectionMonitorEndpointArgs.builder()
- *                     .name(&#34;destination&#34;)
- *                     .address(&#34;mycompany.io&#34;)
- *                     .build())
- *             .testConfigurations(NetworkConnectionMonitorTestConfigurationArgs.builder()
- *                 .name(&#34;tcpName&#34;)
- *                 .protocol(&#34;Tcp&#34;)
- *                 .testFrequencyInSeconds(60)
- *                 .tcpConfiguration(NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs.builder()
- *                     .port(80)
- *                     .build())
- *                 .build())
- *             .testGroups(NetworkConnectionMonitorTestGroupArgs.builder()
- *                 .name(&#34;exampletg&#34;)
- *                 .destinationEndpoints(&#34;destination&#34;)
- *                 .sourceEndpoints(&#34;source&#34;)
- *                 .testConfigurationNames(&#34;tcpName&#34;)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .testConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .testGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .notes(&#34;examplenote&#34;)
  *             .outputWorkspaceResourceIds(exampleAnalyticsWorkspace.id())
  *             .build());

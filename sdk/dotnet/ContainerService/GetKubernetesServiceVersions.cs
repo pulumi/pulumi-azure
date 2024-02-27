@@ -13,66 +13,12 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Azure.ContainerService.GetKubernetesServiceVersions.Invoke(new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["versions"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.Versions),
-        ///         ["latestVersion"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.LatestVersion),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKubernetesServiceVersionsResult> InvokeAsync(GetKubernetesServiceVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? new GetKubernetesServiceVersionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Azure.ContainerService.GetKubernetesServiceVersions.Invoke(new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["versions"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.Versions),
-        ///         ["latestVersion"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.LatestVersion),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetKubernetesServiceVersionsResult> Invoke(GetKubernetesServiceVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? new GetKubernetesServiceVersionsInvokeArgs(), options.WithDefaults());

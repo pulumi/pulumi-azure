@@ -23,21 +23,21 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var rg = new Azure.Core.ResourceGroup("rg", new()
+    ///     var rg = new Azure.Core.ResourceGroup.ResourceGroup("rg", new()
     ///     {
     ///         Name = "sample-rg",
     ///         Location = "westus",
     ///     });
     /// 
-    ///     var ri = new Random.RandomInteger("ri", new()
+    ///     var ri = new Random.Index.RandomInteger.RandomInteger("ri", new()
     ///     {
     ///         Min = 10000,
     ///         Max = 99999,
     ///     });
     /// 
-    ///     var db = new Azure.CosmosDB.Account("db", new()
+    ///     var db = new Azure.Cosmosdb.Account.Account("db", new()
     ///     {
-    ///         Name = ri.Result.Apply(result =&gt; $"tfex-cosmos-db-{result}"),
+    ///         Name = $"tfex-cosmos-db-{ri.Result}",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
@@ -45,105 +45,40 @@ namespace Pulumi.Azure.CosmosDB
     ///         EnableAutomaticFailover = true,
     ///         Capabilities = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "EnableAggregationPipeline",
+    ///                 { "name", "EnableAggregationPipeline" },
     ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "mongoEnableDocLevelTTL",
+    ///                 { "name", "mongoEnableDocLevelTTL" },
     ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "MongoDBv3.4",
+    ///                 { "name", "MongoDBv3.4" },
     ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "EnableMongo",
-    ///             },
-    ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "BoundedStaleness",
-    ///             MaxIntervalInSeconds = 300,
-    ///             MaxStalenessPrefix = 100000,
-    ///         },
-    ///         GeoLocations = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///             {
-    ///                 Location = "eastus",
-    ///                 FailoverPriority = 1,
-    ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///             {
-    ///                 Location = "westus",
-    ///                 FailoverPriority = 0,
+    ///                 { "name", "EnableMongo" },
     ///             },
     ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## User Assigned Identity Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Authorization.UserAssignedIdentity("example", new()
-    ///     {
-    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         Location = exampleAzurermResourceGroup.Location,
-    ///         Name = "example-resource",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
-    ///     {
-    ///         Name = "example-resource",
-    ///         Location = exampleAzurermResourceGroup.Location,
-    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         DefaultIdentityType = Std.Join.Invoke(new()
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             Separator = "=",
-    ///             Input = new[]
-    ///             {
-    ///                 "UserAssignedIdentity",
-    ///                 example.Id,
-    ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         OfferType = "Standard",
-    ///         Kind = "MongoDB",
-    ///         Capabilities = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "EnableMongo",
-    ///             },
-    ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "Strong",
+    ///             { "consistencyLevel", "BoundedStaleness" },
+    ///             { "maxIntervalInSeconds", 300 },
+    ///             { "maxStalenessPrefix", 100000 },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = "westus",
-    ///                 FailoverPriority = 0,
+    ///                 { "location", "eastus" },
+    ///                 { "failoverPriority", 1 },
     ///             },
-    ///         },
-    ///         Identity = new Azure.CosmosDB.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             
     ///             {
-    ///                 example.Id,
+    ///                 { "location", "westus" },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });

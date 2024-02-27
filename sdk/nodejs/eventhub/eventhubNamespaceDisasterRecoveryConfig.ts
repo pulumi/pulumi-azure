@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "eventhub-replication",
  *     location: "West Europe",
  * });
- * const primary = new azure.eventhub.EventHubNamespace("primary", {
+ * const primary = new azure.eventhub/eventHubNamespace.EventHubNamespace("primary", {
  *     name: "eventhub-primary",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const secondary = new azure.eventhub.EventHubNamespace("secondary", {
+ * const secondary = new azure.eventhub/eventHubNamespace.EventHubNamespace("secondary", {
  *     name: "eventhub-secondary",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventhubNamespaceDisasterRecoveryConfig = new azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("example", {
+ * const exampleEventhubNamespaceDisasterRecoveryConfig = new azure.eventhub/eventhubNamespaceDisasterRecoveryConfig.EventhubNamespaceDisasterRecoveryConfig("example", {
  *     name: "replicate-eventhub",
  *     resourceGroupName: example.name,
  *     namespaceName: primary.name,

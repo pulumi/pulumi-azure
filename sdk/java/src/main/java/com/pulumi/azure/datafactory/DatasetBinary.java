@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.LinkedServiceSftpArgs;
  * import com.pulumi.azure.datafactory.DatasetBinary;
  * import com.pulumi.azure.datafactory.DatasetBinaryArgs;
- * import com.pulumi.azure.datafactory.inputs.DatasetBinarySftpServerLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,10 +76,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceSftp.name())
- *             .sftpServerLocation(DatasetBinarySftpServerLocationArgs.builder()
- *                 .path(&#34;/test/&#34;)
- *                 .filename(&#34;**&#34;)
- *                 .build())
+ *             .sftpServerLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

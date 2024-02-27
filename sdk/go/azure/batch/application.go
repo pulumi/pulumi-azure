@@ -21,55 +21,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	batch/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/batch/account"
+//	batch/application "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/batch/application"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount2, err := batch.NewAccount(ctx, "example", &batch.AccountArgs{
-//				Name:                             pulumi.String("exampleba"),
-//				ResourceGroupName:                example.Name,
-//				Location:                         example.Location,
-//				PoolAllocationMode:               pulumi.String("BatchService"),
-//				StorageAccountId:                 exampleAccount.ID(),
-//				StorageAccountAuthenticationMode: pulumi.String("StorageKeys"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = batch.NewApplication(ctx, "example", &batch.ApplicationArgs{
-//				Name:              pulumi.String("example-batch-application"),
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount2.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount2, err := batch/account.NewAccount(ctx, "example", &batch/account.AccountArgs{
+// Name: "exampleba",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PoolAllocationMode: "BatchService",
+// StorageAccountId: exampleAccount.Id,
+// StorageAccountAuthenticationMode: "StorageKeys",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = batch/application.NewApplication(ctx, "example", &batch/application.ApplicationArgs{
+// Name: "example-batch-application",
+// ResourceGroupName: example.Name,
+// AccountName: exampleAccount2.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

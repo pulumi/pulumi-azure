@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     var exampleInsights = new Azure.Appinsights.Insights.Insights("example", new()
     ///     {
     ///         Name = "example-appinsights",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ApplicationType = "other",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
     ///     {
     ///         Name = "example-apim",
     ///         Location = example.Location,
@@ -46,15 +46,15 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleLogger = new Azure.ApiManagement.Logger("example", new()
+    ///     var exampleLogger = new Azure.Apimanagement.Logger.Logger("example", new()
     ///     {
     ///         Name = "example-logger",
     ///         ApiManagementName = exampleService.Name,
     ///         ResourceGroupName = example.Name,
     ///         ResourceId = exampleInsights.Id,
-    ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
+    ///         ApplicationInsights = 
     ///         {
-    ///             InstrumentationKey = exampleInsights.InstrumentationKey,
+    ///             { "instrumentationKey", exampleInsights.InstrumentationKey },
     ///         },
     ///     });
     /// 

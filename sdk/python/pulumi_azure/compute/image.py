@@ -342,23 +342,6 @@ class Image(pulumi.CustomResource):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
 
-        ## Example Usage
-
-        > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.compute.get_virtual_machine(name="examplevm",
-            resource_group_name="example-resources")
-        example_image = azure.compute.Image("example",
-            name="exampleimage",
-            location=example.location,
-            resource_group_name=example.name,
-            source_virtual_machine_id=example.id)
-        ```
-
         ## Import
 
         Images can be imported using the `resource id`, e.g.
@@ -389,23 +372,6 @@ class Image(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
-
-        ## Example Usage
-
-        > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.compute.get_virtual_machine(name="examplevm",
-            resource_group_name="example-resources")
-        example_image = azure.compute.Image("example",
-            name="exampleimage",
-            location=example.location,
-            resource_group_name=example.name,
-            source_virtual_machine_id=example.id)
-        ```
 
         ## Import
 

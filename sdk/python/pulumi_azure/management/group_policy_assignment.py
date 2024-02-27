@@ -512,14 +512,14 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.management.Group("example", display_name="Some Management Group")
-        example_definition = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
+        example = azure.management.group.Group("example", display_name=Some Management Group)
+        example_definition = azure.policy.definition.Definition("example",
+            name=only-deploy-in-westeurope,
+            policy_type=Custom,
+            mode=All,
+            display_name=my-policy-definition,
             management_group_id=example.id,
-            policy_rule=\"\"\" {
+            policy_rule= {
             "if": {
               "not": {
                 "field": "location",
@@ -530,9 +530,9 @@ class GroupPolicyAssignment(pulumi.CustomResource):
               "effect": "Deny"
             }
           }
-        \"\"\")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
-            name="example-policy",
+        )
+        example_group_policy_assignment = azure.management.group_policy_assignment.GroupPolicyAssignment("example",
+            name=example-policy,
             policy_definition_id=example_definition.id,
             management_group_id=example.id)
         ```
@@ -579,14 +579,14 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.management.Group("example", display_name="Some Management Group")
-        example_definition = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
+        example = azure.management.group.Group("example", display_name=Some Management Group)
+        example_definition = azure.policy.definition.Definition("example",
+            name=only-deploy-in-westeurope,
+            policy_type=Custom,
+            mode=All,
+            display_name=my-policy-definition,
             management_group_id=example.id,
-            policy_rule=\"\"\" {
+            policy_rule= {
             "if": {
               "not": {
                 "field": "location",
@@ -597,9 +597,9 @@ class GroupPolicyAssignment(pulumi.CustomResource):
               "effect": "Deny"
             }
           }
-        \"\"\")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
-            name="example-policy",
+        )
+        example_group_policy_assignment = azure.management.group_policy_assignment.GroupPolicyAssignment("example",
+            name=example-policy,
             policy_definition_id=example_definition.id,
             management_group_id=example.id)
         ```

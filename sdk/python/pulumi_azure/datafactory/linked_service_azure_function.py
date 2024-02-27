@@ -374,28 +374,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.appservice.get_function_app_output(name="test-azure-functions",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            url=example.apply(lambda example: f"https://{example.default_hostname}"),
-            key="foo")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -427,28 +405,6 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.appservice.get_function_app_output(name="test-azure-functions",
-            resource_group_name=example_resource_group.name)
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            url=example.apply(lambda example: f"https://{example.default_hostname}"),
-            key="foo")
-        ```
 
         ## Import
 

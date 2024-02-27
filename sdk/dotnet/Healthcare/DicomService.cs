@@ -22,21 +22,21 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Healthcare.Workspace("test", new()
+    ///     var test = new Azure.Healthcare.Workspace.Workspace("test", new()
     ///     {
     ///         Name = "tfexworkspace",
     ///         ResourceGroupName = "tfex-resource_group",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var testDicomService = new Azure.Healthcare.DicomService("test", new()
+    ///     var testDicomService = new Azure.Healthcare.DicomService.DicomService("test", new()
     ///     {
     ///         Name = "tfexDicom",
     ///         WorkspaceId = test.Id,
     ///         Location = "east us",
-    ///         Identity = new Azure.Healthcare.Inputs.DicomServiceIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {

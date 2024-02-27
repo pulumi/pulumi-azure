@@ -14,18 +14,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.RandomId("server", {
+ * const server = new random.index/randomId.RandomId("server", {
  *     keepers: {
- *         azi_id: "1",
+ *         azi_id: 1,
  *     },
  *     byteLength: 8,
  * });
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "redis-resourcegroup",
  *     location: "West Europe",
  * });
- * const exampleCache = new azure.redis.Cache("example", {
- *     name: pulumi.interpolate`redis${server.hex}`,
+ * const exampleCache = new azure.redis/cache.Cache("example", {
+ *     name: `redis${server.hex}`,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     capacity: 1,
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         maxmemoryPolicy: "allkeys-lru",
  *     },
  * });
- * const exampleFirewallRule = new azure.redis.FirewallRule("example", {
+ * const exampleFirewallRule = new azure.redis/firewallRule.FirewallRule("example", {
  *     name: "someIPrange",
  *     redisCacheName: exampleCache.name,
  *     resourceGroupName: example.name,

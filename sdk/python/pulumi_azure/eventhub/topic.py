@@ -517,19 +517,19 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-topic",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-topic,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         ```
@@ -579,19 +579,19 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-topic",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-topic,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         ```

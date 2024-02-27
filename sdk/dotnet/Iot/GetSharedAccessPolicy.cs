@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Shared Access Policy
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Iot.GetSharedAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         IothubName = exampleAzurermIothub.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedAccessPolicyResult> InvokeAsync(GetSharedAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? new GetSharedAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing IotHub Shared Access Policy
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Iot.GetSharedAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         IothubName = exampleAzurermIothub.Name,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSharedAccessPolicyResult> Invoke(GetSharedAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? new GetSharedAccessPolicyInvokeArgs(), options.WithDefaults());

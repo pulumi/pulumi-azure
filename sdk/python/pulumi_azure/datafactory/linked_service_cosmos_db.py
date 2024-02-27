@@ -406,29 +406,6 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            account_endpoint=example.endpoint,
-            account_key=example.primary_key,
-            database="foo")
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -461,29 +438,6 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            account_endpoint=example.endpoint,
-            account_key=example.primary_key,
-            database="foo")
-        ```
 
         ## Import
 

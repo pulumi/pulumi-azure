@@ -486,35 +486,35 @@ class WebTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_web_test = azure.appinsights.WebTest("example",
-            name="tf-test-appinsights-webtest",
+            application_type=web)
+        example_web_test = azure.appinsights.web_test.WebTest("example",
+            name=tf-test-appinsights-webtest,
             location=example_insights.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
-            kind="ping",
+            kind=ping,
             frequency=300,
             timeout=60,
             enabled=True,
             geo_locations=[
-                "us-tx-sn1-azr",
-                "us-il-ch1-azr",
+                us-tx-sn1-azr,
+                us-il-ch1-azr,
             ],
-            configuration=\"\"\"<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
+            configuration=<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
           <Items>
             <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
           </Items>
         </WebTest>
-        \"\"\")
-        pulumi.export("webtestId", example_web_test.id)
-        pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
+        )
+        pulumi.export("webtestId", example_web_test["id"])
+        pulumi.export("webtestsSyntheticId", example_web_test["syntheticMonitorId"])
         ```
 
         ## Import
@@ -558,35 +558,35 @@ class WebTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_web_test = azure.appinsights.WebTest("example",
-            name="tf-test-appinsights-webtest",
+            application_type=web)
+        example_web_test = azure.appinsights.web_test.WebTest("example",
+            name=tf-test-appinsights-webtest,
             location=example_insights.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
-            kind="ping",
+            kind=ping,
             frequency=300,
             timeout=60,
             enabled=True,
             geo_locations=[
-                "us-tx-sn1-azr",
-                "us-il-ch1-azr",
+                us-tx-sn1-azr,
+                us-il-ch1-azr,
             ],
-            configuration=\"\"\"<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
+            configuration=<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
           <Items>
             <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
           </Items>
         </WebTest>
-        \"\"\")
-        pulumi.export("webtestId", example_web_test.id)
-        pulumi.export("webtestsSyntheticId", example_web_test.synthetic_monitor_id)
+        )
+        pulumi.export("webtestId", example_web_test["id"])
+        pulumi.export("webtestsSyntheticId", example_web_test["syntheticMonitorId"])
         ```
 
         ## Import

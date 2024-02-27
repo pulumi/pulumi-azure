@@ -156,12 +156,12 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.appconfiguration.LicationLoadBalancer("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe")
-        example_lication_load_balancer_frontend = azure.appconfiguration.LicationLoadBalancerFrontend("example",
-            name="example",
+        example = azure.appconfiguration.lication_load_balancer.LicationLoadBalancer("example",
+            name=example,
+            resource_group_name=example,
+            location=West Europe)
+        example_lication_load_balancer_frontend = azure.appconfiguration.lication_load_balancer_frontend.LicationLoadBalancerFrontend("example",
+            name=example,
             application_load_balancer_id=example.id)
         ```
 
@@ -194,12 +194,12 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.appconfiguration.LicationLoadBalancer("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe")
-        example_lication_load_balancer_frontend = azure.appconfiguration.LicationLoadBalancerFrontend("example",
-            name="example",
+        example = azure.appconfiguration.lication_load_balancer.LicationLoadBalancer("example",
+            name=example,
+            resource_group_name=example,
+            location=West Europe)
+        example_lication_load_balancer_frontend = azure.appconfiguration.lication_load_balancer_frontend.LicationLoadBalancerFrontend("example",
+            name=example,
             application_load_balancer_id=example.id)
         ```
 

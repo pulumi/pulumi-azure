@@ -338,72 +338,72 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("example",
-            name="example-nw",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network_watcher = azure.network.network_watcher.NetworkWatcher("example",
+            name=example-nw,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vn",
-            address_spaces=["10.0.0.0/16"],
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vn,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
+            address_prefixes=[10.0.2.0/24])
+        example_linux_virtual_machine_scale_set = azure.compute.linux_virtual_machine_scale_set.LinuxVirtualMachineScaleSet("example",
+            name=example-vmss,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku=Standard_F2,
             instances=4,
-            admin_username="adminuser",
-            admin_password="P@ssword1234!",
-            computer_name_prefix="my-linux-computer-name-prefix",
-            upgrade_mode="Automatic",
+            admin_username=adminuser,
+            admin_password=P@ssword1234!,
+            computer_name_prefix=my-linux-computer-name-prefix,
+            upgrade_mode=Automatic,
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )])
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
-            name="network-watcher",
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            os_disk={
+                storageAccountType: Standard_LRS,
+                caching: ReadWrite,
+            },
+            network_interfaces=[{
+                name: example,
+                primary: True,
+                ipConfigurations: [{
+                    name: internal,
+                    primary: True,
+                    subnetId: example_subnet.id,
+                }],
+            }])
+        example_virtual_machine_scale_set_extension = azure.compute.virtual_machine_scale_set_extension.VirtualMachineScaleSetExtension("example",
+            name=network-watcher,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
+            publisher=Microsoft.Azure.NetworkWatcher,
+            type=NetworkWatcherAgentLinux,
+            type_handler_version=1.4,
             auto_upgrade_minor_version=True,
             automatic_upgrade_enabled=True)
-        example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("example",
-            name="example-pc",
+        example_scale_set_packet_capture = azure.compute.scale_set_packet_capture.ScaleSetPacketCapture("example",
+            name=example-pc,
             network_watcher_id=example_network_watcher.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
-                file_path="/var/captures/packet.cap",
-            ),
-            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
-                include_instance_ids=["0"],
-                exclude_instance_ids=["1"],
-            ))
+            storage_location={
+                filePath: /var/captures/packet.cap,
+            },
+            machine_scope={
+                includeInstanceIds: [0],
+                excludeInstanceIds: [1],
+            })
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.
@@ -443,72 +443,72 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("example",
-            name="example-nw",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network_watcher = azure.network.network_watcher.NetworkWatcher("example",
+            name=example-nw,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vn",
-            address_spaces=["10.0.0.0/16"],
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vn,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
+            address_prefixes=[10.0.2.0/24])
+        example_linux_virtual_machine_scale_set = azure.compute.linux_virtual_machine_scale_set.LinuxVirtualMachineScaleSet("example",
+            name=example-vmss,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku=Standard_F2,
             instances=4,
-            admin_username="adminuser",
-            admin_password="P@ssword1234!",
-            computer_name_prefix="my-linux-computer-name-prefix",
-            upgrade_mode="Automatic",
+            admin_username=adminuser,
+            admin_password=P@ssword1234!,
+            computer_name_prefix=my-linux-computer-name-prefix,
+            upgrade_mode=Automatic,
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )])
-        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
-            name="network-watcher",
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            os_disk={
+                storageAccountType: Standard_LRS,
+                caching: ReadWrite,
+            },
+            network_interfaces=[{
+                name: example,
+                primary: True,
+                ipConfigurations: [{
+                    name: internal,
+                    primary: True,
+                    subnetId: example_subnet.id,
+                }],
+            }])
+        example_virtual_machine_scale_set_extension = azure.compute.virtual_machine_scale_set_extension.VirtualMachineScaleSetExtension("example",
+            name=network-watcher,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
+            publisher=Microsoft.Azure.NetworkWatcher,
+            type=NetworkWatcherAgentLinux,
+            type_handler_version=1.4,
             auto_upgrade_minor_version=True,
             automatic_upgrade_enabled=True)
-        example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("example",
-            name="example-pc",
+        example_scale_set_packet_capture = azure.compute.scale_set_packet_capture.ScaleSetPacketCapture("example",
+            name=example-pc,
             network_watcher_id=example_network_watcher.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
-                file_path="/var/captures/packet.cap",
-            ),
-            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
-                include_instance_ids=["0"],
-                exclude_instance_ids=["1"],
-            ))
+            storage_location={
+                filePath: /var/captures/packet.cap,
+            },
+            machine_scope={
+                includeInstanceIds: [0],
+                excludeInstanceIds: [1],
+            })
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine Scale Set before capturing can be enabled which can be installed via the `compute.VirtualMachineScaleSetExtension` resource.

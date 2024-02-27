@@ -148,17 +148,6 @@ def get_frontdoor_custom_domain(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_custom_domain(name=example_azurerm_cdn_frontdoor_custom_domain["name"],
-        profile_name=example_azurerm_cdn_frontdoor_profile["name"],
-        resource_group_name=example_azurerm_cdn_frontdoor_profile["resourceGroupName"])
-    ```
-
 
     :param str name: The name of the Front Door Custom Domain.
     :param str profile_name: The name of the Front Door Profile which the Front Door Custom Domain is bound to.
@@ -191,17 +180,6 @@ def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorCustomDomainResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_custom_domain(name=example_azurerm_cdn_frontdoor_custom_domain["name"],
-        profile_name=example_azurerm_cdn_frontdoor_profile["name"],
-        resource_group_name=example_azurerm_cdn_frontdoor_profile["resourceGroupName"])
-    ```
 
 
     :param str name: The name of the Front Door Custom Domain.

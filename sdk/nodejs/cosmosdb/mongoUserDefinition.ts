@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "example-ca",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -39,12 +39,12 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
+ * const exampleMongoDatabase = new azure.cosmosdb/mongoDatabase.MongoDatabase("example", {
  *     name: "example-mongodb",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  * });
- * const exampleMongoUserDefinition = new azure.cosmosdb.MongoUserDefinition("example", {
+ * const exampleMongoUserDefinition = new azure.cosmosdb/mongoUserDefinition.MongoUserDefinition("example", {
  *     cosmosMongoDatabaseId: exampleMongoDatabase.id,
  *     username: "myUserName",
  *     password: "myPassword",

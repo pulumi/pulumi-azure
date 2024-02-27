@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/aadb2c"
+//	aadb2c/directory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/aadb2c/directory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aadb2c.NewDirectory(ctx, "example", &aadb2c.DirectoryArgs{
-//				CountryCode:           pulumi.String("US"),
-//				DataResidencyLocation: pulumi.String("United States"),
-//				DisplayName:           pulumi.String("example-b2c-tenant"),
-//				DomainName:            pulumi.String("exampleb2ctenant.onmicrosoft.com"),
-//				ResourceGroupName:     pulumi.String("example-rg"),
-//				SkuName:               pulumi.String("PremiumP1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aadb2c/directory.NewDirectory(ctx, "example", &aadb2c/directory.DirectoryArgs{
+// CountryCode: "US",
+// DataResidencyLocation: "United States",
+// DisplayName: "example-b2c-tenant",
+// DomainName: "exampleb2ctenant.onmicrosoft.com",
+// ResourceGroupName: "example-rg",
+// SkuName: "PremiumP1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

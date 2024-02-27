@@ -337,36 +337,36 @@ class MedtechService(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="east us")
-        example_workspace = azure.healthcare.Workspace("example",
-            name="examplewkspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=east us)
+        example_workspace = azure.healthcare.workspace.Workspace("example",
+            name=examplewkspace,
             location=example.location,
             resource_group_name=example.name)
-        example_medtech_service = azure.healthcare.MedtechService("example",
-            name="examplemed",
+        example_medtech_service = azure.healthcare.medtech_service.MedtechService("example",
+            name=examplemed,
             workspace_id=example_workspace.id,
-            location="east us",
-            identity=azure.healthcare.MedtechServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            eventhub_namespace_name="example-eventhub-namespace",
-            eventhub_name="example-eventhub",
-            eventhub_consumer_group_name="$Default",
+            location=east us,
+            identity={
+                type: SystemAssigned,
+            },
+            eventhub_namespace_name=example-eventhub-namespace,
+            eventhub_name=example-eventhub,
+            eventhub_consumer_group_name=$Default,
             device_mapping_json=json.dumps({
-                "templateType": "CollectionContent",
-                "template": [{
-                    "templateType": "JsonPathContent",
-                    "template": {
-                        "typeName": "heartrate",
-                        "typeMatchExpression": "$..[?(@heartrate)]",
-                        "deviceIdExpression": "$.deviceid",
-                        "timestampExpression": "$.measurementdatetime",
-                        "values": [{
-                            "required": "true",
-                            "valueExpression": "$.heartrate",
-                            "valueName": "hr",
+                templateType: CollectionContent,
+                template: [{
+                    templateType: JsonPathContent,
+                    template: {
+                        typeName: heartrate,
+                        typeMatchExpression: $..[?(@heartrate)],
+                        deviceIdExpression: $.deviceid,
+                        timestampExpression: $.measurementdatetime,
+                        values: [{
+                            required: true,
+                            valueExpression: $.heartrate,
+                            valueName: hr,
                         }],
                     },
                 }],
@@ -409,36 +409,36 @@ class MedtechService(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="east us")
-        example_workspace = azure.healthcare.Workspace("example",
-            name="examplewkspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=east us)
+        example_workspace = azure.healthcare.workspace.Workspace("example",
+            name=examplewkspace,
             location=example.location,
             resource_group_name=example.name)
-        example_medtech_service = azure.healthcare.MedtechService("example",
-            name="examplemed",
+        example_medtech_service = azure.healthcare.medtech_service.MedtechService("example",
+            name=examplemed,
             workspace_id=example_workspace.id,
-            location="east us",
-            identity=azure.healthcare.MedtechServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            eventhub_namespace_name="example-eventhub-namespace",
-            eventhub_name="example-eventhub",
-            eventhub_consumer_group_name="$Default",
+            location=east us,
+            identity={
+                type: SystemAssigned,
+            },
+            eventhub_namespace_name=example-eventhub-namespace,
+            eventhub_name=example-eventhub,
+            eventhub_consumer_group_name=$Default,
             device_mapping_json=json.dumps({
-                "templateType": "CollectionContent",
-                "template": [{
-                    "templateType": "JsonPathContent",
-                    "template": {
-                        "typeName": "heartrate",
-                        "typeMatchExpression": "$..[?(@heartrate)]",
-                        "deviceIdExpression": "$.deviceid",
-                        "timestampExpression": "$.measurementdatetime",
-                        "values": [{
-                            "required": "true",
-                            "valueExpression": "$.heartrate",
-                            "valueName": "hr",
+                templateType: CollectionContent,
+                template: [{
+                    templateType: JsonPathContent,
+                    template: {
+                        typeName: heartrate,
+                        typeMatchExpression: $..[?(@heartrate)],
+                        deviceIdExpression: $.deviceid,
+                        timestampExpression: $.measurementdatetime,
+                        values: [{
+                            required: true,
+                            valueExpression: $.heartrate,
+                            valueName: hr,
                         }],
                     },
                 }],

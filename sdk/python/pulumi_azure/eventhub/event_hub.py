@@ -311,20 +311,20 @@ class EventHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="acceptanceTestEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=acceptanceTestEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=1,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="acceptanceTestEventHub",
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=acceptanceTestEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
@@ -370,20 +370,20 @@ class EventHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="acceptanceTestEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=acceptanceTestEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=1,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="acceptanceTestEventHub",
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=acceptanceTestEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,

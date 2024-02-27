@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("example", {
+ * const exampleFirewallPolicy = new azure.frontdoor/firewallPolicy.FirewallPolicy("example", {
  *     name: "examplefdwafpolicy",
  *     resourceGroupName: example.name,
  *     enabled: true,

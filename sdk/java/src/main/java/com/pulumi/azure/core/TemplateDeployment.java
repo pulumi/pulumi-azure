@@ -113,11 +113,11 @@ import javax.annotation.Nullable;
  *   }
  * }
  *             &#34;&#34;&#34;)
- *             .parameters(Map.of(&#34;storageAccountType&#34;, &#34;Standard_GRS&#34;))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .deploymentMode(&#34;Incremental&#34;)
  *             .build());
  * 
- *         ctx.export(&#34;storageAccountName&#34;, exampleTemplateDeployment.outputs().applyValue(outputs -&gt; outputs.storageAccountName()));
+ *         ctx.export(&#34;storageAccountName&#34;, exampleTemplateDeployment.outputs().storageAccountName());
  *     }
  * }
  * ```

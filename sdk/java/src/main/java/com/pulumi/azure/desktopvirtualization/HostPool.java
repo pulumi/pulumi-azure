@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.desktopvirtualization.HostPool;
  * import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
- * import com.pulumi.azure.desktopvirtualization.inputs.HostPoolScheduledAgentUpdatesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,13 +62,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;Pooled&#34;)
  *             .maximumSessionsAllowed(50)
  *             .loadBalancerType(&#34;DepthFirst&#34;)
- *             .scheduledAgentUpdates(HostPoolScheduledAgentUpdatesArgs.builder()
- *                 .enabled(true)
- *                 .schedules(HostPoolScheduledAgentUpdatesScheduleArgs.builder()
- *                     .dayOfWeek(&#34;Saturday&#34;)
- *                     .hourOfDay(2)
- *                     .build())
- *                 .build())
+ *             .scheduledAgentUpdates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleDefinition = new azure.policy.Definition("example", {
+ * const exampleDefinition = new azure.policy/definition.Definition("example", {
  *     name: "my-policy-definition",
  *     policyType: "Custom",
  *     mode: "All",
@@ -46,12 +46,12 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("example", {
+ * const exampleResourceGroupPolicyAssignment = new azure.core/resourceGroupPolicyAssignment.ResourceGroupPolicyAssignment("example", {
  *     name: "example",
  *     resourceGroupId: example.id,
  *     policyDefinitionId: exampleDefinition.id,
  * });
- * const exampleResourceGroupPolicyRemediation = new azure.core.ResourceGroupPolicyRemediation("example", {
+ * const exampleResourceGroupPolicyRemediation = new azure.core/resourceGroupPolicyRemediation.ResourceGroupPolicyRemediation("example", {
  *     name: "example-policy-remediation",
  *     resourceGroupId: example.id,
  *     policyAssignmentId: exampleResourceGroupPolicyAssignment.id,

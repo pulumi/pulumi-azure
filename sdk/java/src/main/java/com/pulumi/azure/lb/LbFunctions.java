@@ -26,90 +26,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args) {
         return getBackendAddressPool(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args) {
@@ -118,90 +40,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", TypeShape.of(GetBackendAddressPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Load Balancer&#39;s Backend Address Pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args, InvokeOptions options) {
@@ -210,76 +54,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args) {
         return getLB(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Load Balancer
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args) {
@@ -288,76 +68,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLB:getLB", TypeShape.of(GetLBResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Load Balancer
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loadbalancerId&#34;, example.applyValue(getLBResult -&gt; getLBResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args, InvokeOptions options) {
@@ -366,76 +82,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args) {
         return getLBOutboundRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args) {
@@ -444,76 +96,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLBOutboundRule:getLBOutboundRule", TypeShape.of(GetLBOutboundRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Load Balancer Outbound Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLBOutboundRule(GetLBOutboundRuleArgs.builder()
-     *             .name(&#34;existing_lb_outbound_rule&#34;)
-     *             .loadbalancerId(&#34;existing_load_balancer_id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLBOutboundRuleResult -&gt; getLBOutboundRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args, InvokeOptions options) {
@@ -522,92 +110,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args) {
         return getLBRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args) {
@@ -616,92 +124,12 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLBRule:getLBRule", TypeShape.of(GetLBRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name(&#34;example-lb&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name(&#34;first&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args, InvokeOptions options) {

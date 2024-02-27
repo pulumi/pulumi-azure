@@ -282,62 +282,62 @@ class HybridRunbookWorker(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("example",
-            name="example",
+            sku_name=Basic)
+        example_hybrid_runbook_worker_group = azure.automation.hybrid_runbook_worker_group.HybridRunbookWorkerGroup("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
             resource_group_name=example.name,
-            address_spaces=["192.168.1.0/24"],
+            address_spaces=[192.168.1.0/24],
             location=example.location)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+            address_prefixes=[192.168.1.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm-example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-vm",
+            ip_configurations=[{
+                name: vm-example,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_linux_virtual_machine = azure.compute.linux_virtual_machine.LinuxVirtualMachine("example",
+            name=example-vm,
             location=example.location,
             resource_group_name=example.name,
-            size="Standard_B1s",
-            admin_username="testadmin",
-            admin_password="Password1234!",
+            size=Standard_B1s,
+            admin_username=testadmin,
+            admin_password=Password1234!,
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            os_disk={
+                caching: ReadWrite,
+                storageAccountType: Standard_LRS,
+            },
             network_interface_ids=[example_network_interface.id])
-        example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("example",
+        example_hybrid_runbook_worker = azure.automation.hybrid_runbook_worker.HybridRunbookWorker("example",
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             worker_group_name=example_hybrid_runbook_worker_group.name,
             vm_resource_id=example_linux_virtual_machine.id,
-            worker_id="00000000-0000-0000-0000-000000000000")
+            worker_id=00000000-0000-0000-0000-000000000000)
         ```
 
         ## Import
@@ -371,62 +371,62 @@ class HybridRunbookWorker(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("example",
-            name="example",
+            sku_name=Basic)
+        example_hybrid_runbook_worker_group = azure.automation.hybrid_runbook_worker_group.HybridRunbookWorkerGroup("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
             resource_group_name=example.name,
-            address_spaces=["192.168.1.0/24"],
+            address_spaces=[192.168.1.0/24],
             location=example.location)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+            address_prefixes=[192.168.1.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm-example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-vm",
+            ip_configurations=[{
+                name: vm-example,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_linux_virtual_machine = azure.compute.linux_virtual_machine.LinuxVirtualMachine("example",
+            name=example-vm,
             location=example.location,
             resource_group_name=example.name,
-            size="Standard_B1s",
-            admin_username="testadmin",
-            admin_password="Password1234!",
+            size=Standard_B1s,
+            admin_username=testadmin,
+            admin_password=Password1234!,
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            os_disk={
+                caching: ReadWrite,
+                storageAccountType: Standard_LRS,
+            },
             network_interface_ids=[example_network_interface.id])
-        example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("example",
+        example_hybrid_runbook_worker = azure.automation.hybrid_runbook_worker.HybridRunbookWorker("example",
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             worker_group_name=example_hybrid_runbook_worker_group.name,
             vm_resource_id=example_linux_virtual_machine.id,
-            worker_id="00000000-0000-0000-0000-000000000000")
+            worker_id=00000000-0000-0000-0000-000000000000)
         ```
 
         ## Import

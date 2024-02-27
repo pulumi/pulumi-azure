@@ -381,33 +381,6 @@ class ClusterExtension(pulumi.CustomResource):
         """
         Manages an Arc Kubernetes Cluster Extension.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "ENV": "Test",
-            })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("example",
-            name="example-ext",
-            cluster_id=example_cluster.id,
-            extension_type="microsoft.flux")
-        ```
-
         ## Import
 
         Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -437,33 +410,6 @@ class ClusterExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Arc Kubernetes Cluster Extension.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
-            tags={
-                "ENV": "Test",
-            })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("example",
-            name="example-ext",
-            cluster_id=example_cluster.id,
-            extension_type="microsoft.flux")
-        ```
 
         ## Import
 

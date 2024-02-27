@@ -175,30 +175,30 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource",
-            location="West Europe")
-        example_application = azure.iotcentral.Application("example",
-            name="example-iotcentral-app",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource,
+            location=West Europe)
+        example_application = azure.iotcentral.application.Application("example",
+            name=example-iotcentral-app,
             resource_group_name=example.name,
             location=example.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
+            sub_domain=example-iotcentral-app-subdomain,
+            display_name=example-iotcentral-app-display-name,
+            sku=ST1,
             tags={
-                "Foo": "Bar",
+                Foo: Bar,
             })
-        example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("example",
+        example_application_network_rule_set = azure.iotcentral.application_network_rule_set.ApplicationNetworkRuleSet("example",
             iotcentral_application_id=example_application.id,
             ip_rules=[
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule1",
-                    ip_mask="10.0.1.0/24",
-                ),
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule2",
-                    ip_mask="10.1.1.0/24",
-                ),
+                {
+                    name: rule1,
+                    ipMask: 10.0.1.0/24,
+                },
+                {
+                    name: rule2,
+                    ipMask: 10.1.1.0/24,
+                },
             ])
         ```
 
@@ -232,30 +232,30 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource",
-            location="West Europe")
-        example_application = azure.iotcentral.Application("example",
-            name="example-iotcentral-app",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource,
+            location=West Europe)
+        example_application = azure.iotcentral.application.Application("example",
+            name=example-iotcentral-app,
             resource_group_name=example.name,
             location=example.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
+            sub_domain=example-iotcentral-app-subdomain,
+            display_name=example-iotcentral-app-display-name,
+            sku=ST1,
             tags={
-                "Foo": "Bar",
+                Foo: Bar,
             })
-        example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("example",
+        example_application_network_rule_set = azure.iotcentral.application_network_rule_set.ApplicationNetworkRuleSet("example",
             iotcentral_application_id=example_application.id,
             ip_rules=[
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule1",
-                    ip_mask="10.0.1.0/24",
-                ),
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
-                    name="rule2",
-                    ip_mask="10.1.1.0/24",
-                ),
+                {
+                    name: rule1,
+                    ipMask: 10.0.1.0/24,
+                },
+                {
+                    name: rule2,
+                    ipMask: 10.1.1.0/24,
+                },
             ])
         ```
 

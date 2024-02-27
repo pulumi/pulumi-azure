@@ -22,27 +22,27 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example-springcloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "example-springcloudapp",
     ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     var exampleCache = new Azure.Redis.Cache.Cache("example", new()
     ///     {
     ///         Name = "example-cache",
     ///         Location = example.Location,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         EnableNonSslPort = true,
     ///     });
     /// 
-    ///     var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("example", new()
+    ///     var exampleSpringCloudAppRedisAssociation = new Azure.Appplatform.SpringCloudAppRedisAssociation.SpringCloudAppRedisAssociation("example", new()
     ///     {
     ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,

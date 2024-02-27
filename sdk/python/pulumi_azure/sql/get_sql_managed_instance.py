@@ -276,17 +276,6 @@ def get_sql_managed_instance(name: Optional[str] = None,
 
     > **Note:** The `sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstance` data source instead.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.sql.get_sql_managed_instance(name="example_mi",
-        resource_group_name="example-resources")
-    pulumi.export("sqlInstanceId", example.id)
-    ```
-
 
     :param str name: The name of the SQL Managed Instance.
     :param str resource_group_name: The name of the Resource Group in which the SQL Managed Instance exists.
@@ -331,17 +320,6 @@ def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing SQL Managed Instance.
 
     > **Note:** The `sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstance` data source instead.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.sql.get_sql_managed_instance(name="example_mi",
-        resource_group_name="example-resources")
-    pulumi.export("sqlInstanceId", example.id)
-    ```
 
 
     :param str name: The name of the SQL Managed Instance.

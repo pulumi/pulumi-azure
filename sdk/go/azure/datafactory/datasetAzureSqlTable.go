@@ -21,49 +21,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/datasetAzureSqlTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/datasetAzureSqlTable"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServiceAzureSqlDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServiceAzureSqlDatabase"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkedServiceAzureSqlDatabase, err := datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "example", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
-//				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewDatasetAzureSqlTable(ctx, "example", &datafactory.DatasetAzureSqlTableArgs{
-//				Name:            pulumi.String("example"),
-//				DataFactoryId:   exampleFactory.ID(),
-//				LinkedServiceId: exampleLinkedServiceAzureSqlDatabase.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinkedServiceAzureSqlDatabase, err := datafactory/linkedServiceAzureSqlDatabase.NewLinkedServiceAzureSqlDatabase(ctx, "example", &datafactory/linkedServiceAzureSqlDatabase.LinkedServiceAzureSqlDatabaseArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// ConnectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/datasetAzureSqlTable.NewDatasetAzureSqlTable(ctx, "example", &datafactory/datasetAzureSqlTable.DatasetAzureSqlTableArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// LinkedServiceId: exampleLinkedServiceAzureSqlDatabase.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

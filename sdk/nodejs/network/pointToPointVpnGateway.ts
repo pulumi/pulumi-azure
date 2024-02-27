@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ * const exampleVirtualWan = new azure.network/virtualWan.VirtualWan("example", {
  *     name: "example-virtualwan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ * const exampleVirtualHub = new azure.network/virtualHub.VirtualHub("example", {
  *     name: "example-virtualhub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.0.0/23",
  * });
- * const exampleVpnServerConfiguration = new azure.network.VpnServerConfiguration("example", {
+ * const exampleVpnServerConfiguration = new azure.network/vpnServerConfiguration.VpnServerConfiguration("example", {
  *     name: "example-config",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * `,
  *     }],
  * });
- * const examplePointToPointVpnGateway = new azure.network.PointToPointVpnGateway("example", {
+ * const examplePointToPointVpnGateway = new azure.network/pointToPointVpnGateway.PointToPointVpnGateway("example", {
  *     name: "example-vpn-gateway",
  *     location: example.location,
  *     resourceGroupName: example.name,

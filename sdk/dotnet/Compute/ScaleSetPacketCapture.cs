@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("example", new()
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher.NetworkWatcher("example", new()
     ///     {
     ///         Name = "example-nw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vn",
     ///         AddressSpaces = new[]
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Compute
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "example-vmss",
     ///         ResourceGroupName = example.Name,
@@ -69,38 +69,38 @@ namespace Pulumi.Azure.Compute
     ///         ComputerNamePrefix = "my-linux-computer-name-prefix",
     ///         UpgradeMode = "Automatic",
     ///         DisablePasswordAuthentication = false,
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
+    ///             { "storageAccountType", "Standard_LRS" },
+    ///             { "caching", "ReadWrite" },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "example" },
+    ///                 { "primary", true },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "internal",
-    ///                         Primary = true,
-    ///                         SubnetId = exampleSubnet.Id,
+    ///                         { "name", "internal" },
+    ///                         { "primary", true },
+    ///                         { "subnetId", exampleSubnet.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("example", new()
+    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension.VirtualMachineScaleSetExtension("example", new()
     ///     {
     ///         Name = "network-watcher",
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
@@ -111,25 +111,25 @@ namespace Pulumi.Azure.Compute
     ///         AutomaticUpgradeEnabled = true,
     ///     });
     /// 
-    ///     var exampleScaleSetPacketCapture = new Azure.Compute.ScaleSetPacketCapture("example", new()
+    ///     var exampleScaleSetPacketCapture = new Azure.Compute.ScaleSetPacketCapture.ScaleSetPacketCapture("example", new()
     ///     {
     ///         Name = "example-pc",
     ///         NetworkWatcherId = exampleNetworkWatcher.Id,
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///         StorageLocation = new Azure.Compute.Inputs.ScaleSetPacketCaptureStorageLocationArgs
+    ///         StorageLocation = 
     ///         {
-    ///             FilePath = "/var/captures/packet.cap",
+    ///             { "filePath", "/var/captures/packet.cap" },
     ///         },
-    ///         MachineScope = new Azure.Compute.Inputs.ScaleSetPacketCaptureMachineScopeArgs
+    ///         MachineScope = 
     ///         {
-    ///             IncludeInstanceIds = new[]
+    ///             { "includeInstanceIds", new[]
     ///             {
     ///                 "0",
-    ///             },
-    ///             ExcludeInstanceIds = new[]
+    ///             } },
+    ///             { "excludeInstanceIds", new[]
     ///             {
     ///                 "1",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

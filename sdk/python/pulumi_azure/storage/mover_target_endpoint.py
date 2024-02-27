@@ -204,30 +204,30 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestr,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             allow_nested_items_to_be_public=True)
-        example_container = azure.storage.Container("example",
-            name="example-sc",
+        example_container = azure.storage.container.Container("example",
+            name=example-sc,
             storage_account_name=example_account.name,
-            container_access_type="blob")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+            container_access_type=blob)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name,
-            location="West Europe")
-        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("example",
-            name="example-se",
+            location=West Europe)
+        example_mover_target_endpoint = azure.storage.mover_target_endpoint.MoverTargetEndpoint("example",
+            name=example-se,
             storage_mover_id=example_mover.id,
             storage_account_id=example_account.id,
             storage_container_name=example_container.name,
-            description="Example Storage Container Endpoint Description")
+            description=Example Storage Container Endpoint Description)
         ```
 
         ## Import
@@ -261,30 +261,30 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestr,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             allow_nested_items_to_be_public=True)
-        example_container = azure.storage.Container("example",
-            name="example-sc",
+        example_container = azure.storage.container.Container("example",
+            name=example-sc,
             storage_account_name=example_account.name,
-            container_access_type="blob")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+            container_access_type=blob)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name,
-            location="West Europe")
-        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("example",
-            name="example-se",
+            location=West Europe)
+        example_mover_target_endpoint = azure.storage.mover_target_endpoint.MoverTargetEndpoint("example",
+            name=example-se,
             storage_mover_id=example_mover.id,
             storage_account_id=example_account.id,
             storage_container_name=example_container.name,
-            description="Example Storage Container Endpoint Description")
+            description=Example Storage Container Endpoint Description)
         ```
 
         ## Import

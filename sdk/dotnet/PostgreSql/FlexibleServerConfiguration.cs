@@ -24,13 +24,13 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("example", new()
+    ///     var exampleFlexibleServer = new Azure.Postgresql.FlexibleServer.FlexibleServer("example", new()
     ///     {
     ///         Name = "example-psqlflexibleserver",
     ///         ResourceGroupName = example.Name,
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         SkuName = "GP_Standard_D4s_v3",
     ///     });
     /// 
-    ///     var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("example", new()
+    ///     var exampleFlexibleServerConfiguration = new Azure.Postgresql.FlexibleServerConfiguration.FlexibleServerConfiguration("example", new()
     ///     {
     ///         Name = "backslash_quote",
     ///         ServerId = exampleFlexibleServer.Id,
@@ -61,13 +61,13 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("example", new()
+    ///     var exampleFlexibleServer = new Azure.Postgresql.FlexibleServer.FlexibleServer("example", new()
     ///     {
     ///         Name = "example-psqlflexibleserver",
     ///         ResourceGroupName = example.Name,
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         SkuName = "GP_Standard_D4s_v3",
     ///     });
     /// 
-    ///     var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("example", new()
+    ///     var exampleFlexibleServerConfiguration = new Azure.Postgresql.FlexibleServerConfiguration.FlexibleServerConfiguration("example", new()
     ///     {
     ///         Name = "azure.extensions",
     ///         ServerId = exampleFlexibleServer.Id,

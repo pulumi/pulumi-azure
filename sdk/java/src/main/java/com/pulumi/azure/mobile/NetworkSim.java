@@ -34,12 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkSimGroupArgs;
  * import com.pulumi.azure.mobile.NetworkSlice;
  * import com.pulumi.azure.mobile.NetworkSliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
  * import com.pulumi.azure.mobile.NetworkAttachedDataNetwork;
  * import com.pulumi.azure.mobile.NetworkAttachedDataNetworkArgs;
  * import com.pulumi.azure.mobile.NetworkSim;
  * import com.pulumi.azure.mobile.NetworkSimArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSimStaticIpConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,9 +74,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-slice&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
- *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
- *                 .sliceServiceType(1)
- *                 .build())
+ *             .singleNetworkSliceSelectionAssistanceInformation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork(&#34;exampleNetworkAttachedDataNetwork&#34;, NetworkAttachedDataNetworkArgs.builder()        
@@ -101,11 +97,7 @@ import javax.annotation.Nullable;
  *             .integratedCircuitCardIdentifier(&#34;8900000000000000000&#34;)
  *             .internationalMobileSubscriberIdentity(&#34;000000000000000&#34;)
  *             .operatorKeyCode(&#34;00000000000000000000000000000000&#34;)
- *             .staticIpConfigurations(NetworkSimStaticIpConfigurationArgs.builder()
- *                 .attachedDataNetworkId(test.id())
- *                 .sliceId(testAzurermMobileNetworkSlice.id())
- *                 .staticIpv4Address(&#34;2.4.0.1&#34;)
- *                 .build())
+ *             .staticIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

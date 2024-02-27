@@ -22,25 +22,25 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.SignalR.Service("example", new()
+    ///     var exampleService = new Azure.Signalr.Service.Service("example", new()
     ///     {
     ///         Name = "example-signalr",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Standard_S1",
-    ///             Capacity = 1,
+    ///             { "name", "Standard_S1" },
+    ///             { "capacity", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         ResourceGroupName = example.Name,
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.SignalR
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -63,44 +63,44 @@ namespace Pulumi.Azure.SignalR
     ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
     ///     });
     /// 
-    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     var exampleEndpoint = new Azure.Privatelink.Endpoint.Endpoint("example", new()
     ///     {
     ///         Name = "example-privateendpoint",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         SubnetId = exampleSubnet.Id,
-    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         PrivateServiceConnection = 
     ///         {
-    ///             Name = "psc-sig-test",
-    ///             IsManualConnection = false,
-    ///             PrivateConnectionResourceId = exampleService.Id,
-    ///             SubresourceNames = new[]
+    ///             { "name", "psc-sig-test" },
+    ///             { "isManualConnection", false },
+    ///             { "privateConnectionResourceId", exampleService.Id },
+    ///             { "subresourceNames", new[]
     ///             {
     ///                 "signalr",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("example", new()
+    ///     var exampleServiceNetworkAcl = new Azure.Signalr.ServiceNetworkAcl.ServiceNetworkAcl("example", new()
     ///     {
     ///         SignalrServiceId = exampleService.Id,
     ///         DefaultAction = "Deny",
-    ///         PublicNetwork = new Azure.SignalR.Inputs.ServiceNetworkAclPublicNetworkArgs
+    ///         PublicNetwork = 
     ///         {
-    ///             AllowedRequestTypes = new[]
+    ///             { "allowedRequestTypes", new[]
     ///             {
     ///                 "ClientConnection",
-    ///             },
+    ///             } },
     ///         },
     ///         PrivateEndpoints = new[]
     ///         {
-    ///             new Azure.SignalR.Inputs.ServiceNetworkAclPrivateEndpointArgs
+    ///             
     ///             {
-    ///                 Id = exampleEndpoint.Id,
-    ///                 AllowedRequestTypes = new[]
+    ///                 { "id", exampleEndpoint.Id },
+    ///                 { "allowedRequestTypes", new[]
     ///                 {
     ///                     "ServerConnection",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

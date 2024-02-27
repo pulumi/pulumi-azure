@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,52 +37,52 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAsset = new Azure.Media.Asset("example", new()
+    ///     var exampleAsset = new Azure.Media.Asset.Asset("example", new()
     ///     {
     ///         Name = "inputAsset",
     ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///     });
     /// 
-    ///     var exampleLiveEvent = new Azure.Media.LiveEvent("example", new()
+    ///     var exampleLiveEvent = new Azure.Media.LiveEvent.LiveEvent("example", new()
     ///     {
     ///         Name = "exampleevent",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "My Event Description",
-    ///         Input = new Azure.Media.Inputs.LiveEventInputArgs
+    ///         Input = 
     ///         {
-    ///             StreamingProtocol = "RTMP",
-    ///             KeyFrameIntervalDuration = "PT6S",
-    ///             IpAccessControlAllows = new[]
+    ///             { "streamingProtocol", "RTMP" },
+    ///             { "keyFrameIntervalDuration", "PT6S" },
+    ///             { "ipAccessControlAllows", new[]
     ///             {
-    ///                 new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
+    ///                 
     ///                 {
-    ///                     Name = "AllowAll",
-    ///                     Address = "0.0.0.0",
-    ///                     SubnetPrefixLength = 0,
+    ///                     { "name", "AllowAll" },
+    ///                     { "address", "0.0.0.0" },
+    ///                     { "subnetPrefixLength", 0 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleLiveEventOutput = new Azure.Media.LiveEventOutput("example", new()
+    ///     var exampleLiveEventOutput = new Azure.Media.LiveEventOutput.LiveEventOutput("example", new()
     ///     {
     ///         Name = "exampleoutput",
     ///         LiveEventId = exampleLiveEvent.Id,

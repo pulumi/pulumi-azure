@@ -12,48 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management API Assignment to a Product.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
-    ///     {
-    ///         Name = "example-api",
-    ///         ResourceGroupName = "example-resources",
-    ///     });
-    /// 
-    ///     var exampleGetApi = Azure.ApiManagement.GetApi.Invoke(new()
-    ///     {
-    ///         Name = "search-api",
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///         Revision = "2",
-    ///     });
-    /// 
-    ///     var exampleGetProduct = Azure.ApiManagement.GetProduct.Invoke(new()
-    ///     {
-    ///         ProductId = "my-product",
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///     });
-    /// 
-    ///     var exampleProductApi = new Azure.ApiManagement.ProductApi("example", new()
-    ///     {
-    ///         ApiName = exampleGetApi.Apply(getApiResult =&gt; getApiResult.Name),
-    ///         ProductId = exampleGetProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Product API's can be imported using the `resource id`, e.g.

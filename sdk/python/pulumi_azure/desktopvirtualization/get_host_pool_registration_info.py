@@ -122,19 +122,19 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-hostpool",
-            location="westeurope")
-        example_host_pool = azure.desktopvirtualization.HostPool("example",
-            name="example-HP",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-hostpool,
+            location=westeurope)
+        example_host_pool = azure.desktopvirtualization.host_pool.HostPool("example",
+            name=example-HP,
             location=example.location,
             resource_group_name=example.name,
-            type="Pooled",
+            type=Pooled,
             validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        example_get_host_pool_registration_info = azure.desktopvirtualization.GetHostPoolRegistrationInfo("example",
+            load_balancer_type=BreadthFirst)
+        example_get_host_pool_registration_info = azure.desktopvirtualization.get_host_pool_registration_info.GetHostPoolRegistrationInfo("example",
             hostpool_id=example_host_pool.id,
-            expiration_date="2022-01-01T23:40:52Z")
+            expiration_date=2022-01-01T23:40:52Z)
         ```
 
         ## Import
@@ -165,19 +165,19 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-hostpool",
-            location="westeurope")
-        example_host_pool = azure.desktopvirtualization.HostPool("example",
-            name="example-HP",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-hostpool,
+            location=westeurope)
+        example_host_pool = azure.desktopvirtualization.host_pool.HostPool("example",
+            name=example-HP,
             location=example.location,
             resource_group_name=example.name,
-            type="Pooled",
+            type=Pooled,
             validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        example_get_host_pool_registration_info = azure.desktopvirtualization.GetHostPoolRegistrationInfo("example",
+            load_balancer_type=BreadthFirst)
+        example_get_host_pool_registration_info = azure.desktopvirtualization.get_host_pool_registration_info.GetHostPoolRegistrationInfo("example",
             hostpool_id=example_host_pool.id,
-            expiration_date="2022-01-01T23:40:52Z")
+            expiration_date=2022-01-01T23:40:52Z)
         ```
 
         ## Import

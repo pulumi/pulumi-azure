@@ -22,13 +22,13 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("example", new()
+    ///     var exampleFlexibleServer = new Azure.Postgresql.FlexibleServer.FlexibleServer("example", new()
     ///     {
     ///         Name = "example-psqlflexibleserver",
     ///         ResourceGroupName = example.Name,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         SkuName = "GP_Standard_D4s_v3",
     ///     });
     /// 
-    ///     var exampleFlexibleServerFirewallRule = new Azure.PostgreSql.FlexibleServerFirewallRule("example", new()
+    ///     var exampleFlexibleServerFirewallRule = new Azure.Postgresql.FlexibleServerFirewallRule.FlexibleServerFirewallRule("example", new()
     ///     {
     ///         Name = "example-fw",
     ///         ServerId = exampleFlexibleServer.Id,

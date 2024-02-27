@@ -352,17 +352,6 @@ def get_pool(account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Batch pool
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.batch.get_pool(name="testbatchpool",
-        account_name="testbatchaccount",
-        resource_group_name="test")
-    ```
-
 
     :param str account_name: The Azure Storage Account name.
     :param str name: The name of the user account.
@@ -411,17 +400,6 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source to access information about an existing Batch pool
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.batch.get_pool(name="testbatchpool",
-        account_name="testbatchaccount",
-        resource_group_name="test")
-    ```
 
 
     :param str account_name: The Azure Storage Account name.

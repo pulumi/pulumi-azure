@@ -44,8 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.RegistryArgs;
  * import com.pulumi.azure.containerservice.RegistryTask;
  * import com.pulumi.azure.containerservice.RegistryTaskArgs;
- * import com.pulumi.azure.containerservice.inputs.RegistryTaskPlatformArgs;
- * import com.pulumi.azure.containerservice.inputs.RegistryTaskDockerStepArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,15 +72,8 @@ import javax.annotation.Nullable;
  *         var exampleRegistryTask = new RegistryTask(&#34;exampleRegistryTask&#34;, RegistryTaskArgs.builder()        
  *             .name(&#34;example-task&#34;)
  *             .containerRegistryId(exampleRegistry.id())
- *             .platform(RegistryTaskPlatformArgs.builder()
- *                 .os(&#34;Linux&#34;)
- *                 .build())
- *             .dockerStep(RegistryTaskDockerStepArgs.builder()
- *                 .dockerfilePath(&#34;Dockerfile&#34;)
- *                 .contextPath(&#34;https://github.com/&lt;username&gt;/&lt;repository&gt;#&lt;branch&gt;:&lt;folder&gt;&#34;)
- *                 .contextAccessToken(&#34;&lt;github personal access token&gt;&#34;)
- *                 .imageNames(&#34;helloworld:{{.Run.ID}}&#34;)
- *                 .build())
+ *             .platform(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .dockerStep(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

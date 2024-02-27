@@ -21,119 +21,119 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/contentKeyPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/contentKeyPolicy"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	media/streamingPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/streamingPolicy"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContentKeyPolicy, err := media.NewContentKeyPolicy(ctx, "example", &media.ContentKeyPolicyArgs{
-//				Name:                     pulumi.String("example"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				PolicyOptions: media.ContentKeyPolicyPolicyOptionArray{
-//					&media.ContentKeyPolicyPolicyOptionArgs{
-//						Name: pulumi.String("fairPlay"),
-//						FairplayConfiguration: &media.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{
-//							Ask:                   pulumi.String("bb566284cc124a21c435a92cd3c108c4"),
-//							Pfx:                   pulumi.String("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"),
-//							PfxPassword:           pulumi.String("password"),
-//							RentalDurationSeconds: pulumi.Int(2249),
-//							RentalAndLeaseKeyType: pulumi.String("PersistentUnlimited"),
-//						},
-//						OpenRestrictionEnabled: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewStreamingPolicy(ctx, "example", &media.StreamingPolicyArgs{
-//				Name:                     pulumi.String("Policy-1"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				CommonEncryptionCenc: &media.StreamingPolicyCommonEncryptionCencArgs{
-//					ClearTracks: media.StreamingPolicyCommonEncryptionCencClearTrackArray{
-//						&media.StreamingPolicyCommonEncryptionCencClearTrackArgs{
-//							Conditions: media.StreamingPolicyCommonEncryptionCencClearTrackConditionArray{
-//								&media.StreamingPolicyCommonEncryptionCencClearTrackConditionArgs{
-//									Property:  pulumi.String("FourCC"),
-//									Operation: pulumi.String("Equal"),
-//									Value:     pulumi.String("hev2"),
-//								},
-//							},
-//						},
-//					},
-//					EnabledProtocols: &media.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{
-//						Download:        pulumi.Bool(false),
-//						Dash:            pulumi.Bool(true),
-//						Hls:             pulumi.Bool(false),
-//						SmoothStreaming: pulumi.Bool(false),
-//					},
-//					DefaultContentKey: &media.StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{
-//						Label:      pulumi.String("aesDefaultKey"),
-//						PolicyName: exampleContentKeyPolicy.Name,
-//					},
-//					DrmPlayready: &media.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{
-//						CustomLicenseAcquisitionUrlTemplate: pulumi.String("https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}"),
-//						CustomAttributes:                    pulumi.String("PlayReady CustomAttributes"),
-//					},
-//					DrmWidevineCustomLicenseAcquisitionUrlTemplate: pulumi.String("https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId}"),
-//				},
-//				CommonEncryptionCbcs: &media.StreamingPolicyCommonEncryptionCbcsArgs{
-//					EnabledProtocols: &media.StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{
-//						Download:        pulumi.Bool(false),
-//						Dash:            pulumi.Bool(true),
-//						Hls:             pulumi.Bool(false),
-//						SmoothStreaming: pulumi.Bool(false),
-//					},
-//					DrmFairplay: &media.StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{
-//						CustomLicenseAcquisitionUrlTemplate: pulumi.String("https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}"),
-//						AllowPersistentLicense:              pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleContentKeyPolicy, err := media/contentKeyPolicy.NewContentKeyPolicy(ctx, "example", &media/contentKeyPolicy.ContentKeyPolicyArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// PolicyOptions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "fairPlay",
+// "fairplayConfiguration": map[string]interface{}{
+// "ask": "bb566284cc124a21c435a92cd3c108c4",
+// "pfx": "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",
+// "pfxPassword": "password",
+// "rentalDurationSeconds": 2249,
+// "rentalAndLeaseKeyType": "PersistentUnlimited",
+// },
+// "openRestrictionEnabled": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/streamingPolicy.NewStreamingPolicy(ctx, "example", &media/streamingPolicy.StreamingPolicyArgs{
+// Name: "Policy-1",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// CommonEncryptionCenc: map[string]interface{}{
+// "clearTracks": []map[string]interface{}{
+// map[string]interface{}{
+// "conditions": []map[string]interface{}{
+// map[string]interface{}{
+// "property": "FourCC",
+// "operation": "Equal",
+// "value": "hev2",
+// },
+// },
+// },
+// },
+// "enabledProtocols": map[string]interface{}{
+// "download": false,
+// "dash": true,
+// "hls": false,
+// "smoothStreaming": false,
+// },
+// "defaultContentKey": map[string]interface{}{
+// "label": "aesDefaultKey",
+// "policyName": exampleContentKeyPolicy.Name,
+// },
+// "drmPlayready": map[string]interface{}{
+// "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+// "customAttributes": "PlayReady CustomAttributes",
+// },
+// "drmWidevineCustomLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId}",
+// },
+// CommonEncryptionCbcs: map[string]interface{}{
+// "enabledProtocols": map[string]interface{}{
+// "download": false,
+// "dash": true,
+// "hls": false,
+// "smoothStreaming": false,
+// },
+// "drmFairplay": map[string]interface{}{
+// "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+// "allowPersistentLicense": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

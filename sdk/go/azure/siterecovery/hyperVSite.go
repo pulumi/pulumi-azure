@@ -21,43 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	siterecovery/hyperVSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/hyperVSite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("eastus"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				SoftDeleteEnabled: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewHyperVSite(ctx, "example", &siterecovery.HyperVSiteArgs{
-//				Name:            pulumi.String("example-site"),
-//				RecoveryVaultId: exampleVault.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "eastus",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVault, err := recoveryservices/vault.NewVault(ctx, "example", &recoveryservices/vault.VaultArgs{
+// Name: "example-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// SoftDeleteEnabled: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/hyperVSite.NewHyperVSite(ctx, "example", &siterecovery/hyperVSite.HyperVSiteArgs{
+// Name: "example-site",
+// RecoveryVaultId: exampleVault.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

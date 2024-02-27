@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
+ * const exampleFrontdoor = new azure.frontdoor/frontdoor.Frontdoor("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     backendPools: [{
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *         frontendEndpoints: ["exampleFrontendEndpoint1"],
  *     }],
  * });
- * const exampleRulesEngine = new azure.frontdoor.RulesEngine("example_rules_engine", {
+ * const exampleRulesEngine = new azure.frontdoor/rulesEngine.RulesEngine("example_rules_engine", {
  *     name: "exampleRulesEngineConfig1",
  *     frontdoorName: exampleFrontdoor.name,
  *     resourceGroupName: exampleFrontdoor.resourceGroupName,

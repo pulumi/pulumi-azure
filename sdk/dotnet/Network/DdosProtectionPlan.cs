@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDdosProtectionPlan = new Azure.Network.DdosProtectionPlan("example", new()
+    ///     var exampleDdosProtectionPlan = new Azure.Network.DdosProtectionPlan.DdosProtectionPlan("example", new()
     ///     {
     ///         Name = "example-protection-plan",
     ///         Location = example.Location,

@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -39,35 +39,35 @@ namespace Pulumi.Azure.Compute
     ///         Sku = "Standard_F2",
     ///         AdminUsername = "adminuser",
     ///         Instances = 1,
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "example" },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "internal",
+    ///                         { "name", "internal" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
+    ///             { "storageAccountType", "Standard_LRS" },
+    ///             { "caching", "ReadWrite" },
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("example", new()
+    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension.VirtualMachineScaleSetExtension("example", new()
     ///     {
     ///         Name = "example",
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,

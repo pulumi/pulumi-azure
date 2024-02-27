@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	privatedns/txtRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/txtRecord"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("contoso.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewTxtRecord(ctx, "example", &privatedns.TxtRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: privatedns.TxtRecordRecordArray{
-//					&privatedns.TxtRecordRecordArgs{
-//						Value: pulumi.String("v=spf1 mx ~all"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+// Name: "contoso.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/txtRecord.NewTxtRecord(ctx, "example", &privatedns/txtRecord.TxtRecordArgs{
+// Name: "test",
+// ResourceGroupName: example.Name,
+// ZoneName: exampleZone.Name,
+// Ttl: 300,
+// Records: []map[string]interface{}{
+// map[string]interface{}{
+// "value": "v=spf1 mx ~all",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan.VirtualWan("example", new()
     ///     {
     ///         Name = "example-virtualwan",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub.VirtualHub("example", new()
     ///     {
     ///         Name = "example-virtualhub",
     ///         ResourceGroupName = example.Name,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
     ///         AddressPrefix = "10.0.0.0/23",
     ///     });
     /// 
-    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("example", new()
+    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration.VpnServerConfiguration("example", new()
     ///     {
     ///         Name = "example-config",
     ///         ResourceGroupName = example.Name,
@@ -55,10 +55,10 @@ namespace Pulumi.Azure.Network
     ///         },
     ///         ClientRootCertificates = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
+    ///             
     ///             {
-    ///                 Name = "DigiCert-Federated-ID-Root-CA",
-    ///                 PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+    ///                 { "name", "DigiCert-Federated-ID-Root-CA" },
+    ///                 { "publicCertData", @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
     /// MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
     /// d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
     /// Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -78,12 +78,12 @@ namespace Pulumi.Azure.Network
     /// uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
     /// WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
     /// M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-    /// ",
+    /// " },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var examplePointToPointVpnGateway = new Azure.Network.PointToPointVpnGateway("example", new()
+    ///     var examplePointToPointVpnGateway = new Azure.Network.PointToPointVpnGateway.PointToPointVpnGateway("example", new()
     ///     {
     ///         Name = "example-vpn-gateway",
     ///         Location = example.Location,
@@ -91,16 +91,16 @@ namespace Pulumi.Azure.Network
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
     ///         ScaleUnit = 1,
-    ///         ConnectionConfiguration = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationArgs
+    ///         ConnectionConfiguration = 
     ///         {
-    ///             Name = "example-gateway-config",
-    ///             VpnClientAddressPool = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
+    ///             { "name", "example-gateway-config" },
+    ///             { "vpnClientAddressPool", 
     ///             {
-    ///                 AddressPrefixes = new[]
+    ///                 { "addressPrefixes", new[]
     ///                 {
     ///                     "10.0.2.0/24",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

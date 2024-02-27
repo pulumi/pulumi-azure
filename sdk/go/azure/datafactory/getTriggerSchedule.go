@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about a trigger schedule in Azure Data Factory.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := datafactory.LookupTriggerSchedule(ctx, &datafactory.LookupTriggerScheduleArgs{
-//				Name:          "example_trigger",
-//				DataFactoryId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTriggerSchedule(ctx *pulumi.Context, args *LookupTriggerScheduleArgs, opts ...pulumi.InvokeOption) (*LookupTriggerScheduleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTriggerScheduleResult

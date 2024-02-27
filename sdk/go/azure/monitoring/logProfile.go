@@ -27,70 +27,66 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	monitoring/logProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/logProfile"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("logprofiletest-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("afscsdfytw"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("logprofileeventhub"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				Capacity:          pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewLogProfile(ctx, "example", &monitoring.LogProfileArgs{
-//				Name: pulumi.String("default"),
-//				Categories: pulumi.StringArray{
-//					pulumi.String("Action"),
-//					pulumi.String("Delete"),
-//					pulumi.String("Write"),
-//				},
-//				Locations: pulumi.StringArray{
-//					pulumi.String("westus"),
-//					pulumi.String("global"),
-//				},
-//				ServicebusRuleId: exampleEventHubNamespace.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("%v/authorizationrules/RootManageSharedAccessKey", id), nil
-//				}).(pulumi.StringOutput),
-//				StorageAccountId: exampleAccount.ID(),
-//				RetentionPolicy: &monitoring.LogProfileRetentionPolicyArgs{
-//					Enabled: pulumi.Bool(true),
-//					Days:    pulumi.Int(7),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "logprofiletest-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "afscsdfytw",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHubNamespace, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "example", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "logprofileeventhub",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// Capacity: 2,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/logProfile.NewLogProfile(ctx, "example", &monitoring/logProfile.LogProfileArgs{
+// Name: "default",
+// Categories: []string{
+// "Action",
+// "Delete",
+// "Write",
+// },
+// Locations: []string{
+// "westus",
+// "global",
+// },
+// ServicebusRuleId: fmt.Sprintf("%v/authorizationrules/RootManageSharedAccessKey", exampleEventHubNamespace.Id),
+// StorageAccountId: exampleAccount.Id,
+// RetentionPolicy: map[string]interface{}{
+// "enabled": true,
+// "days": 7,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

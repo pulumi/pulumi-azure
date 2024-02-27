@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
+    ///     var exampleBackupVault = new Azure.Dataprotection.BackupVault.BackupVault("example", new()
     ///     {
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataProtection
     ///         Redundancy = "LocallyRedundant",
     ///     });
     /// 
-    ///     var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("example", new()
+    ///     var exampleBackupPolicyPostgresql = new Azure.Dataprotection.BackupPolicyPostgresql.BackupPolicyPostgresql("example", new()
     ///     {
     ///         Name = "example-backup-policy",
     ///         ResourceGroupName = example.Name,
@@ -50,54 +50,54 @@ namespace Pulumi.Azure.DataProtection
     ///         DefaultRetentionDuration = "P4M",
     ///         RetentionRules = new[]
     ///         {
-    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             
     ///             {
-    ///                 Name = "weekly",
-    ///                 Duration = "P6M",
-    ///                 Priority = 20,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 { "name", "weekly" },
+    ///                 { "duration", "P6M" },
+    ///                 { "priority", 20 },
+    ///                 { "criteria", 
     ///                 {
-    ///                     AbsoluteCriteria = "FirstOfWeek",
-    ///                 },
+    ///                     { "absoluteCriteria", "FirstOfWeek" },
+    ///                 } },
     ///             },
-    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             
     ///             {
-    ///                 Name = "thursday",
-    ///                 Duration = "P1W",
-    ///                 Priority = 25,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 { "name", "thursday" },
+    ///                 { "duration", "P1W" },
+    ///                 { "priority", 25 },
+    ///                 { "criteria", 
     ///                 {
-    ///                     DaysOfWeeks = new[]
+    ///                     { "daysOfWeeks", new[]
     ///                     {
     ///                         "Thursday",
-    ///                     },
-    ///                     ScheduledBackupTimes = new[]
+    ///                     } },
+    ///                     { "scheduledBackupTimes", new[]
     ///                     {
     ///                         "2021-05-23T02:30:00Z",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             
     ///             {
-    ///                 Name = "monthly",
-    ///                 Duration = "P1D",
-    ///                 Priority = 15,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 { "name", "monthly" },
+    ///                 { "duration", "P1D" },
+    ///                 { "priority", 15 },
+    ///                 { "criteria", 
     ///                 {
-    ///                     WeeksOfMonths = new[]
+    ///                     { "weeksOfMonths", new[]
     ///                     {
     ///                         "First",
     ///                         "Last",
-    ///                     },
-    ///                     DaysOfWeeks = new[]
+    ///                     } },
+    ///                     { "daysOfWeeks", new[]
     ///                     {
     ///                         "Tuesday",
-    ///                     },
-    ///                     ScheduledBackupTimes = new[]
+    ///                     } },
+    ///                     { "scheduledBackupTimes", new[]
     ///                     {
     ///                         "2021-05-23T02:30:00Z",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });

@@ -243,38 +243,38 @@ class LogProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="logprofiletest-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="afscsdfytw",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=logprofiletest-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=afscsdfytw,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="logprofileeventhub",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=logprofileeventhub,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=2)
-        example_log_profile = azure.monitoring.LogProfile("example",
-            name="default",
+        example_log_profile = azure.monitoring.log_profile.LogProfile("example",
+            name=default,
             categories=[
-                "Action",
-                "Delete",
-                "Write",
+                Action,
+                Delete,
+                Write,
             ],
             locations=[
-                "westus",
-                "global",
+                westus,
+                global,
             ],
-            servicebus_rule_id=example_event_hub_namespace.id.apply(lambda id: f"{id}/authorizationrules/RootManageSharedAccessKey"),
+            servicebus_rule_id=f{example_event_hub_namespace.id}/authorizationrules/RootManageSharedAccessKey,
             storage_account_id=example_account.id,
-            retention_policy=azure.monitoring.LogProfileRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ))
+            retention_policy={
+                enabled: True,
+                days: 7,
+            })
         ```
 
         ## Import
@@ -313,38 +313,38 @@ class LogProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="logprofiletest-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="afscsdfytw",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=logprofiletest-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=afscsdfytw,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="logprofileeventhub",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=logprofileeventhub,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=2)
-        example_log_profile = azure.monitoring.LogProfile("example",
-            name="default",
+        example_log_profile = azure.monitoring.log_profile.LogProfile("example",
+            name=default,
             categories=[
-                "Action",
-                "Delete",
-                "Write",
+                Action,
+                Delete,
+                Write,
             ],
             locations=[
-                "westus",
-                "global",
+                westus,
+                global,
             ],
-            servicebus_rule_id=example_event_hub_namespace.id.apply(lambda id: f"{id}/authorizationrules/RootManageSharedAccessKey"),
+            servicebus_rule_id=f{example_event_hub_namespace.id}/authorizationrules/RootManageSharedAccessKey,
             storage_account_id=example_account.id,
-            retention_policy=azure.monitoring.LogProfileRetentionPolicyArgs(
-                enabled=True,
-                days=7,
-            ))
+            retention_policy={
+                enabled: True,
+                days: 7,
+            })
         ```
 
         ## Import

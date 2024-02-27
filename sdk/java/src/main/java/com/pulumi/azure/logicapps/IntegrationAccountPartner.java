@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
  * import com.pulumi.azure.logicapps.IntegrationAccountPartner;
  * import com.pulumi.azure.logicapps.IntegrationAccountPartnerArgs;
- * import com.pulumi.azure.logicapps.inputs.IntegrationAccountPartnerBusinessIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,10 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-iap&#34;)
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .businessIdentities(IntegrationAccountPartnerBusinessIdentityArgs.builder()
- *                 .qualifier(&#34;ZZ&#34;)
- *                 .value(&#34;AA&#34;)
- *                 .build())
+ *             .businessIdentities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

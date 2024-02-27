@@ -405,17 +405,17 @@ class VpnServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.VpnServerConfiguration("test",
-            name="example-config",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.network.vpn_server_configuration.VpnServerConfiguration("test",
+            name=example-config,
             resource_group_name=example.name,
             location=example.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            vpn_authentication_types=[Certificate],
+            client_root_certificates=[{
+                name: DigiCert-Federated-ID-Root-CA,
+                publicCertData: MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -435,8 +435,8 @@ class VpnServerConfiguration(pulumi.CustomResource):
         uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
+        ,
+            }])
         ```
 
         ## Import
@@ -476,17 +476,17 @@ class VpnServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.VpnServerConfiguration("test",
-            name="example-config",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test = azure.network.vpn_server_configuration.VpnServerConfiguration("test",
+            name=example-config,
             resource_group_name=example.name,
             location=example.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            vpn_authentication_types=[Certificate],
+            client_root_certificates=[{
+                name: DigiCert-Federated-ID-Root-CA,
+                publicCertData: MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -506,8 +506,8 @@ class VpnServerConfiguration(pulumi.CustomResource):
         uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
+        ,
+            }])
         ```
 
         ## Import

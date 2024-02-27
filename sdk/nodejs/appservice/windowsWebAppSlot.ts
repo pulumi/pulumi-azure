@@ -15,25 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example-plan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     osType: "Windows",
  *     skuName: "P1v2",
  * });
- * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ * const exampleWindowsWebApp = new azure.appservice/windowsWebApp.WindowsWebApp("example", {
  *     name: "example-windows-web-app",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleWindowsWebAppSlot = new azure.appservice.WindowsWebAppSlot("example", {
+ * const exampleWindowsWebAppSlot = new azure.appservice/windowsWebAppSlot.WindowsWebAppSlot("example", {
  *     name: "example-slot",
  *     appServiceId: exampleWindowsWebApp.id,
  *     siteConfig: {},

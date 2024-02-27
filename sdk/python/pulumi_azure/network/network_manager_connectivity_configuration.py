@@ -301,60 +301,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         > **Note:** The `network.NetworkManagerConnectivityConfiguration` deployment may modify or delete existing Network Peering resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
-            name="example-group",
-            network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-net",
-            location=example.location,
-            resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"],
-            flow_timeout_in_minutes=10)
-        example2 = azure.network.NetworkManagerNetworkGroup("example2",
-            name="example-group2",
-            network_manager_id=example_network_manager.id)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
-            name="example-connectivity-conf",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
-            applies_to_groups=[
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example_network_manager_network_group.id,
-                ),
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example2.id,
-                ),
-            ],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
-        ```
-
         ## Import
 
         Network Manager Connectivity Configuration can be imported using the `resource id`, e.g.
@@ -384,60 +330,6 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         Manages a Network Manager Connectivity Configuration.
 
         > **Note:** The `network.NetworkManagerConnectivityConfiguration` deployment may modify or delete existing Network Peering resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
-            scope_accesses=[
-                "Connectivity",
-                "SecurityAdmin",
-            ],
-            description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
-            name="example-group",
-            network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-net",
-            location=example.location,
-            resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"],
-            flow_timeout_in_minutes=10)
-        example2 = azure.network.NetworkManagerNetworkGroup("example2",
-            name="example-group2",
-            network_manager_id=example_network_manager.id)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
-            name="example-connectivity-conf",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
-            applies_to_groups=[
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example_network_manager_network_group.id,
-                ),
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example2.id,
-                ),
-            ],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
-        ```
 
         ## Import
 

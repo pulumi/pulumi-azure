@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.apimanagement.Service("example", {
+ * const exampleService = new azure.apimanagement/service.Service("example", {
  *     name: "example-apim",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleProduct = new azure.apimanagement.Product("example", {
+ * const exampleProduct = new azure.apimanagement/product.Product("example", {
  *     productId: "test-product",
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: example.name,
@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *     approvalRequired: true,
  *     published: true,
  * });
- * const exampleTag = new azure.apimanagement.Tag("example", {
+ * const exampleTag = new azure.apimanagement/tag.Tag("example", {
  *     apiManagementId: exampleService.id,
  *     name: "example-tag",
  * });
- * const exampleProductTag = new azure.apimanagement.ProductTag("example", {
+ * const exampleProductTag = new azure.apimanagement/productTag.ProductTag("example", {
  *     apiManagementProductId: exampleProduct.productId,
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: example.name,

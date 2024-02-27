@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/mxRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/mxRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewMxRecord(ctx, "example", &dns.MxRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsMxRecordId", exampleAzurermDnsMxRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/mxRecord.NewMxRecord(ctx, "example", &dns/mxRecord.MxRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsMxRecordId", exampleAzurermDnsMxRecord.Id)
+// return nil
+// })
+// }
 // ```
 func LookupMxRecord(ctx *pulumi.Context, args *LookupMxRecordArgs, opts ...pulumi.InvokeOption) (*LookupMxRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

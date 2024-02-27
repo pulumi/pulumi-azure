@@ -21,103 +21,102 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/managementPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/managementPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("resourceGroupName"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("storageaccountname"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				AccountKind:            pulumi.String("BlobStorage"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewManagementPolicy(ctx, "example", &storage.ManagementPolicyArgs{
-//				StorageAccountId: exampleAccount.ID(),
-//				Rules: storage.ManagementPolicyRuleArray{
-//					&storage.ManagementPolicyRuleArgs{
-//						Name:    pulumi.String("rule1"),
-//						Enabled: pulumi.Bool(true),
-//						Filters: &storage.ManagementPolicyRuleFiltersArgs{
-//							PrefixMatches: pulumi.StringArray{
-//								pulumi.String("container1/prefix1"),
-//							},
-//							BlobTypes: pulumi.StringArray{
-//								pulumi.String("blockBlob"),
-//							},
-//							MatchBlobIndexTags: storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArray{
-//								&storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs{
-//									Name:      pulumi.String("tag1"),
-//									Operation: pulumi.String("=="),
-//									Value:     pulumi.String("val1"),
-//								},
-//							},
-//						},
-//						Actions: &storage.ManagementPolicyRuleActionsArgs{
-//							BaseBlob: &storage.ManagementPolicyRuleActionsBaseBlobArgs{
-//								TierToCoolAfterDaysSinceModificationGreaterThan:    pulumi.Int(10),
-//								TierToArchiveAfterDaysSinceModificationGreaterThan: pulumi.Int(50),
-//								DeleteAfterDaysSinceModificationGreaterThan:        pulumi.Int(100),
-//							},
-//							Snapshot: &storage.ManagementPolicyRuleActionsSnapshotArgs{
-//								DeleteAfterDaysSinceCreationGreaterThan: pulumi.Int(30),
-//							},
-//						},
-//					},
-//					&storage.ManagementPolicyRuleArgs{
-//						Name:    pulumi.String("rule2"),
-//						Enabled: pulumi.Bool(false),
-//						Filters: &storage.ManagementPolicyRuleFiltersArgs{
-//							PrefixMatches: pulumi.StringArray{
-//								pulumi.String("container2/prefix1"),
-//								pulumi.String("container2/prefix2"),
-//							},
-//							BlobTypes: pulumi.StringArray{
-//								pulumi.String("blockBlob"),
-//							},
-//						},
-//						Actions: &storage.ManagementPolicyRuleActionsArgs{
-//							BaseBlob: &storage.ManagementPolicyRuleActionsBaseBlobArgs{
-//								TierToCoolAfterDaysSinceModificationGreaterThan:    pulumi.Int(11),
-//								TierToArchiveAfterDaysSinceModificationGreaterThan: pulumi.Int(51),
-//								DeleteAfterDaysSinceModificationGreaterThan:        pulumi.Int(101),
-//							},
-//							Snapshot: &storage.ManagementPolicyRuleActionsSnapshotArgs{
-//								ChangeTierToArchiveAfterDaysSinceCreation: pulumi.Int(90),
-//								ChangeTierToCoolAfterDaysSinceCreation:    pulumi.Int(23),
-//								DeleteAfterDaysSinceCreationGreaterThan:   pulumi.Int(31),
-//							},
-//							Version: &storage.ManagementPolicyRuleActionsVersionArgs{
-//								ChangeTierToArchiveAfterDaysSinceCreation: pulumi.Int(9),
-//								ChangeTierToCoolAfterDaysSinceCreation:    pulumi.Int(90),
-//								DeleteAfterDaysSinceCreation:              pulumi.Int(3),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "resourceGroupName",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "storageaccountname",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// AccountKind: "BlobStorage",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/managementPolicy.NewManagementPolicy(ctx, "example", &storage/managementPolicy.ManagementPolicyArgs{
+// StorageAccountId: exampleAccount.Id,
+// Rules: []interface{}{
+// map[string]interface{}{
+// "name": "rule1",
+// "enabled": true,
+// "filters": map[string]interface{}{
+// "prefixMatches": []string{
+// "container1/prefix1",
+// },
+// "blobTypes": []string{
+// "blockBlob",
+// },
+// "matchBlobIndexTags": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "tag1",
+// "operation": "==",
+// "value": "val1",
+// },
+// },
+// },
+// "actions": map[string]interface{}{
+// "baseBlob": map[string]interface{}{
+// "tierToCoolAfterDaysSinceModificationGreaterThan": 10,
+// "tierToArchiveAfterDaysSinceModificationGreaterThan": 50,
+// "deleteAfterDaysSinceModificationGreaterThan": 100,
+// },
+// "snapshot": map[string]interface{}{
+// "deleteAfterDaysSinceCreationGreaterThan": 30,
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "rule2",
+// "enabled": false,
+// "filters": map[string]interface{}{
+// "prefixMatches": []string{
+// "container2/prefix1",
+// "container2/prefix2",
+// },
+// "blobTypes": []string{
+// "blockBlob",
+// },
+// },
+// "actions": map[string]interface{}{
+// "baseBlob": map[string]interface{}{
+// "tierToCoolAfterDaysSinceModificationGreaterThan": 11,
+// "tierToArchiveAfterDaysSinceModificationGreaterThan": 51,
+// "deleteAfterDaysSinceModificationGreaterThan": 101,
+// },
+// "snapshot": map[string]interface{}{
+// "changeTierToArchiveAfterDaysSinceCreation": 90,
+// "changeTierToCoolAfterDaysSinceCreation": 23,
+// "deleteAfterDaysSinceCreationGreaterThan": 31,
+// },
+// "version": map[string]interface{}{
+// "changeTierToArchiveAfterDaysSinceCreation": 9,
+// "changeTierToCoolAfterDaysSinceCreation": 90,
+// "deleteAfterDaysSinceCreation": 3,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

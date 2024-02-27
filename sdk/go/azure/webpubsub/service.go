@@ -21,44 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	webpubsub/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/webpubsub/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("terraform-webpubsub"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
-//				Name:                       pulumi.String("tfex-webpubsub"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				Sku:                        pulumi.String("Standard_S1"),
-//				Capacity:                   pulumi.Int(1),
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
-//				LiveTrace: &webpubsub.ServiceLiveTraceArgs{
-//					Enabled:                 pulumi.Bool(true),
-//					MessagingLogsEnabled:    pulumi.Bool(true),
-//					ConnectivityLogsEnabled: pulumi.Bool(false),
-//				},
-//				Identity: &webpubsub.ServiceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "terraform-webpubsub",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = webpubsub/service.NewService(ctx, "example", &webpubsub/service.ServiceArgs{
+// Name: "tfex-webpubsub",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard_S1",
+// Capacity: 1,
+// PublicNetworkAccessEnabled: false,
+// LiveTrace: map[string]interface{}{
+// "enabled": true,
+// "messagingLogsEnabled": true,
+// "connectivityLogsEnabled": false,
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.postgresql.Server("example", {
+ * const exampleServer = new azure.postgresql/server.Server("example", {
  *     name: "example-postgre-server",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     version: "11",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
+ * const exampleFirewallRule = new azure.postgresql/firewallRule.FirewallRule("example", {
  *     name: "office",
  *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
@@ -40,12 +40,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.postgresql.Server("example", {});
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
+ * const exampleServer = new azure.postgresql/server.Server("example", {});
+ * const exampleFirewallRule = new azure.postgresql/firewallRule.FirewallRule("example", {
  *     name: "office",
  *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,

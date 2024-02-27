@@ -21,72 +21,73 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	appservice/servicePlan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/servicePlan"
+//	appservice/webAppHybridConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/webAppHybridConnection"
+//	appservice/windowsWebApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/windowsWebApp"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	relay/hybridConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/relay/hybridConnection"
+//	relay/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/relay/namespace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
-//				Name:              pulumi.String("example-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OsType:            pulumi.String("Windows"),
-//				SkuName:           pulumi.String("S1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := relay.NewNamespace(ctx, "example", &relay.NamespaceArgs{
-//				Name:              pulumi.String("example-relay"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "example", &relay.HybridConnectionArgs{
-//				Name:               pulumi.String("examplerhc1"),
-//				ResourceGroupName:  example.Name,
-//				RelayNamespaceName: exampleNamespace.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
-//				Name:              pulumi.String("example-web-app"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewWebAppHybridConnection(ctx, "example", &appservice.WebAppHybridConnectionArgs{
-//				WebAppId: exampleWindowsWebApp.ID(),
-//				RelayId:  exampleHybridConnection.ID(),
-//				Hostname: pulumi.String("myhostname.example"),
-//				Port:     pulumi.Int(8081),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServicePlan, err := appservice/servicePlan.NewServicePlan(ctx, "example", &appservice/servicePlan.ServicePlanArgs{
+// Name: "example-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// OsType: "Windows",
+// SkuName: "S1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := relay/namespace.NewNamespace(ctx, "example", &relay/namespace.NamespaceArgs{
+// Name: "example-relay",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleHybridConnection, err := relay/hybridConnection.NewHybridConnection(ctx, "example", &relay/hybridConnection.HybridConnectionArgs{
+// Name: "examplerhc1",
+// ResourceGroupName: example.Name,
+// RelayNamespaceName: exampleNamespace.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleWindowsWebApp, err := appservice/windowsWebApp.NewWindowsWebApp(ctx, "example", &appservice/windowsWebApp.WindowsWebAppArgs{
+// Name: "example-web-app",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ServicePlanId: exampleServicePlan.Id,
+// SiteConfig: nil,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/webAppHybridConnection.NewWebAppHybridConnection(ctx, "example", &appservice/webAppHybridConnection.WebAppHybridConnectionArgs{
+// WebAppId: exampleWindowsWebApp.Id,
+// RelayId: exampleHybridConnection.Id,
+// Hostname: "myhostname.example",
+// Port: 8081,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  *
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
+ *     name: "LoadBalancerRG",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
+ *     name: "PublicIPForLB",
+ *     location: "West US",
+ *     resourceGroupName: example.name,
+ *     allocationMethod: "Static",
+ * });
+ * const exampleLoadBalancer = new azure.lb/loadBalancer.LoadBalancer("example", {
+ *     name: "TestLoadBalancer",
+ *     location: "West US",
+ *     resourceGroupName: example.name,
+ *     frontendIpConfigurations: [{
+ *         name: "PublicIPAddress",
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const exampleBackendAddressPool = new azure.lb/backendAddressPool.BackendAddressPool("example", {
+ *     resourceGroupName: example.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "be",
+ * });
+ * const exampleNatRule = new azure.lb/natRule.NatRule("example", {
+ *     resourceGroupName: example.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "RDPAccess",
+ *     protocol: "Tcp",
+ *     frontendPort: 3389,
+ *     backendPort: 3389,
+ *     frontendIpConfigurationName: "PublicIPAddress",
+ * });
+ * const example1 = new azure.lb/natRule.NatRule("example1", {
+ *     resourceGroupName: example.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "RDPAccess",
+ *     protocol: "Tcp",
+ *     frontendPortStart: 3000,
+ *     frontendPortEnd: 3389,
+ *     backendPort: 3389,
+ *     backendAddressPoolId: exampleBackendAddressPool.id,
+ *     frontendIpConfigurationName: "PublicIPAddress",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Load Balancer NAT Rules can be imported using the `resource id`, e.g.

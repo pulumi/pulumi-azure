@@ -19,35 +19,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageaccount",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "example",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "exampleIothub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "S1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  *     tags: {
  *         purpose: "testing",
  *     },
  * });
- * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("example", {
+ * const exampleEndpointStorageContainer = new azure.iot/endpointStorageContainer.EndpointStorageContainer("example", {
  *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,
  *     name: "example",
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *     encoding: "Avro",
  *     fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
  * });
- * const exampleFallbackRoute = new azure.iot.FallbackRoute("example", {
+ * const exampleFallbackRoute = new azure.iot/fallbackRoute.FallbackRoute("example", {
  *     resourceGroupName: example.name,
  *     iothubName: exampleIoTHub.name,
  *     condition: "true",

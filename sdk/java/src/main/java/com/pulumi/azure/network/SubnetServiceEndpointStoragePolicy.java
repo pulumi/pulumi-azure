@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.SubnetServiceEndpointStoragePolicy;
  * import com.pulumi.azure.network.SubnetServiceEndpointStoragePolicyArgs;
- * import com.pulumi.azure.network.inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import java.util.List;
@@ -55,18 +54,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-policy&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .definition(SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
- *                 .name(&#34;name2&#34;)
- *                 .description(&#34;definition2&#34;)
- *                 .service(&#34;Global&#34;)
- *                 .serviceResources(                
- *                     &#34;/services/Azure&#34;,
- *                     &#34;/services/Azure/Batch&#34;,
- *                     &#34;/services/Azure/DataFactory&#34;,
- *                     &#34;/services/Azure/MachineLearning&#34;,
- *                     &#34;/services/Azure/ManagedInstance&#34;,
- *                     &#34;/services/Azure/WebPI&#34;)
- *                 .build())
+ *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        

@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.SqlDatabase;
  * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
  * import com.pulumi.azure.cosmosdb.SqlContainer;
@@ -40,12 +38,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudApp;
  * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudAppIdentityArgs;
  * import com.pulumi.azure.appplatform.SpringCloudJavaDeployment;
  * import com.pulumi.azure.appplatform.SpringCloudJavaDeploymentArgs;
  * import com.pulumi.azure.appplatform.SpringCloudConnection;
  * import com.pulumi.azure.appplatform.SpringCloudConnectionArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,15 +66,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
- *                 .maxIntervalInSeconds(10)
- *                 .maxStalenessPrefix(200)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(example.location())
- *                 .failoverPriority(0)
- *                 .build())
+ *             .consistencyPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .geoLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
@@ -106,9 +95,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplespringcloudapp&#34;)
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
- *             .identity(SpringCloudAppIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment(&#34;exampleSpringCloudJavaDeployment&#34;, SpringCloudJavaDeploymentArgs.builder()        
@@ -120,9 +107,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-serviceconnector&#34;)
  *             .springCloudId(exampleSpringCloudJavaDeployment.id())
  *             .targetResourceId(exampleSqlDatabase.id())
- *             .authentication(SpringCloudConnectionAuthenticationArgs.builder()
- *                 .type(&#34;systemAssignedIdentity&#34;)
- *                 .build())
+ *             .authentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

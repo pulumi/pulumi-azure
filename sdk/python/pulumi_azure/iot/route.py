@@ -270,46 +270,46 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=example,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
+            container_access_type=private)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=exampleIothub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                name: S1,
+                capacity: 1,
+            },
             tags={
-                "purpose": "testing",
+                purpose: testing,
             })
-        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
+        example_endpoint_storage_container = azure.iot.endpoint_storage_container.EndpointStorageContainer("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
-            name="example",
+            name=example,
             connection_string=example_account.primary_blob_connection_string,
             batch_frequency_in_seconds=60,
             max_chunk_size_in_bytes=10485760,
             container_name=example_container.name,
-            encoding="Avro",
-            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
-        example_route = azure.iot.Route("example",
+            encoding=Avro,
+            file_name_format={iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm})
+        example_route = azure.iot.route.Route("example",
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
-            name="example",
-            source="DeviceMessages",
-            condition="true",
+            name=example,
+            source=DeviceMessages,
+            condition=true,
             endpoint_names=example_endpoint_storage_container.name,
             enabled=True)
         ```
@@ -349,46 +349,46 @@ class Route(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=example,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
+            container_access_type=private)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=exampleIothub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                name: S1,
+                capacity: 1,
+            },
             tags={
-                "purpose": "testing",
+                purpose: testing,
             })
-        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
+        example_endpoint_storage_container = azure.iot.endpoint_storage_container.EndpointStorageContainer("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
-            name="example",
+            name=example,
             connection_string=example_account.primary_blob_connection_string,
             batch_frequency_in_seconds=60,
             max_chunk_size_in_bytes=10485760,
             container_name=example_container.name,
-            encoding="Avro",
-            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
-        example_route = azure.iot.Route("example",
+            encoding=Avro,
+            file_name_format={iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm})
+        example_route = azure.iot.route.Route("example",
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
-            name="example",
-            source="DeviceMessages",
-            condition="true",
+            name=example,
+            source=DeviceMessages,
+            condition=true,
             endpoint_names=example_endpoint_storage_container.name,
             enabled=True)
         ```

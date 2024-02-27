@@ -25,11 +25,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkSubnetArgs;
- * import com.pulumi.azure.network.VirtualNetworkDnsServers;
- * import com.pulumi.azure.network.VirtualNetworkDnsServersArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetworkDnsServers.VirtualNetworkDnsServers;
+ * import com.pulumi.azure.network_virtualNetworkDnsServers.VirtualNetworkDnsServersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,10 +52,7 @@ import javax.annotation.Nullable;
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .subnets(VirtualNetworkSubnetArgs.builder()
- *                 .name(&#34;subnet1&#34;)
- *                 .addressPrefix(&#34;10.0.1.0/24&#34;)
- *                 .build())
+ *             .subnets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualNetworkDnsServers = new VirtualNetworkDnsServers(&#34;exampleVirtualNetworkDnsServers&#34;, VirtualNetworkDnsServersArgs.builder()        

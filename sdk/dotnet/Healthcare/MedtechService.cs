@@ -23,27 +23,27 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("example", new()
+    ///     var exampleWorkspace = new Azure.Healthcare.Workspace.Workspace("example", new()
     ///     {
     ///         Name = "examplewkspace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("example", new()
+    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService.MedtechService("example", new()
     ///     {
     ///         Name = "examplemed",
     ///         WorkspaceId = exampleWorkspace.Id,
     ///         Location = "east us",
-    ///         Identity = new Azure.Healthcare.Inputs.MedtechServiceIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         EventhubNamespaceName = "example-eventhub-namespace",
     ///         EventhubName = "example-eventhub",

@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("example", {
+ * const exampleLinkedServiceWeb = new azure.datafactory/linkedServiceWeb.LinkedServiceWeb("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
- * const exampleDatasetParquet = new azure.datafactory.DatasetParquet("example", {
+ * const exampleDatasetParquet = new azure.datafactory/datasetParquet.DatasetParquet("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceWeb.name,

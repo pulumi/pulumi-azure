@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a SQL Database within a Cosmos DB Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
- *     name: "tfex-cosmos-sql-db",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     accountName: example.then(example => example.name),
- *     throughput: 400,
- * });
- * ```
- *
  * ## Import
  *
  * Cosmos SQL Database can be imported using the `resource id`, e.g.

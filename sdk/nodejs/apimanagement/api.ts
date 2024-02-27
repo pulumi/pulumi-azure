@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.apimanagement.Service("example", {
+ * const exampleService = new azure.apimanagement/service.Service("example", {
  *     name: "example-apim",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@exmaple.com",
  *     skuName: "Developer_1",
  * });
- * const exampleApi = new azure.apimanagement.Api("example", {
+ * const exampleApi = new azure.apimanagement/api.Api("example", {
  *     name: "example-api",
  *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,

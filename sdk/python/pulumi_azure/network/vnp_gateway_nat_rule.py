@@ -412,34 +412,34 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
-            address_prefix="10.0.1.0/24",
+            address_prefix=10.0.1.0/24,
             virtual_wan_id=example_virtual_wan.id)
-        example_vpn_gateway = azure.network.VpnGateway("example",
-            name="example-vpngateway",
+        example_vpn_gateway = azure.network.vpn_gateway.VpnGateway("example",
+            name=example-vpngateway,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
-        example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("example",
-            name="example-vpngatewaynatrule",
+        example_vnp_gateway_nat_rule = azure.network.vnp_gateway_nat_rule.VnpGatewayNatRule("example",
+            name=example-vpngatewaynatrule,
             resource_group_name=example.name,
             vpn_gateway_id=example_vpn_gateway.id,
-            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
-                address_space="192.168.21.0/26",
-            )],
-            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArgs(
-                address_space="10.4.0.0/26",
-            )])
+            external_mappings=[{
+                addressSpace: 192.168.21.0/26,
+            }],
+            internal_mappings=[{
+                addressSpace: 10.4.0.0/26,
+            }])
         ```
 
         ## Import
@@ -482,34 +482,34 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
-            address_prefix="10.0.1.0/24",
+            address_prefix=10.0.1.0/24,
             virtual_wan_id=example_virtual_wan.id)
-        example_vpn_gateway = azure.network.VpnGateway("example",
-            name="example-vpngateway",
+        example_vpn_gateway = azure.network.vpn_gateway.VpnGateway("example",
+            name=example-vpngateway,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
-        example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("example",
-            name="example-vpngatewaynatrule",
+        example_vnp_gateway_nat_rule = azure.network.vnp_gateway_nat_rule.VnpGatewayNatRule("example",
+            name=example-vpngatewaynatrule,
             resource_group_name=example.name,
             vpn_gateway_id=example_vpn_gateway.id,
-            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
-                address_space="192.168.21.0/26",
-            )],
-            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArgs(
-                address_space="10.4.0.0/26",
-            )])
+            external_mappings=[{
+                addressSpace: 192.168.21.0/26,
+            }],
+            internal_mappings=[{
+                addressSpace: 10.4.0.0/26,
+            }])
         ```
 
         ## Import

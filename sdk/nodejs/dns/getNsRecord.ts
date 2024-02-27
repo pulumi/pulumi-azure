@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.NsRecord("example", {
+ * const example = new azure.dns/nsRecord.NsRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
@@ -82,7 +82,7 @@ export interface GetNsRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.NsRecord("example", {
+ * const example = new azure.dns/nsRecord.NsRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",

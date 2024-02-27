@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages a Resource Management Private Link Association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleGetGroup = Azure.Management.GetGroup.Invoke(new()
-    ///     {
-    ///         Name = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///     });
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePrivateLink = new Azure.Management.PrivateLink("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    ///     var exampleRandomUuid = new Random.RandomUuid("example");
-    /// 
-    ///     var examplePrivateLinkAssociation = new Azure.Management.PrivateLinkAssociation("example", new()
-    ///     {
-    ///         Name = exampleRandomUuid.Result,
-    ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
-    ///         ResourceManagementPrivateLinkId = examplePrivateLink.Id,
-    ///         PublicNetworkAccessEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.
@@ -86,7 +42,7 @@ namespace Pulumi.Azure.Management
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
+        ///     var example = new Azure.Management.PrivateLinkAssociation.PrivateLinkAssociation("example", new()
         ///     {
         ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
         ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
@@ -182,7 +138,7 @@ namespace Pulumi.Azure.Management
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
+        ///     var example = new Azure.Management.PrivateLinkAssociation.PrivateLinkAssociation("example", new()
         ///     {
         ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
         ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
@@ -234,7 +190,7 @@ namespace Pulumi.Azure.Management
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
+        ///     var example = new Azure.Management.PrivateLinkAssociation.PrivateLinkAssociation("example", new()
         ///     {
         ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
         ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,

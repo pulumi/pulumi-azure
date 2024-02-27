@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account Assembly.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("example", {
- *     name: "example-ia",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "Basic",
- * });
- * const exampleIntegrationAccountAssembly = new azure.logicapps.IntegrationAccountAssembly("example", {
- *     name: "example-assembly",
- *     resourceGroupName: example.name,
- *     integrationAccountName: exampleIntegrationAccount.name,
- *     assemblyName: "TestAssembly",
- *     content: std.filebase64({
- *         input: "testdata/log4net.dll",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.

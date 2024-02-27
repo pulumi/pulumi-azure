@@ -7,6 +7,49 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Tag Description within an API Management Service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement/service.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@terraform.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleApi = new azure.apimanagement/api.Api("example", {
+ *     name: "example-api",
+ *     resourceGroupName: example.name,
+ *     apiManagementName: exampleService.name,
+ *     revision: "1",
+ *     displayName: "Example API",
+ *     path: "example",
+ *     protocols: ["https"],
+ *     "import": {
+ *         contentFormat: "swagger-link-json",
+ *         contentValue: "http://conferenceapi.azurewebsites.net/?format=json",
+ *     },
+ * });
+ * const exampleTag = new azure.apimanagement/tag.Tag("example", {
+ *     apiManagementId: exampleService.id,
+ *     name: "example-Tag",
+ * });
+ * const exampleApiTagDescription = new azure.apimanagement/apiTagDescription.ApiTagDescription("example", {
+ *     apiTagId: exampleTag.id,
+ *     description: "This is an example description",
+ *     externalDocsUrl: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+ *     externalDocsDescription: "This is an example external docs description",
+ * });
+ * ```
+ *
  * ## Import
  *
  * API Management API Schema's can be imported using the `resource id`, e.g.

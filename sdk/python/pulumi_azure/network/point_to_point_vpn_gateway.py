@@ -369,27 +369,27 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-virtualwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-virtualwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-virtualhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-virtualhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("example",
-            name="example-config",
+            address_prefix=10.0.0.0/23)
+        example_vpn_server_configuration = azure.network.vpn_server_configuration.VpnServerConfiguration("example",
+            name=example-config,
             resource_group_name=example.name,
             location=example.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            vpn_authentication_types=[Certificate],
+            client_root_certificates=[{
+                name: DigiCert-Federated-ID-Root-CA,
+                publicCertData: MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -409,21 +409,21 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
-        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("example",
-            name="example-vpn-gateway",
+        ,
+            }])
+        example_point_to_point_vpn_gateway = azure.network.point_to_point_vpn_gateway.PointToPointVpnGateway("example",
+            name=example-vpn-gateway,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
-            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
-                name="example-gateway-config",
-                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
-                    address_prefixes=["10.0.2.0/24"],
-                ),
-            ))
+            connection_configuration={
+                name: example-gateway-config,
+                vpnClientAddressPool: {
+                    addressPrefixes: [10.0.2.0/24],
+                },
+            })
         ```
 
         ## Import
@@ -462,27 +462,27 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-virtualwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-virtualwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-virtualhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-virtualhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("example",
-            name="example-config",
+            address_prefix=10.0.0.0/23)
+        example_vpn_server_configuration = azure.network.vpn_server_configuration.VpnServerConfiguration("example",
+            name=example-config,
             resource_group_name=example.name,
             location=example.location,
-            vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            vpn_authentication_types=[Certificate],
+            client_root_certificates=[{
+                name: DigiCert-Federated-ID-Root-CA,
+                publicCertData: MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -502,21 +502,21 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-            )])
-        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("example",
-            name="example-vpn-gateway",
+        ,
+            }])
+        example_point_to_point_vpn_gateway = azure.network.point_to_point_vpn_gateway.PointToPointVpnGateway("example",
+            name=example-vpn-gateway,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
-            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
-                name="example-gateway-config",
-                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
-                    address_prefixes=["10.0.2.0/24"],
-                ),
-            ))
+            connection_configuration={
+                name: example-gateway-config,
+                vpnClientAddressPool: {
+                    addressPrefixes: [10.0.2.0/24],
+                },
+            })
         ```
 
         ## Import

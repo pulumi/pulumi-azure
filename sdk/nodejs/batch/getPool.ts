@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Batch pool
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.batch.getPool({
- *     name: "testbatchpool",
- *     accountName: "testbatchaccount",
- *     resourceGroupName: "test",
- * });
- * ```
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -150,19 +137,6 @@ export interface GetPoolResult {
 }
 /**
  * Use this data source to access information about an existing Batch pool
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.batch.getPool({
- *     name: "testbatchpool",
- *     accountName: "testbatchaccount",
- *     resourceGroupName: "test",
- * });
- * ```
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))

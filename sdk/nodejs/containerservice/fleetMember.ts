@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const example = new azure.containerservice.KubernetesCluster("example", {
+ * const example = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
  *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         type: "example-value",
  *     },
  * });
- * const exampleKubernetesFleetManager = new azure.containerservice.KubernetesFleetManager("example", {
+ * const exampleKubernetesFleetManager = new azure.containerservice/kubernetesFleetManager.KubernetesFleetManager("example", {
  *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         dnsPrefix: "val-example",
  *     },
  * });
- * const exampleFleetMember = new azure.containerservice.FleetMember("example", {
+ * const exampleFleetMember = new azure.containerservice/fleetMember.FleetMember("example", {
  *     kubernetesClusterId: example.id,
  *     kubernetesFleetId: exampleKubernetesFleetManager.id,
  *     name: "example",

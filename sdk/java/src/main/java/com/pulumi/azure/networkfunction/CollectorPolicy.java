@@ -33,16 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.ExpressRoutePortArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuit;
  * import com.pulumi.azure.network.ExpressRouteCircuitArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitSkuArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeering;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeeringArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs;
  * import com.pulumi.azure.networkfunction.AzureTrafficCollector;
  * import com.pulumi.azure.networkfunction.AzureTrafficCollectorArgs;
  * import com.pulumi.azure.networkfunction.CollectorPolicy;
  * import com.pulumi.azure.networkfunction.CollectorPolicyArgs;
- * import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxEmissionArgs;
- * import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxIngestionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,10 +72,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(1)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
@@ -90,9 +83,7 @@ import javax.annotation.Nullable;
  *             .primaryPeerAddressPrefix(&#34;192.168.199.0/30&#34;)
  *             .secondaryPeerAddressPrefix(&#34;192.168.200.0/30&#34;)
  *             .vlanId(300)
- *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
- *                 .advertisedPublicPrefixes(&#34;123.6.0.0/24&#34;)
- *                 .build())
+ *             .microsoftPeeringConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAzureTrafficCollector = new AzureTrafficCollector(&#34;exampleAzureTrafficCollector&#34;, AzureTrafficCollectorArgs.builder()        
@@ -105,13 +96,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-nfcp&#34;)
  *             .trafficCollectorId(exampleAzureTrafficCollector.id())
  *             .location(example.location())
- *             .ipfxEmission(CollectorPolicyIpfxEmissionArgs.builder()
- *                 .destinationTypes(&#34;AzureMonitor&#34;)
- *                 .build())
- *             .ipfxIngestion(CollectorPolicyIpfxIngestionArgs.builder()
- *                 .sourceResourceIds(exampleExpressRouteCircuit.id())
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .ipfxEmission(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ipfxIngestion(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

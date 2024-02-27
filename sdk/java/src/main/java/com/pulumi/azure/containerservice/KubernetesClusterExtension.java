@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.containerservice.KubernetesClusterExtension;
  * import com.pulumi.azure.containerservice.KubernetesClusterExtensionArgs;
  * import java.util.List;
@@ -59,14 +57,8 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;example-aks&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
- *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension(&#34;exampleKubernetesClusterExtension&#34;, KubernetesClusterExtensionArgs.builder()        

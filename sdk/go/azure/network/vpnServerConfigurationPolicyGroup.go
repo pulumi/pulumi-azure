@@ -21,59 +21,58 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/vpnServerConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnServerConfiguration"
+//	network/vpnServerConfigurationPolicyGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnServerConfigurationPolicyGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "example", &network.VpnServerConfigurationArgs{
-//				Name:              pulumi.String("example-VPNSC"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VpnAuthenticationTypes: pulumi.StringArray{
-//					pulumi.String("Radius"),
-//				},
-//				Radius: &network.VpnServerConfigurationRadiusArgs{
-//					Servers: network.VpnServerConfigurationRadiusServerArray{
-//						&network.VpnServerConfigurationRadiusServerArgs{
-//							Address: pulumi.String("10.105.1.1"),
-//							Secret:  pulumi.String("vindicators-the-return-of-worldender"),
-//							Score:   pulumi.Int(15),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVpnServerConfigurationPolicyGroup(ctx, "example", &network.VpnServerConfigurationPolicyGroupArgs{
-//				Name:                     pulumi.String("example-VPNSCPG"),
-//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
-//				Policies: network.VpnServerConfigurationPolicyGroupPolicyArray{
-//					&network.VpnServerConfigurationPolicyGroupPolicyArgs{
-//						Name:  pulumi.String("policy1"),
-//						Type:  pulumi.String("RadiusAzureGroupId"),
-//						Value: pulumi.String("6ad1bd08"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpnServerConfiguration, err := network/vpnServerConfiguration.NewVpnServerConfiguration(ctx, "example", &network/vpnServerConfiguration.VpnServerConfigurationArgs{
+// Name: "example-VPNSC",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VpnAuthenticationTypes: []string{
+// "Radius",
+// },
+// Radius: map[string]interface{}{
+// "servers": []map[string]interface{}{
+// map[string]interface{}{
+// "address": "10.105.1.1",
+// "secret": "vindicators-the-return-of-worldender",
+// "score": 15,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/vpnServerConfigurationPolicyGroup.NewVpnServerConfigurationPolicyGroup(ctx, "example", &network/vpnServerConfigurationPolicyGroup.VpnServerConfigurationPolicyGroupArgs{
+// Name: "example-VPNSCPG",
+// VpnServerConfigurationId: exampleVpnServerConfiguration.Id,
+// Policies: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "policy1",
+// "type": "RadiusAzureGroupId",
+// "value": "6ad1bd08",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

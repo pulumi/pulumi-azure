@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("example", new()
+    ///     var exampleLinkedServiceWeb = new Azure.Datafactory.LinkedServiceWeb.LinkedServiceWeb("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
@@ -43,16 +43,16 @@ namespace Pulumi.Azure.DataFactory
     ///         Url = "https://www.bing.com",
     ///     });
     /// 
-    ///     var exampleDatasetParquet = new Azure.DataFactory.DatasetParquet("example", new()
+    ///     var exampleDatasetParquet = new Azure.Datafactory.DatasetParquet.DatasetParquet("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
-    ///         HttpServerLocation = new Azure.DataFactory.Inputs.DatasetParquetHttpServerLocationArgs
+    ///         HttpServerLocation = 
     ///         {
-    ///             RelativeUrl = "http://www.bing.com",
-    ///             Path = "foo/bar/",
-    ///             Filename = "fizz.txt",
+    ///             { "relativeUrl", "http://www.bing.com" },
+    ///             { "path", "foo/bar/" },
+    ///             { "filename", "fizz.txt" },
     ///         },
     ///     });
     /// 

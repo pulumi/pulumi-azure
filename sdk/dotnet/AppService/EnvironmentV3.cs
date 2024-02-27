@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exampleRG1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         Location = example.Location,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -52,22 +52,22 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "Microsoft.Web.hostingEnvironments",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "Microsoft.Web.hostingEnvironments" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Web/hostingEnvironments",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Web/hostingEnvironments" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironmentV3 = new Azure.AppService.EnvironmentV3("example", new()
+    ///     var exampleEnvironmentV3 = new Azure.Appservice.EnvironmentV3.EnvironmentV3("example", new()
     ///     {
     ///         Name = "example-asev3",
     ///         ResourceGroupName = example.Name,
@@ -75,20 +75,20 @@ namespace Pulumi.Azure.AppService
     ///         InternalLoadBalancingMode = "Web, Publishing",
     ///         ClusterSettings = new[]
     ///         {
-    ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///             
     ///             {
-    ///                 Name = "DisableTls1.0",
-    ///                 Value = "1",
+    ///                 { "name", "DisableTls1.0" },
+    ///                 { "value", "1" },
     ///             },
-    ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///             
     ///             {
-    ///                 Name = "InternalEncryption",
-    ///                 Value = "true",
+    ///                 { "name", "InternalEncryption" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///             
     ///             {
-    ///                 Name = "FrontEndSSLCipherSuiteOrder",
-    ///                 Value = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    ///                 { "name", "FrontEndSSLCipherSuiteOrder" },
+    ///                 { "value", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" },
     ///             },
     ///         },
     ///         Tags = 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     var exampleServicePlan = new Azure.Appservice.ServicePlan.ServicePlan("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,

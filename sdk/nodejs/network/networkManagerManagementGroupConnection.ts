@@ -7,48 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Manager Management Group Connection which may cross tenants.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.management.Group("example", {});
- * const alt = azure.core.getSubscription({
- *     subscriptionId: "00000000-0000-0000-0000-000000000000",
- * });
- * const exampleGroupSubscriptionAssociation = new azure.management.GroupSubscriptionAssociation("example", {
- *     managementGroupId: example.id,
- *     subscriptionId: alt.then(alt => alt.id),
- * });
- * const current = azure.core.getSubscription({});
- * const currentGetClientConfig = azure.core.getClientConfig({});
- * const networkContributor = new azure.authorization.Assignment("network_contributor", {
- *     scope: example.id,
- *     roleDefinitionName: "Network Contributor",
- *     principalId: currentGetClientConfig.then(currentGetClientConfig => currentGetClientConfig.objectId),
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-networkmanager",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     scope: {
- *         subscriptionIds: [current.then(current => current.id)],
- *     },
- *     scopeAccesses: ["SecurityAdmin"],
- * });
- * const exampleNetworkManagerManagementGroupConnection = new azure.network.NetworkManagerManagementGroupConnection("example", {
- *     name: "example-nmmgc",
- *     managementGroupId: example.id,
- *     networkManagerId: exampleNetworkManager.id,
- *     description: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Network Manager Management Group Connection can be imported using the `resource id`, e.g.

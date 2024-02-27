@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/outboundFirewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/outboundFirewallRule"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                              pulumi.String("mysqlserver"),
-//				ResourceGroupName:                 example.Name,
-//				Location:                          example.Location,
-//				Version:                           pulumi.String("12.0"),
-//				AdministratorLogin:                pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword:        pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//				OutboundNetworkRestrictionEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewOutboundFirewallRule(ctx, "example", &mssql.OutboundFirewallRuleArgs{
-//				Name:     pulumi.String("sqlexamplefdqn.database.windows.net"),
-//				ServerId: exampleServer.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mssql/server.NewServer(ctx, "example", &mssql/server.ServerArgs{
+// Name: "mysqlserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// OutboundNetworkRestrictionEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/outboundFirewallRule.NewOutboundFirewallRule(ctx, "example", &mssql/outboundFirewallRule.OutboundFirewallRuleArgs{
+// Name: "sqlexamplefdqn.database.windows.net",
+// ServerId: exampleServer.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

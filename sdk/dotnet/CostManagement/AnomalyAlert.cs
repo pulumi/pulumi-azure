@@ -24,7 +24,7 @@ namespace Pulumi.Azure.CostManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.CostManagement.AnomalyAlert("example", new()
+    ///     var example = new Azure.Costmanagement.AnomalyAlert.AnomalyAlert("example", new()
     ///     {
     ///         Name = "alertname",
     ///         DisplayName = "Alert DisplayName",

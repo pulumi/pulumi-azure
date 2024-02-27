@@ -22,37 +22,37 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-cdn-frontdoor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup.FrontdoorOriginGroup("example", new()
     ///     {
     ///         Name = "example-origin-group",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         SessionAffinityEnabled = true,
     ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
-    ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
+    ///         HealthProbe = 
     ///         {
-    ///             IntervalInSeconds = 240,
-    ///             Path = "/healthProbe",
-    ///             Protocol = "Https",
-    ///             RequestType = "HEAD",
+    ///             { "intervalInSeconds", 240 },
+    ///             { "path", "/healthProbe" },
+    ///             { "protocol", "Https" },
+    ///             { "requestType", "HEAD" },
     ///         },
-    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
+    ///         LoadBalancing = 
     ///         {
-    ///             AdditionalLatencyInMilliseconds = 0,
-    ///             SampleSize = 16,
-    ///             SuccessfulSamplesRequired = 3,
+    ///             { "additionalLatencyInMilliseconds", 0 },
+    ///             { "sampleSize", 16 },
+    ///             { "successfulSamplesRequired", 3 },
     ///         },
     ///     });
     /// 

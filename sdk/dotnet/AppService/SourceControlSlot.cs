@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     var exampleServicePlan = new Azure.Appservice.ServicePlan.ServicePlan("example", new()
     ///     {
     ///         Name = "example-plan",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService
     ///         SkuName = "P1v2",
     ///     });
     /// 
-    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
+    ///     var exampleLinuxWebApp = new Azure.Appservice.LinuxWebApp.LinuxWebApp("example", new()
     ///     {
     ///         Name = "example-web-app",
     ///         ResourceGroupName = example.Name,
@@ -46,14 +46,14 @@ namespace Pulumi.Azure.AppService
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("example", new()
+    ///     var exampleLinuxWebAppSlot = new Azure.Appservice.LinuxWebAppSlot.LinuxWebAppSlot("example", new()
     ///     {
     ///         Name = "example-slot",
     ///         AppServiceId = exampleLinuxWebApp.Id,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleSourceControlSlot = new Azure.AppService.SourceControlSlot("example", new()
+    ///     var exampleSourceControlSlot = new Azure.Appservice.SourceControlSlot.SourceControlSlot("example", new()
     ///     {
     ///         SlotId = exampleLinuxWebAppSlot.Id,
     ///         RepoUrl = "https://github.com/Azure-Samples/python-docs-hello-world",

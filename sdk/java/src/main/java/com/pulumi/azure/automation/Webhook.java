@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.RunBook;
  * import com.pulumi.azure.automation.RunBookArgs;
- * import com.pulumi.azure.automation.inputs.RunBookPublishContentLinkArgs;
  * import com.pulumi.azure.automation.Webhook;
  * import com.pulumi.azure.automation.WebhookArgs;
  * import java.util.List;
@@ -70,9 +69,7 @@ import javax.annotation.Nullable;
  *             .logProgress(&#34;true&#34;)
  *             .description(&#34;This is an example runbook&#34;)
  *             .runbookType(&#34;PowerShellWorkflow&#34;)
- *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
- *                 .uri(&#34;https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1&#34;)
- *                 .build())
+ *             .publishContentLink(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleWebhook = new Webhook(&#34;exampleWebhook&#34;, WebhookArgs.builder()        
@@ -82,7 +79,7 @@ import javax.annotation.Nullable;
  *             .expiryTime(&#34;2021-12-31T00:00:00Z&#34;)
  *             .enabled(true)
  *             .runbookName(exampleRunBook.name())
- *             .parameters(Map.of(&#34;input&#34;, &#34;parameter&#34;))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

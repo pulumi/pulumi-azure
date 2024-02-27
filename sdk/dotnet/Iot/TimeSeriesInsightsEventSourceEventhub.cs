@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Iot
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+    ///     var exampleEventHub = new Azure.Eventhub.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "example",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Iot
     ///         MessageRetention = 7,
     ///     });
     /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("example", new()
+    ///     var exampleConsumerGroup = new Azure.Eventhub.ConsumerGroup.ConsumerGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Iot
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("example", new()
+    ///     var exampleAuthorizationRule = new Azure.Eventhub.AuthorizationRule.AuthorizationRule("example", new()
     ///     {
     ///         Name = "example",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Iot
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Iot
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment("example", new()
+    ///     var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment.TimeSeriesInsightsGen2Environment("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -83,14 +83,14 @@ namespace Pulumi.Azure.Iot
     ///         {
     ///             "id",
     ///         },
-    ///         Storage = new Azure.Iot.Inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs
+    ///         Storage = 
     ///         {
-    ///             Name = exampleAccount.Name,
-    ///             Key = exampleAccount.PrimaryAccessKey,
+    ///             { "name", exampleAccount.Name },
+    ///             { "key", exampleAccount.PrimaryAccessKey },
     ///         },
     ///     });
     /// 
-    ///     var exampleTimeSeriesInsightsEventSourceEventhub = new Azure.Iot.TimeSeriesInsightsEventSourceEventhub("example", new()
+    ///     var exampleTimeSeriesInsightsEventSourceEventhub = new Azure.Iot.TimeSeriesInsightsEventSourceEventhub.TimeSeriesInsightsEventSourceEventhub("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,

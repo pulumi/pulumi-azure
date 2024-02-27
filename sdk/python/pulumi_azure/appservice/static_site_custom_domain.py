@@ -154,23 +154,23 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_static_site = azure.appservice.StaticSite("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_static_site = azure.appservice.static_site.StaticSite("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="my-domain",
-            zone_name="contoso.com",
+        example_c_name_record = azure.dns.c_name_record.CNameRecord("example",
+            name=my-domain,
+            zone_name=contoso.com,
             resource_group_name=example.name,
             ttl=300,
             record=example_static_site.default_host_name)
-        example_static_site_custom_domain = azure.appservice.StaticSiteCustomDomain("example",
+        example_static_site_custom_domain = azure.appservice.static_site_custom_domain.StaticSiteCustomDomain("example",
             static_site_id=example_static_site.id,
-            domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
-            validation_type="cname-delegation")
+            domain_name=f{example_c_name_record.name}.{example_c_name_record.zone_name},
+            validation_type=cname-delegation)
         ```
         ### TXT validation
 
@@ -178,25 +178,25 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_static_site = azure.appservice.StaticSite("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_static_site = azure.appservice.static_site.StaticSite("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_static_site_custom_domain = azure.appservice.StaticSiteCustomDomain("example",
+        example_static_site_custom_domain = azure.appservice.static_site_custom_domain.StaticSiteCustomDomain("example",
             static_site_id=example_static_site.id,
-            domain_name="my-domain.contoso.com",
-            validation_type="dns-txt-token")
-        example_txt_record = azure.dns.TxtRecord("example",
-            name="_dnsauth.my-domain",
-            zone_name="contoso.com",
+            domain_name=my-domain.contoso.com,
+            validation_type=dns-txt-token)
+        example_txt_record = azure.dns.txt_record.TxtRecord("example",
+            name=_dnsauth.my-domain,
+            zone_name=contoso.com,
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_static_site_custom_domain.validation_token,
-            )])
+            records=[{
+                value: example_static_site_custom_domain.validation_token,
+            }])
         ```
 
         ## Import
@@ -227,23 +227,23 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_static_site = azure.appservice.StaticSite("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_static_site = azure.appservice.static_site.StaticSite("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="my-domain",
-            zone_name="contoso.com",
+        example_c_name_record = azure.dns.c_name_record.CNameRecord("example",
+            name=my-domain,
+            zone_name=contoso.com,
             resource_group_name=example.name,
             ttl=300,
             record=example_static_site.default_host_name)
-        example_static_site_custom_domain = azure.appservice.StaticSiteCustomDomain("example",
+        example_static_site_custom_domain = azure.appservice.static_site_custom_domain.StaticSiteCustomDomain("example",
             static_site_id=example_static_site.id,
-            domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
-            validation_type="cname-delegation")
+            domain_name=f{example_c_name_record.name}.{example_c_name_record.zone_name},
+            validation_type=cname-delegation)
         ```
         ### TXT validation
 
@@ -251,25 +251,25 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_static_site = azure.appservice.StaticSite("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_static_site = azure.appservice.static_site.StaticSite("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_static_site_custom_domain = azure.appservice.StaticSiteCustomDomain("example",
+        example_static_site_custom_domain = azure.appservice.static_site_custom_domain.StaticSiteCustomDomain("example",
             static_site_id=example_static_site.id,
-            domain_name="my-domain.contoso.com",
-            validation_type="dns-txt-token")
-        example_txt_record = azure.dns.TxtRecord("example",
-            name="_dnsauth.my-domain",
-            zone_name="contoso.com",
+            domain_name=my-domain.contoso.com,
+            validation_type=dns-txt-token)
+        example_txt_record = azure.dns.txt_record.TxtRecord("example",
+            name=_dnsauth.my-domain,
+            zone_name=contoso.com,
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_static_site_custom_domain.validation_token,
-            )])
+            records=[{
+                value: example_static_site_custom_domain.validation_token,
+            }])
         ```
 
         ## Import

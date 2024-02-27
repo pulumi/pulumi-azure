@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;Face&#34;)
  *             .skuName(&#34;S0&#34;)
- *             .tags(Map.of(&#34;Acceptance&#34;, &#34;Test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

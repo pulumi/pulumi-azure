@@ -21,92 +21,94 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventhub/consumerGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/consumerGroup"
+//	eventhub/eventHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHub"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	kusto/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/cluster"
+//	kusto/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/database"
+//	kusto/eventhubDataConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/eventhubDataConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("my-kusto-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
-//				Name:              pulumi.String("kustocluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Standard_D13_v2"),
-//					Capacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			database, err := kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
-//				Name:              pulumi.String("my-kusto-database"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       cluster.Name,
-//				HotCachePeriod:    pulumi.String("P7D"),
-//				SoftDeletePeriod:  pulumi.String("P31D"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			eventhubNs, err := eventhub.NewEventHubNamespace(ctx, "eventhub_ns", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("my-eventhub-ns"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			eventhub, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("my-eventhub"),
-//				NamespaceName:     eventhubNs.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(1),
-//				MessageRetention:  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			consumerGroup, err := eventhub.NewConsumerGroup(ctx, "consumer_group", &eventhub.ConsumerGroupArgs{
-//				Name:              pulumi.String("my-eventhub-consumergroup"),
-//				NamespaceName:     eventhubNs.Name,
-//				EventhubName:      eventhub.Name,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewEventhubDataConnection(ctx, "eventhub_connection", &kusto.EventhubDataConnectionArgs{
-//				Name:              pulumi.String("my-kusto-eventhub-data-connection"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       cluster.Name,
-//				DatabaseName:      database.Name,
-//				EventhubId:        eventhub.ID(),
-//				ConsumerGroup:     consumerGroup.Name,
-//				TableName:         pulumi.String("my-table"),
-//				MappingRuleName:   pulumi.String("my-table-mapping"),
-//				DataFormat:        pulumi.String("JSON"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "my-kusto-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// cluster, err := kusto/cluster.NewCluster(ctx, "cluster", &kusto/cluster.ClusterArgs{
+// Name: "kustocluster",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Standard_D13_v2",
+// "capacity": 2,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// database, err := kusto/database.NewDatabase(ctx, "database", &kusto/database.DatabaseArgs{
+// Name: "my-kusto-database",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: cluster.Name,
+// HotCachePeriod: "P7D",
+// SoftDeletePeriod: "P31D",
+// })
+// if err != nil {
+// return err
+// }
+// eventhubNs, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "eventhub_ns", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "my-eventhub-ns",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// eventhub, err := eventhub/eventHub.NewEventHub(ctx, "eventhub", &eventhub/eventHub.EventHubArgs{
+// Name: "my-eventhub",
+// NamespaceName: eventhubNs.Name,
+// ResourceGroupName: example.Name,
+// PartitionCount: 1,
+// MessageRetention: 1,
+// })
+// if err != nil {
+// return err
+// }
+// consumerGroup, err := eventhub/consumerGroup.NewConsumerGroup(ctx, "consumer_group", &eventhub/consumerGroup.ConsumerGroupArgs{
+// Name: "my-eventhub-consumergroup",
+// NamespaceName: eventhubNs.Name,
+// EventhubName: eventhub.Name,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kusto/eventhubDataConnection.NewEventhubDataConnection(ctx, "eventhub_connection", &kusto/eventhubDataConnection.EventhubDataConnectionArgs{
+// Name: "my-kusto-eventhub-data-connection",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: cluster.Name,
+// DatabaseName: database.Name,
+// EventhubId: eventhub.Id,
+// ConsumerGroup: consumerGroup.Name,
+// TableName: "my-table",
+// MappingRuleName: "my-table-mapping",
+// DataFormat: "JSON",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

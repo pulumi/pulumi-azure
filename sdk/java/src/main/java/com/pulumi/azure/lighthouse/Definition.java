@@ -21,51 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.authorization.AuthorizationFunctions;
- * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
- * import com.pulumi.azure.lighthouse.Definition;
- * import com.pulumi.azure.lighthouse.DefinitionArgs;
- * import com.pulumi.azure.lighthouse.inputs.DefinitionAuthorizationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var contributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
- *             .roleDefinitionId(&#34;b24988ac-6180-42a0-ab88-20f7382dd24c&#34;)
- *             .build());
- * 
- *         var example = new Definition(&#34;example&#34;, DefinitionArgs.builder()        
- *             .name(&#34;Sample definition&#34;)
- *             .description(&#34;This is a lighthouse definition created IaC&#34;)
- *             .managingTenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)
- *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .principalId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .roleDefinitionId(contributor.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
- *                 .principalDisplayName(&#34;Tier 1 Support&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Lighthouse Definitions can be imported using the `resource id`, e.g.

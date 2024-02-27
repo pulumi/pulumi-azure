@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "northeurope",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "example-server",
     ///         ResourceGroupName = example.Name,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mssql.Database.Database("example", new()
     ///     {
     ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.MSSql
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var exampleJobAgent = new Azure.MSSql.JobAgent("example", new()
+    ///     var exampleJobAgent = new Azure.Mssql.JobAgent.JobAgent("example", new()
     ///     {
     ///         Name = "example-job-agent",
     ///         Location = example.Location,

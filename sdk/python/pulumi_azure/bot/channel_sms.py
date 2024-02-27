@@ -231,31 +231,6 @@ class ChannelSms(pulumi.CustomResource):
 
         > **Note** A bot can only have a single SMS Channel associated with it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example-bcr",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_sms = azure.bot.ChannelSms("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
-            sms_channel_account_security_id="BG61f7cf5157f439b084e98256409c2815",
-            sms_channel_auth_token="jh8980432610052ed4e29565c5e232f",
-            phone_number="+12313803556")
-        ```
-
         ## Import
 
         The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
@@ -283,31 +258,6 @@ class ChannelSms(pulumi.CustomResource):
         Manages a SMS integration for a Bot Channel
 
         > **Note** A bot can only have a single SMS Channel associated with it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example-bcr",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_sms = azure.bot.ChannelSms("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
-            sms_channel_account_security_id="BG61f7cf5157f439b084e98256409c2815",
-            sms_channel_auth_token="jh8980432610052ed4e29565c5e232f",
-            phone_number="+12313803556")
-        ```
 
         ## Import
 

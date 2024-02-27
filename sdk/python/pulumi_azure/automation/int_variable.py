@@ -238,16 +238,16 @@ class IntVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-example-rg",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="tfex-example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-example-rg,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=tfex-example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_int_variable = azure.automation.IntVariable("example",
-            name="tfex-example-var",
+            sku_name=Basic)
+        example_int_variable = azure.automation.int_variable.IntVariable("example",
+            name=tfex-example-var,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             value=1234)
@@ -285,16 +285,16 @@ class IntVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-example-rg",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="tfex-example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-example-rg,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=tfex-example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_int_variable = azure.automation.IntVariable("example",
-            name="tfex-example-var",
+            sku_name=Basic)
+        example_int_variable = azure.automation.int_variable.IntVariable("example",
+            name=tfex-example-var,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             value=1234)

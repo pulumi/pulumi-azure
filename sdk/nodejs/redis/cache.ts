@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
- * const exampleCache = new azure.redis.Cache("example", {
+ * const exampleCache = new azure.redis/cache.Cache("example", {
  *     name: "example-cache",
  *     location: example.location,
  *     resourceGroupName: example.name,

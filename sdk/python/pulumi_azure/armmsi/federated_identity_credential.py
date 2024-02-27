@@ -235,20 +235,20 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name)
-        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
-            name="example",
+        example_federated_identity_credential = azure.armmsi.federated_identity_credential.FederatedIdentityCredential("example",
+            name=example,
             resource_group_name=example.name,
-            audience="foo",
-            issuer="https://foo",
+            audience=foo,
+            issuer=https://foo,
             parent_id=example_user_assigned_identity.id,
-            subject="foo")
+            subject=foo)
         ```
 
         ## Import
@@ -283,20 +283,20 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name)
-        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
-            name="example",
+        example_federated_identity_credential = azure.armmsi.federated_identity_credential.FederatedIdentityCredential("example",
+            name=example,
             resource_group_name=example.name,
-            audience="foo",
-            issuer="https://foo",
+            audience=foo,
+            issuer=https://foo,
             parent_id=example_user_assigned_identity.id,
-            subject="foo")
+            subject=foo)
         ```
 
         ## Import

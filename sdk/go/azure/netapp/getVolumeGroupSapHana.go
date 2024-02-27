@@ -12,35 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Application Volume Group for SAP HANA application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := netapp.LookupVolumeGroupSapHana(ctx, &netapp.LookupVolumeGroupSapHanaArgs{
-//				Name:              "existing application volume group name",
-//				ResourceGroupName: "resource group name where the account and volume group belong to",
-//				AccountName:       "existing account where the application volume group belong to",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVolumeGroupSapHana(ctx *pulumi.Context, args *LookupVolumeGroupSapHanaArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupSapHanaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeGroupSapHanaResult

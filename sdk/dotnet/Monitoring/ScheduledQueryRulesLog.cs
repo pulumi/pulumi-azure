@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "monitoring-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "loganalytics",
     ///         Location = example.Location,
@@ -37,23 +37,23 @@ namespace Pulumi.Azure.Monitoring
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example-actiongroup",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "exampleact",
     ///         WebhookReceivers = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///             
     ///             {
-    ///                 Name = "callmyapi",
-    ///                 ServiceUri = "http://example.com/alert",
+    ///                 { "name", "callmyapi" },
+    ///                 { "serviceUri", "http://example.com/alert" },
     ///             },
     ///         },
     ///     });
     /// 
     ///     // Example: Creates alert using the new Scheduled Query Rules metric
-    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("example", new()
+    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert.MetricAlert("example", new()
     ///     {
     ///         Name = "example-metricalert",
     ///         ResourceGroupName = example.Name,
@@ -66,45 +66,45 @@ namespace Pulumi.Azure.Monitoring
     ///         WindowSize = "PT5M",
     ///         Criterias = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
+    ///             
     ///             {
-    ///                 MetricNamespace = "Microsoft.OperationalInsights/workspaces",
-    ///                 MetricName = "UsedCapacity",
-    ///                 Aggregation = "Average",
-    ///                 Operator = "LessThan",
-    ///                 Threshold = 10,
+    ///                 { "metricNamespace", "Microsoft.OperationalInsights/workspaces" },
+    ///                 { "metricName", "UsedCapacity" },
+    ///                 { "aggregation", "Average" },
+    ///                 { "operator", "LessThan" },
+    ///                 { "threshold", 10 },
     ///             },
     ///         },
     ///         Actions = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///             
     ///             {
-    ///                 ActionGroupId = exampleActionGroup.Id,
+    ///                 { "actionGroupId", exampleActionGroup.Id },
     ///             },
     ///         },
     ///     });
     /// 
     ///     // Example: LogToMetric Action for the named Computer
-    ///     var exampleScheduledQueryRulesLog = new Azure.Monitoring.ScheduledQueryRulesLog("example", new()
+    ///     var exampleScheduledQueryRulesLog = new Azure.Monitoring.ScheduledQueryRulesLog.ScheduledQueryRulesLog("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Criteria = new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaArgs
+    ///         Criteria = 
     ///         {
-    ///             MetricName = "Average_% Idle Time",
-    ///             Dimensions = new[]
+    ///             { "metricName", "Average_% Idle Time" },
+    ///             { "dimensions", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaDimensionArgs
+    ///                 
     ///                 {
-    ///                     Name = "Computer",
-    ///                     Operator = "Include",
-    ///                     Values = new[]
+    ///                     { "name", "Computer" },
+    ///                     { "operator", "Include" },
+    ///                     { "values", new[]
     ///                     {
     ///                         "targetVM",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         DataSourceId = exampleAnalyticsWorkspace.Id,
     ///         Description = "Scheduled query rule LogToMetric example",

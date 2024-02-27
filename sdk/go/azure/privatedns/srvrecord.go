@@ -21,58 +21,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	privatedns/sRVRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/sRVRecord"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("contoso.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewSRVRecord(ctx, "example", &privatedns.SRVRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: privatedns.SRVRecordRecordArray{
-//					&privatedns.SRVRecordRecordArgs{
-//						Priority: pulumi.Int(1),
-//						Weight:   pulumi.Int(5),
-//						Port:     pulumi.Int(8080),
-//						Target:   pulumi.String("target1.contoso.com"),
-//					},
-//					&privatedns.SRVRecordRecordArgs{
-//						Priority: pulumi.Int(10),
-//						Weight:   pulumi.Int(10),
-//						Port:     pulumi.Int(8080),
-//						Target:   pulumi.String("target2.contoso.com"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+// Name: "contoso.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/sRVRecord.NewSRVRecord(ctx, "example", &privatedns/sRVRecord.SRVRecordArgs{
+// Name: "test",
+// ResourceGroupName: example.Name,
+// ZoneName: exampleZone.Name,
+// Ttl: 300,
+// Records: []interface{}{
+// map[string]interface{}{
+// "priority": 1,
+// "weight": 5,
+// "port": 8080,
+// "target": "target1.contoso.com",
+// },
+// map[string]interface{}{
+// "priority": 10,
+// "weight": 10,
+// "port": 8080,
+// "target": "target2.contoso.com",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

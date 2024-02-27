@@ -22,43 +22,43 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("example", new()
+    ///     var exampleAccount = new Azure.Datashare.Account.Account("example", new()
     ///     {
     ///         Name = "example-dsa",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleShare = new Azure.DataShare.Share("example", new()
+    ///     var exampleShare = new Azure.Datashare.Share.Share("example", new()
     ///     {
     ///         Name = "example_ds",
     ///         AccountId = exampleAccount.Id,
     ///         Kind = "InPlace",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "examplekc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Dev(No SLA)_Standard_D11_v2",
-    ///             Capacity = 1,
+    ///             { "name", "Dev(No SLA)_Standard_D11_v2" },
+    ///             { "capacity", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database.Database("example", new()
     ///     {
     ///         Name = "examplekd",
     ///         ResourceGroupName = example.Name,
@@ -66,14 +66,14 @@ namespace Pulumi.Azure.DataShare
     ///         ClusterName = exampleCluster.Name,
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment.Assignment("example", new()
     ///     {
     ///         Scope = exampleCluster.Id,
     ///         RoleDefinitionName = "Contributor",
-    ///         PrincipalId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         PrincipalId = exampleAccount.Identity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleDatasetKustoDatabase = new Azure.DataShare.DatasetKustoDatabase("example", new()
+    ///     var exampleDatasetKustoDatabase = new Azure.Datashare.DatasetKustoDatabase.DatasetKustoDatabase("example", new()
     ///     {
     ///         Name = "example-dskd",
     ///         ShareId = exampleShare.Id,

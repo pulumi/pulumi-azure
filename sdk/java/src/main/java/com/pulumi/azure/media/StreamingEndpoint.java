@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.StreamingEndpoint;
  * import com.pulumi.azure.media.StreamingEndpointArgs;
  * import java.util.List;
@@ -70,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStreamingEndpoint = new StreamingEndpoint(&#34;exampleStreamingEndpoint&#34;, StreamingEndpointArgs.builder()        
@@ -100,10 +96,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.StreamingEndpoint;
  * import com.pulumi.azure.media.StreamingEndpointArgs;
- * import com.pulumi.azure.media.inputs.StreamingEndpointAccessControlArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,10 +128,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStreamingEndpoint = new StreamingEndpoint(&#34;exampleStreamingEndpoint&#34;, StreamingEndpointArgs.builder()        
@@ -146,28 +137,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .scaleUnits(2)
- *             .accessControl(StreamingEndpointAccessControlArgs.builder()
- *                 .ipAllows(                
- *                     StreamingEndpointAccessControlIpAllowArgs.builder()
- *                         .name(&#34;AllowedIP&#34;)
- *                         .address(&#34;192.168.1.1&#34;)
- *                         .build(),
- *                     StreamingEndpointAccessControlIpAllowArgs.builder()
- *                         .name(&#34;AnotherIp&#34;)
- *                         .address(&#34;192.168.1.2&#34;)
- *                         .build())
- *                 .akamaiSignatureHeaderAuthenticationKeys(                
- *                     StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs.builder()
- *                         .identifier(&#34;id1&#34;)
- *                         .expiration(&#34;2030-12-31T16:00:00Z&#34;)
- *                         .base64Key(&#34;dGVzdGlkMQ==&#34;)
- *                         .build(),
- *                     StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs.builder()
- *                         .identifier(&#34;id2&#34;)
- *                         .expiration(&#34;2032-01-28T16:00:00Z&#34;)
- *                         .base64Key(&#34;dGVzdGlkMQ==&#34;)
- *                         .build())
- *                 .build())
+ *             .accessControl(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

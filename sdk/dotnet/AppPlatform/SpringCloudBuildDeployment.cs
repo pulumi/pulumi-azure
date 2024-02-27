@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -38,14 +38,14 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("example", new()
+    ///     var exampleSpringCloudBuildDeployment = new Azure.Appplatform.SpringCloudBuildDeployment.SpringCloudBuildDeployment("example", new()
     ///     {
     ///         Name = "example",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
@@ -56,10 +56,10 @@ namespace Pulumi.Azure.AppPlatform
     ///             { "Foo", "Bar" },
     ///             { "Env", "Staging" },
     ///         },
-    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudBuildDeploymentQuotaArgs
+    ///         Quota = 
     ///         {
-    ///             Cpu = "2",
-    ///             Memory = "4Gi",
+    ///             { "cpu", "2" },
+    ///             { "memory", "4Gi" },
     ///         },
     ///     });
     /// 

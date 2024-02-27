@@ -21,93 +21,95 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/dataLakeGen2Filesystem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/dataLakeGen2Filesystem"
+//	synapse/sqlPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/sqlPool"
+//	synapse/sqlPoolWorkloadClassifier "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/sqlPoolWorkloadClassifier"
+//	synapse/sqlPoolWorkloadGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/sqlPoolWorkloadGroup"
+//	synapse/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountKind:            pulumi.String("BlobStorage"),
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
-//				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
-//				Name:                            pulumi.String("example"),
-//				ResourceGroupName:               example.Name,
-//				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlPool, err := synapse.NewSqlPool(ctx, "example", &synapse.SqlPoolArgs{
-//				Name:               pulumi.String("example"),
-//				SynapseWorkspaceId: exampleWorkspace.ID(),
-//				SkuName:            pulumi.String("DW100c"),
-//				CreateMode:         pulumi.String("Default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlPoolWorkloadGroup, err := synapse.NewSqlPoolWorkloadGroup(ctx, "example", &synapse.SqlPoolWorkloadGroupArgs{
-//				Name:                           pulumi.String("example"),
-//				SqlPoolId:                      exampleSqlPool.ID(),
-//				Importance:                     pulumi.String("normal"),
-//				MaxResourcePercent:             pulumi.Int(100),
-//				MinResourcePercent:             pulumi.Int(0),
-//				MaxResourcePercentPerRequest:   pulumi.Float64(3),
-//				MinResourcePercentPerRequest:   pulumi.Float64(3),
-//				QueryExecutionTimeoutInSeconds: pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewSqlPoolWorkloadClassifier(ctx, "example", &synapse.SqlPoolWorkloadClassifierArgs{
-//				Name:            pulumi.String("example"),
-//				WorkloadGroupId: exampleSqlPoolWorkloadGroup.ID(),
-//				Context:         pulumi.String("example_context"),
-//				EndTime:         pulumi.String("14:00"),
-//				Importance:      pulumi.String("high"),
-//				Label:           pulumi.String("example_label"),
-//				MemberName:      pulumi.String("dbo"),
-//				StartTime:       pulumi.String("12:00"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountKind: "BlobStorage",
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataLakeGen2Filesystem, err := storage/dataLakeGen2Filesystem.NewDataLakeGen2Filesystem(ctx, "example", &storage/dataLakeGen2Filesystem.DataLakeGen2FilesystemArgs{
+// Name: "example",
+// StorageAccountId: exampleAccount.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkspace, err := synapse/workspace.NewWorkspace(ctx, "example", &synapse/workspace.WorkspaceArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.Id,
+// SqlAdministratorLogin: "sqladminuser",
+// SqlAdministratorLoginPassword: "H@Sh1CoR3!",
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlPool, err := synapse/sqlPool.NewSqlPool(ctx, "example", &synapse/sqlPool.SqlPoolArgs{
+// Name: "example",
+// SynapseWorkspaceId: exampleWorkspace.Id,
+// SkuName: "DW100c",
+// CreateMode: "Default",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlPoolWorkloadGroup, err := synapse/sqlPoolWorkloadGroup.NewSqlPoolWorkloadGroup(ctx, "example", &synapse/sqlPoolWorkloadGroup.SqlPoolWorkloadGroupArgs{
+// Name: "example",
+// SqlPoolId: exampleSqlPool.Id,
+// Importance: "normal",
+// MaxResourcePercent: 100,
+// MinResourcePercent: 0,
+// MaxResourcePercentPerRequest: 3,
+// MinResourcePercentPerRequest: 3,
+// QueryExecutionTimeoutInSeconds: 0,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = synapse/sqlPoolWorkloadClassifier.NewSqlPoolWorkloadClassifier(ctx, "example", &synapse/sqlPoolWorkloadClassifier.SqlPoolWorkloadClassifierArgs{
+// Name: "example",
+// WorkloadGroupId: exampleSqlPoolWorkloadGroup.Id,
+// Context: "example_context",
+// EndTime: "14:00",
+// Importance: "high",
+// Label: "example_label",
+// MemberName: "dbo",
+// StartTime: "12:00",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

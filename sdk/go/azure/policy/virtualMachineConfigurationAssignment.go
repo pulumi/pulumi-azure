@@ -23,136 +23,137 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	compute/extension "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/extension"
+//	compute/windowsVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/windowsVirtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	policy/virtualMachineConfigurationAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/policy/virtualMachineConfigurationAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-gca"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWindowsVirtualMachine, err := compute.NewWindowsVirtualMachine(ctx, "example", &compute.WindowsVirtualMachineArgs{
-//				Name:              pulumi.String("examplevm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_F2"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				Identity: &compute.WindowsVirtualMachineIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
-//				SourceImageReference: &compute.WindowsVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("MicrosoftWindowsServer"),
-//					Offer:     pulumi.String("WindowsServer"),
-//					Sku:       pulumi.String("2019-Datacenter"),
-//					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
-//				Name:                    pulumi.String("AzurePolicyforWindows"),
-//				VirtualMachineId:        exampleWindowsVirtualMachine.ID(),
-//				Publisher:               pulumi.String("Microsoft.GuestConfiguration"),
-//				Type:                    pulumi.String("ConfigurationforWindows"),
-//				TypeHandlerVersion:      pulumi.String("1.29"),
-//				AutoUpgradeMinorVersion: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "example", &policy.VirtualMachineConfigurationAssignmentArgs{
-//				Name:             pulumi.String("AzureWindowsBaseline"),
-//				Location:         exampleWindowsVirtualMachine.Location,
-//				VirtualMachineId: exampleWindowsVirtualMachine.ID(),
-//				Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{
-//					AssignmentType: pulumi.String("ApplyAndMonitor"),
-//					Version:        pulumi.String("1.*"),
-//					Parameters: policy.VirtualMachineConfigurationAssignmentConfigurationParameterArray{
-//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-//							Name:  pulumi.String("Minimum Password Length;ExpectedValue"),
-//							Value: pulumi.String("16"),
-//						},
-//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-//							Name:  pulumi.String("Minimum Password Age;ExpectedValue"),
-//							Value: pulumi.String("0"),
-//						},
-//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-//							Name:  pulumi.String("Maximum Password Age;ExpectedValue"),
-//							Value: pulumi.String("30,45"),
-//						},
-//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-//							Name:  pulumi.String("Enforce Password History;ExpectedValue"),
-//							Value: pulumi.String("10"),
-//						},
-//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-//							Name:  pulumi.String("Password Must Meet Complexity Requirements;ExpectedValue"),
-//							Value: pulumi.String("1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-gca",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "example-nic",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleWindowsVirtualMachine, err := compute/windowsVirtualMachine.NewWindowsVirtualMachine(ctx, "example", &compute/windowsVirtualMachine.WindowsVirtualMachineArgs{
+// Name: "examplevm",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Size: "Standard_F2",
+// AdminUsername: "adminuser",
+// AdminPassword: "P@$$w0rd1234!",
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// OsDisk: map[string]interface{}{
+// "caching": "ReadWrite",
+// "storageAccountType": "Standard_LRS",
+// },
+// SourceImageReference: map[string]interface{}{
+// "publisher": "MicrosoftWindowsServer",
+// "offer": "WindowsServer",
+// "sku": "2019-Datacenter",
+// "version": "latest",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/extension.NewExtension(ctx, "example", &compute/extension.ExtensionArgs{
+// Name: "AzurePolicyforWindows",
+// VirtualMachineId: exampleWindowsVirtualMachine.Id,
+// Publisher: "Microsoft.GuestConfiguration",
+// Type: "ConfigurationforWindows",
+// TypeHandlerVersion: "1.29",
+// AutoUpgradeMinorVersion: "true",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = policy/virtualMachineConfigurationAssignment.NewVirtualMachineConfigurationAssignment(ctx, "example", &policy/virtualMachineConfigurationAssignment.VirtualMachineConfigurationAssignmentArgs{
+// Name: "AzureWindowsBaseline",
+// Location: exampleWindowsVirtualMachine.Location,
+// VirtualMachineId: exampleWindowsVirtualMachine.Id,
+// Configuration: map[string]interface{}{
+// "assignmentType": "ApplyAndMonitor",
+// "version": "1.*",
+// "parameters": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Minimum Password Length;ExpectedValue",
+// "value": "16",
+// },
+// map[string]interface{}{
+// "name": "Minimum Password Age;ExpectedValue",
+// "value": "0",
+// },
+// map[string]interface{}{
+// "name": "Maximum Password Age;ExpectedValue",
+// "value": "30,45",
+// },
+// map[string]interface{}{
+// "name": "Enforce Password History;ExpectedValue",
+// "value": "10",
+// },
+// map[string]interface{}{
+// "name": "Password Must Meet Complexity Requirements;ExpectedValue",
+// "value": "1",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

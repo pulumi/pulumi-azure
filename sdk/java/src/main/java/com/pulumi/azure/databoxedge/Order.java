@@ -38,8 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.databoxedge.DeviceArgs;
  * import com.pulumi.azure.databoxedge.Order;
  * import com.pulumi.azure.databoxedge.OrderArgs;
- * import com.pulumi.azure.databoxedge.inputs.OrderContactArgs;
- * import com.pulumi.azure.databoxedge.inputs.OrderShipmentAddressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,19 +66,8 @@ import javax.annotation.Nullable;
  *         var exampleOrder = new Order(&#34;exampleOrder&#34;, OrderArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .deviceName(exampleDevice.name())
- *             .contact(OrderContactArgs.builder()
- *                 .name(&#34;TerraForm Test&#34;)
- *                 .emails(&#34;creator4983@FlynnsArcade.com&#34;)
- *                 .companyName(&#34;Flynn&#39;s Arcade&#34;)
- *                 .phoneNumber(&#34;(800) 555-1234&#34;)
- *                 .build())
- *             .shipmentAddress(OrderShipmentAddressArgs.builder()
- *                 .addresses(&#34;One Microsoft Way&#34;)
- *                 .city(&#34;Redmond&#34;)
- *                 .postalCode(&#34;98052&#34;)
- *                 .state(&#34;WA&#34;)
- *                 .country(&#34;United States&#34;)
- *                 .build())
+ *             .contact(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .shipmentAddress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

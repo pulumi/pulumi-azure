@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Secret.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorSecret({
- *     name: "example-secret",
- *     profileName: "example-profile",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getFrontdoorSecret(args: GetFrontdoorSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorSecretResult> {
 
@@ -72,19 +59,6 @@ export interface GetFrontdoorSecretResult {
 }
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Secret.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorSecret({
- *     name: "example-secret",
- *     profileName: "example-profile",
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getFrontdoorSecretOutput(args: GetFrontdoorSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorSecretResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorSecret(a, opts))

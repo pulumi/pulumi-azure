@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
  * import com.pulumi.azure.monitoring.SmartDetectorAlertRule;
  * import com.pulumi.azure.monitoring.SmartDetectorAlertRuleArgs;
- * import com.pulumi.azure.monitoring.inputs.SmartDetectorAlertRuleActionGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,9 +74,7 @@ import javax.annotation.Nullable;
  *             .scopeResourceIds(exampleInsights.id())
  *             .frequency(&#34;PT1M&#34;)
  *             .detectorType(&#34;FailureAnomaliesDetector&#34;)
- *             .actionGroup(SmartDetectorAlertRuleActionGroupArgs.builder()
- *                 .ids(exampleActionGroup.id())
- *                 .build())
+ *             .actionGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

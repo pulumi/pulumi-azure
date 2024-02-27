@@ -24,13 +24,13 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-security-workspace",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "tfex-security-workspace",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.SecurityCenter.Workspace("example", new()
+    ///     var exampleWorkspace = new Azure.Securitycenter.Workspace.Workspace("example", new()
     ///     {
     ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,

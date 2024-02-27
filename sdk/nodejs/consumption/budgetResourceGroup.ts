@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "eastus",
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ * const exampleActionGroup = new azure.monitoring/actionGroup.ActionGroup("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     shortName: "example",
  * });
- * const exampleBudgetResourceGroup = new azure.consumption.BudgetResourceGroup("example", {
+ * const exampleBudgetResourceGroup = new azure.consumption/budgetResourceGroup.BudgetResourceGroup("example", {
  *     name: "example",
  *     resourceGroupId: example.id,
  *     amount: 1000,

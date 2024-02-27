@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -37,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.lb.LoadBalancer;
  * import com.pulumi.azure.lb.LoadBalancerArgs;
- * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
  * import com.pulumi.azure.lb.BackendAddressPool;
  * import com.pulumi.azure.lb.BackendAddressPoolArgs;
  * import com.pulumi.azure.lb.NatRule;
@@ -71,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;TestLoadBalancer&#34;)
  *             .location(&#34;West US&#34;)
  *             .resourceGroupName(example.name())
- *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        

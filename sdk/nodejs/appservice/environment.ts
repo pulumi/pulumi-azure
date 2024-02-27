@@ -15,29 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exampleRG1",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const ase = new azure.network.Subnet("ase", {
+ * const ase = new azure.network/subnet.Subnet("ase", {
  *     name: "asesubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const gateway = new azure.network.Subnet("gateway", {
+ * const gateway = new azure.network/subnet.Subnet("gateway", {
  *     name: "gatewaysubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleEnvironment = new azure.appservice.Environment("example", {
+ * const exampleEnvironment = new azure.appservice/environment.Environment("example", {
  *     name: "example-ase",
  *     resourceGroupName: example.name,
  *     subnetId: ase.id,

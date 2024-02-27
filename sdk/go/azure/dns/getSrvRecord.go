@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/srvRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/srvRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewSrvRecord(ctx, "example", &dns.SrvRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsSrvRecordId", exampleAzurermDnsSrvRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/srvRecord.NewSrvRecord(ctx, "example", &dns/srvRecord.SrvRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsSrvRecordId", exampleAzurermDnsSrvRecord.Id)
+// return nil
+// })
+// }
 // ```
 func LookupSrvRecord(ctx *pulumi.Context, args *LookupSrvRecordArgs, opts ...pulumi.InvokeOption) (*LookupSrvRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

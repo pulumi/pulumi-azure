@@ -19,66 +19,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/caaRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/caaRecord"
+//	dns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
-//				Name:              pulumi.String("mydomain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dns.NewCaaRecord(ctx, "example", &dns.CaaRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: dns.CaaRecordRecordArray{
-//					&dns.CaaRecordRecordArgs{
-//						Flags: pulumi.Int(0),
-//						Tag:   pulumi.String("issue"),
-//						Value: pulumi.String("example.com"),
-//					},
-//					&dns.CaaRecordRecordArgs{
-//						Flags: pulumi.Int(0),
-//						Tag:   pulumi.String("issue"),
-//						Value: pulumi.String("example.net"),
-//					},
-//					&dns.CaaRecordRecordArgs{
-//						Flags: pulumi.Int(0),
-//						Tag:   pulumi.String("issuewild"),
-//						Value: pulumi.String(";"),
-//					},
-//					&dns.CaaRecordRecordArgs{
-//						Flags: pulumi.Int(0),
-//						Tag:   pulumi.String("iodef"),
-//						Value: pulumi.String("mailto:user@nonexisting.tld"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := dns/zone.NewZone(ctx, "example", &dns/zone.ZoneArgs{
+// Name: "mydomain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dns/caaRecord.NewCaaRecord(ctx, "example", &dns/caaRecord.CaaRecordArgs{
+// Name: "test",
+// ZoneName: exampleZone.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Records: []map[string]interface{}{
+// map[string]interface{}{
+// "flags": 0,
+// "tag": "issue",
+// "value": "example.com",
+// },
+// map[string]interface{}{
+// "flags": 0,
+// "tag": "issue",
+// "value": "example.net",
+// },
+// map[string]interface{}{
+// "flags": 0,
+// "tag": "issuewild",
+// "value": ";",
+// },
+// map[string]interface{}{
+// "flags": 0,
+// "tag": "iodef",
+// "value": "mailto:user@nonexisting.tld",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

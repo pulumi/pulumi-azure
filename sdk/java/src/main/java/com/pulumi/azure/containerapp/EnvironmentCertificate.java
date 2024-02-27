@@ -19,68 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Container App Environment Certificate.
  * 
- * ## Example Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
- * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.containerapp.Environment;
- * import com.pulumi.azure.containerapp.EnvironmentArgs;
- * import com.pulumi.azure.containerapp.EnvironmentCertificate;
- * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .name(&#34;acctest-01&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .sku(&#34;PerGB2018&#34;)
- *             .retentionInDays(30)
- *             .build());
- * 
- *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;myEnvironment&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
- *             .build());
- * 
- *         var exampleEnvironmentCertificate = new EnvironmentCertificate(&#34;exampleEnvironmentCertificate&#34;, EnvironmentCertificateArgs.builder()        
- *             .name(&#34;myfriendlyname&#34;)
- *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .certificateBlob(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;path/to/certificate_file.pfx&#34;)
- *                 .build()).result())
- *             .certificatePassword(&#34;$3cretSqu1rreL&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * A Container App Environment Certificate can be imported using the `resource id`, e.g.

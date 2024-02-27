@@ -421,19 +421,19 @@ class VirtualHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-virtualwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-virtualwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-virtualhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-virtualhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
+            address_prefix=10.0.0.0/23)
         ```
 
         ## Import
@@ -472,19 +472,19 @@ class VirtualHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-virtualwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-virtualwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-virtualhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-virtualhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.0.0/23")
+            address_prefix=10.0.0.0/23)
         ```
 
         ## Import

@@ -22,25 +22,25 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "examplekustocluster",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
+    ///             { "name", "Standard_D13_v2" },
+    ///             { "capacity", 2 },
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database.Database("example", new()
     ///     {
     ///         Name = "example-kusto-database",
     ///         ResourceGroupName = example.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Kusto
     ///         SoftDeletePeriod = "P31D",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "storageaccountname",
     ///         ResourceGroupName = example.Name,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Kusto
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "eventhubnamespace-example",
     ///         Location = example.Location,
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Kusto
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+    ///     var exampleEventHub = new Azure.Eventhub.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "eventhub-example",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Kusto
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("example", new()
+    ///     var exampleConsumerGroup = new Azure.Eventhub.ConsumerGroup.ConsumerGroup("example", new()
     ///     {
     ///         Name = "consumergroup-example",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Kusto
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("example", new()
+    ///     var exampleEventSubscription = new Azure.Eventgrid.EventSubscription.EventSubscription("example", new()
     ///     {
     ///         Name = "eventgrid-example",
     ///         Scope = exampleAccount.Id,
@@ -95,14 +95,14 @@ namespace Pulumi.Azure.Kusto
     ///             "Microsoft.Storage.BlobCreated",
     ///             "Microsoft.Storage.BlobRenamed",
     ///         },
-    ///         RetryPolicy = new Azure.EventGrid.Inputs.EventSubscriptionRetryPolicyArgs
+    ///         RetryPolicy = 
     ///         {
-    ///             EventTimeToLive = 144,
-    ///             MaxDeliveryAttempts = 10,
+    ///             { "eventTimeToLive", 144 },
+    ///             { "maxDeliveryAttempts", 10 },
     ///         },
     ///     });
     /// 
-    ///     var exampleEventGridDataConnection = new Azure.Kusto.EventGridDataConnection("example", new()
+    ///     var exampleEventGridDataConnection = new Azure.Kusto.EventGridDataConnection.EventGridDataConnection("example", new()
     ///     {
     ///         Name = "my-kusto-eventgrid-data-connection",
     ///         ResourceGroupName = example.Name,

@@ -533,25 +533,25 @@ class Blob(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="content",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=content,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("example",
-            name="my-awesome-content.zip",
+            container_access_type=private)
+        example_blob = azure.storage.blob.Blob("example",
+            name=my-awesome-content.zip,
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
-            type="Block",
-            source=pulumi.FileAsset("some-local-file.zip"))
+            type=Block,
+            source=pulumi.FileAsset(some-local-file.zip))
         ```
 
         ## Import
@@ -598,25 +598,25 @@ class Blob(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="content",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=content,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("example",
-            name="my-awesome-content.zip",
+            container_access_type=private)
+        example_blob = azure.storage.blob.Blob("example",
+            name=my-awesome-content.zip,
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
-            type="Block",
-            source=pulumi.FileAsset("some-local-file.zip"))
+            type=Block,
+            source=pulumi.FileAsset(some-local-file.zip))
         ```
 
         ## Import

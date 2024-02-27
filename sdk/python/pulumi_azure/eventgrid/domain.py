@@ -520,15 +520,15 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_domain = azure.eventgrid.Domain("example",
-            name="my-eventgrid-domain",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_domain = azure.eventgrid.domain.Domain("example",
+            name=my-eventgrid-domain,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -571,15 +571,15 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_domain = azure.eventgrid.Domain("example",
-            name="my-eventgrid-domain",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_domain = azure.eventgrid.domain.Domain("example",
+            name=my-eventgrid-domain,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

@@ -139,23 +139,23 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.core.ResourceGroup("test",
-            name="example-resources",
-            location="West Europe")
-        example = azure.cosmosdb.PostgresqlCluster("example",
-            name="examplecluster",
-            resource_group_name=example_azurerm_resource_group["name"],
-            location=example_azurerm_resource_group["location"],
-            administrator_login_password="H@Sh1CoR3!",
+        test = azure.core.resource_group.ResourceGroup("test",
+            name=example-resources,
+            location=West Europe)
+        example = azure.cosmosdb.postgresql_cluster.PostgresqlCluster("example",
+            name=examplecluster,
+            resource_group_name=example_azurerm_resource_group.name,
+            location=example_azurerm_resource_group.location,
+            administrator_login_password=H@Sh1CoR3!,
             coordinator_storage_quota_in_mb=131072,
             coordinator_vcore_count=2,
             node_count=2,
             node_storage_quota_in_mb=131072,
             node_vcores=2)
-        example_postgresql_coordinator_configuration = azure.cosmosdb.PostgresqlCoordinatorConfiguration("example",
-            name="array_nulls",
+        example_postgresql_coordinator_configuration = azure.cosmosdb.postgresql_coordinator_configuration.PostgresqlCoordinatorConfiguration("example",
+            name=array_nulls,
             cluster_id=example.id,
-            value="on")
+            value=on)
         ```
 
         ## Import
@@ -187,23 +187,23 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.core.ResourceGroup("test",
-            name="example-resources",
-            location="West Europe")
-        example = azure.cosmosdb.PostgresqlCluster("example",
-            name="examplecluster",
-            resource_group_name=example_azurerm_resource_group["name"],
-            location=example_azurerm_resource_group["location"],
-            administrator_login_password="H@Sh1CoR3!",
+        test = azure.core.resource_group.ResourceGroup("test",
+            name=example-resources,
+            location=West Europe)
+        example = azure.cosmosdb.postgresql_cluster.PostgresqlCluster("example",
+            name=examplecluster,
+            resource_group_name=example_azurerm_resource_group.name,
+            location=example_azurerm_resource_group.location,
+            administrator_login_password=H@Sh1CoR3!,
             coordinator_storage_quota_in_mb=131072,
             coordinator_vcore_count=2,
             node_count=2,
             node_storage_quota_in_mb=131072,
             node_vcores=2)
-        example_postgresql_coordinator_configuration = azure.cosmosdb.PostgresqlCoordinatorConfiguration("example",
-            name="array_nulls",
+        example_postgresql_coordinator_configuration = azure.cosmosdb.postgresql_coordinator_configuration.PostgresqlCoordinatorConfiguration("example",
+            name=array_nulls,
             cluster_id=example.id,
-            value="on")
+            value=on)
         ```
 
         ## Import

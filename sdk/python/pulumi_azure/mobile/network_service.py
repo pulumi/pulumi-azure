@@ -272,58 +272,58 @@ class NetworkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="east us")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=east us)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_service = azure.mobile.NetworkService("example",
-            name="example-mns",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_service = azure.mobile.network_service.NetworkService("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
-                    allocation_and_retention_priority_level=9,
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
-                        downlink="100 Mbps",
-                        uplink="10 Mbps",
-                    ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="100 Mbps",
-                    ),
-                ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
-                allocation_and_retention_priority_level=9,
-                qos_indicator=9,
-                preemption_capability="NotPreempt",
-                preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
-                    downlink="1 Gbps",
-                    uplink="100 Mbps",
-                ),
-            ),
+            pcc_rules=[{
+                name: default-rule,
+                precedence: 1,
+                trafficControlEnabled: True,
+                qosPolicy: {
+                    allocationAndRetentionPriorityLevel: 9,
+                    qosIndicator: 9,
+                    preemptionCapability: NotPreempt,
+                    preemptionVulnerability: Preemptable,
+                    guaranteedBitRate: {
+                        downlink: 100 Mbps,
+                        uplink: 10 Mbps,
+                    },
+                    maximumBitRate: {
+                        downlink: 1 Gbps,
+                        uplink: 100 Mbps,
+                    },
+                },
+                serviceDataFlowTemplates: [{
+                    direction: Uplink,
+                    name: IP-to-server,
+                    ports: [],
+                    protocols: [ip],
+                    remoteIpLists: [10.3.4.0/24],
+                }],
+            }],
+            service_qos_policy={
+                allocationAndRetentionPriorityLevel: 9,
+                qosIndicator: 9,
+                preemptionCapability: NotPreempt,
+                preemptionVulnerability: Preemptable,
+                maximumBitRate: {
+                    downlink: 1 Gbps,
+                    uplink: 100 Mbps,
+                },
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -360,58 +360,58 @@ class NetworkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="east us")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=east us)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_service = azure.mobile.NetworkService("example",
-            name="example-mns",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_service = azure.mobile.network_service.NetworkService("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
-                    allocation_and_retention_priority_level=9,
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
-                        downlink="100 Mbps",
-                        uplink="10 Mbps",
-                    ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="100 Mbps",
-                    ),
-                ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
-                allocation_and_retention_priority_level=9,
-                qos_indicator=9,
-                preemption_capability="NotPreempt",
-                preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
-                    downlink="1 Gbps",
-                    uplink="100 Mbps",
-                ),
-            ),
+            pcc_rules=[{
+                name: default-rule,
+                precedence: 1,
+                trafficControlEnabled: True,
+                qosPolicy: {
+                    allocationAndRetentionPriorityLevel: 9,
+                    qosIndicator: 9,
+                    preemptionCapability: NotPreempt,
+                    preemptionVulnerability: Preemptable,
+                    guaranteedBitRate: {
+                        downlink: 100 Mbps,
+                        uplink: 10 Mbps,
+                    },
+                    maximumBitRate: {
+                        downlink: 1 Gbps,
+                        uplink: 100 Mbps,
+                    },
+                },
+                serviceDataFlowTemplates: [{
+                    direction: Uplink,
+                    name: IP-to-server,
+                    ports: [],
+                    protocols: [ip],
+                    remoteIpLists: [10.3.4.0/24],
+                }],
+            }],
+            service_qos_policy={
+                allocationAndRetentionPriorityLevel: 9,
+                qosIndicator: 9,
+                preemptionCapability: NotPreempt,
+                preemptionVulnerability: Preemptable,
+                maximumBitRate: {
+                    downlink: 1 Gbps,
+                    uplink: 100 Mbps,
+                },
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

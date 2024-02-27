@@ -29,23 +29,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/portalTenantConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/portalTenantConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewPortalTenantConfiguration(ctx, "example", &core.PortalTenantConfigurationArgs{
-//				PrivateMarkdownStorageEnforced: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/portalTenantConfiguration.NewPortalTenantConfiguration(ctx, "example", &core/portalTenantConfiguration.PortalTenantConfigurationArgs{
+// PrivateMarkdownStorageEnforced: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

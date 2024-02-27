@@ -21,103 +21,103 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/diagnostic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/diagnostic"
+//	apimanagement/logger "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/logger"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@mycompany.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogger, err := apimanagement.NewLogger(ctx, "example", &apimanagement.LoggerArgs{
-//				Name:              pulumi.String("example-apimlogger"),
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: example.Name,
-//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
-//					InstrumentationKey: exampleInsights.InstrumentationKey,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewDiagnostic(ctx, "example", &apimanagement.DiagnosticArgs{
-//				Identifier:              pulumi.String("applicationinsights"),
-//				ResourceGroupName:       example.Name,
-//				ApiManagementName:       exampleService.Name,
-//				ApiManagementLoggerId:   exampleLogger.ID(),
-//				SamplingPercentage:      pulumi.Float64(5),
-//				AlwaysLogErrors:         pulumi.Bool(true),
-//				LogClientIp:             pulumi.Bool(true),
-//				Verbosity:               pulumi.String("verbose"),
-//				HttpCorrelationProtocol: pulumi.String("W3C"),
-//				FrontendRequest: &apimanagement.DiagnosticFrontendRequestArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("accept"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//				FrontendResponse: &apimanagement.DiagnosticFrontendResponseArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("content-length"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//				BackendRequest: &apimanagement.DiagnosticBackendRequestArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("accept"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//				BackendResponse: &apimanagement.DiagnosticBackendResponseArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("content-length"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "example-appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@mycompany.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogger, err := apimanagement/logger.NewLogger(ctx, "example", &apimanagement/logger.LoggerArgs{
+// Name: "example-apimlogger",
+// ApiManagementName: exampleService.Name,
+// ResourceGroupName: example.Name,
+// ApplicationInsights: map[string]interface{}{
+// "instrumentationKey": exampleInsights.InstrumentationKey,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/diagnostic.NewDiagnostic(ctx, "example", &apimanagement/diagnostic.DiagnosticArgs{
+// Identifier: "applicationinsights",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// ApiManagementLoggerId: exampleLogger.Id,
+// SamplingPercentage: 5,
+// AlwaysLogErrors: true,
+// LogClientIp: true,
+// Verbosity: "verbose",
+// HttpCorrelationProtocol: "W3C",
+// FrontendRequest: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "accept",
+// "origin",
+// },
+// },
+// FrontendResponse: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "content-length",
+// "origin",
+// },
+// },
+// BackendRequest: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "accept",
+// "origin",
+// },
+// },
+// BackendResponse: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "content-length",
+// "origin",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

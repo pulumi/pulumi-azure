@@ -14,69 +14,6 @@ import (
 
 // Manages an Azure Management Group Policy Remediation.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.NewGroup(ctx, "example", &management.GroupArgs{
-//				DisplayName: pulumi.String("Example Management Group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
-//				DisplayName: pulumi.StringRef("Allowed locations"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"listOfAllowedLocations": map[string]interface{}{
-//					"value": []string{
-//						"East US",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
-//				Name:               pulumi.String("exampleAssignment"),
-//				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyDefinitionId: *pulumi.String(example.Id),
-//				Parameters:         pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = management.NewGroupPolicyRemediation(ctx, "example", &management.GroupPolicyRemediationArgs{
-//				Name:               pulumi.String("example"),
-//				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Policy Remediations can be imported using the `resource id`, e.g.

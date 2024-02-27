@@ -198,32 +198,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an IotHub Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
-        example_certificate = azure.iot.Certificate("example",
-            name="example",
-            resource_group_name=example.name,
-            iothub_name=example_io_t_hub.name,
-            is_verified=True,
-            certificate_content=std.filebase64(input="example.cer").result)
-        ```
-
         ## Import
 
         IoTHub Certificates can be imported using the `resource id`, e.g.
@@ -248,32 +222,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
-        example_certificate = azure.iot.Certificate("example",
-            name="example",
-            resource_group_name=example.name,
-            iothub_name=example_io_t_hub.name,
-            is_verified=True,
-            certificate_content=std.filebase64(input="example.cer").result)
-        ```
 
         ## Import
 

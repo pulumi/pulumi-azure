@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Maintenance
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("example", new()
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup.DedicatedHostGroup("example", new()
     ///     {
     ///         Name = "example-host-group",
     ///         ResourceGroupName = example.Name,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Maintenance
     ///         PlatformFaultDomainCount = 2,
     ///     });
     /// 
-    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost("example", new()
+    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost.DedicatedHost("example", new()
     ///     {
     ///         Name = "example-host",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Maintenance
     ///         PlatformFaultDomain = 1,
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("example", new()
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration.Configuration("example", new()
     ///     {
     ///         Name = "example-mc",
     ///         ResourceGroupName = example.Name,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Maintenance
     ///         Scope = "Host",
     ///     });
     /// 
-    ///     var exampleAssignmentDedicatedHost = new Azure.Maintenance.AssignmentDedicatedHost("example", new()
+    ///     var exampleAssignmentDedicatedHost = new Azure.Maintenance.AssignmentDedicatedHost.AssignmentDedicatedHost("example", new()
     ///     {
     ///         Location = example.Location,
     ///         MaintenanceConfigurationId = exampleConfiguration.Id,

@@ -437,23 +437,23 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_new_relic_application_performance_monitoring = azure.appplatform.SpringCloudNewRelicApplicationPerformanceMonitoring("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_new_relic_application_performance_monitoring = azure.appplatform.spring_cloud_new_relic_application_performance_monitoring.SpringCloudNewRelicApplicationPerformanceMonitoring("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
-            app_name="example-app-name",
-            license_key="example-license-key",
+            app_name=example-app-name,
+            license_key=example-license-key,
             app_server_port=8080,
             labels={
-                "tagName1": "tagValue1",
-                "tagName2": "tagValue2",
+                tagName1: tagValue1,
+                tagName2: tagValue2,
             },
             globally_enabled=True)
         ```
@@ -498,23 +498,23 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_new_relic_application_performance_monitoring = azure.appplatform.SpringCloudNewRelicApplicationPerformanceMonitoring("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_new_relic_application_performance_monitoring = azure.appplatform.spring_cloud_new_relic_application_performance_monitoring.SpringCloudNewRelicApplicationPerformanceMonitoring("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
-            app_name="example-app-name",
-            license_key="example-license-key",
+            app_name=example-app-name,
+            license_key=example-license-key,
             app_server_port=8080,
             labels={
-                "tagName1": "tagValue1",
-                "tagName2": "tagValue2",
+                tagName1: tagValue1,
+                tagName2: tagValue2,
             },
             globally_enabled=True)
         ```

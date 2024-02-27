@@ -37,8 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.DatabaseArgs;
  * import com.pulumi.azure.mssql.FailoverGroup;
  * import com.pulumi.azure.mssql.FailoverGroupArgs;
- * import com.pulumi.azure.mssql.inputs.FailoverGroupPartnerServerArgs;
- * import com.pulumi.azure.mssql.inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,17 +85,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .serverId(primary.id())
  *             .databases(exampleDatabase.id())
- *             .partnerServers(FailoverGroupPartnerServerArgs.builder()
- *                 .id(secondary.id())
- *                 .build())
- *             .readWriteEndpointFailoverPolicy(FailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
- *                 .graceMinutes(80)
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;environment&#34;, &#34;prod&#34;),
- *                 Map.entry(&#34;database&#34;, &#34;example&#34;)
- *             ))
+ *             .partnerServers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .readWriteEndpointFailoverPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

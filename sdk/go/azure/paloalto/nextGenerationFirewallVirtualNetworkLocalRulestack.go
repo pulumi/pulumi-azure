@@ -21,164 +21,168 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/subnetNetworkSecurityGroupAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetNetworkSecurityGroupAssociation"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	paloalto/localRulestack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestack"
+//	paloalto/localRulestackRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestackRule"
+//	paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resource-group"),
-//				Location: pulumi.String("westeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-public-ip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("example-nsg"),
-//				Location:          pulumi.Any(test.Location),
-//				ResourceGroupName: pulumi.Any(test.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			trust, err := network.NewSubnet(ctx, "trust", &network.SubnetArgs{
-//				Name:               pulumi.String("example-trust-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("trusted"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("PaloAltoNetworks.Cloudngfw/firewalls"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "trust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               trust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			untrust, err := network.NewSubnet(ctx, "untrust", &network.SubnetArgs{
-//				Name:               pulumi.String("example-untrust-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("untrusted"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("PaloAltoNetworks.Cloudngfw/firewalls"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               untrust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
-//				Name:              pulumi.String("example-rulestack"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Locatio,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
-//				Name:        pulumi.String("example-rulestack-rule"),
-//				RulestackId: exampleLocalRulestack.ID(),
-//				Priority:    pulumi.Int(1001),
-//				Action:      pulumi.String("Allow"),
-//				Applications: pulumi.StringArray{
-//					pulumi.String("any"),
-//				},
-//				Destination: &paloalto.LocalRulestackRuleDestinationArgs{
-//					Cidrs: pulumi.StringArray{
-//						pulumi.String("any"),
-//					},
-//				},
-//				Source: &paloalto.LocalRulestackRuleSourceArgs{
-//					Cidrs: pulumi.StringArray{
-//						pulumi.String("any"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewNextGenerationFirewallVirtualNetworkLocalRulestack(ctx, "example", &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackArgs{
-//				Name:              pulumi.String("example-ngfwvn"),
-//				ResourceGroupName: example.Name,
-//				RulestackId:       exampleLocalRulestack.ID(),
-//				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs{
-//					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID(),
-//					},
-//					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs{
-//						VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//						TrustedSubnetId:   trust.ID(),
-//						UntrustedSubnetId: untrust.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resource-group",
+// Location: "westeurope",
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-public-ip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSecurityGroup, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "example", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "example-nsg",
+// Location: test.Location,
+// ResourceGroupName: test.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// trust, err := network/subnet.NewSubnet(ctx, "trust", &network/subnet.SubnetArgs{
+// Name: "example-trust-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "trusted",
+// "serviceDelegation": map[string]interface{}{
+// "name": "PaloAltoNetworks.Cloudngfw/firewalls",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetNetworkSecurityGroupAssociation.NewSubnetNetworkSecurityGroupAssociation(ctx, "trust", &network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: trust.Id,
+// NetworkSecurityGroupId: exampleNetworkSecurityGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// untrust, err := network/subnet.NewSubnet(ctx, "untrust", &network/subnet.SubnetArgs{
+// Name: "example-untrust-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "untrusted",
+// "serviceDelegation": map[string]interface{}{
+// "name": "PaloAltoNetworks.Cloudngfw/firewalls",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetNetworkSecurityGroupAssociation.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrust", &network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: untrust.Id,
+// NetworkSecurityGroupId: exampleNetworkSecurityGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleLocalRulestack, err := paloalto/localRulestack.NewLocalRulestack(ctx, "example", &paloalto/localRulestack.LocalRulestackArgs{
+// Name: "example-rulestack",
+// ResourceGroupName: example.Name,
+// Location: example.Locatio,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = paloalto/localRulestackRule.NewLocalRulestackRule(ctx, "example", &paloalto/localRulestackRule.LocalRulestackRuleArgs{
+// Name: "example-rulestack-rule",
+// RulestackId: exampleLocalRulestack.Id,
+// Priority: 1001,
+// Action: "Allow",
+// Applications: []string{
+// "any",
+// },
+// Destination: map[string]interface{}{
+// "cidrs": []string{
+// "any",
+// },
+// },
+// Source: map[string]interface{}{
+// "cidrs": []string{
+// "any",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack.NewNextGenerationFirewallVirtualNetworkLocalRulestack(ctx, "example", &paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack.NextGenerationFirewallVirtualNetworkLocalRulestackArgs{
+// Name: "example-ngfwvn",
+// ResourceGroupName: example.Name,
+// RulestackId: exampleLocalRulestack.Id,
+// NetworkProfile: map[string]interface{}{
+// "publicIpAddressIds": []interface{}{
+// examplePublicIp.Id,
+// },
+// "vnetConfiguration": map[string]interface{}{
+// "virtualNetworkId": exampleVirtualNetwork.Id,
+// "trustedSubnetId": trust.Id,
+// "untrustedSubnetId": untrust.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

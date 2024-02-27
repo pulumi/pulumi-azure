@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleAlertRuleMachineLearningBehaviorAnalytics = new azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("example", {
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleAlertRuleMachineLearningBehaviorAnalytics = new azure.sentinel/alertRuleMachineLearningBehaviorAnalytics.AlertRuleMachineLearningBehaviorAnalytics("example", {
  *     name: "example-ml-alert-rule",
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  *     alertRuleTemplateGuid: "737a2ce1-70a3-4968-9e90-3e6aca836abf",

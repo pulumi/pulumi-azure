@@ -12,36 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Stack HCI Cluster instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/stack"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := stack.LookupHciCluster(ctx, &stack.LookupHciClusterArgs{
-//				Name:              "existing",
-//				ResourceGroupName: "existing",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			ctx.Export("location", example.Location)
-//			ctx.Export("clientId", example.ClientId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupHciCluster(ctx *pulumi.Context, args *LookupHciClusterArgs, opts ...pulumi.InvokeOption) (*LookupHciClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHciClusterResult

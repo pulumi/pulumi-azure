@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.chaosstudio.Target;
  * import com.pulumi.azure.chaosstudio.TargetArgs;
  * import com.pulumi.azure.chaosstudio.Capability;
@@ -56,14 +54,8 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .dnsPrefix(&#34;acctestaksexample&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;example-value&#34;)
- *                 .nodeCount(&#34;example-value&#34;)
- *                 .vmSize(&#34;example-value&#34;)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;example-value&#34;)
- *                 .build())
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTarget = new Target(&#34;exampleTarget&#34;, TargetArgs.builder()        

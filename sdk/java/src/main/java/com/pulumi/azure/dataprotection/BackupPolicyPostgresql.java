@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyPostgresql;
  * import com.pulumi.azure.dataprotection.BackupPolicyPostgresqlArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,35 +66,9 @@ import javax.annotation.Nullable;
  *             .timeZone(&#34;India Standard Time&#34;)
  *             .defaultRetentionDuration(&#34;P4M&#34;)
  *             .retentionRules(            
- *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name(&#34;weekly&#34;)
- *                     .duration(&#34;P6M&#34;)
- *                     .priority(20)
- *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria(&#34;FirstOfWeek&#34;)
- *                         .build())
- *                     .build(),
- *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name(&#34;thursday&#34;)
- *                     .duration(&#34;P1W&#34;)
- *                     .priority(25)
- *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
- *                         .daysOfWeeks(&#34;Thursday&#34;)
- *                         .scheduledBackupTimes(&#34;2021-05-23T02:30:00Z&#34;)
- *                         .build())
- *                     .build(),
- *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name(&#34;monthly&#34;)
- *                     .duration(&#34;P1D&#34;)
- *                     .priority(15)
- *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
- *                         .weeksOfMonths(                        
- *                             &#34;First&#34;,
- *                             &#34;Last&#34;)
- *                         .daysOfWeeks(&#34;Tuesday&#34;)
- *                         .scheduledBackupTimes(&#34;2021-05-23T02:30:00Z&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -272,43 +272,43 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="database-rg",
-            location="West Europe")
-        primary = azure.mssql.Server("primary",
-            name="mssqlserver-primary",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=database-rg,
+            location=West Europe)
+        primary = azure.mssql.server.Server("primary",
+            name=mssqlserver-primary,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="thisIsKat11")
-        secondary = azure.mssql.Server("secondary",
-            name="mssqlserver-secondary",
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=thisIsKat11)
+        secondary = azure.mssql.server.Server("secondary",
+            name=mssqlserver-secondary,
             resource_group_name=example.name,
-            location="North Europe",
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="thisIsKat12")
-        example_database = azure.mssql.Database("example",
-            name="exampledb",
+            location=North Europe,
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=thisIsKat12)
+        example_database = azure.mssql.database.Database("example",
+            name=exampledb,
             server_id=primary.id,
-            sku_name="S1",
-            collation="SQL_Latin1_General_CP1_CI_AS",
+            sku_name=S1,
+            collation=SQL_Latin1_General_CP1_CI_AS,
             max_size_gb=200)
-        example_failover_group = azure.mssql.FailoverGroup("example",
-            name="example",
+        example_failover_group = azure.mssql.failover_group.FailoverGroup("example",
+            name=example,
             server_id=primary.id,
             databases=[example_database.id],
-            partner_servers=[azure.mssql.FailoverGroupPartnerServerArgs(
-                id=secondary.id,
-            )],
-            read_write_endpoint_failover_policy=azure.mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=80,
-            ),
+            partner_servers=[{
+                id: secondary.id,
+            }],
+            read_write_endpoint_failover_policy={
+                mode: Automatic,
+                graceMinutes: 80,
+            },
             tags={
-                "environment": "prod",
-                "database": "example",
+                environment: prod,
+                database: example,
             })
         ```
 
@@ -345,43 +345,43 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="database-rg",
-            location="West Europe")
-        primary = azure.mssql.Server("primary",
-            name="mssqlserver-primary",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=database-rg,
+            location=West Europe)
+        primary = azure.mssql.server.Server("primary",
+            name=mssqlserver-primary,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="thisIsKat11")
-        secondary = azure.mssql.Server("secondary",
-            name="mssqlserver-secondary",
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=thisIsKat11)
+        secondary = azure.mssql.server.Server("secondary",
+            name=mssqlserver-secondary,
             resource_group_name=example.name,
-            location="North Europe",
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="thisIsKat12")
-        example_database = azure.mssql.Database("example",
-            name="exampledb",
+            location=North Europe,
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=thisIsKat12)
+        example_database = azure.mssql.database.Database("example",
+            name=exampledb,
             server_id=primary.id,
-            sku_name="S1",
-            collation="SQL_Latin1_General_CP1_CI_AS",
+            sku_name=S1,
+            collation=SQL_Latin1_General_CP1_CI_AS,
             max_size_gb=200)
-        example_failover_group = azure.mssql.FailoverGroup("example",
-            name="example",
+        example_failover_group = azure.mssql.failover_group.FailoverGroup("example",
+            name=example,
             server_id=primary.id,
             databases=[example_database.id],
-            partner_servers=[azure.mssql.FailoverGroupPartnerServerArgs(
-                id=secondary.id,
-            )],
-            read_write_endpoint_failover_policy=azure.mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=80,
-            ),
+            partner_servers=[{
+                id: secondary.id,
+            }],
+            read_write_endpoint_failover_policy={
+                mode: Automatic,
+                graceMinutes: 80,
+            },
             tags={
-                "environment": "prod",
-                "database": "example",
+                environment: prod,
+                database: example,
             })
         ```
 

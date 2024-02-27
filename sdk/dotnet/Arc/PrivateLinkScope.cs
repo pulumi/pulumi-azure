@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Arc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var examplePrivateLinkScope = new Azure.Arc.PrivateLinkScope("example", new()
+    ///     var examplePrivateLinkScope = new Azure.Arc.PrivateLinkScope.PrivateLinkScope("example", new()
     ///     {
     ///         Name = "plsexample",
     ///         ResourceGroupName = example.Name,

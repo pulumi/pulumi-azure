@@ -17,33 +17,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "video-analyzer-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     name: "exampleidentity",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const contributor = new azure.authorization.Assignment("contributor", {
+ * const contributor = new azure.authorization/assignment.Assignment("contributor", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Blob Data Contributor",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
- * const reader = new azure.authorization.Assignment("reader", {
+ * const reader = new azure.authorization/assignment.Assignment("reader", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Reader",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
- * const exampleAnalyzer = new azure.videoanalyzer.Analyzer("example", {
+ * const exampleAnalyzer = new azure.videoanalyzer/analyzer.Analyzer("example", {
  *     name: "exampleanalyzer",
  *     location: example.location,
  *     resourceGroupName: example.name,

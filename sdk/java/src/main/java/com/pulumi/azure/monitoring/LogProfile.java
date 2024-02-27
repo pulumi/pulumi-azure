@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
  * import com.pulumi.azure.monitoring.LogProfile;
  * import com.pulumi.azure.monitoring.LogProfileArgs;
- * import com.pulumi.azure.monitoring.inputs.LogProfileRetentionPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,12 +81,9 @@ import javax.annotation.Nullable;
  *             .locations(            
  *                 &#34;westus&#34;,
  *                 &#34;global&#34;)
- *             .servicebusRuleId(exampleEventHubNamespace.id().applyValue(id -&gt; String.format(&#34;%s/authorizationrules/RootManageSharedAccessKey&#34;, id)))
+ *             .servicebusRuleId(String.format(&#34;%s/authorizationrules/RootManageSharedAccessKey&#34;, exampleEventHubNamespace.id()))
  *             .storageAccountId(exampleAccount.id())
- *             .retentionPolicy(LogProfileRetentionPolicyArgs.builder()
- *                 .enabled(true)
- *                 .days(7)
- *                 .build())
+ *             .retentionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

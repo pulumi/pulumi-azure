@@ -140,18 +140,6 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
     """
     Use this data source to access information about an existing Container App Environment Certificate.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerapp.get_environment(name="example-environment",
-        resource_group_name="example-resources")
-    example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
-        container_app_environment_id=example.id)
-    ```
-
 
     :param str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.
     :param str name: The name of the Container Apps Certificate. Changing this forces a new resource to be created.
@@ -180,18 +168,6 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentCertificateResult]:
     """
     Use this data source to access information about an existing Container App Environment Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerapp.get_environment(name="example-environment",
-        resource_group_name="example-resources")
-    example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
-        container_app_environment_id=example.id)
-    ```
 
 
     :param str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.

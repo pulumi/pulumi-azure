@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "example-uai",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleResourceDeploymentScriptAzureCli = new Azure.Core.ResourceDeploymentScriptAzureCli("example", new()
+    ///     var exampleResourceDeploymentScriptAzureCli = new Azure.Core.ResourceDeploymentScriptAzureCli.ResourceDeploymentScriptAzureCli("example", new()
     ///     {
     ///         Name = "example-rdsac",
     ///         ResourceGroupName = example.Name,
@@ -48,13 +48,13 @@ namespace Pulumi.Azure.Core
     ///         Timeout = "PT30M",
     ///         ScriptContent = @"            echo ""{\""name\"":{\""displayName\"":\""$1 $2\""}}"" &gt; $AZ_SCRIPTS_OUTPUT_PATH
     /// ",
-    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptAzureCliIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             { "type", "UserAssigned" },
+    ///             { "identityIds", new[]
     ///             {
     ///                 exampleUserAssignedIdentity.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

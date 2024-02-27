@@ -271,29 +271,29 @@ class AnalyticsSolution(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example = azure.core.ResourceGroup("example",
-            name="k8s-log-analytics-test",
-            location="West Europe")
-        workspace = random.RandomId("workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=k8s-log-analytics-test,
+            location=West Europe)
+        workspace = random.index.random_id.RandomId("workspace",
             keepers={
-                "group_name": example.name,
+                group_name: example.name,
             },
             byte_length=8)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name=workspace.hex.apply(lambda hex: f"k8s-workspace-{hex}"),
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=fk8s-workspace-{workspace.hex},
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="ContainerInsights",
+            sku=PerGB2018)
+        example_analytics_solution = azure.operationalinsights.analytics_solution.AnalyticsSolution("example",
+            solution_name=ContainerInsights,
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/ContainerInsights",
-            ))
+            plan={
+                publisher: Microsoft,
+                product: OMSGallery/ContainerInsights,
+            })
         ```
 
         ## Import
@@ -330,29 +330,29 @@ class AnalyticsSolution(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example = azure.core.ResourceGroup("example",
-            name="k8s-log-analytics-test",
-            location="West Europe")
-        workspace = random.RandomId("workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=k8s-log-analytics-test,
+            location=West Europe)
+        workspace = random.index.random_id.RandomId("workspace",
             keepers={
-                "group_name": example.name,
+                group_name: example.name,
             },
             byte_length=8)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name=workspace.hex.apply(lambda hex: f"k8s-workspace-{hex}"),
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=fk8s-workspace-{workspace.hex},
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="ContainerInsights",
+            sku=PerGB2018)
+        example_analytics_solution = azure.operationalinsights.analytics_solution.AnalyticsSolution("example",
+            solution_name=ContainerInsights,
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/ContainerInsights",
-            ))
+            plan={
+                publisher: Microsoft,
+                product: OMSGallery/ContainerInsights,
+            })
         ```
 
         ## Import

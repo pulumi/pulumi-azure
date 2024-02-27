@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/analyticsItem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/analyticsItem"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tf-test"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("tf-test-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appinsights.NewAnalyticsItem(ctx, "example", &appinsights.AnalyticsItemArgs{
-//				Name:                  pulumi.String("testquery"),
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				Content:               pulumi.String("requests //simple example query"),
-//				Scope:                 pulumi.String("shared"),
-//				Type:                  pulumi.String("query"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tf-test",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "tf-test-appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appinsights/analyticsItem.NewAnalyticsItem(ctx, "example", &appinsights/analyticsItem.AnalyticsItemArgs{
+// Name: "testquery",
+// ApplicationInsightsId: exampleInsights.Id,
+// Content: "requests //simple example query",
+// Scope: "shared",
+// Type: "query",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

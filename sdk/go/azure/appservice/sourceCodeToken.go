@@ -25,24 +25,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	appservice/sourceCodeToken "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/sourceCodeToken"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appservice.NewSourceCodeToken(ctx, "example", &appservice.SourceCodeTokenArgs{
-//				Type:  pulumi.String("GitHub"),
-//				Token: pulumi.String("7e57735e77e577e57"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appservice/sourceCodeToken.NewSourceCodeToken(ctx, "example", &appservice/sourceCodeToken.SourceCodeTokenArgs{
+// Type: "GitHub",
+// Token: "7e57735e77e577e57",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.core.CustomProvider;
  * import com.pulumi.azure.core.CustomProviderArgs;
- * import com.pulumi.azure.core.inputs.CustomProviderResourceTypeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,10 +55,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example_provider&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .resourceTypes(CustomProviderResourceTypeArgs.builder()
- *                 .name(&#34;dEf1&#34;)
- *                 .endpoint(&#34;https://testendpoint.com/&#34;)
- *                 .build())
+ *             .resourceTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

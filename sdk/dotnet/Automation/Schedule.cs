@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-automation-account",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "tfex-automation-account",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleSchedule = new Azure.Automation.Schedule("example", new()
+    ///     var exampleSchedule = new Azure.Automation.Schedule.Schedule("example", new()
     ///     {
     ///         Name = "tfex-automation-schedule",
     ///         ResourceGroupName = example.Name,

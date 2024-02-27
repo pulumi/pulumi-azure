@@ -31,18 +31,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
- * import com.pulumi.azure.network.VpnGateway;
- * import com.pulumi.azure.network.VpnGatewayArgs;
- * import com.pulumi.azure.network.VpnSite;
- * import com.pulumi.azure.network.VpnSiteArgs;
- * import com.pulumi.azure.network.inputs.VpnSiteLinkArgs;
- * import com.pulumi.azure.network.VpnGatewayConnection;
- * import com.pulumi.azure.network.VpnGatewayConnectionArgs;
- * import com.pulumi.azure.network.inputs.VpnGatewayConnectionVpnLinkArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
+ * import com.pulumi.azure.network_vpnGateway.VpnGateway;
+ * import com.pulumi.azure.network_vpnGateway.VpnGatewayArgs;
+ * import com.pulumi.azure.network_vpnSite.VpnSite;
+ * import com.pulumi.azure.network_vpnSite.VpnSiteArgs;
+ * import com.pulumi.azure.network_vpnGatewayConnection.VpnGatewayConnection;
+ * import com.pulumi.azure.network_vpnGatewayConnection.VpnGatewayConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,14 +86,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .links(            
- *                 VpnSiteLinkArgs.builder()
- *                     .name(&#34;link1&#34;)
- *                     .ipAddress(&#34;10.1.0.0&#34;)
- *                     .build(),
- *                 VpnSiteLinkArgs.builder()
- *                     .name(&#34;link2&#34;)
- *                     .ipAddress(&#34;10.2.0.0&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVpnGatewayConnection = new VpnGatewayConnection(&#34;exampleVpnGatewayConnection&#34;, VpnGatewayConnectionArgs.builder()        
@@ -103,14 +95,8 @@ import javax.annotation.Nullable;
  *             .vpnGatewayId(exampleVpnGateway.id())
  *             .remoteVpnSiteId(exampleVpnSite.id())
  *             .vpnLinks(            
- *                 VpnGatewayConnectionVpnLinkArgs.builder()
- *                     .name(&#34;link1&#34;)
- *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -&gt; links[0].id()))
- *                     .build(),
- *                 VpnGatewayConnectionVpnLinkArgs.builder()
- *                     .name(&#34;link2&#34;)
- *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -&gt; links[1].id()))
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

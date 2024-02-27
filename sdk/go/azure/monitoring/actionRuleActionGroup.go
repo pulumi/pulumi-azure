@@ -23,50 +23,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/actionGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/actionGroup"
+//	monitoring/actionRuleActionGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/actionRuleActionGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-action-group"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewActionRuleActionGroup(ctx, "example", &monitoring.ActionRuleActionGroupArgs{
-//				Name:              pulumi.String("example-amar"),
-//				ResourceGroupName: example.Name,
-//				ActionGroupId:     exampleActionGroup.ID(),
-//				Scope: &monitoring.ActionRuleActionGroupScopeArgs{
-//					Type: pulumi.String("ResourceGroup"),
-//					ResourceIds: pulumi.StringArray{
-//						example.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleActionGroup, err := monitoring/actionGroup.NewActionGroup(ctx, "example", &monitoring/actionGroup.ActionGroupArgs{
+// Name: "example-action-group",
+// ResourceGroupName: example.Name,
+// ShortName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/actionRuleActionGroup.NewActionRuleActionGroup(ctx, "example", &monitoring/actionRuleActionGroup.ActionRuleActionGroupArgs{
+// Name: "example-amar",
+// ResourceGroupName: example.Name,
+// ActionGroupId: exampleActionGroup.Id,
+// Scope: map[string]interface{}{
+// "type": "ResourceGroup",
+// "resourceIds": []interface{}{
+// example.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

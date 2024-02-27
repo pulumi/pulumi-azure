@@ -24,7 +24,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.SecurityCenter.Contact("example", new()
+    ///     var example = new Azure.Securitycenter.Contact.Contact("example", new()
     ///     {
     ///         Name = "contact",
     ///         Email = "contact@example.com",

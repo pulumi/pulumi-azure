@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.monitoring.ActionRuleSuppression;
  * import com.pulumi.azure.monitoring.ActionRuleSuppressionArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionRuleSuppressionScopeArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionRuleSuppressionSuppressionArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionRuleSuppressionSuppressionScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,23 +56,9 @@ import javax.annotation.Nullable;
  *         var exampleActionRuleSuppression = new ActionRuleSuppression(&#34;exampleActionRuleSuppression&#34;, ActionRuleSuppressionArgs.builder()        
  *             .name(&#34;example-amar&#34;)
  *             .resourceGroupName(example.name())
- *             .scope(ActionRuleSuppressionScopeArgs.builder()
- *                 .type(&#34;ResourceGroup&#34;)
- *                 .resourceIds(example.id())
- *                 .build())
- *             .suppression(ActionRuleSuppressionSuppressionArgs.builder()
- *                 .recurrenceType(&#34;Weekly&#34;)
- *                 .schedule(ActionRuleSuppressionSuppressionScheduleArgs.builder()
- *                     .startDateUtc(&#34;2019-01-01T01:02:03Z&#34;)
- *                     .endDateUtc(&#34;2019-01-03T15:02:07Z&#34;)
- *                     .recurrenceWeeklies(                    
- *                         &#34;Sunday&#34;,
- *                         &#34;Monday&#34;,
- *                         &#34;Friday&#34;,
- *                         &#34;Saturday&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .scope(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .suppression(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

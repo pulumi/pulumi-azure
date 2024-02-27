@@ -267,31 +267,6 @@ class CertificateIssuer(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate Issuer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="standard",
-            tenant_id=current.tenant_id)
-        example_certificate_issuer = azure.keyvault.CertificateIssuer("example",
-            name="example-issuer",
-            org_id="ExampleOrgName",
-            key_vault_id=example_key_vault.id,
-            provider_name="DigiCert",
-            account_id="0000",
-            password="example-password")
-        ```
-
         ## Import
 
         Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
@@ -318,31 +293,6 @@ class CertificateIssuer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Certificate Issuer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="standard",
-            tenant_id=current.tenant_id)
-        example_certificate_issuer = azure.keyvault.CertificateIssuer("example",
-            name="example-issuer",
-            org_id="ExampleOrgName",
-            key_vault_id=example_key_vault.id,
-            provider_name="DigiCert",
-            account_id="0000",
-            password="example-password")
-        ```
 
         ## Import
 

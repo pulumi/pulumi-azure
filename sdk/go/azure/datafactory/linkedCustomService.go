@@ -23,69 +23,66 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedCustomService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedCustomService"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Identity: &datafactory.FactoryIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountKind:            pulumi.String("BlobStorage"),
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Type:          pulumi.String("AzureBlobStorage"),
-//				Description:   pulumi.String("test description"),
-//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-//					return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
-//				}).(pulumi.StringOutput),
-//				Parameters: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//					"Env": pulumi.String("Test"),
-//				},
-//				Annotations: pulumi.StringArray{
-//					pulumi.String("test1"),
-//					pulumi.String("test2"),
-//					pulumi.String("test3"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountKind: "BlobStorage",
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedCustomService.NewLinkedCustomService(ctx, "example", &datafactory/linkedCustomService.LinkedCustomServiceArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// Type: "AzureBlobStorage",
+// Description: "test description",
+// TypePropertiesJson: fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", exampleAccount.PrimaryConnectionString),
+// Parameters: map[string]interface{}{
+// "foo": "bar",
+// "Env": "Test",
+// },
+// Annotations: []string{
+// "test1",
+// "test2",
+// "test3",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

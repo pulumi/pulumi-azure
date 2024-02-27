@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     name: "example-law",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
- *     workspaceId: exampleAnalyticsWorkspace.id,
- *     customerManagedKeyEnabled: false,
- * });
- * const example = azure.sentinel.getAlertRuleAnomalyOutput({
- *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     displayName: "Potential data staging",
- * });
- * const exampleAlertRuleAnomalyBuiltIn = new azure.sentinel.AlertRuleAnomalyBuiltIn("example", {
- *     displayName: "Potential data staging",
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- *     mode: "Production",
- *     enabled: false,
- * });
- * ```
- *
  * ## Import
  *
  * Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.

@@ -22,25 +22,25 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "my-kusto-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var cluster = new Azure.Kusto.Cluster("cluster", new()
+    ///     var cluster = new Azure.Kusto.Cluster.Cluster("cluster", new()
     ///     {
     ///         Name = "kustocluster",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
+    ///             { "name", "Standard_D13_v2" },
+    ///             { "capacity", 2 },
     ///         },
     ///     });
     /// 
-    ///     var database = new Azure.Kusto.Database("database", new()
+    ///     var database = new Azure.Kusto.Database.Database("database", new()
     ///     {
     ///         Name = "my-kusto-database",
     ///         ResourceGroupName = example.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Kusto
     ///         SoftDeletePeriod = "P31D",
     ///     });
     /// 
-    ///     var eventhubNs = new Azure.EventHub.EventHubNamespace("eventhub_ns", new()
+    ///     var eventhubNs = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("eventhub_ns", new()
     ///     {
     ///         Name = "my-eventhub-ns",
     ///         Location = example.Location,
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Kusto
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var eventhub = new Azure.EventHub.EventHub("eventhub", new()
+    ///     var eventhub = new Azure.Eventhub.EventHub.EventHub("eventhub", new()
     ///     {
     ///         Name = "my-eventhub",
     ///         NamespaceName = eventhubNs.Name,
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Kusto
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var consumerGroup = new Azure.EventHub.ConsumerGroup("consumer_group", new()
+    ///     var consumerGroup = new Azure.Eventhub.ConsumerGroup.ConsumerGroup("consumer_group", new()
     ///     {
     ///         Name = "my-eventhub-consumergroup",
     ///         NamespaceName = eventhubNs.Name,
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Kusto
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var eventhubConnection = new Azure.Kusto.EventhubDataConnection("eventhub_connection", new()
+    ///     var eventhubConnection = new Azure.Kusto.EventhubDataConnection.EventhubDataConnection("eventhub_connection", new()
     ///     {
     ///         Name = "my-kusto-eventhub-data-connection",
     ///         ResourceGroupName = example.Name,

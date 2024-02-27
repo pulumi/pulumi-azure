@@ -74,18 +74,18 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("example",
-            name="example",
+        example_local_rulestack_certificate = azure.paloalto.local_rulestack_certificate.LocalRulestackCertificate("example",
+            name=example,
             rulestack_id=example_local_rulestack.id,
             self_signed=True)
-        example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
+        example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.local_rulestack_outbound_untrust_certificate_association.LocalRulestackOutboundUntrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -107,18 +107,18 @@ class LocalRulestackOutboundUntrustCertificateAssociation(pulumi.CustomResource)
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_local_rulestack_certificate = azure.paloalto.LocalRulestackCertificate("example",
-            name="example",
+        example_local_rulestack_certificate = azure.paloalto.local_rulestack_certificate.LocalRulestackCertificate("example",
+            name=example,
             rulestack_id=example_local_rulestack.id,
             self_signed=True)
-        example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.LocalRulestackOutboundUntrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
+        example_local_rulestack_outbound_untrust_certificate_association = azure.paloalto.local_rulestack_outbound_untrust_certificate_association.LocalRulestackOutboundUntrustCertificateAssociation("example", certificate_id=example_local_rulestack_certificate.id)
         ```
 
         :param str resource_name: The name of the resource.

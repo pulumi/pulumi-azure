@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.SubscriptionTemplateDeployment("example", {
+ * const example = new azure.core/subscriptionTemplateDeployment.SubscriptionTemplateDeployment("example", {
  *     name: "example-deployment",
  *     location: "West Europe",
  *     templateContent: ` {

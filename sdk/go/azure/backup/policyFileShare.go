@@ -21,83 +21,81 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	backup/policyFileShare "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/backup/policyFileShare"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-recovery_vault"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("tfex-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewPolicyFileShare(ctx, "policy", &backup.PolicyFileShareArgs{
-//				Name:              pulumi.String("tfex-recovery-vault-policy"),
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: exampleVault.Name,
-//				Timezone:          pulumi.String("UTC"),
-//				Backup: &backup.PolicyFileShareBackupArgs{
-//					Frequency: pulumi.String("Daily"),
-//					Time:      pulumi.String("23:00"),
-//				},
-//				RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
-//					Count: pulumi.Int(10),
-//				},
-//				RetentionWeekly: &backup.PolicyFileShareRetentionWeeklyArgs{
-//					Count: pulumi.Int(7),
-//					Weekdays: pulumi.StringArray{
-//						pulumi.String("Sunday"),
-//						pulumi.String("Wednesday"),
-//						pulumi.String("Friday"),
-//						pulumi.String("Saturday"),
-//					},
-//				},
-//				RetentionMonthly: &backup.PolicyFileShareRetentionMonthlyArgs{
-//					Count: pulumi.Int(7),
-//					Weekdays: pulumi.StringArray{
-//						pulumi.String("Sunday"),
-//						pulumi.String("Wednesday"),
-//					},
-//					Weeks: pulumi.StringArray{
-//						pulumi.String("First"),
-//						pulumi.String("Last"),
-//					},
-//				},
-//				RetentionYearly: &backup.PolicyFileShareRetentionYearlyArgs{
-//					Count: pulumi.Int(7),
-//					Weekdays: pulumi.StringArray{
-//						pulumi.String("Sunday"),
-//					},
-//					Weeks: pulumi.StringArray{
-//						pulumi.String("Last"),
-//					},
-//					Months: pulumi.StringArray{
-//						pulumi.String("January"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-recovery_vault",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVault, err := recoveryservices/vault.NewVault(ctx, "example", &recoveryservices/vault.VaultArgs{
+// Name: "tfex-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = backup/policyFileShare.NewPolicyFileShare(ctx, "policy", &backup/policyFileShare.PolicyFileShareArgs{
+// Name: "tfex-recovery-vault-policy",
+// ResourceGroupName: example.Name,
+// RecoveryVaultName: exampleVault.Name,
+// Timezone: "UTC",
+// Backup: map[string]interface{}{
+// "frequency": "Daily",
+// "time": "23:00",
+// },
+// RetentionDaily: map[string]interface{}{
+// "count": 10,
+// },
+// RetentionWeekly: map[string]interface{}{
+// "count": 7,
+// "weekdays": []string{
+// "Sunday",
+// "Wednesday",
+// "Friday",
+// "Saturday",
+// },
+// },
+// RetentionMonthly: map[string]interface{}{
+// "count": 7,
+// "weekdays": []string{
+// "Sunday",
+// "Wednesday",
+// },
+// "weeks": []string{
+// "First",
+// "Last",
+// },
+// },
+// RetentionYearly: map[string]interface{}{
+// "count": 7,
+// "weekdays": []string{
+// "Sunday",
+// },
+// "weeks": []string{
+// "Last",
+// },
+// "months": []string{
+// "January",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

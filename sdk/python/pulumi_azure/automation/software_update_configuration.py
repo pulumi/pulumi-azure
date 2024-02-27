@@ -500,46 +500,46 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        example_account = azure.automation.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=East US)
+        example_account = azure.automation.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("example",
-            name="Get-AzureVMTutorial",
+            sku_name=Basic)
+        example_run_book = azure.automation.run_book.RunBook("example",
+            name=Get-AzureVMTutorial,
             location=example.location,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is a example runbook for terraform acceptance example",
-            runbook_type="Python3",
-            content=\"\"\"# Some example content
+            log_verbose=true,
+            log_progress=true,
+            description=This is a example runbook for terraform acceptance example,
+            runbook_type=Python3,
+            content=# Some example content
         # for Terraform acceptance example
-        \"\"\",
+        ,
             tags={
-                "ENV": "runbook_test",
+                ENV: runbook_test,
             })
-        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("example",
-            name="example",
+        example_software_update_configuration = azure.automation.software_update_configuration.SoftwareUpdateConfiguration("example",
+            name=example,
             automation_account_id=example_account.id,
-            operating_system="Linux",
-            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
-                classification_included="Security",
-                excluded_packages=["apt"],
-                included_packages=["vim"],
-                reboot="IfRequired",
-            )],
-            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
-                source=example_run_book.name,
-                parameters={
-                    "COMPUTER_NAME": "Foo",
+            operating_system=Linux,
+            linuxes=[{
+                classificationIncluded: Security,
+                excludedPackages: [apt],
+                includedPackages: [vim],
+                reboot: IfRequired,
+            }],
+            pre_tasks=[{
+                source: example_run_book.name,
+                parameters: {
+                    COMPUTER_NAME: Foo,
                 },
-            )],
-            duration="PT2H2M2S")
+            }],
+            duration=PT2H2M2S)
         ```
 
         ## Import
@@ -581,46 +581,46 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        example_account = azure.automation.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=East US)
+        example_account = azure.automation.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_run_book = azure.automation.RunBook("example",
-            name="Get-AzureVMTutorial",
+            sku_name=Basic)
+        example_run_book = azure.automation.run_book.RunBook("example",
+            name=Get-AzureVMTutorial,
             location=example.location,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            log_verbose=True,
-            log_progress=True,
-            description="This is a example runbook for terraform acceptance example",
-            runbook_type="Python3",
-            content=\"\"\"# Some example content
+            log_verbose=true,
+            log_progress=true,
+            description=This is a example runbook for terraform acceptance example,
+            runbook_type=Python3,
+            content=# Some example content
         # for Terraform acceptance example
-        \"\"\",
+        ,
             tags={
-                "ENV": "runbook_test",
+                ENV: runbook_test,
             })
-        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("example",
-            name="example",
+        example_software_update_configuration = azure.automation.software_update_configuration.SoftwareUpdateConfiguration("example",
+            name=example,
             automation_account_id=example_account.id,
-            operating_system="Linux",
-            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
-                classification_included="Security",
-                excluded_packages=["apt"],
-                included_packages=["vim"],
-                reboot="IfRequired",
-            )],
-            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
-                source=example_run_book.name,
-                parameters={
-                    "COMPUTER_NAME": "Foo",
+            operating_system=Linux,
+            linuxes=[{
+                classificationIncluded: Security,
+                excludedPackages: [apt],
+                includedPackages: [vim],
+                reboot: IfRequired,
+            }],
+            pre_tasks=[{
+                source: example_run_book.name,
+                parameters: {
+                    COMPUTER_NAME: Foo,
                 },
-            )],
-            duration="PT2H2M2S")
+            }],
+            duration=PT2H2M2S)
         ```
 
         ## Import

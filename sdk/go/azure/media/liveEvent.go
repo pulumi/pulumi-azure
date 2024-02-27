@@ -21,93 +21,92 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/liveEvent "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/liveEvent"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewLiveEvent(ctx, "example", &media.LiveEventArgs{
-//				Name:                     pulumi.String("example"),
-//				ResourceGroupName:        example.Name,
-//				Location:                 example.Location,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("My Event Description"),
-//				Input: &media.LiveEventInputTypeArgs{
-//					StreamingProtocol: pulumi.String("RTMP"),
-//					IpAccessControlAllows: media.LiveEventInputIpAccessControlAllowArray{
-//						&media.LiveEventInputIpAccessControlAllowArgs{
-//							Name:               pulumi.String("AllowAll"),
-//							Address:            pulumi.String("0.0.0.0"),
-//							SubnetPrefixLength: pulumi.Int(0),
-//						},
-//					},
-//				},
-//				Encoding: &media.LiveEventEncodingArgs{
-//					Type:             pulumi.String("Standard"),
-//					PresetName:       pulumi.String("Default720p"),
-//					StretchMode:      pulumi.String("AutoFit"),
-//					KeyFrameInterval: pulumi.String("PT2S"),
-//				},
-//				Preview: &media.LiveEventPreviewArgs{
-//					IpAccessControlAllows: media.LiveEventPreviewIpAccessControlAllowArray{
-//						&media.LiveEventPreviewIpAccessControlAllowArgs{
-//							Name:               pulumi.String("AllowAll"),
-//							Address:            pulumi.String("0.0.0.0"),
-//							SubnetPrefixLength: pulumi.Int(0),
-//						},
-//					},
-//				},
-//				StreamOptions: pulumi.StringArray{
-//					pulumi.String("LowLatency"),
-//				},
-//				UseStaticHostname: pulumi.Bool(true),
-//				HostnamePrefix:    pulumi.String("special-event"),
-//				TranscriptionLanguages: pulumi.StringArray{
-//					pulumi.String("en-US"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/liveEvent.NewLiveEvent(ctx, "example", &media/liveEvent.LiveEventArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "My Event Description",
+// Input: map[string]interface{}{
+// "streamingProtocol": "RTMP",
+// "ipAccessControlAllows": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "AllowAll",
+// "address": "0.0.0.0",
+// "subnetPrefixLength": 0,
+// },
+// },
+// },
+// Encoding: map[string]interface{}{
+// "type": "Standard",
+// "presetName": "Default720p",
+// "stretchMode": "AutoFit",
+// "keyFrameInterval": "PT2S",
+// },
+// Preview: map[string]interface{}{
+// "ipAccessControlAllows": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "AllowAll",
+// "address": "0.0.0.0",
+// "subnetPrefixLength": 0,
+// },
+// },
+// },
+// StreamOptions: []string{
+// "LowLatency",
+// },
+// UseStaticHostname: true,
+// HostnamePrefix: "special-event",
+// TranscriptionLanguages: []string{
+// "en-US",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

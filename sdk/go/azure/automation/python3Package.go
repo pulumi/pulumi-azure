@@ -21,49 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	automation/python3Package "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/python3Package"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("%[2]s"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("accexample"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewPython3Package(ctx, "example", &automation.Python3PackageArgs{
-//				Name:                  pulumi.String("example"),
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				ContentUri:            pulumi.String("https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz"),
-//				ContentVersion:        pulumi.String("2.31.0"),
-//				HashAlgorithm:         pulumi.String("sha256"),
-//				HashValue:             pulumi.String("942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "%[2]s",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "accexample",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automation/python3Package.NewPython3Package(ctx, "example", &automation/python3Package.Python3PackageArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// AutomationAccountName: exampleAccount.Name,
+// ContentUri: "https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
+// ContentVersion: "2.31.0",
+// HashAlgorithm: "sha256",
+// HashValue: "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+// Tags: map[string]interface{}{
+// "key": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

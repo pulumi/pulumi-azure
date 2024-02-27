@@ -33,11 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.monitoring.AlertProcessingRuleSuppression;
  * import com.pulumi.azure.monitoring.AlertProcessingRuleSuppressionArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionConditionArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionConditionSeverityArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleRecurrenceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,36 +55,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(&#34;example&#34;)
  *             .scopes(example.id())
- *             .condition(AlertProcessingRuleSuppressionConditionArgs.builder()
- *                 .targetResourceType(AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs.builder()
- *                     .operator(&#34;Equals&#34;)
- *                     .values(&#34;Microsoft.Compute/VirtualMachines&#34;)
- *                     .build())
- *                 .severity(AlertProcessingRuleSuppressionConditionSeverityArgs.builder()
- *                     .operator(&#34;Equals&#34;)
- *                     .values(                    
- *                         &#34;Sev0&#34;,
- *                         &#34;Sev1&#34;,
- *                         &#34;Sev2&#34;)
- *                     .build())
- *                 .build())
- *             .schedule(AlertProcessingRuleSuppressionScheduleArgs.builder()
- *                 .effectiveFrom(&#34;2022-01-01T01:02:03&#34;)
- *                 .effectiveUntil(&#34;2022-02-02T01:02:03&#34;)
- *                 .timeZone(&#34;Pacific Standard Time&#34;)
- *                 .recurrence(AlertProcessingRuleSuppressionScheduleRecurrenceArgs.builder()
- *                     .dailies(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs.builder()
- *                         .startTime(&#34;17:00:00&#34;)
- *                         .endTime(&#34;09:00:00&#34;)
- *                         .build())
- *                     .weeklies(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs.builder()
- *                         .daysOfWeeks(                        
- *                             &#34;Saturday&#34;,
- *                             &#34;Sunday&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .condition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -205,17 +205,17 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
-            resource_group_name=example_azurerm_resrouce_group["name"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
+            resource_group_name=example_azurerm_resrouce_group.name,
             location=example.location)
-        example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("example",
-            name="example",
+        example_local_rulestack_fqdn_list = azure.paloalto.local_rulestack_fqdn_list.LocalRulestackFqdnList("example",
+            name=example,
             rulestack_id=example_local_rulestack.id,
-            fully_qualified_domain_names=["contoso.com"])
+            fully_qualified_domain_names=[contoso.com])
         ```
 
         ## Import
@@ -249,17 +249,17 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
-            resource_group_name=example_azurerm_resrouce_group["name"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
+            resource_group_name=example_azurerm_resrouce_group.name,
             location=example.location)
-        example_local_rulestack_fqdn_list = azure.paloalto.LocalRulestackFqdnList("example",
-            name="example",
+        example_local_rulestack_fqdn_list = azure.paloalto.local_rulestack_fqdn_list.LocalRulestackFqdnList("example",
+            name=example,
             rulestack_id=example_local_rulestack.id,
-            fully_qualified_domain_names=["contoso.com"])
+            fully_qualified_domain_names=[contoso.com])
         ```
 
         ## Import

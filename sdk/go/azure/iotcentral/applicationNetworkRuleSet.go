@@ -21,55 +21,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iotcentral"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iotcentral/application "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iotcentral/application"
+//	iotcentral/applicationNetworkRuleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iotcentral/applicationNetworkRuleSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resource"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApplication, err := iotcentral.NewApplication(ctx, "example", &iotcentral.ApplicationArgs{
-//				Name:              pulumi.String("example-iotcentral-app"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SubDomain:         pulumi.String("example-iotcentral-app-subdomain"),
-//				DisplayName:       pulumi.String("example-iotcentral-app-display-name"),
-//				Sku:               pulumi.String("ST1"),
-//				Tags: pulumi.StringMap{
-//					"Foo": pulumi.String("Bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iotcentral.NewApplicationNetworkRuleSet(ctx, "example", &iotcentral.ApplicationNetworkRuleSetArgs{
-//				IotcentralApplicationId: exampleApplication.ID(),
-//				IpRules: iotcentral.ApplicationNetworkRuleSetIpRuleArray{
-//					&iotcentral.ApplicationNetworkRuleSetIpRuleArgs{
-//						Name:   pulumi.String("rule1"),
-//						IpMask: pulumi.String("10.0.1.0/24"),
-//					},
-//					&iotcentral.ApplicationNetworkRuleSetIpRuleArgs{
-//						Name:   pulumi.String("rule2"),
-//						IpMask: pulumi.String("10.1.1.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resource",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApplication, err := iotcentral/application.NewApplication(ctx, "example", &iotcentral/application.ApplicationArgs{
+// Name: "example-iotcentral-app",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SubDomain: "example-iotcentral-app-subdomain",
+// DisplayName: "example-iotcentral-app-display-name",
+// Sku: "ST1",
+// Tags: map[string]interface{}{
+// "Foo": "Bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iotcentral/applicationNetworkRuleSet.NewApplicationNetworkRuleSet(ctx, "example", &iotcentral/applicationNetworkRuleSet.ApplicationNetworkRuleSetArgs{
+// IotcentralApplicationId: exampleApplication.Id,
+// IpRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "rule1",
+// "ipMask": "10.0.1.0/24",
+// },
+// map[string]interface{}{
+// "name": "rule2",
+// "ipMask": "10.1.1.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

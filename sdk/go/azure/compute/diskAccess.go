@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	compute/diskAccess "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/diskAccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := compute.NewDiskAccess(ctx, "example", &compute.DiskAccessArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := compute/diskAccess.NewDiskAccess(ctx, "example", &compute/diskAccess.DiskAccessArgs{
+// Name: "example",
+// ResourceGroupName: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

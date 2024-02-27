@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .kind(&#34;Windows&#34;)
  *             .publicNetworkAccessEnabled(true)
  *             .description(&#34;monitor_data_collection_endpoint example&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

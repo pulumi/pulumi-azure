@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.logicapps.Standard;
  * import com.pulumi.azure.logicapps.StandardArgs;
  * import java.util.List;
@@ -72,10 +71,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind(&#34;elastic&#34;)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;WorkflowStandard&#34;)
- *                 .size(&#34;WS1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStandard = new Standard(&#34;exampleStandard&#34;, StandardArgs.builder()        
@@ -85,10 +81,7 @@ import javax.annotation.Nullable;
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .appSettings(Map.ofEntries(
- *                 Map.entry(&#34;FUNCTIONS_WORKER_RUNTIME&#34;, &#34;node&#34;),
- *                 Map.entry(&#34;WEBSITE_NODE_DEFAULT_VERSION&#34;, &#34;~18&#34;)
- *             ))
+ *             .appSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -109,10 +102,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.logicapps.Standard;
  * import com.pulumi.azure.logicapps.StandardArgs;
- * import com.pulumi.azure.logicapps.inputs.StandardSiteConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -145,10 +136,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;Linux&#34;)
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;WorkflowStandard&#34;)
- *                 .size(&#34;WS1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStandard = new Standard(&#34;exampleStandard&#34;, StandardArgs.builder()        
@@ -158,14 +146,8 @@ import javax.annotation.Nullable;
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(StandardSiteConfigArgs.builder()
- *                 .linuxFxVersion(&#34;DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice&#34;)
- *                 .build())
- *             .appSettings(Map.ofEntries(
- *                 Map.entry(&#34;DOCKER_REGISTRY_SERVER_URL&#34;, &#34;https://&lt;server-name&gt;.azurecr.io&#34;),
- *                 Map.entry(&#34;DOCKER_REGISTRY_SERVER_USERNAME&#34;, &#34;username&#34;),
- *                 Map.entry(&#34;DOCKER_REGISTRY_SERVER_PASSWORD&#34;, &#34;password&#34;)
- *             ))
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .appSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

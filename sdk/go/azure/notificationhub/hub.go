@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	notificationhub/hub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/notificationhub/hub"
+//	notificationhub/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/notificationhub/namespace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("notificationhub-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := notificationhub.NewNamespace(ctx, "example", &notificationhub.NamespaceArgs{
-//				Name:              pulumi.String("myappnamespace"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				NamespaceType:     pulumi.String("NotificationHub"),
-//				SkuName:           pulumi.String("Free"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = notificationhub.NewHub(ctx, "example", &notificationhub.HubArgs{
-//				Name:              pulumi.String("mynotificationhub"),
-//				NamespaceName:     exampleNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "notificationhub-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := notificationhub/namespace.NewNamespace(ctx, "example", &notificationhub/namespace.NamespaceArgs{
+// Name: "myappnamespace",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// NamespaceType: "NotificationHub",
+// SkuName: "Free",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = notificationhub/hub.NewHub(ctx, "example", &notificationhub/hub.HubArgs{
+// Name: "mynotificationhub",
+// NamespaceName: exampleNamespace.Name,
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

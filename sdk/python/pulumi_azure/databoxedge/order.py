@@ -270,30 +270,30 @@ class Order(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-databoxedge",
-            location="West Europe")
-        example_device = azure.databoxedge.Device("example",
-            name="example-device",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-databoxedge,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EdgeP_Base-Standard")
-        example_order = azure.databoxedge.Order("example",
+            sku_name=EdgeP_Base-Standard)
+        example_order = azure.databoxedge.order.Order("example",
             resource_group_name=example.name,
             device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
-                name="TerraForm Test",
-                emails=["creator4983@FlynnsArcade.com"],
-                company_name="Flynn's Arcade",
-                phone_number="(800) 555-1234",
-            ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
-                addresses=["One Microsoft Way"],
-                city="Redmond",
-                postal_code="98052",
-                state="WA",
-                country="United States",
-            ))
+            contact={
+                name: TerraForm Test,
+                emails: [creator4983@FlynnsArcade.com],
+                companyName: Flynn's Arcade,
+                phoneNumber: (800) 555-1234,
+            },
+            shipment_address={
+                addresses: [One Microsoft Way],
+                city: Redmond,
+                postalCode: 98052,
+                state: WA,
+                country: United States,
+            })
         ```
 
         ## Import
@@ -328,30 +328,30 @@ class Order(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-databoxedge",
-            location="West Europe")
-        example_device = azure.databoxedge.Device("example",
-            name="example-device",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-databoxedge,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EdgeP_Base-Standard")
-        example_order = azure.databoxedge.Order("example",
+            sku_name=EdgeP_Base-Standard)
+        example_order = azure.databoxedge.order.Order("example",
             resource_group_name=example.name,
             device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
-                name="TerraForm Test",
-                emails=["creator4983@FlynnsArcade.com"],
-                company_name="Flynn's Arcade",
-                phone_number="(800) 555-1234",
-            ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
-                addresses=["One Microsoft Way"],
-                city="Redmond",
-                postal_code="98052",
-                state="WA",
-                country="United States",
-            ))
+            contact={
+                name: TerraForm Test,
+                emails: [creator4983@FlynnsArcade.com],
+                companyName: Flynn's Arcade,
+                phoneNumber: (800) 555-1234,
+            },
+            shipment_address={
+                addresses: [One Microsoft Way],
+                city: Redmond,
+                postalCode: 98052,
+                state: WA,
+                country: United States,
+            })
         ```
 
         ## Import

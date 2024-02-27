@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .records(            
  *                 &#34;ns1.contoso.com.&#34;,
  *                 &#34;ns2.contoso.com.&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

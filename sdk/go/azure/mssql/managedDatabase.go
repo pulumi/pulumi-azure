@@ -19,70 +19,70 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/managedDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/managedDatabase"
+//	mssql/managedInstance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/managedInstance"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("managedsqlinstance"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
-//				Vcores:                     pulumi.Int(4),
-//				AdministratorLogin:         pulumi.String("msadministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewManagedDatabase(ctx, "example", &mssql.ManagedDatabaseArgs{
-//				Name:              pulumi.String("example"),
-//				ManagedInstanceId: exampleManagedInstance.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleManagedInstance, err := mssql/managedInstance.NewManagedInstance(ctx, "example", &mssql/managedInstance.ManagedInstanceArgs{
+// Name: "managedsqlinstance",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// LicenseType: "BasePrice",
+// SkuName: "GP_Gen5",
+// StorageSizeInGb: 32,
+// SubnetId: exampleSubnet.Id,
+// Vcores: 4,
+// AdministratorLogin: "msadministrator",
+// AdministratorLoginPassword: "thisIsDog11",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/managedDatabase.NewManagedDatabase(ctx, "example", &mssql/managedDatabase.ManagedDatabaseArgs{
+// Name: "example",
+// ManagedInstanceId: exampleManagedInstance.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

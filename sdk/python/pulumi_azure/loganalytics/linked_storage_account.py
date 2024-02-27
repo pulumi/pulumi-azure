@@ -178,22 +178,22 @@ class LinkedStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="exampleworkspace",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=exampleworkspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("example",
-            data_source_type="CustomLogs",
+            sku=PerGB2018)
+        example_linked_storage_account = azure.loganalytics.linked_storage_account.LinkedStorageAccount("example",
+            data_source_type=CustomLogs,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
@@ -231,22 +231,22 @@ class LinkedStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="exampleworkspace",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=exampleworkspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("example",
-            data_source_type="CustomLogs",
+            sku=PerGB2018)
+        example_linked_storage_account = azure.loganalytics.linked_storage_account.LinkedStorageAccount("example",
+            data_source_type=CustomLogs,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])

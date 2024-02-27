@@ -17,76 +17,12 @@ public final class MixedrealityFunctions {
     /**
      * Get information about an Azure Spatial Anchors Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mixedreality.MixedrealityFunctions;
-     * import com.pulumi.azure.mixedreality.inputs.GetSpatialAnchorsAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args) {
         return getSpatialAnchorsAccount(args, InvokeOptions.Empty);
     }
     /**
      * Get information about an Azure Spatial Anchors Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mixedreality.MixedrealityFunctions;
-     * import com.pulumi.azure.mixedreality.inputs.GetSpatialAnchorsAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccountPlain(GetSpatialAnchorsAccountPlainArgs args) {
@@ -95,76 +31,12 @@ public final class MixedrealityFunctions {
     /**
      * Get information about an Azure Spatial Anchors Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mixedreality.MixedrealityFunctions;
-     * import com.pulumi.azure.mixedreality.inputs.GetSpatialAnchorsAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", TypeShape.of(GetSpatialAnchorsAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about an Azure Spatial Anchors Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mixedreality.MixedrealityFunctions;
-     * import com.pulumi.azure.mixedreality.inputs.GetSpatialAnchorsAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSpatialAnchorsAccountResult> getSpatialAnchorsAccountPlain(GetSpatialAnchorsAccountPlainArgs args, InvokeOptions options) {

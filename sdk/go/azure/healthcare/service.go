@@ -14,67 +14,6 @@ import (
 
 // Manages a Healthcare Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
-//				Name:                  pulumi.String("uniquefhirname"),
-//				ResourceGroupName:     pulumi.String("sample-resource-group"),
-//				Location:              pulumi.String("westus2"),
-//				Kind:                  pulumi.String("fhir-R4"),
-//				CosmosdbThroughput:    pulumi.Int(2000),
-//				AccessPolicyObjectIds: *pulumi.String(current.ObjectId),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("testenv"),
-//					"purpose":     pulumi.String("AcceptanceTests"),
-//				},
-//				AuthenticationConfiguration: &healthcare.ServiceAuthenticationConfigurationArgs{
-//					Authority:         pulumi.String("https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D"),
-//					Audience:          pulumi.String("https://azurehealthcareapis.com/"),
-//					SmartProxyEnabled: pulumi.Bool(true),
-//				},
-//				CorsConfiguration: &healthcare.ServiceCorsConfigurationArgs{
-//					AllowedOrigins: pulumi.StringArray{
-//						pulumi.String("http://www.example.com"),
-//						pulumi.String("http://www.example2.com"),
-//					},
-//					AllowedHeaders: pulumi.StringArray{
-//						pulumi.String("x-tempo-*"),
-//						pulumi.String("x-tempo2-*"),
-//					},
-//					AllowedMethods: pulumi.StringArray{
-//						pulumi.String("GET"),
-//						pulumi.String("PUT"),
-//					},
-//					MaxAgeInSeconds:  pulumi.Int(500),
-//					AllowCredentials: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Healthcare Service can be imported using the resource`id`, e.g.

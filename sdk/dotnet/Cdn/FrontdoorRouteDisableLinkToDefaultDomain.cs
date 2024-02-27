@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Cdn.FrontdoorRouteDisableLinkToDefaultDomain("example", new()
+    ///     var example = new Azure.Cdn.FrontdoorRouteDisableLinkToDefaultDomain.FrontdoorRouteDisableLinkToDefaultDomain("example", new()
     ///     {
     ///         CdnFrontdoorRouteId = exampleAzurermCdnFrontdoorRoute.Id,
     ///         CdnFrontdoorCustomDomainIds = new[]

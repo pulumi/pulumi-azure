@@ -273,70 +273,70 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example",
+            address_prefixes=[10.0.2.0/24])
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+        example_subnet_network_security_group_association = azure.network.subnet_network_security_group_association.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("example",
-            name="example",
+        example_route_table = azure.network.route_table.RouteTable("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
+        example_subnet_route_table_association = azure.network.subnet_route_table_association.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
-        primary = azure.mssql.ManagedInstance("primary",
-            name="example-primary",
+        primary = azure.mssql.managed_instance.ManagedInstance("primary",
+            name=example-primary,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
             subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        secondary = azure.mssql.ManagedInstance("secondary",
-            name="example-secondary",
+        secondary = azure.mssql.managed_instance.ManagedInstance("secondary",
+            name=example-secondary,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
             subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
-            name="example-failover-group",
+        example_managed_instance_failover_group = azure.mssql.managed_instance_failover_group.ManagedInstanceFailoverGroup("example",
+            name=example-failover-group,
             location=primary.location,
             managed_instance_id=primary.id,
             partner_managed_instance_id=secondary.id,
-            read_write_endpoint_failover_policy=azure.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
+            read_write_endpoint_failover_policy={
+                mode: Automatic,
+                graceMinutes: 60,
+            })
         ```
 
         ## Import
@@ -373,70 +373,70 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example",
+            address_prefixes=[10.0.2.0/24])
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+        example_subnet_network_security_group_association = azure.network.subnet_network_security_group_association.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("example",
-            name="example",
+        example_route_table = azure.network.route_table.RouteTable("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
+        example_subnet_route_table_association = azure.network.subnet_route_table_association.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
-        primary = azure.mssql.ManagedInstance("primary",
-            name="example-primary",
+        primary = azure.mssql.managed_instance.ManagedInstance("primary",
+            name=example-primary,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
             subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        secondary = azure.mssql.ManagedInstance("secondary",
-            name="example-secondary",
+        secondary = azure.mssql.managed_instance.ManagedInstance("secondary",
+            name=example-secondary,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
             subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32,
             tags={
-                "environment": "prod",
+                environment: prod,
             })
-        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
-            name="example-failover-group",
+        example_managed_instance_failover_group = azure.mssql.managed_instance_failover_group.ManagedInstanceFailoverGroup("example",
+            name=example-failover-group,
             location=primary.location,
             managed_instance_id=primary.id,
             partner_managed_instance_id=secondary.id,
-            read_write_endpoint_failover_policy=azure.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
+            read_write_endpoint_failover_policy={
+                mode: Automatic,
+                graceMinutes: 60,
+            })
         ```
 
         ## Import

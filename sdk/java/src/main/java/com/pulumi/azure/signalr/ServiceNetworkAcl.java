@@ -31,18 +31,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.signalr.Service;
  * import com.pulumi.azure.signalr.ServiceArgs;
- * import com.pulumi.azure.signalr.inputs.ServiceSkuArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.privatelink.Endpoint;
  * import com.pulumi.azure.privatelink.EndpointArgs;
- * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
  * import com.pulumi.azure.signalr.ServiceNetworkAcl;
  * import com.pulumi.azure.signalr.ServiceNetworkAclArgs;
- * import com.pulumi.azure.signalr.inputs.ServiceNetworkAclPublicNetworkArgs;
- * import com.pulumi.azure.signalr.inputs.ServiceNetworkAclPrivateEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,10 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-signalr&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ServiceSkuArgs.builder()
- *                 .name(&#34;Standard_S1&#34;)
- *                 .capacity(1)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
@@ -91,24 +84,14 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .subnetId(exampleSubnet.id())
- *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
- *                 .name(&#34;psc-sig-test&#34;)
- *                 .isManualConnection(false)
- *                 .privateConnectionResourceId(exampleService.id())
- *                 .subresourceNames(&#34;signalr&#34;)
- *                 .build())
+ *             .privateServiceConnection(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleServiceNetworkAcl = new ServiceNetworkAcl(&#34;exampleServiceNetworkAcl&#34;, ServiceNetworkAclArgs.builder()        
  *             .signalrServiceId(exampleService.id())
  *             .defaultAction(&#34;Deny&#34;)
- *             .publicNetwork(ServiceNetworkAclPublicNetworkArgs.builder()
- *                 .allowedRequestTypes(&#34;ClientConnection&#34;)
- *                 .build())
- *             .privateEndpoints(ServiceNetworkAclPrivateEndpointArgs.builder()
- *                 .id(exampleEndpoint.id())
- *                 .allowedRequestTypes(&#34;ServerConnection&#34;)
- *                 .build())
+ *             .publicNetwork(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .privateEndpoints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

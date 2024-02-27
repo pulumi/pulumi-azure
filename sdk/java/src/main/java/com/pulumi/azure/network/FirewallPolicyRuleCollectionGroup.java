@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.FirewallPolicyArgs;
  * import com.pulumi.azure.network.FirewallPolicyRuleCollectionGroup;
  * import com.pulumi.azure.network.FirewallPolicyRuleCollectionGroupArgs;
- * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs;
- * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs;
- * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,61 +63,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-fwpolicy-rcg&#34;)
  *             .firewallPolicyId(exampleFirewallPolicy.id())
  *             .priority(500)
- *             .applicationRuleCollections(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs.builder()
- *                 .name(&#34;app_rule_collection1&#34;)
- *                 .priority(500)
- *                 .action(&#34;Deny&#34;)
- *                 .rules(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs.builder()
- *                     .name(&#34;app_rule_collection1_rule1&#34;)
- *                     .protocols(                    
- *                         FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs.builder()
- *                             .type(&#34;Http&#34;)
- *                             .port(80)
- *                             .build(),
- *                         FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs.builder()
- *                             .type(&#34;Https&#34;)
- *                             .port(443)
- *                             .build())
- *                     .sourceAddresses(&#34;10.0.0.1&#34;)
- *                     .destinationFqdns(&#34;*.microsoft.com&#34;)
- *                     .build())
- *                 .build())
- *             .networkRuleCollections(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs.builder()
- *                 .name(&#34;network_rule_collection1&#34;)
- *                 .priority(400)
- *                 .action(&#34;Deny&#34;)
- *                 .rules(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs.builder()
- *                     .name(&#34;network_rule_collection1_rule1&#34;)
- *                     .protocols(                    
- *                         &#34;TCP&#34;,
- *                         &#34;UDP&#34;)
- *                     .sourceAddresses(&#34;10.0.0.1&#34;)
- *                     .destinationAddresses(                    
- *                         &#34;192.168.1.1&#34;,
- *                         &#34;192.168.1.2&#34;)
- *                     .destinationPorts(                    
- *                         &#34;80&#34;,
- *                         &#34;1000-2000&#34;)
- *                     .build())
- *                 .build())
- *             .natRuleCollections(FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs.builder()
- *                 .name(&#34;nat_rule_collection1&#34;)
- *                 .priority(300)
- *                 .action(&#34;Dnat&#34;)
- *                 .rules(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs.builder()
- *                     .name(&#34;nat_rule_collection1_rule1&#34;)
- *                     .protocols(                    
- *                         &#34;TCP&#34;,
- *                         &#34;UDP&#34;)
- *                     .sourceAddresses(                    
- *                         &#34;10.0.0.1&#34;,
- *                         &#34;10.0.0.2&#34;)
- *                     .destinationAddress(&#34;192.168.1.1&#34;)
- *                     .destinationPorts(&#34;80&#34;)
- *                     .translatedAddress(&#34;192.168.0.1&#34;)
- *                     .translatedPort(&#34;8080&#34;)
- *                     .build())
- *                 .build())
+ *             .applicationRuleCollections(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkRuleCollections(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .natRuleCollections(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

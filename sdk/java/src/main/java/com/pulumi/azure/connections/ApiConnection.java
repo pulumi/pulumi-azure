@@ -18,64 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Connection.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.connections.ConnectionsFunctions;
- * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
- * import com.pulumi.azure.servicebus.Namespace;
- * import com.pulumi.azure.servicebus.NamespaceArgs;
- * import com.pulumi.azure.connections.ApiConnection;
- * import com.pulumi.azure.connections.ApiConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
- *             .name(&#34;servicebus&#34;)
- *             .location(exampleResourceGroup.location())
- *             .build());
- * 
- *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .name(&#34;acctestsbn-conn-example&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleApiConnection = new ApiConnection(&#34;exampleApiConnection&#34;, ApiConnectionArgs.builder()        
- *             .name(&#34;example-connection&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .managedApiId(example.applyValue(getManagedApiResult -&gt; getManagedApiResult).applyValue(example -&gt; example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id())))
- *             .displayName(&#34;Example 1&#34;)
- *             .parameterValues(Map.of(&#34;connectionString&#34;, exampleNamespace.defaultPrimaryConnectionString()))
- *             .tags(Map.of(&#34;Hello&#34;, &#34;World&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Connections can be imported using the `resource id`, e.g.

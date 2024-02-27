@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(&#34;West Europe&#34;)
  *             .description(&#34;Example Storage Mover Description&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

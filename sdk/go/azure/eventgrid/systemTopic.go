@@ -21,49 +21,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventgrid/systemTopic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventgrid/systemTopic"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracct"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eventgrid.NewSystemTopic(ctx, "example", &eventgrid.SystemTopicArgs{
-//				Name:                pulumi.String("example-topic"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				SourceArmResourceId: exampleAccount.ID(),
-//				TopicType:           pulumi.String("Microsoft.Storage.StorageAccounts"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracct",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eventgrid/systemTopic.NewSystemTopic(ctx, "example", &eventgrid/systemTopic.SystemTopicArgs{
+// Name: "example-topic",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SourceArmResourceId: exampleAccount.Id,
+// TopicType: "Microsoft.Storage.StorageAccounts",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,83 +22,83 @@ namespace Pulumi.Azure.Automanage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-automanage",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.Automanage.Configuration("example", new()
+    ///     var exampleConfiguration = new Azure.Automanage.Configuration.Configuration("example", new()
     ///     {
     ///         Name = "example-acmp",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Antimalware = new Azure.Automanage.Inputs.ConfigurationAntimalwareArgs
+    ///         Antimalware = 
     ///         {
-    ///             Exclusions = new Azure.Automanage.Inputs.ConfigurationAntimalwareExclusionsArgs
+    ///             { "exclusions", 
     ///             {
-    ///                 Extensions = "exe;dll",
-    ///                 Paths = "C:\\Windows\\Temp;D:\\Temp",
-    ///                 Processes = "svchost.exe;notepad.exe",
-    ///             },
-    ///             RealTimeProtectionEnabled = true,
-    ///             ScheduledScanEnabled = true,
-    ///             ScheduledScanType = "Quick",
-    ///             ScheduledScanDay = 1,
-    ///             ScheduledScanTimeInMinutes = 1339,
+    ///                 { "extensions", "exe;dll" },
+    ///                 { "paths", "C:\\Windows\\Temp;D:\\Temp" },
+    ///                 { "processes", "svchost.exe;notepad.exe" },
+    ///             } },
+    ///             { "realTimeProtectionEnabled", true },
+    ///             { "scheduledScanEnabled", true },
+    ///             { "scheduledScanType", "Quick" },
+    ///             { "scheduledScanDay", 1 },
+    ///             { "scheduledScanTimeInMinutes", 1339 },
     ///         },
-    ///         AzureSecurityBaseline = new Azure.Automanage.Inputs.ConfigurationAzureSecurityBaselineArgs
+    ///         AzureSecurityBaseline = 
     ///         {
-    ///             AssignmentType = "ApplyAndAutoCorrect",
+    ///             { "assignmentType", "ApplyAndAutoCorrect" },
     ///         },
     ///         AutomationAccountEnabled = true,
-    ///         Backup = new Azure.Automanage.Inputs.ConfigurationBackupArgs
+    ///         Backup = 
     ///         {
-    ///             PolicyName = "acctest-backup-policy-%d",
-    ///             TimeZone = "UTC",
-    ///             InstantRpRetentionRangeInDays = 2,
-    ///             SchedulePolicy = new Azure.Automanage.Inputs.ConfigurationBackupSchedulePolicyArgs
+    ///             { "policyName", "acctest-backup-policy-%d" },
+    ///             { "timeZone", "UTC" },
+    ///             { "instantRpRetentionRangeInDays", 2 },
+    ///             { "schedulePolicy", 
     ///             {
-    ///                 ScheduleRunFrequency = "Daily",
-    ///                 ScheduleRunDays = new[]
+    ///                 { "scheduleRunFrequency", "Daily" },
+    ///                 { "scheduleRunDays", new[]
     ///                 {
     ///                     "Monday",
     ///                     "Tuesday",
-    ///                 },
-    ///                 ScheduleRunTimes = new[]
+    ///                 } },
+    ///                 { "scheduleRunTimes", new[]
     ///                 {
     ///                     "12:00",
-    ///                 },
-    ///                 SchedulePolicyType = "SimpleSchedulePolicy",
-    ///             },
-    ///             RetentionPolicy = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyArgs
+    ///                 } },
+    ///                 { "schedulePolicyType", "SimpleSchedulePolicy" },
+    ///             } },
+    ///             { "retentionPolicy", 
     ///             {
-    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
-    ///                 DailySchedule = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyDailyScheduleArgs
+    ///                 { "retentionPolicyType", "LongTermRetentionPolicy" },
+    ///                 { "dailySchedule", 
     ///                 {
-    ///                     RetentionTimes = new[]
+    ///                     { "retentionTimes", new[]
     ///                     {
     ///                         "12:00",
-    ///                     },
-    ///                     RetentionDuration = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs
+    ///                     } },
+    ///                     { "retentionDuration", 
     ///                     {
-    ///                         Count = 7,
-    ///                         DurationType = "Days",
-    ///                     },
-    ///                 },
-    ///                 WeeklySchedule = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs
+    ///                         { "count", 7 },
+    ///                         { "durationType", "Days" },
+    ///                     } },
+    ///                 } },
+    ///                 { "weeklySchedule", 
     ///                 {
-    ///                     RetentionTimes = new[]
+    ///                     { "retentionTimes", new[]
     ///                     {
     ///                         "14:00",
-    ///                     },
-    ///                     RetentionDuration = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs
+    ///                     } },
+    ///                     { "retentionDuration", 
     ///                     {
-    ///                         Count = 4,
-    ///                         DurationType = "Weeks",
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "count", 4 },
+    ///                         { "durationType", "Weeks" },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///         BootDiagnosticsEnabled = true,
     ///         DefenderForCloudEnabled = true,

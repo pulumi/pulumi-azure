@@ -21,85 +21,84 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datashare/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datashare/account"
+//	datashare/datasetKustoDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datashare/datasetKustoDatabase"
+//	datashare/share "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datashare/share"
+//	kusto/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/cluster"
+//	kusto/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
-//				Name:              pulumi.String("example-dsa"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Identity: &datashare.AccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleShare, err := datashare.NewShare(ctx, "example", &datashare.ShareArgs{
-//				Name:      pulumi.String("example_ds"),
-//				AccountId: exampleAccount.ID(),
-//				Kind:      pulumi.String("InPlace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("examplekc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
-//				Name:              pulumi.String("examplekd"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       exampleCluster.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleCluster.ID(),
-//				RoleDefinitionName: pulumi.String("Contributor"),
-//				PrincipalId: exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datashare.NewDatasetKustoDatabase(ctx, "example", &datashare.DatasetKustoDatabaseArgs{
-//				Name:            pulumi.String("example-dskd"),
-//				ShareId:         exampleShare.ID(),
-//				KustoDatabaseId: exampleDatabase.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := datashare/account.NewAccount(ctx, "example", &datashare/account.AccountArgs{
+// Name: "example-dsa",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleShare, err := datashare/share.NewShare(ctx, "example", &datashare/share.ShareArgs{
+// Name: "example_ds",
+// AccountId: exampleAccount.Id,
+// Kind: "InPlace",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCluster, err := kusto/cluster.NewCluster(ctx, "example", &kusto/cluster.ClusterArgs{
+// Name: "examplekc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Dev(No SLA)_Standard_D11_v2",
+// "capacity": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := kusto/database.NewDatabase(ctx, "example", &kusto/database.DatabaseArgs{
+// Name: "examplekd",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: exampleCluster.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+// Scope: exampleCluster.Id,
+// RoleDefinitionName: "Contributor",
+// PrincipalId: exampleAccount.Identity.PrincipalId,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datashare/datasetKustoDatabase.NewDatasetKustoDatabase(ctx, "example", &datashare/datasetKustoDatabase.DatasetKustoDatabaseArgs{
+// Name: "example-dskd",
+// ShareId: exampleShare.Id,
+// KustoDatabaseId: exampleDatabase.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -417,15 +417,15 @@ class Elasticsearch(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.core.ResourceGroup("test",
-            name="example-resources",
-            location="West Europe")
-        test_elasticsearch = azure.elasticcloud.Elasticsearch("test",
-            name="example-elasticsearch",
+        test = azure.core.resource_group.ResourceGroup("test",
+            name=example-resources,
+            location=West Europe)
+        test_elasticsearch = azure.elasticcloud.elasticsearch.Elasticsearch("test",
+            name=example-elasticsearch,
             resource_group_name=test.name,
             location=test.location,
-            sku_name="ess-consumption-2024_Monthly",
-            elastic_cloud_email_address="user@example.com")
+            sku_name=ess-consumption-2024_Monthly,
+            elastic_cloud_email_address=user@example.com)
         ```
 
         ## Import
@@ -466,15 +466,15 @@ class Elasticsearch(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.core.ResourceGroup("test",
-            name="example-resources",
-            location="West Europe")
-        test_elasticsearch = azure.elasticcloud.Elasticsearch("test",
-            name="example-elasticsearch",
+        test = azure.core.resource_group.ResourceGroup("test",
+            name=example-resources,
+            location=West Europe)
+        test_elasticsearch = azure.elasticcloud.elasticsearch.Elasticsearch("test",
+            name=example-elasticsearch,
             resource_group_name=test.name,
             location=test.location,
-            sku_name="ess-consumption-2024_Monthly",
-            elastic_cloud_email_address="user@example.com")
+            sku_name=ess-consumption-2024_Monthly,
+            elastic_cloud_email_address=user@example.com)
         ```
 
         ## Import

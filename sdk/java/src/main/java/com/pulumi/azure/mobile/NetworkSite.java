@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-mns&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

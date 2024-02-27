@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Orbital
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("example", new()
+    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft.Spacecraft("example", new()
     ///     {
     ///         Name = "example-spacecraft",
     ///         ResourceGroupName = example.Name,
@@ -36,13 +36,13 @@ namespace Pulumi.Azure.Orbital
     ///         NoradId = "12345",
     ///         Links = new[]
     ///         {
-    ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
+    ///             
     ///             {
-    ///                 BandwidthMhz = 100,
-    ///                 CenterFrequencyMhz = 101,
-    ///                 Direction = "Uplink",
-    ///                 Polarization = "LHCP",
-    ///                 Name = "examplename",
+    ///                 { "bandwidthMhz", 100 },
+    ///                 { "centerFrequencyMhz", 101 },
+    ///                 { "direction", "Uplink" },
+    ///                 { "polarization", "LHCP" },
+    ///                 { "name", "examplename" },
     ///             },
     ///         },
     ///         TwoLineElements = new[]
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Orbital
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Orbital
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -79,25 +79,25 @@ namespace Pulumi.Azure.Orbital
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "orbitalgateway",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "orbitalgateway" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Orbital/orbitalGateways",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Orbital/orbitalGateways" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/publicIPAddresses/join/action",
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                         "Microsoft.Network/virtualNetworks/read",
     ///                         "Microsoft.Network/publicIPAddresses/read",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("example", new()
+    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile.ContactProfile("example", new()
     ///     {
     ///         Name = "example-contactprofile",
     ///         ResourceGroupName = example.Name,
@@ -106,36 +106,36 @@ namespace Pulumi.Azure.Orbital
     ///         AutoTracking = "disabled",
     ///         Links = new[]
     ///         {
-    ///             new Azure.Orbital.Inputs.ContactProfileLinkArgs
+    ///             
     ///             {
-    ///                 Channels = new[]
+    ///                 { "channels", new[]
     ///                 {
-    ///                     new Azure.Orbital.Inputs.ContactProfileLinkChannelArgs
+    ///                     
     ///                     {
-    ///                         Name = "channelname",
-    ///                         BandwidthMhz = 100,
-    ///                         CenterFrequencyMhz = 101,
-    ///                         EndPoints = new[]
+    ///                         { "name", "channelname" },
+    ///                         { "bandwidthMhz", 100 },
+    ///                         { "centerFrequencyMhz", 101 },
+    ///                         { "endPoints", new[]
     ///                         {
-    ///                             new Azure.Orbital.Inputs.ContactProfileLinkChannelEndPointArgs
+    ///                             
     ///                             {
-    ///                                 EndPointName = "AQUA_command",
-    ///                                 IpAddress = "10.0.1.0",
-    ///                                 Port = "49153",
-    ///                                 Protocol = "TCP",
+    ///                                 { "endPointName", "AQUA_command" },
+    ///                                 { "ipAddress", "10.0.1.0" },
+    ///                                 { "port", "49153" },
+    ///                                 { "protocol", "TCP" },
     ///                             },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 Direction = "Uplink",
-    ///                 Name = "RHCP_UL",
-    ///                 Polarization = "RHCP",
+    ///                 } },
+    ///                 { "direction", "Uplink" },
+    ///                 { "name", "RHCP_UL" },
+    ///                 { "polarization", "RHCP" },
     ///             },
     ///         },
     ///         NetworkConfigurationSubnetId = exampleSubnet.Id,
     ///     });
     /// 
-    ///     var exampleContact = new Azure.Orbital.Contact("example", new()
+    ///     var exampleContact = new Azure.Orbital.Contact.Contact("example", new()
     ///     {
     ///         Name = "example-contact",
     ///         SpacecraftId = exampleSpacecraft.Id,

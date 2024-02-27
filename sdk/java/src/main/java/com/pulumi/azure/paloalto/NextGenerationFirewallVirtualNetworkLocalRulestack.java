@@ -35,24 +35,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
  * import com.pulumi.azure.paloalto.LocalRulestack;
  * import com.pulumi.azure.paloalto.LocalRulestackArgs;
  * import com.pulumi.azure.paloalto.LocalRulestackRule;
  * import com.pulumi.azure.paloalto.LocalRulestackRuleArgs;
- * import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleDestinationArgs;
- * import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleSourceArgs;
  * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack;
  * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackArgs;
- * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs;
- * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,7 +84,7 @@ import javax.annotation.Nullable;
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var trust = new Subnet(&#34;trust&#34;, SubnetArgs.builder()        
@@ -98,13 +92,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;trusted&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;trustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
@@ -117,13 +105,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;untrusted&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;untrustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
@@ -143,26 +125,15 @@ import javax.annotation.Nullable;
  *             .priority(1001)
  *             .action(&#34;Allow&#34;)
  *             .applications(&#34;any&#34;)
- *             .destination(LocalRulestackRuleDestinationArgs.builder()
- *                 .cidrs(&#34;any&#34;)
- *                 .build())
- *             .source(LocalRulestackRuleSourceArgs.builder()
- *                 .cidrs(&#34;any&#34;)
- *                 .build())
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new NextGenerationFirewallVirtualNetworkLocalRulestack(&#34;exampleNextGenerationFirewallVirtualNetworkLocalRulestack&#34;, NextGenerationFirewallVirtualNetworkLocalRulestackArgs.builder()        
  *             .name(&#34;example-ngfwvn&#34;)
  *             .resourceGroupName(example.name())
  *             .rulestackId(exampleLocalRulestack.id())
- *             .networkProfile(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs.builder()
- *                 .publicIpAddressIds(examplePublicIp.id())
- *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs.builder()
- *                     .virtualNetworkId(exampleVirtualNetwork.id())
- *                     .trustedSubnetId(trust.id())
- *                     .untrustedSubnetId(untrust.id())
- *                     .build())
- *                 .build())
+ *             .networkProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

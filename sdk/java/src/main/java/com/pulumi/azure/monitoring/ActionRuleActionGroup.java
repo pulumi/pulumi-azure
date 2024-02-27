@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
  * import com.pulumi.azure.monitoring.ActionRuleActionGroup;
  * import com.pulumi.azure.monitoring.ActionRuleActionGroupArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionRuleActionGroupScopeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,11 +64,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-amar&#34;)
  *             .resourceGroupName(example.name())
  *             .actionGroupId(exampleActionGroup.id())
- *             .scope(ActionRuleActionGroupScopeArgs.builder()
- *                 .type(&#34;ResourceGroup&#34;)
- *                 .resourceIds(example.id())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .scope(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

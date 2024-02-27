@@ -203,28 +203,28 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_cluster = azure.streamanalytics.Cluster("example",
-            name="examplestreamanalyticscluster",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=StorageV2,
+            is_hns_enabled=true)
+        example_cluster = azure.streamanalytics.cluster.Cluster("example",
+            name=examplestreamanalyticscluster,
             resource_group_name=example.name,
             location=example.location,
             streaming_capacity=36)
-        example_managed_private_endpoint = azure.streamanalytics.ManagedPrivateEndpoint("example",
-            name="exampleprivateendpoint",
+        example_managed_private_endpoint = azure.streamanalytics.managed_private_endpoint.ManagedPrivateEndpoint("example",
+            name=exampleprivateendpoint,
             resource_group_name=example.name,
             stream_analytics_cluster_name=example_cluster.name,
             target_resource_id=example_account.id,
-            subresource_name="blob")
+            subresource_name=blob)
         ```
 
         ## Import
@@ -258,28 +258,28 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_cluster = azure.streamanalytics.Cluster("example",
-            name="examplestreamanalyticscluster",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=StorageV2,
+            is_hns_enabled=true)
+        example_cluster = azure.streamanalytics.cluster.Cluster("example",
+            name=examplestreamanalyticscluster,
             resource_group_name=example.name,
             location=example.location,
             streaming_capacity=36)
-        example_managed_private_endpoint = azure.streamanalytics.ManagedPrivateEndpoint("example",
-            name="exampleprivateendpoint",
+        example_managed_private_endpoint = azure.streamanalytics.managed_private_endpoint.ManagedPrivateEndpoint("example",
+            name=exampleprivateendpoint,
             resource_group_name=example.name,
             stream_analytics_cluster_name=example_cluster.name,
             target_resource_id=example_account.id,
-            subresource_name="blob")
+            subresource_name=blob)
         ```
 
         ## Import

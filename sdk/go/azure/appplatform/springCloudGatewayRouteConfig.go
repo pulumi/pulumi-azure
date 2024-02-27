@@ -23,79 +23,80 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApp"
+//	appplatform/springCloudGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGateway"
+//	appplatform/springCloudGatewayRouteConfig "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGatewayRouteConfig"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "example", &appplatform.SpringCloudGatewayRouteConfigArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
-//				SpringCloudAppId:     exampleSpringCloudApp.ID(),
-//				Protocol:             pulumi.String("HTTPS"),
-//				Routes: appplatform.SpringCloudGatewayRouteConfigRouteArray{
-//					&appplatform.SpringCloudGatewayRouteConfigRouteArgs{
-//						Description: pulumi.String("example description"),
-//						Filters: pulumi.StringArray{
-//							pulumi.String("StripPrefix=2"),
-//							pulumi.String("RateLimit=1,1s"),
-//						},
-//						Order: pulumi.Int(1),
-//						Predicates: pulumi.StringArray{
-//							pulumi.String("Path=/api5/customer/**"),
-//						},
-//						SsoValidationEnabled: pulumi.Bool(true),
-//						Title:                pulumi.String("myApp route config"),
-//						TokenRelay:           pulumi.Bool(true),
-//						Uri:                  pulumi.String("https://www.example.com"),
-//						ClassificationTags: pulumi.StringArray{
-//							pulumi.String("tag1"),
-//							pulumi.String("tag2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudApp, err := appplatform/springCloudApp.NewSpringCloudApp(ctx, "example", &appplatform/springCloudApp.SpringCloudAppArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// ServiceName: exampleSpringCloudService.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudGateway, err := appplatform/springCloudGateway.NewSpringCloudGateway(ctx, "example", &appplatform/springCloudGateway.SpringCloudGatewayArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudGatewayRouteConfig.NewSpringCloudGatewayRouteConfig(ctx, "example", &appplatform/springCloudGatewayRouteConfig.SpringCloudGatewayRouteConfigArgs{
+// Name: "example",
+// SpringCloudGatewayId: exampleSpringCloudGateway.Id,
+// SpringCloudAppId: exampleSpringCloudApp.Id,
+// Protocol: "HTTPS",
+// Routes: []map[string]interface{}{
+// map[string]interface{}{
+// "description": "example description",
+// "filters": []string{
+// "StripPrefix=2",
+// "RateLimit=1,1s",
+// },
+// "order": 1,
+// "predicates": []string{
+// "Path=/api5/customer/**",
+// },
+// "ssoValidationEnabled": true,
+// "title": "myApp route config",
+// "tokenRelay": true,
+// "uri": "https://www.example.com",
+// "classificationTags": []string{
+// "tag1",
+// "tag2",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

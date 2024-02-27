@@ -451,16 +451,16 @@ class ExpressRoutePort(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West US")
-        example_express_route_port = azure.network.ExpressRoutePort("example",
-            name="port1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West US)
+        example_express_route_port = azure.network.express_route_port.ExpressRoutePort("example",
+            name=port1,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Airtel-Chennai-CLS",
+            peering_location=Airtel-Chennai-CLS,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
+            encapsulation=Dot1Q)
         ```
 
         ## Import
@@ -500,16 +500,16 @@ class ExpressRoutePort(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West US")
-        example_express_route_port = azure.network.ExpressRoutePort("example",
-            name="port1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West US)
+        example_express_route_port = azure.network.express_route_port.ExpressRoutePort("example",
+            name=port1,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Airtel-Chennai-CLS",
+            peering_location=Airtel-Chennai-CLS,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
+            encapsulation=Dot1Q)
         ```
 
         ## Import

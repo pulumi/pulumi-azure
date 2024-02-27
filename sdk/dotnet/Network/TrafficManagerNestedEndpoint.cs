@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example-publicip",
     ///         Location = example.Location,
@@ -37,24 +37,24 @@ namespace Pulumi.Azure.Network
     ///         DomainNameLabel = "example-pip",
     ///     });
     /// 
-    ///     var parent = new Azure.Network.TrafficManagerProfile("parent", new()
+    ///     var parent = new Azure.Network.TrafficManagerProfile.TrafficManagerProfile("parent", new()
     ///     {
     ///         Name = "parent-profile",
     ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
-    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             RelativeName = "parent-profile",
-    ///             Ttl = 100,
+    ///             { "relativeName", "parent-profile" },
+    ///             { "ttl", 100 },
     ///         },
-    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         MonitorConfig = 
     ///         {
-    ///             Protocol = "HTTP",
-    ///             Port = 80,
-    ///             Path = "/",
-    ///             IntervalInSeconds = 30,
-    ///             TimeoutInSeconds = 9,
-    ///             ToleratedNumberOfFailures = 3,
+    ///             { "protocol", "HTTP" },
+    ///             { "port", 80 },
+    ///             { "path", "/" },
+    ///             { "intervalInSeconds", 30 },
+    ///             { "timeoutInSeconds", 9 },
+    ///             { "toleratedNumberOfFailures", 3 },
     ///         },
     ///         Tags = 
     ///         {
@@ -62,25 +62,25 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var nested = new Azure.Network.TrafficManagerProfile("nested", new()
+    ///     var nested = new Azure.Network.TrafficManagerProfile.TrafficManagerProfile("nested", new()
     ///     {
     ///         Name = "nested-profile",
     ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Priority",
-    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             RelativeName = "nested-profile",
-    ///             Ttl = 30,
+    ///             { "relativeName", "nested-profile" },
+    ///             { "ttl", 30 },
     ///         },
-    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         MonitorConfig = 
     ///         {
-    ///             Protocol = "HTTP",
-    ///             Port = 443,
-    ///             Path = "/",
+    ///             { "protocol", "HTTP" },
+    ///             { "port", 443 },
+    ///             { "path", "/" },
     ///         },
     ///     });
     /// 
-    ///     var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("example", new()
+    ///     var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint.TrafficManagerNestedEndpoint("example", new()
     ///     {
     ///         Name = "example-endpoint",
     ///         TargetResourceId = nested.Id,

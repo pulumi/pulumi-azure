@@ -13,29 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example_resources",
  *     location: "West Europe",
  * });
- * const exampleInstance = new azure.digitaltwins.Instance("example", {
+ * const exampleInstance = new azure.digitaltwins/instance.Instance("example", {
  *     name: "example-DT",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "example-eh-ns",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ * const exampleEventHub = new azure.eventhub/eventHub.EventHub("example", {
  *     name: "example-eh",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ * const exampleAuthorizationRule = new azure.eventhub/authorizationRule.AuthorizationRule("example", {
  *     name: "example-ar",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     send: true,
  *     manage: false,
  * });
- * const exampleEndpointEventHub = new azure.digitaltwins.EndpointEventHub("example", {
+ * const exampleEndpointEventHub = new azure.digitaltwins/endpointEventHub.EndpointEventHub("example", {
  *     name: "example-EH",
  *     digitalTwinsId: exampleInstance.id,
  *     eventhubPrimaryConnectionString: exampleAuthorizationRule.primaryConnectionString,

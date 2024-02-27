@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := servicebus.LookupNamespaceAuthorizationRule(ctx, &servicebus.LookupNamespaceAuthorizationRuleArgs{
-//				Name:        "examplerule",
-//				NamespaceId: pulumi.StringRef("examplenamespace"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("ruleId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamespaceAuthorizationRuleResult

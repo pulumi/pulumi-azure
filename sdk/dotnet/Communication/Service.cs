@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Communication
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.Communication.Service("example", new()
+    ///     var exampleService = new Azure.Communication.Service.Service("example", new()
     ///     {
     ///         Name = "example-communicationservice",
     ///         ResourceGroupName = example.Name,

@@ -35,11 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
  * import com.pulumi.azure.monitoring.AlertProcessingRuleActionGroup;
  * import com.pulumi.azure.monitoring.AlertProcessingRuleActionGroupArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupConditionArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupConditionSeverityArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupScheduleArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupScheduleRecurrenceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,36 +64,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(&#34;example&#34;)
  *             .scopes(example.id())
  *             .addActionGroupIds(exampleActionGroup.id())
- *             .condition(AlertProcessingRuleActionGroupConditionArgs.builder()
- *                 .targetResourceType(AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs.builder()
- *                     .operator(&#34;Equals&#34;)
- *                     .values(&#34;Microsoft.Compute/VirtualMachines&#34;)
- *                     .build())
- *                 .severity(AlertProcessingRuleActionGroupConditionSeverityArgs.builder()
- *                     .operator(&#34;Equals&#34;)
- *                     .values(                    
- *                         &#34;Sev0&#34;,
- *                         &#34;Sev1&#34;,
- *                         &#34;Sev2&#34;)
- *                     .build())
- *                 .build())
- *             .schedule(AlertProcessingRuleActionGroupScheduleArgs.builder()
- *                 .effectiveFrom(&#34;2022-01-01T01:02:03&#34;)
- *                 .effectiveUntil(&#34;2022-02-02T01:02:03&#34;)
- *                 .timeZone(&#34;Pacific Standard Time&#34;)
- *                 .recurrence(AlertProcessingRuleActionGroupScheduleRecurrenceArgs.builder()
- *                     .dailies(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs.builder()
- *                         .startTime(&#34;17:00:00&#34;)
- *                         .endTime(&#34;09:00:00&#34;)
- *                         .build())
- *                     .weeklies(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs.builder()
- *                         .daysOfWeeks(                        
- *                             &#34;Saturday&#34;,
- *                             &#34;Sunday&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .condition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

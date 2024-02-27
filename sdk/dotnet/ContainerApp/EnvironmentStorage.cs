@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "acctest-01",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
+    ///     var exampleEnvironment = new Azure.Containerapp.Environment.Environment("example", new()
     ///     {
     ///         Name = "myEnvironment",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "azureteststorage",
     ///         ResourceGroupName = example.Name,
@@ -54,14 +54,14 @@ namespace Pulumi.Azure.ContainerApp
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("example", new()
+    ///     var exampleShare = new Azure.Storage.Share.Share("example", new()
     ///     {
     ///         Name = "sharename",
     ///         StorageAccountName = exampleAccount.Name,
     ///         Quota = 5,
     ///     });
     /// 
-    ///     var exampleEnvironmentStorage = new Azure.ContainerApp.EnvironmentStorage("example", new()
+    ///     var exampleEnvironmentStorage = new Azure.Containerapp.EnvironmentStorage.EnvironmentStorage("example", new()
     ///     {
     ///         Name = "mycontainerappstorage",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,

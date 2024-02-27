@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	paloalto/localRulestack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestack"
+//	paloalto/localRulestackFqdnList "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestackFqdnList"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResrouceGroup.Name),
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackFqdnList(ctx, "example", &paloalto.LocalRulestackFqdnListArgs{
-//				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID(),
-//				FullyQualifiedDomainNames: pulumi.StringArray{
-//					pulumi.String("contoso.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLocalRulestack, err := paloalto/localRulestack.NewLocalRulestack(ctx, "example", &paloalto/localRulestack.LocalRulestackArgs{
+// Name: "example",
+// ResourceGroupName: exampleAzurermResrouceGroup.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = paloalto/localRulestackFqdnList.NewLocalRulestackFqdnList(ctx, "example", &paloalto/localRulestackFqdnList.LocalRulestackFqdnListArgs{
+// Name: "example",
+// RulestackId: exampleLocalRulestack.Id,
+// FullyQualifiedDomainNames: []string{
+// "contoso.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

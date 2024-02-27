@@ -21,37 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	maintenance/configuration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/maintenance/configuration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = maintenance.NewConfiguration(ctx, "example", &maintenance.ConfigurationArgs{
-//				Name:              pulumi.String("example-mc"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Scope:             pulumi.String("SQLDB"),
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = maintenance/configuration.NewConfiguration(ctx, "example", &maintenance/configuration.ConfigurationArgs{
+// Name: "example-mc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Scope: "SQLDB",
+// Tags: map[string]interface{}{
+// "Env": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

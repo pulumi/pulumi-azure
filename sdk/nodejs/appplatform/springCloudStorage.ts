@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ * const exampleSpringCloudService = new azure.appplatform/springCloudService.SpringCloudService("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSpringCloudStorage = new azure.appplatform.SpringCloudStorage("example", {
+ * const exampleSpringCloudStorage = new azure.appplatform/springCloudStorage.SpringCloudStorage("example", {
  *     name: "example",
  *     springCloudServiceId: exampleSpringCloudService.id,
  *     storageAccountName: exampleAccount.name,

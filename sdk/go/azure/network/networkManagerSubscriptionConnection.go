@@ -14,63 +14,6 @@ import (
 
 // Manages a Network Manager Subscription Connection which may cross tenants.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := core.LookupSubscription(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-networkmanager"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Scope: &network.NetworkManagerScopeArgs{
-//					SubscriptionIds: pulumi.StringArray{
-//						*pulumi.String(current.Id),
-//					},
-//				},
-//				ScopeAccesses: pulumi.StringArray{
-//					pulumi.String("SecurityAdmin"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkManagerSubscriptionConnection(ctx, "example", &network.NetworkManagerSubscriptionConnectionArgs{
-//				Name:             pulumi.String("example-nsnmc"),
-//				SubscriptionId:   *pulumi.String(current.Id),
-//				NetworkManagerId: exampleNetworkManager.ID(),
-//				Description:      pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Network Subscription Network Manager Connection can be imported using the `resource id`, e.g.

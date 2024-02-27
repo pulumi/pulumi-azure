@@ -21,53 +21,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	cdn/frontdoorOriginGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorOriginGroup"
+//	cdn/frontdoorProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorProfile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-cdn-frontdoor"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:              pulumi.String("example-profile"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
-//				Name:                   pulumi.String("example-origin-group"),
-//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID(),
-//				SessionAffinityEnabled: pulumi.Bool(true),
-//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
-//				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
-//					IntervalInSeconds: pulumi.Int(240),
-//					Path:              pulumi.String("/healthProbe"),
-//					Protocol:          pulumi.String("Https"),
-//					RequestType:       pulumi.String("HEAD"),
-//				},
-//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
-//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
-//					SampleSize:                      pulumi.Int(16),
-//					SuccessfulSamplesRequired:       pulumi.Int(3),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-cdn-frontdoor",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoorProfile, err := cdn/frontdoorProfile.NewFrontdoorProfile(ctx, "example", &cdn/frontdoorProfile.FrontdoorProfileArgs{
+// Name: "example-profile",
+// ResourceGroupName: example.Name,
+// SkuName: "Standard_AzureFrontDoor",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cdn/frontdoorOriginGroup.NewFrontdoorOriginGroup(ctx, "example", &cdn/frontdoorOriginGroup.FrontdoorOriginGroupArgs{
+// Name: "example-origin-group",
+// CdnFrontdoorProfileId: exampleFrontdoorProfile.Id,
+// SessionAffinityEnabled: true,
+// RestoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
+// HealthProbe: map[string]interface{}{
+// "intervalInSeconds": 240,
+// "path": "/healthProbe",
+// "protocol": "Https",
+// "requestType": "HEAD",
+// },
+// LoadBalancing: map[string]interface{}{
+// "additionalLatencyInMilliseconds": 0,
+// "sampleSize": 16,
+// "successfulSamplesRequired": 3,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

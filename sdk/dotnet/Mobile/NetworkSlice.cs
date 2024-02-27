@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network.Network("example", new()
     ///     {
     ///         Name = "example-mn",
     ///         Location = example.Location,
@@ -37,15 +37,15 @@ namespace Pulumi.Azure.Mobile
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("example", new()
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice.NetworkSlice("example", new()
     ///     {
     ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
     ///         Description = "an example slice",
-    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
+    ///         SingleNetworkSliceSelectionAssistanceInformation = 
     ///         {
-    ///             SliceServiceType = 1,
+    ///             { "sliceServiceType", 1 },
     ///         },
     ///         Tags = 
     ///         {

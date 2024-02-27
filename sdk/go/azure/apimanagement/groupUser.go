@@ -14,43 +14,6 @@ import (
 
 // Manages an API Management User Assignment to a Group.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
-//				UserId:            "my-user",
-//				ApiManagementName: "example-apim",
-//				ResourceGroupName: "search-service",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewGroupUser(ctx, "example", &apimanagement.GroupUserArgs{
-//				UserId:            *pulumi.String(example.Id),
-//				GroupName:         pulumi.String("example-group"),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//				ApiManagementName: *pulumi.String(example.ApiManagementName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management Group Users can be imported using the `resource id`, e.g.

@@ -14,6 +14,64 @@ import (
 
 // Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	keyvault/managedHardwareSecurityModule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/keyvault/managedHardwareSecurityModule"
+//	keyvault/managedHardwareSecurityModuleRoleDefinition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/keyvault/managedHardwareSecurityModuleRoleDefinition"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := keyvault/managedHardwareSecurityModule.NewManagedHardwareSecurityModule(ctx, "example", &keyvault/managedHardwareSecurityModule.ManagedHardwareSecurityModuleArgs{
+// Name: "example",
+// ResourceGroupName: exampleAzurermResourceGroup.Name,
+// Location: exampleAzurermResourceGroup.Location,
+// SkuName: "Standard_B1",
+// TenantId: current.TenantId,
+// AdminObjectIds: []interface{}{
+// current.ObjectId,
+// },
+// PurgeProtectionEnabled: false,
+// ActiveConfig: []map[string]interface{}{
+// map[string]interface{}{
+// "securityDomainCertificate": []interface{}{
+// cert[0].Id,
+// cert[1].Id,
+// cert[2].Id,
+// },
+// "securityDomainQuorum": 2,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = keyvault/managedHardwareSecurityModuleRoleDefinition.NewManagedHardwareSecurityModuleRoleDefinition(ctx, "example", &keyvault/managedHardwareSecurityModuleRoleDefinition.ManagedHardwareSecurityModuleRoleDefinitionArgs{
+// Name: "7d206142-bf01-11ed-80bc-00155d61ee9e",
+// VaultBaseUrl: example.HsmUri,
+// Description: "desc foo",
+// Permissions: []map[string]interface{}{
+// map[string]interface{}{
+// "dataActions": []string{
+// "Microsoft.KeyVault/managedHsm/keys/read/action",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // KeyVaults can be imported using the `resource id`, e.g.

@@ -159,23 +159,23 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_resource_guard = azure.dataprotection.ResourceGuard("example",
-            name="example-resourceguard",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_resource_guard = azure.dataprotection.resource_guard.ResourceGuard("example",
+            name=example-resourceguard,
             resource_group_name=example.name,
             location=example.location)
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             soft_delete_enabled=True)
-        test = azure.recoveryservices.VaultResourceGuardAssociation("test",
-            name="VaultProxy",
-            vault_id=test_azurerm_recovery_services_vault["id"],
-            resource_guard_id=test_azurerm_data_protection_resource_guard["id"])
+        test = azure.recoveryservices.vault_resource_guard_association.VaultResourceGuardAssociation("test",
+            name=VaultProxy,
+            vault_id=test_azurerm_recovery_services_vault.id,
+            resource_guard_id=test_azurerm_data_protection_resource_guard.id)
         ```
 
         ## Import
@@ -209,23 +209,23 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_resource_guard = azure.dataprotection.ResourceGuard("example",
-            name="example-resourceguard",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_resource_guard = azure.dataprotection.resource_guard.ResourceGuard("example",
+            name=example-resourceguard,
             resource_group_name=example.name,
             location=example.location)
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             soft_delete_enabled=True)
-        test = azure.recoveryservices.VaultResourceGuardAssociation("test",
-            name="VaultProxy",
-            vault_id=test_azurerm_recovery_services_vault["id"],
-            resource_guard_id=test_azurerm_data_protection_resource_guard["id"])
+        test = azure.recoveryservices.vault_resource_guard_association.VaultResourceGuardAssociation("test",
+            name=VaultProxy,
+            vault_id=test_azurerm_recovery_services_vault.id,
+            resource_guard_id=test_azurerm_data_protection_resource_guard.id)
         ```
 
         ## Import

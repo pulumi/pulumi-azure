@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MediaServices
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,17 +37,17 @@ namespace Pulumi.Azure.MediaServices
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });

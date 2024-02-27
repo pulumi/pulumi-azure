@@ -21,38 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/customProvider "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/customProvider"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewCustomProvider(ctx, "example", &core.CustomProviderArgs{
-//				Name:              pulumi.String("example_provider"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ResourceTypes: core.CustomProviderResourceTypeArray{
-//					&core.CustomProviderResourceTypeArgs{
-//						Name:     pulumi.String("dEf1"),
-//						Endpoint: pulumi.String("https://testendpoint.com/"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/customProvider.NewCustomProvider(ctx, "example", &core/customProvider.CustomProviderArgs{
+// Name: "example_provider",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ResourceTypes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "dEf1",
+// "endpoint": "https://testendpoint.com/",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

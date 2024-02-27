@@ -14,41 +14,6 @@ import (
 // Use this data source to access data stored in an existing Key Vault Certificate.
 //
 // > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-//				Name:              "examplekv",
-//				ResourceGroupName: "some-resource-group",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetCertificateData, err := keyvault.GetCertificateData(ctx, &keyvault.GetCertificateDataArgs{
-//				Name:       "secret-sauce",
-//				KeyVaultId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("examplePem", exampleGetCertificateData.Pem)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCertificateData(ctx *pulumi.Context, args *GetCertificateDataArgs, opts ...pulumi.InvokeOption) (*GetCertificateDataResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCertificateDataResult

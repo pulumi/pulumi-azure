@@ -23,51 +23,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudAppDynamicsApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs{
-//				Name:                  pulumi.String("example"),
-//				SpringCloudServiceId:  exampleSpringCloudService.ID(),
-//				AgentAccountName:      pulumi.String("example-agent-account-name"),
-//				AgentAccountAccessKey: pulumi.String("example-agent-account-access-key"),
-//				ControllerHostName:    pulumi.String("example-controller-host-name"),
-//				AgentApplicationName:  pulumi.String("example-agent-application-name"),
-//				AgentTierName:         pulumi.String("example-agent-tier-name"),
-//				AgentNodeName:         pulumi.String("example-agent-node-name"),
-//				AgentUniqueHostId:     pulumi.String("example-agent-unique-host-id"),
-//				ControllerSslEnabled:  pulumi.Bool(true),
-//				ControllerPort:        pulumi.Int(8080),
-//				GloballyEnabled:       pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring.NewSpringCloudAppDynamicsApplicationPerformanceMonitoring(ctx, "example", &appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring.SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs{
+// Name: "example",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// AgentAccountName: "example-agent-account-name",
+// AgentAccountAccessKey: "example-agent-account-access-key",
+// ControllerHostName: "example-controller-host-name",
+// AgentApplicationName: "example-agent-application-name",
+// AgentTierName: "example-agent-tier-name",
+// AgentNodeName: "example-agent-node-name",
+// AgentUniqueHostId: "example-agent-unique-host-id",
+// ControllerSslEnabled: true,
+// ControllerPort: 8080,
+// GloballyEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

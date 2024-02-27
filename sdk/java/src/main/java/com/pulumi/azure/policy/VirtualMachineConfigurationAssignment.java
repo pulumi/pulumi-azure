@@ -28,23 +28,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.WindowsVirtualMachine;
  * import com.pulumi.azure.compute.WindowsVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineIdentityArgs;
- * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.Extension;
  * import com.pulumi.azure.compute.ExtensionArgs;
- * import com.pulumi.azure.policy.VirtualMachineConfigurationAssignment;
- * import com.pulumi.azure.policy.VirtualMachineConfigurationAssignmentArgs;
- * import com.pulumi.azure.policy.inputs.VirtualMachineConfigurationAssignmentConfigurationArgs;
+ * import com.pulumi.azure.policy_virtualMachineConfigurationAssignment.VirtualMachineConfigurationAssignment;
+ * import com.pulumi.azure.policy_virtualMachineConfigurationAssignment.VirtualMachineConfigurationAssignmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,11 +76,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-nic&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine(&#34;exampleWindowsVirtualMachine&#34;, WindowsVirtualMachineArgs.builder()        
@@ -96,19 +87,9 @@ import javax.annotation.Nullable;
  *             .adminUsername(&#34;adminuser&#34;)
  *             .adminPassword(&#34;P@$$w0rd1234!&#34;)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .identity(WindowsVirtualMachineIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .osDisk(WindowsVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .sourceImageReference(WindowsVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .offer(&#34;WindowsServer&#34;)
- *                 .sku(&#34;2019-Datacenter&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
@@ -124,31 +105,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;AzureWindowsBaseline&#34;)
  *             .location(exampleWindowsVirtualMachine.location())
  *             .virtualMachineId(exampleWindowsVirtualMachine.id())
- *             .configuration(VirtualMachineConfigurationAssignmentConfigurationArgs.builder()
- *                 .assignmentType(&#34;ApplyAndMonitor&#34;)
- *                 .version(&#34;1.*&#34;)
- *                 .parameters(                
- *                     VirtualMachineConfigurationAssignmentConfigurationParameterArgs.builder()
- *                         .name(&#34;Minimum Password Length;ExpectedValue&#34;)
- *                         .value(&#34;16&#34;)
- *                         .build(),
- *                     VirtualMachineConfigurationAssignmentConfigurationParameterArgs.builder()
- *                         .name(&#34;Minimum Password Age;ExpectedValue&#34;)
- *                         .value(&#34;0&#34;)
- *                         .build(),
- *                     VirtualMachineConfigurationAssignmentConfigurationParameterArgs.builder()
- *                         .name(&#34;Maximum Password Age;ExpectedValue&#34;)
- *                         .value(&#34;30,45&#34;)
- *                         .build(),
- *                     VirtualMachineConfigurationAssignmentConfigurationParameterArgs.builder()
- *                         .name(&#34;Enforce Password History;ExpectedValue&#34;)
- *                         .value(&#34;10&#34;)
- *                         .build(),
- *                     VirtualMachineConfigurationAssignmentConfigurationParameterArgs.builder()
- *                         .name(&#34;Password Must Meet Complexity Requirements;ExpectedValue&#34;)
- *                         .value(&#34;1&#34;)
- *                         .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

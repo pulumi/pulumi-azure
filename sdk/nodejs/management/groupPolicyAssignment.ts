@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.management.Group("example", {displayName: "Some Management Group"});
- * const exampleDefinition = new azure.policy.Definition("example", {
+ * const example = new azure.management/group.Group("example", {displayName: "Some Management Group"});
+ * const exampleDefinition = new azure.policy/definition.Definition("example", {
  *     name: "only-deploy-in-westeurope",
  *     policyType: "Custom",
  *     mode: "All",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("example", {
+ * const exampleGroupPolicyAssignment = new azure.management/groupPolicyAssignment.GroupPolicyAssignment("example", {
  *     name: "example-policy",
  *     policyDefinitionId: exampleDefinition.id,
  *     managementGroupId: example.id,

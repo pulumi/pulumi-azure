@@ -556,49 +556,49 @@ class SpringCloudGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
             https_only=False,
             public_network_access_enabled=True,
             instance_count=2,
-            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
-                description="example description",
-                documentation_url="https://www.example.com/docs",
-                server_url="https://wwww.example.com",
-                title="example title",
-                version="1.0",
-            ),
-            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
-                credentials_allowed=False,
-                allowed_headers=["*"],
-                allowed_methods=["PUT"],
-                allowed_origins=["example.com"],
-                exposed_headers=["x-example-header"],
-                max_age_seconds=86400,
-            ),
-            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
-                cpu="1",
-                memory="2Gi",
-            ),
-            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                issuer_uri="https://www.test.com/issueToken",
-                scopes=["read"],
-            ),
-            local_response_cache_per_instance=azure.appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs(
-                size="100MB",
-                time_to_live="30s",
-            ))
+            api_metadata={
+                description: example description,
+                documentationUrl: https://www.example.com/docs,
+                serverUrl: https://wwww.example.com,
+                title: example title,
+                version: 1.0,
+            },
+            cors={
+                credentialsAllowed: False,
+                allowedHeaders: [*],
+                allowedMethods: [PUT],
+                allowedOrigins: [example.com],
+                exposedHeaders: [x-example-header],
+                maxAgeSeconds: 86400,
+            },
+            quota={
+                cpu: 1,
+                memory: 2Gi,
+            },
+            sso={
+                clientId: example id,
+                clientSecret: example secret,
+                issuerUri: https://www.test.com/issueToken,
+                scopes: [read],
+            },
+            local_response_cache_per_instance={
+                size: 100MB,
+                timeToLive: 30s,
+            })
         ```
 
         ## Import
@@ -644,49 +644,49 @@ class SpringCloudGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
             https_only=False,
             public_network_access_enabled=True,
             instance_count=2,
-            api_metadata=azure.appplatform.SpringCloudGatewayApiMetadataArgs(
-                description="example description",
-                documentation_url="https://www.example.com/docs",
-                server_url="https://wwww.example.com",
-                title="example title",
-                version="1.0",
-            ),
-            cors=azure.appplatform.SpringCloudGatewayCorsArgs(
-                credentials_allowed=False,
-                allowed_headers=["*"],
-                allowed_methods=["PUT"],
-                allowed_origins=["example.com"],
-                exposed_headers=["x-example-header"],
-                max_age_seconds=86400,
-            ),
-            quota=azure.appplatform.SpringCloudGatewayQuotaArgs(
-                cpu="1",
-                memory="2Gi",
-            ),
-            sso=azure.appplatform.SpringCloudGatewaySsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                issuer_uri="https://www.test.com/issueToken",
-                scopes=["read"],
-            ),
-            local_response_cache_per_instance=azure.appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs(
-                size="100MB",
-                time_to_live="30s",
-            ))
+            api_metadata={
+                description: example description,
+                documentationUrl: https://www.example.com/docs,
+                serverUrl: https://wwww.example.com,
+                title: example title,
+                version: 1.0,
+            },
+            cors={
+                credentialsAllowed: False,
+                allowedHeaders: [*],
+                allowedMethods: [PUT],
+                allowedOrigins: [example.com],
+                exposedHeaders: [x-example-header],
+                maxAgeSeconds: 86400,
+            },
+            quota={
+                cpu: 1,
+                memory: 2Gi,
+            },
+            sso={
+                clientId: example id,
+                clientSecret: example secret,
+                issuerUri: https://www.test.com/issueToken,
+                scopes: [read],
+            },
+            local_response_cache_per_instance={
+                size: 100MB,
+                timeToLive: 30s,
+            })
         ```
 
         ## Import

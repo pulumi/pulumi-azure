@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
+ * const exampleInsights = new azure.appinsights/insights.Insights("example", {
  *     name: "tf-test-appinsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ * const exampleSpringCloudService = new azure.appplatform/springCloudService.SpringCloudService("example", {
  *     name: "example-springcloud",
  *     resourceGroupName: example.name,
  *     location: example.location,

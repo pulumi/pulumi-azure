@@ -248,29 +248,29 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-origin-group",
+            sku_name=Standard_AzureFrontDoor)
+        example_frontdoor_origin_group = azure.cdn.frontdoor_origin_group.FrontdoorOriginGroup("example",
+            name=example-origin-group,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="HEAD",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
+            health_probe={
+                intervalInSeconds: 240,
+                path: /healthProbe,
+                protocol: Https,
+                requestType: HEAD,
+            },
+            load_balancing={
+                additionalLatencyInMilliseconds: 0,
+                sampleSize: 16,
+                successfulSamplesRequired: 3,
+            })
         ```
 
         ## Import
@@ -307,29 +307,29 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-origin-group",
+            sku_name=Standard_AzureFrontDoor)
+        example_frontdoor_origin_group = azure.cdn.frontdoor_origin_group.FrontdoorOriginGroup("example",
+            name=example-origin-group,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
-                interval_in_seconds=240,
-                path="/healthProbe",
-                protocol="Https",
-                request_type="HEAD",
-            ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
-                additional_latency_in_milliseconds=0,
-                sample_size=16,
-                successful_samples_required=3,
-            ))
+            health_probe={
+                intervalInSeconds: 240,
+                path: /healthProbe,
+                protocol: Https,
+                requestType: HEAD,
+            },
+            load_balancing={
+                additionalLatencyInMilliseconds: 0,
+                sampleSize: 16,
+                successfulSamplesRequired: 3,
+            })
         ```
 
         ## Import

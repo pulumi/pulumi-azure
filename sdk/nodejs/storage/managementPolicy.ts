@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "resourceGroupName",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "storageaccountname",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountKind: "BlobStorage",
  * });
- * const exampleManagementPolicy = new azure.storage.ManagementPolicy("example", {
+ * const exampleManagementPolicy = new azure.storage/managementPolicy.ManagementPolicy("example", {
  *     storageAccountId: exampleAccount.id,
  *     rules: [
  *         {

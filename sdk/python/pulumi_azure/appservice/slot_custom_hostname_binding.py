@@ -204,31 +204,31 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="some-resource-group",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=some-resource-group,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=some-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="some-app-service",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_app_service = azure.appservice.app_service.AppService("example",
+            name=some-app-service,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("example",
-            name="staging",
+        example_slot = azure.appservice.slot.Slot("example",
+            name=staging,
             location=example.location,
             resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_plan_id=example_plan.id)
-        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("example",
+        example_slot_custom_hostname_binding = azure.appservice.slot_custom_hostname_binding.SlotCustomHostnameBinding("example",
             app_service_slot_id=example_slot.id,
-            hostname="www.mywebsite.com")
+            hostname=www.mywebsite.com)
         ```
 
         ## Import
@@ -265,31 +265,31 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="some-resource-group",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=some-resource-group,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=some-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="some-app-service",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_app_service = azure.appservice.app_service.AppService("example",
+            name=some-app-service,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("example",
-            name="staging",
+        example_slot = azure.appservice.slot.Slot("example",
+            name=staging,
             location=example.location,
             resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_plan_id=example_plan.id)
-        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("example",
+        example_slot_custom_hostname_binding = azure.appservice.slot_custom_hostname_binding.SlotCustomHostnameBinding("example",
             app_service_slot_id=example_slot.id,
-            hostname="www.mywebsite.com")
+            hostname=www.mywebsite.com)
         ```
 
         ## Import

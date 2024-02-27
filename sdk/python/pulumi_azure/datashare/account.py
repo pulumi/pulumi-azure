@@ -207,18 +207,18 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.datashare.Account("example",
-            name="example-dsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.datashare.account.Account("example",
+            name=example-dsa,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -253,18 +253,18 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.datashare.Account("example",
-            name="example-dsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.datashare.account.Account("example",
+            name=example-dsa,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

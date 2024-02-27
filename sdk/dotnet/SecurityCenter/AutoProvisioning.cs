@@ -24,7 +24,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.SecurityCenter.AutoProvisioning("example", new()
+    ///     var example = new Azure.Securitycenter.AutoProvisioning.AutoProvisioning("example", new()
     ///     {
     ///         AutoProvision = "On",
     ///     });

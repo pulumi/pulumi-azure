@@ -20,47 +20,6 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **Note:** Configuring `subscription_ids` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.management.Group;
- * import com.pulumi.azure.management.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
- * 
- *         var exampleParent = new Group(&#34;exampleParent&#34;, GroupArgs.builder()        
- *             .displayName(&#34;ParentGroup&#34;)
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
- *             .build());
- * 
- *         var exampleChild = new Group(&#34;exampleChild&#34;, GroupArgs.builder()        
- *             .displayName(&#34;ChildGroup&#34;)
- *             .parentManagementGroupId(exampleParent.id())
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Management Groups can be imported using the `management group resource id`, e.g.

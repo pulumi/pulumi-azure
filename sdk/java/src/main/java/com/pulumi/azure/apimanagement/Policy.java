@@ -19,67 +19,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.apimanagement.Service;
- * import com.pulumi.azure.apimanagement.ServiceArgs;
- * import com.pulumi.azure.apimanagement.NamedValue;
- * import com.pulumi.azure.apimanagement.NamedValueArgs;
- * import com.pulumi.azure.apimanagement.Policy;
- * import com.pulumi.azure.apimanagement.PolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example-apim&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .publisherName(&#34;pub1&#34;)
- *             .publisherEmail(&#34;pub1@email.com&#34;)
- *             .skuName(&#34;Developer_1&#34;)
- *             .build());
- * 
- *         var exampleNamedValue = new NamedValue(&#34;exampleNamedValue&#34;, NamedValueArgs.builder()        
- *             .name(&#34;example-apimg&#34;)
- *             .resourceGroupName(example.name())
- *             .apiManagementName(exampleService.name())
- *             .displayName(&#34;ExampleProperty&#34;)
- *             .value(&#34;Example Value&#34;)
- *             .build());
- * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .apiManagementId(exampleService.id())
- *             .xmlContent(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;example.xml&#34;)
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management service Policys can be imported using the `resource id`, e.g.

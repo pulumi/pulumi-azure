@@ -22,13 +22,13 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     var exampleAccount = new Azure.Cosmosdb.Account.Account("example", new()
     ///     {
     ///         Name = "example-ca",
     ///         Location = example.Location,
@@ -37,37 +37,37 @@ namespace Pulumi.Azure.CosmosDB
     ///         Kind = "MongoDB",
     ///         Capabilities = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "EnableMongo",
+    ///                 { "name", "EnableMongo" },
     ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "EnableMongoRoleBasedAccessControl",
+    ///                 { "name", "EnableMongoRoleBasedAccessControl" },
     ///             },
     ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             ConsistencyLevel = "Strong",
+    ///             { "consistencyLevel", "Strong" },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = example.Location,
-    ///                 FailoverPriority = 0,
+    ///                 { "location", example.Location },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("example", new()
+    ///     var exampleMongoDatabase = new Azure.Cosmosdb.MongoDatabase.MongoDatabase("example", new()
     ///     {
     ///         Name = "example-mongodb",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleMongoRoleDefinition = new Azure.CosmosDB.MongoRoleDefinition("example", new()
+    ///     var exampleMongoRoleDefinition = new Azure.Cosmosdb.MongoRoleDefinition.MongoRoleDefinition("example", new()
     ///     {
     ///         CosmosMongoDatabaseId = exampleMongoDatabase.Id,
     ///         RoleName = "example-roledefinition",

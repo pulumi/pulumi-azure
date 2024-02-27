@@ -21,260 +21,265 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/managedInstance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/managedInstance"
+//	mssql/managedInstanceSecurityAlertPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/managedInstanceSecurityAlertPolicy"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/networkSecurityRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityRule"
+//	network/routeTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/routeTable"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/subnetNetworkSecurityGroupAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetNetworkSecurityGroupAssociation"
+//	network/subnetRouteTableAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetRouteTableAssociation"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("database-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("mi-security-group"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "allow_management_inbound", &network.NetworkSecurityRuleArgs{
-//				Name:            pulumi.String("allow_management_inbound"),
-//				Priority:        pulumi.Int(106),
-//				Direction:       pulumi.String("Inbound"),
-//				Access:          pulumi.String("Allow"),
-//				Protocol:        pulumi.String("Tcp"),
-//				SourcePortRange: pulumi.String("*"),
-//				DestinationPortRanges: pulumi.StringArray{
-//					pulumi.String("9000"),
-//					pulumi.String("9003"),
-//					pulumi.String("1438"),
-//					pulumi.String("1440"),
-//					pulumi.String("1452"),
-//				},
-//				SourceAddressPrefix:      pulumi.String("*"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "allow_misubnet_inbound", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("allow_misubnet_inbound"),
-//				Priority:                 pulumi.Int(200),
-//				Direction:                pulumi.String("Inbound"),
-//				Access:                   pulumi.String("Allow"),
-//				Protocol:                 pulumi.String("*"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("10.0.0.0/24"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "allow_health_probe_inbound", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("allow_health_probe_inbound"),
-//				Priority:                 pulumi.Int(300),
-//				Direction:                pulumi.String("Inbound"),
-//				Access:                   pulumi.String("Allow"),
-//				Protocol:                 pulumi.String("*"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("AzureLoadBalancer"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "allow_tds_inbound", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("allow_tds_inbound"),
-//				Priority:                 pulumi.Int(1000),
-//				Direction:                pulumi.String("Inbound"),
-//				Access:                   pulumi.String("Allow"),
-//				Protocol:                 pulumi.String("Tcp"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("1433"),
-//				SourceAddressPrefix:      pulumi.String("VirtualNetwork"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "deny_all_inbound", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("deny_all_inbound"),
-//				Priority:                 pulumi.Int(4096),
-//				Direction:                pulumi.String("Inbound"),
-//				Access:                   pulumi.String("Deny"),
-//				Protocol:                 pulumi.String("*"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("*"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "allow_management_outbound", &network.NetworkSecurityRuleArgs{
-//				Name:            pulumi.String("allow_management_outbound"),
-//				Priority:        pulumi.Int(102),
-//				Direction:       pulumi.String("Outbound"),
-//				Access:          pulumi.String("Allow"),
-//				Protocol:        pulumi.String("Tcp"),
-//				SourcePortRange: pulumi.String("*"),
-//				DestinationPortRanges: pulumi.StringArray{
-//					pulumi.String("80"),
-//					pulumi.String("443"),
-//					pulumi.String("12000"),
-//				},
-//				SourceAddressPrefix:      pulumi.String("*"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "allow_misubnet_outbound", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("allow_misubnet_outbound"),
-//				Priority:                 pulumi.Int(200),
-//				Direction:                pulumi.String("Outbound"),
-//				Access:                   pulumi.String("Allow"),
-//				Protocol:                 pulumi.String("*"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("10.0.0.0/24"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "deny_all_outbound", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("deny_all_outbound"),
-//				Priority:                 pulumi.Int(4096),
-//				Direction:                pulumi.String("Outbound"),
-//				Access:                   pulumi.String("Deny"),
-//				Protocol:                 pulumi.String("*"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("*"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("vnet-mi"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnet-mi"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("managedinstancedelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Sql/managedInstances"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               exampleSubnet.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
-//				Name:                       pulumi.String("routetable-mi"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				DisableBgpRoutePropagation: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
-//				SubnetId:     exampleSubnet.ID(),
-//				RouteTableId: exampleRouteTable.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("managedsqlinstance"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
-//				Vcores:                     pulumi.Int(4),
-//				AdministratorLogin:         pulumi.String("mradministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewManagedInstanceSecurityAlertPolicy(ctx, "example", &mssql.ManagedInstanceSecurityAlertPolicyArgs{
-//				ResourceGroupName:       example.Name,
-//				ManagedInstanceName:     exampleManagedInstance.Name,
-//				Enabled:                 pulumi.Bool(true),
-//				StorageEndpoint:         pulumi.Any(exampleAzurermStorageAccount.PrimaryBlobEndpoint),
-//				StorageAccountAccessKey: pulumi.Any(exampleAzurermStorageAccount.PrimaryAccessKey),
-//				DisabledAlerts: pulumi.StringArray{
-//					pulumi.String("Sql_Injection"),
-//					pulumi.String("Data_Exfiltration"),
-//				},
-//				RetentionDays: pulumi.Int(20),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "database-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSecurityGroup, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "example", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "mi-security-group",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "allow_management_inbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "allow_management_inbound",
+// Priority: 106,
+// Direction: "Inbound",
+// Access: "Allow",
+// Protocol: "Tcp",
+// SourcePortRange: "*",
+// DestinationPortRanges: []string{
+// "9000",
+// "9003",
+// "1438",
+// "1440",
+// "1452",
+// },
+// SourceAddressPrefix: "*",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "allow_misubnet_inbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "allow_misubnet_inbound",
+// Priority: 200,
+// Direction: "Inbound",
+// Access: "Allow",
+// Protocol: "*",
+// SourcePortRange: "*",
+// DestinationPortRange: "*",
+// SourceAddressPrefix: "10.0.0.0/24",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "allow_health_probe_inbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "allow_health_probe_inbound",
+// Priority: 300,
+// Direction: "Inbound",
+// Access: "Allow",
+// Protocol: "*",
+// SourcePortRange: "*",
+// DestinationPortRange: "*",
+// SourceAddressPrefix: "AzureLoadBalancer",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "allow_tds_inbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "allow_tds_inbound",
+// Priority: 1000,
+// Direction: "Inbound",
+// Access: "Allow",
+// Protocol: "Tcp",
+// SourcePortRange: "*",
+// DestinationPortRange: "1433",
+// SourceAddressPrefix: "VirtualNetwork",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "deny_all_inbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "deny_all_inbound",
+// Priority: 4096,
+// Direction: "Inbound",
+// Access: "Deny",
+// Protocol: "*",
+// SourcePortRange: "*",
+// DestinationPortRange: "*",
+// SourceAddressPrefix: "*",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "allow_management_outbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "allow_management_outbound",
+// Priority: 102,
+// Direction: "Outbound",
+// Access: "Allow",
+// Protocol: "Tcp",
+// SourcePortRange: "*",
+// DestinationPortRanges: []string{
+// "80",
+// "443",
+// "12000",
+// },
+// SourceAddressPrefix: "*",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "allow_misubnet_outbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "allow_misubnet_outbound",
+// Priority: 200,
+// Direction: "Outbound",
+// Access: "Allow",
+// Protocol: "*",
+// SourcePortRange: "*",
+// DestinationPortRange: "*",
+// SourceAddressPrefix: "10.0.0.0/24",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "deny_all_outbound", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "deny_all_outbound",
+// Priority: 4096,
+// Direction: "Outbound",
+// Access: "Deny",
+// Protocol: "*",
+// SourcePortRange: "*",
+// DestinationPortRange: "*",
+// SourceAddressPrefix: "*",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "vnet-mi",
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "subnet-mi",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.0.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "managedinstancedelegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Sql/managedInstances",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+// "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetNetworkSecurityGroupAssociation.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: exampleSubnet.Id,
+// NetworkSecurityGroupId: exampleNetworkSecurityGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleRouteTable, err := network/routeTable.NewRouteTable(ctx, "example", &network/routeTable.RouteTableArgs{
+// Name: "routetable-mi",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// DisableBgpRoutePropagation: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetRouteTableAssociation.NewSubnetRouteTableAssociation(ctx, "example", &network/subnetRouteTableAssociation.SubnetRouteTableAssociationArgs{
+// SubnetId: exampleSubnet.Id,
+// RouteTableId: exampleRouteTable.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleManagedInstance, err := mssql/managedInstance.NewManagedInstance(ctx, "example", &mssql/managedInstance.ManagedInstanceArgs{
+// Name: "managedsqlinstance",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// LicenseType: "BasePrice",
+// SkuName: "GP_Gen5",
+// StorageSizeInGb: 32,
+// SubnetId: exampleSubnet.Id,
+// Vcores: 4,
+// AdministratorLogin: "mradministrator",
+// AdministratorLoginPassword: "thisIsDog11",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/managedInstanceSecurityAlertPolicy.NewManagedInstanceSecurityAlertPolicy(ctx, "example", &mssql/managedInstanceSecurityAlertPolicy.ManagedInstanceSecurityAlertPolicyArgs{
+// ResourceGroupName: example.Name,
+// ManagedInstanceName: exampleManagedInstance.Name,
+// Enabled: true,
+// StorageEndpoint: exampleAzurermStorageAccount.PrimaryBlobEndpoint,
+// StorageAccountAccessKey: exampleAzurermStorageAccount.PrimaryAccessKey,
+// DisabledAlerts: []string{
+// "Sql_Injection",
+// "Data_Exfiltration",
+// },
+// RetentionDays: 20,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

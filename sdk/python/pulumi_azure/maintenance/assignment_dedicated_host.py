@@ -139,26 +139,26 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("example",
-            name="example-host-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_dedicated_host_group = azure.compute.dedicated_host_group.DedicatedHostGroup("example",
+            name=example-host-group,
             resource_group_name=example.name,
             location=example.location,
             platform_fault_domain_count=2)
-        example_dedicated_host = azure.compute.DedicatedHost("example",
-            name="example-host",
+        example_dedicated_host = azure.compute.dedicated_host.DedicatedHost("example",
+            name=example-host,
             location=example.location,
             dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type3",
+            sku_name=DSv3-Type3,
             platform_fault_domain=1)
-        example_configuration = azure.maintenance.Configuration("example",
-            name="example-mc",
+        example_configuration = azure.maintenance.configuration.Configuration("example",
+            name=example-mc,
             resource_group_name=example.name,
             location=example.location,
-            scope="Host")
-        example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("example",
+            scope=Host)
+        example_assignment_dedicated_host = azure.maintenance.assignment_dedicated_host.AssignmentDedicatedHost("example",
             location=example.location,
             maintenance_configuration_id=example_configuration.id,
             dedicated_host_id=example_dedicated_host.id)
@@ -193,26 +193,26 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("example",
-            name="example-host-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_dedicated_host_group = azure.compute.dedicated_host_group.DedicatedHostGroup("example",
+            name=example-host-group,
             resource_group_name=example.name,
             location=example.location,
             platform_fault_domain_count=2)
-        example_dedicated_host = azure.compute.DedicatedHost("example",
-            name="example-host",
+        example_dedicated_host = azure.compute.dedicated_host.DedicatedHost("example",
+            name=example-host,
             location=example.location,
             dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type3",
+            sku_name=DSv3-Type3,
             platform_fault_domain=1)
-        example_configuration = azure.maintenance.Configuration("example",
-            name="example-mc",
+        example_configuration = azure.maintenance.configuration.Configuration("example",
+            name=example-mc,
             resource_group_name=example.name,
             location=example.location,
-            scope="Host")
-        example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("example",
+            scope=Host)
+        example_assignment_dedicated_host = azure.maintenance.assignment_dedicated_host.AssignmentDedicatedHost("example",
             location=example.location,
             maintenance_configuration_id=example_configuration.id,
             dedicated_host_id=example_dedicated_host.id)

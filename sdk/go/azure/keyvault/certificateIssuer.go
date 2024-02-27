@@ -14,59 +14,6 @@ import (
 
 // Manages a Key Vault Certificate Issuer.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:              pulumi.String("examplekeyvault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("standard"),
-//				TenantId:          *pulumi.String(current.TenantId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewCertificateIssuer(ctx, "example", &keyvault.CertificateIssuerArgs{
-//				Name:         pulumi.String("example-issuer"),
-//				OrgId:        pulumi.String("ExampleOrgName"),
-//				KeyVaultId:   exampleKeyVault.ID(),
-//				ProviderName: pulumi.String("DigiCert"),
-//				AccountId:    pulumi.String("0000"),
-//				Password:     pulumi.String("example-password"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Key Vault Certificate Issuers can be imported using the `resource id`, e.g.

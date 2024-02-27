@@ -235,37 +235,37 @@ class EnvironmentStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=acctest-01,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="myEnvironment",
+        example_environment = azure.containerapp.environment.Environment("example",
+            name=myEnvironment,
             location=example.location,
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
-        example_account = azure.storage.Account("example",
-            name="azureteststorage",
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="sharename",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=sharename,
             storage_account_name=example_account.name,
             quota=5)
-        example_environment_storage = azure.containerapp.EnvironmentStorage("example",
-            name="mycontainerappstorage",
+        example_environment_storage = azure.containerapp.environment_storage.EnvironmentStorage("example",
+            name=mycontainerappstorage,
             container_app_environment_id=example_environment.id,
             account_name=example_account.name,
             share_name=example_share.name,
             access_key=example_account.primary_access_key,
-            access_mode="ReadOnly")
+            access_mode=ReadOnly)
         ```
 
         ## Import
@@ -300,37 +300,37 @@ class EnvironmentStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=acctest-01,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="myEnvironment",
+        example_environment = azure.containerapp.environment.Environment("example",
+            name=myEnvironment,
             location=example.location,
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
-        example_account = azure.storage.Account("example",
-            name="azureteststorage",
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="sharename",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=sharename,
             storage_account_name=example_account.name,
             quota=5)
-        example_environment_storage = azure.containerapp.EnvironmentStorage("example",
-            name="mycontainerappstorage",
+        example_environment_storage = azure.containerapp.environment_storage.EnvironmentStorage("example",
+            name=mycontainerappstorage,
             container_app_environment_id=example_environment.id,
             account_name=example_account.name,
             share_name=example_share.name,
             access_key=example_account.primary_access_key,
-            access_mode="ReadOnly")
+            access_mode=ReadOnly)
         ```
 
         ## Import

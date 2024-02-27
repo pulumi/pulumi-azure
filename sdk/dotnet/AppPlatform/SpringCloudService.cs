@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     var exampleInsights = new Azure.Appinsights.Insights.Insights("example", new()
     ///     {
     ///         Name = "tf-test-appinsights",
     ///         Location = example.Location,
@@ -36,26 +36,26 @@ namespace Pulumi.Azure.AppPlatform
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example-springcloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         SkuName = "S0",
-    ///         ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
+    ///         ConfigServerGitSetting = 
     ///         {
-    ///             Uri = "https://github.com/Azure-Samples/piggymetrics",
-    ///             Label = "config",
-    ///             SearchPaths = new[]
+    ///             { "uri", "https://github.com/Azure-Samples/piggymetrics" },
+    ///             { "label", "config" },
+    ///             { "searchPaths", new[]
     ///             {
     ///                 "dir1",
     ///                 "dir2",
-    ///             },
+    ///             } },
     ///         },
-    ///         Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
+    ///         Trace = 
     ///         {
-    ///             ConnectionString = exampleInsights.ConnectionString,
-    ///             SampleRate = 10,
+    ///             { "connectionString", exampleInsights.ConnectionString },
+    ///             { "sampleRate", 10 },
     ///         },
     ///         Tags = 
     ///         {

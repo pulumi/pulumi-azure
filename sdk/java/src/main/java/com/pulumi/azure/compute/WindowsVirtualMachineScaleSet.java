@@ -61,15 +61,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.WindowsVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.WindowsVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,25 +108,9 @@ import javax.annotation.Nullable;
  *             .adminPassword(&#34;P@55w0rd1234!&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .computerNamePrefix(&#34;vm-&#34;)
- *             .sourceImageReference(WindowsVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .offer(&#34;WindowsServer&#34;)
- *                 .sku(&#34;2016-Datacenter-Server-Core&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .osDisk(WindowsVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .build())
- *             .networkInterfaces(WindowsVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;internal&#34;)
- *                     .primary(true)
- *                     .subnetId(internal.id())
- *                     .build())
- *                 .build())
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.iot.IotHubDeviceUpdateAccount;
  * import com.pulumi.azure.iot.IotHubDeviceUpdateAccountArgs;
- * import com.pulumi.azure.iot.inputs.IotHubDeviceUpdateAccountIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,10 +53,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .identity(IotHubDeviceUpdateAccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

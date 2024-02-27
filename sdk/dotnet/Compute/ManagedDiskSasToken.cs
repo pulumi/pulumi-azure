@@ -28,23 +28,23 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Core.ResourceGroup("test", new()
+    ///     var test = new Azure.Core.ResourceGroup.ResourceGroup("test", new()
     ///     {
     ///         Name = "testrg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var testManagedDisk = new Azure.Compute.ManagedDisk("test", new()
+    ///     var testManagedDisk = new Azure.Compute.ManagedDisk.ManagedDisk("test", new()
     ///     {
     ///         Name = "tst-disk-export",
     ///         Location = test.Location,
     ///         ResourceGroupName = test.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
-    ///         DiskSizeGb = 1,
+    ///         DiskSizeGb = "1",
     ///     });
     /// 
-    ///     var testManagedDiskSasToken = new Azure.Compute.ManagedDiskSasToken("test", new()
+    ///     var testManagedDiskSasToken = new Azure.Compute.ManagedDiskSasToken.ManagedDiskSasToken("test", new()
     ///     {
     ///         ManagedDiskId = testManagedDisk.Id,
     ///         DurationInSeconds = 300,

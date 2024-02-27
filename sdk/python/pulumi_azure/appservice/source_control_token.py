@@ -145,9 +145,9 @@ class SourceControlToken(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.appservice.SourceControlToken("example",
-            type="GitHub",
-            token="ghp_sometokenvaluesecretsauce")
+        example = azure.appservice.source_control_token.SourceControlToken("example",
+            type=GitHub,
+            token=ghp_sometokenvaluesecretsauce)
         ```
 
         ## Import
@@ -179,9 +179,9 @@ class SourceControlToken(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.appservice.SourceControlToken("example",
-            type="GitHub",
-            token="ghp_sometokenvaluesecretsauce")
+        example = azure.appservice.source_control_token.SourceControlToken("example",
+            type=GitHub,
+            token=ghp_sometokenvaluesecretsauce)
         ```
 
         ## Import

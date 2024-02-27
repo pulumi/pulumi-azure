@@ -9,49 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Gremlin Graph within a Cosmos DB Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleGremlinDatabase = new azure.cosmosdb.GremlinDatabase("example", {
- *     name: "tfex-cosmos-gremlin-db",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     accountName: example.then(example => example.name),
- * });
- * const exampleGremlinGraph = new azure.cosmosdb.GremlinGraph("example", {
- *     name: "tfex-cosmos-gremlin-graph",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     accountName: example.then(example => example.name),
- *     databaseName: exampleGremlinDatabase.name,
- *     partitionKeyPath: "/Example",
- *     throughput: 400,
- *     indexPolicy: {
- *         automatic: true,
- *         indexingMode: "consistent",
- *         includedPaths: ["/*"],
- *         excludedPaths: ["/\"_etag\"/?"],
- *     },
- *     conflictResolutionPolicy: {
- *         mode: "LastWriterWins",
- *         conflictResolutionPath: "/_ts",
- *     },
- *     uniqueKeys: [{
- *         paths: [
- *             "/definition/id1",
- *             "/definition/id2",
- *         ],
- *     }],
- * });
- * ```
- *
- * > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
- *
  * ## Import
  *
  * Cosmos Gremlin Graphs can be imported using the `resource id`, e.g.

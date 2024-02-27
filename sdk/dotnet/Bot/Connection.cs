@@ -12,47 +12,6 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Connection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = "global",
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    ///     var exampleConnection = new Azure.Bot.Connection("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ServiceProviderName = "box",
-    ///         ClientId = "exampleId",
-    ///         ClientSecret = "exampleSecret",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Bot Connection can be imported using the `resource id`, e.g.

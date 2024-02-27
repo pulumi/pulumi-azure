@@ -161,24 +161,24 @@ class NotebookWorkspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-cosmosdb-account,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("example",
-            name="default",
+            offer_type=Standard,
+            kind=GlobalDocumentDB,
+            consistency_policy={
+                consistencyLevel: BoundedStaleness,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_notebook_workspace = azure.cosmosdb.notebook_workspace.NotebookWorkspace("example",
+            name=default,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
         ```
@@ -218,24 +218,24 @@ class NotebookWorkspace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-cosmosdb-account,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("example",
-            name="default",
+            offer_type=Standard,
+            kind=GlobalDocumentDB,
+            consistency_policy={
+                consistencyLevel: BoundedStaleness,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_notebook_workspace = azure.cosmosdb.notebook_workspace.NotebookWorkspace("example",
+            name=default,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
         ```

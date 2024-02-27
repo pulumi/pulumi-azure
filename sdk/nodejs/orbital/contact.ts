@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "rg-example",
  *     location: "West Europe",
  * });
- * const exampleSpacecraft = new azure.orbital.Spacecraft("example", {
+ * const exampleSpacecraft = new azure.orbital/spacecraft.Spacecraft("example", {
  *     name: "example-spacecraft",
  *     resourceGroupName: example.name,
  *     location: "westeurope",
@@ -38,13 +38,13 @@ import * as utilities from "../utilities";
  *         "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleContactProfile = new azure.orbital.ContactProfile("example", {
+ * const exampleContactProfile = new azure.orbital/contactProfile.ContactProfile("example", {
  *     name: "example-contactprofile",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *     }],
  *     networkConfigurationSubnetId: exampleSubnet.id,
  * });
- * const exampleContact = new azure.orbital.Contact("example", {
+ * const exampleContact = new azure.orbital/contact.Contact("example", {
  *     name: "example-contact",
  *     spacecraftId: exampleSpacecraft.id,
  *     reservationStartTime: "2020-07-16T20:35:00.00Z",

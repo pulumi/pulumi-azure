@@ -23,13 +23,13 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example", new()
+    ///     var exampleServer = new Azure.Mysql.Server.Server("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.MySql
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("example", new()
+    ///     var exampleFirewallRule = new Azure.Mysql.FirewallRule.FirewallRule("example", new()
     ///     {
     ///         Name = "office",
     ///         ResourceGroupName = example.Name,
@@ -60,15 +60,15 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example");
+    ///     var exampleServer = new Azure.Mysql.Server.Server("example");
     /// 
-    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("example", new()
+    ///     var exampleFirewallRule = new Azure.Mysql.FirewallRule.FirewallRule("example", new()
     ///     {
     ///         Name = "office",
     ///         ResourceGroupName = example.Name,
@@ -89,15 +89,15 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example");
+    ///     var exampleServer = new Azure.Mysql.Server.Server("example");
     /// 
-    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("example", new()
+    ///     var exampleFirewallRule = new Azure.Mysql.FirewallRule.FirewallRule("example", new()
     ///     {
     ///         Name = "office",
     ///         ResourceGroupName = example.Name,

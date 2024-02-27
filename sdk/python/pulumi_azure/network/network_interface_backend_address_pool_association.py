@@ -138,47 +138,47 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-pip",
+            address_prefixes=[10.0.2.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-pip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=example-lb,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="primary",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("example",
+            frontend_ip_configurations=[{
+                name: primary,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.backend_address_pool.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
-            name="acctestpool")
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+            name=acctestpool)
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("example",
+            ip_configurations=[{
+                name: testconfiguration1,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_network_interface_backend_address_pool_association = azure.network.network_interface_backend_address_pool_association.NetworkInterfaceBackendAddressPoolAssociation("example",
             network_interface_id=example_network_interface.id,
-            ip_configuration_name="testconfiguration1",
+            ip_configuration_name=testconfiguration1,
             backend_address_pool_id=example_backend_address_pool.id)
         ```
 
@@ -211,47 +211,47 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-pip",
+            address_prefixes=[10.0.2.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-pip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=example-lb,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="primary",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("example",
+            frontend_ip_configurations=[{
+                name: primary,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.backend_address_pool.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
-            name="acctestpool")
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+            name=acctestpool)
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("example",
+            ip_configurations=[{
+                name: testconfiguration1,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_network_interface_backend_address_pool_association = azure.network.network_interface_backend_address_pool_association.NetworkInterfaceBackendAddressPoolAssociation("example",
             network_interface_id=example_network_interface.id,
-            ip_configuration_name="testconfiguration1",
+            ip_configuration_name=testconfiguration1,
             backend_address_pool_id=example_backend_address_pool.id)
         ```
 

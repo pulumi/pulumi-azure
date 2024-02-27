@@ -238,32 +238,32 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.2.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("example",
-            name="example-vpngw",
+            address_prefix=10.0.2.0/24)
+        example_vpn_gateway = azure.network.vpn_gateway.VpnGateway("example",
+            name=example-vpngw,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
-        example_security_partner_provider = azure.network.SecurityPartnerProvider("example",
-            name="example-spp",
+        example_security_partner_provider = azure.network.security_partner_provider.SecurityPartnerProvider("example",
+            name=example-spp,
             resource_group_name=example.name,
             location=example.location,
             virtual_hub_id=example_virtual_hub.id,
-            security_provider_name="IBoss",
+            security_provider_name=IBoss,
             tags={
-                "ENV": "Prod",
+                ENV: Prod,
             })
         ```
 
@@ -299,32 +299,32 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.2.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("example",
-            name="example-vpngw",
+            address_prefix=10.0.2.0/24)
+        example_vpn_gateway = azure.network.vpn_gateway.VpnGateway("example",
+            name=example-vpngw,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
-        example_security_partner_provider = azure.network.SecurityPartnerProvider("example",
-            name="example-spp",
+        example_security_partner_provider = azure.network.security_partner_provider.SecurityPartnerProvider("example",
+            name=example-spp,
             resource_group_name=example.name,
             location=example.location,
             virtual_hub_id=example_virtual_hub.id,
-            security_provider_name="IBoss",
+            security_provider_name=IBoss,
             tags={
-                "ENV": "Prod",
+                ENV: Prod,
             })
         ```
 

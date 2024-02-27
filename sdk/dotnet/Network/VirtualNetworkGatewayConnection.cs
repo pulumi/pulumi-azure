@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "test",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "test",
     ///         Location = example.Location,
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "GatewaySubnet",
     ///         ResourceGroupName = example.Name,
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var onpremise = new Azure.Network.LocalNetworkGateway("onpremise", new()
+    ///     var onpremise = new Azure.Network.LocalNetworkGateway.LocalNetworkGateway("onpremise", new()
     ///     {
     ///         Name = "onpremise",
     ///         Location = example.Location,
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "test",
     ///         Location = example.Location,
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Network
     ///         AllocationMethod = "Dynamic",
     ///     });
     /// 
-    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway.VirtualNetworkGateway("example", new()
     ///     {
     ///         Name = "test",
     ///         Location = example.Location,
@@ -86,16 +86,16 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             
     ///             {
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
-    ///                 SubnetId = exampleSubnet.Id,
+    ///                 { "publicIpAddressId", examplePublicIp.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
+    ///                 { "subnetId", exampleSubnet.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var onpremiseVirtualNetworkGatewayConnection = new Azure.Network.VirtualNetworkGatewayConnection("onpremise", new()
+    ///     var onpremiseVirtualNetworkGatewayConnection = new Azure.Network.VirtualNetworkGatewayConnection.VirtualNetworkGatewayConnection("onpremise", new()
     ///     {
     ///         Name = "onpremise",
     ///         Location = example.Location,
@@ -121,13 +121,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var us = new Azure.Core.ResourceGroup("us", new()
+    ///     var us = new Azure.Core.ResourceGroup.ResourceGroup("us", new()
     ///     {
     ///         Name = "us",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var usVirtualNetwork = new Azure.Network.VirtualNetwork("us", new()
+    ///     var usVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("us", new()
     ///     {
     ///         Name = "us",
     ///         Location = us.Location,
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var usGateway = new Azure.Network.Subnet("us_gateway", new()
+    ///     var usGateway = new Azure.Network.Subnet.Subnet("us_gateway", new()
     ///     {
     ///         Name = "GatewaySubnet",
     ///         ResourceGroupName = us.Name,
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var usPublicIp = new Azure.Network.PublicIp("us", new()
+    ///     var usPublicIp = new Azure.Network.PublicIp.PublicIp("us", new()
     ///     {
     ///         Name = "us",
     ///         Location = us.Location,
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Network
     ///         AllocationMethod = "Dynamic",
     ///     });
     /// 
-    ///     var usVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("us", new()
+    ///     var usVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway.VirtualNetworkGateway("us", new()
     ///     {
     ///         Name = "us-gateway",
     ///         Location = us.Location,
@@ -167,22 +167,22 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             
     ///             {
-    ///                 PublicIpAddressId = usPublicIp.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
-    ///                 SubnetId = usGateway.Id,
+    ///                 { "publicIpAddressId", usPublicIp.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
+    ///                 { "subnetId", usGateway.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var europe = new Azure.Core.ResourceGroup("europe", new()
+    ///     var europe = new Azure.Core.ResourceGroup.ResourceGroup("europe", new()
     ///     {
     ///         Name = "europe",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var europeVirtualNetwork = new Azure.Network.VirtualNetwork("europe", new()
+    ///     var europeVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("europe", new()
     ///     {
     ///         Name = "europe",
     ///         Location = europe.Location,
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var europeGateway = new Azure.Network.Subnet("europe_gateway", new()
+    ///     var europeGateway = new Azure.Network.Subnet.Subnet("europe_gateway", new()
     ///     {
     ///         Name = "GatewaySubnet",
     ///         ResourceGroupName = europe.Name,
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var europePublicIp = new Azure.Network.PublicIp("europe", new()
+    ///     var europePublicIp = new Azure.Network.PublicIp.PublicIp("europe", new()
     ///     {
     ///         Name = "europe",
     ///         Location = europe.Location,
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Network
     ///         AllocationMethod = "Dynamic",
     ///     });
     /// 
-    ///     var europeVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("europe", new()
+    ///     var europeVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway.VirtualNetworkGateway("europe", new()
     ///     {
     ///         Name = "europe-gateway",
     ///         Location = europe.Location,
@@ -222,16 +222,16 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             
     ///             {
-    ///                 PublicIpAddressId = europePublicIp.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
-    ///                 SubnetId = europeGateway.Id,
+    ///                 { "publicIpAddressId", europePublicIp.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
+    ///                 { "subnetId", europeGateway.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var usToEurope = new Azure.Network.VirtualNetworkGatewayConnection("us_to_europe", new()
+    ///     var usToEurope = new Azure.Network.VirtualNetworkGatewayConnection.VirtualNetworkGatewayConnection("us_to_europe", new()
     ///     {
     ///         Name = "us-to-europe",
     ///         Location = us.Location,
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Network
     ///         SharedKey = "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
     ///     });
     /// 
-    ///     var europeToUs = new Azure.Network.VirtualNetworkGatewayConnection("europe_to_us", new()
+    ///     var europeToUs = new Azure.Network.VirtualNetworkGatewayConnection.VirtualNetworkGatewayConnection("europe_to_us", new()
     ///     {
     ///         Name = "europe-to-us",
     ///         Location = europe.Location,

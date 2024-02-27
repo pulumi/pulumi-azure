@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "example-account",
     ///         Location = example.Location,
@@ -36,14 +36,14 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup("example", new()
+    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup.HybridRunbookWorkerGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         ResourceGroupName = example.Name,
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Automation
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -65,23 +65,23 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("example", new()
     ///     {
     ///         Name = "example-nic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "vm-example",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "vm-example" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine.LinuxVirtualMachine("example", new()
     ///     {
     ///         Name = "example-vm",
     ///         Location = example.Location,
@@ -90,17 +90,17 @@ namespace Pulumi.Azure.Automation
     ///         AdminUsername = "testadmin",
     ///         AdminPassword = "Password1234!",
     ///         DisablePasswordAuthentication = false,
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "Standard_LRS",
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "Standard_LRS" },
     ///         },
     ///         NetworkInterfaceIds = new[]
     ///         {
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleHybridRunbookWorker = new Azure.Automation.HybridRunbookWorker("example", new()
+    ///     var exampleHybridRunbookWorker = new Azure.Automation.HybridRunbookWorker.HybridRunbookWorker("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,

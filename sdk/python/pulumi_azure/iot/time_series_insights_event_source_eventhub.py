@@ -398,51 +398,51 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="example",
+            sku=Standard)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=example,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=7)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="example",
+        example_consumer_group = azure.eventhub.consumer_group.ConsumerGroup("example",
+            name=example,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
-            name="example",
+        example_authorization_rule = azure.eventhub.authorization_rule.AuthorizationRule("example",
+            name=example,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name,
             listen=True,
             send=False,
             manage=False)
-        example_account = azure.storage.Account("example",
-            name="example",
+        example_account = azure.storage.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_time_series_insights_gen2_environment = azure.iot.time_series_insights_gen2_environment.TimeSeriesInsightsGen2Environment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="L1",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
-        example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("example",
-            name="example",
+            sku_name=L1,
+            id_properties=[id],
+            storage={
+                name: example_account.name,
+                key: example_account.primary_access_key,
+            })
+        example_time_series_insights_event_source_eventhub = azure.iot.time_series_insights_event_source_eventhub.TimeSeriesInsightsEventSourceEventhub("example",
+            name=example,
             location=example.location,
             environment_id=example_time_series_insights_gen2_environment.id,
             eventhub_name=example_event_hub.name,
@@ -490,51 +490,51 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="example",
+            sku=Standard)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=example,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=7)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="example",
+        example_consumer_group = azure.eventhub.consumer_group.ConsumerGroup("example",
+            name=example,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
-            name="example",
+        example_authorization_rule = azure.eventhub.authorization_rule.AuthorizationRule("example",
+            name=example,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name,
             listen=True,
             send=False,
             manage=False)
-        example_account = azure.storage.Account("example",
-            name="example",
+        example_account = azure.storage.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_time_series_insights_gen2_environment = azure.iot.time_series_insights_gen2_environment.TimeSeriesInsightsGen2Environment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="L1",
-            id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
-        example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("example",
-            name="example",
+            sku_name=L1,
+            id_properties=[id],
+            storage={
+                name: example_account.name,
+                key: example_account.primary_access_key,
+            })
+        example_time_series_insights_event_source_eventhub = azure.iot.time_series_insights_event_source_eventhub.TimeSeriesInsightsEventSourceEventhub("example",
+            name=example,
             location=example.location,
             environment_id=example_time_series_insights_gen2_environment.id,
             eventhub_name=example_event_hub.name,

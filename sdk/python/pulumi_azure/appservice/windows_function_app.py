@@ -1310,29 +1310,29 @@ class WindowsFunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="windowsfunctionappsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=windowsfunctionappsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-app-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-app-service-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Windows",
-            sku_name="Y1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
-            name="example-windows-function-app",
+            os_type=Windows,
+            sku_name=Y1)
+        example_windows_function_app = azure.appservice.windows_function_app.WindowsFunctionApp("example",
+            name=example-windows-function-app,
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1404,29 +1404,29 @@ class WindowsFunctionApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="windowsfunctionappsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=windowsfunctionappsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-app-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-app-service-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Windows",
-            sku_name="Y1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
-            name="example-windows-function-app",
+            os_type=Windows,
+            sku_name=Y1)
+        example_windows_function_app = azure.appservice.windows_function_app.WindowsFunctionApp("example",
+            name=example-windows-function-app,
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import

@@ -105,17 +105,6 @@ def get_workspace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Machine Learning Workspace.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    existing = azure.machinelearning.get_workspace(name="example-workspace",
-        resource_group_name="example-resources")
-    pulumi.export("id", existing_azurerm_machine_learning_workspace["id"])
-    ```
-
 
     :param str name: The name of the Machine Learning Workspace exists.
     :param str resource_group_name: The name of the Resource Group where the Machine Learning Workspace exists.
@@ -141,17 +130,6 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Use this data source to access information about an existing Machine Learning Workspace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    existing = azure.machinelearning.get_workspace(name="example-workspace",
-        resource_group_name="example-resources")
-    pulumi.export("id", existing_azurerm_machine_learning_workspace["id"])
-    ```
 
 
     :param str name: The name of the Machine Learning Workspace exists.

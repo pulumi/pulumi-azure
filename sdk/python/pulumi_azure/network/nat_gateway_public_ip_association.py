@@ -106,21 +106,21 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-PIP",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-PIP,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_nat_gateway = azure.network.NatGateway("example",
-            name="example-NatGateway",
+            allocation_method=Static,
+            sku=Standard)
+        example_nat_gateway = azure.network.nat_gateway.NatGateway("example",
+            name=example-NatGateway,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard")
-        example_nat_gateway_public_ip_association = azure.network.NatGatewayPublicIpAssociation("example",
+            sku_name=Standard)
+        example_nat_gateway_public_ip_association = azure.network.nat_gateway_public_ip_association.NatGatewayPublicIpAssociation("example",
             nat_gateway_id=example_nat_gateway.id,
             public_ip_address_id=example_public_ip.id)
         ```
@@ -153,21 +153,21 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-PIP",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-PIP,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_nat_gateway = azure.network.NatGateway("example",
-            name="example-NatGateway",
+            allocation_method=Static,
+            sku=Standard)
+        example_nat_gateway = azure.network.nat_gateway.NatGateway("example",
+            name=example-NatGateway,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard")
-        example_nat_gateway_public_ip_association = azure.network.NatGatewayPublicIpAssociation("example",
+            sku_name=Standard)
+        example_nat_gateway_public_ip_association = azure.network.nat_gateway_public_ip_association.NatGatewayPublicIpAssociation("example",
             nat_gateway_id=example_nat_gateway.id,
             public_ip_address_id=example_public_ip.id)
         ```

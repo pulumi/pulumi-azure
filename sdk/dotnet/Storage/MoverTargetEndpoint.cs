@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestr",
     ///         ResourceGroupName = example.Name,
@@ -38,21 +38,21 @@ namespace Pulumi.Azure.Storage
     ///         AllowNestedItemsToBePublic = true,
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "example-sc",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "blob",
     ///     });
     /// 
-    ///     var exampleMover = new Azure.Storage.Mover("example", new()
+    ///     var exampleMover = new Azure.Storage.Mover.Mover("example", new()
     ///     {
     ///         Name = "example-ssm",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("example", new()
+    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint.MoverTargetEndpoint("example", new()
     ///     {
     ///         Name = "example-se",
     ///         StorageMoverId = exampleMover.Id,

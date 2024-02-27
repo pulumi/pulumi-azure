@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleGroup = new azure.containerservice.Group("example", {
+ * const exampleGroup = new azure.containerservice/group.Group("example", {
  *     name: "example-continst",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -34,8 +34,8 @@ import * as utilities from "../utilities";
  *         {
  *             name: "hello-world",
  *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
- *             cpu: 0.5,
- *             memory: 1.5,
+ *             cpu: "0.5",
+ *             memory: "1.5",
  *             ports: [{
  *                 port: 443,
  *                 protocol: "TCP",
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  *         {
  *             name: "sidecar",
  *             image: "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
- *             cpu: 0.5,
- *             memory: 1.5,
+ *             cpu: "0.5",
+ *             memory: "1.5",
  *         },
  *     ],
  *     tags: {

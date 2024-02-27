@@ -21,85 +21,82 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServiceKusto "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServiceKusto"
+//	kusto/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/cluster"
+//	kusto/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/database"
+//	kusto/databasePrincipalAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/databasePrincipalAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Identity: &datafactory.FactoryIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("kustocluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Standard_D13_v2"),
-//					Capacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
-//				Name:              pulumi.String("my-kusto-database"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       exampleCluster.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceKusto(ctx, "example", &datafactory.LinkedServiceKustoArgs{
-//				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID(),
-//				KustoEndpoint:      exampleCluster.Uri,
-//				KustoDatabaseName:  exampleDatabase.Name,
-//				UseManagedIdentity: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "example", &kusto.DatabasePrincipalAssignmentArgs{
-//				Name:              pulumi.String("KustoPrincipalAssignment"),
-//				ResourceGroupName: example.Name,
-//				ClusterName:       exampleCluster.Name,
-//				DatabaseName:      exampleDatabase.Name,
-//				TenantId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalType: pulumi.String("App"),
-//				Role:          pulumi.String("Viewer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleCluster, err := kusto/cluster.NewCluster(ctx, "example", &kusto/cluster.ClusterArgs{
+// Name: "kustocluster",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Standard_D13_v2",
+// "capacity": 2,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := kusto/database.NewDatabase(ctx, "example", &kusto/database.DatabaseArgs{
+// Name: "my-kusto-database",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: exampleCluster.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedServiceKusto.NewLinkedServiceKusto(ctx, "example", &datafactory/linkedServiceKusto.LinkedServiceKustoArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// KustoEndpoint: exampleCluster.Uri,
+// KustoDatabaseName: exampleDatabase.Name,
+// UseManagedIdentity: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kusto/databasePrincipalAssignment.NewDatabasePrincipalAssignment(ctx, "example", &kusto/databasePrincipalAssignment.DatabasePrincipalAssignmentArgs{
+// Name: "KustoPrincipalAssignment",
+// ResourceGroupName: example.Name,
+// ClusterName: exampleCluster.Name,
+// DatabaseName: exampleDatabase.Name,
+// TenantId: exampleFactory.Identity.TenantId,
+// PrincipalId: exampleFactory.Identity.PrincipalId,
+// PrincipalType: "App",
+// Role: "Viewer",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -36,14 +36,14 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook.RunBook("example", new()
     ///     {
     ///         Name = "Get-AzureVMTutorial",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
-    ///         LogVerbose = true,
-    ///         LogProgress = true,
+    ///         LogVerbose = "true",
+    ///         LogProgress = "true",
     ///         Description = "This is a example runbook for terraform acceptance example",
     ///         RunbookType = "Python3",
     ///         Content = @"# Some example content
@@ -55,36 +55,36 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration("example", new()
+    ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration.SoftwareUpdateConfiguration("example", new()
     ///     {
     ///         Name = "example",
     ///         AutomationAccountId = exampleAccount.Id,
     ///         OperatingSystem = "Linux",
     ///         Linuxes = new[]
     ///         {
-    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationLinuxArgs
+    ///             
     ///             {
-    ///                 ClassificationIncluded = "Security",
-    ///                 ExcludedPackages = new[]
+    ///                 { "classificationIncluded", "Security" },
+    ///                 { "excludedPackages", new[]
     ///                 {
     ///                     "apt",
-    ///                 },
-    ///                 IncludedPackages = new[]
+    ///                 } },
+    ///                 { "includedPackages", new[]
     ///                 {
     ///                     "vim",
-    ///                 },
-    ///                 Reboot = "IfRequired",
+    ///                 } },
+    ///                 { "reboot", "IfRequired" },
     ///             },
     ///         },
     ///         PreTasks = new[]
     ///         {
-    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationPreTaskArgs
+    ///             
     ///             {
-    ///                 Source = exampleRunBook.Name,
-    ///                 Parameters = 
+    ///                 { "source", exampleRunBook.Name },
+    ///                 { "parameters", 
     ///                 {
     ///                     { "COMPUTER_NAME", "Foo" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Duration = "PT2H2M2S",

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.orbital.Spacecraft;
  * import com.pulumi.azure.orbital.SpacecraftArgs;
- * import com.pulumi.azure.orbital.inputs.SpacecraftLinkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,18 +54,12 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(&#34;westeurope&#34;)
  *             .noradId(&#34;12345&#34;)
- *             .links(SpacecraftLinkArgs.builder()
- *                 .bandwidthMhz(30)
- *                 .centerFrequencyMhz(2050)
- *                 .direction(&#34;Uplink&#34;)
- *                 .polarization(&#34;LHCP&#34;)
- *                 .name(&#34;examplename&#34;)
- *                 .build())
+ *             .links(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .twoLineElements(            
  *                 &#34;1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621&#34;,
  *                 &#34;2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495&#34;)
  *             .titleLine(&#34;AQUA&#34;)
- *             .tags(Map.of(&#34;aks-managed-cluster-name&#34;, &#34;9a57225d-a405-4d40-aa46-f13d2342abef&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

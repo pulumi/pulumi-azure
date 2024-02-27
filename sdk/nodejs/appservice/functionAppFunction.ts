@@ -16,25 +16,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-group",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     osType: "Linux",
  *     skuName: "S1",
  * });
- * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ * const exampleLinuxFunctionApp = new azure.appservice/linuxFunctionApp.LinuxFunctionApp("example", {
  *     name: "example-function-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -47,82 +47,10 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("example", {
+ * const exampleFunctionAppFunction = new azure.appservice/functionAppFunction.FunctionAppFunction("example", {
  *     name: "example-function-app-function",
  *     functionAppId: exampleLinuxFunctionApp.id,
  *     language: "Python",
- *     testData: JSON.stringify({
- *         name: "Azure",
- *     }),
- *     configJson: JSON.stringify({
- *         bindings: [
- *             {
- *                 authLevel: "function",
- *                 direction: "in",
- *                 methods: [
- *                     "get",
- *                     "post",
- *                 ],
- *                 name: "req",
- *                 type: "httpTrigger",
- *             },
- *             {
- *                 direction: "out",
- *                 name: "$return",
- *                 type: "http",
- *             },
- *         ],
- *     }),
- * });
- * ```
- * ### HTTP Trigger With Code Upload
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-group",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplesa",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
- *     name: "example-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     osType: "Windows",
- *     skuName: "S1",
- * });
- * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
- *     name: "example-function-app",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     servicePlanId: exampleServicePlan.id,
- *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     siteConfig: {
- *         applicationStack: {
- *             dotnetVersion: "6",
- *         },
- *     },
- * });
- * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("example", {
- *     name: "example-function-app-function",
- *     functionAppId: exampleWindowsFunctionApp.id,
- *     language: "CSharp",
- *     files: [{
- *         name: "run.csx",
- *         content: std.file({
- *             input: "exampledata/run.csx",
- *         }).then(invoke => invoke.result),
- *     }],
  *     testData: JSON.stringify({
  *         name: "Azure",
  *     }),

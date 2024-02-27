@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	desktopvirtualization/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example-virtualdesktop"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
-//				Name:              pulumi.String("workspace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				FriendlyName:      pulumi.String("FriendlyName"),
-//				Description:       pulumi.String("A description of my workspace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example-virtualdesktop",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = desktopvirtualization/workspace.NewWorkspace(ctx, "workspace", &desktopvirtualization/workspace.WorkspaceArgs{
+// Name: "workspace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// FriendlyName: "FriendlyName",
+// Description: "A description of my workspace",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

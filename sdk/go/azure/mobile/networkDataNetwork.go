@@ -21,47 +21,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkDataNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkDataNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("East Us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
-//				Name:              pulumi.String("example-mn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				MobileCountryCode: pulumi.String("001"),
-//				MobileNetworkCode: pulumi.String("01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkDataNetwork(ctx, "example", &mobile.NetworkDataNetworkArgs{
-//				Name:            pulumi.String("example-mndn"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//				Description:     pulumi.String("example description"),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "East Us",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetwork, err := mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkDataNetwork.NewNetworkDataNetwork(ctx, "example", &mobile/networkDataNetwork.NetworkDataNetworkArgs{
+// Name: "example-mndn",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// Description: "example description",
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

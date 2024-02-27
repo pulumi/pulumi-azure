@@ -22,65 +22,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/standard "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/standard"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("azure-functions-test-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("functionsapptestsa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("azure-functions-test-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("elastic"),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("WorkflowStandard"),
-//					Size: pulumi.String("WS1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewStandard(ctx, "example", &logicapps.StandardArgs{
-//				Name:                    pulumi.String("test-azure-functions"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
-//				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				AppSettings: pulumi.StringMap{
-//					"FUNCTIONS_WORKER_RUNTIME":     pulumi.String("node"),
-//					"WEBSITE_NODE_DEFAULT_VERSION": pulumi.String("~18"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "azure-functions-test-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "functionsapptestsa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "azure-functions-test-service-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "elastic",
+// Sku: map[string]interface{}{
+// "tier": "WorkflowStandard",
+// "size": "WS1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/standard.NewStandard(ctx, "example", &logicapps/standard.StandardArgs{
+// Name: "test-azure-functions",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// AppSettings: map[string]interface{}{
+// "FUNCTIONS_WORKER_RUNTIME": "node",
+// "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### For Container Mode)
 //
@@ -91,70 +89,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/standard "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/standard"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("azure-functions-test-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("functionsapptestsa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("azure-functions-test-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("Linux"),
-//				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("WorkflowStandard"),
-//					Size: pulumi.String("WS1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewStandard(ctx, "example", &logicapps.StandardArgs{
-//				Name:                    pulumi.String("test-azure-functions"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
-//				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig: &logicapps.StandardSiteConfigArgs{
-//					LinuxFxVersion: pulumi.String("DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"DOCKER_REGISTRY_SERVER_URL":      pulumi.String("https://<server-name>.azurecr.io"),
-//					"DOCKER_REGISTRY_SERVER_USERNAME": pulumi.String("username"),
-//					"DOCKER_REGISTRY_SERVER_PASSWORD": pulumi.String("password"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "azure-functions-test-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "functionsapptestsa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "azure-functions-test-service-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "Linux",
+// Reserved: true,
+// Sku: map[string]interface{}{
+// "tier": "WorkflowStandard",
+// "size": "WS1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/standard.NewStandard(ctx, "example", &logicapps/standard.StandardArgs{
+// Name: "test-azure-functions",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// SiteConfig: map[string]interface{}{
+// "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+// },
+// AppSettings: map[string]interface{}{
+// "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
+// "DOCKER_REGISTRY_SERVER_USERNAME": "username",
+// "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

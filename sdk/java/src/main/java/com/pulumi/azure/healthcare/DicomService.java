@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.healthcare.WorkspaceArgs;
  * import com.pulumi.azure.healthcare.DicomService;
  * import com.pulumi.azure.healthcare.DicomServiceArgs;
- * import com.pulumi.azure.healthcare.inputs.DicomServiceIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,10 +57,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;tfexDicom&#34;)
  *             .workspaceId(test.id())
  *             .location(&#34;east us&#34;)
- *             .identity(DicomServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;None&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -16,58 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a API Management Gateway API.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
- * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
- * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
- * import com.pulumi.azure.apimanagement.GatewayApi;
- * import com.pulumi.azure.apimanagement.GatewayApiArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-api&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build());
- * 
- *         final var exampleGetApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .revision(&#34;2&#34;)
- *             .build());
- * 
- *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
- *             .name(&#34;example-gateway&#34;)
- *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
- *             .build());
- * 
- *         var exampleGatewayApi = new GatewayApi(&#34;exampleGatewayApi&#34;, GatewayApiArgs.builder()        
- *             .gatewayId(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.id()))
- *             .apiId(exampleGetApi.applyValue(getApiResult -&gt; getApiResult.id()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management Gateway APIs can be imported using the `resource id`, e.g.

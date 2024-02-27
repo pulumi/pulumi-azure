@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Slice.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkSlice = azure.mobile.getNetworkSlice({
- *     name: "example-mns",
- *     mobileNetworkId: test.id,
- * });
- * ```
  */
 export function getNetworkSlice(args: GetNetworkSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSliceResult> {
 
@@ -77,22 +61,6 @@ export interface GetNetworkSliceResult {
 }
 /**
  * Get information about a Mobile Network Slice.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkSlice = azure.mobile.getNetworkSlice({
- *     name: "example-mns",
- *     mobileNetworkId: test.id,
- * });
- * ```
  */
 export function getNetworkSliceOutput(args: GetNetworkSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSliceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSlice(a, opts))

@@ -23,199 +23,204 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/avs"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	avs/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/avs/cluster"
+//	avs/expressRouteAuthorization "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/avs/expressRouteAuthorization"
+//	avs/netappVolumeAttachment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/avs/netappVolumeAttachment"
+//	avs/privateCloud "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/avs/privateCloud"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	netapp/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/account"
+//	netapp/pool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/pool"
+//	netapp/volume "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/volume"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	network/virtualNetworkGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetworkGateway"
+//	network/virtualNetworkGatewayConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetworkGatewayConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := network.NewPublicIp(ctx, "test", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-public-ip"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testVirtualNetwork, err := network.NewVirtualNetwork(ctx, "test", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-VirtualNetwork"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.6.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			netappSubnet, err := network.NewSubnet(ctx, "netappSubnet", &network.SubnetArgs{
-//				Name:               pulumi.String("example-Subnet"),
-//				ResourceGroupName:  pulumi.Any(testAzurermResourceGroup.Name),
-//				VirtualNetworkName: testVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.6.2.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("testdelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Netapp/volumes"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/networkinterfaces/*"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			gatewaySubnet, err := network.NewSubnet(ctx, "gatewaySubnet", &network.SubnetArgs{
-//				Name:               pulumi.String("GatewaySubnet"),
-//				ResourceGroupName:  pulumi.Any(testAzurermResourceGroup.Name),
-//				VirtualNetworkName: testVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.6.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "test", &network.VirtualNetworkGatewayArgs{
-//				Name:              pulumi.String("example-vnet-gateway"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				Type:              pulumi.String("ExpressRoute"),
-//				Sku:               pulumi.String("Standard"),
-//				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
-//					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						Name:              pulumi.String("vnetGatewayConfig"),
-//						PublicIpAddressId: test.ID(),
-//						SubnetId:          gatewaySubnet.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAccount, err := netapp.NewAccount(ctx, "test", &netapp.AccountArgs{
-//				Name:              pulumi.String("example-NetAppAccount"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testPool, err := netapp.NewPool(ctx, "test", &netapp.PoolArgs{
-//				Name:              pulumi.String("example-NetAppPool"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				AccountName:       testAccount.Name,
-//				ServiceLevel:      pulumi.String("Standard"),
-//				SizeInTb:          pulumi.Int(4),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testVolume, err := netapp.NewVolume(ctx, "test", &netapp.VolumeArgs{
-//				Name:              pulumi.String("example-NetAppVolume"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				AccountName:       testAccount.Name,
-//				PoolName:          testPool.Name,
-//				VolumePath:        pulumi.String("my-unique-file-path-%d"),
-//				ServiceLevel:      pulumi.String("Standard"),
-//				SubnetId:          netappSubnet.ID(),
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("NFSv3"),
-//				},
-//				StorageQuotaInGb:            pulumi.Int(100),
-//				AzureVmwareDataStoreEnabled: pulumi.Bool(true),
-//				ExportPolicyRules: netapp.VolumeExportPolicyRuleArray{
-//					&netapp.VolumeExportPolicyRuleArgs{
-//						RuleIndex: pulumi.Int(1),
-//						AllowedClients: pulumi.StringArray{
-//							pulumi.String("0.0.0.0/0"),
-//						},
-//						ProtocolsEnabled:  pulumi.String("NFSv3"),
-//						UnixReadOnly:      pulumi.Bool(false),
-//						UnixReadWrite:     pulumi.Bool(true),
-//						RootAccessEnabled: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testPrivateCloud, err := avs.NewPrivateCloud(ctx, "test", &avs.PrivateCloudArgs{
-//				Name:              pulumi.String("example-PC"),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				SkuName:           pulumi.String("av36"),
-//				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
-//					Size: pulumi.Int(3),
-//				},
-//				NetworkSubnetCidr: pulumi.String("192.168.48.0/22"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testCluster, err := avs.NewCluster(ctx, "test", &avs.ClusterArgs{
-//				Name:             pulumi.String("example-vm-cluster"),
-//				VmwareCloudId:    testPrivateCloud.ID(),
-//				ClusterNodeCount: pulumi.Int(3),
-//				SkuName:          pulumi.String("av36"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testExpressRouteAuthorization, err := avs.NewExpressRouteAuthorization(ctx, "test", &avs.ExpressRouteAuthorizationArgs{
-//				Name:           pulumi.String("example-VmwareAuthorization"),
-//				PrivateCloudId: testPrivateCloud.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "test", &network.VirtualNetworkGatewayConnectionArgs{
-//				Name:                    pulumi.String("example-vnetgwconn"),
-//				Location:                pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
-//				Type:                    pulumi.String("ExpressRoute"),
-//				VirtualNetworkGatewayId: testVirtualNetworkGateway.ID(),
-//				ExpressRouteCircuitId: testPrivateCloud.Circuits.ApplyT(func(circuits []avs.PrivateCloudCircuit) (*string, error) {
-//					return &circuits[0].ExpressRouteId, nil
-//				}).(pulumi.StringPtrOutput),
-//				AuthorizationKey: testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = avs.NewNetappVolumeAttachment(ctx, "test", &avs.NetappVolumeAttachmentArgs{
-//				Name:            pulumi.String("example-vmwareattachment"),
-//				NetappVolumeId:  testVolume.ID(),
-//				VmwareClusterId: testCluster.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// test, err := network/publicIp.NewPublicIp(ctx, "test", &network/publicIp.PublicIpArgs{
+// Name: "example-public-ip",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// AllocationMethod: "Static",
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// testVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "test", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-VirtualNetwork",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// AddressSpaces: []string{
+// "10.6.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// netappSubnet, err := network/subnet.NewSubnet(ctx, "netappSubnet", &network/subnet.SubnetArgs{
+// Name: "example-Subnet",
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// VirtualNetworkName: testVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.6.2.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testdelegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Netapp/volumes",
+// "actions": []string{
+// "Microsoft.Network/networkinterfaces/*",
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// gatewaySubnet, err := network/subnet.NewSubnet(ctx, "gatewaySubnet", &network/subnet.SubnetArgs{
+// Name: "GatewaySubnet",
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// VirtualNetworkName: testVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.6.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// testVirtualNetworkGateway, err := network/virtualNetworkGateway.NewVirtualNetworkGateway(ctx, "test", &network/virtualNetworkGateway.VirtualNetworkGatewayArgs{
+// Name: "example-vnet-gateway",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// Type: "ExpressRoute",
+// Sku: "Standard",
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "vnetGatewayConfig",
+// "publicIpAddressId": test.Id,
+// "subnetId": gatewaySubnet.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// testAccount, err := netapp/account.NewAccount(ctx, "test", &netapp/account.AccountArgs{
+// Name: "example-NetAppAccount",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// testPool, err := netapp/pool.NewPool(ctx, "test", &netapp/pool.PoolArgs{
+// Name: "example-NetAppPool",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// AccountName: testAccount.Name,
+// ServiceLevel: "Standard",
+// SizeInTb: 4,
+// })
+// if err != nil {
+// return err
+// }
+// testVolume, err := netapp/volume.NewVolume(ctx, "test", &netapp/volume.VolumeArgs{
+// Name: "example-NetAppVolume",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// AccountName: testAccount.Name,
+// PoolName: testPool.Name,
+// VolumePath: "my-unique-file-path-%d",
+// ServiceLevel: "Standard",
+// SubnetId: netappSubnet.Id,
+// Protocols: []string{
+// "NFSv3",
+// },
+// StorageQuotaInGb: 100,
+// AzureVmwareDataStoreEnabled: true,
+// ExportPolicyRules: []map[string]interface{}{
+// map[string]interface{}{
+// "ruleIndex": 1,
+// "allowedClients": []string{
+// "0.0.0.0/0",
+// },
+// "protocolsEnabled": "NFSv3",
+// "unixReadOnly": false,
+// "unixReadWrite": true,
+// "rootAccessEnabled": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// testPrivateCloud, err := avs/privateCloud.NewPrivateCloud(ctx, "test", &avs/privateCloud.PrivateCloudArgs{
+// Name: "example-PC",
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// Location: testAzurermResourceGroup.Location,
+// SkuName: "av36",
+// ManagementCluster: map[string]interface{}{
+// "size": 3,
+// },
+// NetworkSubnetCidr: "192.168.48.0/22",
+// })
+// if err != nil {
+// return err
+// }
+// testCluster, err := avs/cluster.NewCluster(ctx, "test", &avs/cluster.ClusterArgs{
+// Name: "example-vm-cluster",
+// VmwareCloudId: testPrivateCloud.Id,
+// ClusterNodeCount: 3,
+// SkuName: "av36",
+// })
+// if err != nil {
+// return err
+// }
+// testExpressRouteAuthorization, err := avs/expressRouteAuthorization.NewExpressRouteAuthorization(ctx, "test", &avs/expressRouteAuthorization.ExpressRouteAuthorizationArgs{
+// Name: "example-VmwareAuthorization",
+// PrivateCloudId: testPrivateCloud.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetworkGatewayConnection.NewVirtualNetworkGatewayConnection(ctx, "test", &network/virtualNetworkGatewayConnection.VirtualNetworkGatewayConnectionArgs{
+// Name: "example-vnetgwconn",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// Type: "ExpressRoute",
+// VirtualNetworkGatewayId: testVirtualNetworkGateway.Id,
+// ExpressRouteCircuitId: testPrivateCloud.Circuits[0].ExpressRouteId,
+// AuthorizationKey: testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = avs/netappVolumeAttachment.NewNetappVolumeAttachment(ctx, "test", &avs/netappVolumeAttachment.NetappVolumeAttachmentArgs{
+// Name: "example-vmwareattachment",
+// NetappVolumeId: testVolume.Id,
+// VmwareClusterId: testCluster.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

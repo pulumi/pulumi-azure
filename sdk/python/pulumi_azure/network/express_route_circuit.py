@@ -494,22 +494,22 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exprtTest",
-            location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="expressRoute1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exprtTest,
+            location=West Europe)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
+            service_provider_name=Equinix,
+            peering_location=Silicon Valley,
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            },
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -557,22 +557,22 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exprtTest",
-            location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="expressRoute1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exprtTest,
+            location=West Europe)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=expressRoute1,
             resource_group_name=example.name,
             location=example.location,
-            service_provider_name="Equinix",
-            peering_location="Silicon Valley",
+            service_provider_name=Equinix,
+            peering_location=Silicon Valley,
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            },
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

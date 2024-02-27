@@ -673,25 +673,25 @@ class LocalRulestackRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="lrs-example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=lrs-example,
             resource_group_name=example.name,
             location=example.location)
-        example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("example",
-            name="example-rule",
+        example_local_rulestack_rule = azure.paloalto.local_rulestack_rule.LocalRulestackRule("example",
+            name=example-rule,
             rulestack_id=example_local_rulestack.id,
             priority=1000,
-            action="Allow",
-            applications=["any"],
-            source=azure.paloalto.LocalRulestackRuleSourceArgs(
-                cidrs=["10.0.0.0/8"],
-            ),
-            destination=azure.paloalto.LocalRulestackRuleDestinationArgs(
-                cidrs=["192.168.16.0/24"],
-            ))
+            action=Allow,
+            applications=[any],
+            source={
+                cidrs: [10.0.0.0/8],
+            },
+            destination={
+                cidrs: [192.168.16.0/24],
+            })
         ```
 
         ## Import
@@ -741,25 +741,25 @@ class LocalRulestackRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="lrs-example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=lrs-example,
             resource_group_name=example.name,
             location=example.location)
-        example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("example",
-            name="example-rule",
+        example_local_rulestack_rule = azure.paloalto.local_rulestack_rule.LocalRulestackRule("example",
+            name=example-rule,
             rulestack_id=example_local_rulestack.id,
             priority=1000,
-            action="Allow",
-            applications=["any"],
-            source=azure.paloalto.LocalRulestackRuleSourceArgs(
-                cidrs=["10.0.0.0/8"],
-            ),
-            destination=azure.paloalto.LocalRulestackRuleDestinationArgs(
-                cidrs=["192.168.16.0/24"],
-            ))
+            action=Allow,
+            applications=[any],
+            source={
+                cidrs: [10.0.0.0/8],
+            },
+            destination={
+                cidrs: [192.168.16.0/24],
+            })
         ```
 
         ## Import

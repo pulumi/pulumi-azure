@@ -20,19 +20,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSrvRecord = new Azure.Dns.SrvRecord("example", new()
+    ///     var exampleSrvRecord = new Azure.Dns.SrvRecord.SrvRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
@@ -40,12 +40,12 @@ namespace Pulumi.Azure.Dns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.Dns.Inputs.SrvRecordRecordArgs
+    ///             
     ///             {
-    ///                 Priority = 1,
-    ///                 Weight = 5,
-    ///                 Port = 8080,
-    ///                 Target = "target1.contoso.com",
+    ///                 { "priority", 1 },
+    ///                 { "weight", 5 },
+    ///                 { "port", 8080 },
+    ///                 { "target", "target1.contoso.com" },
     ///             },
     ///         },
     ///         Tags = 

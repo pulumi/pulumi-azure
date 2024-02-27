@@ -21,58 +21,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	appservice/servicePlan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/servicePlan"
+//	appservice/windowsFunctionApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/windowsFunctionApp"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("windowsfunctionappsa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
-//				Name:              pulumi.String("example-app-service-plan"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				OsType:            pulumi.String("Windows"),
-//				SkuName:           pulumi.String("Y1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
-//				Name:                    pulumi.String("example-windows-function-app"),
-//				ResourceGroupName:       example.Name,
-//				Location:                example.Location,
-//				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				ServicePlanId:           exampleServicePlan.ID(),
-//				SiteConfig:              nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "windowsfunctionappsa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServicePlan, err := appservice/servicePlan.NewServicePlan(ctx, "example", &appservice/servicePlan.ServicePlanArgs{
+// Name: "example-app-service-plan",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// OsType: "Windows",
+// SkuName: "Y1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/windowsFunctionApp.NewWindowsFunctionApp(ctx, "example", &appservice/windowsFunctionApp.WindowsFunctionAppArgs{
+// Name: "example-windows-function-app",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// ServicePlanId: exampleServicePlan.Id,
+// SiteConfig: nil,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

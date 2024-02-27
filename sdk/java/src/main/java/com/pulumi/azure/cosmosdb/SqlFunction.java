@@ -16,64 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an SQL User Defined Function.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
- * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
- * import com.pulumi.azure.cosmosdb.SqlDatabase;
- * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
- * import com.pulumi.azure.cosmosdb.SqlContainer;
- * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
- * import com.pulumi.azure.cosmosdb.SqlFunction;
- * import com.pulumi.azure.cosmosdb.SqlFunctionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
- *             .build());
- * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;tfex-cosmos-db&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
- *             .throughput(400)
- *             .build());
- * 
- *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .name(&#34;example-container&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
- *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath(&#34;/id&#34;)
- *             .build());
- * 
- *         var exampleSqlFunction = new SqlFunction(&#34;exampleSqlFunction&#34;, SqlFunctionArgs.builder()        
- *             .name(&#34;test-function&#34;)
- *             .containerId(exampleSqlContainer.id())
- *             .body(&#34;function trigger(){}&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * SQL User Defined Functions can be imported using the `resource id`, e.g.

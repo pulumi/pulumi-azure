@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("example", {
+ * const exampleIntegrationAccount = new azure.logicapps/integrationAccount.IntegrationAccount("example", {
  *     name: "example-ia",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleIntegrationAccountSession = new azure.logicapps.IntegrationAccountSession("example", {
+ * const exampleIntegrationAccountSession = new azure.logicapps/integrationAccountSession.IntegrationAccountSession("example", {
  *     name: "example-ias",
  *     resourceGroupName: example.name,
  *     integrationAccountName: exampleIntegrationAccount.name,

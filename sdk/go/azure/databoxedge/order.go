@@ -23,58 +23,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databoxedge/device "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databoxedge/device"
+//	databoxedge/order "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databoxedge/order"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-databoxedge"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDevice, err := databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
-//				Name:              pulumi.String("example-device"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("EdgeP_Base-Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = databoxedge.NewOrder(ctx, "example", &databoxedge.OrderArgs{
-//				ResourceGroupName: example.Name,
-//				DeviceName:        exampleDevice.Name,
-//				Contact: &databoxedge.OrderContactArgs{
-//					Name: pulumi.String("TerraForm Test"),
-//					Emails: pulumi.StringArray{
-//						pulumi.String("creator4983@FlynnsArcade.com"),
-//					},
-//					CompanyName: pulumi.String("Flynn's Arcade"),
-//					PhoneNumber: pulumi.String("(800) 555-1234"),
-//				},
-//				ShipmentAddress: &databoxedge.OrderShipmentAddressArgs{
-//					Addresses: pulumi.StringArray{
-//						pulumi.String("One Microsoft Way"),
-//					},
-//					City:       pulumi.String("Redmond"),
-//					PostalCode: pulumi.String("98052"),
-//					State:      pulumi.String("WA"),
-//					Country:    pulumi.String("United States"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-databoxedge",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDevice, err := databoxedge/device.NewDevice(ctx, "example", &databoxedge/device.DeviceArgs{
+// Name: "example-device",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "EdgeP_Base-Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = databoxedge/order.NewOrder(ctx, "example", &databoxedge/order.OrderArgs{
+// ResourceGroupName: example.Name,
+// DeviceName: exampleDevice.Name,
+// Contact: map[string]interface{}{
+// "name": "TerraForm Test",
+// "emails": []string{
+// "creator4983@FlynnsArcade.com",
+// },
+// "companyName": "Flynn's Arcade",
+// "phoneNumber": "(800) 555-1234",
+// },
+// ShipmentAddress: map[string]interface{}{
+// "addresses": []string{
+// "One Microsoft Way",
+// },
+// "city": "Redmond",
+// "postalCode": "98052",
+// "state": "WA",
+// "country": "United States",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-hostpool",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("example", new()
+    ///     var exampleHostPool = new Azure.Desktopvirtualization.HostPool.HostPool("example", new()
     ///     {
     ///         Name = "example-HP",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         LoadBalancerType = "BreadthFirst",
     ///     });
     /// 
-    ///     var exampleGetHostPoolRegistrationInfo = new Azure.DesktopVirtualization.GetHostPoolRegistrationInfo("example", new()
+    ///     var exampleGetHostPoolRegistrationInfo = new Azure.Desktopvirtualization.GetHostPoolRegistrationInfo.GetHostPoolRegistrationInfo("example", new()
     ///     {
     ///         HostpoolId = exampleHostPool.Id,
     ///         ExpirationDate = "2022-01-01T23:40:52Z",

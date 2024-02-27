@@ -35,11 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.lab.Lab;
  * import com.pulumi.azure.lab.LabArgs;
- * import com.pulumi.azure.lab.inputs.LabSecurityArgs;
- * import com.pulumi.azure.lab.inputs.LabVirtualMachineArgs;
- * import com.pulumi.azure.lab.inputs.LabVirtualMachineAdminUserArgs;
- * import com.pulumi.azure.lab.inputs.LabVirtualMachineImageReferenceArgs;
- * import com.pulumi.azure.lab.inputs.LabVirtualMachineSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,25 +58,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .title(&#34;Test Title&#34;)
- *             .security(LabSecurityArgs.builder()
- *                 .openAccessEnabled(false)
- *                 .build())
- *             .virtualMachine(LabVirtualMachineArgs.builder()
- *                 .adminUser(LabVirtualMachineAdminUserArgs.builder()
- *                     .username(&#34;testadmin&#34;)
- *                     .password(&#34;Password1234!&#34;)
- *                     .build())
- *                 .imageReference(LabVirtualMachineImageReferenceArgs.builder()
- *                     .publisher(&#34;Canonical&#34;)
- *                     .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                     .sku(&#34;22_04-lts&#34;)
- *                     .version(&#34;latest&#34;)
- *                     .build())
- *                 .sku(LabVirtualMachineSkuArgs.builder()
- *                     .name(&#34;Classic_Fsv2_2_4GB_128_S_SSD&#34;)
- *                     .capacity(0)
- *                     .build())
- *                 .build())
+ *             .security(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .virtualMachine(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.videoanalyzer.Analyzer;
  * import com.pulumi.azure.videoanalyzer.AnalyzerArgs;
- * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerStorageAccountArgs;
- * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerIdentityArgs;
  * import com.pulumi.azure.videoanalyzer.EdgeModule;
  * import com.pulumi.azure.videoanalyzer.EdgeModuleArgs;
  * import java.util.List;
@@ -87,15 +85,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;exampleanalyzer&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccount(AnalyzerStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .userAssignedIdentityId(exampleUserAssignedIdentity.id())
- *                 .build())
- *             .identity(AnalyzerIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .storageAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEdgeModule = new EdgeModule(&#34;exampleEdgeModule&#34;, EdgeModuleArgs.builder()        

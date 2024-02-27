@@ -13,26 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageacc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
+ *     isHnsEnabled: "true",
  * });
- * const exampleCluster = new azure.streamanalytics.Cluster("example", {
+ * const exampleCluster = new azure.streamanalytics/cluster.Cluster("example", {
  *     name: "examplestreamanalyticscluster",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     streamingCapacity: 36,
  * });
- * const exampleManagedPrivateEndpoint = new azure.streamanalytics.ManagedPrivateEndpoint("example", {
+ * const exampleManagedPrivateEndpoint = new azure.streamanalytics/managedPrivateEndpoint.ManagedPrivateEndpoint("example", {
  *     name: "exampleprivateendpoint",
  *     resourceGroupName: example.name,
  *     streamAnalyticsClusterName: exampleCluster.name,

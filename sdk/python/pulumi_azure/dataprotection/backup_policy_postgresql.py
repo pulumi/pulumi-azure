@@ -271,53 +271,53 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("example",
-            name="example-backup-policy",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_postgresql = azure.dataprotection.backup_policy_postgresql.BackupPolicyPostgresql("example",
+            name=example-backup-policy,
             resource_group_name=example.name,
             vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
-            default_retention_duration="P4M",
+            backup_repeating_time_intervals=[R/2021-05-23T02:30:00+00:00/P1W],
+            time_zone=India Standard Time,
+            default_retention_duration=P4M,
             retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="weekly",
-                    duration="P6M",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="thursday",
-                    duration="P1W",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="monthly",
-                    duration="P1D",
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
-                            "First",
-                            "Last",
+                {
+                    name: weekly,
+                    duration: P6M,
+                    priority: 20,
+                    criteria: {
+                        absoluteCriteria: FirstOfWeek,
+                    },
+                },
+                {
+                    name: thursday,
+                    duration: P1W,
+                    priority: 25,
+                    criteria: {
+                        daysOfWeeks: [Thursday],
+                        scheduledBackupTimes: [2021-05-23T02:30:00Z],
+                    },
+                },
+                {
+                    name: monthly,
+                    duration: P1D,
+                    priority: 15,
+                    criteria: {
+                        weeksOfMonths: [
+                            First,
+                            Last,
                         ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
+                        daysOfWeeks: [Tuesday],
+                        scheduledBackupTimes: [2021-05-23T02:30:00Z],
+                    },
+                },
             ])
         ```
 
@@ -354,53 +354,53 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("example",
-            name="example-backup-policy",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_postgresql = azure.dataprotection.backup_policy_postgresql.BackupPolicyPostgresql("example",
+            name=example-backup-policy,
             resource_group_name=example.name,
             vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
-            default_retention_duration="P4M",
+            backup_repeating_time_intervals=[R/2021-05-23T02:30:00+00:00/P1W],
+            time_zone=India Standard Time,
+            default_retention_duration=P4M,
             retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="weekly",
-                    duration="P6M",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="thursday",
-                    duration="P1W",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="monthly",
-                    duration="P1D",
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
-                            "First",
-                            "Last",
+                {
+                    name: weekly,
+                    duration: P6M,
+                    priority: 20,
+                    criteria: {
+                        absoluteCriteria: FirstOfWeek,
+                    },
+                },
+                {
+                    name: thursday,
+                    duration: P1W,
+                    priority: 25,
+                    criteria: {
+                        daysOfWeeks: [Thursday],
+                        scheduledBackupTimes: [2021-05-23T02:30:00Z],
+                    },
+                },
+                {
+                    name: monthly,
+                    duration: P1D,
+                    priority: 15,
+                    criteria: {
+                        weeksOfMonths: [
+                            First,
+                            Last,
                         ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
+                        daysOfWeeks: [Tuesday],
+                        scheduledBackupTimes: [2021-05-23T02:30:00Z],
+                    },
+                },
             ])
         ```
 

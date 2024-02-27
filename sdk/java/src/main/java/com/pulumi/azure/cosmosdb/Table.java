@@ -19,46 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Table within a Cosmos DB Account.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
- * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
- * import com.pulumi.azure.cosmosdb.Table;
- * import com.pulumi.azure.cosmosdb.TableArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
- *             .build());
- * 
- *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
- *             .name(&#34;tfex-cosmos-table&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
- *             .throughput(400)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * CosmosDB Tables can be imported using the `resource id`, e.g.

@@ -12,6 +12,119 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Attached Data Network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDevice = new Azure.Databoxedge.Device.Device("example", new()
+    ///     {
+    ///         Name = "example-device",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "EdgeP_Base-Standard",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network.Network("example", new()
+    ///     {
+    ///         Name = "example-mn",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///     });
+    /// 
+    ///     var exampleNetworkPacketCoreControlPlane = new Azure.Mobile.NetworkPacketCoreControlPlane.NetworkPacketCoreControlPlane("example", new()
+    ///     {
+    ///         Name = "example-mnpccp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "West Europe",
+    ///         Sku = "G0",
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         ControlPlaneAccessName = "default-interface",
+    ///         ControlPlaneAccessIpv4Address = "192.168.1.199",
+    ///         ControlPlaneAccessIpv4Gateway = "192.168.1.1",
+    ///         ControlPlaneAccessIpv4Subnet = "192.168.1.0/25",
+    ///         Platform = 
+    ///         {
+    ///             { "type", "AKS-HCI" },
+    ///             { "edgeDeviceId", exampleDevice.Id },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkPacketCoreDataPlane = new Azure.Mobile.NetworkPacketCoreDataPlane.NetworkPacketCoreDataPlane("example", new()
+    ///     {
+    ///         Name = "example-mnpcdp",
+    ///         MobileNetworkPacketCoreControlPlaneId = exampleNetworkPacketCoreControlPlane.Id,
+    ///         Location = example.Location,
+    ///         UserPlaneAccessName = "default-interface",
+    ///         UserPlaneAccessIpv4Address = "192.168.1.199",
+    ///         UserPlaneAccessIpv4Gateway = "192.168.1.1",
+    ///         UserPlaneAccessIpv4Subnet = "192.168.1.0/25",
+    ///     });
+    /// 
+    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork.NetworkDataNetwork("example", new()
+    ///     {
+    ///         Name = "example-data-network",
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleNetworkAttachedDataNetwork = new Azure.Mobile.NetworkAttachedDataNetwork.NetworkAttachedDataNetwork("example", new()
+    ///     {
+    ///         MobileNetworkDataNetworkName = exampleNetworkDataNetwork.Name,
+    ///         MobileNetworkPacketCoreDataPlaneId = exampleNetworkPacketCoreDataPlane.Id,
+    ///         Location = example.Location,
+    ///         DnsAddresses = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///         },
+    ///         UserEquipmentAddressPoolPrefixes = new[]
+    ///         {
+    ///             "2.4.1.0/24",
+    ///         },
+    ///         UserEquipmentStaticAddressPoolPrefixes = new[]
+    ///         {
+    ///             "2.4.2.0/24",
+    ///         },
+    ///         UserPlaneAccessName = "test",
+    ///         UserPlaneAccessIpv4Address = "10.204.141.4",
+    ///         UserPlaneAccessIpv4Gateway = "10.204.141.1",
+    ///         UserPlaneAccessIpv4Subnet = "10.204.141.0/24",
+    ///         NetworkAddressPortTranslation = 
+    ///         {
+    ///             { "pinholeMaximumNumber", 65536 },
+    ///             { "icmpPinholeTimeoutInSeconds", 30 },
+    ///             { "tcpPinholeTimeoutInSeconds", 100 },
+    ///             { "udpPinholeTimeoutInSeconds", 39 },
+    ///             { "portRange", 
+    ///             {
+    ///                 { "maximum", 49999 },
+    ///                 { "minimum", 1024 },
+    ///             } },
+    ///             { "tcpPortReuseMinimumHoldTimeInSeconds", 120 },
+    ///             { "udpTcpPortReuseMinimumHoldTimeInSeconds", 60 },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Attached Data Network can be imported using the `resource id`, e.g.

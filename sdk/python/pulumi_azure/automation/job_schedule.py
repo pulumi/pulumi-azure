@@ -279,14 +279,14 @@ class JobSchedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.automation.JobSchedule("example",
-            resource_group_name="tf-rgr-automation",
-            automation_account_name="tf-automation-account",
-            schedule_name="hour",
-            runbook_name="Get-VirtualMachine",
+        example = azure.automation.job_schedule.JobSchedule("example",
+            resource_group_name=tf-rgr-automation,
+            automation_account_name=tf-automation-account,
+            schedule_name=hour,
+            runbook_name=Get-VirtualMachine,
             parameters={
-                "resourcegroup": "tf-rgr-vm",
-                "vmname": "TF-VM-01",
+                resourcegroup: tf-rgr-vm,
+                vmname: TF-VM-01,
             })
         ```
 
@@ -327,14 +327,14 @@ class JobSchedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.automation.JobSchedule("example",
-            resource_group_name="tf-rgr-automation",
-            automation_account_name="tf-automation-account",
-            schedule_name="hour",
-            runbook_name="Get-VirtualMachine",
+        example = azure.automation.job_schedule.JobSchedule("example",
+            resource_group_name=tf-rgr-automation,
+            automation_account_name=tf-automation-account,
+            schedule_name=hour,
+            runbook_name=Get-VirtualMachine,
             parameters={
-                "resourcegroup": "tf-rgr-vm",
-                "vmname": "TF-VM-01",
+                resourcegroup: tf-rgr-vm,
+                vmname: TF-VM-01,
             })
         ```
 

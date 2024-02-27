@@ -23,13 +23,13 @@ namespace Pulumi.Azure.OperationalInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "k8s-log-analytics-test",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var workspace = new Random.RandomId("workspace", new()
+    ///     var workspace = new Random.Index.RandomId.RandomId("workspace", new()
     ///     {
     ///         Keepers = 
     ///         {
@@ -38,25 +38,25 @@ namespace Pulumi.Azure.OperationalInsights
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Name = workspace.Hex.Apply(hex =&gt; $"k8s-workspace-{hex}"),
+    ///         Name = $"k8s-workspace-{workspace.Hex}",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
+    ///     var exampleAnalyticsSolution = new Azure.Operationalinsights.AnalyticsSolution.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "ContainerInsights",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         Plan = 
     ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/ContainerInsights",
+    ///             { "publisher", "Microsoft" },
+    ///             { "product", "OMSGallery/ContainerInsights" },
     ///         },
     ///     });
     /// 

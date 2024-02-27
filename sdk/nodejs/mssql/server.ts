@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "database-rg",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "mssqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -34,88 +34,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "production",
  *     },
- * });
- * ```
- * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
- *     name: "example-admin",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "mssqltdeexample",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     enabledForDiskEncryption: true,
- *     tenantId: exampleUserAssignedIdentity.tenantId,
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: true,
- *     skuName: "standard",
- *     accessPolicies: [
- *         {
- *             tenantId: current.then(current => current.tenantId),
- *             objectId: current.then(current => current.objectId),
- *             keyPermissions: [
- *                 "Get",
- *                 "List",
- *                 "Create",
- *                 "Delete",
- *                 "Update",
- *                 "Recover",
- *                 "Purge",
- *                 "GetRotationPolicy",
- *             ],
- *         },
- *         {
- *             tenantId: exampleUserAssignedIdentity.tenantId,
- *             objectId: exampleUserAssignedIdentity.principalId,
- *             keyPermissions: [
- *                 "Get",
- *                 "WrapKey",
- *                 "UnwrapKey",
- *             ],
- *         },
- *     ],
- * });
- * const exampleKey = new azure.keyvault.Key("example", {
- *     name: "example-key",
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "unwrapKey",
- *         "wrapKey",
- *     ],
- * });
- * const exampleServer = new azure.mssql.Server("example", {
- *     name: "example-resource",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     version: "12.0",
- *     administratorLogin: "Example-Administrator",
- *     administratorLoginPassword: "Example_Password!",
- *     minimumTlsVersion: "1.2",
- *     azureadAdministrator: {
- *         loginUsername: exampleUserAssignedIdentity.name,
- *         objectId: exampleUserAssignedIdentity.principalId,
- *     },
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
- *     primaryUserAssignedIdentityId: exampleUserAssignedIdentity.id,
- *     transparentDataEncryptionKeyVaultKeyId: exampleKey.id,
  * });
  * ```
  *

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("example", new()
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup.DedicatedHostGroup("example", new()
     ///     {
     ///         Name = "example-host-group",
     ///         ResourceGroupName = example.Name,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Compute
     ///         PlatformFaultDomainCount = 2,
     ///     });
     /// 
-    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost("example", new()
+    ///     var exampleDedicatedHost = new Azure.Compute.DedicatedHost.DedicatedHost("example", new()
     ///     {
     ///         Name = "example-host",
     ///         Location = example.Location,

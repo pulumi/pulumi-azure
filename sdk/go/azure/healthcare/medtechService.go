@@ -23,73 +23,47 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	healthcare/medtechService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/healthcare/medtechService"
+//	healthcare/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/healthcare/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "example", &healthcare.WorkspaceArgs{
-//				Name:              pulumi.String("examplewkspace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"templateType": "CollectionContent",
-//				"template": []map[string]interface{}{
-//					map[string]interface{}{
-//						"templateType": "JsonPathContent",
-//						"template": map[string]interface{}{
-//							"typeName":            "heartrate",
-//							"typeMatchExpression": "$..[?(@heartrate)]",
-//							"deviceIdExpression":  "$.deviceid",
-//							"timestampExpression": "$.measurementdatetime",
-//							"values": []map[string]interface{}{
-//								map[string]interface{}{
-//									"required":        "true",
-//									"valueExpression": "$.heartrate",
-//									"valueName":       "hr",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
-//				Name:        pulumi.String("examplemed"),
-//				WorkspaceId: exampleWorkspace.ID(),
-//				Location:    pulumi.String("east us"),
-//				Identity: &healthcare.MedtechServiceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				EventhubNamespaceName:     pulumi.String("example-eventhub-namespace"),
-//				EventhubName:              pulumi.String("example-eventhub"),
-//				EventhubConsumerGroupName: pulumi.String("$Default"),
-//				DeviceMappingJson:         pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkspace, err := healthcare/workspace.NewWorkspace(ctx, "example", &healthcare/workspace.WorkspaceArgs{
+// Name: "examplewkspace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = healthcare/medtechService.NewMedtechService(ctx, "example", &healthcare/medtechService.MedtechServiceArgs{
+// Name: "examplemed",
+// WorkspaceId: exampleWorkspace.Id,
+// Location: "east us",
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// EventhubNamespaceName: "example-eventhub-namespace",
+// EventhubName: "example-eventhub",
+// EventhubConsumerGroupName: "$Default",
+// DeviceMappingJson: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing MySQL Flexible Server.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := mysql.LookupFlexibleServer(ctx, &mysql.LookupFlexibleServerArgs{
-//				Name:              "existingMySqlFlexibleServer",
-//				ResourceGroupName: "existingResGroup",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFlexibleServer(ctx *pulumi.Context, args *LookupFlexibleServerArgs, opts ...pulumi.InvokeOption) (*LookupFlexibleServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlexibleServerResult

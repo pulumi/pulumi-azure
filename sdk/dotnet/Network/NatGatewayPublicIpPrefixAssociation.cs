@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("example", new()
+    ///     var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix.PublicIpPrefix("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("example", new()
+    ///     var exampleNatGateway = new Azure.Network.NatGateway.NatGateway("example", new()
     ///     {
     ///         Name = "example-NatGateway",
     ///         Location = example.Location,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleNatGatewayPublicIpPrefixAssociation = new Azure.Network.NatGatewayPublicIpPrefixAssociation("example", new()
+    ///     var exampleNatGatewayPublicIpPrefixAssociation = new Azure.Network.NatGatewayPublicIpPrefixAssociation.NatGatewayPublicIpPrefixAssociation("example", new()
     ///     {
     ///         NatGatewayId = exampleNatGateway.Id,
     ///         PublicIpPrefixId = examplePublicIpPrefix.Id,

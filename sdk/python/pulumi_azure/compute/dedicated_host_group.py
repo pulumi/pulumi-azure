@@ -271,11 +271,11 @@ class DedicatedHostGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg-compute",
-            location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("example",
-            name="example-dedicated-host-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg-compute,
+            location=West Europe)
+        example_dedicated_host_group = azure.compute.dedicated_host_group.DedicatedHostGroup("example",
+            name=example-dedicated-host-group,
             resource_group_name=example.name,
             location=example.location,
             platform_fault_domain_count=1)
@@ -314,11 +314,11 @@ class DedicatedHostGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg-compute",
-            location="West Europe")
-        example_dedicated_host_group = azure.compute.DedicatedHostGroup("example",
-            name="example-dedicated-host-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg-compute,
+            location=West Europe)
+        example_dedicated_host_group = azure.compute.dedicated_host_group.DedicatedHostGroup("example",
+            name=example-dedicated-host-group,
             resource_group_name=example.name,
             location=example.location,
             platform_fault_domain_count=1)

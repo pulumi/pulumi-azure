@@ -171,28 +171,28 @@ class Organization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource",
-            location="West Europe")
-        example_application = azure.iotcentral.Application("example",
-            name="example-iotcentral-app",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource,
+            location=West Europe)
+        example_application = azure.iotcentral.application.Application("example",
+            name=example-iotcentral-app,
             resource_group_name=example.name,
             location=example.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            template="iotc-default@1.0.0",
+            sub_domain=example-iotcentral-app-subdomain,
+            display_name=example-iotcentral-app-display-name,
+            sku=ST1,
+            template=iotc-default@1.0.0,
             tags={
-                "Foo": "Bar",
+                Foo: Bar,
             })
-        example_parent = azure.iotcentral.Organization("example_parent",
+        example_parent = azure.iotcentral.organization.Organization("example_parent",
             iotcentral_application_id=example_application.id,
-            organization_id="example-parent-organization-id",
-            display_name="Org example parent")
-        example_organization = azure.iotcentral.Organization("example",
+            organization_id=example-parent-organization-id,
+            display_name=Org example parent)
+        example_organization = azure.iotcentral.organization.Organization("example",
             iotcentral_application_id=example_application.id,
-            organization_id="example-child-organization-id",
-            display_name="Org example",
+            organization_id=example-child-organization-id,
+            display_name=Org example,
             parent_organization_id=example_parent.organization_id)
         ```
 
@@ -226,28 +226,28 @@ class Organization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource",
-            location="West Europe")
-        example_application = azure.iotcentral.Application("example",
-            name="example-iotcentral-app",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource,
+            location=West Europe)
+        example_application = azure.iotcentral.application.Application("example",
+            name=example-iotcentral-app,
             resource_group_name=example.name,
             location=example.location,
-            sub_domain="example-iotcentral-app-subdomain",
-            display_name="example-iotcentral-app-display-name",
-            sku="ST1",
-            template="iotc-default@1.0.0",
+            sub_domain=example-iotcentral-app-subdomain,
+            display_name=example-iotcentral-app-display-name,
+            sku=ST1,
+            template=iotc-default@1.0.0,
             tags={
-                "Foo": "Bar",
+                Foo: Bar,
             })
-        example_parent = azure.iotcentral.Organization("example_parent",
+        example_parent = azure.iotcentral.organization.Organization("example_parent",
             iotcentral_application_id=example_application.id,
-            organization_id="example-parent-organization-id",
-            display_name="Org example parent")
-        example_organization = azure.iotcentral.Organization("example",
+            organization_id=example-parent-organization-id,
+            display_name=Org example parent)
+        example_organization = azure.iotcentral.organization.Organization("example",
             iotcentral_application_id=example_application.id,
-            organization_id="example-child-organization-id",
-            display_name="Org example",
+            organization_id=example-child-organization-id,
+            display_name=Org example,
             parent_organization_id=example_parent.organization_id)
         ```
 

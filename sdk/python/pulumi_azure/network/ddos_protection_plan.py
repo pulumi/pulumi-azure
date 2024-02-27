@@ -193,11 +193,11 @@ class DdosProtectionPlan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_ddos_protection_plan = azure.network.DdosProtectionPlan("example",
-            name="example-protection-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_ddos_protection_plan = azure.network.ddos_protection_plan.DdosProtectionPlan("example",
+            name=example-protection-plan,
             location=example.location,
             resource_group_name=example.name)
         ```
@@ -236,11 +236,11 @@ class DdosProtectionPlan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_ddos_protection_plan = azure.network.DdosProtectionPlan("example",
-            name="example-protection-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_ddos_protection_plan = azure.network.ddos_protection_plan.DdosProtectionPlan("example",
+            name=example-protection-plan,
             location=example.location,
             resource_group_name=example.name)
         ```

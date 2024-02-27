@@ -24,27 +24,27 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var test = new Azure.Network.NetworkSecurityGroup("test", new()
+    ///     var test = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("test", new()
     ///     {
     ///         Name = "acctestnsg",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var testNetworkWatcher = new Azure.Network.NetworkWatcher("test", new()
+    ///     var testNetworkWatcher = new Azure.Network.NetworkWatcher.NetworkWatcher("test", new()
     ///     {
     ///         Name = "acctestnw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var testAccount = new Azure.Storage.Account("test", new()
+    ///     var testAccount = new Azure.Storage.Account.Account("test", new()
     ///     {
     ///         Name = "acctestsa",
     ///         ResourceGroupName = example.Name,
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network
     ///         EnableHttpsTrafficOnly = true,
     ///     });
     /// 
-    ///     var testAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("test", new()
+    ///     var testAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("test", new()
     ///     {
     ///         Name = "acctestlaw",
     ///         Location = example.Location,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("test", new()
+    ///     var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog.NetworkWatcherFlowLog("test", new()
     ///     {
     ///         NetworkWatcherName = testNetworkWatcher.Name,
     ///         ResourceGroupName = example.Name,
@@ -71,18 +71,18 @@ namespace Pulumi.Azure.Network
     ///         NetworkSecurityGroupId = test.Id,
     ///         StorageAccountId = testAccount.Id,
     ///         Enabled = true,
-    ///         RetentionPolicy = new Azure.Network.Inputs.NetworkWatcherFlowLogRetentionPolicyArgs
+    ///         RetentionPolicy = 
     ///         {
-    ///             Enabled = true,
-    ///             Days = 7,
+    ///             { "enabled", true },
+    ///             { "days", 7 },
     ///         },
-    ///         TrafficAnalytics = new Azure.Network.Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs
+    ///         TrafficAnalytics = 
     ///         {
-    ///             Enabled = true,
-    ///             WorkspaceId = testAnalyticsWorkspace.WorkspaceId,
-    ///             WorkspaceRegion = testAnalyticsWorkspace.Location,
-    ///             WorkspaceResourceId = testAnalyticsWorkspace.Id,
-    ///             IntervalInMinutes = 10,
+    ///             { "enabled", true },
+    ///             { "workspaceId", testAnalyticsWorkspace.WorkspaceId },
+    ///             { "workspaceRegion", testAnalyticsWorkspace.Location },
+    ///             { "workspaceResourceId", testAnalyticsWorkspace.Id },
+    ///             { "intervalInMinutes", 10 },
     ///         },
     ///     });
     /// 

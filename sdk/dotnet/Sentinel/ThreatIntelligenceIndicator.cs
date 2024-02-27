@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "example-law",
     ///         Location = example.Location,
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Sentinel
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///     });
     /// 
-    ///     var exampleThreatIntelligenceIndicator = new Azure.Sentinel.ThreatIntelligenceIndicator("example", new()
+    ///     var exampleThreatIntelligenceIndicator = new Azure.Sentinel.ThreatIntelligenceIndicator.ThreatIntelligenceIndicator("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         PatternType = "domain-name",

@@ -26,112 +26,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing SQL database.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.mssql.Server;
-     * import com.pulumi.azure.mssql.ServerArgs;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
-     *             .build());
-     * 
-     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
-     *             .serverId(exampleServer.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
         return getDatabase(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing SQL database.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.mssql.Server;
-     * import com.pulumi.azure.mssql.ServerArgs;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
-     *             .build());
-     * 
-     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
-     *             .serverId(exampleServer.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
@@ -140,112 +40,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing SQL database.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.mssql.Server;
-     * import com.pulumi.azure.mssql.ServerArgs;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
-     *             .build());
-     * 
-     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
-     *             .serverId(exampleServer.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing SQL database.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.mssql.Server;
-     * import com.pulumi.azure.mssql.ServerArgs;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .location(exampleResourceGroup.location())
-     *             .version(&#34;12.0&#34;)
-     *             .administratorLogin(&#34;4dm1n157r470r&#34;)
-     *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
-     *             .build());
-     * 
-     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name(&#34;example-mssql-db&#34;)
-     *             .serverId(exampleServer.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
@@ -254,78 +54,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing SQL elastic pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args) {
         return getElasticPool(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing SQL elastic pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args) {
@@ -334,78 +68,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing SQL elastic pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetElasticPoolResult> getElasticPool(GetElasticPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getElasticPool:getElasticPool", TypeShape.of(GetElasticPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing SQL elastic pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getElasticPool(GetElasticPoolArgs.builder()
-     *             .name(&#34;mssqlelasticpoolname&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .serverName(&#34;example-sql-server&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;elasticpoolId&#34;, example.applyValue(getElasticPoolResult -&gt; getElasticPoolResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args, InvokeOptions options) {
@@ -414,74 +82,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args) {
         return getManagedInstance(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args) {
@@ -490,74 +96,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetManagedInstanceResult> getManagedInstance(GetManagedInstanceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getManagedInstance:getManagedInstance", TypeShape.of(GetManagedInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
-     *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedInstanceResult> getManagedInstancePlain(GetManagedInstancePlainArgs args, InvokeOptions options) {
@@ -566,76 +110,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Microsoft SQL Server.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
         return getServer(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Microsoft SQL Server.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -644,76 +124,12 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Microsoft SQL Server.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Microsoft SQL Server.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;existingMsSqlServer&#34;)
-     *             .resourceGroupName(&#34;existingResGroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {

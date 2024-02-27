@@ -210,40 +210,40 @@ class ProtectedFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            name="tfex-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-recovery_vault,
+            location=West Europe)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=tfex-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        sa = azure.storage.Account("sa",
-            name="examplesa",
+            sku=Standard)
+        sa = azure.storage.account.Account("sa",
+            name=examplesa,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="example-share",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=example-share,
             storage_account_name=sa.name,
             quota=1)
-        protection_container = azure.backup.ContainerStorageAccount("protection-container",
+        protection_container = azure.backup.container_storage_account.ContainerStorageAccount("protection-container",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
-        example_policy_file_share = azure.backup.PolicyFileShare("example",
-            name="tfex-recovery-vault-policy",
+        example_policy_file_share = azure.backup.policy_file_share.PolicyFileShare("example",
+            name=tfex-recovery-vault-policy,
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ))
-        share1 = azure.backup.ProtectedFileShare("share1",
+            backup={
+                frequency: Daily,
+                time: 23:00,
+            },
+            retention_daily={
+                count: 10,
+            })
+        share1 = azure.backup.protected_file_share.ProtectedFileShare("share1",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             source_storage_account_id=protection_container.storage_account_id,
@@ -286,40 +286,40 @@ class ProtectedFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            name="tfex-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-recovery_vault,
+            location=West Europe)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=tfex-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        sa = azure.storage.Account("sa",
-            name="examplesa",
+            sku=Standard)
+        sa = azure.storage.account.Account("sa",
+            name=examplesa,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="example-share",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=example-share,
             storage_account_name=sa.name,
             quota=1)
-        protection_container = azure.backup.ContainerStorageAccount("protection-container",
+        protection_container = azure.backup.container_storage_account.ContainerStorageAccount("protection-container",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
-        example_policy_file_share = azure.backup.PolicyFileShare("example",
-            name="tfex-recovery-vault-policy",
+        example_policy_file_share = azure.backup.policy_file_share.PolicyFileShare("example",
+            name=tfex-recovery-vault-policy,
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ))
-        share1 = azure.backup.ProtectedFileShare("share1",
+            backup={
+                frequency: Daily,
+                time: 23:00,
+            },
+            retention_daily={
+                count: 10,
+            })
+        share1 = azure.backup.protected_file_share.ProtectedFileShare("share1",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             source_storage_account_id=protection_container.storage_account_id,

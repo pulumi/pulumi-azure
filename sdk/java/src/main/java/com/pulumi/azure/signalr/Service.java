@@ -37,9 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.signalr.Service;
  * import com.pulumi.azure.signalr.ServiceArgs;
- * import com.pulumi.azure.signalr.inputs.ServiceSkuArgs;
- * import com.pulumi.azure.signalr.inputs.ServiceCorArgs;
- * import com.pulumi.azure.signalr.inputs.ServiceUpstreamEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,25 +59,13 @@ import javax.annotation.Nullable;
  *             .name(&#34;tfex-signalr&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ServiceSkuArgs.builder()
- *                 .name(&#34;Free_F1&#34;)
- *                 .capacity(1)
- *                 .build())
- *             .cors(ServiceCorArgs.builder()
- *                 .allowedOrigins(&#34;http://www.example.com&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .cors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .publicNetworkAccessEnabled(false)
  *             .connectivityLogsEnabled(true)
  *             .messagingLogsEnabled(true)
  *             .serviceMode(&#34;Default&#34;)
- *             .upstreamEndpoints(ServiceUpstreamEndpointArgs.builder()
- *                 .categoryPatterns(                
- *                     &#34;connections&#34;,
- *                     &#34;messages&#34;)
- *                 .eventPatterns(&#34;*&#34;)
- *                 .hubPatterns(&#34;hub1&#34;)
- *                 .urlTemplate(&#34;http://foo.com&#34;)
- *                 .build())
+ *             .upstreamEndpoints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

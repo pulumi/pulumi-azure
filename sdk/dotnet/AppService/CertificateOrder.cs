@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCertificateOrder = new Azure.AppService.CertificateOrder("example", new()
+    ///     var exampleCertificateOrder = new Azure.Appservice.CertificateOrder.CertificateOrder("example", new()
     ///     {
     ///         Name = "example-cert-order",
     ///         ResourceGroupName = example.Name,

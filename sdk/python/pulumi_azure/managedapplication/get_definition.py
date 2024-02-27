@@ -77,17 +77,6 @@ def get_definition(name: Optional[str] = None,
     """
     Uses this data source to access information about an existing Managed Application Definition.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.managedapplication.get_definition(name="examplemanagedappdef",
-        resource_group_name="exampleresources")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: Specifies the name of the Managed Application Definition.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Application Definition exists.
@@ -111,17 +100,6 @@ def get_definition_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefinitionResult]:
     """
     Uses this data source to access information about an existing Managed Application Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.managedapplication.get_definition(name="examplemanagedappdef",
-        resource_group_name="exampleresources")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: Specifies the name of the Managed Application Definition.

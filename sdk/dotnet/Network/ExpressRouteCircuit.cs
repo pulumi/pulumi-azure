@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exprtTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit.ExpressRouteCircuit("example", new()
     ///     {
     ///         Name = "expressRoute1",
     ///         ResourceGroupName = example.Name,
@@ -36,10 +36,10 @@ namespace Pulumi.Azure.Network
     ///         ServiceProviderName = "Equinix",
     ///         PeeringLocation = "Silicon Valley",
     ///         BandwidthInMbps = 50,
-    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Family = "MeteredData",
+    ///             { "tier", "Standard" },
+    ///             { "family", "MeteredData" },
     ///         },
     ///         Tags = 
     ///         {

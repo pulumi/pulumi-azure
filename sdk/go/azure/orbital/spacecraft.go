@@ -21,51 +21,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/orbital"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	orbital/spacecraft "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/orbital/spacecraft"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = orbital.NewSpacecraft(ctx, "example", &orbital.SpacecraftArgs{
-//				Name:              pulumi.String("example-spacecraft"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("westeurope"),
-//				NoradId:           pulumi.String("12345"),
-//				Links: orbital.SpacecraftLinkArray{
-//					&orbital.SpacecraftLinkArgs{
-//						BandwidthMhz:       pulumi.Float64(30),
-//						CenterFrequencyMhz: pulumi.Float64(2050),
-//						Direction:          pulumi.String("Uplink"),
-//						Polarization:       pulumi.String("LHCP"),
-//						Name:               pulumi.String("examplename"),
-//					},
-//				},
-//				TwoLineElements: pulumi.StringArray{
-//					pulumi.String("1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621"),
-//					pulumi.String("2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495"),
-//				},
-//				TitleLine: pulumi.String("AQUA"),
-//				Tags: pulumi.StringMap{
-//					"aks-managed-cluster-name": pulumi.String("9a57225d-a405-4d40-aa46-f13d2342abef"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = orbital/spacecraft.NewSpacecraft(ctx, "example", &orbital/spacecraft.SpacecraftArgs{
+// Name: "example-spacecraft",
+// ResourceGroupName: example.Name,
+// Location: "westeurope",
+// NoradId: "12345",
+// Links: []map[string]interface{}{
+// map[string]interface{}{
+// "bandwidthMhz": 30,
+// "centerFrequencyMhz": 2050,
+// "direction": "Uplink",
+// "polarization": "LHCP",
+// "name": "examplename",
+// },
+// },
+// TwoLineElements: []string{
+// "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
+// "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+// },
+// TitleLine: "AQUA",
+// Tags: map[string]interface{}{
+// "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

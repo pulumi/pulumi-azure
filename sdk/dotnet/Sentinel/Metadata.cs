@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "example-workspace",
     ///         Location = example.Location,
@@ -36,21 +36,21 @@ namespace Pulumi.Azure.Sentinel
     ///         Sku = "pergb2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
+    ///     var exampleAnalyticsSolution = new Azure.Operationalinsights.AnalyticsSolution.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "SecurityInsights",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         Plan = 
     ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/SecurityInsights",
+    ///             { "publisher", "Microsoft" },
+    ///             { "product", "OMSGallery/SecurityInsights" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt("example", new()
+    ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt.AlertRuleNrt("example", new()
     ///     {
     ///         Name = "example",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Sentinel
     /// ",
     ///     });
     /// 
-    ///     var exampleMetadata = new Azure.Sentinel.Metadata("example", new()
+    ///     var exampleMetadata = new Azure.Sentinel.Metadata.Metadata("example", new()
     ///     {
     ///         Name = "exampl",
     ///         WorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,

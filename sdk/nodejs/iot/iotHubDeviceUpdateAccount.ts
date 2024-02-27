@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "East US",
  * });
- * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("example", {
+ * const exampleIotHubDeviceUpdateAccount = new azure.iot/iotHubDeviceUpdateAccount.IotHubDeviceUpdateAccount("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,

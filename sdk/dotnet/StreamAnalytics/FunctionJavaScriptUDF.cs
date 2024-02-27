@@ -12,52 +12,6 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
-    ///     {
-    ///         Name = "example-resources",
-    ///     });
-    /// 
-    ///     var exampleGetJob = Azure.StreamAnalytics.GetJob.Invoke(new()
-    ///     {
-    ///         Name = "example-job",
-    ///         ResourceGroupName = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
-    ///     });
-    /// 
-    ///     var exampleFunctionJavaScriptUDF = new Azure.StreamAnalytics.FunctionJavaScriptUDF("example", new()
-    ///     {
-    ///         Name = "example-javascript-function",
-    ///         StreamAnalyticsJobName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         Script = @"function getRandomNumber(in) {
-    ///   return in;
-    /// }
-    /// ",
-    ///         Inputs = new[]
-    ///         {
-    ///             new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFInputArgs
-    ///             {
-    ///                 Type = "bigint",
-    ///             },
-    ///         },
-    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFOutputArgs
-    ///         {
-    ///             Type = "bigint",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Stream Analytics JavaScript UDF Functions can be imported using the `resource id`, e.g.

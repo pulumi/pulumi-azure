@@ -21,98 +21,98 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	privatelink/endpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatelink/endpoint"
+//	webpubsub/networkAcl "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/webpubsub/networkAcl"
+//	webpubsub/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/webpubsub/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("terraform-webpubsub"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
-//				Name:              pulumi.String("tfex-webpubsub"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard_S1"),
-//				Capacity:          pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.5.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.5.2.0/24"),
-//				},
-//				EnforcePrivateLinkEndpointNetworkPolicies: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
-//				Name:              pulumi.String("example-privateendpoint"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SubnetId:          exampleSubnet.ID(),
-//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
-//					Name:                        pulumi.String("psc-sig-test"),
-//					IsManualConnection:          pulumi.Bool(false),
-//					PrivateConnectionResourceId: exampleService.ID(),
-//					SubresourceNames: pulumi.StringArray{
-//						pulumi.String("webpubsub"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = webpubsub.NewNetworkAcl(ctx, "example", &webpubsub.NetworkAclArgs{
-//				WebPubsubId:   exampleService.ID(),
-//				DefaultAction: pulumi.String("Allow"),
-//				PublicNetwork: &webpubsub.NetworkAclPublicNetworkArgs{
-//					DeniedRequestTypes: pulumi.StringArray{
-//						pulumi.String("ClientConnection"),
-//					},
-//				},
-//				PrivateEndpoints: webpubsub.NetworkAclPrivateEndpointArray{
-//					&webpubsub.NetworkAclPrivateEndpointArgs{
-//						Id: exampleEndpoint.ID(),
-//						DeniedRequestTypes: pulumi.StringArray{
-//							pulumi.String("RESTAPI"),
-//							pulumi.String("ClientConnection"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "terraform-webpubsub",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := webpubsub/service.NewService(ctx, "example", &webpubsub/service.ServiceArgs{
+// Name: "tfex-webpubsub",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard_S1",
+// Capacity: 1,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AddressSpaces: []string{
+// "10.5.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.5.2.0/24",
+// },
+// EnforcePrivateLinkEndpointNetworkPolicies: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleEndpoint, err := privatelink/endpoint.NewEndpoint(ctx, "example", &privatelink/endpoint.EndpointArgs{
+// Name: "example-privateendpoint",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SubnetId: exampleSubnet.Id,
+// PrivateServiceConnection: map[string]interface{}{
+// "name": "psc-sig-test",
+// "isManualConnection": false,
+// "privateConnectionResourceId": exampleService.Id,
+// "subresourceNames": []string{
+// "webpubsub",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = webpubsub/networkAcl.NewNetworkAcl(ctx, "example", &webpubsub/networkAcl.NetworkAclArgs{
+// WebPubsubId: exampleService.Id,
+// DefaultAction: "Allow",
+// PublicNetwork: map[string]interface{}{
+// "deniedRequestTypes": []string{
+// "ClientConnection",
+// },
+// },
+// PrivateEndpoints: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleEndpoint.Id,
+// "deniedRequestTypes": []string{
+// "RESTAPI",
+// "ClientConnection",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

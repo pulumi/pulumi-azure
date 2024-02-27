@@ -21,116 +21,118 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	automation/hybridRunbookWorker "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/hybridRunbookWorker"
+//	automation/hybridRunbookWorkerGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/hybridRunbookWorkerGroup"
+//	compute/linuxVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("example-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHybridRunbookWorkerGroup, err := automation.NewHybridRunbookWorkerGroup(ctx, "example", &automation.HybridRunbookWorkerGroupArgs{
-//				Name:                  pulumi.String("example"),
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("192.168.1.0/24"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("192.168.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("vm-example"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String("example-vm"),
-//				Location:                      example.Location,
-//				ResourceGroupName:             example.Name,
-//				Size:                          pulumi.String("Standard_B1s"),
-//				AdminUsername:                 pulumi.String("testadmin"),
-//				AdminPassword:                 pulumi.String("Password1234!"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewHybridRunbookWorker(ctx, "example", &automation.HybridRunbookWorkerArgs{
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				WorkerGroupName:       exampleHybridRunbookWorkerGroup.Name,
-//				VmResourceId:          exampleLinuxVirtualMachine.ID(),
-//				WorkerId:              pulumi.String("00000000-0000-0000-0000-000000000000"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "example-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// exampleHybridRunbookWorkerGroup, err := automation/hybridRunbookWorkerGroup.NewHybridRunbookWorkerGroup(ctx, "example", &automation/hybridRunbookWorkerGroup.HybridRunbookWorkerGroupArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// AutomationAccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "192.168.1.0/24",
+// },
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "192.168.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "example-nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "vm-example",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachine, err := compute/linuxVirtualMachine.NewLinuxVirtualMachine(ctx, "example", &compute/linuxVirtualMachine.LinuxVirtualMachineArgs{
+// Name: "example-vm",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Size: "Standard_B1s",
+// AdminUsername: "testadmin",
+// AdminPassword: "Password1234!",
+// DisablePasswordAuthentication: false,
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// OsDisk: map[string]interface{}{
+// "caching": "ReadWrite",
+// "storageAccountType": "Standard_LRS",
+// },
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automation/hybridRunbookWorker.NewHybridRunbookWorker(ctx, "example", &automation/hybridRunbookWorker.HybridRunbookWorkerArgs{
+// ResourceGroupName: example.Name,
+// AutomationAccountName: exampleAccount.Name,
+// WorkerGroupName: exampleHybridRunbookWorkerGroup.Name,
+// VmResourceId: exampleLinuxVirtualMachine.Id,
+// WorkerId: "00000000-0000-0000-0000-000000000000",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

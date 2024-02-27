@@ -21,42 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/galleryApplication "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/galleryApplication"
+//	compute/sharedImageGallery "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/sharedImageGallery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
-//				Name:              pulumi.String("examplegallery"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewGalleryApplication(ctx, "example", &compute.GalleryApplicationArgs{
-//				Name:            pulumi.String("example-app"),
-//				GalleryId:       exampleSharedImageGallery.ID(),
-//				Location:        example.Location,
-//				SupportedOsType: pulumi.String("Linux"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSharedImageGallery, err := compute/sharedImageGallery.NewSharedImageGallery(ctx, "example", &compute/sharedImageGallery.SharedImageGalleryArgs{
+// Name: "examplegallery",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/galleryApplication.NewGalleryApplication(ctx, "example", &compute/galleryApplication.GalleryApplicationArgs{
+// Name: "example-app",
+// GalleryId: exampleSharedImageGallery.Id,
+// Location: example.Location,
+// SupportedOsType: "Linux",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -36,12 +36,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.lb.LoadBalancer;
  * import com.pulumi.azure.lb.LoadBalancerArgs;
- * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
  * import com.pulumi.azure.lb.BackendAddressPool;
  * import com.pulumi.azure.lb.BackendAddressPoolArgs;
  * import com.pulumi.azure.lb.OutboundRule;
  * import com.pulumi.azure.lb.OutboundRuleArgs;
- * import com.pulumi.azure.lb.inputs.OutboundRuleFrontendIpConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;TestLoadBalancer&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
@@ -87,9 +82,7 @@ import javax.annotation.Nullable;
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .protocol(&#34;Tcp&#34;)
  *             .backendAddressPoolId(exampleBackendAddressPool.id())
- *             .frontendIpConfigurations(OutboundRuleFrontendIpConfigurationArgs.builder()
- *                 .name(&#34;PublicIPAddress&#34;)
- *                 .build())
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

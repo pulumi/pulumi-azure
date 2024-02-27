@@ -105,17 +105,6 @@ def get_access_connector(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Databricks Access Connector.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.databricks.get_access_connector(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Databricks Access Connector.
     :param str resource_group_name: The name of the Resource Group where the Databricks Access Connector exists. Changing this forces a new Databricks Access Connector to be created.
@@ -141,17 +130,6 @@ def get_access_connector_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessConnectorResult]:
     """
     Use this data source to access information about an existing Databricks Access Connector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.databricks.get_access_connector(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Databricks Access Connector.

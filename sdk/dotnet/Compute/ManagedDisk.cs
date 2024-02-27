@@ -23,20 +23,20 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk.ManagedDisk("example", new()
     ///     {
     ///         Name = "acctestmd",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
-    ///         DiskSizeGb = 1,
+    ///         DiskSizeGb = "1",
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },
@@ -55,27 +55,27 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var source = new Azure.Compute.ManagedDisk("source", new()
+    ///     var source = new Azure.Compute.ManagedDisk.ManagedDisk("source", new()
     ///     {
     ///         Name = "acctestmd1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
-    ///         DiskSizeGb = 1,
+    ///         DiskSizeGb = "1",
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },
     ///         },
     ///     });
     /// 
-    ///     var copy = new Azure.Compute.ManagedDisk("copy", new()
+    ///     var copy = new Azure.Compute.ManagedDisk.ManagedDisk("copy", new()
     ///     {
     ///         Name = "acctestmd2",
     ///         Location = example.Location,
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Compute
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Copy",
     ///         SourceResourceId = source.Id,
-    ///         DiskSizeGb = 1,
+    ///         DiskSizeGb = "1",
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },

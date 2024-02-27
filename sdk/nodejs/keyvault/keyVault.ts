@@ -15,36 +15,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     enabledForDiskEncryption: true,
- *     tenantId: current.then(current => current.tenantId),
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: false,
- *     skuName: "standard",
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         keyPermissions: ["Get"],
- *         secretPermissions: ["Get"],
- *         storagePermissions: ["Get"],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Key Vault's can be imported using the `resource id`, e.g.

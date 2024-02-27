@@ -203,22 +203,22 @@ class FlexibleDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example-mysql-flexible-server",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example-mysql-flexible-server,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mysqladminun",
-            administrator_password="H@Sh1CoR3!",
-            sku_name="B_Standard_B1s")
-        example_flexible_database = azure.mysql.FlexibleDatabase("example",
-            name="exampledb",
+            administrator_login=mysqladminun,
+            administrator_password=H@Sh1CoR3!,
+            sku_name=B_Standard_B1s)
+        example_flexible_database = azure.mysql.flexible_database.FlexibleDatabase("example",
+            name=exampledb,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            charset="utf8",
-            collation="utf8_unicode_ci")
+            charset=utf8,
+            collation=utf8_unicode_ci)
         ```
 
         ## Import
@@ -252,22 +252,22 @@ class FlexibleDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example-mysql-flexible-server",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example-mysql-flexible-server,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mysqladminun",
-            administrator_password="H@Sh1CoR3!",
-            sku_name="B_Standard_B1s")
-        example_flexible_database = azure.mysql.FlexibleDatabase("example",
-            name="exampledb",
+            administrator_login=mysqladminun,
+            administrator_password=H@Sh1CoR3!,
+            sku_name=B_Standard_B1s)
+        example_flexible_database = azure.mysql.flexible_database.FlexibleDatabase("example",
+            name=exampledb,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            charset="utf8",
-            collation="utf8_unicode_ci")
+            charset=utf8,
+            collation=utf8_unicode_ci)
         ```
 
         ## Import

@@ -23,76 +23,76 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	postgresql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/server"
+//	postgresql/virtualNetworkRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/virtualNetworkRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.7.29.0/29"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.7.29.0/29"),
-//				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Sql"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
-//				Name:                       pulumi.String("postgresql-server-1"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				SkuName:                    pulumi.String("GP_Gen5_2"),
-//				StorageMb:                  pulumi.Int(5120),
-//				BackupRetentionDays:        pulumi.Int(7),
-//				AdministratorLogin:         pulumi.String("psqladmin"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				Version:                    pulumi.String("9.5"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewVirtualNetworkRule(ctx, "example", &postgresql.VirtualNetworkRuleArgs{
-//				Name:                             pulumi.String("postgresql-vnet-rule"),
-//				ResourceGroupName:                example.Name,
-//				ServerName:                       exampleServer.Name,
-//				SubnetId:                         internal.ID(),
-//				IgnoreMissingVnetServiceEndpoint: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.7.29.0/29",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// internal, err := network/subnet.NewSubnet(ctx, "internal", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.7.29.0/29",
+// },
+// ServiceEndpoints: []string{
+// "Microsoft.Sql",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := postgresql/server.NewServer(ctx, "example", &postgresql/server.ServerArgs{
+// Name: "postgresql-server-1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "GP_Gen5_2",
+// StorageMb: 5120,
+// BackupRetentionDays: 7,
+// AdministratorLogin: "psqladmin",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// Version: "9.5",
+// SslEnforcementEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = postgresql/virtualNetworkRule.NewVirtualNetworkRule(ctx, "example", &postgresql/virtualNetworkRule.VirtualNetworkRuleArgs{
+// Name: "postgresql-vnet-rule",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// SubnetId: internal.Id,
+// IgnoreMissingVnetServiceEndpoint: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

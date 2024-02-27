@@ -15,29 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     addressSpaces: ["172.16.0.0/12"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ * const exampleVirtualWan = new azure.network/virtualWan.VirtualWan("example", {
  *     name: "example-vwan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ * const exampleVirtualHub = new azure.network/virtualHub.VirtualHub("example", {
  *     name: "example-hub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
- * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("example", {
+ * const exampleVirtualHubConnection = new azure.network/virtualHubConnection.VirtualHubConnection("example", {
  *     name: "example-vhub",
  *     virtualHubId: exampleVirtualHub.id,
  *     remoteVirtualNetworkId: exampleVirtualNetwork.id,

@@ -32,10 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.WindowsWebApp;
  * import com.pulumi.azure.appservice.WindowsWebAppArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigArgs;
  * import com.pulumi.azure.appservice.WindowsWebAppSlot;
  * import com.pulumi.azure.appservice.WindowsWebAppSlotArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigArgs;
  * import com.pulumi.azure.appservice.WebAppActiveSlot;
  * import com.pulumi.azure.appservice.WebAppActiveSlotArgs;
  * import java.util.List;
@@ -86,7 +84,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Linux Web App
- * 
  * ```java
  * package generated_program;
  * 
@@ -99,10 +96,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.LinuxWebApp;
  * import com.pulumi.azure.appservice.LinuxWebAppArgs;
- * import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigArgs;
  * import com.pulumi.azure.appservice.LinuxWebAppSlot;
  * import com.pulumi.azure.appservice.LinuxWebAppSlotArgs;
- * import com.pulumi.azure.appservice.inputs.LinuxWebAppSlotSiteConfigArgs;
  * import com.pulumi.azure.appservice.WebAppActiveSlot;
  * import com.pulumi.azure.appservice.WebAppActiveSlotArgs;
  * import java.util.List;

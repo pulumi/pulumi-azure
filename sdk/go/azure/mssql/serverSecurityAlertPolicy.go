@@ -23,63 +23,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/serverSecurityAlertPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/serverSecurityAlertPolicy"
+//	sql/sqlServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/sqlServer"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
-//				Name:                       pulumi.String("mysqlserver"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("accteststorageaccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewServerSecurityAlertPolicy(ctx, "example", &mssql.ServerSecurityAlertPolicyArgs{
-//				ResourceGroupName:       example.Name,
-//				ServerName:              exampleSqlServer.Name,
-//				State:                   pulumi.String("Enabled"),
-//				StorageEndpoint:         exampleAccount.PrimaryBlobEndpoint,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				DisabledAlerts: pulumi.StringArray{
-//					pulumi.String("Sql_Injection"),
-//					pulumi.String("Data_Exfiltration"),
-//				},
-//				RetentionDays: pulumi.Int(20),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlServer, err := sql/sqlServer.NewSqlServer(ctx, "example", &sql/sqlServer.SqlServerArgs{
+// Name: "mysqlserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "accteststorageaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/serverSecurityAlertPolicy.NewServerSecurityAlertPolicy(ctx, "example", &mssql/serverSecurityAlertPolicy.ServerSecurityAlertPolicyArgs{
+// ResourceGroupName: example.Name,
+// ServerName: exampleSqlServer.Name,
+// State: "Enabled",
+// StorageEndpoint: exampleAccount.PrimaryBlobEndpoint,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// DisabledAlerts: []string{
+// "Sql_Injection",
+// "Data_Exfiltration",
+// },
+// RetentionDays: 20,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

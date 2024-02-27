@@ -338,38 +338,38 @@ class FluxConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location="West Europe",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example-aks,
+            location=West Europe,
             resource_group_name=example.name,
-            dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("example",
-            name="example-ext",
-            cluster_id=test["id"],
-            extension_type="microsoft.flux")
-        example_flux_configuration = azure.containerservice.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
-            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
-                url="https://github.com/Azure/arc-k8s-demo",
-                reference_type="branch",
-                reference_value="main",
-            ),
-            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
-                name="kustomization-1",
-            )])
+            dns_prefix=example-aks,
+            default_node_pool={
+                name: default,
+                nodeCount: 1,
+                vmSize: Standard_DS2_v2,
+            },
+            identity={
+                type: SystemAssigned,
+            })
+        example_kubernetes_cluster_extension = azure.containerservice.kubernetes_cluster_extension.KubernetesClusterExtension("example",
+            name=example-ext,
+            cluster_id=test.id,
+            extension_type=microsoft.flux)
+        example_flux_configuration = azure.containerservice.flux_configuration.FluxConfiguration("example",
+            name=example-fc,
+            cluster_id=test.id,
+            namespace=flux,
+            git_repository={
+                url: https://github.com/Azure/arc-k8s-demo,
+                referenceType: branch,
+                referenceValue: main,
+            },
+            kustomizations=[{
+                name: kustomization-1,
+            }])
         ```
 
         ## Import
@@ -407,38 +407,38 @@ class FluxConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location="West Europe",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example-aks,
+            location=West Europe,
             resource_group_name=example.name,
-            dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("example",
-            name="example-ext",
-            cluster_id=test["id"],
-            extension_type="microsoft.flux")
-        example_flux_configuration = azure.containerservice.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
-            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
-                url="https://github.com/Azure/arc-k8s-demo",
-                reference_type="branch",
-                reference_value="main",
-            ),
-            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
-                name="kustomization-1",
-            )])
+            dns_prefix=example-aks,
+            default_node_pool={
+                name: default,
+                nodeCount: 1,
+                vmSize: Standard_DS2_v2,
+            },
+            identity={
+                type: SystemAssigned,
+            })
+        example_kubernetes_cluster_extension = azure.containerservice.kubernetes_cluster_extension.KubernetesClusterExtension("example",
+            name=example-ext,
+            cluster_id=test.id,
+            extension_type=microsoft.flux)
+        example_flux_configuration = azure.containerservice.flux_configuration.FluxConfiguration("example",
+            name=example-fc,
+            cluster_id=test.id,
+            namespace=flux,
+            git_repository={
+                url: https://github.com/Azure/arc-k8s-demo,
+                referenceType: branch,
+                referenceValue: main,
+            },
+            kustomizations=[{
+                name: kustomization-1,
+            }])
         ```
 
         ## Import

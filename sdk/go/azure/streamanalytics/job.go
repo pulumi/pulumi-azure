@@ -21,44 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	streamanalytics/job "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/job"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
-//				Name:                               pulumi.String("example-job"),
-//				ResourceGroupName:                  example.Name,
-//				Location:                           example.Location,
-//				CompatibilityLevel:                 pulumi.String("1.2"),
-//				DataLocale:                         pulumi.String("en-GB"),
-//				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
-//				EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
-//				EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
-//				OutputErrorPolicy:                  pulumi.String("Drop"),
-//				StreamingUnits:                     pulumi.Int(3),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Example"),
-//				},
-//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = streamanalytics/job.NewJob(ctx, "example", &streamanalytics/job.JobArgs{
+// Name: "example-job",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// CompatibilityLevel: "1.2",
+// DataLocale: "en-GB",
+// EventsLateArrivalMaxDelayInSeconds: 60,
+// EventsOutOfOrderMaxDelayInSeconds: 50,
+// EventsOutOfOrderPolicy: "Adjust",
+// OutputErrorPolicy: "Drop",
+// StreamingUnits: 3,
+// Tags: map[string]interface{}{
+// "environment": "Example",
+// },
+// TransformationQuery: "    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

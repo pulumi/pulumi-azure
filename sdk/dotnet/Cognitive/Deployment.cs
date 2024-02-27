@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Cognitive
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
+    ///     var exampleAccount = new Azure.Cognitive.Account.Account("example", new()
     ///     {
     ///         Name = "example-ca",
     ///         Location = example.Location,
@@ -37,19 +37,19 @@ namespace Pulumi.Azure.Cognitive
     ///         SkuName = "S0",
     ///     });
     /// 
-    ///     var exampleDeployment = new Azure.Cognitive.Deployment("example", new()
+    ///     var exampleDeployment = new Azure.Cognitive.Deployment.Deployment("example", new()
     ///     {
     ///         Name = "example-cd",
     ///         CognitiveAccountId = exampleAccount.Id,
-    ///         Model = new Azure.Cognitive.Inputs.DeploymentModelArgs
+    ///         Model = 
     ///         {
-    ///             Format = "OpenAI",
-    ///             Name = "text-curie-001",
-    ///             Version = "1",
+    ///             { "format", "OpenAI" },
+    ///             { "name", "text-curie-001" },
+    ///             { "version", "1" },
     ///         },
-    ///         Scale = new Azure.Cognitive.Inputs.DeploymentScaleArgs
+    ///         Scale = 
     ///         {
-    ///             Type = "Standard",
+    ///             { "type", "Standard" },
     ///         },
     ///     });
     /// 

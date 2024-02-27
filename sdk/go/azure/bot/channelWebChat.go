@@ -14,61 +14,6 @@ import (
 
 // Manages a Web Chat integration for a Bot Channel
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "example", &bot.ChannelsRegistrationArgs{
-//				Name:              pulumi.String("example-bcr"),
-//				Location:          pulumi.String("global"),
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewChannelWebChat(ctx, "example", &bot.ChannelWebChatArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: example.Name,
-//				Sites: bot.ChannelWebChatSiteArray{
-//					&bot.ChannelWebChatSiteArgs{
-//						Name: pulumi.String("TestSite"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Web Chat Channels can be imported using the `resource id`, e.g.

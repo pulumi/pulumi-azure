@@ -34,12 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuit;
  * import com.pulumi.azure.network.ExpressRouteCircuitArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitSkuArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeering;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeeringArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6Args;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,12 +61,9 @@ import javax.annotation.Nullable;
  *             .serviceProviderName(&#34;Equinix&#34;)
  *             .peeringLocation(&#34;Silicon Valley&#34;)
  *             .bandwidthInMbps(50)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .allowClassicOperations(false)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
@@ -82,17 +75,8 @@ import javax.annotation.Nullable;
  *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
  *             .ipv4Enabled(true)
  *             .vlanId(300)
- *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
- *                 .advertisedPublicPrefixes(&#34;123.1.0.0/24&#34;)
- *                 .build())
- *             .ipv6(ExpressRouteCircuitPeeringIpv6Args.builder()
- *                 .primaryPeerAddressPrefix(&#34;2002:db01::/126&#34;)
- *                 .secondaryPeerAddressPrefix(&#34;2003:db01::/126&#34;)
- *                 .enabled(true)
- *                 .microsoftPeering(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs.builder()
- *                     .advertisedPublicPrefixes(&#34;2002:db01::/126&#34;)
- *                     .build())
- *                 .build())
+ *             .microsoftPeeringConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ipv6(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -109,10 +93,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuit;
  * import com.pulumi.azure.network.ExpressRouteCircuitArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitSkuArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeering;
  * import com.pulumi.azure.network.ExpressRouteCircuitPeeringArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,12 +120,9 @@ import javax.annotation.Nullable;
  *             .serviceProviderName(&#34;Equinix&#34;)
  *             .peeringLocation(&#34;Silicon Valley&#34;)
  *             .bandwidthInMbps(50)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .allowClassicOperations(false)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
@@ -155,11 +134,7 @@ import javax.annotation.Nullable;
  *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
  *             .ipv4Enabled(true)
  *             .vlanId(300)
- *             .ipv6(ExpressRouteCircuitPeeringIpv6Args.builder()
- *                 .primaryPeerAddressPrefix(&#34;2002:db01::/126&#34;)
- *                 .secondaryPeerAddressPrefix(&#34;2003:db01::/126&#34;)
- *                 .enabled(true)
- *                 .build())
+ *             .ipv6(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

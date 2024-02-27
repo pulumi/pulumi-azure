@@ -478,49 +478,49 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-publicip",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-publicip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            domain_name_label="example-pip")
-        parent = azure.network.TrafficManagerProfile("parent",
-            name="parent-profile",
+            allocation_method=Static,
+            domain_name_label=example-pip)
+        parent = azure.network.traffic_manager_profile.TrafficManagerProfile("parent",
+            name=parent-profile,
             resource_group_name=example.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="parent-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
+            traffic_routing_method=Weighted,
+            dns_config={
+                relativeName: parent-profile,
+                ttl: 100,
+            },
+            monitor_config={
+                protocol: HTTP,
+                port: 80,
+                path: /,
+                intervalInSeconds: 30,
+                timeoutInSeconds: 9,
+                toleratedNumberOfFailures: 3,
+            },
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        nested = azure.network.TrafficManagerProfile("nested",
-            name="nested-profile",
+        nested = azure.network.traffic_manager_profile.TrafficManagerProfile("nested",
+            name=nested-profile,
             resource_group_name=example.name,
-            traffic_routing_method="Priority",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="nested-profile",
-                ttl=30,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=443,
-                path="/",
-            ))
-        example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("example",
-            name="example-endpoint",
+            traffic_routing_method=Priority,
+            dns_config={
+                relativeName: nested-profile,
+                ttl: 30,
+            },
+            monitor_config={
+                protocol: HTTP,
+                port: 443,
+                path: /,
+            })
+        example_traffic_manager_nested_endpoint = azure.network.traffic_manager_nested_endpoint.TrafficManagerNestedEndpoint("example",
+            name=example-endpoint,
             target_resource_id=nested.id,
             priority=1,
             profile_id=parent.id,
@@ -569,49 +569,49 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-publicip",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-publicip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            domain_name_label="example-pip")
-        parent = azure.network.TrafficManagerProfile("parent",
-            name="parent-profile",
+            allocation_method=Static,
+            domain_name_label=example-pip)
+        parent = azure.network.traffic_manager_profile.TrafficManagerProfile("parent",
+            name=parent-profile,
             resource_group_name=example.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="parent-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
+            traffic_routing_method=Weighted,
+            dns_config={
+                relativeName: parent-profile,
+                ttl: 100,
+            },
+            monitor_config={
+                protocol: HTTP,
+                port: 80,
+                path: /,
+                intervalInSeconds: 30,
+                timeoutInSeconds: 9,
+                toleratedNumberOfFailures: 3,
+            },
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        nested = azure.network.TrafficManagerProfile("nested",
-            name="nested-profile",
+        nested = azure.network.traffic_manager_profile.TrafficManagerProfile("nested",
+            name=nested-profile,
             resource_group_name=example.name,
-            traffic_routing_method="Priority",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="nested-profile",
-                ttl=30,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=443,
-                path="/",
-            ))
-        example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("example",
-            name="example-endpoint",
+            traffic_routing_method=Priority,
+            dns_config={
+                relativeName: nested-profile,
+                ttl: 30,
+            },
+            monitor_config={
+                protocol: HTTP,
+                port: 443,
+                path: /,
+            })
+        example_traffic_manager_nested_endpoint = azure.network.traffic_manager_nested_endpoint.TrafficManagerNestedEndpoint("example",
+            name=example-endpoint,
             target_resource_id=nested.id,
             priority=1,
             profile_id=parent.id,

@@ -11,11 +11,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
+ * const exampleFlexibleServer = new azure.postgresql/flexibleServer.FlexibleServer("example", {
  *     name: "example-psqlflexibleserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
  * });
- * const exampleFlexibleServerDatabase = new azure.postgresql.FlexibleServerDatabase("example", {
+ * const exampleFlexibleServerDatabase = new azure.postgresql/flexibleServerDatabase.FlexibleServerDatabase("example", {
  *     name: "example-db",
  *     serverId: exampleFlexibleServer.id,
  *     collation: "en_US.utf8",

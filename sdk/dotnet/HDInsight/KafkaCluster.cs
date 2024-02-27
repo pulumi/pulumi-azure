@@ -22,13 +22,13 @@ namespace Pulumi.Azure.HDInsight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "hdinsightstor",
     ///         ResourceGroupName = example.Name,
@@ -37,60 +37,60 @@ namespace Pulumi.Azure.HDInsight
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "hdinsight",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleKafkaCluster = new Azure.HDInsight.KafkaCluster("example", new()
+    ///     var exampleKafkaCluster = new Azure.Hdinsight.KafkaCluster.KafkaCluster("example", new()
     ///     {
     ///         Name = "example-hdicluster",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ClusterVersion = "4.0",
     ///         Tier = "Standard",
-    ///         ComponentVersion = new Azure.HDInsight.Inputs.KafkaClusterComponentVersionArgs
+    ///         ComponentVersion = 
     ///         {
-    ///             Kafka = "2.1",
+    ///             { "kafka", "2.1" },
     ///         },
-    ///         Gateway = new Azure.HDInsight.Inputs.KafkaClusterGatewayArgs
+    ///         Gateway = 
     ///         {
-    ///             Username = "acctestusrgw",
-    ///             Password = "Password123!",
+    ///             { "username", "acctestusrgw" },
+    ///             { "password", "Password123!" },
     ///         },
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.HDInsight.Inputs.KafkaClusterStorageAccountArgs
+    ///             
     ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
-    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                 IsDefault = true,
+    ///                 { "storageContainerId", exampleContainer.Id },
+    ///                 { "storageAccountKey", exampleAccount.PrimaryAccessKey },
+    ///                 { "isDefault", true },
     ///             },
     ///         },
-    ///         Roles = new Azure.HDInsight.Inputs.KafkaClusterRolesArgs
+    ///         Roles = 
     ///         {
-    ///             HeadNode = new Azure.HDInsight.Inputs.KafkaClusterRolesHeadNodeArgs
+    ///             { "headNode", 
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///             },
-    ///             WorkerNode = new Azure.HDInsight.Inputs.KafkaClusterRolesWorkerNodeArgs
+    ///                 { "vmSize", "Standard_D3_V2" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///             } },
+    ///             { "workerNode", 
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///                 NumberOfDisksPerNode = 3,
-    ///                 TargetInstanceCount = 3,
-    ///             },
-    ///             ZookeeperNode = new Azure.HDInsight.Inputs.KafkaClusterRolesZookeeperNodeArgs
+    ///                 { "vmSize", "Standard_D3_V2" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///                 { "numberOfDisksPerNode", 3 },
+    ///                 { "targetInstanceCount", 3 },
+    ///             } },
+    ///             { "zookeeperNode", 
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///             },
+    ///                 { "vmSize", "Standard_D3_V2" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -239,38 +239,38 @@ class BackupPolicyDisk(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("example",
-            name="example-backup-policy",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_disk = azure.dataprotection.backup_policy_disk.BackupPolicyDisk("example",
+            name=example-backup-policy,
             vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
-            default_retention_duration="P7D",
-            time_zone="W. Europe Standard Time",
+            backup_repeating_time_intervals=[R/2021-05-19T06:33:16+00:00/PT4H],
+            default_retention_duration=P7D,
+            time_zone=W. Europe Standard Time,
             retention_rules=[
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Daily",
-                    duration="P7D",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfDay",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Weekly",
-                    duration="P7D",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
+                {
+                    name: Daily,
+                    duration: P7D,
+                    priority: 25,
+                    criteria: {
+                        absoluteCriteria: FirstOfDay,
+                    },
+                },
+                {
+                    name: Weekly,
+                    duration: P7D,
+                    priority: 20,
+                    criteria: {
+                        absoluteCriteria: FirstOfWeek,
+                    },
+                },
             ])
         ```
 
@@ -306,38 +306,38 @@ class BackupPolicyDisk(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("example",
-            name="example-backup-policy",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_disk = azure.dataprotection.backup_policy_disk.BackupPolicyDisk("example",
+            name=example-backup-policy,
             vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
-            default_retention_duration="P7D",
-            time_zone="W. Europe Standard Time",
+            backup_repeating_time_intervals=[R/2021-05-19T06:33:16+00:00/PT4H],
+            default_retention_duration=P7D,
+            time_zone=W. Europe Standard Time,
             retention_rules=[
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Daily",
-                    duration="P7D",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfDay",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
-                    name="Weekly",
-                    duration="P7D",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
+                {
+                    name: Daily,
+                    duration: P7D,
+                    priority: 25,
+                    criteria: {
+                        absoluteCriteria: FirstOfDay,
+                    },
+                },
+                {
+                    name: Weekly,
+                    duration: P7D,
+                    priority: 20,
+                    criteria: {
+                        absoluteCriteria: FirstOfWeek,
+                    },
+                },
             ])
         ```
 

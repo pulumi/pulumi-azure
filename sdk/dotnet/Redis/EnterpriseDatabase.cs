@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-redisenterprise",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("example", new()
+    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster.EnterpriseCluster("example", new()
     ///     {
     ///         Name = "example-redisenterprise",
     ///         ResourceGroupName = example.Name,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Redis
     ///         SkuName = "Enterprise_E20-4",
     ///     });
     /// 
-    ///     var example1 = new Azure.Redis.EnterpriseCluster("example1", new()
+    ///     var example1 = new Azure.Redis.EnterpriseCluster.EnterpriseCluster("example1", new()
     ///     {
     ///         Name = "example-redisenterprise1",
     ///         ResourceGroupName = example.Name,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Redis
     ///         SkuName = "Enterprise_E20-4",
     ///     });
     /// 
-    ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("example", new()
+    ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase.EnterpriseDatabase("example", new()
     ///     {
     ///         Name = "default",
     ///         ResourceGroupName = example.Name,
@@ -55,8 +55,8 @@ namespace Pulumi.Azure.Redis
     ///         Port = 10000,
     ///         LinkedDatabaseIds = new[]
     ///         {
-    ///             exampleEnterpriseCluster.Id.Apply(id =&gt; $"{id}/databases/default"),
-    ///             example1.Id.Apply(id =&gt; $"{id}/databases/default"),
+    ///             $"{exampleEnterpriseCluster.Id}/databases/default",
+    ///             $"{example1.Id}/databases/default",
     ///         },
     ///         LinkedDatabaseGroupNickname = "tftestGeoGroup",
     ///     });

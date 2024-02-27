@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.Registry;
  * import com.pulumi.azure.containerservice.RegistryArgs;
- * import com.pulumi.azure.containerservice.inputs.RegistryGeoreplicationArgs;
  * import com.pulumi.azure.containerservice.RegistryScopeMap;
  * import com.pulumi.azure.containerservice.RegistryScopeMapArgs;
  * import java.util.List;
@@ -55,12 +54,8 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Premium&#34;)
  *             .adminEnabled(false)
  *             .georeplications(            
- *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;East US&#34;)
- *                     .build(),
- *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;West Europe&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        

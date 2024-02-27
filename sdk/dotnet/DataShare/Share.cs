@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("example", new()
+    ///     var exampleAccount = new Azure.Datashare.Account.Account("example", new()
     ///     {
     ///         Name = "example-dsa",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {
@@ -43,18 +43,18 @@ namespace Pulumi.Azure.DataShare
     ///         },
     ///     });
     /// 
-    ///     var exampleShare = new Azure.DataShare.Share("example", new()
+    ///     var exampleShare = new Azure.Datashare.Share.Share("example", new()
     ///     {
     ///         Name = "example_dss",
     ///         AccountId = exampleAccount.Id,
     ///         Kind = "CopyBased",
     ///         Description = "example desc",
     ///         Terms = "example terms",
-    ///         SnapshotSchedule = new Azure.DataShare.Inputs.ShareSnapshotScheduleArgs
+    ///         SnapshotSchedule = 
     ///         {
-    ///             Name = "example-ss",
-    ///             Recurrence = "Day",
-    ///             StartTime = "2020-04-17T04:47:52.9614956Z",
+    ///             { "name", "example-ss" },
+    ///             { "recurrence", "Day" },
+    ///             { "startTime", "2020-04-17T04:47:52.9614956Z" },
     ///         },
     ///     });
     /// 

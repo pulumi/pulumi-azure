@@ -21,32 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	appconfiguration/licationLoadBalancer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appconfiguration/licationLoadBalancer"
+//	appconfiguration/licationLoadBalancerFrontend "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appconfiguration/licationLoadBalancerFrontend"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appconfiguration.NewLicationLoadBalancer(ctx, "example", &appconfiguration.LicationLoadBalancerArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appconfiguration.NewLicationLoadBalancerFrontend(ctx, "example", &appconfiguration.LicationLoadBalancerFrontendArgs{
-//				Name:                      pulumi.String("example"),
-//				ApplicationLoadBalancerId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := appconfiguration/licationLoadBalancer.NewLicationLoadBalancer(ctx, "example", &appconfiguration/licationLoadBalancer.LicationLoadBalancerArgs{
+// Name: "example",
+// ResourceGroupName: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appconfiguration/licationLoadBalancerFrontend.NewLicationLoadBalancerFrontend(ctx, "example", &appconfiguration/licationLoadBalancerFrontend.LicationLoadBalancerFrontendArgs{
+// Name: "example",
+// ApplicationLoadBalancerId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

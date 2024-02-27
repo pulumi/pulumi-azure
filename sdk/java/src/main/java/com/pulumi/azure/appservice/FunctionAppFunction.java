@@ -36,8 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.LinuxFunctionApp;
  * import com.pulumi.azure.appservice.LinuxFunctionAppArgs;
- * import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSiteConfigArgs;
- * import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSiteConfigApplicationStackArgs;
  * import com.pulumi.azure.appservice.FunctionAppFunction;
  * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -82,125 +80,13 @@ import javax.annotation.Nullable;
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
- *                 .applicationStack(LinuxFunctionAppSiteConfigApplicationStackArgs.builder()
- *                     .pythonVersion(&#34;3.9&#34;)
- *                     .build())
- *                 .build())
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
  *             .name(&#34;example-function-app-function&#34;)
  *             .functionAppId(exampleLinuxFunctionApp.id())
  *             .language(&#34;Python&#34;)
- *             .testData(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;name&#34;, &#34;Azure&#34;)
- *                 )))
- *             .configJson(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;bindings&#34;, jsonArray(
- *                         jsonObject(
- *                             jsonProperty(&#34;authLevel&#34;, &#34;function&#34;),
- *                             jsonProperty(&#34;direction&#34;, &#34;in&#34;),
- *                             jsonProperty(&#34;methods&#34;, jsonArray(
- *                                 &#34;get&#34;, 
- *                                 &#34;post&#34;
- *                             )),
- *                             jsonProperty(&#34;name&#34;, &#34;req&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;httpTrigger&#34;)
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty(&#34;direction&#34;, &#34;out&#34;),
- *                             jsonProperty(&#34;name&#34;, &#34;$return&#34;),
- *                             jsonProperty(&#34;type&#34;, &#34;http&#34;)
- *                         )
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### HTTP Trigger With Code Upload
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.appservice.ServicePlan;
- * import com.pulumi.azure.appservice.ServicePlanArgs;
- * import com.pulumi.azure.appservice.WindowsFunctionApp;
- * import com.pulumi.azure.appservice.WindowsFunctionAppArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSiteConfigArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSiteConfigApplicationStackArgs;
- * import com.pulumi.azure.appservice.FunctionAppFunction;
- * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
- * import com.pulumi.azure.appservice.inputs.FunctionAppFunctionFileArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-group&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;examplesa&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .build());
- * 
- *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .name(&#34;example-service-plan&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .osType(&#34;Windows&#34;)
- *             .skuName(&#34;S1&#34;)
- *             .build());
- * 
- *         var exampleWindowsFunctionApp = new WindowsFunctionApp(&#34;exampleWindowsFunctionApp&#34;, WindowsFunctionAppArgs.builder()        
- *             .name(&#34;example-function-app&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .servicePlanId(exampleServicePlan.id())
- *             .storageAccountName(exampleAccount.name())
- *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
- *                 .applicationStack(WindowsFunctionAppSiteConfigApplicationStackArgs.builder()
- *                     .dotnetVersion(&#34;6&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
- *             .name(&#34;example-function-app-function&#34;)
- *             .functionAppId(exampleWindowsFunctionApp.id())
- *             .language(&#34;CSharp&#34;)
- *             .files(FunctionAppFunctionFileArgs.builder()
- *                 .name(&#34;run.csx&#34;)
- *                 .content(StdFunctions.file(FileArgs.builder()
- *                     .input(&#34;exampledata/run.csx&#34;)
- *                     .build()).result())
- *                 .build())
  *             .testData(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;name&#34;, &#34;Azure&#34;)

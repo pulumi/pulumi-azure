@@ -14,60 +14,6 @@ import (
 
 // Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
-//				Name:              pulumi.String("test-azure-functions"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			}, nil)
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "example", &datafactory.LinkedServiceAzureFunctionArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Url: example.ApplyT(func(example appservice.GetFunctionAppResult) (string, error) {
-//					return fmt.Sprintf("https://%v", example.DefaultHostname), nil
-//				}).(pulumi.StringOutput),
-//				Key: pulumi.String("foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.

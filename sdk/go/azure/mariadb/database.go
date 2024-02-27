@@ -19,51 +19,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mariadb/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/database"
+//	mariadb/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-mariadb-database-RG"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mariadb.NewServer(ctx, "example", &mariadb.ServerArgs{
-//				Name:                       pulumi.String("mariadb-svr"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				SkuName:                    pulumi.String("B_Gen5_2"),
-//				StorageMb:                  pulumi.Int(51200),
-//				BackupRetentionDays:        pulumi.Int(7),
-//				GeoRedundantBackupEnabled:  pulumi.Bool(false),
-//				AdministratorLogin:         pulumi.String("acctestun"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				Version:                    pulumi.String("10.2"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mariadb.NewDatabase(ctx, "example", &mariadb.DatabaseArgs{
-//				Name:              pulumi.String("mariadb_database"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				Charset:           pulumi.String("utf8mb4"),
-//				Collation:         pulumi.String("utf8mb4_unicode_520_ci"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-mariadb-database-RG",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mariadb/server.NewServer(ctx, "example", &mariadb/server.ServerArgs{
+// Name: "mariadb-svr",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "B_Gen5_2",
+// StorageMb: 51200,
+// BackupRetentionDays: 7,
+// GeoRedundantBackupEnabled: false,
+// AdministratorLogin: "acctestun",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// Version: "10.2",
+// SslEnforcementEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mariadb/database.NewDatabase(ctx, "example", &mariadb/database.DatabaseArgs{
+// Name: "mariadb_database",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// Charset: "utf8mb4",
+// Collation: "utf8mb4_unicode_520_ci",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

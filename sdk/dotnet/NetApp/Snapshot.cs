@@ -22,13 +22,13 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-virtualnetwork",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.NetApp
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -50,40 +50,40 @@ namespace Pulumi.Azure.NetApp
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "netapp",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "netapp" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Netapp/volumes",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Netapp/volumes" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/networkinterfaces/*",
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     var exampleAccount = new Azure.Netapp.Account.Account("example", new()
     ///     {
     ///         Name = "example-netappaccount",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePool = new Azure.NetApp.Pool("example", new()
+    ///     var examplePool = new Azure.Netapp.Pool.Pool("example", new()
     ///     {
     ///         Name = "example-netapppool",
     ///         AccountName = exampleAccount.Name,
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ServiceLevel = "Premium",
-    ///         SizeInTb = 4,
+    ///         SizeInTb = "4",
     ///     });
     /// 
-    ///     var exampleVolume = new Azure.NetApp.Volume("example", new()
+    ///     var exampleVolume = new Azure.Netapp.Volume.Volume("example", new()
     ///     {
     ///         Name = "example-netappvolume",
     ///         Location = example.Location,
@@ -93,10 +93,10 @@ namespace Pulumi.Azure.NetApp
     ///         VolumePath = "my-unique-file-path",
     ///         ServiceLevel = "Premium",
     ///         SubnetId = exampleSubnet.Id,
-    ///         StorageQuotaInGb = 100,
+    ///         StorageQuotaInGb = "100",
     ///     });
     /// 
-    ///     var exampleSnapshot = new Azure.NetApp.Snapshot("example", new()
+    ///     var exampleSnapshot = new Azure.Netapp.Snapshot.Snapshot("example", new()
     ///     {
     ///         Name = "example-netappsnapshot",
     ///         AccountName = exampleAccount.Name,

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "my-signalr",
  *     location: "West US",
  * });
- * const exampleService = new azure.signalr.Service("example", {
+ * const exampleService = new azure.signalr/service.Service("example", {
  *     name: "tfex-signalr",
  *     location: example.location,
  *     resourceGroupName: example.name,

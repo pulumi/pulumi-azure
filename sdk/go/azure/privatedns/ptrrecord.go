@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	privatedns/pTRRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/pTRRecord"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("2.0.192.in-addr.arpa"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewPTRRecord(ctx, "example", &privatedns.PTRRecordArgs{
-//				Name:              pulumi.String("15"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					pulumi.String("test.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+// Name: "2.0.192.in-addr.arpa",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/pTRRecord.NewPTRRecord(ctx, "example", &privatedns/pTRRecord.PTRRecordArgs{
+// Name: "15",
+// ZoneName: exampleZone.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Records: []string{
+// "test.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -330,33 +330,6 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
         """
         Manages a Resource Group Policy Exemption.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="resourceGroup1",
-            location="westus")
-        example = azure.policy.get_policy_defintion(display_name="Allowed locations")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
-            name="exampleAssignment",
-            resource_group_id=example_resource_group.id,
-            policy_definition_id=example.id,
-            parameters=pulumi.Output.json_dumps({
-                "listOfAllowedLocations": {
-                    "value": [example_resource_group.location],
-                },
-            }))
-        example_resource_group_policy_exemption = azure.core.ResourceGroupPolicyExemption("example",
-            name="exampleExemption",
-            resource_group_id=example_resource_group.id,
-            policy_assignment_id=example_resource_group_policy_assignment.id,
-            exemption_category="Mitigated")
-        ```
-
         ## Import
 
         Policy Exemptions can be imported using the `resource id`, e.g.
@@ -385,33 +358,6 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group Policy Exemption.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="resourceGroup1",
-            location="westus")
-        example = azure.policy.get_policy_defintion(display_name="Allowed locations")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
-            name="exampleAssignment",
-            resource_group_id=example_resource_group.id,
-            policy_definition_id=example.id,
-            parameters=pulumi.Output.json_dumps({
-                "listOfAllowedLocations": {
-                    "value": [example_resource_group.location],
-                },
-            }))
-        example_resource_group_policy_exemption = azure.core.ResourceGroupPolicyExemption("example",
-            name="exampleExemption",
-            resource_group_id=example_resource_group.id,
-            policy_assignment_id=example_resource_group_policy_assignment.id,
-            exemption_category="Mitigated")
-        ```
 
         ## Import
 

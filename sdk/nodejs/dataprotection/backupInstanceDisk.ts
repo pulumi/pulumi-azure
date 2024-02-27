@@ -13,19 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
+ * const exampleManagedDisk = new azure.compute/managedDisk.ManagedDisk("example", {
  *     name: "example-disk",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: 1,
+ *     diskSizeGb: "1",
  * });
- * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ * const exampleBackupVault = new azure.dataprotection/backupVault.BackupVault("example", {
  *     name: "example-backup-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -35,23 +35,23 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const example1 = new azure.authorization.Assignment("example1", {
+ * const example1 = new azure.authorization/assignment.Assignment("example1", {
  *     scope: example.id,
  *     roleDefinitionName: "Disk Snapshot Contributor",
- *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
+ *     principalId: exampleBackupVault.identity.principalId,
  * });
- * const example2 = new azure.authorization.Assignment("example2", {
+ * const example2 = new azure.authorization/assignment.Assignment("example2", {
  *     scope: exampleManagedDisk.id,
  *     roleDefinitionName: "Disk Backup Reader",
- *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
+ *     principalId: exampleBackupVault.identity.principalId,
  * });
- * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("example", {
+ * const exampleBackupPolicyDisk = new azure.dataprotection/backupPolicyDisk.BackupPolicyDisk("example", {
  *     name: "example-backup-policy",
  *     vaultId: exampleBackupVault.id,
  *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
  *     defaultRetentionDuration: "P7D",
  * });
- * const exampleBackupInstanceDisk = new azure.dataprotection.BackupInstanceDisk("example", {
+ * const exampleBackupInstanceDisk = new azure.dataprotection/backupInstanceDisk.BackupInstanceDisk("example", {
  *     name: "example-backup-instance",
  *     location: exampleBackupVault.location,
  *     vaultId: exampleBackupVault.id,

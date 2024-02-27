@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudGatewayArgs;
  * import com.pulumi.azure.appplatform.SpringCloudApiPortal;
  * import com.pulumi.azure.appplatform.SpringCloudApiPortalArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudApiPortalSsoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,12 +76,7 @@ import javax.annotation.Nullable;
  *             .publicNetworkAccessEnabled(true)
  *             .instanceCount(1)
  *             .apiTryOutEnabled(true)
- *             .sso(SpringCloudApiPortalSsoArgs.builder()
- *                 .clientId(&#34;test&#34;)
- *                 .clientSecret(&#34;secret&#34;)
- *                 .issuerUri(&#34;https://www.example.com/issueToken&#34;)
- *                 .scopes(&#34;read&#34;)
- *                 .build())
+ *             .sso(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

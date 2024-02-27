@@ -22,36 +22,36 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     var exampleAccount = new Azure.Cosmosdb.Account.Account("example", new()
     ///     {
     ///         Name = "example-cosmosdb-account",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             ConsistencyLevel = "BoundedStaleness",
-    ///             MaxIntervalInSeconds = 10,
-    ///             MaxStalenessPrefix = 200,
+    ///             { "consistencyLevel", "BoundedStaleness" },
+    ///             { "maxIntervalInSeconds", 10 },
+    ///             { "maxStalenessPrefix", 200 },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = example.Location,
-    ///                 FailoverPriority = 0,
+    ///                 { "location", example.Location },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     var exampleSqlDatabase = new Azure.Cosmosdb.SqlDatabase.SqlDatabase("example", new()
     ///     {
     ///         Name = "cosmos-sql-db",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     var exampleSqlContainer = new Azure.Cosmosdb.SqlContainer.SqlContainer("example", new()
     ///     {
     ///         Name = "example-container",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
@@ -68,38 +68,38 @@ namespace Pulumi.Azure.AppPlatform
     ///         PartitionKeyPath = "/definition",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "examplespringcloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "examplespringcloudapp",
     ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
-    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("example", new()
+    ///     var exampleSpringCloudJavaDeployment = new Azure.Appplatform.SpringCloudJavaDeployment.SpringCloudJavaDeployment("example", new()
     ///     {
     ///         Name = "exampledeployment",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///     });
     /// 
-    ///     var exampleSpringCloudConnection = new Azure.AppPlatform.SpringCloudConnection("example", new()
+    ///     var exampleSpringCloudConnection = new Azure.Appplatform.SpringCloudConnection.SpringCloudConnection("example", new()
     ///     {
     ///         Name = "example-serviceconnector",
     ///         SpringCloudId = exampleSpringCloudJavaDeployment.Id,
     ///         TargetResourceId = exampleSqlDatabase.Id,
-    ///         Authentication = new Azure.AppPlatform.Inputs.SpringCloudConnectionAuthenticationArgs
+    ///         Authentication = 
     ///         {
-    ///             Type = "systemAssignedIdentity",
+    ///             { "type", "systemAssignedIdentity" },
     ///         },
     ///     });
     /// 

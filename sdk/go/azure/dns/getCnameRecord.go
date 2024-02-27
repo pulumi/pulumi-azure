@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/cNameRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/cNameRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsCnameRecordId", exampleAzurermDnsCnameRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/cNameRecord.NewCNameRecord(ctx, "example", &dns/cNameRecord.CNameRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsCnameRecordId", exampleAzurermDnsCnameRecord.Id)
+// return nil
+// })
+// }
 // ```
 func GetCnameRecord(ctx *pulumi.Context, args *GetCnameRecordArgs, opts ...pulumi.InvokeOption) (*GetCnameRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/expressRoutePort "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRoutePort"
+//	network/expressRoutePortAuthorization "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRoutePortAuthorization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exprtTest"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "example", &network.ExpressRoutePortArgs{
-//				Name:              pulumi.String("port1"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				PeeringLocation:   pulumi.String("Airtel-Chennai-CLS"),
-//				BandwidthInGbps:   pulumi.Int(10),
-//				Encapsulation:     pulumi.String("Dot1Q"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewExpressRoutePortAuthorization(ctx, "example", &network.ExpressRoutePortAuthorizationArgs{
-//				Name:                 pulumi.String("exampleERCAuth"),
-//				ExpressRoutePortName: exampleExpressRoutePort.Name,
-//				ResourceGroupName:    example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exprtTest",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleExpressRoutePort, err := network/expressRoutePort.NewExpressRoutePort(ctx, "example", &network/expressRoutePort.ExpressRoutePortArgs{
+// Name: "port1",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PeeringLocation: "Airtel-Chennai-CLS",
+// BandwidthInGbps: 10,
+// Encapsulation: "Dot1Q",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/expressRoutePortAuthorization.NewExpressRoutePortAuthorization(ctx, "example", &network/expressRoutePortAuthorization.ExpressRoutePortAuthorizationArgs{
+// Name: "exampleERCAuth",
+// ExpressRoutePortName: exampleExpressRoutePort.Name,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

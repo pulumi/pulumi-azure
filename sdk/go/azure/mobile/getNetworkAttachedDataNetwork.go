@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Mobile Network Attached Data Network.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := mobile.LookupNetworkPacketCoreControlPlane(ctx, &mobile.LookupNetworkPacketCoreControlPlaneArgs{
-//				Name:              "example-mnpccp",
-//				ResourceGroupName: "example-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.LookupNetworkAttachedDataNetwork(ctx, &mobile.LookupNetworkAttachedDataNetworkArgs{
-//				MobileNetworkDataNetworkName:       example.Name,
-//				MobileNetworkPacketCoreDataPlaneId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNetworkAttachedDataNetwork(ctx *pulumi.Context, args *LookupNetworkAttachedDataNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkAttachedDataNetworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkAttachedDataNetworkResult

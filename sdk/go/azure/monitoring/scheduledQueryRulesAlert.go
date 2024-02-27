@@ -21,116 +21,117 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/scheduledQueryRulesAlert "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/scheduledQueryRulesAlert"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
+//	  panic(message)
 //	}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("monitoring-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example2, err := appinsights.NewInsights(ctx, "example2", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("appinsights2"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example: Alerting Action with result count trigger
-//			_, err = monitoring.NewScheduledQueryRulesAlert(ctx, "example", &monitoring.ScheduledQueryRulesAlertArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
-//					ActionGroups:         pulumi.StringArray{},
-//					EmailSubject:         pulumi.String("Email Header"),
-//					CustomWebhookPayload: pulumi.String("{}"),
-//				},
-//				DataSourceId: exampleInsights.ID(),
-//				Description:  pulumi.String("Alert when total results cross threshold"),
-//				Enabled:      pulumi.Bool(true),
-//				Query:        pulumi.String("requests\n  | where tolong(resultCode) >= 500\n  | summarize count() by bin(timestamp, 5m)\n"),
-//				Severity:     pulumi.Int(1),
-//				Frequency:    pulumi.Int(5),
-//				TimeWindow:   pulumi.Int(30),
-//				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
-//					Operator:  pulumi.String("GreaterThan"),
-//					Threshold: pulumi.Float64(3),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example: Alerting Action Cross-Resource
-//			_, err = monitoring.NewScheduledQueryRulesAlert(ctx, "example2", &monitoring.ScheduledQueryRulesAlertArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AuthorizedResourceIds: pulumi.StringArray{
-//					example2.ID(),
-//				},
-//				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
-//					ActionGroups:         pulumi.StringArray{},
-//					EmailSubject:         pulumi.String("Email Header"),
-//					CustomWebhookPayload: pulumi.String("{}"),
-//				},
-//				DataSourceId: exampleInsights.ID(),
-//				Description:  pulumi.String("Query may access data within multiple resources"),
-//				Enabled:      pulumi.Bool(true),
-//				Query: notImplemented(`format(<<-QUERY
-//	  let a=requests
-//	    | where toint(resultCode) >= 500
-//	    | extend fail=1; let b=app('%s').requests
-//	    | where toint(resultCode) >= 500 | extend fail=1; a
-//	    | join b on fail
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "monitoring-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// example2, err := appinsights/insights.NewInsights(ctx, "example2", &appinsights/insights.InsightsArgs{
+// Name: "appinsights2",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// // Example: Alerting Action with result count trigger
+// _, err = monitoring/scheduledQueryRulesAlert.NewScheduledQueryRulesAlert(ctx, "example", &monitoring/scheduledQueryRulesAlert.ScheduledQueryRulesAlertArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Action: map[string]interface{}{
+// "actionGroups": []interface{}{
+// },
+// "emailSubject": "Email Header",
+// "customWebhookPayload": "{}",
+// },
+// DataSourceId: exampleInsights.Id,
+// Description: "Alert when total results cross threshold",
+// Enabled: true,
+// Query: "requests\n  | where tolong(resultCode) >= 500\n  | summarize count() by bin(timestamp, 5m)\n",
+// Severity: 1,
+// Frequency: 5,
+// TimeWindow: 30,
+// Trigger: map[string]interface{}{
+// "operator": "GreaterThan",
+// "threshold": 3,
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // Example: Alerting Action Cross-Resource
+// _, err = monitoring/scheduledQueryRulesAlert.NewScheduledQueryRulesAlert(ctx, "example2", &monitoring/scheduledQueryRulesAlert.ScheduledQueryRulesAlertArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AuthorizedResourceIds: []interface{}{
+// example2.Id,
+// },
+// Action: map[string]interface{}{
+// "actionGroups": []interface{}{
+// },
+// "emailSubject": "Email Header",
+// "customWebhookPayload": "{}",
+// },
+// DataSourceId: exampleInsights.Id,
+// Description: "Query may access data within multiple resources",
+// Enabled: true,
+// Query: notImplemented(`format(<<-QUERY
+//
+//	let a=requests
+//	  | where toint(resultCode) >= 500
+//	  | extend fail=1; let b=app('%s').requests
+//	  | where toint(resultCode) >= 500 | extend fail=1; a
+//	  | join b on fail
 //
 // QUERY
 // ,azurerm_application_insights.example2.id)`),
-//
-//				Severity:   pulumi.Int(1),
-//				Frequency:  pulumi.Int(5),
-//				TimeWindow: pulumi.Int(30),
-//				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
-//					Operator:  pulumi.String("GreaterThan"),
-//					Threshold: pulumi.Float64(3),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// Severity: 1,
+// Frequency: 5,
+// TimeWindow: 30,
+// Trigger: map[string]interface{}{
+// "operator": "GreaterThan",
+// "threshold": 3,
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

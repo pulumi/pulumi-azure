@@ -178,9 +178,9 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.SubscriptionPricing("example",
-            tier="Standard",
-            resource_type="VirtualMachines")
+        example = azure.securitycenter.subscription_pricing.SubscriptionPricing("example",
+            tier=Standard,
+            resource_type=VirtualMachines)
         ```
         ### Using Extensions with Defender CSPM
 
@@ -188,25 +188,25 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example1 = azure.securitycenter.SubscriptionPricing("example1",
-            tier="Standard",
-            resource_type="CloudPosture",
+        example1 = azure.securitycenter.subscription_pricing.SubscriptionPricing("example1",
+            tier=Standard,
+            resource_type=CloudPosture,
             extensions=[
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="ContainerRegistriesVulnerabilityAssessments",
-                ),
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="AgentlessVmScanning",
-                    additional_extension_properties={
-                        "ExclusionTags": "[]",
+                {
+                    name: ContainerRegistriesVulnerabilityAssessments,
+                },
+                {
+                    name: AgentlessVmScanning,
+                    additionalExtensionProperties: {
+                        ExclusionTags: [],
                     },
-                ),
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="AgentlessDiscoveryForKubernetes",
-                ),
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="SensitiveDataDiscovery",
-                ),
+                },
+                {
+                    name: AgentlessDiscoveryForKubernetes,
+                },
+                {
+                    name: SensitiveDataDiscovery,
+                },
             ])
         ```
 
@@ -243,9 +243,9 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.SubscriptionPricing("example",
-            tier="Standard",
-            resource_type="VirtualMachines")
+        example = azure.securitycenter.subscription_pricing.SubscriptionPricing("example",
+            tier=Standard,
+            resource_type=VirtualMachines)
         ```
         ### Using Extensions with Defender CSPM
 
@@ -253,25 +253,25 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example1 = azure.securitycenter.SubscriptionPricing("example1",
-            tier="Standard",
-            resource_type="CloudPosture",
+        example1 = azure.securitycenter.subscription_pricing.SubscriptionPricing("example1",
+            tier=Standard,
+            resource_type=CloudPosture,
             extensions=[
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="ContainerRegistriesVulnerabilityAssessments",
-                ),
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="AgentlessVmScanning",
-                    additional_extension_properties={
-                        "ExclusionTags": "[]",
+                {
+                    name: ContainerRegistriesVulnerabilityAssessments,
+                },
+                {
+                    name: AgentlessVmScanning,
+                    additionalExtensionProperties: {
+                        ExclusionTags: [],
                     },
-                ),
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="AgentlessDiscoveryForKubernetes",
-                ),
-                azure.securitycenter.SubscriptionPricingExtensionArgs(
-                    name="SensitiveDataDiscovery",
-                ),
+                },
+                {
+                    name: AgentlessDiscoveryForKubernetes,
+                },
+                {
+                    name: SensitiveDataDiscovery,
+                },
             ])
         ```
 

@@ -14,35 +14,6 @@ namespace Pulumi.Azure.Management
     /// 
     /// !&gt; **Note:** When using this resource, configuring `subscription_ids` on the `azure.management.Group` resource is not supported.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Management.GetGroup.Invoke(new()
-    ///     {
-    ///         Name = "exampleManagementGroup",
-    ///     });
-    /// 
-    ///     var exampleGetSubscription = Azure.Core.GetSubscription.Invoke(new()
-    ///     {
-    ///         SubscriptionId = "12345678-1234-1234-1234-123456789012",
-    ///     });
-    /// 
-    ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("example", new()
-    ///     {
-    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         SubscriptionId = exampleGetSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Managements can be imported using the `resource id`, e.g.

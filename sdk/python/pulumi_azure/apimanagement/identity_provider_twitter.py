@@ -170,21 +170,21 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_twitter = azure.apimanagement.IdentityProviderTwitter("example",
+            publisher_name=My Company,
+            publisher_email=company@mycompany.io,
+            sku_name=Developer_1)
+        example_identity_provider_twitter = azure.apimanagement.identity_provider_twitter.IdentityProviderTwitter("example",
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            api_key="00000000000000000000000000000000",
-            api_secret_key="00000000000000000000000000000000")
+            api_key=00000000000000000000000000000000,
+            api_secret_key=00000000000000000000000000000000)
         ```
 
         ## Import
@@ -217,21 +217,21 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_twitter = azure.apimanagement.IdentityProviderTwitter("example",
+            publisher_name=My Company,
+            publisher_email=company@mycompany.io,
+            sku_name=Developer_1)
+        example_identity_provider_twitter = azure.apimanagement.identity_provider_twitter.IdentityProviderTwitter("example",
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            api_key="00000000000000000000000000000000",
-            api_secret_key="00000000000000000000000000000000")
+            api_key=00000000000000000000000000000000,
+            api_secret_key=00000000000000000000000000000000)
         ```
 
         ## Import

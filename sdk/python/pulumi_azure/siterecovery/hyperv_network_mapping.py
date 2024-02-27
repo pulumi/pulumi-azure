@@ -203,24 +203,24 @@ class HypervNetworkMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        target = azure.core.ResourceGroup("target",
-            name="tfex-network-mapping",
-            location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        target = azure.core.resource_group.ResourceGroup("target",
+            name=tfex-network-mapping,
+            location=East US)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=target.location,
             resource_group_name=target.name,
-            sku="Standard")
-        target_virtual_network = azure.network.VirtualNetwork("target",
-            name="network",
+            sku=Standard)
+        target_virtual_network = azure.network.virtual_network.VirtualNetwork("target",
+            name=network,
             resource_group_name=target.name,
-            address_spaces=["192.168.2.0/24"],
+            address_spaces=[192.168.2.0/24],
             location=target.location)
-        recovery_mapping = azure.siterecovery.HypervNetworkMapping("recovery-mapping",
-            name="recovery-network-mapping",
+        recovery_mapping = azure.siterecovery.hyperv_network_mapping.HypervNetworkMapping("recovery-mapping",
+            name=recovery-network-mapping,
             recovery_vault_id=vault.id,
-            source_system_center_virtual_machine_manager_name="my-vmm-server",
-            source_network_name="my-vmm-network",
+            source_system_center_virtual_machine_manager_name=my-vmm-server,
+            source_network_name=my-vmm-network,
             target_network_id=target_virtual_network.id)
         ```
 
@@ -255,24 +255,24 @@ class HypervNetworkMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        target = azure.core.ResourceGroup("target",
-            name="tfex-network-mapping",
-            location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        target = azure.core.resource_group.ResourceGroup("target",
+            name=tfex-network-mapping,
+            location=East US)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=target.location,
             resource_group_name=target.name,
-            sku="Standard")
-        target_virtual_network = azure.network.VirtualNetwork("target",
-            name="network",
+            sku=Standard)
+        target_virtual_network = azure.network.virtual_network.VirtualNetwork("target",
+            name=network,
             resource_group_name=target.name,
-            address_spaces=["192.168.2.0/24"],
+            address_spaces=[192.168.2.0/24],
             location=target.location)
-        recovery_mapping = azure.siterecovery.HypervNetworkMapping("recovery-mapping",
-            name="recovery-network-mapping",
+        recovery_mapping = azure.siterecovery.hyperv_network_mapping.HypervNetworkMapping("recovery-mapping",
+            name=recovery-network-mapping,
             recovery_vault_id=vault.id,
-            source_system_center_virtual_machine_manager_name="my-vmm-server",
-            source_network_name="my-vmm-network",
+            source_system_center_virtual_machine_manager_name=my-vmm-server,
+            source_network_name=my-vmm-network,
             target_network_id=target_virtual_network.id)
         ```
 

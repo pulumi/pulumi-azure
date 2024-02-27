@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/certificateOrder "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/certificateOrder"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewCertificateOrder(ctx, "example", &appservice.CertificateOrderArgs{
-//				Name:              pulumi.String("example-cert-order"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("global"),
-//				DistinguishedName: pulumi.String("CN=example.com"),
-//				ProductType:       pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/certificateOrder.NewCertificateOrder(ctx, "example", &appservice/certificateOrder.CertificateOrderArgs{
+// Name: "example-cert-order",
+// ResourceGroupName: example.Name,
+// Location: "global",
+// DistinguishedName: "CN=example.com",
+// ProductType: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

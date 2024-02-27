@@ -21,93 +21,91 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/virtualHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHub"
+//	network/virtualWan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualWan"
+//	network/vpnGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnGateway"
+//	network/vpnGatewayConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnGatewayConnection"
+//	network/vpnSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnSite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
-//				Name:              pulumi.String("example-vwan"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
-//				Name:              pulumi.String("example-hub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
-//				AddressPrefix:     pulumi.String("10.0.0.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnGateway, err := network.NewVpnGateway(ctx, "example", &network.VpnGatewayArgs{
-//				Name:              pulumi.String("example-vpng"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				VirtualHubId:      exampleVirtualHub.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnSite, err := network.NewVpnSite(ctx, "example", &network.VpnSiteArgs{
-//				Name:              pulumi.String("example-vpn-site"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				VirtualWanId:      exampleVirtualWan.ID(),
-//				Links: network.VpnSiteLinkArray{
-//					&network.VpnSiteLinkArgs{
-//						Name:      pulumi.String("link1"),
-//						IpAddress: pulumi.String("10.1.0.0"),
-//					},
-//					&network.VpnSiteLinkArgs{
-//						Name:      pulumi.String("link2"),
-//						IpAddress: pulumi.String("10.2.0.0"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVpnGatewayConnection(ctx, "example", &network.VpnGatewayConnectionArgs{
-//				Name:            pulumi.String("example"),
-//				VpnGatewayId:    exampleVpnGateway.ID(),
-//				RemoteVpnSiteId: exampleVpnSite.ID(),
-//				VpnLinks: network.VpnGatewayConnectionVpnLinkArray{
-//					&network.VpnGatewayConnectionVpnLinkArgs{
-//						Name: pulumi.String("link1"),
-//						VpnSiteLinkId: exampleVpnSite.Links.ApplyT(func(links []network.VpnSiteLink) (*string, error) {
-//							return &links[0].Id, nil
-//						}).(pulumi.StringPtrOutput),
-//					},
-//					&network.VpnGatewayConnectionVpnLinkArgs{
-//						Name: pulumi.String("link2"),
-//						VpnSiteLinkId: exampleVpnSite.Links.ApplyT(func(links []network.VpnSiteLink) (*string, error) {
-//							return &links[1].Id, nil
-//						}).(pulumi.StringPtrOutput),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualWan, err := network/virtualWan.NewVirtualWan(ctx, "example", &network/virtualWan.VirtualWanArgs{
+// Name: "example-vwan",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualHub, err := network/virtualHub.NewVirtualHub(ctx, "example", &network/virtualHub.VirtualHubArgs{
+// Name: "example-hub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VirtualWanId: exampleVirtualWan.Id,
+// AddressPrefix: "10.0.0.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpnGateway, err := network/vpnGateway.NewVpnGateway(ctx, "example", &network/vpnGateway.VpnGatewayArgs{
+// Name: "example-vpng",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// VirtualHubId: exampleVirtualHub.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpnSite, err := network/vpnSite.NewVpnSite(ctx, "example", &network/vpnSite.VpnSiteArgs{
+// Name: "example-vpn-site",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// VirtualWanId: exampleVirtualWan.Id,
+// Links: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "link1",
+// "ipAddress": "10.1.0.0",
+// },
+// map[string]interface{}{
+// "name": "link2",
+// "ipAddress": "10.2.0.0",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/vpnGatewayConnection.NewVpnGatewayConnection(ctx, "example", &network/vpnGatewayConnection.VpnGatewayConnectionArgs{
+// Name: "example",
+// VpnGatewayId: exampleVpnGateway.Id,
+// RemoteVpnSiteId: exampleVpnSite.Id,
+// VpnLinks: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "link1",
+// "vpnSiteLinkId": exampleVpnSite.Links[0].Id,
+// },
+// map[string]interface{}{
+// "name": "link2",
+// "vpnSiteLinkId": exampleVpnSite.Links[1].Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

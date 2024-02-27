@@ -252,18 +252,18 @@ class CnameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_cname_record = azure.privatedns.CnameRecord("example",
-            name="test",
+        example_cname_record = azure.privatedns.cname_record.CnameRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            record="contoso.com")
+            record=contoso.com)
         ```
 
         ## Import
@@ -298,18 +298,18 @@ class CnameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_cname_record = azure.privatedns.CnameRecord("example",
-            name="test",
+        example_cname_record = azure.privatedns.cname_record.CnameRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            record="contoso.com")
+            record=contoso.com)
         ```
 
         ## Import

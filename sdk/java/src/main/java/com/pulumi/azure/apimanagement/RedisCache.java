@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.redis.Cache;
  * import com.pulumi.azure.redis.CacheArgs;
- * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
  * import com.pulumi.azure.apimanagement.RedisCache;
  * import com.pulumi.azure.apimanagement.RedisCacheArgs;
  * import java.util.List;

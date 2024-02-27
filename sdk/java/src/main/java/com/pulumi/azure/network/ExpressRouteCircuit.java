@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.ExpressRouteCircuit;
  * import com.pulumi.azure.network.ExpressRouteCircuitArgs;
- * import com.pulumi.azure.network.inputs.ExpressRouteCircuitSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,11 +59,8 @@ import javax.annotation.Nullable;
  *             .serviceProviderName(&#34;Equinix&#34;)
  *             .peeringLocation(&#34;Silicon Valley&#34;)
  *             .bandwidthInMbps(50)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .family(&#34;MeteredData&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

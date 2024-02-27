@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Anomaly Alert Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     name: "example-law",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
- *     workspaceId: exampleAnalyticsWorkspace.id,
- *     customerManagedKeyEnabled: false,
- * });
- * const example = azure.sentinel.getAlertRuleAnomalyOutput({
- *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     displayName: "Potential data staging",
- * });
- * export const id = example.apply(example => example.id);
- * ```
  */
 export function getAlertRuleAnomaly(args: GetAlertRuleAnomalyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleAnomalyResult> {
 
@@ -136,33 +109,6 @@ export interface GetAlertRuleAnomalyResult {
 }
 /**
  * Use this data source to access information about an existing Anomaly Alert Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     name: "example-law",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
- *     workspaceId: exampleAnalyticsWorkspace.id,
- *     customerManagedKeyEnabled: false,
- * });
- * const example = azure.sentinel.getAlertRuleAnomalyOutput({
- *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
- *     displayName: "Potential data staging",
- * });
- * export const id = example.apply(example => example.id);
- * ```
  */
 export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleAnomalyResult> {
     return pulumi.output(args).apply((a: any) => getAlertRuleAnomaly(a, opts))

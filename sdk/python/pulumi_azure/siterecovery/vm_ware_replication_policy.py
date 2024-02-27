@@ -171,18 +171,18 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="eastus")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=eastus)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             classic_vmware_replication_enabled=True,
             soft_delete_enabled=False)
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("example",
-            name="example-policy",
+        example_vm_ware_replication_policy = azure.siterecovery.v_m_ware_replication_policy.VMWareReplicationPolicy("example",
+            name=example-policy,
             recovery_vault_id=example_vault.id,
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
@@ -218,18 +218,18 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="eastus")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=eastus)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             classic_vmware_replication_enabled=True,
             soft_delete_enabled=False)
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("example",
-            name="example-policy",
+        example_vm_ware_replication_policy = azure.siterecovery.v_m_ware_replication_policy.VMWareReplicationPolicy("example",
+            name=example-policy,
             recovery_vault_id=example_vault.id,
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)

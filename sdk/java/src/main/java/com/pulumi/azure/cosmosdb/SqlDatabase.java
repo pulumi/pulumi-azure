@@ -19,46 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a SQL Database within a Cosmos DB Account.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
- * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
- * import com.pulumi.azure.cosmosdb.SqlDatabase;
- * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;tfex-cosmosdb-account&#34;)
- *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
- *             .build());
- * 
- *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .name(&#34;tfex-cosmos-sql-db&#34;)
- *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
- *             .throughput(400)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Cosmos SQL Database can be imported using the `resource id`, e.g.

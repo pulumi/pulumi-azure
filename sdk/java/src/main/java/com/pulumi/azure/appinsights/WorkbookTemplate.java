@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appinsights.WorkbookTemplate;
  * import com.pulumi.azure.appinsights.WorkbookTemplateArgs;
- * import com.pulumi.azure.appinsights.inputs.WorkbookTemplateGalleryArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -58,13 +57,7 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .author(&#34;test author&#34;)
  *             .priority(1)
- *             .galleries(WorkbookTemplateGalleryArgs.builder()
- *                 .category(&#34;workbook&#34;)
- *                 .name(&#34;test&#34;)
- *                 .order(100)
- *                 .resourceType(&#34;microsoft.insights/components&#34;)
- *                 .type(&#34;tsg&#34;)
- *                 .build())
+ *             .galleries(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .templateData(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;version&#34;, &#34;Notebook/1.0&#34;),
@@ -114,7 +107,7 @@ import javax.annotation.Nullable;
  *                         ))
  *                     )))
  *                 )))
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

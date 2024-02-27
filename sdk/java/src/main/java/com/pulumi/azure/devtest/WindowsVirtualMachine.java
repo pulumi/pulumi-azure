@@ -33,12 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.devtest.Lab;
  * import com.pulumi.azure.devtest.LabArgs;
- * import com.pulumi.azure.devtest.VirtualNetwork;
- * import com.pulumi.azure.devtest.VirtualNetworkArgs;
- * import com.pulumi.azure.devtest.inputs.VirtualNetworkSubnetArgs;
+ * import com.pulumi.azure.devtest_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.devtest_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.devtest.WindowsVirtualMachine;
  * import com.pulumi.azure.devtest.WindowsVirtualMachineArgs;
- * import com.pulumi.azure.devtest.inputs.WindowsVirtualMachineGalleryImageReferenceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,17 +59,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-devtestlab&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;Sydney&#34;, &#34;Australia&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
  *             .name(&#34;example-network&#34;)
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())
- *             .subnet(VirtualNetworkSubnetArgs.builder()
- *                 .usePublicIpAddress(&#34;Allow&#34;)
- *                 .useInVirtualMachineCreation(&#34;Allow&#34;)
- *                 .build())
+ *             .subnet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine(&#34;exampleWindowsVirtualMachine&#34;, WindowsVirtualMachineArgs.builder()        
@@ -83,15 +78,10 @@ import javax.annotation.Nullable;
  *             .username(&#34;exampleuser99&#34;)
  *             .password(&#34;Pa$w0rd1234!&#34;)
  *             .labVirtualNetworkId(exampleVirtualNetwork.id())
- *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(subnet -&gt; subnet.name()))
+ *             .labSubnetName(exampleVirtualNetwork.subnet().name())
  *             .storageType(&#34;Premium&#34;)
  *             .notes(&#34;Some notes about this Virtual Machine.&#34;)
- *             .galleryImageReference(WindowsVirtualMachineGalleryImageReferenceArgs.builder()
- *                 .offer(&#34;WindowsServer&#34;)
- *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .sku(&#34;2019-Datacenter&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .galleryImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

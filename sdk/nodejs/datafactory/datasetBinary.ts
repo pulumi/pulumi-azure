@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleLinkedServiceSftp = new azure.datafactory.LinkedServiceSftp("example", {
+ * const exampleLinkedServiceSftp = new azure.datafactory/linkedServiceSftp.LinkedServiceSftp("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Basic",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     username: "foo",
  *     password: "bar",
  * });
- * const exampleDatasetBinary = new azure.datafactory.DatasetBinary("example", {
+ * const exampleDatasetBinary = new azure.datafactory/datasetBinary.DatasetBinary("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceSftp.name,

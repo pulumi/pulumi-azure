@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output Table.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "rg-example",
- *     location: "West Europe",
- * });
- * const example = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplesa",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleTable = new azure.storage.Table("example", {
- *     name: "exampletable",
- *     storageAccountName: exampleAccount.name,
- * });
- * const exampleOutputTable = new azure.streamanalytics.OutputTable("example", {
- *     name: "output-to-storage-table",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
- *     storageAccountName: exampleAccount.name,
- *     storageAccountKey: exampleAccount.primaryAccessKey,
- *     table: exampleTable.name,
- *     partitionKey: "foo",
- *     rowKey: "bar",
- *     batchSize: 100,
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Output to Table can be imported using the `resource id`, e.g.

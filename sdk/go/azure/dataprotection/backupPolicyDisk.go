@@ -21,65 +21,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dataprotection/backupPolicyDisk "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupPolicyDisk"
+//	dataprotection/backupVault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupVault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
-//				Name:              pulumi.String("example-backup-vault"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				DatastoreType:     pulumi.String("VaultStore"),
-//				Redundancy:        pulumi.String("LocallyRedundant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dataprotection.NewBackupPolicyDisk(ctx, "example", &dataprotection.BackupPolicyDiskArgs{
-//				Name:    pulumi.String("example-backup-policy"),
-//				VaultId: exampleBackupVault.ID(),
-//				BackupRepeatingTimeIntervals: pulumi.StringArray{
-//					pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
-//				},
-//				DefaultRetentionDuration: pulumi.String("P7D"),
-//				TimeZone:                 pulumi.String("W. Europe Standard Time"),
-//				RetentionRules: dataprotection.BackupPolicyDiskRetentionRuleArray{
-//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
-//						Name:     pulumi.String("Daily"),
-//						Duration: pulumi.String("P7D"),
-//						Priority: pulumi.Int(25),
-//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
-//						},
-//					},
-//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
-//						Name:     pulumi.String("Weekly"),
-//						Duration: pulumi.String("P7D"),
-//						Priority: pulumi.Int(20),
-//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleBackupVault, err := dataprotection/backupVault.NewBackupVault(ctx, "example", &dataprotection/backupVault.BackupVaultArgs{
+// Name: "example-backup-vault",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DatastoreType: "VaultStore",
+// Redundancy: "LocallyRedundant",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dataprotection/backupPolicyDisk.NewBackupPolicyDisk(ctx, "example", &dataprotection/backupPolicyDisk.BackupPolicyDiskArgs{
+// Name: "example-backup-policy",
+// VaultId: exampleBackupVault.Id,
+// BackupRepeatingTimeIntervals: []string{
+// "R/2021-05-19T06:33:16+00:00/PT4H",
+// },
+// DefaultRetentionDuration: "P7D",
+// TimeZone: "W. Europe Standard Time",
+// RetentionRules: []interface{}{
+// map[string]interface{}{
+// "name": "Daily",
+// "duration": "P7D",
+// "priority": 25,
+// "criteria": map[string]interface{}{
+// "absoluteCriteria": "FirstOfDay",
+// },
+// },
+// map[string]interface{}{
+// "name": "Weekly",
+// "duration": "P7D",
+// "priority": 20,
+// "criteria": map[string]interface{}{
+// "absoluteCriteria": "FirstOfWeek",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,37 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/powerbi"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	powerbi/embedded "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/powerbi/embedded"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = powerbi.NewEmbedded(ctx, "example", &powerbi.EmbeddedArgs{
-//				Name:              pulumi.String("examplepowerbi"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("A1"),
-//				Administrators: pulumi.StringArray{
-//					pulumi.String("azsdktest@microsoft.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = powerbi/embedded.NewEmbedded(ctx, "example", &powerbi/embedded.EmbeddedArgs{
+// Name: "examplepowerbi",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "A1",
+// Administrators: []string{
+// "azsdktest@microsoft.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageaccount",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "exampleappserviceplan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         size: "Y1",
  *     },
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ * const exampleFunctionApp = new azure.appservice/functionApp.FunctionApp("example", {
  *     name: "examplefunctionapp",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     osType: "linux",
  *     version: "~3",
  * });
- * const exampleJob = new azure.streamanalytics.Job("example", {
+ * const exampleJob = new azure.streamanalytics/job.Job("example", {
  *     name: "examplestreamanalyticsjob",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     FROM [YourInputAlias]
  * `,
  * });
- * const exampleOutputFunction = new azure.streamanalytics.OutputFunction("example", {
+ * const exampleOutputFunction = new azure.streamanalytics/outputFunction.OutputFunction("example", {
  *     name: "exampleoutput",
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     streamAnalyticsJobName: exampleJob.name,

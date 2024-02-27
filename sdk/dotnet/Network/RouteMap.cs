@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan.VirtualWan("example", new()
     ///     {
     ///         Name = "example-vwan",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub.VirtualHub("example", new()
     ///     {
     ///         Name = "example-vhub",
     ///         ResourceGroupName = example.Name,
@@ -44,44 +44,44 @@ namespace Pulumi.Azure.Network
     ///         AddressPrefix = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var exampleRouteMap = new Azure.Network.RouteMap("example", new()
+    ///     var exampleRouteMap = new Azure.Network.RouteMap.RouteMap("example", new()
     ///     {
     ///         Name = "example-rm",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Azure.Network.Inputs.RouteMapRuleArgs
+    ///             
     ///             {
-    ///                 Name = "rule1",
-    ///                 NextStepIfMatched = "Continue",
-    ///                 Actions = new[]
+    ///                 { "name", "rule1" },
+    ///                 { "nextStepIfMatched", "Continue" },
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Azure.Network.Inputs.RouteMapRuleActionArgs
+    ///                     
     ///                     {
-    ///                         Type = "Add",
-    ///                         Parameters = new[]
+    ///                         { "type", "Add" },
+    ///                         { "parameters", new[]
     ///                         {
-    ///                             new Azure.Network.Inputs.RouteMapRuleActionParameterArgs
+    ///                             
     ///                             {
-    ///                                 AsPaths = new[]
+    ///                                 { "asPaths", new[]
     ///                                 {
     ///                                     "22334",
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 MatchCriterions = new[]
+    ///                 } },
+    ///                 { "matchCriterions", new[]
     ///                 {
-    ///                     new Azure.Network.Inputs.RouteMapRuleMatchCriterionArgs
+    ///                     
     ///                     {
-    ///                         MatchCondition = "Contains",
-    ///                         RoutePrefixes = new[]
+    ///                         { "matchCondition", "Contains" },
+    ///                         { "routePrefixes", new[]
     ///                         {
     ///                             "10.0.0.0/8",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

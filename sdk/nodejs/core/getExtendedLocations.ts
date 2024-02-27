@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * This data source return the available Extended Locations for a specific Azure Region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getExtendedLocations({
- *     location: "West Europe",
- * });
- * ```
  */
 export function getExtendedLocations(args: GetExtendedLocationsArgs, opts?: pulumi.InvokeOptions): Promise<GetExtendedLocationsResult> {
 
@@ -52,17 +41,6 @@ export interface GetExtendedLocationsResult {
 }
 /**
  * This data source return the available Extended Locations for a specific Azure Region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getExtendedLocations({
- *     location: "West Europe",
- * });
- * ```
  */
 export function getExtendedLocationsOutput(args: GetExtendedLocationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedLocationsResult> {
     return pulumi.output(args).apply((a: any) => getExtendedLocations(a, opts))

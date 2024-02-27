@@ -32,11 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.Transform;
  * import com.pulumi.azure.media.TransformArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputBuiltinPresetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,10 +64,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTransform = new Transform(&#34;exampleTransform&#34;, TransformArgs.builder()        
@@ -78,13 +72,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;My transform description&#34;)
- *             .outputs(TransformOutputArgs.builder()
- *                 .relativePriority(&#34;Normal&#34;)
- *                 .onErrorAction(&#34;ContinueJob&#34;)
- *                 .builtinPreset(TransformOutputBuiltinPresetArgs.builder()
- *                     .presetName(&#34;AACGoodQualityAudio&#34;)
- *                     .build())
- *                 .build())
+ *             .outputs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -103,21 +91,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.Transform;
  * import com.pulumi.azure.media.TransformArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputBuiltinPresetArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputBuiltinPresetPresetConfigurationArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputAudioAnalyzerPresetArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputFaceDetectorPresetArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputVideoAnalyzerPresetArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputCustomPresetArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterCropRectangleArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterDeinterlaceArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterFadeInArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterFadeOutArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -148,10 +123,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTransform = new Transform(&#34;exampleTransform&#34;, TransformArgs.builder()        
@@ -160,260 +132,11 @@ import javax.annotation.Nullable;
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;My transform description&#34;)
  *             .outputs(            
- *                 TransformOutputArgs.builder()
- *                     .relativePriority(&#34;Normal&#34;)
- *                     .onErrorAction(&#34;ContinueJob&#34;)
- *                     .builtinPreset(TransformOutputBuiltinPresetArgs.builder()
- *                         .presetName(&#34;AACGoodQualityAudio&#34;)
- *                         .presetConfiguration(TransformOutputBuiltinPresetPresetConfigurationArgs.builder()
- *                             .complexity(&#34;Balanced&#34;)
- *                             .interleaveOutput(&#34;NonInterleavedOutput&#34;)
- *                             .keyFrameIntervalInSeconds(123122.5)
- *                             .maxBitrateBps(300000)
- *                             .maxHeight(480)
- *                             .maxLayers(14)
- *                             .minBitrateBps(200000)
- *                             .minHeight(360)
- *                             .build())
- *                         .build())
- *                     .build(),
- *                 TransformOutputArgs.builder()
- *                     .relativePriority(&#34;Low&#34;)
- *                     .onErrorAction(&#34;ContinueJob&#34;)
- *                     .audioAnalyzerPreset(TransformOutputAudioAnalyzerPresetArgs.builder()
- *                         .audioLanguage(&#34;en-US&#34;)
- *                         .audioAnalysisMode(&#34;Basic&#34;)
- *                         .experimentalOptions(Map.of(&#34;env&#34;, &#34;test&#34;))
- *                         .build())
- *                     .build(),
- *                 TransformOutputArgs.builder()
- *                     .relativePriority(&#34;Low&#34;)
- *                     .onErrorAction(&#34;StopProcessingJob&#34;)
- *                     .faceDetectorPreset(TransformOutputFaceDetectorPresetArgs.builder()
- *                         .analysisResolution(&#34;StandardDefinition&#34;)
- *                         .blurType(&#34;Med&#34;)
- *                         .faceRedactorMode(&#34;Combined&#34;)
- *                         .experimentalOptions(Map.of(&#34;env&#34;, &#34;test&#34;))
- *                         .build())
- *                     .build(),
- *                 TransformOutputArgs.builder()
- *                     .relativePriority(&#34;Normal&#34;)
- *                     .onErrorAction(&#34;StopProcessingJob&#34;)
- *                     .videoAnalyzerPreset(TransformOutputVideoAnalyzerPresetArgs.builder()
- *                         .audioLanguage(&#34;en-US&#34;)
- *                         .audioAnalysisMode(&#34;Basic&#34;)
- *                         .insightsType(&#34;AllInsights&#34;)
- *                         .experimentalOptions(Map.of(&#34;env&#34;, &#34;test&#34;))
- *                         .build())
- *                     .build(),
- *                 TransformOutputArgs.builder()
- *                     .relativePriority(&#34;Low&#34;)
- *                     .onErrorAction(&#34;ContinueJob&#34;)
- *                     .customPreset(TransformOutputCustomPresetArgs.builder()
- *                         .codecs(                        
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .aacAudio(TransformOutputCustomPresetCodecAacAudioArgs.builder()
- *                                     .bitrate(128000)
- *                                     .channels(2)
- *                                     .samplingRate(48000)
- *                                     .profile(&#34;AacLc&#34;)
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .copyAudio(TransformOutputCustomPresetCodecCopyAudioArgs.builder()
- *                                     .label(&#34;test&#34;)
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .copyVideo(TransformOutputCustomPresetCodecCopyVideoArgs.builder()
- *                                     .label(&#34;test&#34;)
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .h264Video(TransformOutputCustomPresetCodecH264VideoArgs.builder()
- *                                     .keyFrameInterval(&#34;PT1S&#34;)
- *                                     .stretchMode(&#34;AutoSize&#34;)
- *                                     .syncMode(&#34;Auto&#34;)
- *                                     .sceneChangeDetectionEnabled(false)
- *                                     .rateControlMode(&#34;ABR&#34;)
- *                                     .complexity(&#34;Quality&#34;)
- *                                     .layers(                                    
- *                                         TransformOutputCustomPresetCodecH264VideoLayerArgs.builder()
- *                                             .width(&#34;64&#34;)
- *                                             .height(&#34;64&#34;)
- *                                             .bitrate(1045000)
- *                                             .maxBitrate(1045000)
- *                                             .bFrames(3)
- *                                             .slices(0)
- *                                             .adaptiveBFrameEnabled(true)
- *                                             .profile(&#34;Auto&#34;)
- *                                             .level(&#34;auto&#34;)
- *                                             .bufferWindow(&#34;PT5S&#34;)
- *                                             .referenceFrames(4)
- *                                             .crf(23)
- *                                             .entropyMode(&#34;Cabac&#34;)
- *                                             .build(),
- *                                         TransformOutputCustomPresetCodecH264VideoLayerArgs.builder()
- *                                             .width(&#34;64&#34;)
- *                                             .height(&#34;64&#34;)
- *                                             .bitrate(1000)
- *                                             .maxBitrate(1000)
- *                                             .bFrames(3)
- *                                             .frameRate(&#34;32&#34;)
- *                                             .slices(1)
- *                                             .adaptiveBFrameEnabled(true)
- *                                             .profile(&#34;High444&#34;)
- *                                             .level(&#34;auto&#34;)
- *                                             .bufferWindow(&#34;PT5S&#34;)
- *                                             .referenceFrames(4)
- *                                             .crf(23)
- *                                             .entropyMode(&#34;Cavlc&#34;)
- *                                             .build())
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .h265Video(TransformOutputCustomPresetCodecH265VideoArgs.builder()
- *                                     .keyFrameInterval(&#34;PT2S&#34;)
- *                                     .stretchMode(&#34;AutoSize&#34;)
- *                                     .syncMode(&#34;Auto&#34;)
- *                                     .sceneChangeDetectionEnabled(false)
- *                                     .complexity(&#34;Speed&#34;)
- *                                     .layers(TransformOutputCustomPresetCodecH265VideoLayerArgs.builder()
- *                                         .width(&#34;64&#34;)
- *                                         .height(&#34;64&#34;)
- *                                         .bitrate(1045000)
- *                                         .maxBitrate(1045000)
- *                                         .bFrames(3)
- *                                         .slices(5)
- *                                         .adaptiveBFrameEnabled(true)
- *                                         .profile(&#34;Auto&#34;)
- *                                         .label(&#34;test&#34;)
- *                                         .level(&#34;auto&#34;)
- *                                         .bufferWindow(&#34;PT5S&#34;)
- *                                         .frameRate(&#34;32&#34;)
- *                                         .referenceFrames(4)
- *                                         .crf(23)
- *                                         .build())
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .jpgImage(TransformOutputCustomPresetCodecJpgImageArgs.builder()
- *                                     .stretchMode(&#34;AutoSize&#34;)
- *                                     .syncMode(&#34;Auto&#34;)
- *                                     .start(&#34;10&#34;)
- *                                     .range(&#34;100%%&#34;)
- *                                     .spriteColumn(1)
- *                                     .step(&#34;10&#34;)
- *                                     .layers(TransformOutputCustomPresetCodecJpgImageLayerArgs.builder()
- *                                         .quality(70)
- *                                         .height(&#34;180&#34;)
- *                                         .label(&#34;test&#34;)
- *                                         .width(&#34;120&#34;)
- *                                         .build())
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetCodecArgs.builder()
- *                                 .pngImage(TransformOutputCustomPresetCodecPngImageArgs.builder()
- *                                     .stretchMode(&#34;AutoSize&#34;)
- *                                     .syncMode(&#34;Auto&#34;)
- *                                     .start(&#34;{Best}&#34;)
- *                                     .range(&#34;80&#34;)
- *                                     .step(&#34;10&#34;)
- *                                     .layers(TransformOutputCustomPresetCodecPngImageLayerArgs.builder()
- *                                         .height(&#34;180&#34;)
- *                                         .label(&#34;test&#34;)
- *                                         .width(&#34;120&#34;)
- *                                         .build())
- *                                     .build())
- *                                 .build())
- *                         .formats(                        
- *                             TransformOutputCustomPresetFormatArgs.builder()
- *                                 .jpg(TransformOutputCustomPresetFormatJpgArgs.builder()
- *                                     .filenamePattern(&#34;test{Basename}&#34;)
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetFormatArgs.builder()
- *                                 .mp4(TransformOutputCustomPresetFormatMp4Args.builder()
- *                                     .filenamePattern(&#34;test{Bitrate}&#34;)
- *                                     .outputFiles(TransformOutputCustomPresetFormatMp4OutputFileArgs.builder()
- *                                         .labels(                                        
- *                                             &#34;test&#34;,
- *                                             &#34;ppe&#34;)
- *                                         .build())
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetFormatArgs.builder()
- *                                 .png(TransformOutputCustomPresetFormatPngArgs.builder()
- *                                     .filenamePattern(&#34;test{Basename}&#34;)
- *                                     .build())
- *                                 .build(),
- *                             TransformOutputCustomPresetFormatArgs.builder()
- *                                 .transportStream(TransformOutputCustomPresetFormatTransportStreamArgs.builder()
- *                                     .filenamePattern(&#34;test{Bitrate}&#34;)
- *                                     .outputFiles(TransformOutputCustomPresetFormatTransportStreamOutputFileArgs.builder()
- *                                         .labels(&#34;prod&#34;)
- *                                         .build())
- *                                     .build())
- *                                 .build())
- *                         .filter(TransformOutputCustomPresetFilterArgs.builder()
- *                             .cropRectangle(TransformOutputCustomPresetFilterCropRectangleArgs.builder()
- *                                 .height(&#34;240&#34;)
- *                                 .left(&#34;30&#34;)
- *                                 .top(&#34;360&#34;)
- *                                 .width(&#34;70&#34;)
- *                                 .build())
- *                             .deinterlace(TransformOutputCustomPresetFilterDeinterlaceArgs.builder()
- *                                 .parity(&#34;TopFieldFirst&#34;)
- *                                 .mode(&#34;AutoPixelAdaptive&#34;)
- *                                 .build())
- *                             .fadeIn(TransformOutputCustomPresetFilterFadeInArgs.builder()
- *                                 .duration(&#34;PT5S&#34;)
- *                                 .fadeColor(&#34;0xFF0000&#34;)
- *                                 .start(&#34;10&#34;)
- *                                 .build())
- *                             .fadeOut(TransformOutputCustomPresetFilterFadeOutArgs.builder()
- *                                 .duration(&#34;90%%&#34;)
- *                                 .fadeColor(&#34;#FF0C7B&#34;)
- *                                 .start(&#34;10%%&#34;)
- *                                 .build())
- *                             .rotation(&#34;Auto&#34;)
- *                             .overlays(                            
- *                                 TransformOutputCustomPresetFilterOverlayArgs.builder()
- *                                     .audio(TransformOutputCustomPresetFilterOverlayAudioArgs.builder()
- *                                         .inputLabel(&#34;label.jpg&#34;)
- *                                         .start(&#34;PT5S&#34;)
- *                                         .end(&#34;PT30S&#34;)
- *                                         .fadeInDuration(&#34;PT1S&#34;)
- *                                         .fadeOutDuration(&#34;PT2S&#34;)
- *                                         .audioGainLevel(1)
- *                                         .build())
- *                                     .build(),
- *                                 TransformOutputCustomPresetFilterOverlayArgs.builder()
- *                                     .video(TransformOutputCustomPresetFilterOverlayVideoArgs.builder()
- *                                         .inputLabel(&#34;label.jpg&#34;)
- *                                         .start(&#34;PT5S&#34;)
- *                                         .end(&#34;PT30S&#34;)
- *                                         .fadeInDuration(&#34;PT1S&#34;)
- *                                         .fadeOutDuration(&#34;PT2S&#34;)
- *                                         .audioGainLevel(1)
- *                                         .opacity(1)
- *                                         .position(TransformOutputCustomPresetFilterOverlayVideoPositionArgs.builder()
- *                                             .height(&#34;180&#34;)
- *                                             .left(&#34;20&#34;)
- *                                             .top(&#34;240&#34;)
- *                                             .width(&#34;140&#34;)
- *                                             .build())
- *                                         .cropRectangle(TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs.builder()
- *                                             .height(&#34;240&#34;)
- *                                             .left(&#34;30&#34;)
- *                                             .top(&#34;360&#34;)
- *                                             .width(&#34;70&#34;)
- *                                             .build())
- *                                         .build())
- *                                     .build())
- *                             .build())
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

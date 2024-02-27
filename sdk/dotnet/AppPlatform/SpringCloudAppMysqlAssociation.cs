@@ -22,27 +22,27 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example-springcloud",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     var exampleSpringCloudApp = new Azure.Appplatform.SpringCloudApp.SpringCloudApp("example", new()
     ///     {
     ///         Name = "example-springcloudapp",
     ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example", new()
+    ///     var exampleServer = new Azure.Mysql.Server.Server("example", new()
     ///     {
     ///         Name = "example-mysqlserver",
     ///         Location = example.Location,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         SslMinimalTlsVersionEnforced = "TLS1_2",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MySql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mysql.Database.Database("example", new()
     ///     {
     ///         Name = "exampledb",
     ///         ResourceGroupName = example.Name,
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         Collation = "utf8_unicode_ci",
     ///     });
     /// 
-    ///     var exampleSpringCloudAppMysqlAssociation = new Azure.AppPlatform.SpringCloudAppMysqlAssociation("example", new()
+    ///     var exampleSpringCloudAppMysqlAssociation = new Azure.Appplatform.SpringCloudAppMysqlAssociation.SpringCloudAppMysqlAssociation("example", new()
     ///     {
     ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,

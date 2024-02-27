@@ -35,10 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudApp;
  * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudAppIdentityArgs;
  * import com.pulumi.azure.appplatform.SpringCloudJavaDeployment;
  * import com.pulumi.azure.appplatform.SpringCloudJavaDeploymentArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudJavaDeploymentQuotaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,9 +65,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-springcloudapp&#34;)
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
- *             .identity(SpringCloudAppIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment(&#34;exampleSpringCloudJavaDeployment&#34;, SpringCloudJavaDeploymentArgs.builder()        
@@ -77,15 +73,9 @@ import javax.annotation.Nullable;
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .instanceCount(2)
  *             .jvmOptions(&#34;-XX:+PrintGC&#34;)
- *             .quota(SpringCloudJavaDeploymentQuotaArgs.builder()
- *                 .cpu(&#34;2&#34;)
- *                 .memory(&#34;4Gi&#34;)
- *                 .build())
+ *             .quota(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .runtimeVersion(&#34;Java_11&#34;)
- *             .environmentVariables(Map.ofEntries(
- *                 Map.entry(&#34;Foo&#34;, &#34;Bar&#34;),
- *                 Map.entry(&#34;Env&#34;, &#34;Staging&#34;)
- *             ))
+ *             .environmentVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

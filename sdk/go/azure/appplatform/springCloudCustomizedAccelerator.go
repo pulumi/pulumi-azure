@@ -21,60 +21,60 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudAccelerator "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudAccelerator"
+//	appplatform/springCloudCustomizedAccelerator "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudCustomizedAccelerator"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("west europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudAccelerator, err := appplatform.NewSpringCloudAccelerator(ctx, "example", &appplatform.SpringCloudAcceleratorArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudCustomizedAccelerator(ctx, "example", &appplatform.SpringCloudCustomizedAcceleratorArgs{
-//				Name:                     pulumi.String("example"),
-//				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID(),
-//				GitRepository: &appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs{
-//					Url:               pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
-//					GitTag:            pulumi.String("spring.version.2.0.3"),
-//					IntervalInSeconds: pulumi.Int(100),
-//				},
-//				AcceleratorTags: pulumi.StringArray{
-//					pulumi.String("tag-a"),
-//					pulumi.String("tag-b"),
-//				},
-//				Description: pulumi.String("example description"),
-//				DisplayName: pulumi.String("example name"),
-//				IconUrl:     pulumi.String("https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "west europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudAccelerator, err := appplatform/springCloudAccelerator.NewSpringCloudAccelerator(ctx, "example", &appplatform/springCloudAccelerator.SpringCloudAcceleratorArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudCustomizedAccelerator.NewSpringCloudCustomizedAccelerator(ctx, "example", &appplatform/springCloudCustomizedAccelerator.SpringCloudCustomizedAcceleratorArgs{
+// Name: "example",
+// SpringCloudAcceleratorId: exampleSpringCloudAccelerator.Id,
+// GitRepository: map[string]interface{}{
+// "url": "https://github.com/Azure-Samples/piggymetrics",
+// "gitTag": "spring.version.2.0.3",
+// "intervalInSeconds": 100,
+// },
+// AcceleratorTags: []string{
+// "tag-a",
+// "tag-b",
+// },
+// Description: "example description",
+// DisplayName: "example name",
+// IconUrl: "https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

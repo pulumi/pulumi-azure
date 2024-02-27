@@ -19,53 +19,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	network/virtualNetworkDnsServers "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetworkDnsServers"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Subnets: network.VirtualNetworkSubnetArray{
-//					&network.VirtualNetworkSubnetArgs{
-//						Name:          pulumi.String("subnet1"),
-//						AddressPrefix: pulumi.String("10.0.1.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkDnsServers(ctx, "example", &network.VirtualNetworkDnsServersArgs{
-//				VirtualNetworkId: exampleVirtualNetwork.ID(),
-//				DnsServers: pulumi.StringArray{
-//					pulumi.String("10.7.7.2"),
-//					pulumi.String("10.7.7.7"),
-//					pulumi.String("10.7.7.1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Subnets: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "subnet1",
+// "addressPrefix": "10.0.1.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetworkDnsServers.NewVirtualNetworkDnsServers(ctx, "example", &network/virtualNetworkDnsServers.VirtualNetworkDnsServersArgs{
+// VirtualNetworkId: exampleVirtualNetwork.Id,
+// DnsServers: []string{
+// "10.7.7.2",
+// "10.7.7.7",
+// "10.7.7.1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

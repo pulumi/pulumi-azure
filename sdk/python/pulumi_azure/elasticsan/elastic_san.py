@@ -409,18 +409,18 @@ class ElasticSan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_elastic_san = azure.elasticsan.ElasticSan("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_elastic_san = azure.elasticsan.elastic_san.ElasticSan("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
             extended_size_in_tib=2,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="example-value",
-            ))
+            sku={
+                name: example-value,
+            })
         ```
 
         ## Import
@@ -463,18 +463,18 @@ class ElasticSan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_elastic_san = azure.elasticsan.ElasticSan("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_elastic_san = azure.elasticsan.elastic_san.ElasticSan("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
             extended_size_in_tib=2,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="example-value",
-            ))
+            sku={
+                name: example-value,
+            })
         ```
 
         ## Import

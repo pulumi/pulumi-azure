@@ -297,29 +297,6 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Assembly.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("example",
-            name="example-ia",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Basic")
-        example_integration_account_assembly = azure.logicapps.IntegrationAccountAssembly("example",
-            name="example-assembly",
-            resource_group_name=example.name,
-            integration_account_name=example_integration_account.name,
-            assembly_name="TestAssembly",
-            content=std.filebase64(input="testdata/log4net.dll").result)
-        ```
-
         ## Import
 
         Logic App Integration Account Assemblies can be imported using the `resource id`, e.g.
@@ -347,29 +324,6 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Assembly.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("example",
-            name="example-ia",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Basic")
-        example_integration_account_assembly = azure.logicapps.IntegrationAccountAssembly("example",
-            name="example-assembly",
-            resource_group_name=example.name,
-            integration_account_name=example_integration_account.name,
-            assembly_name="TestAssembly",
-            content=std.filebase64(input="testdata/log4net.dll").result)
-        ```
 
         ## Import
 

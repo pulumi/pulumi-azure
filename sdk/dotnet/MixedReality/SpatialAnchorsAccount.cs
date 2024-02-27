@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MixedReality
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpatialAnchorsAccount = new Azure.MixedReality.SpatialAnchorsAccount("example", new()
+    ///     var exampleSpatialAnchorsAccount = new Azure.Mixedreality.SpatialAnchorsAccount.SpatialAnchorsAccount("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,

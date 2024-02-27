@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between an Azure Table Storage and Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const example = azure.storage.getAccountOutput({
- *     name: "storageaccountname",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceAzureTableStorage = new azure.datafactory.LinkedServiceAzureTableStorage("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: example.apply(example => example.primaryConnectionString),
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

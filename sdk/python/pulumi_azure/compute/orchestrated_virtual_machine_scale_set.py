@@ -1250,15 +1250,15 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("example",
-            name="example-VMSS",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_orchestrated_virtual_machine_scale_set = azure.compute.orchestrated_virtual_machine_scale_set.OrchestratedVirtualMachineScaleSet("example",
+            name=example-VMSS,
             location=example.location,
             resource_group_name=example.name,
             platform_fault_domain_count=1,
-            zones=["1"])
+            zones=[1])
         ```
 
         ## Import
@@ -1343,15 +1343,15 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("example",
-            name="example-VMSS",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_orchestrated_virtual_machine_scale_set = azure.compute.orchestrated_virtual_machine_scale_set.OrchestratedVirtualMachineScaleSet("example",
+            name=example-VMSS,
             location=example.location,
             resource_group_name=example.name,
             platform_fault_domain_count=1,
-            zones=["1"])
+            zones=[1])
         ```
 
         ## Import

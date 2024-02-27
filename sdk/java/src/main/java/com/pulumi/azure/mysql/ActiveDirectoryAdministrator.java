@@ -16,64 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Allows you to set a user or group as the AD administrator for an MySQL server in Azure
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.mysql.Server;
- * import com.pulumi.azure.mysql.ServerArgs;
- * import com.pulumi.azure.mysql.ActiveDirectoryAdministrator;
- * import com.pulumi.azure.mysql.ActiveDirectoryAdministratorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-mysqlserver&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .administratorLogin(&#34;mysqladminun&#34;)
- *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .sslEnforcementEnabled(true)
- *             .skuName(&#34;B_Gen5_2&#34;)
- *             .storageMb(5120)
- *             .version(&#34;5.7&#34;)
- *             .build());
- * 
- *         var exampleActiveDirectoryAdministrator = new ActiveDirectoryAdministrator(&#34;exampleActiveDirectoryAdministrator&#34;, ActiveDirectoryAdministratorArgs.builder()        
- *             .serverName(exampleServer.name())
- *             .resourceGroupName(example.name())
- *             .login(&#34;sqladmin&#34;)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.

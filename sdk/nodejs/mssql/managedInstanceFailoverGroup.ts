@@ -17,41 +17,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ * const exampleNetworkSecurityGroup = new azure.network/networkSecurityGroup.NetworkSecurityGroup("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
+ * const exampleRouteTable = new azure.network/routeTable.RouteTable("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
+ * const exampleSubnetRouteTableAssociation = new azure.network/subnetRouteTableAssociation.SubnetRouteTableAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     routeTableId: exampleRouteTable.id,
  * });
- * const primary = new azure.mssql.ManagedInstance("primary", {
+ * const primary = new azure.mssql/managedInstance.ManagedInstance("primary", {
  *     name: "example-primary",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *         environment: "prod",
  *     },
  * });
- * const secondary = new azure.mssql.ManagedInstance("secondary", {
+ * const secondary = new azure.mssql/managedInstance.ManagedInstance("secondary", {
  *     name: "example-secondary",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *         environment: "prod",
  *     },
  * });
- * const exampleManagedInstanceFailoverGroup = new azure.mssql.ManagedInstanceFailoverGroup("example", {
+ * const exampleManagedInstanceFailoverGroup = new azure.mssql/managedInstanceFailoverGroup.ManagedInstanceFailoverGroup("example", {
  *     name: "example-failover-group",
  *     location: primary.location,
  *     managedInstanceId: primary.id,

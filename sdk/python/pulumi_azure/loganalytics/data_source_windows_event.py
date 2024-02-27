@@ -203,20 +203,20 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-law",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-law,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_data_source_windows_event = azure.loganalytics.DataSourceWindowsEvent("example",
-            name="example-lad-wpc",
+            sku=PerGB2018)
+        example_data_source_windows_event = azure.loganalytics.data_source_windows_event.DataSourceWindowsEvent("example",
+            name=example-lad-wpc,
             resource_group_name=example.name,
             workspace_name=example_analytics_workspace.name,
-            event_log_name="Application",
-            event_types=["Error"])
+            event_log_name=Application,
+            event_types=[Error])
         ```
 
         ## Import
@@ -250,20 +250,20 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-law",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-law,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_data_source_windows_event = azure.loganalytics.DataSourceWindowsEvent("example",
-            name="example-lad-wpc",
+            sku=PerGB2018)
+        example_data_source_windows_event = azure.loganalytics.data_source_windows_event.DataSourceWindowsEvent("example",
+            name=example-lad-wpc,
             resource_group_name=example.name,
             workspace_name=example_analytics_workspace.name,
-            event_log_name="Application",
-            event_types=["Error"])
+            event_log_name=Application,
+            event_types=[Error])
         ```
 
         ## Import

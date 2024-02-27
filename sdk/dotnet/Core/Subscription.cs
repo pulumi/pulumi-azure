@@ -11,79 +11,6 @@ namespace Pulumi.Azure.Core
 {
     /// <summary>
     /// ## Example Usage
-    /// ### Creating A New Alias And Subscription For An Enrollment Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
-    ///     {
-    ///         BillingAccountName = "1234567890",
-    ///         EnrollmentAccountName = "0123456",
-    ///     });
-    /// 
-    ///     var exampleSubscription = new Azure.Core.Subscription("example", new()
-    ///     {
-    ///         SubscriptionName = "My Example EA Subscription",
-    ///         BillingScopeId = example.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Creating A New Alias And Subscription For A Microsoft Customer Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Billing.GetMcaAccountScope.Invoke(new()
-    ///     {
-    ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-    ///         BillingProfileName = "PE2Q-NOIT-BG7-TGB",
-    ///         InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
-    ///     });
-    /// 
-    ///     var exampleSubscription = new Azure.Core.Subscription("example", new()
-    ///     {
-    ///         SubscriptionName = "My Example MCA Subscription",
-    ///         BillingScopeId = example.Apply(getMcaAccountScopeResult =&gt; getMcaAccountScopeResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Creating A New Alias And Subscription For A Microsoft Partner Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Billing.GetMpaAccountScope.Invoke(new()
-    ///     {
-    ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-    ///         CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-    ///     });
-    /// 
-    ///     var exampleSubscription = new Azure.Core.Subscription("example", new()
-    ///     {
-    ///         SubscriptionName = "My Example MPA Subscription",
-    ///         BillingScopeId = example.Apply(getMpaAccountScopeResult =&gt; getMpaAccountScopeResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Adding An Alias To An Existing Subscription
     /// 
     /// ```csharp
@@ -94,7 +21,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.Subscription("example", new()
+    ///     var example = new Azure.Core.Subscription.Subscription("example", new()
     ///     {
     ///         Alias = "examplesub",
     ///         SubscriptionName = "My Example Subscription",

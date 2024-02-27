@@ -20,76 +20,12 @@ public final class DevtestFunctions {
     /**
      * Use this data source to access information about an existing Dev Test Lab.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args) {
         return getLab(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Dev Test Lab.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args) {
@@ -98,76 +34,12 @@ public final class DevtestFunctions {
     /**
      * Use this data source to access information about an existing Dev Test Lab.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getLab:getLab", TypeShape.of(GetLabResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Dev Test Lab.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
-     *             .name(&#34;example-lab&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;uniqueIdentifier&#34;, example.applyValue(getLabResult -&gt; getLabResult.uniqueIdentifier()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLabResult> getLabPlain(GetLabPlainArgs args, InvokeOptions options) {
@@ -176,78 +48,12 @@ public final class DevtestFunctions {
     /**
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args) {
         return getVirtualNetwork(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args) {
@@ -256,78 +62,12 @@ public final class DevtestFunctions {
     /**
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", TypeShape.of(GetVirtualNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Dev Test Lab Virtual Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.devtest.DevtestFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
-     *             .name(&#34;example-network&#34;)
-     *             .labName(&#34;examplelab&#34;)
-     *             .resourceGroupName(&#34;example-resource&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;labSubnetName&#34;, example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualNetworkResult> getVirtualNetworkPlain(GetVirtualNetworkPlainArgs args, InvokeOptions options) {

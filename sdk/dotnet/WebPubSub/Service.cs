@@ -22,13 +22,13 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "terraform-webpubsub",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
+    ///     var exampleService = new Azure.Webpubsub.Service.Service("example", new()
     ///     {
     ///         Name = "tfex-webpubsub",
     ///         Location = example.Location,
@@ -36,15 +36,15 @@ namespace Pulumi.Azure.WebPubSub
     ///         Sku = "Standard_S1",
     ///         Capacity = 1,
     ///         PublicNetworkAccessEnabled = false,
-    ///         LiveTrace = new Azure.WebPubSub.Inputs.ServiceLiveTraceArgs
+    ///         LiveTrace = 
     ///         {
-    ///             Enabled = true,
-    ///             MessagingLogsEnabled = true,
-    ///             ConnectivityLogsEnabled = false,
+    ///             { "enabled", true },
+    ///             { "messagingLogsEnabled", true },
+    ///             { "connectivityLogsEnabled", false },
     ///         },
-    ///         Identity = new Azure.WebPubSub.Inputs.ServiceIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 

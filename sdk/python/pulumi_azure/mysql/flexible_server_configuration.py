@@ -175,21 +175,21 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example-fs",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example-fs,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="adminTerraform",
-            administrator_password="H@Sh1CoR3!",
-            sku_name="GP_Standard_D2ds_v4")
-        example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("example",
-            name="interactive_timeout",
+            administrator_login=adminTerraform,
+            administrator_password=H@Sh1CoR3!,
+            sku_name=GP_Standard_D2ds_v4)
+        example_flexible_server_configuration = azure.mysql.flexible_server_configuration.FlexibleServerConfiguration("example",
+            name=interactive_timeout,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            value="600")
+            value=600)
         ```
 
         ## Import
@@ -226,21 +226,21 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example-fs",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example-fs,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="adminTerraform",
-            administrator_password="H@Sh1CoR3!",
-            sku_name="GP_Standard_D2ds_v4")
-        example_flexible_server_configuration = azure.mysql.FlexibleServerConfiguration("example",
-            name="interactive_timeout",
+            administrator_login=adminTerraform,
+            administrator_password=H@Sh1CoR3!,
+            sku_name=GP_Standard_D2ds_v4)
+        example_flexible_server_configuration = azure.mysql.flexible_server_configuration.FlexibleServerConfiguration("example",
+            name=interactive_timeout,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            value="600")
+            value=600)
         ```
 
         ## Import

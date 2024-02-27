@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	desktopvirtualization/getHostPoolRegistrationInfo "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/getHostPoolRegistrationInfo"
+//	desktopvirtualization/hostPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/hostPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-hostpool"),
-//				Location: pulumi.String("westeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "example", &desktopvirtualization.HostPoolArgs{
-//				Name:                pulumi.String("example-HP"),
-//				Location:            example.Location,
-//				ResourceGroupName:   example.Name,
-//				Type:                pulumi.String("Pooled"),
-//				ValidateEnvironment: pulumi.Bool(true),
-//				LoadBalancerType:    pulumi.String("BreadthFirst"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = desktopvirtualization.NewgetHostPoolRegistrationInfo(ctx, "example", &desktopvirtualization.getHostPoolRegistrationInfoArgs{
-//				HostpoolId:     exampleHostPool.ID(),
-//				ExpirationDate: pulumi.String("2022-01-01T23:40:52Z"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-hostpool",
+// Location: "westeurope",
+// })
+// if err != nil {
+// return err
+// }
+// exampleHostPool, err := desktopvirtualization/hostPool.NewHostPool(ctx, "example", &desktopvirtualization/hostPool.HostPoolArgs{
+// Name: "example-HP",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Type: "Pooled",
+// ValidateEnvironment: true,
+// LoadBalancerType: "BreadthFirst",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = desktopvirtualization/getHostPoolRegistrationInfo.NewGetHostPoolRegistrationInfo(ctx, "example", &desktopvirtualization/getHostPoolRegistrationInfo.GetHostPoolRegistrationInfoArgs{
+// HostpoolId: exampleHostPool.Id,
+// ExpirationDate: "2022-01-01T23:40:52Z",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

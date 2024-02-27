@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.postgresql.Server("example", {
+ * const exampleServer = new azure.postgresql/server.Server("example", {
  *     name: "postgresql-server-1",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     version: "9.5",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleConfiguration = new azure.postgresql.Configuration("example", {
+ * const exampleConfiguration = new azure.postgresql/configuration.Configuration("example", {
  *     name: "backslash_quote",
  *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,

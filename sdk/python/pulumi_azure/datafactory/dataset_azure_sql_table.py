@@ -405,19 +405,19 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("example",
-            name="example",
+        example_linked_service_azure_sql_database = azure.datafactory.linked_service_azure_sql_database.LinkedServiceAzureSqlDatabase("example",
+            name=example,
             data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test")
-        example_dataset_azure_sql_table = azure.datafactory.DatasetAzureSqlTable("example",
-            name="example",
+            connection_string=Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test)
+        example_dataset_azure_sql_table = azure.datafactory.dataset_azure_sql_table.DatasetAzureSqlTable("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_id=example_linked_service_azure_sql_database.id)
         ```
@@ -459,19 +459,19 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_azure_sql_database = azure.datafactory.LinkedServiceAzureSqlDatabase("example",
-            name="example",
+        example_linked_service_azure_sql_database = azure.datafactory.linked_service_azure_sql_database.LinkedServiceAzureSqlDatabase("example",
+            name=example,
             data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test")
-        example_dataset_azure_sql_table = azure.datafactory.DatasetAzureSqlTable("example",
-            name="example",
+            connection_string=Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test)
+        example_dataset_azure_sql_table = azure.datafactory.dataset_azure_sql_table.DatasetAzureSqlTable("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_id=example_linked_service_azure_sql_database.id)
         ```

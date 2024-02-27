@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Table Entity.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getTableEntity({
- *     tableName: "example-table-name",
- *     storageAccountName: "example-storage-account-name",
- *     partitionKey: "example-partition-key",
- *     rowKey: "example-row-key",
- * });
- * ```
  */
 export function getTableEntity(args: GetTableEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetTableEntityResult> {
 
@@ -73,20 +59,6 @@ export interface GetTableEntityResult {
 }
 /**
  * Use this data source to access information about an existing Storage Table Entity.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getTableEntity({
- *     tableName: "example-table-name",
- *     storageAccountName: "example-storage-account-name",
- *     partitionKey: "example-partition-key",
- *     rowKey: "example-row-key",
- * });
- * ```
  */
 export function getTableEntityOutput(args: GetTableEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableEntityResult> {
     return pulumi.output(args).apply((a: any) => getTableEntity(a, opts))

@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.AutomationRule;
  * import com.pulumi.azure.sentinel.AutomationRuleArgs;
- * import com.pulumi.azure.sentinel.inputs.AutomationRuleActionIncidentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,10 +73,7 @@ import javax.annotation.Nullable;
  *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .displayName(&#34;automation_rule1&#34;)
  *             .order(1)
- *             .actionIncidents(AutomationRuleActionIncidentArgs.builder()
- *                 .order(1)
- *                 .status(&#34;Active&#34;)
- *                 .build())
+ *             .actionIncidents(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

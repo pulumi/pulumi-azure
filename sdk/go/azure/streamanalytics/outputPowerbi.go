@@ -14,51 +14,6 @@ import (
 
 // Manages a Stream Analytics Output powerBI.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-//				Name: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-//				Name:              "example-job",
-//				ResourceGroupName: example.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewOutputPowerbi(ctx, "example", &streamanalytics.OutputPowerbiArgs{
-//				Name:                 pulumi.String("output-to-powerbi"),
-//				StreamAnalyticsJobId: *pulumi.String(exampleGetJob.Id),
-//				Dataset:              pulumi.String("example-dataset"),
-//				Table:                pulumi.String("example-table"),
-//				GroupId:              pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				GroupName:            pulumi.String("some-group-name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.

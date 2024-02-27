@@ -21,45 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/identityProviderGoogle "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/identityProviderGoogle"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@mycompany.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewIdentityProviderGoogle(ctx, "example", &apimanagement.IdentityProviderGoogleArgs{
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				ClientId:          pulumi.String("00000000.apps.googleusercontent.com"),
-//				ClientSecret:      pulumi.String("00000000000000000000000000000000"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@mycompany.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/identityProviderGoogle.NewIdentityProviderGoogle(ctx, "example", &apimanagement/identityProviderGoogle.IdentityProviderGoogleArgs{
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// ClientId: "00000000.apps.googleusercontent.com",
+// ClientSecret: "00000000000000000000000000000000",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

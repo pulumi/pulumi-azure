@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.arc.ResourceBridgeAppliance;
  * import com.pulumi.azure.arc.ResourceBridgeApplianceArgs;
- * import com.pulumi.azure.arc.inputs.ResourceBridgeApplianceIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,10 +54,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .distro(&#34;AKSEdge&#34;)
  *             .infrastructureProvider(&#34;VMWare&#34;)
- *             .identity(ResourceBridgeApplianceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,70 +21,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/virtualHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHub"
+//	network/virtualWan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualWan"
+//	network/vnpGatewayNatRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vnpGatewayNatRule"
+//	network/vpnGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
-//				Name:              pulumi.String("example-vwan"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
-//				Name:              pulumi.String("example-vhub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AddressPrefix:     pulumi.String("10.0.1.0/24"),
-//				VirtualWanId:      exampleVirtualWan.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnGateway, err := network.NewVpnGateway(ctx, "example", &network.VpnGatewayArgs{
-//				Name:              pulumi.String("example-vpngateway"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				VirtualHubId:      exampleVirtualHub.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVnpGatewayNatRule(ctx, "example", &network.VnpGatewayNatRuleArgs{
-//				Name:              pulumi.String("example-vpngatewaynatrule"),
-//				ResourceGroupName: example.Name,
-//				VpnGatewayId:      exampleVpnGateway.ID(),
-//				ExternalMappings: network.VnpGatewayNatRuleExternalMappingArray{
-//					&network.VnpGatewayNatRuleExternalMappingArgs{
-//						AddressSpace: pulumi.String("192.168.21.0/26"),
-//					},
-//				},
-//				InternalMappings: network.VnpGatewayNatRuleInternalMappingArray{
-//					&network.VnpGatewayNatRuleInternalMappingArgs{
-//						AddressSpace: pulumi.String("10.4.0.0/26"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualWan, err := network/virtualWan.NewVirtualWan(ctx, "example", &network/virtualWan.VirtualWanArgs{
+// Name: "example-vwan",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualHub, err := network/virtualHub.NewVirtualHub(ctx, "example", &network/virtualHub.VirtualHubArgs{
+// Name: "example-vhub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AddressPrefix: "10.0.1.0/24",
+// VirtualWanId: exampleVirtualWan.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpnGateway, err := network/vpnGateway.NewVpnGateway(ctx, "example", &network/vpnGateway.VpnGatewayArgs{
+// Name: "example-vpngateway",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// VirtualHubId: exampleVirtualHub.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/vnpGatewayNatRule.NewVnpGatewayNatRule(ctx, "example", &network/vnpGatewayNatRule.VnpGatewayNatRuleArgs{
+// Name: "example-vpngatewaynatrule",
+// ResourceGroupName: example.Name,
+// VpnGatewayId: exampleVpnGateway.Id,
+// ExternalMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "addressSpace": "192.168.21.0/26",
+// },
+// },
+// InternalMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "addressSpace": "10.4.0.0/26",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

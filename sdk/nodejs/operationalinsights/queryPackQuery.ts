@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleQueryPack = new azure.loganalytics.QueryPack("example", {
+ * const exampleQueryPack = new azure.loganalytics/queryPack.QueryPack("example", {
  *     name: "example-laqp",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleQueryPackQuery = new azure.operationalinsights.QueryPackQuery("example", {
+ * const exampleQueryPackQuery = new azure.operationalinsights/queryPackQuery.QueryPackQuery("example", {
  *     name: "19952bc3-0bf9-49eb-b713-6b80e7a41847",
  *     queryPackId: exampleQueryPack.id,
  *     body: `let newExceptionsTimeRange = 1d;

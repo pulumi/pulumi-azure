@@ -16,6 +16,79 @@ namespace Pulumi.Azure.Lb
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "LoadBalancerRG",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
+    ///     {
+    ///         Name = "PublicIPForLB",
+    ///         Location = "West US",
+    ///         ResourceGroupName = example.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer.LoadBalancer("example", new()
+    ///     {
+    ///         Name = "TestLoadBalancer",
+    ///         Location = "West US",
+    ///         ResourceGroupName = example.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "name", "PublicIPAddress" },
+    ///                 { "publicIpAddressId", examplePublicIp.Id },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool.BackendAddressPool("example", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "be",
+    ///     });
+    /// 
+    ///     var exampleNatRule = new Azure.Lb.NatRule.NatRule("example", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "RDPAccess",
+    ///         Protocol = "Tcp",
+    ///         FrontendPort = 3389,
+    ///         BackendPort = 3389,
+    ///         FrontendIpConfigurationName = "PublicIPAddress",
+    ///     });
+    /// 
+    ///     var example1 = new Azure.Lb.NatRule.NatRule("example1", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "RDPAccess",
+    ///         Protocol = "Tcp",
+    ///         FrontendPortStart = 3000,
+    ///         FrontendPortEnd = 3389,
+    ///         BackendPort = 3389,
+    ///         BackendAddressPoolId = exampleBackendAddressPool.Id,
+    ///         FrontendIpConfigurationName = "PublicIPAddress",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Load Balancer NAT Rules can be imported using the `resource id`, e.g.

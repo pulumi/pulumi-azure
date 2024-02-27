@@ -17,66 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Resource Management Private Link Association.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.management.ManagementFunctions;
- * import com.pulumi.azure.management.inputs.GetGroupArgs;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.management.PrivateLink;
- * import com.pulumi.azure.management.PrivateLinkArgs;
- * import com.pulumi.random.RandomUuid;
- * import com.pulumi.azure.management.PrivateLinkAssociation;
- * import com.pulumi.azure.management.PrivateLinkAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getClientConfig();
- * 
- *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .build());
- * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var examplePrivateLink = new PrivateLink(&#34;examplePrivateLink&#34;, PrivateLinkArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .build());
- * 
- *         var exampleRandomUuid = new RandomUuid(&#34;exampleRandomUuid&#34;);
- * 
- *         var examplePrivateLinkAssociation = new PrivateLinkAssociation(&#34;examplePrivateLinkAssociation&#34;, PrivateLinkAssociationArgs.builder()        
- *             .name(exampleRandomUuid.result())
- *             .managementGroupId(exampleAzurermManagementGroup.id())
- *             .resourceManagementPrivateLinkId(examplePrivateLink.id())
- *             .publicNetworkAccessEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.

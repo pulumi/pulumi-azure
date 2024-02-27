@@ -504,34 +504,34 @@ class BastionHost(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevnet",
-            address_spaces=["192.168.1.0/24"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=examplevnet,
+            address_spaces=[192.168.1.0/24],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="AzureBastionSubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=AzureBastionSubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.224/27"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="examplepip",
+            address_prefixes=[192.168.1.224/27])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=examplepip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_bastion_host = azure.compute.BastionHost("example",
-            name="examplebastion",
+            allocation_method=Static,
+            sku=Standard)
+        example_bastion_host = azure.compute.bastion_host.BastionHost("example",
+            name=examplebastion,
             location=example.location,
             resource_group_name=example.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            ))
+            ip_configuration={
+                name: configuration,
+                subnetId: example_subnet.id,
+                publicIpAddressId: example_public_ip.id,
+            })
         ```
 
         ## Import
@@ -586,34 +586,34 @@ class BastionHost(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevnet",
-            address_spaces=["192.168.1.0/24"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=examplevnet,
+            address_spaces=[192.168.1.0/24],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="AzureBastionSubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=AzureBastionSubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.1.224/27"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="examplepip",
+            address_prefixes=[192.168.1.224/27])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=examplepip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            sku="Standard")
-        example_bastion_host = azure.compute.BastionHost("example",
-            name="examplebastion",
+            allocation_method=Static,
+            sku=Standard)
+        example_bastion_host = azure.compute.bastion_host.BastionHost("example",
+            name=examplebastion,
             location=example.location,
             resource_group_name=example.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            ))
+            ip_configuration={
+                name: configuration,
+                subnetId: example_subnet.id,
+                publicIpAddressId: example_public_ip.id,
+            })
         ```
 
         ## Import

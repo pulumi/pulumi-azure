@@ -12,52 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Policy Assignment to a Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
-    ///     {
-    ///         Name = "production",
-    ///         ResourceGroupName = "networking",
-    ///     });
-    /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("example", new()
-    ///     {
-    ///         Name = "only-deploy-in-westeurope",
-    ///         PolicyType = "Custom",
-    ///         Mode = "All",
-    ///         DisplayName = "my-policy-definition",
-    ///         PolicyRule = @" {
-    ///     ""if"": {
-    ///       ""not"": {
-    ///         ""field"": ""location"",
-    ///         ""equals"": ""westeurope""
-    ///       }
-    ///     },
-    ///     ""then"": {
-    ///       ""effect"": ""Deny""
-    ///     }
-    ///   }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("example", new()
-    ///     {
-    ///         Name = "example-policy-assignment",
-    ///         ResourceId = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
-    ///         PolicyDefinitionId = exampleDefinition.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Resource Policy Assignments can be imported using the `resource id`, e.g.

@@ -17,78 +17,12 @@ public final class MarketplaceFunctions {
     /**
      * Uses this data source to access information about an existing Marketplace Agreement.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.marketplace.MarketplaceFunctions;
-     * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args) {
         return getAgreement(args, InvokeOptions.Empty);
     }
     /**
      * Uses this data source to access information about an existing Marketplace Agreement.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.marketplace.MarketplaceFunctions;
-     * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAgreementResult> getAgreementPlain(GetAgreementPlainArgs args) {
@@ -97,78 +31,12 @@ public final class MarketplaceFunctions {
     /**
      * Uses this data source to access information about an existing Marketplace Agreement.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.marketplace.MarketplaceFunctions;
-     * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:marketplace/getAgreement:getAgreement", TypeShape.of(GetAgreementResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an existing Marketplace Agreement.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.marketplace.MarketplaceFunctions;
-     * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
-     *             .publisher(&#34;barracudanetworks&#34;)
-     *             .offer(&#34;waf&#34;)
-     *             .plan(&#34;hourly&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAgreementResult> getAgreementPlain(GetAgreementPlainArgs args, InvokeOptions options) {

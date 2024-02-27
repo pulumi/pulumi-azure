@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cognitive.Account("example", {
+ * const exampleAccount = new azure.cognitive/account.Account("example", {
  *     name: "example-ca",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "OpenAI",
  *     skuName: "S0",
  * });
- * const exampleDeployment = new azure.cognitive.Deployment("example", {
+ * const exampleDeployment = new azure.cognitive/deployment.Deployment("example", {
  *     name: "example-cd",
  *     cognitiveAccountId: exampleAccount.id,
  *     model: {

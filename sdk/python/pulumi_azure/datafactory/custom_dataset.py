@@ -403,71 +403,71 @@ class CustomDataset(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("example",
-            name="example",
+            identity={
+                type: SystemAssigned,
+            })
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
-            name="example",
+            account_kind=BlobStorage,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_linked_custom_service = azure.datafactory.linked_custom_service.LinkedCustomService("example",
+            name=example,
             data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+            type=AzureBlobStorage,
+            type_properties_json=f{{
+          "connectionString":"{example_account.primary_connection_string}"
         }}
-        \"\"\"))
-        example_container = azure.storage.Container("example",
-            name="content",
+        )
+        example_container = azure.storage.container.Container("example",
+            name=content,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_custom_dataset = azure.datafactory.CustomDataset("example",
-            name="example",
+            container_access_type=private)
+        example_custom_dataset = azure.datafactory.custom_dataset.CustomDataset("example",
+            name=example,
             data_factory_id=example_factory.id,
-            type="Json",
-            linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
-                name=example_linked_custom_service.name,
-                parameters={
-                    "key1": "value1",
+            type=Json,
+            linked_service={
+                name: example_linked_custom_service.name,
+                parameters: {
+                    key1: value1,
                 },
-            ),
-            type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
+            },
+            type_properties_json=f{{
           "location": {{
-            "container":"{name}",
+            "container":"{example_container.name}",
             "fileName":"foo.txt",
             "folderPath": "foo/bar/",
             "type":"AzureBlobStorageLocation"
           }},
           "encodingName":"UTF-8"
         }}
-        \"\"\"),
-            description="test description",
+        ,
+            description=test description,
             annotations=[
-                "test1",
-                "test2",
-                "test3",
+                test1,
+                test2,
+                test3,
             ],
-            folder="testFolder",
+            folder=testFolder,
             parameters={
-                "foo": "test1",
-                "Bar": "Test2",
+                foo: test1,
+                Bar: Test2,
             },
             additional_properties={
-                "foo": "test1",
-                "bar": "test2",
+                foo: test1,
+                bar: test2,
             },
-            schema_json=\"\"\"{
+            schema_json={
           "type": "object",
           "properties": {
             "name": {
@@ -486,7 +486,7 @@ class CustomDataset(pulumi.CustomResource):
             }
           }
         }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -526,71 +526,71 @@ class CustomDataset(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("example",
-            name="example",
+            identity={
+                type: SystemAssigned,
+            })
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
-            name="example",
+            account_kind=BlobStorage,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_linked_custom_service = azure.datafactory.linked_custom_service.LinkedCustomService("example",
+            name=example,
             data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+            type=AzureBlobStorage,
+            type_properties_json=f{{
+          "connectionString":"{example_account.primary_connection_string}"
         }}
-        \"\"\"))
-        example_container = azure.storage.Container("example",
-            name="content",
+        )
+        example_container = azure.storage.container.Container("example",
+            name=content,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_custom_dataset = azure.datafactory.CustomDataset("example",
-            name="example",
+            container_access_type=private)
+        example_custom_dataset = azure.datafactory.custom_dataset.CustomDataset("example",
+            name=example,
             data_factory_id=example_factory.id,
-            type="Json",
-            linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
-                name=example_linked_custom_service.name,
-                parameters={
-                    "key1": "value1",
+            type=Json,
+            linked_service={
+                name: example_linked_custom_service.name,
+                parameters: {
+                    key1: value1,
                 },
-            ),
-            type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
+            },
+            type_properties_json=f{{
           "location": {{
-            "container":"{name}",
+            "container":"{example_container.name}",
             "fileName":"foo.txt",
             "folderPath": "foo/bar/",
             "type":"AzureBlobStorageLocation"
           }},
           "encodingName":"UTF-8"
         }}
-        \"\"\"),
-            description="test description",
+        ,
+            description=test description,
             annotations=[
-                "test1",
-                "test2",
-                "test3",
+                test1,
+                test2,
+                test3,
             ],
-            folder="testFolder",
+            folder=testFolder,
             parameters={
-                "foo": "test1",
-                "Bar": "Test2",
+                foo: test1,
+                Bar: Test2,
             },
             additional_properties={
-                "foo": "test1",
-                "bar": "test2",
+                foo: test1,
+                bar: test2,
             },
-            schema_json=\"\"\"{
+            schema_json={
           "type": "object",
           "properties": {
             "name": {
@@ -609,7 +609,7 @@ class CustomDataset(pulumi.CustomResource):
             }
           }
         }
-        \"\"\")
+        )
         ```
 
         ## Import

@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management User Assignment to a Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.apimanagement.getUser({
- *     userId: "my-user",
- *     apiManagementName: "example-apim",
- *     resourceGroupName: "search-service",
- * });
- * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
- *     userId: example.then(example => example.id),
- *     groupName: "example-group",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     apiManagementName: example.then(example => example.apiManagementName),
- * });
- * ```
- *
  * ## Import
  *
  * API Management Group Users can be imported using the `resource id`, e.g.

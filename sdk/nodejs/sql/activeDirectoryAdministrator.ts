@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The `azure.sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azureadAdministrator` block of the `azure.mssql.Server` resource instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     name: "mysqlserver",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     version: "12.0",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- * });
- * const exampleActiveDirectoryAdministrator = new azure.sql.ActiveDirectoryAdministrator("example", {
- *     serverName: exampleSqlServer.name,
- *     resourceGroupName: example.name,
- *     login: "sqladmin",
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- * });
- * ```
- *
  * ## Import
  *
  * A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

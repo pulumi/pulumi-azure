@@ -1321,18 +1321,18 @@ class ManagedDisk(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("example",
-            name="acctestmd",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_managed_disk = azure.compute.managed_disk.ManagedDisk("example",
+            name=acctestmd,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=1,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
         ### With Create Copy
@@ -1341,29 +1341,29 @@ class ManagedDisk(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        source = azure.compute.ManagedDisk("source",
-            name="acctestmd1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        source = azure.compute.managed_disk.ManagedDisk("source",
+            name=acctestmd1,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=1,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        copy = azure.compute.ManagedDisk("copy",
-            name="acctestmd2",
+        copy = azure.compute.managed_disk.ManagedDisk("copy",
+            name=acctestmd2,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Copy",
+            storage_account_type=Standard_LRS,
+            create_option=Copy,
             source_resource_id=source.id,
             disk_size_gb=1,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
 
@@ -1462,18 +1462,18 @@ class ManagedDisk(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("example",
-            name="acctestmd",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_managed_disk = azure.compute.managed_disk.ManagedDisk("example",
+            name=acctestmd,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=1,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
         ### With Create Copy
@@ -1482,29 +1482,29 @@ class ManagedDisk(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        source = azure.compute.ManagedDisk("source",
-            name="acctestmd1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        source = azure.compute.managed_disk.ManagedDisk("source",
+            name=acctestmd1,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=1,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        copy = azure.compute.ManagedDisk("copy",
-            name="acctestmd2",
+        copy = azure.compute.managed_disk.ManagedDisk("copy",
+            name=acctestmd2,
             location=example.location,
             resource_group_name=example.name,
-            storage_account_type="Standard_LRS",
-            create_option="Copy",
+            storage_account_type=Standard_LRS,
+            create_option=Copy,
             source_resource_id=source.id,
             disk_size_gb=1,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
 

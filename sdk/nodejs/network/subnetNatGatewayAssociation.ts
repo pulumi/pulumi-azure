@@ -13,28 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-nat-gateway-rg",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNatGateway = new azure.network.NatGateway("example", {
+ * const exampleNatGateway = new azure.network/natGateway.NatGateway("example", {
  *     name: "example-natgateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnetNatGatewayAssociation = new azure.network.SubnetNatGatewayAssociation("example", {
+ * const exampleSubnetNatGatewayAssociation = new azure.network/subnetNatGatewayAssociation.SubnetNatGatewayAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     natGatewayId: exampleNatGateway.id,
  * });

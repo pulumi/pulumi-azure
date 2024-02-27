@@ -277,40 +277,6 @@ class ProtectedVM(pulumi.CustomResource):
         """
         Manages Azure Backup for an Azure VM
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="tfex-recovery-vault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_policy_vm = azure.backup.PolicyVM("example",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ))
-        example = azure.compute.get_virtual_machine_output(name="example-vm",
-            resource_group_name=example_resource_group.name)
-        vm1 = azure.backup.ProtectedVM("vm1",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            source_vm_id=example.id,
-            backup_policy_id=example_policy_vm.id)
-        ```
-
         ## Import
 
         Recovery Services Protected VMs can be imported using the `resource id`, e.g.
@@ -342,40 +308,6 @@ class ProtectedVM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Azure Backup for an Azure VM
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="tfex-recovery-vault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_policy_vm = azure.backup.PolicyVM("example",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ))
-        example = azure.compute.get_virtual_machine_output(name="example-vm",
-            resource_group_name=example_resource_group.name)
-        vm1 = azure.backup.ProtectedVM("vm1",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
-            source_vm_id=example.id,
-            backup_policy_id=example_policy_vm.id)
-        ```
 
         ## Import
 

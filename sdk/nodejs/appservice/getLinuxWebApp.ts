@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Linux Web App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getLinuxWebApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getLinuxWebApp(args: GetLinuxWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxWebAppResult> {
 
@@ -202,19 +189,6 @@ export interface GetLinuxWebAppResult {
 }
 /**
  * Use this data source to access information about an existing Linux Web App.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.appservice.getLinuxWebApp({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getLinuxWebAppOutput(args: GetLinuxWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxWebAppResult> {
     return pulumi.output(args).apply((a: any) => getLinuxWebApp(a, opts))

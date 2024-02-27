@@ -213,22 +213,22 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mysqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_sql_server = azure.sql.sql_server.SqlServer("example",
+            name=mysqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_firewall_rule = azure.sql.FirewallRule("example",
-            name="FirewallRule1",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_firewall_rule = azure.sql.firewall_rule.FirewallRule("example",
+            name=FirewallRule1,
             resource_group_name=example.name,
             server_name=example_sql_server.name,
-            start_ip_address="10.0.17.62",
-            end_ip_address="10.0.17.62")
+            start_ip_address=10.0.17.62,
+            end_ip_address=10.0.17.62)
         ```
 
         ## Import
@@ -266,22 +266,22 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mysqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_sql_server = azure.sql.sql_server.SqlServer("example",
+            name=mysqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_firewall_rule = azure.sql.FirewallRule("example",
-            name="FirewallRule1",
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
+        example_firewall_rule = azure.sql.firewall_rule.FirewallRule("example",
+            name=FirewallRule1,
             resource_group_name=example.name,
             server_name=example_sql_server.name,
-            start_ip_address="10.0.17.62",
-            end_ip_address="10.0.17.62")
+            start_ip_address=10.0.17.62,
+            end_ip_address=10.0.17.62)
         ```
 
         ## Import

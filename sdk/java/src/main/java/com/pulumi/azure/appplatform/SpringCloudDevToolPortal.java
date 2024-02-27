@@ -21,69 +21,6 @@ import javax.annotation.Nullable;
  * 
  * Manages a Spring Cloud Dev Tool Portal.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appplatform.SpringCloudService;
- * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
- * import com.pulumi.azure.appplatform.SpringCloudDevToolPortal;
- * import com.pulumi.azure.appplatform.SpringCloudDevToolPortalArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudDevToolPortalSsoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName(&#34;E0&#34;)
- *             .build());
- * 
- *         var exampleSpringCloudDevToolPortal = new SpringCloudDevToolPortal(&#34;exampleSpringCloudDevToolPortal&#34;, SpringCloudDevToolPortalArgs.builder()        
- *             .name(&#34;default&#34;)
- *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .publicNetworkAccessEnabled(true)
- *             .sso(SpringCloudDevToolPortalSsoArgs.builder()
- *                 .clientId(&#34;example id&#34;)
- *                 .clientSecret(&#34;example secret&#34;)
- *                 .metadataUrl(String.format(&#34;https://login.microsoftonline.com/%s/v2.0/.well-known/openid-configuration&#34;, current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId())))
- *                 .scopes(                
- *                     &#34;openid&#34;,
- *                     &#34;profile&#34;,
- *                     &#34;email&#34;)
- *                 .build())
- *             .applicationAcceleratorEnabled(true)
- *             .applicationLiveViewEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.

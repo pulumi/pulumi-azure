@@ -27,37 +27,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/orchestratedVirtualMachineScaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/orchestratedVirtualMachineScaleSet"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewOrchestratedVirtualMachineScaleSet(ctx, "example", &compute.OrchestratedVirtualMachineScaleSetArgs{
-//				Name:                     pulumi.String("example-VMSS"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				PlatformFaultDomainCount: pulumi.Int(1),
-//				Zones: pulumi.StringArray{
-//					pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/orchestratedVirtualMachineScaleSet.NewOrchestratedVirtualMachineScaleSet(ctx, "example", &compute/orchestratedVirtualMachineScaleSet.OrchestratedVirtualMachineScaleSetArgs{
+// Name: "example-VMSS",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PlatformFaultDomainCount: 1,
+// Zones: []string{
+// "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

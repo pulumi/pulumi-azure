@@ -20,66 +20,6 @@ import (
 //
 // > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("examplekeyvault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 *pulumi.String(current.TenantId),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(false),
-//				SkuName:                  pulumi.String("standard"),
-//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-//					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
-//						KeyPermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//						},
-//						SecretPermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//						},
-//						StoragePermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Key Vault's can be imported using the `resource id`, e.g.

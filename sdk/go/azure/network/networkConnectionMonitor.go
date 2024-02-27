@@ -23,179 +23,182 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	compute/extension "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/extension"
+//	compute/virtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/virtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkConnectionMonitor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkConnectionMonitor"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/networkWatcher "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkWatcher"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-Watcher-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "example", &network.NetworkWatcherArgs{
-//				Name:              pulumi.String("example-Watcher"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-Vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-Subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-Nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String("example-VM"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				VmSize: pulumi.String("Standard_D2s_v3"),
-//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-//					Name:            pulumi.String("osdisk-example01"),
-//					Caching:         pulumi.String("ReadWrite"),
-//					CreateOption:    pulumi.String("FromImage"),
-//					ManagedDiskType: pulumi.String("Standard_LRS"),
-//				},
-//				OsProfile: &compute.VirtualMachineOsProfileArgs{
-//					ComputerName:  pulumi.String("hostnametest01"),
-//					AdminUsername: pulumi.String("testadmin"),
-//					AdminPassword: pulumi.String("Password1234!"),
-//				},
-//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
-//				Name:                    pulumi.String("example-VMExtension"),
-//				VirtualMachineId:        exampleVirtualMachine.ID(),
-//				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
-//				Type:                    pulumi.String("NetworkWatcherAgentLinux"),
-//				TypeHandlerVersion:      pulumi.String("1.4"),
-//				AutoUpgradeMinorVersion: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-Workspace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkConnectionMonitor(ctx, "example", &network.NetworkConnectionMonitorArgs{
-//				Name:             pulumi.String("example-Monitor"),
-//				NetworkWatcherId: exampleNetworkWatcher.ID(),
-//				Location:         exampleNetworkWatcher.Location,
-//				Endpoints: network.NetworkConnectionMonitorEndpointArray{
-//					&network.NetworkConnectionMonitorEndpointArgs{
-//						Name:             pulumi.String("source"),
-//						TargetResourceId: exampleVirtualMachine.ID(),
-//						Filter: &network.NetworkConnectionMonitorEndpointFilterArgs{
-//							Items: network.NetworkConnectionMonitorEndpointFilterItemArray{
-//								&network.NetworkConnectionMonitorEndpointFilterItemArgs{
-//									Address: exampleVirtualMachine.ID(),
-//									Type:    pulumi.String("AgentAddress"),
-//								},
-//							},
-//							Type: pulumi.String("Include"),
-//						},
-//					},
-//					&network.NetworkConnectionMonitorEndpointArgs{
-//						Name:    pulumi.String("destination"),
-//						Address: pulumi.String("mycompany.io"),
-//					},
-//				},
-//				TestConfigurations: network.NetworkConnectionMonitorTestConfigurationArray{
-//					&network.NetworkConnectionMonitorTestConfigurationArgs{
-//						Name:                   pulumi.String("tcpName"),
-//						Protocol:               pulumi.String("Tcp"),
-//						TestFrequencyInSeconds: pulumi.Int(60),
-//						TcpConfiguration: &network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs{
-//							Port: pulumi.Int(80),
-//						},
-//					},
-//				},
-//				TestGroups: network.NetworkConnectionMonitorTestGroupArray{
-//					&network.NetworkConnectionMonitorTestGroupArgs{
-//						Name: pulumi.String("exampletg"),
-//						DestinationEndpoints: pulumi.StringArray{
-//							pulumi.String("destination"),
-//						},
-//						SourceEndpoints: pulumi.StringArray{
-//							pulumi.String("source"),
-//						},
-//						TestConfigurationNames: pulumi.StringArray{
-//							pulumi.String("tcpName"),
-//						},
-//					},
-//				},
-//				Notes: pulumi.String("examplenote"),
-//				OutputWorkspaceResourceIds: pulumi.StringArray{
-//					exampleAnalyticsWorkspace.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-Watcher-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkWatcher, err := network/networkWatcher.NewNetworkWatcher(ctx, "example", &network/networkWatcher.NetworkWatcherArgs{
+// Name: "example-Watcher",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-Vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-Subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "example-Nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testconfiguration1",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualMachine, err := compute/virtualMachine.NewVirtualMachine(ctx, "example", &compute/virtualMachine.VirtualMachineArgs{
+// Name: "example-VM",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// VmSize: "Standard_D2s_v3",
+// StorageImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// StorageOsDisk: map[string]interface{}{
+// "name": "osdisk-example01",
+// "caching": "ReadWrite",
+// "createOption": "FromImage",
+// "managedDiskType": "Standard_LRS",
+// },
+// OsProfile: map[string]interface{}{
+// "computerName": "hostnametest01",
+// "adminUsername": "testadmin",
+// "adminPassword": "Password1234!",
+// },
+// OsProfileLinuxConfig: map[string]interface{}{
+// "disablePasswordAuthentication": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/extension.NewExtension(ctx, "example", &compute/extension.ExtensionArgs{
+// Name: "example-VMExtension",
+// VirtualMachineId: exampleVirtualMachine.Id,
+// Publisher: "Microsoft.Azure.NetworkWatcher",
+// Type: "NetworkWatcherAgentLinux",
+// TypeHandlerVersion: "1.4",
+// AutoUpgradeMinorVersion: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "example-Workspace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkConnectionMonitor.NewNetworkConnectionMonitor(ctx, "example", &network/networkConnectionMonitor.NetworkConnectionMonitorArgs{
+// Name: "example-Monitor",
+// NetworkWatcherId: exampleNetworkWatcher.Id,
+// Location: exampleNetworkWatcher.Location,
+// Endpoints: []interface{}{
+// map[string]interface{}{
+// "name": "source",
+// "targetResourceId": exampleVirtualMachine.Id,
+// "filter": map[string]interface{}{
+// "items": []map[string]interface{}{
+// map[string]interface{}{
+// "address": exampleVirtualMachine.Id,
+// "type": "AgentAddress",
+// },
+// },
+// "type": "Include",
+// },
+// },
+// map[string]interface{}{
+// "name": "destination",
+// "address": "mycompany.io",
+// },
+// },
+// TestConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "tcpName",
+// "protocol": "Tcp",
+// "testFrequencyInSeconds": 60,
+// "tcpConfiguration": map[string]interface{}{
+// "port": 80,
+// },
+// },
+// },
+// TestGroups: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampletg",
+// "destinationEndpoints": []string{
+// "destination",
+// },
+// "sourceEndpoints": []string{
+// "source",
+// },
+// "testConfigurationNames": []string{
+// "tcpName",
+// },
+// },
+// },
+// Notes: "examplenote",
+// OutputWorkspaceResourceIds: []interface{}{
+// exampleAnalyticsWorkspace.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

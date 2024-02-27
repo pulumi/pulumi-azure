@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFirewallPolicy = new azure.network.FirewallPolicy("example", {
+ * const exampleFirewallPolicy = new azure.network/firewallPolicy.FirewallPolicy("example", {
  *     name: "example-fwpolicy",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleFirewallPolicyRuleCollectionGroup = new azure.network.FirewallPolicyRuleCollectionGroup("example", {
+ * const exampleFirewallPolicyRuleCollectionGroup = new azure.network/firewallPolicyRuleCollectionGroup.FirewallPolicyRuleCollectionGroup("example", {
  *     name: "example-fwpolicy-rcg",
  *     firewallPolicyId: exampleFirewallPolicy.id,
  *     priority: 500,
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *             destinationAddress: "192.168.1.1",
  *             destinationPorts: "80",
  *             translatedAddress: "192.168.0.1",
- *             translatedPort: 8080,
+ *             translatedPort: "8080",
  *         }],
  *     }],
  * });

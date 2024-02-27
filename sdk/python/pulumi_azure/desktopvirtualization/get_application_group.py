@@ -152,17 +152,6 @@ def get_application_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Application Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.desktopvirtualization.get_application_group(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Application Group.
     :param str resource_group_name: The name of the Resource Group where the Application Group exists.
@@ -192,17 +181,6 @@ def get_application_group_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Use this data source to access information about an existing Application Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.desktopvirtualization.get_application_group(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Application Group.

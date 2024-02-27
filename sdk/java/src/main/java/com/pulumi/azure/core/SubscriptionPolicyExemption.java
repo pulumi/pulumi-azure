@@ -18,62 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Subscription Policy Exemption.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.policy.PolicyFunctions;
- * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
- * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
- * import com.pulumi.azure.core.SubscriptionPolicyAssignmentArgs;
- * import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentIdentityArgs;
- * import com.pulumi.azure.core.SubscriptionPolicyExemption;
- * import com.pulumi.azure.core.SubscriptionPolicyExemptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getSubscription();
- * 
- *         final var exampleGetPolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
- *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
- *             .build());
- * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyDefinitionId(exampleGetPolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
- *             .location(&#34;westus&#34;)
- *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption(&#34;exampleSubscriptionPolicyExemption&#34;, SubscriptionPolicyExemptionArgs.builder()        
- *             .name(&#34;exampleExemption&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
- *             .exemptionCategory(&#34;Mitigated&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Policy Exemptions can be imported using the `resource id`, e.g.

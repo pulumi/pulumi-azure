@@ -22,13 +22,13 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "exampleworkspace",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleStorageInsights = new Azure.LogAnalytics.StorageInsights("example", new()
+    ///     var exampleStorageInsights = new Azure.Loganalytics.StorageInsights.StorageInsights("example", new()
     ///     {
     ///         Name = "example-storageinsightconfig",
     ///         ResourceGroupName = example.Name,

@@ -15,25 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     osType: "Linux",
  *     skuName: "P1v2",
  * });
- * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ * const exampleLinuxWebApp = new azure.appservice/linuxWebApp.LinuxWebApp("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleSourceControl = new azure.appservice.SourceControl("example", {
+ * const exampleSourceControl = new azure.appservice/sourceControl.SourceControl("example", {
  *     appId: exampleLinuxWebApp.id,
  *     repoUrl: "https://github.com/Azure-Samples/python-docs-hello-world",
  *     branch: "master",

@@ -414,31 +414,31 @@ class NatPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="LoadBalancerRG",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="PublicIPForLB",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=LoadBalancerRG,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=PublicIPForLB,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="TestLoadBalancer",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=TestLoadBalancer,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_nat_pool = azure.lb.NatPool("example",
+            frontend_ip_configurations=[{
+                name: PublicIPAddress,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_nat_pool = azure.lb.nat_pool.NatPool("example",
             resource_group_name=example.name,
             loadbalancer_id=example_load_balancer.id,
-            name="SampleApplicationPool",
-            protocol="Tcp",
+            name=SampleApplicationPool,
+            protocol=Tcp,
             frontend_port_start=80,
             frontend_port_end=81,
             backend_port=8080,
-            frontend_ip_configuration_name="PublicIPAddress")
+            frontend_ip_configuration_name=PublicIPAddress)
         ```
 
         ## Import
@@ -482,31 +482,31 @@ class NatPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="LoadBalancerRG",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="PublicIPForLB",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=LoadBalancerRG,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=PublicIPForLB,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="TestLoadBalancer",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=TestLoadBalancer,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_nat_pool = azure.lb.NatPool("example",
+            frontend_ip_configurations=[{
+                name: PublicIPAddress,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_nat_pool = azure.lb.nat_pool.NatPool("example",
             resource_group_name=example.name,
             loadbalancer_id=example_load_balancer.id,
-            name="SampleApplicationPool",
-            protocol="Tcp",
+            name=SampleApplicationPool,
+            protocol=Tcp,
             frontend_port_start=80,
             frontend_port_end=81,
             backend_port=8080,
-            frontend_ip_configuration_name="PublicIPAddress")
+            frontend_ip_configuration_name=PublicIPAddress)
         ```
 
         ## Import

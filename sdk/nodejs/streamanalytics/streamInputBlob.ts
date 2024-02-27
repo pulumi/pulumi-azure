@@ -9,49 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Stream Input Blob.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const example = azure.streamanalytics.getJobOutput({
- *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplestoracc",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     name: "example",
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "private",
- * });
- * const exampleStreamInputBlob = new azure.streamanalytics.StreamInputBlob("example", {
- *     name: "blob-stream-input",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
- *     storageAccountName: exampleAccount.name,
- *     storageAccountKey: exampleAccount.primaryAccessKey,
- *     storageContainerName: exampleContainer.name,
- *     pathPattern: "some-random-pattern",
- *     dateFormat: "yyyy/MM/dd",
- *     timeFormat: "HH",
- *     serialization: {
- *         type: "Json",
- *         encoding: "UTF8",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Stream Input Blob's can be imported using the `resource id`, e.g.

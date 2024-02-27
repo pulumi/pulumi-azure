@@ -102,18 +102,6 @@ def get_registry_token(container_registry_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Container Registry token.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerservice.get_registry_token(name="exampletoken",
-        resource_group_name="example-resource-group",
-        container_registry_name="example-registry")
-    pulumi.export("scopeMapId", example.scope_map_id)
-    ```
-
 
     :param str container_registry_name: The Name of the Container Registry where the token exists.
     :param str name: The name of the Container Registry token.
@@ -142,18 +130,6 @@ def get_registry_token_output(container_registry_name: Optional[pulumi.Input[str
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryTokenResult]:
     """
     Use this data source to access information about an existing Container Registry token.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.containerservice.get_registry_token(name="exampletoken",
-        resource_group_name="example-resource-group",
-        container_registry_name="example-registry")
-    pulumi.export("scopeMapId", example.scope_map_id)
-    ```
 
 
     :param str container_registry_name: The Name of the Container Registry where the token exists.

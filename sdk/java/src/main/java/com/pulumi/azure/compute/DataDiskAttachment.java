@@ -32,19 +32,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.VirtualMachine;
- * import com.pulumi.azure.compute.VirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachine;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachineArgs;
  * import com.pulumi.azure.compute.ManagedDisk;
  * import com.pulumi.azure.compute.ManagedDiskArgs;
  * import com.pulumi.azure.compute.DataDiskAttachment;
@@ -89,11 +84,7 @@ import javax.annotation.Nullable;
  *             .name(String.format(&#34;%s-nic&#34;, prefix))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
- *                 .subnetId(internal.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
@@ -102,26 +93,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(mainNetworkInterface.id())
  *             .vmSize(&#34;Standard_F2&#34;)
- *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;myosdisk1&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(vmName)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
- *                 .build())
- *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(false)
- *                 .build())
+ *             .storageImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageOsDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfileLinuxConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        

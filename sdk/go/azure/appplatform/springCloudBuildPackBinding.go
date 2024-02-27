@@ -23,71 +23,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudBuildPackBinding "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudBuildPackBinding"
+//	appplatform/springCloudBuilder "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudBuilder"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example-springcloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "example", &appplatform.SpringCloudBuilderArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
-//					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
-//						Name: pulumi.String("mix"),
-//						BuildPackIds: pulumi.StringArray{
-//							pulumi.String("tanzu-Build Packs/java-azure"),
-//						},
-//					},
-//				},
-//				Stack: &appplatform.SpringCloudBuilderStackArgs{
-//					Id:      pulumi.String("io.Build Packs.stacks.bionic"),
-//					Version: pulumi.String("base"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "example", &appplatform.SpringCloudBuildPackBindingArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudBuilderId: exampleSpringCloudBuilder.ID(),
-//				BindingType:          pulumi.String("ApplicationInsights"),
-//				Launch: &appplatform.SpringCloudBuildPackBindingLaunchArgs{
-//					Properties: pulumi.StringMap{
-//						"abc":           pulumi.String("def"),
-//						"any-string":    pulumi.String("any-string"),
-//						"sampling-rate": pulumi.String("12.0"),
-//					},
-//					Secrets: pulumi.StringMap{
-//						"connection-string": pulumi.String("XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example-springcloud",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudBuilder, err := appplatform/springCloudBuilder.NewSpringCloudBuilder(ctx, "example", &appplatform/springCloudBuilder.SpringCloudBuilderArgs{
+// Name: "example",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// BuildPackGroups: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "mix",
+// "buildPackIds": []string{
+// "tanzu-Build Packs/java-azure",
+// },
+// },
+// },
+// Stack: map[string]interface{}{
+// "id": "io.Build Packs.stacks.bionic",
+// "version": "base",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudBuildPackBinding.NewSpringCloudBuildPackBinding(ctx, "example", &appplatform/springCloudBuildPackBinding.SpringCloudBuildPackBindingArgs{
+// Name: "example",
+// SpringCloudBuilderId: exampleSpringCloudBuilder.Id,
+// BindingType: "ApplicationInsights",
+// Launch: map[string]interface{}{
+// "properties": map[string]interface{}{
+// "abc": "def",
+// "any-string": "any-string",
+// "sampling-rate": "12.0",
+// },
+// "secrets": map[string]interface{}{
+// "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

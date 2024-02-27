@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.Powershell72Module;
  * import com.pulumi.azure.automation.Powershell72ModuleArgs;
- * import com.pulumi.azure.automation.inputs.Powershell72ModuleModuleLinkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,9 +58,7 @@ import javax.annotation.Nullable;
  *         var examplePowershell72Module = new Powershell72Module(&#34;examplePowershell72Module&#34;, Powershell72ModuleArgs.builder()        
  *             .name(&#34;xActiveDirectory&#34;)
  *             .automationAccountId(exampleAccount.id())
- *             .moduleLink(Powershell72ModuleModuleLinkArgs.builder()
- *                 .uri(&#34;https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg&#34;)
- *                 .build())
+ *             .moduleLink(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

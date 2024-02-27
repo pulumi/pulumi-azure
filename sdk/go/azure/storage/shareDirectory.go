@@ -21,51 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/share "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/share"
+//	storage/shareDirectory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/shareDirectory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("azuretest"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("azureteststorage"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:               pulumi.String("sharename"),
-//				StorageAccountName: exampleAccount.Name,
-//				Quota:              pulumi.Int(50),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewShareDirectory(ctx, "example", &storage.ShareDirectoryArgs{
-//				Name:               pulumi.String("example"),
-//				ShareName:          exampleShare.Name,
-//				StorageAccountName: exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "azuretest",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "azureteststorage",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleShare, err := storage/share.NewShare(ctx, "example", &storage/share.ShareArgs{
+// Name: "sharename",
+// StorageAccountName: exampleAccount.Name,
+// Quota: 50,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/shareDirectory.NewShareDirectory(ctx, "example", &storage/shareDirectory.ShareDirectoryArgs{
+// Name: "example",
+// ShareName: exampleShare.Name,
+// StorageAccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

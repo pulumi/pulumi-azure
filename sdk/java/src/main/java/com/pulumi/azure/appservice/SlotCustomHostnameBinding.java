@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.AppService;
  * import com.pulumi.azure.appservice.AppServiceArgs;
  * import com.pulumi.azure.appservice.Slot;
@@ -56,10 +55,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;some-app-service-plan&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        

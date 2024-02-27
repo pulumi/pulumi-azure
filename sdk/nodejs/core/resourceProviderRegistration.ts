@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceProviderRegistration("example", {name: "Microsoft.PolicyInsights"});
+ * const example = new azure.core/resourceProviderRegistration.ResourceProviderRegistration("example", {name: "Microsoft.PolicyInsights"});
  * ```
  * ### Registering A Preview Feature)
  *
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceProviderRegistration("example", {
+ * const example = new azure.core/resourceProviderRegistration.ResourceProviderRegistration("example", {
  *     name: "Microsoft.ContainerService",
  *     features: [{
  *         name: "AKS-DataPlaneAutoApprove",

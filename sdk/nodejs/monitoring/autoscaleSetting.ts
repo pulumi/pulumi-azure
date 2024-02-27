@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "autoscalingTest",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "acctvn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "acctsub",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", {
  *     name: "exampleset",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ * const exampleAutoscaleSetting = new azure.monitoring/autoscaleSetting.AutoscaleSetting("example", {
  *     name: "myAutoscaleSetting",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: 1,
+ *                     value: "1",
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: 1,
+ *                     value: "1",
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -139,23 +139,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "autoscalingTest",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "acctvn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "acctsub",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", {
  *     name: "exampleset",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -187,7 +187,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ * const exampleAutoscaleSetting = new azure.monitoring/autoscaleSetting.AutoscaleSetting("example", {
  *     name: "myAutoscaleSetting",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -214,7 +214,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: 2,
+ *                     value: "2",
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -232,7 +232,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: 2,
+ *                     value: "2",
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -262,23 +262,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "autoscalingTest",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "acctvn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "acctsub",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", {
  *     name: "exampleset",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -310,7 +310,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ * const exampleAutoscaleSetting = new azure.monitoring/autoscaleSetting.AutoscaleSetting("example", {
  *     name: "myAutoscaleSetting",
  *     enabled: true,
  *     resourceGroupName: example.name,
@@ -338,7 +338,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: 2,
+ *                     value: "2",
  *                     cooldown: "PT1M",
  *                 },
  *             },
@@ -356,7 +356,7 @@ import * as utilities from "../utilities";
  *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: 2,
+ *                     value: "2",
  *                     cooldown: "PT1M",
  *                 },
  *             },

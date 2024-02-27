@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-nat-gateway-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -50,14 +50,14 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("example", new()
+    ///     var exampleNatGateway = new Azure.Network.NatGateway.NatGateway("example", new()
     ///     {
     ///         Name = "example-natgateway",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnetNatGatewayAssociation = new Azure.Network.SubnetNatGatewayAssociation("example", new()
+    ///     var exampleSubnetNatGatewayAssociation = new Azure.Network.SubnetNatGatewayAssociation.SubnetNatGatewayAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         NatGatewayId = exampleNatGateway.Id,

@@ -27,16 +27,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.orbital.Spacecraft;
  * import com.pulumi.azure.orbital.SpacecraftArgs;
- * import com.pulumi.azure.orbital.inputs.SpacecraftLinkArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.orbital.ContactProfile;
  * import com.pulumi.azure.orbital.ContactProfileArgs;
- * import com.pulumi.azure.orbital.inputs.ContactProfileLinkArgs;
  * import com.pulumi.azure.orbital.Contact;
  * import com.pulumi.azure.orbital.ContactArgs;
  * import java.util.List;
@@ -62,18 +58,12 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(&#34;westeurope&#34;)
  *             .noradId(&#34;12345&#34;)
- *             .links(SpacecraftLinkArgs.builder()
- *                 .bandwidthMhz(100)
- *                 .centerFrequencyMhz(101)
- *                 .direction(&#34;Uplink&#34;)
- *                 .polarization(&#34;LHCP&#34;)
- *                 .name(&#34;examplename&#34;)
- *                 .build())
+ *             .links(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .twoLineElements(            
  *                 &#34;1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621&#34;,
  *                 &#34;2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495&#34;)
  *             .titleLine(&#34;AQUA&#34;)
- *             .tags(Map.of(&#34;aks-managed-cluster-name&#34;, &#34;9a57225d-a405-4d40-aa46-f13d2342abef&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
@@ -88,17 +78,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;orbitalgateway&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Orbital/orbitalGateways&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/publicIPAddresses/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/read&#34;,
- *                         &#34;Microsoft.Network/publicIPAddresses/read&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleContactProfile = new ContactProfile(&#34;exampleContactProfile&#34;, ContactProfileArgs.builder()        
@@ -107,22 +87,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .minimumVariableContactDuration(&#34;PT1M&#34;)
  *             .autoTracking(&#34;disabled&#34;)
- *             .links(ContactProfileLinkArgs.builder()
- *                 .channels(ContactProfileLinkChannelArgs.builder()
- *                     .name(&#34;channelname&#34;)
- *                     .bandwidthMhz(100)
- *                     .centerFrequencyMhz(101)
- *                     .endPoints(ContactProfileLinkChannelEndPointArgs.builder()
- *                         .endPointName(&#34;AQUA_command&#34;)
- *                         .ipAddress(&#34;10.0.1.0&#34;)
- *                         .port(&#34;49153&#34;)
- *                         .protocol(&#34;TCP&#34;)
- *                         .build())
- *                     .build())
- *                 .direction(&#34;Uplink&#34;)
- *                 .name(&#34;RHCP_UL&#34;)
- *                 .polarization(&#34;RHCP&#34;)
- *                 .build())
+ *             .links(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .networkConfigurationSubnetId(exampleSubnet.id())
  *             .build());
  * 

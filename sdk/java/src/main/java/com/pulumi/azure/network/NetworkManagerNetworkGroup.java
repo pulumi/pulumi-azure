@@ -17,64 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Network Manager Network Group.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.network.NetworkManager;
- * import com.pulumi.azure.network.NetworkManagerArgs;
- * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
- * import com.pulumi.azure.network.NetworkManagerNetworkGroup;
- * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var current = CoreFunctions.getSubscription();
- * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-network-manager&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *                 .build())
- *             .scopeAccesses(            
- *                 &#34;Connectivity&#34;,
- *                 &#34;SecurityAdmin&#34;)
- *             .description(&#34;example network manager&#34;)
- *             .build());
- * 
- *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
- *             .name(&#34;example-group&#34;)
- *             .networkManagerId(exampleNetworkManager.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Network Manager Network Group can be imported using the `resource id`, e.g.

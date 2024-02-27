@@ -350,72 +350,72 @@ class Module(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.2.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.2.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-compute",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-compute,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.0.0/24"])
-        example2 = azure.network.Subnet("example2",
-            name="example-hsmsubnet",
+            address_prefixes=[10.2.0.0/24])
+        example2 = azure.network.subnet.Subnet("example2",
+            name=example-hsmsubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="first",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+            address_prefixes=[10.2.1.0/24],
+            delegations=[{
+                name: first,
+                serviceDelegation: {
+                    name: Microsoft.HardwareSecurityModules/dedicatedHSMs,
+                    actions: [
+                        Microsoft.Network/networkinterfaces/*,
+                        Microsoft.Network/virtualNetworks/subnets/join/action,
                     ],
-                ),
-            )])
-        example3 = azure.network.Subnet("example3",
-            name="gatewaysubnet",
+                },
+            }])
+        example3 = azure.network.subnet.Subnet("example3",
+            name=gatewaysubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.255.0/26"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-pip",
+            address_prefixes=[10.2.255.0/26])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-pip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
-            name="example-vnetgateway",
+            allocation_method=Dynamic)
+        example_virtual_network_gateway = azure.network.virtual_network_gateway.VirtualNetworkGateway("example",
+            name=example-vnetgateway,
             location=example.location,
             resource_group_name=example.name,
-            type="ExpressRoute",
-            vpn_type="PolicyBased",
-            sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example3.id,
-            )])
-        example_module = azure.hsm.Module("example",
-            name="example-hsm",
+            type=ExpressRoute,
+            vpn_type=PolicyBased,
+            sku=Standard,
+            ip_configurations=[{
+                publicIpAddressId: example_public_ip.id,
+                privateIpAddressAllocation: Dynamic,
+                subnetId: example3.id,
+            }])
+        example_module = azure.hsm.module.Module("example",
+            name=example-hsm,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="payShield10K_LMK1_CPS60",
-            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.7"],
-                subnet_id=example2.id,
-            ),
-            network_profile=azure.hsm.ModuleNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.8"],
-                subnet_id=example2.id,
-            ),
-            stamp_id="stamp2",
+            sku_name=payShield10K_LMK1_CPS60,
+            management_network_profile={
+                networkInterfacePrivateIpAddresses: [10.2.1.7],
+                subnetId: example2.id,
+            },
+            network_profile={
+                networkInterfacePrivateIpAddresses: [10.2.1.8],
+                subnetId: example2.id,
+            },
+            stamp_id=stamp2,
             tags={
-                "env": "Test",
+                env: Test,
             })
         ```
 
@@ -460,72 +460,72 @@ class Module(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.2.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.2.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-compute",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-compute,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.0.0/24"])
-        example2 = azure.network.Subnet("example2",
-            name="example-hsmsubnet",
+            address_prefixes=[10.2.0.0/24])
+        example2 = azure.network.subnet.Subnet("example2",
+            name=example-hsmsubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="first",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.HardwareSecurityModules/dedicatedHSMs",
-                    actions=[
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+            address_prefixes=[10.2.1.0/24],
+            delegations=[{
+                name: first,
+                serviceDelegation: {
+                    name: Microsoft.HardwareSecurityModules/dedicatedHSMs,
+                    actions: [
+                        Microsoft.Network/networkinterfaces/*,
+                        Microsoft.Network/virtualNetworks/subnets/join/action,
                     ],
-                ),
-            )])
-        example3 = azure.network.Subnet("example3",
-            name="gatewaysubnet",
+                },
+            }])
+        example3 = azure.network.subnet.Subnet("example3",
+            name=gatewaysubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.255.0/26"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-pip",
+            address_prefixes=[10.2.255.0/26])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-pip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
-            name="example-vnetgateway",
+            allocation_method=Dynamic)
+        example_virtual_network_gateway = azure.network.virtual_network_gateway.VirtualNetworkGateway("example",
+            name=example-vnetgateway,
             location=example.location,
             resource_group_name=example.name,
-            type="ExpressRoute",
-            vpn_type="PolicyBased",
-            sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example3.id,
-            )])
-        example_module = azure.hsm.Module("example",
-            name="example-hsm",
+            type=ExpressRoute,
+            vpn_type=PolicyBased,
+            sku=Standard,
+            ip_configurations=[{
+                publicIpAddressId: example_public_ip.id,
+                privateIpAddressAllocation: Dynamic,
+                subnetId: example3.id,
+            }])
+        example_module = azure.hsm.module.Module("example",
+            name=example-hsm,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="payShield10K_LMK1_CPS60",
-            management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.7"],
-                subnet_id=example2.id,
-            ),
-            network_profile=azure.hsm.ModuleNetworkProfileArgs(
-                network_interface_private_ip_addresses=["10.2.1.8"],
-                subnet_id=example2.id,
-            ),
-            stamp_id="stamp2",
+            sku_name=payShield10K_LMK1_CPS60,
+            management_network_profile={
+                networkInterfacePrivateIpAddresses: [10.2.1.7],
+                subnetId: example2.id,
+            },
+            network_profile={
+                networkInterfacePrivateIpAddresses: [10.2.1.8],
+                subnetId: example2.id,
+            },
+            stamp_id=stamp2,
             tags={
-                "env": "Test",
+                env: Test,
             })
         ```
 

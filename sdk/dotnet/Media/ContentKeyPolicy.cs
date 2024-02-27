@@ -23,13 +23,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -38,104 +38,104 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleContentKeyPolicy = new Azure.Media.ContentKeyPolicy("example", new()
+    ///     var exampleContentKeyPolicy = new Azure.Media.ContentKeyPolicy.ContentKeyPolicy("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         PolicyOptions = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionArgs
+    ///             
     ///             {
-    ///                 Name = "fairPlay",
-    ///                 FairplayConfiguration = new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs
+    ///                 { "name", "fairPlay" },
+    ///                 { "fairplayConfiguration", 
     ///                 {
-    ///                     Ask = "bb566284cc124a21c435a92cd3c108c4",
-    ///                     Pfx = "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",
-    ///                     PfxPassword = "password",
-    ///                     RentalDurationSeconds = 2249,
-    ///                     RentalAndLeaseKeyType = "PersistentUnlimited",
-    ///                 },
-    ///                 OpenRestrictionEnabled = true,
+    ///                     { "ask", "bb566284cc124a21c435a92cd3c108c4" },
+    ///                     { "pfx", "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" },
+    ///                     { "pfxPassword", "password" },
+    ///                     { "rentalDurationSeconds", 2249 },
+    ///                     { "rentalAndLeaseKeyType", "PersistentUnlimited" },
+    ///                 } },
+    ///                 { "openRestrictionEnabled", true },
     ///             },
-    ///             new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionArgs
+    ///             
     ///             {
-    ///                 Name = "playReady",
-    ///                 PlayreadyConfigurationLicenses = new[]
+    ///                 { "name", "playReady" },
+    ///                 { "playreadyConfigurationLicenses", new[]
     ///                 {
-    ///                     new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs
+    ///                     
     ///                     {
-    ///                         AllowTestDevices = true,
-    ///                         BeginDate = "2017-10-16T18:22:53Z",
-    ///                         SecurityLevel = "SL150",
-    ///                         PlayRight = new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs
+    ///                         { "allowTestDevices", true },
+    ///                         { "beginDate", "2017-10-16T18:22:53Z" },
+    ///                         { "securityLevel", "SL150" },
+    ///                         { "playRight", 
     ///                         {
-    ///                             ScmsRestriction = 2,
-    ///                             DigitalVideoOnlyContentRestriction = false,
-    ///                             ImageConstraintForAnalogComponentVideoRestriction = false,
-    ///                             ImageConstraintForAnalogComputerMonitorRestriction = false,
-    ///                             AllowPassingVideoContentToUnknownOutput = "NotAllowed",
-    ///                             UncompressedDigitalVideoOpl = 100,
-    ///                             UncompressedDigitalAudioOpl = 100,
-    ///                             AnalogVideoOpl = 150,
-    ///                             CompressedDigitalAudioOpl = 250,
-    ///                             CompressedDigitalVideoOpl = 400,
-    ///                             ExplicitAnalogTelevisionOutputRestriction = new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs
+    ///                             { "scmsRestriction", 2 },
+    ///                             { "digitalVideoOnlyContentRestriction", false },
+    ///                             { "imageConstraintForAnalogComponentVideoRestriction", false },
+    ///                             { "imageConstraintForAnalogComputerMonitorRestriction", false },
+    ///                             { "allowPassingVideoContentToUnknownOutput", "NotAllowed" },
+    ///                             { "uncompressedDigitalVideoOpl", 100 },
+    ///                             { "uncompressedDigitalAudioOpl", 100 },
+    ///                             { "analogVideoOpl", 150 },
+    ///                             { "compressedDigitalAudioOpl", 250 },
+    ///                             { "compressedDigitalVideoOpl", 400 },
+    ///                             { "explicitAnalogTelevisionOutputRestriction", 
     ///                             {
-    ///                                 BestEffortEnforced = true,
-    ///                                 ControlBits = 3,
-    ///                             },
-    ///                         },
-    ///                         LicenseType = "Persistent",
-    ///                         ContentType = "UltraVioletDownload",
-    ///                         ContentKeyLocationFromHeaderEnabled = true,
+    ///                                 { "bestEffortEnforced", true },
+    ///                                 { "controlBits", 3 },
+    ///                             } },
+    ///                         } },
+    ///                         { "licenseType", "Persistent" },
+    ///                         { "contentType", "UltraVioletDownload" },
+    ///                         { "contentKeyLocationFromHeaderEnabled", true },
     ///                     },
-    ///                 },
-    ///                 OpenRestrictionEnabled = true,
+    ///                 } },
+    ///                 { "openRestrictionEnabled", true },
     ///             },
-    ///             new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionArgs
+    ///             
     ///             {
-    ///                 Name = "clearKey",
-    ///                 ClearKeyConfigurationEnabled = true,
-    ///                 TokenRestriction = new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionArgs
+    ///                 { "name", "clearKey" },
+    ///                 { "clearKeyConfigurationEnabled", true },
+    ///                 { "tokenRestriction", 
     ///                 {
-    ///                     Issuer = "urn:issuer",
-    ///                     Audience = "urn:audience",
-    ///                     TokenType = "Swt",
-    ///                     PrimarySymmetricTokenKey = "AAAAAAAAAAAAAAAAAAAAAA==",
-    ///                     AlternateKeys = new[]
+    ///                     { "issuer", "urn:issuer" },
+    ///                     { "audience", "urn:audience" },
+    ///                     { "tokenType", "Swt" },
+    ///                     { "primarySymmetricTokenKey", "AAAAAAAAAAAAAAAAAAAAAA==" },
+    ///                     { "alternateKeys", new[]
     ///                     {
-    ///                         new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs
+    ///                         
     ///                         {
-    ///                             RsaTokenKeyExponent = "AQAB",
-    ///                             RsaTokenKeyModulus = "AQAD",
+    ///                             { "rsaTokenKeyExponent", "AQAB" },
+    ///                             { "rsaTokenKeyModulus", "AQAD" },
     ///                         },
-    ///                         new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs
+    ///                         
     ///                         {
-    ///                             SymmetricTokenKey = "BBAAAAAAAAAAAAAAAAAAAA==",
+    ///                             { "symmetricTokenKey", "BBAAAAAAAAAAAAAAAAAAAA==" },
     ///                         },
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.Media.Inputs.ContentKeyPolicyPolicyOptionArgs
+    ///             
     ///             {
-    ///                 Name = "widevine",
-    ///                 WidevineConfigurationTemplate = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 { "name", "widevine" },
+    ///                 { "widevineConfigurationTemplate", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
     ///                     ["allowed_track_types"] = "SD_HD",
     ///                     ["content_key_specs"] = new[]
@@ -156,8 +156,8 @@ namespace Pulumi.Azure.Media
     ///                         ["can_persist"] = true,
     ///                         ["can_renew"] = false,
     ///                     },
-    ///                 }),
-    ///                 OpenRestrictionEnabled = true,
+    ///                 }) },
+    ///                 { "openRestrictionEnabled", true },
     ///             },
     ///         },
     ///     });

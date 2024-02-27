@@ -37,19 +37,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.LocalNetworkGateway;
  * import com.pulumi.azure.network.LocalNetworkGatewayArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.network.VirtualNetworkGateway;
- * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
- * import com.pulumi.azure.network.VirtualNetworkGatewayConnection;
- * import com.pulumi.azure.network.VirtualNetworkGatewayConnectionArgs;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGateway;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGatewayArgs;
+ * import com.pulumi.azure.network_virtualNetworkGatewayConnection.VirtualNetworkGatewayConnection;
+ * import com.pulumi.azure.network_virtualNetworkGatewayConnection.VirtualNetworkGatewayConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -106,11 +105,7 @@ import javax.annotation.Nullable;
  *             .activeActive(false)
  *             .enableBgp(false)
  *             .sku(&#34;Basic&#34;)
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var onpremiseVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection(&#34;onpremiseVirtualNetworkGatewayConnection&#34;, VirtualNetworkGatewayConnectionArgs.builder()        
@@ -138,17 +133,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.network.VirtualNetworkGateway;
- * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
- * import com.pulumi.azure.network.VirtualNetworkGatewayConnection;
- * import com.pulumi.azure.network.VirtualNetworkGatewayConnectionArgs;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGateway;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGatewayArgs;
+ * import com.pulumi.azure.network_virtualNetworkGatewayConnection.VirtualNetworkGatewayConnection;
+ * import com.pulumi.azure.network_virtualNetworkGatewayConnection.VirtualNetworkGatewayConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -195,11 +189,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;Vpn&#34;)
  *             .vpnType(&#34;RouteBased&#34;)
  *             .sku(&#34;Basic&#34;)
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(usPublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .subnetId(usGateway.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var europe = new ResourceGroup(&#34;europe&#34;, ResourceGroupArgs.builder()        
@@ -235,11 +225,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;Vpn&#34;)
  *             .vpnType(&#34;RouteBased&#34;)
  *             .sku(&#34;Basic&#34;)
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(europePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .subnetId(europeGateway.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var usToEurope = new VirtualNetworkGatewayConnection(&#34;usToEurope&#34;, VirtualNetworkGatewayConnectionArgs.builder()        

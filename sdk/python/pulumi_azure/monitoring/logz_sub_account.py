@@ -207,33 +207,33 @@ class LogzSubAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-logz",
-            location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-logz,
+            location=West Europe)
+        example_logz_monitor = azure.monitoring.logz_monitor.LogzMonitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
-            name="example-subaccount",
+            plan={
+                billingCycle: MONTHLY,
+                effectiveDate: 2022-06-06T00:00:00Z,
+                usageType: COMMITTED,
+            },
+            user={
+                email: user@example.com,
+                firstName: Example,
+                lastName: User,
+                phoneNumber: +12313803556,
+            })
+        example_logz_sub_account = azure.monitoring.logz_sub_account.LogzSubAccount("example",
+            name=example-subaccount,
             logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
+            user={
+                email: example_logz_monitor.user.email,
+                firstName: example_logz_monitor.user.first_name,
+                lastName: example_logz_monitor.user.last_name,
+                phoneNumber: example_logz_monitor.user.phone_number,
+            })
         ```
 
         ## Import
@@ -267,33 +267,33 @@ class LogzSubAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-logz",
-            location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-logz,
+            location=West Europe)
+        example_logz_monitor = azure.monitoring.logz_monitor.LogzMonitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
-            name="example-subaccount",
+            plan={
+                billingCycle: MONTHLY,
+                effectiveDate: 2022-06-06T00:00:00Z,
+                usageType: COMMITTED,
+            },
+            user={
+                email: user@example.com,
+                firstName: Example,
+                lastName: User,
+                phoneNumber: +12313803556,
+            })
+        example_logz_sub_account = azure.monitoring.logz_sub_account.LogzSubAccount("example",
+            name=example-subaccount,
             logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
-                email=example_logz_monitor.user.email,
-                first_name=example_logz_monitor.user.first_name,
-                last_name=example_logz_monitor.user.last_name,
-                phone_number=example_logz_monitor.user.phone_number,
-            ))
+            user={
+                email: example_logz_monitor.user.email,
+                firstName: example_logz_monitor.user.first_name,
+                lastName: example_logz_monitor.user.last_name,
+                phoneNumber: example_logz_monitor.user.phone_number,
+            })
         ```
 
         ## Import

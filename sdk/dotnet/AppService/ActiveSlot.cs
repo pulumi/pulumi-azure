@@ -27,17 +27,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server");
+    ///     var server = new Random.Index.RandomId.RandomId("server");
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example");
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example");
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example");
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example");
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example");
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example");
     /// 
-    ///     var exampleSlot = new Azure.AppService.Slot("example");
+    ///     var exampleSlot = new Azure.Appservice.Slot.Slot("example");
     /// 
-    ///     var exampleActiveSlot = new Azure.AppService.ActiveSlot("example", new()
+    ///     var exampleActiveSlot = new Azure.Appservice.ActiveSlot.ActiveSlot("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         AppServiceName = exampleAppService.Name,

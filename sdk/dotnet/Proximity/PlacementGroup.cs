@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Proximity
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlacementGroup = new Azure.Proximity.PlacementGroup("example", new()
+    ///     var examplePlacementGroup = new Azure.Proximity.PlacementGroup.PlacementGroup("example", new()
     ///     {
     ///         Name = "exampleProximityPlacementGroup",
     ///         Location = example.Location,

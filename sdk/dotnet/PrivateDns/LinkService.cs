@@ -24,13 +24,13 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         ResourceGroupName = example.Name,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         EnforcePrivateLinkServiceNetworkPolicies = true,
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example-api",
     ///         Sku = "Standard",
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer.LoadBalancer("example", new()
     ///     {
     ///         Name = "example-lb",
     ///         Sku = "Standard",
@@ -70,15 +70,15 @@ namespace Pulumi.Azure.PrivateDns
     ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
-    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = examplePublicIp.Name,
-    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 { "name", examplePublicIp.Name },
+    ///                 { "publicIpAddressId", examplePublicIp.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("example", new()
+    ///     var exampleLinkService = new Azure.Privatedns.LinkService.LinkService("example", new()
     ///     {
     ///         Name = "example-privatelink",
     ///         ResourceGroupName = example.Name,
@@ -93,25 +93,25 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///         LoadBalancerFrontendIpConfigurationIds = new[]
     ///         {
-    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
+    ///             exampleLoadBalancer.FrontendIpConfigurations[0].Id,
     ///         },
     ///         NatIpConfigurations = new[]
     ///         {
-    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "primary",
-    ///                 PrivateIpAddress = "10.5.1.17",
-    ///                 PrivateIpAddressVersion = "IPv4",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 Primary = true,
+    ///                 { "name", "primary" },
+    ///                 { "privateIpAddress", "10.5.1.17" },
+    ///                 { "privateIpAddressVersion", "IPv4" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "primary", true },
     ///             },
-    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "secondary",
-    ///                 PrivateIpAddress = "10.5.1.18",
-    ///                 PrivateIpAddressVersion = "IPv4",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 Primary = false,
+    ///                 { "name", "secondary" },
+    ///                 { "privateIpAddress", "10.5.1.18" },
+    ///                 { "privateIpAddressVersion", "IPv4" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "primary", false },
     ///             },
     ///         },
     ///     });

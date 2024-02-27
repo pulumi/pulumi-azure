@@ -38,9 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2Args;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,26 +77,7 @@ import javax.annotation.Nullable;
  *             .windowDuration(&#34;PT10M&#34;)
  *             .scopes(exampleInsights.id())
  *             .severity(4)
- *             .criterias(ScheduledQueryRulesAlertV2CriteriaArgs.builder()
- *                 .query(&#34;&#34;&#34;
- * requests
- *   | summarize CountByCountry=count() by client_CountryOrRegion
- *                 &#34;&#34;&#34;)
- *                 .timeAggregationMethod(&#34;Maximum&#34;)
- *                 .threshold(17.5)
- *                 .operator(&#34;LessThan&#34;)
- *                 .resourceIdColumn(&#34;client_CountryOrRegion&#34;)
- *                 .metricMeasureColumn(&#34;CountByCountry&#34;)
- *                 .dimensions(ScheduledQueryRulesAlertV2CriteriaDimensionArgs.builder()
- *                     .name(&#34;client_CountryOrRegion&#34;)
- *                     .operator(&#34;Exclude&#34;)
- *                     .values(&#34;123&#34;)
- *                     .build())
- *                 .failingPeriods(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs.builder()
- *                     .minimumFailingPeriodsToTriggerAlert(1)
- *                     .numberOfEvaluationPeriods(1)
- *                     .build())
- *                 .build())
+ *             .criterias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .autoMitigationEnabled(true)
  *             .workspaceAlertsStorageEnabled(false)
  *             .description(&#34;example sqr&#34;)
@@ -107,17 +85,8 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .queryTimeRangeOverride(&#34;PT1H&#34;)
  *             .skipQueryValidation(true)
- *             .action(ScheduledQueryRulesAlertV2ActionArgs.builder()
- *                 .actionGroups(exampleActionGroup.id())
- *                 .customProperties(Map.ofEntries(
- *                     Map.entry(&#34;key&#34;, &#34;value&#34;),
- *                     Map.entry(&#34;key2&#34;, &#34;value2&#34;)
- *                 ))
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;key&#34;, &#34;value&#34;),
- *                 Map.entry(&#34;key2&#34;, &#34;value2&#34;)
- *             ))
+ *             .action(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

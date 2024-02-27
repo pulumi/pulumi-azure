@@ -21,45 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	privatedns/aAAARecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/aAAARecord"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := privatedns.NewZone(ctx, "test", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("mydomain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewAAAARecord(ctx, "test", &privatedns.AAAARecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          test.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					pulumi.String("fd5d:70bc:930e:d008:0000:0000:0000:7334"),
-//					pulumi.String("fd5d:70bc:930e:d008::7335"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// test, err := privatedns/zone.NewZone(ctx, "test", &privatedns/zone.ZoneArgs{
+// Name: "mydomain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/aAAARecord.NewAAAARecord(ctx, "test", &privatedns/aAAARecord.AAAARecordArgs{
+// Name: "test",
+// ZoneName: test.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Records: []string{
+// "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+// "fd5d:70bc:930e:d008::7335",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

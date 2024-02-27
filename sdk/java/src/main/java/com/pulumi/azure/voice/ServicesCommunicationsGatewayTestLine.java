@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .voiceServicesCommunicationsGatewayId(exampleServicesCommunicationsGateway.id())
  *             .phoneNumber(&#34;123456789&#34;)
  *             .purpose(&#34;Automated&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

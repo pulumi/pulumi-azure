@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "storageaccountname",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ * const exampleBackupVault = new azure.dataprotection/backupVault.BackupVault("example", {
  *     name: "example-backup-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -34,17 +34,17 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
+ * const exampleAssignment = new azure.authorization/assignment.Assignment("example", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Backup Contributor",
- *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
+ *     principalId: exampleBackupVault.identity.principalId,
  * });
- * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("example", {
+ * const exampleBackupPolicyBlobStorage = new azure.dataprotection/backupPolicyBlobStorage.BackupPolicyBlobStorage("example", {
  *     name: "example-backup-policy",
  *     vaultId: exampleBackupVault.id,
  *     retentionDuration: "P30D",
  * });
- * const exampleBackupInstanceBlogStorage = new azure.dataprotection.BackupInstanceBlogStorage("example", {
+ * const exampleBackupInstanceBlogStorage = new azure.dataprotection/backupInstanceBlogStorage.BackupInstanceBlogStorage("example", {
  *     name: "example-backup-instance",
  *     vaultId: exampleBackupVault.id,
  *     location: example.location,

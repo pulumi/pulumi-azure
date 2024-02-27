@@ -197,25 +197,6 @@ class ServiceTrust(pulumi.CustomResource):
         """
         Manages a Active Directory Domain Service Trust.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.domainservices.get_service(name="example-ds",
-            resource_group_name="example-rg")
-        example_service_trust = azure.domainservices.ServiceTrust("example",
-            name="example-trust",
-            domain_service_id=example.id,
-            trusted_domain_fqdn="example.com",
-            trusted_domain_dns_ips=[
-                "10.1.0.3",
-                "10.1.0.4",
-            ],
-            password="Password123")
-        ```
-
         ## Import
 
         Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.
@@ -240,25 +221,6 @@ class ServiceTrust(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Active Directory Domain Service Trust.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.domainservices.get_service(name="example-ds",
-            resource_group_name="example-rg")
-        example_service_trust = azure.domainservices.ServiceTrust("example",
-            name="example-trust",
-            domain_service_id=example.id,
-            trusted_domain_fqdn="example.com",
-            trusted_domain_dns_ips=[
-                "10.1.0.3",
-                "10.1.0.4",
-            ],
-            password="Password123")
-        ```
 
         ## Import
 

@@ -62,8 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,18 +85,12 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;exampleaks1&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
- *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_D2_v2&#34;)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
- *         ctx.export(&#34;clientCertificate&#34;, exampleKubernetesCluster.kubeConfigs().applyValue(kubeConfigs -&gt; kubeConfigs[0].clientCertificate()));
+ *         ctx.export(&#34;clientCertificate&#34;, exampleKubernetesCluster.kubeConfigs()[0].clientCertificate());
  *         ctx.export(&#34;kubeConfig&#34;, exampleKubernetesCluster.kubeConfigRaw());
  *     }
  * }

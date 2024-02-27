@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Direct Line Speech integration for a Bot Channel
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.cognitive.Account("example", {
- *     name: "example-cogacct",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     kind: "SpeechServices",
- *     skuName: "S0",
- * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
- *     name: "example-bcr",
- *     location: "global",
- *     resourceGroupName: example.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelDirectLineSpeech = new azure.bot.ChannelDirectLineSpeech("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: example.name,
- *     cognitiveServiceLocation: exampleAccount.location,
- *     cognitiveServiceAccessKey: exampleAccount.primaryAccessKey,
- * });
- * ```
- *
  * ## Import
  *
  * Direct Line Speech Channels can be imported using the `resource id`, e.g.

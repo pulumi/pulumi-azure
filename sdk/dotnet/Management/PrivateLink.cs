@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePrivateLink = new Azure.Management.PrivateLink("example", new()
+    ///     var examplePrivateLink = new Azure.Management.PrivateLink.PrivateLink("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,

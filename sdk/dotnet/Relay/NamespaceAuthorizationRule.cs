@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Relay
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "example-relay",
     ///         Location = example.Location,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Relay
     ///         },
     ///     });
     /// 
-    ///     var exampleNamespaceAuthorizationRule = new Azure.Relay.NamespaceAuthorizationRule("example", new()
+    ///     var exampleNamespaceAuthorizationRule = new Azure.Relay.NamespaceAuthorizationRule.NamespaceAuthorizationRule("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,

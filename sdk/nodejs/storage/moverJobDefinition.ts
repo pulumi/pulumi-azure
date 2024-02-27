@@ -13,22 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleMover = new azure.storage.Mover("example", {
+ * const exampleMover = new azure.storage/mover.Mover("example", {
  *     name: "example-ssm",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleMoverAgent = new azure.storage.MoverAgent("example", {
+ * const exampleMoverAgent = new azure.storage/moverAgent.MoverAgent("example", {
  *     name: "example-agent",
  *     storageMoverId: exampleMover.id,
- *     arcVirtualMachineId: pulumi.interpolate`${example.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName`,
+ *     arcVirtualMachineId: `${example.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName`,
  *     arcVirtualMachineUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -36,27 +36,27 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     allowNestedItemsToBePublic: true,
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "acccontainer",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "blob",
  * });
- * const exampleMoverTargetEndpoint = new azure.storage.MoverTargetEndpoint("example", {
+ * const exampleMoverTargetEndpoint = new azure.storage/moverTargetEndpoint.MoverTargetEndpoint("example", {
  *     name: "example-smte",
  *     storageMoverId: exampleMover.id,
  *     storageAccountId: exampleAccount.id,
  *     storageContainerName: exampleContainer.name,
  * });
- * const exampleMoverSourceEndpoint = new azure.storage.MoverSourceEndpoint("example", {
+ * const exampleMoverSourceEndpoint = new azure.storage/moverSourceEndpoint.MoverSourceEndpoint("example", {
  *     name: "example-smse",
  *     storageMoverId: exampleMover.id,
  *     host: "192.168.0.1",
  * });
- * const exampleMoverProject = new azure.storage.MoverProject("example", {
+ * const exampleMoverProject = new azure.storage/moverProject.MoverProject("example", {
  *     name: "example-sp",
  *     storageMoverId: exampleMover.id,
  * });
- * const exampleMoverJobDefinition = new azure.storage.MoverJobDefinition("example", {
+ * const exampleMoverJobDefinition = new azure.storage/moverJobDefinition.MoverJobDefinition("example", {
  *     name: "example-sjd",
  *     storageMoverProjectId: exampleMoverProject.id,
  *     agentName: exampleMoverAgent.name,

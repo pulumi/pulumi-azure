@@ -221,14 +221,14 @@ class Healthbot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-healthbot",
-            location="West Europe")
-        example_healthbot = azure.bot.Healthbot("example",
-            name="example-bot",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-healthbot,
+            location=West Europe)
+        example_healthbot = azure.bot.healthbot.Healthbot("example",
+            name=example-bot,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="F0")
+            sku_name=F0)
         ```
 
         ## Import
@@ -262,14 +262,14 @@ class Healthbot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-healthbot",
-            location="West Europe")
-        example_healthbot = azure.bot.Healthbot("example",
-            name="example-bot",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-healthbot,
+            location=West Europe)
+        example_healthbot = azure.bot.healthbot.Healthbot("example",
+            name=example-bot,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="F0")
+            sku_name=F0)
         ```
 
         ## Import

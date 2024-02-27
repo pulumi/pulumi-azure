@@ -20,154 +20,17 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     var appconf = new Azure.Appconfiguration.ConfigurationStore.ConfigurationStore("appconf", new()
     ///     {
     ///         Name = "appConf1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Encryption)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
-    ///     {
-    ///         Name = "example-identity",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
-    ///     {
-    ///         Name = "exampleKVt123",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = true,
-    ///     });
-    /// 
-    ///     var server = new Azure.KeyVault.AccessPolicy("server", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = exampleUserAssignedIdentity.PrincipalId,
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Get",
-    ///             "UnwrapKey",
-    ///             "WrapKey",
-    ///         },
-    ///         SecretPermissions = new[]
-    ///         {
-    ///             "Get",
-    ///         },
-    ///     });
-    /// 
-    ///     var client = new Azure.KeyVault.AccessPolicy("client", new()
-    ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Get",
-    ///             "Create",
-    ///             "Delete",
-    ///             "List",
-    ///             "Restore",
-    ///             "Recover",
-    ///             "UnwrapKey",
-    ///             "WrapKey",
-    ///             "Purge",
-    ///             "Encrypt",
-    ///             "Decrypt",
-    ///             "Sign",
-    ///             "Verify",
-    ///             "GetRotationPolicy",
-    ///         },
-    ///         SecretPermissions = new[]
-    ///         {
-    ///             "Get",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
-    ///     {
-    ///         Name = "exampleKVkey",
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         KeyType = "RSA",
-    ///         KeySize = 2048,
-    ///         KeyOpts = new[]
-    ///         {
-    ///             "decrypt",
-    ///             "encrypt",
-    ///             "sign",
-    ///             "unwrapKey",
-    ///             "verify",
-    ///             "wrapKey",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleConfigurationStore = new Azure.AppConfiguration.ConfigurationStore("example", new()
-    ///     {
-    ///         Name = "appConf2",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "standard",
-    ///         LocalAuthEnabled = true,
-    ///         PublicNetworkAccess = "Enabled",
-    ///         PurgeProtectionEnabled = false,
-    ///         SoftDeleteRetentionDays = 1,
-    ///         Identity = new Azure.AppConfiguration.Inputs.ConfigurationStoreIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
-    ///         },
-    ///         Encryption = new Azure.AppConfiguration.Inputs.ConfigurationStoreEncryptionArgs
-    ///         {
-    ///             KeyVaultKeyIdentifier = exampleKey.Id,
-    ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
-    ///         },
-    ///         Replicas = new[]
-    ///         {
-    ///             new Azure.AppConfiguration.Inputs.ConfigurationStoreReplicaArgs
-    ///             {
-    ///                 Name = "replica1",
-    ///                 Location = "West US",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "development" },
-    ///         },
     ///     });
     /// 
     /// });

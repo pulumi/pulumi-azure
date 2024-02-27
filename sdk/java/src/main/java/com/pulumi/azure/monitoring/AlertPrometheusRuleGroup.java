@@ -36,12 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.WorkspaceArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroup;
  * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroupArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,15 +73,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;example-aks&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
- *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_DS2_v2&#34;)
- *                 .enableHostEncryption(true)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAlertPrometheusRuleGroup = new AlertPrometheusRuleGroup(&#34;exampleAlertPrometheusRuleGroup&#34;, AlertPrometheusRuleGroupArgs.builder()        
@@ -98,33 +87,9 @@ import javax.annotation.Nullable;
  *             .interval(&#34;PT1M&#34;)
  *             .scopes(exampleWorkspace.id())
  *             .rules(            
- *                 AlertPrometheusRuleGroupRuleArgs.builder()
- *                     .enabled(false)
- *                     .expression(&#34;&#34;&#34;
- * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=&#34;billing-processing&#34;}[5m])) by (job_type))
- *                     &#34;&#34;&#34;)
- *                     .record(&#34;job_type:billing_jobs_duration_seconds:99p5m&#34;)
- *                     .labels(Map.of(&#34;team&#34;, &#34;prod&#34;))
- *                     .build(),
- *                 AlertPrometheusRuleGroupRuleArgs.builder()
- *                     .alert(&#34;Billing_Processing_Very_Slow&#34;)
- *                     .enabled(true)
- *                     .expression(&#34;&#34;&#34;
- * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=&#34;billing-processing&#34;}[5m])) by (job_type))
- *                     &#34;&#34;&#34;)
- *                     .for_(&#34;PT5M&#34;)
- *                     .severity(2)
- *                     .actions(AlertPrometheusRuleGroupRuleActionArgs.builder()
- *                         .actionGroupId(exampleActionGroup.id())
- *                         .build())
- *                     .alertResolution(AlertPrometheusRuleGroupRuleAlertResolutionArgs.builder()
- *                         .autoResolved(true)
- *                         .timeToResolve(&#34;PT10M&#34;)
- *                         .build())
- *                     .annotations(Map.of(&#34;annotationName&#34;, &#34;annotationValue&#34;))
- *                     .labels(Map.of(&#34;team&#34;, &#34;prod&#34;))
- *                     .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

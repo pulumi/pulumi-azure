@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleEmailService = new azure.communication.EmailService("example", {
+ * const exampleEmailService = new azure.communication/emailService.EmailService("example", {
  *     name: "example-emailcommunicationservice",
  *     resourceGroupName: example.name,
  *     dataLocation: "United States",

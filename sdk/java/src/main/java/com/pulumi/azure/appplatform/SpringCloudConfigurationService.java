@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudConfigurationService;
  * import com.pulumi.azure.appplatform.SpringCloudConfigurationServiceArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudConfigurationServiceRepositoryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,18 +62,7 @@ import javax.annotation.Nullable;
  *         var exampleSpringCloudConfigurationService = new SpringCloudConfigurationService(&#34;exampleSpringCloudConfigurationService&#34;, SpringCloudConfigurationServiceArgs.builder()        
  *             .name(&#34;default&#34;)
  *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .repositories(SpringCloudConfigurationServiceRepositoryArgs.builder()
- *                 .name(&#34;fake&#34;)
- *                 .label(&#34;master&#34;)
- *                 .patterns(&#34;app/dev&#34;)
- *                 .uri(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)
- *                 .searchPaths(                
- *                     &#34;dir1&#34;,
- *                     &#34;dir2&#34;)
- *                 .strictHostKeyChecking(false)
- *                 .username(&#34;adminuser&#34;)
- *                 .password(&#34;H@Sh1CoR3!&#34;)
- *                 .build())
+ *             .repositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

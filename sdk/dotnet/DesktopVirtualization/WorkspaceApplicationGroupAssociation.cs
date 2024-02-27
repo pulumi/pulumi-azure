@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example-virtualdesktop",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
+    ///     var pooledbreadthfirst = new Azure.Desktopvirtualization.HostPool.HostPool("pooledbreadthfirst", new()
     ///     {
     ///         Name = "pooledbreadthfirst",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         LoadBalancerType = "BreadthFirst",
     ///     });
     /// 
-    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
+    ///     var remoteapp = new Azure.Desktopvirtualization.ApplicationGroup.ApplicationGroup("remoteapp", new()
     ///     {
     ///         Name = "remoteapp",
     ///         Location = example.Location,
@@ -46,14 +46,14 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         HostPoolId = pooledbreadthfirst.Id,
     ///     });
     /// 
-    ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
+    ///     var workspace = new Azure.Desktopvirtualization.Workspace.Workspace("workspace", new()
     ///     {
     ///         Name = "workspace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var workspaceremoteapp = new Azure.DesktopVirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp", new()
+    ///     var workspaceremoteapp = new Azure.Desktopvirtualization.WorkspaceApplicationGroupAssociation.WorkspaceApplicationGroupAssociation("workspaceremoteapp", new()
     ///     {
     ///         WorkspaceId = workspace.Id,
     ///         ApplicationGroupId = remoteapp.Id,

@@ -274,17 +274,6 @@ def get_queue(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Service Bus Queue.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.servicebus.get_queue(name="existing",
-        namespace_id="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Service Bus Queue.
     :param str namespace_id: The ID of the ServiceBus Namespace where the Service Bus Queue exists.
@@ -332,17 +321,6 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
     Use this data source to access information about an existing Service Bus Queue.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.servicebus.get_queue(name="existing",
-        namespace_id="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Service Bus Queue.

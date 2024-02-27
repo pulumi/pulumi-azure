@@ -153,25 +153,25 @@ class KubernetesClusterArgs:
                import pulumi
                import pulumi_azure as azure
                
-               example = azure.core.ResourceGroup("example",
-                   name="example",
-                   location="West Europe")
-               example_zone = azure.privatedns.Zone("example",
-                   name="privatelink.eastus2.azmk8s.io",
+               example = azure.core.resource_group.ResourceGroup("example",
+                   name=example,
+                   location=West Europe)
+               example_zone = azure.privatedns.zone.Zone("example",
+                   name=privatelink.eastus2.azmk8s.io,
                    resource_group_name=example.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-                   name="aks-example-identity",
+               example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+                   name=aks-example-identity,
                    resource_group_name=example.name,
                    location=example.location)
-               example_assignment = azure.authorization.Assignment("example",
+               example_assignment = azure.authorization.assignment.Assignment("example",
                    scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
+                   role_definition_name=Private DNS Zone Contributor,
                    principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-                   name="aksexamplewithprivatednszone1",
+               example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+                   name=aksexamplewithprivatednszone1,
                    location=example.location,
                    resource_group_name=example.name,
-                   dns_prefix="aksexamplednsprefix1",
+                   dns_prefix=aksexamplednsprefix1,
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
@@ -870,25 +870,25 @@ class KubernetesClusterArgs:
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="privatelink.eastus2.azmk8s.io",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=privatelink.eastus2.azmk8s.io,
             resource_group_name=example.name)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="aks-example-identity",
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=aks-example-identity,
             resource_group_name=example.name,
             location=example.location)
-        example_assignment = azure.authorization.Assignment("example",
+        example_assignment = azure.authorization.assignment.Assignment("example",
             scope=example_zone.id,
-            role_definition_name="Private DNS Zone Contributor",
+            role_definition_name=Private DNS Zone Contributor,
             principal_id=example_user_assigned_identity.principal_id)
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="aksexamplewithprivatednszone1",
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=aksexamplewithprivatednszone1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="aksexamplednsprefix1",
+            dns_prefix=aksexamplednsprefix1,
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id)
         ```
@@ -1241,25 +1241,25 @@ class _KubernetesClusterState:
                import pulumi
                import pulumi_azure as azure
                
-               example = azure.core.ResourceGroup("example",
-                   name="example",
-                   location="West Europe")
-               example_zone = azure.privatedns.Zone("example",
-                   name="privatelink.eastus2.azmk8s.io",
+               example = azure.core.resource_group.ResourceGroup("example",
+                   name=example,
+                   location=West Europe)
+               example_zone = azure.privatedns.zone.Zone("example",
+                   name=privatelink.eastus2.azmk8s.io,
                    resource_group_name=example.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-                   name="aks-example-identity",
+               example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+                   name=aks-example-identity,
                    resource_group_name=example.name,
                    location=example.location)
-               example_assignment = azure.authorization.Assignment("example",
+               example_assignment = azure.authorization.assignment.Assignment("example",
                    scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
+                   role_definition_name=Private DNS Zone Contributor,
                    principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-                   name="aksexamplewithprivatednszone1",
+               example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+                   name=aksexamplewithprivatednszone1,
                    location=example.location,
                    resource_group_name=example.name,
-                   dns_prefix="aksexamplednsprefix1",
+                   dns_prefix=aksexamplednsprefix1,
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
@@ -2078,25 +2078,25 @@ class _KubernetesClusterState:
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="privatelink.eastus2.azmk8s.io",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=privatelink.eastus2.azmk8s.io,
             resource_group_name=example.name)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="aks-example-identity",
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=aks-example-identity,
             resource_group_name=example.name,
             location=example.location)
-        example_assignment = azure.authorization.Assignment("example",
+        example_assignment = azure.authorization.assignment.Assignment("example",
             scope=example_zone.id,
-            role_definition_name="Private DNS Zone Contributor",
+            role_definition_name=Private DNS Zone Contributor,
             principal_id=example_user_assigned_identity.principal_id)
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="aksexamplewithprivatednszone1",
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=aksexamplewithprivatednszone1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="aksexamplednsprefix1",
+            dns_prefix=aksexamplednsprefix1,
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id)
         ```
@@ -2389,27 +2389,27 @@ class KubernetesCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example-aks1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
+            dns_prefix=exampleaks1,
+            default_node_pool={
+                name: default,
+                nodeCount: 1,
+                vmSize: Standard_D2_v2,
+            },
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
-        pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0].client_certificate)
-        pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
+        pulumi.export("clientCertificate", example_kubernetes_cluster["kubeConfigs"][0]["clientCertificate"])
+        pulumi.export("kubeConfig", example_kubernetes_cluster["kubeConfigRaw"])
         ```
 
         ## Import
@@ -2499,25 +2499,25 @@ class KubernetesCluster(pulumi.CustomResource):
                import pulumi
                import pulumi_azure as azure
                
-               example = azure.core.ResourceGroup("example",
-                   name="example",
-                   location="West Europe")
-               example_zone = azure.privatedns.Zone("example",
-                   name="privatelink.eastus2.azmk8s.io",
+               example = azure.core.resource_group.ResourceGroup("example",
+                   name=example,
+                   location=West Europe)
+               example_zone = azure.privatedns.zone.Zone("example",
+                   name=privatelink.eastus2.azmk8s.io,
                    resource_group_name=example.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-                   name="aks-example-identity",
+               example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+                   name=aks-example-identity,
                    resource_group_name=example.name,
                    location=example.location)
-               example_assignment = azure.authorization.Assignment("example",
+               example_assignment = azure.authorization.assignment.Assignment("example",
                    scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
+                   role_definition_name=Private DNS Zone Contributor,
                    principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-                   name="aksexamplewithprivatednszone1",
+               example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+                   name=aksexamplewithprivatednszone1,
                    location=example.location,
                    resource_group_name=example.name,
-                   dns_prefix="aksexamplednsprefix1",
+                   dns_prefix=aksexamplednsprefix1,
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
@@ -2566,27 +2566,27 @@ class KubernetesCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example-aks1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
+            dns_prefix=exampleaks1,
+            default_node_pool={
+                name: default,
+                nodeCount: 1,
+                vmSize: Standard_D2_v2,
+            },
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
-        pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0].client_certificate)
-        pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
+        pulumi.export("clientCertificate", example_kubernetes_cluster["kubeConfigs"][0]["clientCertificate"])
+        pulumi.export("kubeConfig", example_kubernetes_cluster["kubeConfigRaw"])
         ```
 
         ## Import
@@ -2921,25 +2921,25 @@ class KubernetesCluster(pulumi.CustomResource):
                import pulumi
                import pulumi_azure as azure
                
-               example = azure.core.ResourceGroup("example",
-                   name="example",
-                   location="West Europe")
-               example_zone = azure.privatedns.Zone("example",
-                   name="privatelink.eastus2.azmk8s.io",
+               example = azure.core.resource_group.ResourceGroup("example",
+                   name=example,
+                   location=West Europe)
+               example_zone = azure.privatedns.zone.Zone("example",
+                   name=privatelink.eastus2.azmk8s.io,
                    resource_group_name=example.name)
-               example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-                   name="aks-example-identity",
+               example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+                   name=aks-example-identity,
                    resource_group_name=example.name,
                    location=example.location)
-               example_assignment = azure.authorization.Assignment("example",
+               example_assignment = azure.authorization.assignment.Assignment("example",
                    scope=example_zone.id,
-                   role_definition_name="Private DNS Zone Contributor",
+                   role_definition_name=Private DNS Zone Contributor,
                    principal_id=example_user_assigned_identity.principal_id)
-               example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-                   name="aksexamplewithprivatednszone1",
+               example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+                   name=aksexamplewithprivatednszone1,
                    location=example.location,
                    resource_group_name=example.name,
-                   dns_prefix="aksexamplednsprefix1",
+                   dns_prefix=aksexamplednsprefix1,
                    private_cluster_enabled=True,
                    private_dns_zone_id=example_zone.id)
                ```
@@ -3487,25 +3487,25 @@ class KubernetesCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="privatelink.eastus2.azmk8s.io",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=privatelink.eastus2.azmk8s.io,
             resource_group_name=example.name)
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="aks-example-identity",
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=aks-example-identity,
             resource_group_name=example.name,
             location=example.location)
-        example_assignment = azure.authorization.Assignment("example",
+        example_assignment = azure.authorization.assignment.Assignment("example",
             scope=example_zone.id,
-            role_definition_name="Private DNS Zone Contributor",
+            role_definition_name=Private DNS Zone Contributor,
             principal_id=example_user_assigned_identity.principal_id)
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="aksexamplewithprivatednszone1",
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=aksexamplewithprivatednszone1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="aksexamplednsprefix1",
+            dns_prefix=aksexamplednsprefix1,
             private_cluster_enabled=True,
             private_dns_zone_id=example_zone.id)
         ```

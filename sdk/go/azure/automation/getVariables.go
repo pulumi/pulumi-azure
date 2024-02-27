@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to get all variables in an Automation Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := automation.LookupAccount(ctx, &automation.LookupAccountArgs{
-//				Name:              "example-account",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.GetVariables(ctx, &automation.GetVariablesArgs{
-//				AutomationAccountId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("stringVars", exampleAzurermAutomationVariableString.String)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVariables(ctx *pulumi.Context, args *GetVariablesArgs, opts ...pulumi.InvokeOption) (*GetVariablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVariablesResult

@@ -24,26 +24,26 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
-    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope("example", new()
+    ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope.EncryptionScope("example", new()
     ///     {
     ///         Name = "microsoftmanaged",
     ///         StorageAccountId = exampleAccount.Id,

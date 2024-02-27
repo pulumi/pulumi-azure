@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Connection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "resourceGroup-example",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
-    ///     {
-    ///         Name = "account-example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SkuName = "Basic",
-    ///     });
-    /// 
-    ///     var exampleConnection = new Azure.Automation.Connection("example", new()
-    ///     {
-    ///         Name = "connection-example",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
-    ///         Type = "AzureServicePrincipal",
-    ///         Values = 
-    ///         {
-    ///             { "ApplicationId", "00000000-0000-0000-0000-000000000000" },
-    ///             { "TenantId", example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId) },
-    ///             { "SubscriptionId", example.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId) },
-    ///             { "CertificateThumbprint", "sample-certificate-thumbprint" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Automation Connection can be imported using the `resource id`, e.g.

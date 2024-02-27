@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-cdn-frontdoor",
  *     location: "West Europe",
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ * const exampleFrontdoorProfile = new azure.cdn/frontdoorProfile.FrontdoorProfile("example", {
  *     name: "example-profile",
  *     resourceGroupName: example.name,
  *     skuName: "Standard_AzureFrontDoor",
  * });
- * const exampleFrontdoorRuleSet = new azure.cdn.FrontdoorRuleSet("example", {
+ * const exampleFrontdoorRuleSet = new azure.cdn/frontdoorRuleSet.FrontdoorRuleSet("example", {
  *     name: "ExampleRuleSet",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });

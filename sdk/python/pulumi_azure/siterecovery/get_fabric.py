@@ -90,17 +90,6 @@ def get_fabric(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Site Recovery Replication Fabric.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    fabric = azure.siterecovery.get_fabric(name="primary-fabric",
-        recovery_vault_name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
-    ```
-
 
     :param str name: Specifies the name of the Site Recovery Replication Fabric.
     :param str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
@@ -128,17 +117,6 @@ def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFabricResult]:
     """
     Use this data source to access information about an existing Site Recovery Replication Fabric.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    fabric = azure.siterecovery.get_fabric(name="primary-fabric",
-        recovery_vault_name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
-    ```
 
 
     :param str name: Specifies the name of the Site Recovery Replication Fabric.

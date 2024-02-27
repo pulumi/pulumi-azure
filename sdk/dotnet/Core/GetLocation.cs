@@ -13,56 +13,12 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information of a specific physical location.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Core.GetLocation.Invoke(new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("azure:core/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information of a specific physical location.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Core.GetLocation.Invoke(new()
-        ///     {
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("azure:core/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());

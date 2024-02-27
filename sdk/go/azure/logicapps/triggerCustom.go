@@ -21,33 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/triggerCustom "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/triggerCustom"
+//	logicapps/workflow "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/workflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "workflow-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkflow, err := logicapps/workflow.NewWorkflow(ctx, "example", &logicapps/workflow.WorkflowArgs{
+// Name: "workflow1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/triggerCustom.NewTriggerCustom(ctx, "example", &logicapps/triggerCustom.TriggerCustomArgs{
+// Name: "example-trigger",
+// LogicAppId: exampleWorkflow.Id,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("workflow-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "example", &logicapps.WorkflowArgs{
-//				Name:              pulumi.String("workflow1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewTriggerCustom(ctx, "example", &logicapps.TriggerCustomArgs{
-//				Name:       pulumi.String("example-trigger"),
-//				LogicAppId: exampleWorkflow.ID(),
-//				Body: pulumi.String(`{
+//	Body: `{
 //	  "recurrence": {
 //	    "frequency": "Day",
 //	    "interval": 1
@@ -55,16 +56,14 @@ import (
 //	  "type": "Recurrence"
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

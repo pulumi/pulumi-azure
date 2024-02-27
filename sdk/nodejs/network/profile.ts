@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "examplegroup",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "examplevnet",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.1.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "examplesubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleProfile = new azure.network.Profile("example", {
+ * const exampleProfile = new azure.network/profile.Profile("example", {
  *     name: "examplenetprofile",
  *     location: example.location,
  *     resourceGroupName: example.name,

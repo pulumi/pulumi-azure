@@ -221,15 +221,15 @@ class FrontdoorProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-cdn-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-cdn-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor",
+            sku_name=Standard_AzureFrontDoor,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -264,15 +264,15 @@ class FrontdoorProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-cdn-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-cdn-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor",
+            sku_name=Standard_AzureFrontDoor,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

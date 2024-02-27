@@ -12,54 +12,6 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Mongo Collection within a Cosmos DB Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
-    ///     {
-    ///         Name = "tfex-cosmosdb-account",
-    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///     });
-    /// 
-    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("example", new()
-    ///     {
-    ///         Name = "tfex-cosmos-mongo-db",
-    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
-    ///     });
-    /// 
-    ///     var exampleMongoCollection = new Azure.CosmosDB.MongoCollection("example", new()
-    ///     {
-    ///         Name = "tfex-cosmos-mongo-db",
-    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
-    ///         DatabaseName = exampleMongoDatabase.Name,
-    ///         DefaultTtlSeconds = 777,
-    ///         ShardKey = "uniqueKey",
-    ///         Throughput = 400,
-    ///         Indices = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.MongoCollectionIndexArgs
-    ///             {
-    ///                 Keys = new[]
-    ///                 {
-    ///                     "_id",
-    ///                 },
-    ///                 Unique = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// CosmosDB Mongo Collection can be imported using the `resource id`, e.g.

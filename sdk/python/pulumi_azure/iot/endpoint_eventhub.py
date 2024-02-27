@@ -314,43 +314,43 @@ class EndpointEventhub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="exampleEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=exampleEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Basic")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="exampleEventHub",
+            sku=Basic)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=exampleEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
-            name="exampleRule",
+        example_authorization_rule = azure.eventhub.authorization_rule.AuthorizationRule("example",
+            name=exampleRule,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name,
             listen=False,
             send=True,
             manage=False)
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=exampleIothub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
+            sku={
+                name: B1,
+                capacity: 1,
+            },
             tags={
-                "purpose": "example",
+                purpose: example,
             })
-        example_endpoint_eventhub = azure.iot.EndpointEventhub("example",
+        example_endpoint_eventhub = azure.iot.endpoint_eventhub.EndpointEventhub("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
-            name="example",
+            name=example,
             connection_string=example_authorization_rule.primary_connection_string)
         ```
 
@@ -392,43 +392,43 @@ class EndpointEventhub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="exampleEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=exampleEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Basic")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="exampleEventHub",
+            sku=Basic)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=exampleEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
-            name="exampleRule",
+        example_authorization_rule = azure.eventhub.authorization_rule.AuthorizationRule("example",
+            name=exampleRule,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name,
             listen=False,
             send=True,
             manage=False)
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=exampleIothub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ),
+            sku={
+                name: B1,
+                capacity: 1,
+            },
             tags={
-                "purpose": "example",
+                purpose: example,
             })
-        example_endpoint_eventhub = azure.iot.EndpointEventhub("example",
+        example_endpoint_eventhub = azure.iot.endpoint_eventhub.EndpointEventhub("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
-            name="example",
+            name=example,
             connection_string=example_authorization_rule.primary_connection_string)
         ```
 

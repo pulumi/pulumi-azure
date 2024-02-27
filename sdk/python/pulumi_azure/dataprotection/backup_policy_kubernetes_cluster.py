@@ -265,6 +265,47 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
         """
         Manages a Backup Policy to back up Kubernetes Cluster.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
+            resource_group_name=example.name,
+            location=example.location,
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_kubernetes_cluster = azure.dataprotection.backup_policy_kubernetes_cluster.BackupPolicyKubernetesCluster("example",
+            name=example-backup-policy,
+            resource_group_name=example.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=[R/2021-05-23T02:30:00+00:00/P1W],
+            time_zone=India Standard Time,
+            default_retention_duration=P4M,
+            retention_rules=[{
+                name: Daily,
+                priority: 25,
+                lifeCycles: [{
+                    duration: P84D,
+                    dataStoreType: OperationalStore,
+                }],
+                criteria: {
+                    absoluteCriteria: FirstOfDay,
+                },
+            }],
+            default_retention_rule={
+                lifeCycles: [{
+                    duration: P7D,
+                    dataStoreType: OperationalStore,
+                }],
+            })
+        ```
+
         ## Import
 
         Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.
@@ -291,6 +332,47 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy to back up Kubernetes Cluster.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
+            resource_group_name=example.name,
+            location=example.location,
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_kubernetes_cluster = azure.dataprotection.backup_policy_kubernetes_cluster.BackupPolicyKubernetesCluster("example",
+            name=example-backup-policy,
+            resource_group_name=example.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=[R/2021-05-23T02:30:00+00:00/P1W],
+            time_zone=India Standard Time,
+            default_retention_duration=P4M,
+            retention_rules=[{
+                name: Daily,
+                priority: 25,
+                lifeCycles: [{
+                    duration: P84D,
+                    dataStoreType: OperationalStore,
+                }],
+                criteria: {
+                    absoluteCriteria: FirstOfDay,
+                },
+            }],
+            default_retention_rule={
+                lifeCycles: [{
+                    duration: P7D,
+                    dataStoreType: OperationalStore,
+                }],
+            })
+        ```
 
         ## Import
 

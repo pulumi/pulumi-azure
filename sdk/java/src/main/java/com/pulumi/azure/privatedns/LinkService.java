@@ -32,18 +32,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.lb.LoadBalancer;
  * import com.pulumi.azure.lb.LoadBalancerArgs;
- * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
  * import com.pulumi.azure.privatedns.LinkService;
  * import com.pulumi.azure.privatedns.LinkServiceArgs;
- * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,10 +88,7 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
- *                 .name(examplePublicIp.name())
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .frontendIpConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
@@ -102,22 +97,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .autoApprovalSubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .visibilitySubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations()[0].id())
  *             .natIpConfigurations(            
- *                 LinkServiceNatIpConfigurationArgs.builder()
- *                     .name(&#34;primary&#34;)
- *                     .privateIpAddress(&#34;10.5.1.17&#34;)
- *                     .privateIpAddressVersion(&#34;IPv4&#34;)
- *                     .subnetId(exampleSubnet.id())
- *                     .primary(true)
- *                     .build(),
- *                 LinkServiceNatIpConfigurationArgs.builder()
- *                     .name(&#34;secondary&#34;)
- *                     .privateIpAddress(&#34;10.5.1.18&#34;)
- *                     .privateIpAddressVersion(&#34;IPv4&#34;)
- *                     .subnetId(exampleSubnet.id())
- *                     .primary(false)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

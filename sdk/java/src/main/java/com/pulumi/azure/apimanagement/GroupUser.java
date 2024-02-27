@@ -16,47 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Management User Assignment to a Group.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
- * import com.pulumi.azure.apimanagement.GroupUser;
- * import com.pulumi.azure.apimanagement.GroupUserArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
- *             .userId(&#34;my-user&#34;)
- *             .apiManagementName(&#34;example-apim&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
- *             .build());
- * 
- *         var exampleGroupUser = new GroupUser(&#34;exampleGroupUser&#34;, GroupUserArgs.builder()        
- *             .userId(example.applyValue(getUserResult -&gt; getUserResult.id()))
- *             .groupName(&#34;example-group&#34;)
- *             .resourceGroupName(example.applyValue(getUserResult -&gt; getUserResult.resourceGroupName()))
- *             .apiManagementName(example.applyValue(getUserResult -&gt; getUserResult.apiManagementName()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management Group Users can be imported using the `resource id`, e.g.

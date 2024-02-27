@@ -12,6 +12,68 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Tag Description within an API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
+    ///     {
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApi = new Azure.Apimanagement.Api.Api("example", new()
+    ///     {
+    ///         Name = "example-api",
+    ///         ResourceGroupName = example.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Revision = "1",
+    ///         DisplayName = "Example API",
+    ///         Path = "example",
+    ///         Protocols = new[]
+    ///         {
+    ///             "https",
+    ///         },
+    ///         Import = 
+    ///         {
+    ///             { "contentFormat", "swagger-link-json" },
+    ///             { "contentValue", "http://conferenceapi.azurewebsites.net/?format=json" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTag = new Azure.Apimanagement.Tag.Tag("example", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         Name = "example-Tag",
+    ///     });
+    /// 
+    ///     var exampleApiTagDescription = new Azure.Apimanagement.ApiTagDescription.ApiTagDescription("example", new()
+    ///     {
+    ///         ApiTagId = exampleTag.Id,
+    ///         Description = "This is an example description",
+    ///         ExternalDocsUrl = "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+    ///         ExternalDocsDescription = "This is an example external docs description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// API Management API Schema's can be imported using the `resource id`, e.g.

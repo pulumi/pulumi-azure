@@ -23,74 +23,12 @@ public final class ContainerappFunctions {
     /**
      * Use this data source to access information about an existing Container App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args) {
         return getApp(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args) {
@@ -99,74 +37,12 @@ public final class ContainerappFunctions {
     /**
      * Use this data source to access information about an existing Container App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
-     *             .name(&#34;example-app&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
@@ -175,74 +51,12 @@ public final class ContainerappFunctions {
     /**
      * Use this data source to access information about an existing Container App Environment.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
         return getEnvironment(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container App Environment.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
@@ -251,74 +65,12 @@ public final class ContainerappFunctions {
     /**
      * Use this data source to access information about an existing Container App Environment.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container App Environment.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -327,86 +79,12 @@ public final class ContainerappFunctions {
     /**
      * Use this data source to access information about an existing Container App Environment Certificate.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args) {
         return getEnvironmentCertificate(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container App Environment Certificate.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args) {
@@ -415,86 +93,12 @@ public final class ContainerappFunctions {
     /**
      * Use this data source to access information about an existing Container App Environment Certificate.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", TypeShape.of(GetEnvironmentCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container App Environment Certificate.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerapp.ContainerappFunctions;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
-     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .name(&#34;example-environment&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
-     *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args, InvokeOptions options) {

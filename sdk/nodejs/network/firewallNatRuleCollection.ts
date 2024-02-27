@@ -15,30 +15,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "testvnet",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "AzureFirewallSubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "testpip",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const exampleFirewall = new azure.network.Firewall("example", {
+ * const exampleFirewall = new azure.network/firewall.Firewall("example", {
  *     name: "testfirewall",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleFirewallNatRuleCollection = new azure.network.FirewallNatRuleCollection("example", {
+ * const exampleFirewallNatRuleCollection = new azure.network/firewallNatRuleCollection.FirewallNatRuleCollection("example", {
  *     name: "testcollection",
  *     azureFirewallName: exampleFirewall.name,
  *     resourceGroupName: example.name,
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *         sourceAddresses: ["10.0.0.0/16"],
  *         destinationPorts: ["53"],
  *         destinationAddresses: [examplePublicIp.ipAddress],
- *         translatedPort: "53",
+ *         translatedPort: 53,
  *         translatedAddress: "8.8.8.8",
  *         protocols: [
  *             "TCP",

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Policy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policy = new Azure.Policy.Definition("policy", new()
+    ///     var policy = new Azure.Policy.Definition.Definition("policy", new()
     ///     {
     ///         Name = "accTestPolicy",
     ///         PolicyType = "Custom",

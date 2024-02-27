@@ -618,30 +618,31 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-uai",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example-uai,
             location=example.location,
             resource_group_name=example.name)
-        example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("example",
-            name="example-rdsac",
+        example_resource_deployment_script_azure_cli = azure.core.resource_deployment_script_azure_cli.ResourceDeploymentScriptAzureCli("example",
+            name=example-rdsac,
             resource_group_name=example.name,
-            location="West Europe",
-            version="2.40.0",
-            retention_interval="P1D",
-            command_line="'foo' 'bar'",
-            cleanup_preference="OnSuccess",
-            force_update_tag="1",
-            timeout="PT30M",
-            script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
-            identity=azure.core.ResourceDeploymentScriptAzureCliIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            location=West Europe,
+            version=2.40.0,
+            retention_interval=P1D,
+            command_line='foo' 'bar',
+            cleanup_preference=OnSuccess,
+            force_update_tag=1,
+            timeout=PT30M,
+            script_content=            echo "{\\"name\\":{\\"displayName\\":\\"$1 $2\\"}}" > $AZ_SCRIPTS_OUTPUT_PATH
+        ,
+            identity={
+                type: UserAssigned,
+                identityIds: [example_user_assigned_identity.id],
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -688,30 +689,31 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-uai",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example-uai,
             location=example.location,
             resource_group_name=example.name)
-        example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("example",
-            name="example-rdsac",
+        example_resource_deployment_script_azure_cli = azure.core.resource_deployment_script_azure_cli.ResourceDeploymentScriptAzureCli("example",
+            name=example-rdsac,
             resource_group_name=example.name,
-            location="West Europe",
-            version="2.40.0",
-            retention_interval="P1D",
-            command_line="'foo' 'bar'",
-            cleanup_preference="OnSuccess",
-            force_update_tag="1",
-            timeout="PT30M",
-            script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
-            identity=azure.core.ResourceDeploymentScriptAzureCliIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            location=West Europe,
+            version=2.40.0,
+            retention_interval=P1D,
+            command_line='foo' 'bar',
+            cleanup_preference=OnSuccess,
+            force_update_tag=1,
+            timeout=PT30M,
+            script_content=            echo "{\\"name\\":{\\"displayName\\":\\"$1 $2\\"}}" > $AZ_SCRIPTS_OUTPUT_PATH
+        ,
+            identity={
+                type: UserAssigned,
+                identityIds: [example_user_assigned_identity.id],
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

@@ -109,16 +109,16 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_accelerator = azure.appplatform.spring_cloud_accelerator.SpringCloudAccelerator("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
         ```
 
@@ -152,16 +152,16 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_accelerator = azure.appplatform.spring_cloud_accelerator.SpringCloudAccelerator("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
         ```
 

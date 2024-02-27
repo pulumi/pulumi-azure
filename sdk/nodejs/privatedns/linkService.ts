@@ -17,31 +17,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.5.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.1.0/24"],
  *     enforcePrivateLinkServiceNetworkPolicies: true,
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-api",
  *     sku: "Standard",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ * const exampleLoadBalancer = new azure.lb/loadBalancer.LoadBalancer("example", {
  *     name: "example-lb",
  *     sku: "Standard",
  *     location: example.location,
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleLinkService = new azure.privatedns.LinkService("example", {
+ * const exampleLinkService = new azure.privatedns/linkService.LinkService("example", {
  *     name: "example-privatelink",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
  *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
- *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations[0].id],
  *     natIpConfigurations: [
  *         {
  *             name: "primary",

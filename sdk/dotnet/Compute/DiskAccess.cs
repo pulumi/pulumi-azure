@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Compute.DiskAccess("example", new()
+    ///     var example = new Azure.Compute.DiskAccess.DiskAccess("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example",

@@ -394,35 +394,6 @@ class ApiOperation(pulumi.CustomResource):
         """
         Manages an API Operation within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
-        example_api_operation = azure.apimanagement.ApiOperation("example",
-            operation_id="user-delete",
-            api_name=example.name,
-            api_management_name=example.api_management_name,
-            resource_group_name=example.resource_group_name,
-            display_name="Delete User Operation",
-            method="DELETE",
-            url_template="/users/{id}/delete",
-            description="This can only be done by the logged in user.",
-            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArgs(
-                name="id",
-                type="number",
-                required=True,
-            )],
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
-                status_code=200,
-            )])
-        ```
-
         ## Import
 
         API Management API Operation's can be imported using the `resource id`, e.g.
@@ -453,35 +424,6 @@ class ApiOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Operation within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_api(name="search-api",
-            api_management_name="search-api-management",
-            resource_group_name="search-service",
-            revision="2")
-        example_api_operation = azure.apimanagement.ApiOperation("example",
-            operation_id="user-delete",
-            api_name=example.name,
-            api_management_name=example.api_management_name,
-            resource_group_name=example.resource_group_name,
-            display_name="Delete User Operation",
-            method="DELETE",
-            url_template="/users/{id}/delete",
-            description="This can only be done by the logged in user.",
-            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArgs(
-                name="id",
-                type="number",
-                required=True,
-            )],
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
-                status_code=200,
-            )])
-        ```
 
         ## Import
 

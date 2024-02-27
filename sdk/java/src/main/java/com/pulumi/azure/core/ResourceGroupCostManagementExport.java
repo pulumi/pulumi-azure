@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.core.ResourceGroupCostManagementExport;
  * import com.pulumi.azure.core.ResourceGroupCostManagementExportArgs;
- * import com.pulumi.azure.core.inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs;
- * import com.pulumi.azure.core.inputs.ResourceGroupCostManagementExportExportDataOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,14 +72,8 @@ import javax.annotation.Nullable;
  *             .recurrenceType(&#34;Monthly&#34;)
  *             .recurrencePeriodStartDate(&#34;2020-08-18T00:00:00Z&#34;)
  *             .recurrencePeriodEndDate(&#34;2020-09-18T00:00:00Z&#34;)
- *             .exportDataStorageLocation(ResourceGroupCostManagementExportExportDataStorageLocationArgs.builder()
- *                 .containerId(exampleContainer.resourceManagerId())
- *                 .rootFolderPath(&#34;/root/updated&#34;)
- *                 .build())
- *             .exportDataOptions(ResourceGroupCostManagementExportExportDataOptionsArgs.builder()
- *                 .type(&#34;Usage&#34;)
- *                 .timeFrame(&#34;WeekToDate&#34;)
- *                 .build())
+ *             .exportDataStorageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .exportDataOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

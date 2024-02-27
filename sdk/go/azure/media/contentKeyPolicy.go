@@ -23,146 +23,145 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/contentKeyPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/contentKeyPolicy"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"allowed_track_types": "SD_HD",
-//				"content_key_specs": []map[string]interface{}{
-//					map[string]interface{}{
-//						"track_type":     "SD",
-//						"security_level": 1,
-//						"required_output_protection": map[string]interface{}{
-//							"hdcp": "HDCP_V2",
-//						},
-//					},
-//				},
-//				"policy_overrides": map[string]interface{}{
-//					"can_play":    true,
-//					"can_persist": true,
-//					"can_renew":   false,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = media.NewContentKeyPolicy(ctx, "example", &media.ContentKeyPolicyArgs{
-//				Name:                     pulumi.String("example"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				PolicyOptions: media.ContentKeyPolicyPolicyOptionArray{
-//					&media.ContentKeyPolicyPolicyOptionArgs{
-//						Name: pulumi.String("fairPlay"),
-//						FairplayConfiguration: &media.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{
-//							Ask:                   pulumi.String("bb566284cc124a21c435a92cd3c108c4"),
-//							Pfx:                   pulumi.String("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"),
-//							PfxPassword:           pulumi.String("password"),
-//							RentalDurationSeconds: pulumi.Int(2249),
-//							RentalAndLeaseKeyType: pulumi.String("PersistentUnlimited"),
-//						},
-//						OpenRestrictionEnabled: pulumi.Bool(true),
-//					},
-//					&media.ContentKeyPolicyPolicyOptionArgs{
-//						Name: pulumi.String("playReady"),
-//						PlayreadyConfigurationLicenses: media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray{
-//							&media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{
-//								AllowTestDevices: pulumi.Bool(true),
-//								BeginDate:        pulumi.String("2017-10-16T18:22:53Z"),
-//								SecurityLevel:    pulumi.String("SL150"),
-//								PlayRight: &media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{
-//									ScmsRestriction:                                    pulumi.Int(2),
-//									DigitalVideoOnlyContentRestriction:                 pulumi.Bool(false),
-//									ImageConstraintForAnalogComponentVideoRestriction:  pulumi.Bool(false),
-//									ImageConstraintForAnalogComputerMonitorRestriction: pulumi.Bool(false),
-//									AllowPassingVideoContentToUnknownOutput:            pulumi.String("NotAllowed"),
-//									UncompressedDigitalVideoOpl:                        pulumi.Int(100),
-//									UncompressedDigitalAudioOpl:                        pulumi.Int(100),
-//									AnalogVideoOpl:                                     pulumi.Int(150),
-//									CompressedDigitalAudioOpl:                          pulumi.Int(250),
-//									CompressedDigitalVideoOpl:                          pulumi.Int(400),
-//									ExplicitAnalogTelevisionOutputRestriction: &media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs{
-//										BestEffortEnforced: pulumi.Bool(true),
-//										ControlBits:        pulumi.Int(3),
-//									},
-//								},
-//								LicenseType:                         pulumi.String("Persistent"),
-//								ContentType:                         pulumi.String("UltraVioletDownload"),
-//								ContentKeyLocationFromHeaderEnabled: pulumi.Bool(true),
-//							},
-//						},
-//						OpenRestrictionEnabled: pulumi.Bool(true),
-//					},
-//					&media.ContentKeyPolicyPolicyOptionArgs{
-//						Name:                         pulumi.String("clearKey"),
-//						ClearKeyConfigurationEnabled: pulumi.Bool(true),
-//						TokenRestriction: &media.ContentKeyPolicyPolicyOptionTokenRestrictionArgs{
-//							Issuer:                   pulumi.String("urn:issuer"),
-//							Audience:                 pulumi.String("urn:audience"),
-//							TokenType:                pulumi.String("Swt"),
-//							PrimarySymmetricTokenKey: pulumi.String("AAAAAAAAAAAAAAAAAAAAAA=="),
-//							AlternateKeys: media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArray{
-//								&media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs{
-//									RsaTokenKeyExponent: pulumi.String("AQAB"),
-//									RsaTokenKeyModulus:  pulumi.String("AQAD"),
-//								},
-//								&media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs{
-//									SymmetricTokenKey: pulumi.String("BBAAAAAAAAAAAAAAAAAAAA=="),
-//								},
-//							},
-//						},
-//					},
-//					&media.ContentKeyPolicyPolicyOptionArgs{
-//						Name:                          pulumi.String("widevine"),
-//						WidevineConfigurationTemplate: pulumi.String(json0),
-//						OpenRestrictionEnabled:        pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/contentKeyPolicy.NewContentKeyPolicy(ctx, "example", &media/contentKeyPolicy.ContentKeyPolicyArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// PolicyOptions: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "allowed_track_types": "SD_HD",
+// "content_key_specs": []map[string]interface{}{
+// map[string]interface{}{
+// "track_type": "SD",
+// "security_level": 1,
+// "required_output_protection": map[string]interface{}{
+// "hdcp": "HDCP_V2",
+// },
+// },
+// },
+// "policy_overrides": map[string]interface{}{
+// "can_play": true,
+// "can_persist": true,
+// "can_renew": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// []interface{}{
+// map[string]interface{}{
+// "name": "fairPlay",
+// "fairplayConfiguration": map[string]interface{}{
+// "ask": "bb566284cc124a21c435a92cd3c108c4",
+// "pfx": "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",
+// "pfxPassword": "password",
+// "rentalDurationSeconds": 2249,
+// "rentalAndLeaseKeyType": "PersistentUnlimited",
+// },
+// "openRestrictionEnabled": true,
+// },
+// map[string]interface{}{
+// "name": "playReady",
+// "playreadyConfigurationLicenses": []map[string]interface{}{
+// map[string]interface{}{
+// "allowTestDevices": true,
+// "beginDate": "2017-10-16T18:22:53Z",
+// "securityLevel": "SL150",
+// "playRight": map[string]interface{}{
+// "scmsRestriction": 2,
+// "digitalVideoOnlyContentRestriction": false,
+// "imageConstraintForAnalogComponentVideoRestriction": false,
+// "imageConstraintForAnalogComputerMonitorRestriction": false,
+// "allowPassingVideoContentToUnknownOutput": "NotAllowed",
+// "uncompressedDigitalVideoOpl": 100,
+// "uncompressedDigitalAudioOpl": 100,
+// "analogVideoOpl": 150,
+// "compressedDigitalAudioOpl": 250,
+// "compressedDigitalVideoOpl": 400,
+// "explicitAnalogTelevisionOutputRestriction": map[string]interface{}{
+// "bestEffortEnforced": true,
+// "controlBits": 3,
+// },
+// },
+// "licenseType": "Persistent",
+// "contentType": "UltraVioletDownload",
+// "contentKeyLocationFromHeaderEnabled": true,
+// },
+// },
+// "openRestrictionEnabled": true,
+// },
+// map[string]interface{}{
+// "name": "clearKey",
+// "clearKeyConfigurationEnabled": true,
+// "tokenRestriction": map[string]interface{}{
+// "issuer": "urn:issuer",
+// "audience": "urn:audience",
+// "tokenType": "Swt",
+// "primarySymmetricTokenKey": "AAAAAAAAAAAAAAAAAAAAAA==",
+// "alternateKeys": []interface{}{
+// map[string]interface{}{
+// "rsaTokenKeyExponent": "AQAB",
+// "rsaTokenKeyModulus": "AQAD",
+// },
+// map[string]interface{}{
+// "symmetricTokenKey": "BBAAAAAAAAAAAAAAAAAAAA==",
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "widevine",
+// "widevineConfigurationTemplate": json0,
+// "openRestrictionEnabled": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

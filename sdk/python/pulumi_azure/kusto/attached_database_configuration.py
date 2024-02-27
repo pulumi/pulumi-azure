@@ -320,50 +320,50 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-kusto-rg",
-            location="West Europe")
-        follower_cluster = azure.kusto.Cluster("follower_cluster",
-            name="cluster1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-kusto-rg,
+            location=West Europe)
+        follower_cluster = azure.kusto.cluster.Cluster("follower_cluster",
+            name=cluster1,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_cluster = azure.kusto.Cluster("followed_cluster",
-            name="cluster2",
+            sku={
+                name: Dev(No SLA)_Standard_D11_v2,
+                capacity: 1,
+            })
+        followed_cluster = azure.kusto.cluster.Cluster("followed_cluster",
+            name=cluster2,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_database = azure.kusto.Database("followed_database",
-            name="my-followed-database",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_name=follower_cluster.name)
-        example_database = azure.kusto.Database("example",
-            name="example",
+            sku={
+                name: Dev(No SLA)_Standard_D11_v2,
+                capacity: 1,
+            })
+        followed_database = azure.kusto.database.Database("followed_database",
+            name=my-followed-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=follower_cluster.name)
-        example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("example",
-            name="configuration1",
+        example_database = azure.kusto.database.Database("example",
+            name=example,
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=follower_cluster.name)
+        example_attached_database_configuration = azure.kusto.attached_database_configuration.AttachedDatabaseConfiguration("example",
+            name=configuration1,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=follower_cluster.name,
             cluster_resource_id=followed_cluster.id,
             database_name=example_database.name,
-            sharing=azure.kusto.AttachedDatabaseConfigurationSharingArgs(
-                external_tables_to_excludes=["ExternalTable2"],
-                external_tables_to_includes=["ExternalTable1"],
-                materialized_views_to_excludes=["MaterializedViewTable2"],
-                materialized_views_to_includes=["MaterializedViewTable1"],
-                tables_to_excludes=["Table2"],
-                tables_to_includes=["Table1"],
-            ))
+            sharing={
+                externalTablesToExcludes: [ExternalTable2],
+                externalTablesToIncludes: [ExternalTable1],
+                materializedViewsToExcludes: [MaterializedViewTable2],
+                materializedViewsToIncludes: [MaterializedViewTable1],
+                tablesToExcludes: [Table2],
+                tablesToIncludes: [Table1],
+            })
         ```
 
         ## Import
@@ -400,50 +400,50 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-kusto-rg",
-            location="West Europe")
-        follower_cluster = azure.kusto.Cluster("follower_cluster",
-            name="cluster1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-kusto-rg,
+            location=West Europe)
+        follower_cluster = azure.kusto.cluster.Cluster("follower_cluster",
+            name=cluster1,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_cluster = azure.kusto.Cluster("followed_cluster",
-            name="cluster2",
+            sku={
+                name: Dev(No SLA)_Standard_D11_v2,
+                capacity: 1,
+            })
+        followed_cluster = azure.kusto.cluster.Cluster("followed_cluster",
+            name=cluster2,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        followed_database = azure.kusto.Database("followed_database",
-            name="my-followed-database",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_name=follower_cluster.name)
-        example_database = azure.kusto.Database("example",
-            name="example",
+            sku={
+                name: Dev(No SLA)_Standard_D11_v2,
+                capacity: 1,
+            })
+        followed_database = azure.kusto.database.Database("followed_database",
+            name=my-followed-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=follower_cluster.name)
-        example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("example",
-            name="configuration1",
+        example_database = azure.kusto.database.Database("example",
+            name=example,
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=follower_cluster.name)
+        example_attached_database_configuration = azure.kusto.attached_database_configuration.AttachedDatabaseConfiguration("example",
+            name=configuration1,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=follower_cluster.name,
             cluster_resource_id=followed_cluster.id,
             database_name=example_database.name,
-            sharing=azure.kusto.AttachedDatabaseConfigurationSharingArgs(
-                external_tables_to_excludes=["ExternalTable2"],
-                external_tables_to_includes=["ExternalTable1"],
-                materialized_views_to_excludes=["MaterializedViewTable2"],
-                materialized_views_to_includes=["MaterializedViewTable1"],
-                tables_to_excludes=["Table2"],
-                tables_to_includes=["Table1"],
-            ))
+            sharing={
+                externalTablesToExcludes: [ExternalTable2],
+                externalTablesToIncludes: [ExternalTable1],
+                materializedViewsToExcludes: [MaterializedViewTable2],
+                materializedViewsToIncludes: [MaterializedViewTable1],
+                tablesToExcludes: [Table2],
+                tablesToIncludes: [Table1],
+            })
         ```
 
         ## Import

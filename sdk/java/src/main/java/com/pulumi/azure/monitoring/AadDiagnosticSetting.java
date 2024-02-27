@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.monitoring.AadDiagnosticSetting;
  * import com.pulumi.azure.monitoring.AadDiagnosticSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogArgs;
- * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,34 +66,10 @@ import javax.annotation.Nullable;
  *             .name(&#34;setting1&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(            
- *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;SignInLogs&#34;)
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
- *                     .build(),
- *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;AuditLogs&#34;)
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
- *                     .build(),
- *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;NonInteractiveUserSignInLogs&#34;)
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
- *                     .build(),
- *                 AadDiagnosticSettingEnabledLogArgs.builder()
- *                     .category(&#34;ServicePrincipalSignInLogs&#34;)
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

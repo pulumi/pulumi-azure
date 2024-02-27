@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .contentVersion(&#34;2.31.0&#34;)
  *             .hashAlgorithm(&#34;sha256&#34;)
  *             .hashValue(&#34;942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;foo&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

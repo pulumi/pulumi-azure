@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "frontend",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
+ * const exampleRouteTable = new azure.network/routeTable.RouteTable("example", {
  *     name: "example-routetable",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         nextHopInIpAddress: "10.10.1.1",
  *     }],
  * });
- * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
+ * const exampleSubnetRouteTableAssociation = new azure.network/subnetRouteTableAssociation.SubnetRouteTableAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     routeTableId: exampleRouteTable.id,
  * });

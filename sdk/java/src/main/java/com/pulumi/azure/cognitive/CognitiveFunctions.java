@@ -17,76 +17,12 @@ public final class CognitiveFunctions {
     /**
      * Use this data source to access information about an existing Cognitive Services Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cognitive.CognitiveFunctions;
-     * import com.pulumi.azure.cognitive.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Cognitive Services Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cognitive.CognitiveFunctions;
-     * import com.pulumi.azure.cognitive.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -95,76 +31,12 @@ public final class CognitiveFunctions {
     /**
      * Use this data source to access information about an existing Cognitive Services Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cognitive.CognitiveFunctions;
-     * import com.pulumi.azure.cognitive.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cognitive/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Cognitive Services Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cognitive.CognitiveFunctions;
-     * import com.pulumi.azure.cognitive.inputs.GetAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CognitiveFunctions.getAccount(GetAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;cognitive_account_rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, test.applyValue(getAccountResult -&gt; getAccountResult.primaryAccessKey()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {

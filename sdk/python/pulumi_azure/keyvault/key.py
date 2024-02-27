@@ -530,59 +530,6 @@ class Key(pulumi.CustomResource):
         > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
-        ### Additional Examples
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Delete",
-                    "Get",
-                    "Purge",
-                    "Recover",
-                    "Update",
-                    "GetRotationPolicy",
-                    "SetRotationPolicy",
-                ],
-                secret_permissions=["Set"],
-            )])
-        generated = azure.keyvault.Key("generated",
-            name="generated-certificate",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
-                    time_before_expiry="P30D",
-                ),
-                expire_after="P90D",
-                notify_before_expiry="P29D",
-            ))
-        ```
 
         ## Import
 
@@ -619,59 +566,6 @@ class Key(pulumi.CustomResource):
         > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_keys_on_destroy` for more information.
-        ### Additional Examples
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
-                    "Create",
-                    "Delete",
-                    "Get",
-                    "Purge",
-                    "Recover",
-                    "Update",
-                    "GetRotationPolicy",
-                    "SetRotationPolicy",
-                ],
-                secret_permissions=["Set"],
-            )])
-        generated = azure.keyvault.Key("generated",
-            name="generated-certificate",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
-                    time_before_expiry="P30D",
-                ),
-                expire_after="P90D",
-                notify_before_expiry="P29D",
-            ))
-        ```
 
         ## Import
 

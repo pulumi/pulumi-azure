@@ -502,70 +502,70 @@ class Diagnostic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+            application_type=web)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("example",
-            name="example-apimlogger",
+            publisher_name=My Company,
+            publisher_email=company@mycompany.io,
+            sku_name=Developer_1)
+        example_logger = azure.apimanagement.logger.Logger("example",
+            name=example-apimlogger,
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
-        example_diagnostic = azure.apimanagement.Diagnostic("example",
-            identifier="applicationinsights",
+            application_insights={
+                instrumentationKey: example_insights.instrumentation_key,
+            })
+        example_diagnostic = azure.apimanagement.diagnostic.Diagnostic("example",
+            identifier=applicationinsights,
             resource_group_name=example.name,
             api_management_name=example_service.name,
             api_management_logger_id=example_logger.id,
             sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
-            verbosity="verbose",
-            http_correlation_protocol="W3C",
-            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
+            verbosity=verbose,
+            http_correlation_protocol=W3C,
+            frontend_request={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    accept,
+                    origin,
                 ],
-            ),
-            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
+            },
+            frontend_response={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    content-length,
+                    origin,
                 ],
-            ),
-            backend_request=azure.apimanagement.DiagnosticBackendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
+            },
+            backend_request={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    accept,
+                    origin,
                 ],
-            ),
-            backend_response=azure.apimanagement.DiagnosticBackendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
+            },
+            backend_response={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    content-length,
+                    origin,
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -608,70 +608,70 @@ class Diagnostic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+            application_type=web)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("example",
-            name="example-apimlogger",
+            publisher_name=My Company,
+            publisher_email=company@mycompany.io,
+            sku_name=Developer_1)
+        example_logger = azure.apimanagement.logger.Logger("example",
+            name=example-apimlogger,
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
-                instrumentation_key=example_insights.instrumentation_key,
-            ))
-        example_diagnostic = azure.apimanagement.Diagnostic("example",
-            identifier="applicationinsights",
+            application_insights={
+                instrumentationKey: example_insights.instrumentation_key,
+            })
+        example_diagnostic = azure.apimanagement.diagnostic.Diagnostic("example",
+            identifier=applicationinsights,
             resource_group_name=example.name,
             api_management_name=example_service.name,
             api_management_logger_id=example_logger.id,
             sampling_percentage=5,
             always_log_errors=True,
             log_client_ip=True,
-            verbosity="verbose",
-            http_correlation_protocol="W3C",
-            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
+            verbosity=verbose,
+            http_correlation_protocol=W3C,
+            frontend_request={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    accept,
+                    origin,
                 ],
-            ),
-            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
+            },
+            frontend_response={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    content-length,
+                    origin,
                 ],
-            ),
-            backend_request=azure.apimanagement.DiagnosticBackendRequestArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "accept",
-                    "origin",
+            },
+            backend_request={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    accept,
+                    origin,
                 ],
-            ),
-            backend_response=azure.apimanagement.DiagnosticBackendResponseArgs(
-                body_bytes=32,
-                headers_to_logs=[
-                    "content-type",
-                    "content-length",
-                    "origin",
+            },
+            backend_response={
+                bodyBytes: 32,
+                headersToLogs: [
+                    content-type,
+                    content-length,
+                    origin,
                 ],
-            ))
+            })
         ```
 
         ## Import

@@ -12,48 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Subscription Policy Assignment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var example = new Azure.Policy.Definition("example", new()
-    ///     {
-    ///         Name = "only-deploy-in-westeurope",
-    ///         PolicyType = "Custom",
-    ///         Mode = "All",
-    ///         DisplayName = "Allowed resource types",
-    ///         PolicyRule = @" {
-    ///     ""if"": {
-    ///       ""not"": {
-    ///         ""field"": ""location"",
-    ///         ""equals"": ""westeurope""
-    ///       }
-    ///     },
-    ///     ""then"": {
-    ///       ""effect"": ""Deny""
-    ///     }
-    ///   }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         PolicyDefinitionId = example.Id,
-    ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Subscription Policy Assignments can be imported using the `resource id`, e.g.

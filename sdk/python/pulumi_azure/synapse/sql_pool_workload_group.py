@@ -303,38 +303,38 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="west europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=west europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_kind=BlobStorage,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("example",
-            name="example",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            identity={
+                type: SystemAssigned,
+            })
+        example_sql_pool = azure.synapse.sql_pool.SqlPool("example",
+            name=example,
             synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("example",
-            name="example",
+            sku_name=DW100c,
+            create_mode=Default)
+        example_sql_pool_workload_group = azure.synapse.sql_pool_workload_group.SqlPoolWorkloadGroup("example",
+            name=example,
             sql_pool_id=example_sql_pool.id,
-            importance="normal",
+            importance=normal,
             max_resource_percent=100,
             min_resource_percent=0,
             max_resource_percent_per_request=3,
@@ -376,38 +376,38 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="west europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=west europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_kind=BlobStorage,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_sql_pool = azure.synapse.SqlPool("example",
-            name="example",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            identity={
+                type: SystemAssigned,
+            })
+        example_sql_pool = azure.synapse.sql_pool.SqlPool("example",
+            name=example,
             synapse_workspace_id=example_workspace.id,
-            sku_name="DW100c",
-            create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("example",
-            name="example",
+            sku_name=DW100c,
+            create_mode=Default)
+        example_sql_pool_workload_group = azure.synapse.sql_pool_workload_group.SqlPoolWorkloadGroup("example",
+            name=example,
             sql_pool_id=example_sql_pool.id,
-            importance="normal",
+            importance=normal,
             max_resource_percent=100,
             min_resource_percent=0,
             max_resource_percent_per_request=3,

@@ -589,28 +589,28 @@ class HostPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_host_pool = azure.desktopvirtualization.HostPool("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_host_pool = azure.desktopvirtualization.host_pool.HostPool("example",
             location=example.location,
             resource_group_name=example.name,
-            name="pooleddepthfirst",
-            friendly_name="pooleddepthfirst",
+            name=pooleddepthfirst,
+            friendly_name=pooleddepthfirst,
             validate_environment=True,
             start_vm_on_connect=True,
-            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
-            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
-            type="Pooled",
+            custom_rdp_properties=audiocapturemode:i:1;audiomode:i:0;,
+            description=Acceptance Test: A pooled host pool - pooleddepthfirst,
+            type=Pooled,
             maximum_sessions_allowed=50,
-            load_balancer_type="DepthFirst",
-            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
-                enabled=True,
-                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
-                    day_of_week="Saturday",
-                    hour_of_day=2,
-                )],
-            ))
+            load_balancer_type=DepthFirst,
+            scheduled_agent_updates={
+                enabled: True,
+                schedules: [{
+                    dayOfWeek: Saturday,
+                    hourOfDay: 2,
+                }],
+            })
         ```
 
         ## Import
@@ -662,28 +662,28 @@ class HostPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_host_pool = azure.desktopvirtualization.HostPool("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_host_pool = azure.desktopvirtualization.host_pool.HostPool("example",
             location=example.location,
             resource_group_name=example.name,
-            name="pooleddepthfirst",
-            friendly_name="pooleddepthfirst",
+            name=pooleddepthfirst,
+            friendly_name=pooleddepthfirst,
             validate_environment=True,
             start_vm_on_connect=True,
-            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
-            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
-            type="Pooled",
+            custom_rdp_properties=audiocapturemode:i:1;audiomode:i:0;,
+            description=Acceptance Test: A pooled host pool - pooleddepthfirst,
+            type=Pooled,
             maximum_sessions_allowed=50,
-            load_balancer_type="DepthFirst",
-            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
-                enabled=True,
-                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
-                    day_of_week="Saturday",
-                    hour_of_day=2,
-                )],
-            ))
+            load_balancer_type=DepthFirst,
+            scheduled_agent_updates={
+                enabled: True,
+                schedules: [{
+                    dayOfWeek: Saturday,
+                    hourOfDay: 2,
+                }],
+            })
         ```
 
         ## Import

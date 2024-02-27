@@ -21,109 +21,114 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/subnetNetworkSecurityGroupAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetNetworkSecurityGroupAssociation"
+//	network/virtualHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHub"
+//	network/virtualHubConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHubConnection"
+//	network/virtualHubRouteTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHubRouteTable"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	network/virtualWan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualWan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.5.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("example-nsg"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("examplesubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.5.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               exampleSubnet.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
-//				Name:              pulumi.String("example-vwan"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
-//				Name:              pulumi.String("example-vhub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
-//				AddressPrefix:     pulumi.String("10.0.2.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualHubConnection, err := network.NewVirtualHubConnection(ctx, "example", &network.VirtualHubConnectionArgs{
-//				Name:                   pulumi.String("example-vhubconn"),
-//				VirtualHubId:           exampleVirtualHub.ID(),
-//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualHubRouteTable(ctx, "example", &network.VirtualHubRouteTableArgs{
-//				Name:         pulumi.String("example-vhubroutetable"),
-//				VirtualHubId: exampleVirtualHub.ID(),
-//				Labels: pulumi.StringArray{
-//					pulumi.String("label1"),
-//				},
-//				Routes: network.VirtualHubRouteTableRouteTypeArray{
-//					&network.VirtualHubRouteTableRouteTypeArgs{
-//						Name:             pulumi.String("example-route"),
-//						DestinationsType: pulumi.String("CIDR"),
-//						Destinations: pulumi.StringArray{
-//							pulumi.String("10.0.0.0/16"),
-//						},
-//						NextHopType: pulumi.String("ResourceId"),
-//						NextHop:     exampleVirtualHubConnection.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.5.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSecurityGroup, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "example", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "example-nsg",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "examplesubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.5.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetNetworkSecurityGroupAssociation.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: exampleSubnet.Id,
+// NetworkSecurityGroupId: exampleNetworkSecurityGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualWan, err := network/virtualWan.NewVirtualWan(ctx, "example", &network/virtualWan.VirtualWanArgs{
+// Name: "example-vwan",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualHub, err := network/virtualHub.NewVirtualHub(ctx, "example", &network/virtualHub.VirtualHubArgs{
+// Name: "example-vhub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VirtualWanId: exampleVirtualWan.Id,
+// AddressPrefix: "10.0.2.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualHubConnection, err := network/virtualHubConnection.NewVirtualHubConnection(ctx, "example", &network/virtualHubConnection.VirtualHubConnectionArgs{
+// Name: "example-vhubconn",
+// VirtualHubId: exampleVirtualHub.Id,
+// RemoteVirtualNetworkId: exampleVirtualNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualHubRouteTable.NewVirtualHubRouteTable(ctx, "example", &network/virtualHubRouteTable.VirtualHubRouteTableArgs{
+// Name: "example-vhubroutetable",
+// VirtualHubId: exampleVirtualHub.Id,
+// Labels: []string{
+// "label1",
+// },
+// Routes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example-route",
+// "destinationsType": "CIDR",
+// "destinations": []string{
+// "10.0.0.0/16",
+// },
+// "nextHopType": "ResourceId",
+// "nextHop": exampleVirtualHubConnection.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

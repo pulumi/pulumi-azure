@@ -205,23 +205,23 @@ class HybridConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.relay.Namespace("example",
-            name="example-relay",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=example-relay,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             tags={
-                "source": "managed",
+                source: managed,
             })
-        example_hybrid_connection = azure.relay.HybridConnection("example",
-            name="acctestrnhc-%d",
+        example_hybrid_connection = azure.relay.hybrid_connection.HybridConnection("example",
+            name=acctestrnhc-%d,
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name,
             requires_client_authorization=False,
-            user_metadata="testmetadata")
+            user_metadata=testmetadata)
         ```
 
         ## Import
@@ -255,23 +255,23 @@ class HybridConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.relay.Namespace("example",
-            name="example-relay",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=example-relay,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             tags={
-                "source": "managed",
+                source: managed,
             })
-        example_hybrid_connection = azure.relay.HybridConnection("example",
-            name="acctestrnhc-%d",
+        example_hybrid_connection = azure.relay.hybrid_connection.HybridConnection("example",
+            name=acctestrnhc-%d,
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name,
             requires_client_authorization=False,
-            user_metadata="testmetadata")
+            user_metadata=testmetadata)
         ```
 
         ## Import

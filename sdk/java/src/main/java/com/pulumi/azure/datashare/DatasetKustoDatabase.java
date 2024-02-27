@@ -27,12 +27,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datashare.Account;
  * import com.pulumi.azure.datashare.AccountArgs;
- * import com.pulumi.azure.datashare.inputs.AccountIdentityArgs;
  * import com.pulumi.azure.datashare.Share;
  * import com.pulumi.azure.datashare.ShareArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import com.pulumi.azure.kusto.Database;
  * import com.pulumi.azure.kusto.DatabaseArgs;
  * import com.pulumi.azure.authorization.Assignment;
@@ -61,9 +59,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-dsa&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
@@ -76,10 +72,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplekc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
- *                 .capacity(1)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
@@ -92,7 +85,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(exampleCluster.id())
  *             .roleDefinitionName(&#34;Contributor&#34;)
- *             .principalId(exampleAccount.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .principalId(exampleAccount.identity().principalId())
  *             .build());
  * 
  *         var exampleDatasetKustoDatabase = new DatasetKustoDatabase(&#34;exampleDatasetKustoDatabase&#34;, DatasetKustoDatabaseArgs.builder()        

@@ -13,58 +13,12 @@ namespace Pulumi.Azure.ContainerApp
     {
         /// <summary>
         /// Use this data source to access information about an existing Container App.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ContainerApp.GetApp.Invoke(new()
-        ///     {
-        ///         Name = "example-app",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure:containerapp/getApp:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Container App.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ContainerApp.GetApp.Invoke(new()
-        ///     {
-        ///         Name = "example-app",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure:containerapp/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());

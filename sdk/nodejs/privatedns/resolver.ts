@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const test = new azure.privatedns.Resolver("test", {
+ * const test = new azure.privatedns/resolver.Resolver("test", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,

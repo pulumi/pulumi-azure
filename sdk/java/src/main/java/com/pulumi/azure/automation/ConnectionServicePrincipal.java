@@ -17,63 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Automation Connection with type `AzureServicePrincipal`.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.automation.Account;
- * import com.pulumi.azure.automation.AccountArgs;
- * import com.pulumi.azure.automation.ConnectionServicePrincipal;
- * import com.pulumi.azure.automation.ConnectionServicePrincipalArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroup-example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var example = CoreFunctions.getClientConfig();
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .name(&#34;account-example&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         var exampleConnectionServicePrincipal = new ConnectionServicePrincipal(&#34;exampleConnectionServicePrincipal&#34;, ConnectionServicePrincipalArgs.builder()        
- *             .name(&#34;connection-example&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .applicationId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .subscriptionId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .certificateThumbprint(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;automation_certificate_test.thumb&#34;)
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Automation Connection can be imported using the `resource id`, e.g.

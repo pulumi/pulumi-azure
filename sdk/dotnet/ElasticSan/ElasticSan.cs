@@ -22,22 +22,22 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
+    ///     var exampleElasticSan = new Azure.Elasticsan.ElasticSan.ElasticSan("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         BaseSizeInTib = 1,
     ///         ExtendedSizeInTib = 2,
-    ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "example-value",
+    ///             { "name", "example-value" },
     ///         },
     ///     });
     /// 

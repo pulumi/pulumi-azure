@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,10 +68,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

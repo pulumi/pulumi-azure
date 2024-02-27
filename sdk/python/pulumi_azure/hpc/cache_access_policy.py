@@ -141,33 +141,33 @@ class CacheAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevn",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=examplevn,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=examplesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("example",
-            name="examplehpccache",
+            address_prefixes=[10.0.1.0/24])
+        example_cache = azure.hpc.cache.Cache("example",
+            name=examplehpccache,
             resource_group_name=example.name,
             location=example.location,
             cache_size_in_gb=3072,
             subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
-            name="example",
+            sku_name=Standard_2G)
+        example_cache_access_policy = azure.hpc.cache_access_policy.CacheAccessPolicy("example",
+            name=example,
             hpc_cache_id=example_cache.id,
-            access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
-                scope="default",
-                access="rw",
-            )])
+            access_rules=[{
+                scope: default,
+                access: rw,
+            }])
         ```
 
         ## Import
@@ -199,33 +199,33 @@ class CacheAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="examplevn",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=examplevn,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=examplesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("example",
-            name="examplehpccache",
+            address_prefixes=[10.0.1.0/24])
+        example_cache = azure.hpc.cache.Cache("example",
+            name=examplehpccache,
             resource_group_name=example.name,
             location=example.location,
             cache_size_in_gb=3072,
             subnet_id=example_subnet.id,
-            sku_name="Standard_2G")
-        example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
-            name="example",
+            sku_name=Standard_2G)
+        example_cache_access_policy = azure.hpc.cache_access_policy.CacheAccessPolicy("example",
+            name=example,
             hpc_cache_id=example_cache.id,
-            access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
-                scope="default",
-                access="rw",
-            )])
+            access_rules=[{
+                scope: default,
+                access: rw,
+            }])
         ```
 
         ## Import

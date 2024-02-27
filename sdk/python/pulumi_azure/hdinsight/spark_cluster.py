@@ -738,55 +738,55 @@ class SparkCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="hdinsightstor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=hdinsightstor,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="hdinsight",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=hdinsight,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_spark_cluster = azure.hdinsight.SparkCluster("example",
-            name="example-hdicluster",
+            container_access_type=private)
+        example_spark_cluster = azure.hdinsight.spark_cluster.SparkCluster("example",
+            name=example-hdicluster,
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.SparkClusterComponentVersionArgs(
-                spark="2.3",
-            ),
-            gateway=azure.hdinsight.SparkClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.SparkClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.SparkClusterRolesArgs(
-                head_node=azure.hdinsight.SparkClusterRolesHeadNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.SparkClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.SparkClusterRolesZookeeperNodeArgs(
-                    vm_size="Medium",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            cluster_version=3.6,
+            tier=Standard,
+            component_version={
+                spark: 2.3,
+            },
+            gateway={
+                username: acctestusrgw,
+                password: Password123!,
+            },
+            storage_accounts=[{
+                storageContainerId: example_container.id,
+                storageAccountKey: example_account.primary_access_key,
+                isDefault: True,
+            }],
+            roles={
+                headNode: {
+                    vmSize: Standard_A3,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+                workerNode: {
+                    vmSize: Standard_A3,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                    targetInstanceCount: 3,
+                },
+                zookeeperNode: {
+                    vmSize: Medium,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+            })
         ```
 
         ## Import
@@ -837,55 +837,55 @@ class SparkCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="hdinsightstor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=hdinsightstor,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="hdinsight",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=hdinsight,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_spark_cluster = azure.hdinsight.SparkCluster("example",
-            name="example-hdicluster",
+            container_access_type=private)
+        example_spark_cluster = azure.hdinsight.spark_cluster.SparkCluster("example",
+            name=example-hdicluster,
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.SparkClusterComponentVersionArgs(
-                spark="2.3",
-            ),
-            gateway=azure.hdinsight.SparkClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.SparkClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.SparkClusterRolesArgs(
-                head_node=azure.hdinsight.SparkClusterRolesHeadNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.SparkClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_A3",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.SparkClusterRolesZookeeperNodeArgs(
-                    vm_size="Medium",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            cluster_version=3.6,
+            tier=Standard,
+            component_version={
+                spark: 2.3,
+            },
+            gateway={
+                username: acctestusrgw,
+                password: Password123!,
+            },
+            storage_accounts=[{
+                storageContainerId: example_container.id,
+                storageAccountKey: example_account.primary_access_key,
+                isDefault: True,
+            }],
+            roles={
+                headNode: {
+                    vmSize: Standard_A3,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+                workerNode: {
+                    vmSize: Standard_A3,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                    targetInstanceCount: 3,
+                },
+                zookeeperNode: {
+                    vmSize: Medium,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+            })
         ```
 
         ## Import

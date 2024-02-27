@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageacc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
+ *     isHnsEnabled: "true",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage/dataLakeGen2Filesystem.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ * const exampleWorkspace = new azure.synapse/workspace.Workspace("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSparkPool = new azure.synapse.SparkPool("example", {
+ * const exampleSparkPool = new azure.synapse/sparkPool.SparkPool("example", {
  *     name: "example",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     nodeSizeFamily: "MemoryOptimized",

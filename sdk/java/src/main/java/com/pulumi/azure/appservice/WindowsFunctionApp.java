@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.WindowsFunctionApp;
  * import com.pulumi.azure.appservice.WindowsFunctionAppArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsFunctionAppSiteConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

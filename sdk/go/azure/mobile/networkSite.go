@@ -21,56 +21,55 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databoxedge/device "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databoxedge/device"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
-//				Name:              pulumi.String("example-device"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("EdgeP_Base-Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
-//				Name:              pulumi.String("example-mn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				MobileCountryCode: pulumi.String("001"),
-//				MobileNetworkCode: pulumi.String("01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkSite(ctx, "example", &mobile.NetworkSiteArgs{
-//				Name:            pulumi.String("example-mns"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = databoxedge/device.NewDevice(ctx, "example", &databoxedge/device.DeviceArgs{
+// Name: "example-device",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "EdgeP_Base-Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetwork, err := mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkSite.NewNetworkSite(ctx, "example", &mobile/networkSite.NetworkSiteArgs{
+// Name: "example-mns",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

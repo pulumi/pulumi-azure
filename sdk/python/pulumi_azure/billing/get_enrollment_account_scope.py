@@ -68,17 +68,6 @@ def get_enrollment_account_scope(billing_account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Enrollment Account Billing Scope.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.billing.get_enrollment_account_scope(billing_account_name="existing",
-        enrollment_account_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str billing_account_name: The Billing Account Name of the Enterprise Account.
     :param str enrollment_account_name: The Enrollment Account Name in the above Enterprise Account.
@@ -101,17 +90,6 @@ def get_enrollment_account_scope_output(billing_account_name: Optional[pulumi.In
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnrollmentAccountScopeResult]:
     """
     Use this data source to access information about an existing Enrollment Account Billing Scope.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.billing.get_enrollment_account_scope(billing_account_name="existing",
-        enrollment_account_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str billing_account_name: The Billing Account Name of the Enterprise Account.

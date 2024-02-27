@@ -18,49 +18,6 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **Note:** When using this resource, configuring `subscription_ids` on the `azure.management.Group` resource is not supported.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.management.ManagementFunctions;
- * import com.pulumi.azure.management.inputs.GetGroupArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.management.GroupSubscriptionAssociation;
- * import com.pulumi.azure.management.GroupSubscriptionAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;exampleManagementGroup&#34;)
- *             .build());
- * 
- *         final var exampleGetSubscription = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
- *             .subscriptionId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .build());
- * 
- *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation(&#34;exampleGroupSubscriptionAssociation&#34;, GroupSubscriptionAssociationArgs.builder()        
- *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .subscriptionId(exampleGetSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Managements can be imported using the `resource id`, e.g.

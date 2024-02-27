@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "my-resource-group",
  *     location: "West Europe",
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ * const exampleSqlServer = new azure.sql/sqlServer.SqlServer("example", {
  *     name: "my-sql-server",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleElasticPool = new azure.sql.ElasticPool("example", {
+ * const exampleElasticPool = new azure.sql/elasticPool.ElasticPool("example", {
  *     name: "test",
  *     resourceGroupName: example.name,
  *     location: example.location,

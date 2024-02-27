@@ -177,30 +177,30 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_configuration_service = azure.appplatform.spring_cloud_configuration_service.SpringCloudConfigurationService("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
-                name="fake",
-                label="master",
-                patterns=["app/dev"],
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                search_paths=[
-                    "dir1",
-                    "dir2",
+            repositories=[{
+                name: fake,
+                label: master,
+                patterns: [app/dev],
+                uri: https://github.com/Azure-Samples/piggymetrics,
+                searchPaths: [
+                    dir1,
+                    dir2,
                 ],
-                strict_host_key_checking=False,
-                username="adminuser",
-                password="H@Sh1CoR3!",
-            )])
+                strictHostKeyChecking: False,
+                username: adminuser,
+                password: H@Sh1CoR3!,
+            }])
         ```
 
         ## Import
@@ -235,30 +235,30 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_configuration_service = azure.appplatform.spring_cloud_configuration_service.SpringCloudConfigurationService("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
-                name="fake",
-                label="master",
-                patterns=["app/dev"],
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                search_paths=[
-                    "dir1",
-                    "dir2",
+            repositories=[{
+                name: fake,
+                label: master,
+                patterns: [app/dev],
+                uri: https://github.com/Azure-Samples/piggymetrics,
+                searchPaths: [
+                    dir1,
+                    dir2,
                 ],
-                strict_host_key_checking=False,
-                username="adminuser",
-                password="H@Sh1CoR3!",
-            )])
+                strictHostKeyChecking: False,
+                username: adminuser,
+                password: H@Sh1CoR3!,
+            }])
         ```
 
         ## Import

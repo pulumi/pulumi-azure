@@ -24,37 +24,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("api-appserviceplan-pro"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "api-appserviceplan-pro",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Shared / Consumption Plan)
 //
@@ -63,38 +61,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("api-appserviceplan-pro"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("FunctionApp"),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Dynamic"),
-//					Size: pulumi.String("Y1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "api-appserviceplan-pro",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "FunctionApp",
+// Sku: map[string]interface{}{
+// "tier": "Dynamic",
+// "size": "Y1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Linux)
 //
@@ -103,39 +99,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("api-appserviceplan-pro"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("Linux"),
-//				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "api-appserviceplan-pro",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "Linux",
+// Reserved: true,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Windows Container)
 //
@@ -144,39 +138,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("api-appserviceplan-pro"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("xenon"),
-//				IsXenon:           pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("PremiumContainer"),
-//					Size: pulumi.String("PC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "api-appserviceplan-pro",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "xenon",
+// IsXenon: true,
+// Sku: map[string]interface{}{
+// "tier": "PremiumContainer",
+// "size": "PC2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

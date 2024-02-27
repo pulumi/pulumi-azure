@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resource-group",
  *     location: "westeurope",
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-public-ip",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ * const exampleNetworkSecurityGroup = new azure.network/networkSecurityGroup.NetworkSecurityGroup("example", {
  *     name: "example-nsg",
  *     location: test.location,
  *     resourceGroupName: test.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const trust = new azure.network.Subnet("trust", {
+ * const trust = new azure.network/subnet.Subnet("trust", {
  *     name: "example-trust-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const trustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("trust", {
+ * const trustSubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("trust", {
  *     subnetId: trust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const untrust = new azure.network.Subnet("untrust", {
+ * const untrust = new azure.network/subnet.Subnet("untrust", {
  *     name: "example-untrust-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -70,16 +70,16 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("untrust", {
+ * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("untrust", {
  *     subnetId: untrust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("example", {
+ * const exampleLocalRulestack = new azure.paloalto/localRulestack.LocalRulestack("example", {
  *     name: "example-rulestack",
  *     resourceGroupName: example.name,
  *     location: example.locatio,
  * });
- * const exampleLocalRulestackRule = new azure.paloalto.LocalRulestackRule("example", {
+ * const exampleLocalRulestackRule = new azure.paloalto/localRulestackRule.LocalRulestackRule("example", {
  *     name: "example-rulestack-rule",
  *     rulestackId: exampleLocalRulestack.id,
  *     priority: 1001,
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *         cidrs: ["any"],
  *     },
  * });
- * const exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example", {
+ * const exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new azure.paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack.NextGenerationFirewallVirtualNetworkLocalRulestack("example", {
  *     name: "example-ngfwvn",
  *     resourceGroupName: example.name,
  *     rulestackId: exampleLocalRulestack.id,

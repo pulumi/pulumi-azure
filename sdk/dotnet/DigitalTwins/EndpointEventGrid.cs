@@ -22,27 +22,27 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
+    ///     var exampleInstance = new Azure.Digitaltwins.Instance.Instance("example", new()
     ///     {
     ///         Name = "example-DT",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.EventGrid.Topic("example", new()
+    ///     var exampleTopic = new Azure.Eventgrid.Topic.Topic("example", new()
     ///     {
     ///         Name = "example-topic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleEndpointEventGrid = new Azure.DigitalTwins.EndpointEventGrid("example", new()
+    ///     var exampleEndpointEventGrid = new Azure.Digitaltwins.EndpointEventGrid.EndpointEventGrid("example", new()
     ///     {
     ///         Name = "example-EG",
     ///         DigitalTwinsId = exampleInstance.Id,

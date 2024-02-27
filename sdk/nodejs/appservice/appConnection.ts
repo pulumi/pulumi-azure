@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "example-cosmosdb-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -35,34 +35,34 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ * const exampleSqlDatabase = new azure.cosmosdb/sqlDatabase.SqlDatabase("example", {
  *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ * const exampleSqlContainer = new azure.cosmosdb/sqlContainer.SqlContainer("example", {
  *     name: "example-container",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/definition",
  * });
- * const exampleAccount2 = new azure.storage.Account("example", {
+ * const exampleAccount2 = new azure.storage/account.Account("example", {
  *     name: "examplestorageaccount",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     location: example.location,
  *     name: "example-serviceplan",
  *     resourceGroupName: example.name,
  *     skuName: "P1v2",
  *     osType: "Linux",
  * });
- * const test = new azure.appservice.FunctionApp("test", {
+ * const test = new azure.appservice/functionApp.FunctionApp("test", {
  *     name: "example-function-app",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     storageAccountName: testAzurermStorageAccount.name,
  *     storageAccountAccessKey: testAzurermStorageAccount.primaryAccessKey,
  * });
- * const exampleAppConnection = new azure.appservice.AppConnection("example", {
+ * const exampleAppConnection = new azure.appservice/appConnection.AppConnection("example", {
  *     name: "example-serviceconnector",
  *     functionAppId: exampleAzurermFunctionApp.id,
  *     targetResourceId: testAzurermCosmosdbAccount.id,

@@ -378,24 +378,24 @@ class LogzMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-logz",
-            location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-logz,
+            location=West Europe)
+        example_logz_monitor = azure.monitoring.logz_monitor.LogzMonitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                billingCycle: MONTHLY,
+                effectiveDate: 2022-06-06T00:00:00Z,
+                usageType: COMMITTED,
+            },
+            user={
+                email: user@example.com,
+                firstName: Example,
+                lastName: User,
+                phoneNumber: +12313803556,
+            })
         ```
 
         ## Import
@@ -435,24 +435,24 @@ class LogzMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-logz",
-            location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-logz,
+            location=West Europe)
+        example_logz_monitor = azure.monitoring.logz_monitor.LogzMonitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                billingCycle: MONTHLY,
+                effectiveDate: 2022-06-06T00:00:00Z,
+                usageType: COMMITTED,
+            },
+            user={
+                email: user@example.com,
+                firstName: Example,
+                lastName: User,
+                phoneNumber: +12313803556,
+            })
         ```
 
         ## Import

@@ -22,20 +22,20 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "terraform-webpubsub",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "tfex-uai",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
+    ///     var exampleService = new Azure.Webpubsub.Service.Service("example", new()
     ///     {
     ///         Name = "tfex-webpubsub",
     ///         Location = example.Location,
@@ -44,77 +44,77 @@ namespace Pulumi.Azure.WebPubSub
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleHub = new Azure.WebPubSub.Hub("example", new()
+    ///     var exampleHub = new Azure.Webpubsub.Hub.Hub("example", new()
     ///     {
     ///         Name = "tfex_wpsh",
     ///         WebPubsubId = exampleService.Id,
     ///         EventHandlers = new[]
     ///         {
-    ///             new Azure.WebPubSub.Inputs.HubEventHandlerArgs
+    ///             
     ///             {
-    ///                 UrlTemplate = "https://test.com/api/{hub}/{event}",
-    ///                 UserEventPattern = "*",
-    ///                 SystemEvents = new[]
+    ///                 { "urlTemplate", "https://test.com/api/{hub}/{event}" },
+    ///                 { "userEventPattern", "*" },
+    ///                 { "systemEvents", new[]
     ///                 {
     ///                     "connect",
     ///                     "connected",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.WebPubSub.Inputs.HubEventHandlerArgs
+    ///             
     ///             {
-    ///                 UrlTemplate = "https://test.com/api/{hub}/{event}",
-    ///                 UserEventPattern = "event1, event2",
-    ///                 SystemEvents = new[]
+    ///                 { "urlTemplate", "https://test.com/api/{hub}/{event}" },
+    ///                 { "userEventPattern", "event1, event2" },
+    ///                 { "systemEvents", new[]
     ///                 {
     ///                     "connected",
-    ///                 },
-    ///                 Auth = new Azure.WebPubSub.Inputs.HubEventHandlerAuthArgs
+    ///                 } },
+    ///                 { "auth", 
     ///                 {
-    ///                     ManagedIdentityId = exampleUserAssignedIdentity.Id,
-    ///                 },
+    ///                     { "managedIdentityId", exampleUserAssignedIdentity.Id },
+    ///                 } },
     ///             },
     ///         },
     ///         EventListeners = new[]
     ///         {
-    ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
+    ///             
     ///             {
-    ///                 SystemEventNameFilters = new[]
+    ///                 { "systemEventNameFilters", new[]
     ///                 {
     ///                     "connected",
-    ///                 },
-    ///                 UserEventNameFilters = new[]
+    ///                 } },
+    ///                 { "userEventNameFilters", new[]
     ///                 {
     ///                     "event1",
     ///                     "event2",
-    ///                 },
-    ///                 EventhubNamespaceName = test.Name,
-    ///                 EventhubName = test1.Name,
+    ///                 } },
+    ///                 { "eventhubNamespaceName", test.Name },
+    ///                 { "eventhubName", test1.Name },
     ///             },
-    ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
+    ///             
     ///             {
-    ///                 SystemEventNameFilters = new[]
+    ///                 { "systemEventNameFilters", new[]
     ///                 {
     ///                     "connected",
-    ///                 },
-    ///                 UserEventNameFilters = new[]
+    ///                 } },
+    ///                 { "userEventNameFilters", new[]
     ///                 {
     ///                     "*",
-    ///                 },
-    ///                 EventhubNamespaceName = test.Name,
-    ///                 EventhubName = test1.Name,
+    ///                 } },
+    ///                 { "eventhubNamespaceName", test.Name },
+    ///                 { "eventhubName", test1.Name },
     ///             },
-    ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
+    ///             
     ///             {
-    ///                 SystemEventNameFilters = new[]
+    ///                 { "systemEventNameFilters", new[]
     ///                 {
     ///                     "connected",
-    ///                 },
-    ///                 UserEventNameFilters = new[]
+    ///                 } },
+    ///                 { "userEventNameFilters", new[]
     ///                 {
     ///                     "event1",
-    ///                 },
-    ///                 EventhubNamespaceName = test.Name,
-    ///                 EventhubName = test1.Name,
+    ///                 } },
+    ///                 { "eventhubNamespaceName", test.Name },
+    ///                 { "eventhubName", test1.Name },
     ///             },
     ///         },
     ///         AnonymousConnectionsEnabled = true,

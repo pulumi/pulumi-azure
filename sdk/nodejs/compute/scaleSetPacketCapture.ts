@@ -15,28 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNetworkWatcher = new azure.network.NetworkWatcher("example", {
+ * const exampleNetworkWatcher = new azure.network/networkWatcher.NetworkWatcher("example", {
  *     name: "example-nw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "internal",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", {
  *     name: "example-vmss",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("example", {
+ * const exampleVirtualMachineScaleSetExtension = new azure.compute/virtualMachineScaleSetExtension.VirtualMachineScaleSetExtension("example", {
  *     name: "network-watcher",
  *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
  *     publisher: "Microsoft.Azure.NetworkWatcher",
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     autoUpgradeMinorVersion: true,
  *     automaticUpgradeEnabled: true,
  * });
- * const exampleScaleSetPacketCapture = new azure.compute.ScaleSetPacketCapture("example", {
+ * const exampleScaleSetPacketCapture = new azure.compute/scaleSetPacketCapture.ScaleSetPacketCapture("example", {
  *     name: "example-pc",
  *     networkWatcherId: exampleNetworkWatcher.id,
  *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,

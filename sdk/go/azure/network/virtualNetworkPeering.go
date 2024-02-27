@@ -22,149 +22,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	network/virtualNetworkPeering "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetworkPeering"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("peeredvnets-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-1", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("peternetwork1"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-2", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("peternetwork2"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkPeering(ctx, "example-1", &network.VirtualNetworkPeeringArgs{
-//				Name:                   pulumi.String("peer1to2"),
-//				ResourceGroupName:      example.Name,
-//				VirtualNetworkName:     example_1.Name,
-//				RemoteVirtualNetworkId: example_2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkPeering(ctx, "example-2", &network.VirtualNetworkPeeringArgs{
-//				Name:                   pulumi.String("peer2to1"),
-//				ResourceGroupName:      example.Name,
-//				VirtualNetworkName:     example_2.Name,
-//				RemoteVirtualNetworkId: example_1.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Triggers)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("peeredvnets-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-1", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("peternetwork1"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-2", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("peternetwork2"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkPeering(ctx, "example-1", &network.VirtualNetworkPeeringArgs{
-//				Name:                   pulumi.String("peer1to2"),
-//				ResourceGroupName:      example.Name,
-//				VirtualNetworkName:     example_1.Name,
-//				RemoteVirtualNetworkId: example_2.ID(),
-//				Triggers: pulumi.StringMap{
-//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
-//						Separator: pulumi.String(","),
-//						Input:     example_2.AddressSpaces,
-//					}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkPeering(ctx, "example-2", &network.VirtualNetworkPeeringArgs{
-//				Name:                   pulumi.String("peer2to1"),
-//				ResourceGroupName:      example.Name,
-//				VirtualNetworkName:     example_2.Name,
-//				RemoteVirtualNetworkId: example_1.ID(),
-//				Triggers: pulumi.StringMap{
-//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
-//						Separator: pulumi.String(","),
-//						Input:     example_1.AddressSpaces,
-//					}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "peeredvnets-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetwork.NewVirtualNetwork(ctx, "example-1", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "peternetwork1",
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.1.0/24",
+// },
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetwork.NewVirtualNetwork(ctx, "example-2", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "peternetwork2",
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.2.0/24",
+// },
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetworkPeering.NewVirtualNetworkPeering(ctx, "example-1", &network/virtualNetworkPeering.VirtualNetworkPeeringArgs{
+// Name: "peer1to2",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: example_1.Name,
+// RemoteVirtualNetworkId: example_2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetworkPeering.NewVirtualNetworkPeering(ctx, "example-2", &network/virtualNetworkPeering.VirtualNetworkPeeringArgs{
+// Name: "peer2to1",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: example_2.Name,
+// RemoteVirtualNetworkId: example_1.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Note
 //

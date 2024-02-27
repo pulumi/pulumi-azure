@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,29 +37,29 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("example", new()
+    ///     var exampleAccountFilter = new Azure.Media.AccountFilter.AccountFilter("example", new()
     ///     {
     ///         Name = "Filter1",
     ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///     });
     /// 
-    ///     var exampleAsset = new Azure.Media.Asset("example", new()
+    ///     var exampleAsset = new Azure.Media.Asset.Asset("example", new()
     ///     {
     ///         Name = "Asset1",
     ///         ResourceGroupName = example.Name,
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Media
     ///         Description = "Asset description",
     ///     });
     /// 
-    ///     var exampleStreamingLocator = new Azure.Media.StreamingLocator("example", new()
+    ///     var exampleStreamingLocator = new Azure.Media.StreamingLocator.StreamingLocator("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,

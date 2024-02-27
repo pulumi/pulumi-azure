@@ -20,78 +20,12 @@ public final class RedisFunctions {
     /**
      * Use this data source to access information about an existing Redis Cache
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args) {
         return getCache(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Redis Cache
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args) {
@@ -100,78 +34,12 @@ public final class RedisFunctions {
     /**
      * Use this data source to access information about an existing Redis Cache
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCacheResult> getCache(GetCacheArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:redis/getCache:getCache", TypeShape.of(GetCacheResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Redis Cache
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetCacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getCache(GetCacheArgs.builder()
-     *             .name(&#34;myrediscache&#34;)
-     *             .resourceGroupName(&#34;redis-cache&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;primaryAccessKey&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.primaryAccessKey()));
-     *         ctx.export(&#34;hostname&#34;, example.applyValue(getCacheResult -&gt; getCacheResult.hostname()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCacheResult> getCachePlain(GetCachePlainArgs args, InvokeOptions options) {
@@ -180,80 +48,12 @@ public final class RedisFunctions {
     /**
      * Use this data source to access information about an existing Redis Enterprise Database
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args) {
         return getEnterpriseDatabase(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args) {
@@ -262,80 +62,12 @@ public final class RedisFunctions {
     /**
      * Use this data source to access information about an existing Redis Enterprise Database
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnterpriseDatabaseResult> getEnterpriseDatabase(GetEnterpriseDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", TypeShape.of(GetEnterpriseDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Redis Enterprise Database
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.RedisFunctions;
-     * import com.pulumi.azure.redis.inputs.GetEnterpriseDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
-     *             .name(&#34;default&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
-     *         ctx.export(&#34;redisEnterpriseDatabaseSecondaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.secondaryAccessKey()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnterpriseDatabaseResult> getEnterpriseDatabasePlain(GetEnterpriseDatabasePlainArgs args, InvokeOptions options) {

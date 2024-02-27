@@ -22,25 +22,25 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "example-IoTHub",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "S1",
-    ///             Capacity = 1,
+    ///             { "name", "S1" },
+    ///             { "capacity", "1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSecuritySolution = new Azure.Iot.SecuritySolution("example", new()
+    ///     var exampleSecuritySolution = new Azure.Iot.SecuritySolution.SecuritySolution("example", new()
     ///     {
     ///         Name = "example-Iot-Security-Solution",
     ///         ResourceGroupName = example.Name,
@@ -52,25 +52,25 @@ namespace Pulumi.Azure.Iot
     ///         },
     ///     });
     /// 
-    ///     var exampleSecurityDeviceGroup = new Azure.Iot.SecurityDeviceGroup("example", new()
+    ///     var exampleSecurityDeviceGroup = new Azure.Iot.SecurityDeviceGroup.SecurityDeviceGroup("example", new()
     ///     {
     ///         Name = "example-device-security-group",
     ///         IothubId = exampleIoTHub.Id,
-    ///         AllowRule = new Azure.Iot.Inputs.SecurityDeviceGroupAllowRuleArgs
+    ///         AllowRule = 
     ///         {
-    ///             ConnectionToIpsNotAlloweds = new[]
+    ///             { "connectionToIpsNotAlloweds", new[]
     ///             {
     ///                 "10.0.0.0/24",
-    ///             },
+    ///             } },
     ///         },
     ///         RangeRules = new[]
     ///         {
-    ///             new Azure.Iot.Inputs.SecurityDeviceGroupRangeRuleArgs
+    ///             
     ///             {
-    ///                 Type = "ActiveConnectionsNotInAllowedRange",
-    ///                 Min = 0,
-    ///                 Max = 30,
-    ///                 Duration = "PT5M",
+    ///                 { "type", "ActiveConnectionsNotInAllowedRange" },
+    ///                 { "min", 0 },
+    ///                 { "max", 30 },
+    ///                 { "duration", "PT5M" },
     ///             },
     ///         },
     ///     });

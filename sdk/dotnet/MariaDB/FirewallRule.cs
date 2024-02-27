@@ -23,7 +23,7 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.MariaDB.FirewallRule("example", new()
+    ///     var example = new Azure.Mariadb.FirewallRule.FirewallRule("example", new()
     ///     {
     ///         Name = "test-rule",
     ///         ResourceGroupName = "test-rg",
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.MariaDB.FirewallRule("example", new()
+    ///     var example = new Azure.Mariadb.FirewallRule.FirewallRule("example", new()
     ///     {
     ///         Name = "test-rule",
     ///         ResourceGroupName = "test-rg",

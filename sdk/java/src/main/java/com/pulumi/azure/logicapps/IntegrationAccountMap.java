@@ -18,58 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Logic App Integration Account Map.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.logicapps.IntegrationAccount;
- * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
- * import com.pulumi.azure.logicapps.IntegrationAccountMap;
- * import com.pulumi.azure.logicapps.IntegrationAccountMapArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleIntegrationAccount = new IntegrationAccount(&#34;exampleIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
- *             .name(&#34;example-ia&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName(&#34;Standard&#34;)
- *             .build());
- * 
- *         var exampleIntegrationAccountMap = new IntegrationAccountMap(&#34;exampleIntegrationAccountMap&#34;, IntegrationAccountMapArgs.builder()        
- *             .name(&#34;example-iamap&#34;)
- *             .resourceGroupName(example.name())
- *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .mapType(&#34;Xslt&#34;)
- *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;testdata/integration_account_map_content.xsd&#34;)
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Logic App Integration Account Maps can be imported using the `resource id`, e.g.

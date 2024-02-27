@@ -23,86 +23,72 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	core/resourceGroupPolicyAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroupPolicyAssignment"
+//	core/resourcePolicyAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourcePolicyAssignment"
+//	core/resourcePolicyRemediation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourcePolicyRemediation"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	policy/definition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/policy/definition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("resourcegroup1"),
-//				Location: pulumi.String("West US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("vnet1"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
-//				Name:        pulumi.String("only-deploy-in-westeurope"),
-//				PolicyType:  pulumi.String("Custom"),
-//				Mode:        pulumi.String("All"),
-//				DisplayName: pulumi.String("my-policy-definition"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
-//				Name:               pulumi.String("assignment1"),
-//				ResourceId:         exampleVirtualNetwork.ID(),
-//				PolicyDefinitionId: exampleDefinition.ID(),
-//				Parameters: example.Location.ApplyT(func(location string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"listOfAllowedLocations": map[string]interface{}{
-//							"value": []string{
-//								location,
-//								"East US",
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
-//				Name:               pulumi.String("example"),
-//				ResourceGroupId:    example.ID(),
-//				PolicyDefinitionId: exampleDefinition.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourcePolicyRemediation(ctx, "example", &core.ResourcePolicyRemediationArgs{
-//				Name:               pulumi.String("remediation1"),
-//				ResourceId:         exampleVirtualNetwork.ID(),
-//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "resourcegroup1",
+// Location: "West US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "vnet1",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDefinition, err := policy/definition.NewDefinition(ctx, "example", &policy/definition.DefinitionArgs{
+// Name: "only-deploy-in-westeurope",
+// PolicyType: "Custom",
+// Mode: "All",
+// DisplayName: "my-policy-definition",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/resourcePolicyAssignment.NewResourcePolicyAssignment(ctx, "example", &core/resourcePolicyAssignment.ResourcePolicyAssignmentArgs{
+// Name: "assignment1",
+// ResourceId: exampleVirtualNetwork.Id,
+// PolicyDefinitionId: exampleDefinition.Id,
+// Parameters: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// exampleResourceGroupPolicyAssignment, err := core/resourceGroupPolicyAssignment.NewResourceGroupPolicyAssignment(ctx, "example", &core/resourceGroupPolicyAssignment.ResourceGroupPolicyAssignmentArgs{
+// Name: "example",
+// ResourceGroupId: example.Id,
+// PolicyDefinitionId: exampleDefinition.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/resourcePolicyRemediation.NewResourcePolicyRemediation(ctx, "example", &core/resourcePolicyRemediation.ResourcePolicyRemediationArgs{
+// Name: "remediation1",
+// ResourceId: exampleVirtualNetwork.Id,
+// PolicyAssignmentId: exampleResourceGroupPolicyAssignment.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

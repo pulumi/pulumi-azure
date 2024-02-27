@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.servicefabric.ManagedCluster("example", {
+ * const example = new azure.servicefabric/managedCluster.ManagedCluster("example", {
  *     name: "example",
  *     resourceGroupName: "example",
  *     location: "West Europe",

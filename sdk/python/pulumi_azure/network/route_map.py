@@ -142,36 +142,36 @@ class RouteMap(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_route_map = azure.network.RouteMap("example",
-            name="example-rm",
+            address_prefix=10.0.1.0/24)
+        example_route_map = azure.network.route_map.RouteMap("example",
+            name=example-rm,
             virtual_hub_id=example_virtual_hub.id,
-            rules=[azure.network.RouteMapRuleArgs(
-                name="rule1",
-                next_step_if_matched="Continue",
-                actions=[azure.network.RouteMapRuleActionArgs(
-                    type="Add",
-                    parameters=[azure.network.RouteMapRuleActionParameterArgs(
-                        as_paths=["22334"],
-                    )],
-                )],
-                match_criterions=[azure.network.RouteMapRuleMatchCriterionArgs(
-                    match_condition="Contains",
-                    route_prefixes=["10.0.0.0/8"],
-                )],
-            )])
+            rules=[{
+                name: rule1,
+                nextStepIfMatched: Continue,
+                actions: [{
+                    type: Add,
+                    parameters: [{
+                        asPaths: [22334],
+                    }],
+                }],
+                matchCriterions: [{
+                    matchCondition: Contains,
+                    routePrefixes: [10.0.0.0/8],
+                }],
+            }])
         ```
 
         ## Import
@@ -203,36 +203,36 @@ class RouteMap(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_route_map = azure.network.RouteMap("example",
-            name="example-rm",
+            address_prefix=10.0.1.0/24)
+        example_route_map = azure.network.route_map.RouteMap("example",
+            name=example-rm,
             virtual_hub_id=example_virtual_hub.id,
-            rules=[azure.network.RouteMapRuleArgs(
-                name="rule1",
-                next_step_if_matched="Continue",
-                actions=[azure.network.RouteMapRuleActionArgs(
-                    type="Add",
-                    parameters=[azure.network.RouteMapRuleActionParameterArgs(
-                        as_paths=["22334"],
-                    )],
-                )],
-                match_criterions=[azure.network.RouteMapRuleMatchCriterionArgs(
-                    match_condition="Contains",
-                    route_prefixes=["10.0.0.0/8"],
-                )],
-            )])
+            rules=[{
+                name: rule1,
+                nextStepIfMatched: Continue,
+                actions: [{
+                    type: Add,
+                    parameters: [{
+                        asPaths: [22334],
+                    }],
+                }],
+                matchCriterions: [{
+                    matchCondition: Contains,
+                    routePrefixes: [10.0.0.0/8],
+                }],
+            }])
         ```
 
         ## Import

@@ -14,68 +14,6 @@ import (
 
 // Manages an Azure Subscription Policy Remediation.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.LookupSubscription(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetPolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
-//				DisplayName: pulumi.StringRef("Allowed resource types"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"listOfAllowedLocations": map[string]interface{}{
-//					"value": []string{
-//						"West Europe",
-//						"East US",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
-//				Name:               pulumi.String("exampleAssignment"),
-//				SubscriptionId:     *pulumi.String(example.Id),
-//				PolicyDefinitionId: *pulumi.String(exampleGetPolicyDefintion.Id),
-//				Parameters:         pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewSubscriptionPolicyRemediation(ctx, "example", &core.SubscriptionPolicyRemediationArgs{
-//				Name:               pulumi.String("example"),
-//				SubscriptionId:     *pulumi.String(example.Id),
-//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Policy Remediations can be imported using the `resource id`, e.g.

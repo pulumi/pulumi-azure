@@ -401,53 +401,6 @@ class Application(pulumi.CustomResource):
         """
         Manages a Managed Application.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        current = azure.core.get_client_config()
-        builtin = azure.authorization.get_role_definition(name="Contributor")
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_definition = azure.managedapplication.Definition("example",
-            name="examplemanagedapplicationdefinition",
-            location=example.location,
-            resource_group_name=example.name,
-            lock_level="ReadOnly",
-            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-            display_name="TestManagedAppDefinition",
-            description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id=std.split(separator="/",
-                    text=builtin.id).result[len(std.split(separator="/",
-                    text=builtin.id).result) - 1],
-            )])
-        example_application = azure.managedapplication.Application("example",
-            name="example-managedapplication",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="ServiceCatalog",
-            managed_resource_group_name="infrastructureGroup",
-            application_definition_id=example_definition.id,
-            parameter_values=pulumi.Output.json_dumps({
-                "location": {
-                    "value": example.location,
-                },
-                "storageAccountNamePrefix": {
-                    "value": "storeNamePrefix",
-                },
-                "storageAccountType": {
-                    "value": "Standard_LRS",
-                },
-            }))
-        ```
-
         ## Import
 
         Managed Application can be imported using the `resource id`, e.g.
@@ -479,53 +432,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        current = azure.core.get_client_config()
-        builtin = azure.authorization.get_role_definition(name="Contributor")
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_definition = azure.managedapplication.Definition("example",
-            name="examplemanagedapplicationdefinition",
-            location=example.location,
-            resource_group_name=example.name,
-            lock_level="ReadOnly",
-            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-            display_name="TestManagedAppDefinition",
-            description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id=std.split(separator="/",
-                    text=builtin.id).result[len(std.split(separator="/",
-                    text=builtin.id).result) - 1],
-            )])
-        example_application = azure.managedapplication.Application("example",
-            name="example-managedapplication",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="ServiceCatalog",
-            managed_resource_group_name="infrastructureGroup",
-            application_definition_id=example_definition.id,
-            parameter_values=pulumi.Output.json_dumps({
-                "location": {
-                    "value": example.location,
-                },
-                "storageAccountNamePrefix": {
-                    "value": "storeNamePrefix",
-                },
-                "storageAccountType": {
-                    "value": "Standard_LRS",
-                },
-            }))
-        ```
 
         ## Import
 

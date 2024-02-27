@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleMover = new Azure.Storage.Mover("example", new()
+    ///     var exampleMover = new Azure.Storage.Mover.Mover("example", new()
     ///     {
     ///         Name = "example-ssm",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint("example", new()
+    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint.MoverSourceEndpoint("example", new()
     ///     {
     ///         Name = "example-se",
     ///         StorageMoverId = exampleMover.Id,

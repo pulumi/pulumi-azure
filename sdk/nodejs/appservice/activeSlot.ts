@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const server = new random.RandomId("server", {});
- * const example = new azure.core.ResourceGroup("example", {});
- * const examplePlan = new azure.appservice.Plan("example", {});
- * const exampleAppService = new azure.appservice.AppService("example", {});
- * const exampleSlot = new azure.appservice.Slot("example", {});
- * const exampleActiveSlot = new azure.appservice.ActiveSlot("example", {
+ * const server = new random.index/randomId.RandomId("server", {});
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {});
+ * const examplePlan = new azure.appservice/plan.Plan("example", {});
+ * const exampleAppService = new azure.appservice/appService.AppService("example", {});
+ * const exampleSlot = new azure.appservice/slot.Slot("example", {});
+ * const exampleActiveSlot = new azure.appservice/activeSlot.ActiveSlot("example", {
  *     resourceGroupName: example.name,
  *     appServiceName: exampleAppService.name,
  *     appServiceSlotName: exampleSlot.name,

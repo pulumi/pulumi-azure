@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleWorkspaceTable = new azure.loganalytics.WorkspaceTable("example", {
+ * const exampleWorkspaceTable = new azure.loganalytics/workspaceTable.WorkspaceTable("example", {
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     name: "AppMetrics",
  *     retentionInDays: 60,

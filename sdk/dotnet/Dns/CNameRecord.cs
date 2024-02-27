@@ -20,19 +20,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord.CNameRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
@@ -53,19 +53,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var target = new Azure.Dns.CNameRecord("target", new()
+    ///     var target = new Azure.Dns.CNameRecord.CNameRecord("target", new()
     ///     {
     ///         Name = "target",
     ///         ZoneName = exampleZone.Name,
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Dns
     ///         Record = "contoso.com",
     ///     });
     /// 
-    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord.CNameRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,

@@ -266,16 +266,16 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.loganalytics.Cluster("example",
-            name="example-cluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.loganalytics.cluster.Cluster("example",
+            name=example-cluster,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                type: SystemAssigned,
+            })
         ```
 
         ## Import
@@ -314,16 +314,16 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.loganalytics.Cluster("example",
-            name="example-cluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.loganalytics.cluster.Cluster("example",
+            name=example-cluster,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                type: SystemAssigned,
+            })
         ```
 
         ## Import

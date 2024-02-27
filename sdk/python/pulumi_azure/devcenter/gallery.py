@@ -139,29 +139,29 @@ class Gallery(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test_user_assigned_identity = azure.authorization.UserAssignedIdentity("test",
-            name="example-uai",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"])
-        test = azure.devcenter.DevCenter("test",
-            name="example-devcenter",
-            resource_group_name=test_azurerm_resource_group["name"],
-            location=test_azurerm_resource_group["location"],
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[test_user_assigned_identity.id],
-            ))
-        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
-            name="example-image-gallery",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("test",
+            name=example-uai,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name)
+        test = azure.devcenter.dev_center.DevCenter("test",
+            name=example-devcenter,
+            resource_group_name=test_azurerm_resource_group.name,
+            location=test_azurerm_resource_group.location,
+            identity={
+                type: UserAssigned,
+                identityIds: [test_user_assigned_identity.id],
+            })
+        example_shared_image_gallery = azure.compute.shared_image_gallery.SharedImageGallery("example",
+            name=example-image-gallery,
             location=example.location,
             resource_group_name=example.name)
-        example_gallery = azure.devcenter.Gallery("example",
-            dev_center_id=example_azurerm_dev_center["id"],
+        example_gallery = azure.devcenter.gallery.Gallery("example",
+            dev_center_id=example_azurerm_dev_center.id,
             shared_gallery_id=example_shared_image_gallery.id,
-            name="example")
+            name=example)
         ```
 
         ## Import
@@ -201,29 +201,29 @@ class Gallery(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test_user_assigned_identity = azure.authorization.UserAssignedIdentity("test",
-            name="example-uai",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"])
-        test = azure.devcenter.DevCenter("test",
-            name="example-devcenter",
-            resource_group_name=test_azurerm_resource_group["name"],
-            location=test_azurerm_resource_group["location"],
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[test_user_assigned_identity.id],
-            ))
-        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
-            name="example-image-gallery",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        test_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("test",
+            name=example-uai,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name)
+        test = azure.devcenter.dev_center.DevCenter("test",
+            name=example-devcenter,
+            resource_group_name=test_azurerm_resource_group.name,
+            location=test_azurerm_resource_group.location,
+            identity={
+                type: UserAssigned,
+                identityIds: [test_user_assigned_identity.id],
+            })
+        example_shared_image_gallery = azure.compute.shared_image_gallery.SharedImageGallery("example",
+            name=example-image-gallery,
             location=example.location,
             resource_group_name=example.name)
-        example_gallery = azure.devcenter.Gallery("example",
-            dev_center_id=example_azurerm_dev_center["id"],
+        example_gallery = azure.devcenter.gallery.Gallery("example",
+            dev_center_id=example_azurerm_dev_center.id,
             shared_gallery_id=example_shared_image_gallery.id,
-            name="example")
+            name=example)
         ```
 
         ## Import

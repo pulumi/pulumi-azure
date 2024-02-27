@@ -16,17 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
+ * const exampleManagedDisk = new azure.compute/managedDisk.ManagedDisk("example", {
  *     name: "acctestmd",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: 1,
+ *     diskSizeGb: "1",
  *     tags: {
  *         environment: "staging",
  *     },
@@ -38,29 +38,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const source = new azure.compute.ManagedDisk("source", {
+ * const source = new azure.compute/managedDisk.ManagedDisk("source", {
  *     name: "acctestmd1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
- *     diskSizeGb: 1,
+ *     diskSizeGb: "1",
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const copy = new azure.compute.ManagedDisk("copy", {
+ * const copy = new azure.compute/managedDisk.ManagedDisk("copy", {
  *     name: "acctestmd2",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Copy",
  *     sourceResourceId: source.id,
- *     diskSizeGb: 1,
+ *     diskSizeGb: "1",
  *     tags: {
  *         environment: "staging",
  *     },

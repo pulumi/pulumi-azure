@@ -382,11 +382,11 @@ class ServicePlan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.lab.ServicePlan("example",
-            name="example-lp",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.lab.service_plan.ServicePlan("example",
+            name=example-lp,
             resource_group_name=example.name,
             location=example.location,
             allowed_regions=[example.location])
@@ -432,11 +432,11 @@ class ServicePlan(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.lab.ServicePlan("example",
-            name="example-lp",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.lab.service_plan.ServicePlan("example",
+            name=example-lp,
             resource_group_name=example.name,
             location=example.location,
             allowed_regions=[example.location])

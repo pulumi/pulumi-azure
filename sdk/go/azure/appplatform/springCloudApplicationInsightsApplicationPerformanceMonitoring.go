@@ -23,57 +23,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudApplicationInsightsApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs{
-//				Name:                      pulumi.String("example"),
-//				SpringCloudServiceId:      exampleSpringCloudService.ID(),
-//				ConnectionString:          exampleInsights.InstrumentationKey,
-//				GloballyEnabled:           pulumi.Bool(true),
-//				RoleName:                  pulumi.String("test-role"),
-//				RoleInstance:              pulumi.String("test-instance"),
-//				SamplingPercentage:        pulumi.Int(50),
-//				SamplingRequestsPerSecond: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring.NewSpringCloudApplicationInsightsApplicationPerformanceMonitoring(ctx, "example", &appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring.SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs{
+// Name: "example",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// ConnectionString: exampleInsights.InstrumentationKey,
+// GloballyEnabled: true,
+// RoleName: "test-role",
+// RoleInstance: "test-instance",
+// SamplingPercentage: 50,
+// SamplingRequestsPerSecond: 10,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -236,17 +236,6 @@ def get_grafana(identity: Optional[pulumi.InputType['GetGrafanaIdentityArgs']] =
     """
     Use this data source to access information about an existing Grafana Dashboard.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.dashboard.get_grafana(name="example-grafana-dashboard",
-        resource_group_name="example-rg")
-    pulumi.export("name", example.name)
-    ```
-
 
     :param pulumi.InputType['GetGrafanaIdentityArgs'] identity: The managed identity of the grafana resource.
     :param str name: Name of the grafana dashboard.
@@ -286,17 +275,6 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrafanaResult]:
     """
     Use this data source to access information about an existing Grafana Dashboard.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.dashboard.get_grafana(name="example-grafana-dashboard",
-        resource_group_name="example-rg")
-    pulumi.export("name", example.name)
-    ```
 
 
     :param pulumi.InputType['GetGrafanaIdentityArgs'] identity: The managed identity of the grafana resource.

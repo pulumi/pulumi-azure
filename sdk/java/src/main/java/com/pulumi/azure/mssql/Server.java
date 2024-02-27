@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.mssql.Server;
  * import com.pulumi.azure.mssql.ServerArgs;
- * import com.pulumi.azure.mssql.inputs.ServerAzureadAdministratorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,124 +59,8 @@ import javax.annotation.Nullable;
  *             .administratorLogin(&#34;missadministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsKat11&#34;)
  *             .minimumTlsVersion(&#34;1.2&#34;)
- *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername(&#34;AzureAD Admin&#34;)
- *                 .objectId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.authorization.UserAssignedIdentity;
- * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
- * import com.pulumi.azure.keyvault.KeyVault;
- * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
- * import com.pulumi.azure.keyvault.Key;
- * import com.pulumi.azure.keyvault.KeyArgs;
- * import com.pulumi.azure.mssql.Server;
- * import com.pulumi.azure.mssql.ServerArgs;
- * import com.pulumi.azure.mssql.inputs.ServerAzureadAdministratorArgs;
- * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .name(&#34;example-admin&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;mssqltdeexample&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .enabledForDiskEncryption(true)
- *             .tenantId(exampleUserAssignedIdentity.tenantId())
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(true)
- *             .skuName(&#34;standard&#34;)
- *             .accessPolicies(            
- *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
- *                     .build(),
- *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleUserAssignedIdentity.tenantId())
- *                     .objectId(exampleUserAssignedIdentity.principalId())
- *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
- *                     .build())
- *             .build());
- * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;example-key&#34;)
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
- *             .keySize(2048)
- *             .keyOpts(            
- *                 &#34;unwrapKey&#34;,
- *                 &#34;wrapKey&#34;)
- *             .build());
- * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .name(&#34;example-resource&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;Example-Administrator&#34;)
- *             .administratorLoginPassword(&#34;Example_Password!&#34;)
- *             .minimumTlsVersion(&#34;1.2&#34;)
- *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername(exampleUserAssignedIdentity.name())
- *                 .objectId(exampleUserAssignedIdentity.principalId())
- *                 .build())
- *             .identity(ServerIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
- *             .primaryUserAssignedIdentityId(exampleUserAssignedIdentity.id())
- *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
+ *             .azureadAdministrator(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

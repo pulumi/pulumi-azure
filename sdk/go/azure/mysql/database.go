@@ -19,55 +19,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mysql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mysql/database"
+//	mysql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mysql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mysql.NewServer(ctx, "example", &mysql.ServerArgs{
-//				Name:                            pulumi.String("example-mysqlserver"),
-//				Location:                        example.Location,
-//				ResourceGroupName:               example.Name,
-//				AdministratorLogin:              pulumi.String("mysqladminun"),
-//				AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
-//				SkuName:                         pulumi.String("GP_Gen5_2"),
-//				StorageMb:                       pulumi.Int(5120),
-//				Version:                         pulumi.String("5.7"),
-//				AutoGrowEnabled:                 pulumi.Bool(true),
-//				BackupRetentionDays:             pulumi.Int(7),
-//				GeoRedundantBackupEnabled:       pulumi.Bool(true),
-//				InfrastructureEncryptionEnabled: pulumi.Bool(true),
-//				PublicNetworkAccessEnabled:      pulumi.Bool(false),
-//				SslEnforcementEnabled:           pulumi.Bool(true),
-//				SslMinimalTlsVersionEnforced:    pulumi.String("TLS1_2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mysql.NewDatabase(ctx, "example", &mysql.DatabaseArgs{
-//				Name:              pulumi.String("exampledb"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				Charset:           pulumi.String("utf8"),
-//				Collation:         pulumi.String("utf8_unicode_ci"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mysql/server.NewServer(ctx, "example", &mysql/server.ServerArgs{
+// Name: "example-mysqlserver",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AdministratorLogin: "mysqladminun",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// SkuName: "GP_Gen5_2",
+// StorageMb: 5120,
+// Version: "5.7",
+// AutoGrowEnabled: true,
+// BackupRetentionDays: 7,
+// GeoRedundantBackupEnabled: true,
+// InfrastructureEncryptionEnabled: true,
+// PublicNetworkAccessEnabled: false,
+// SslEnforcementEnabled: true,
+// SslMinimalTlsVersionEnforced: "TLS1_2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mysql/database.NewDatabase(ctx, "example", &mysql/database.DatabaseArgs{
+// Name: "exampledb",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// Charset: "utf8",
+// Collation: "utf8_unicode_ci",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

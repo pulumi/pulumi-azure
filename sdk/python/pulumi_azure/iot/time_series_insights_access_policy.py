@@ -204,20 +204,20 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_time_series_insights_standard_environment = azure.iot.time_series_insights_standard_environment.TimeSeriesInsightsStandardEnvironment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        example_time_series_insights_access_policy = azure.iot.TimeSeriesInsightsAccessPolicy("example",
-            name="example",
+            sku_name=S1_1,
+            data_retention_time=P30D)
+        example_time_series_insights_access_policy = azure.iot.time_series_insights_access_policy.TimeSeriesInsightsAccessPolicy("example",
+            name=example,
             time_series_insights_environment_id=example_time_series_insights_standard_environment.name,
-            principal_object_id="aGUID",
-            roles=["Reader"])
+            principal_object_id=aGUID,
+            roles=[Reader])
         ```
 
         ## Import
@@ -251,20 +251,20 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_time_series_insights_standard_environment = azure.iot.time_series_insights_standard_environment.TimeSeriesInsightsStandardEnvironment("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="S1_1",
-            data_retention_time="P30D")
-        example_time_series_insights_access_policy = azure.iot.TimeSeriesInsightsAccessPolicy("example",
-            name="example",
+            sku_name=S1_1,
+            data_retention_time=P30D)
+        example_time_series_insights_access_policy = azure.iot.time_series_insights_access_policy.TimeSeriesInsightsAccessPolicy("example",
+            name=example,
             time_series_insights_environment_id=example_time_series_insights_standard_environment.name,
-            principal_object_id="aGUID",
-            roles=["Reader"])
+            principal_object_id=aGUID,
+            roles=[Reader])
         ```
 
         ## Import

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
+    ///     var exampleVault = new Azure.Recoveryservices.Vault.Vault("example", new()
     ///     {
     ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
@@ -36,13 +36,13 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleHyperVSite = new Azure.SiteRecovery.HyperVSite("example", new()
+    ///     var exampleHyperVSite = new Azure.Siterecovery.HyperVSite.HyperVSite("example", new()
     ///     {
     ///         RecoveryVaultId = exampleVault.Id,
     ///         Name = "example-site",
     ///     });
     /// 
-    ///     var exampleHyperVReplicationPolicy = new Azure.SiteRecovery.HyperVReplicationPolicy("example", new()
+    ///     var exampleHyperVReplicationPolicy = new Azure.Siterecovery.HyperVReplicationPolicy.HyperVReplicationPolicy("example", new()
     ///     {
     ///         Name = "policy",
     ///         RecoveryVaultId = exampleVault.Id,
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         ReplicationIntervalInSeconds = 300,
     ///     });
     /// 
-    ///     var exampleHyperVReplicationPolicyAssociation = new Azure.SiteRecovery.HyperVReplicationPolicyAssociation("example", new()
+    ///     var exampleHyperVReplicationPolicyAssociation = new Azure.Siterecovery.HyperVReplicationPolicyAssociation.HyperVReplicationPolicyAssociation("example", new()
     ///     {
     ///         Name = "example-association",
     ///         HypervSiteId = exampleHyperVSite.Id,

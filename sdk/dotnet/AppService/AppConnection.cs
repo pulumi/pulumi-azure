@@ -22,36 +22,36 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     var exampleAccount = new Azure.Cosmosdb.Account.Account("example", new()
     ///     {
     ///         Name = "example-cosmosdb-account",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             ConsistencyLevel = "BoundedStaleness",
-    ///             MaxIntervalInSeconds = 10,
-    ///             MaxStalenessPrefix = 200,
+    ///             { "consistencyLevel", "BoundedStaleness" },
+    ///             { "maxIntervalInSeconds", 10 },
+    ///             { "maxStalenessPrefix", 200 },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = example.Location,
-    ///                 FailoverPriority = 0,
+    ///                 { "location", example.Location },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     var exampleSqlDatabase = new Azure.Cosmosdb.SqlDatabase.SqlDatabase("example", new()
     ///     {
     ///         Name = "cosmos-sql-db",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.AppService
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     var exampleSqlContainer = new Azure.Cosmosdb.SqlContainer.SqlContainer("example", new()
     ///     {
     ///         Name = "example-container",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.AppService
     ///         PartitionKeyPath = "/definition",
     ///     });
     /// 
-    ///     var exampleAccount2 = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount2 = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     var exampleServicePlan = new Azure.Appservice.ServicePlan.ServicePlan("example", new()
     ///     {
     ///         Location = example.Location,
     ///         Name = "example-serviceplan",
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AppService
     ///         OsType = "Linux",
     ///     });
     /// 
-    ///     var test = new Azure.AppService.FunctionApp("test", new()
+    ///     var test = new Azure.Appservice.FunctionApp.FunctionApp("test", new()
     ///     {
     ///         Name = "example-function-app",
     ///         Location = testAzurermResourceGroup.Location,
@@ -96,14 +96,14 @@ namespace Pulumi.Azure.AppService
     ///         StorageAccountAccessKey = testAzurermStorageAccount.PrimaryAccessKey,
     ///     });
     /// 
-    ///     var exampleAppConnection = new Azure.AppService.AppConnection("example", new()
+    ///     var exampleAppConnection = new Azure.Appservice.AppConnection.AppConnection("example", new()
     ///     {
     ///         Name = "example-serviceconnector",
     ///         FunctionAppId = exampleAzurermFunctionApp.Id,
     ///         TargetResourceId = testAzurermCosmosdbAccount.Id,
-    ///         Authentication = new Azure.AppService.Inputs.AppConnectionAuthenticationArgs
+    ///         Authentication = 
     ///         {
-    ///             Type = "systemAssignedIdentity",
+    ///             { "type", "systemAssignedIdentity" },
     ///         },
     ///     });
     /// 

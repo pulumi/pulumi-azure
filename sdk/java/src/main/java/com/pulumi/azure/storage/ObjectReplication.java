@@ -29,12 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.storage.inputs.AccountBlobPropertiesArgs;
  * import com.pulumi.azure.storage.Container;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.storage.ObjectReplication;
  * import com.pulumi.azure.storage.ObjectReplicationArgs;
- * import com.pulumi.azure.storage.inputs.ObjectReplicationRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,10 +57,7 @@ import javax.annotation.Nullable;
  *             .location(src.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
- *             .blobProperties(AccountBlobPropertiesArgs.builder()
- *                 .versioningEnabled(true)
- *                 .changeFeedEnabled(true)
- *                 .build())
+ *             .blobProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var srcContainer = new Container(&#34;srcContainer&#34;, ContainerArgs.builder()        
@@ -82,10 +77,7 @@ import javax.annotation.Nullable;
  *             .location(dst.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
- *             .blobProperties(AccountBlobPropertiesArgs.builder()
- *                 .versioningEnabled(true)
- *                 .changeFeedEnabled(true)
- *                 .build())
+ *             .blobProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var dstContainer = new Container(&#34;dstContainer&#34;, ContainerArgs.builder()        
@@ -97,10 +89,7 @@ import javax.annotation.Nullable;
  *         var example = new ObjectReplication(&#34;example&#34;, ObjectReplicationArgs.builder()        
  *             .sourceStorageAccountId(srcAccount.id())
  *             .destinationStorageAccountId(dstAccount.id())
- *             .rules(ObjectReplicationRuleArgs.builder()
- *                 .sourceContainerName(srcContainer.name())
- *                 .destinationContainerName(dstContainer.name())
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

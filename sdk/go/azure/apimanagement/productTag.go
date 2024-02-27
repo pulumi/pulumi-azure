@@ -21,64 +21,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/product "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/product"
+//	apimanagement/productTag "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/productTag"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	apimanagement/tag "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/tag"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@terraform.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleProduct, err := apimanagement.NewProduct(ctx, "example", &apimanagement.ProductArgs{
-//				ProductId:            pulumi.String("test-product"),
-//				ApiManagementName:    exampleService.Name,
-//				ResourceGroupName:    example.Name,
-//				DisplayName:          pulumi.String("Test Product"),
-//				SubscriptionRequired: pulumi.Bool(true),
-//				ApprovalRequired:     pulumi.Bool(true),
-//				Published:            pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
-//				ApiManagementId: exampleService.ID(),
-//				Name:            pulumi.String("example-tag"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewProductTag(ctx, "example", &apimanagement.ProductTagArgs{
-//				ApiManagementProductId: exampleProduct.ProductId,
-//				ApiManagementName:      exampleService.Name,
-//				ResourceGroupName:      example.Name,
-//				Name:                   exampleTag.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@terraform.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleProduct, err := apimanagement/product.NewProduct(ctx, "example", &apimanagement/product.ProductArgs{
+// ProductId: "test-product",
+// ApiManagementName: exampleService.Name,
+// ResourceGroupName: example.Name,
+// DisplayName: "Test Product",
+// SubscriptionRequired: true,
+// ApprovalRequired: true,
+// Published: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTag, err := apimanagement/tag.NewTag(ctx, "example", &apimanagement/tag.TagArgs{
+// ApiManagementId: exampleService.Id,
+// Name: "example-tag",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/productTag.NewProductTag(ctx, "example", &apimanagement/productTag.ProductTagArgs{
+// ApiManagementProductId: exampleProduct.ProductId,
+// ApiManagementName: exampleService.Name,
+// ResourceGroupName: example.Name,
+// Name: exampleTag.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

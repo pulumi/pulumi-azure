@@ -38,78 +38,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args) {
         return getClusterNodePool(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args) {
@@ -118,78 +52,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", TypeShape.of(GetClusterNodePoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .kubernetesClusterName(&#34;existing-cluster&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getClusterNodePoolResult -&gt; getClusterNodePoolResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
@@ -198,80 +66,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Group instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container Group instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -280,80 +80,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Group instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Group instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.id()));
-     *         ctx.export(&#34;ipAddress&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.ipAddress()));
-     *         ctx.export(&#34;fqdn&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.fqdn()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -362,74 +94,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args) {
         return getKubernetesCluster(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args) {
@@ -438,74 +108,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", TypeShape.of(GetKubernetesClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
-     *             .name(&#34;myakscluster&#34;)
-     *             .resourceGroupName(&#34;my-example-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
@@ -514,74 +122,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
         return getKubernetesNodePoolSnapshot(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
@@ -590,74 +136,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {
@@ -666,76 +150,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args) {
         return getKubernetesServiceVersions(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKubernetesServiceVersionsResult> getKubernetesServiceVersionsPlain(GetKubernetesServiceVersionsPlainArgs args) {
@@ -744,76 +164,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", TypeShape.of(GetKubernetesServiceVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;versions&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export(&#34;latestVersion&#34;, current.applyValue(getKubernetesServiceVersionsResult -&gt; getKubernetesServiceVersionsResult.latestVersion()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKubernetesServiceVersionsResult> getKubernetesServiceVersionsPlain(GetKubernetesServiceVersionsPlainArgs args, InvokeOptions options) {
@@ -822,76 +178,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args) {
         return getRegistry(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container Registry.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args) {
@@ -900,76 +192,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Registry.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name(&#34;testacr&#34;)
-     *             .resourceGroupName(&#34;test&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;loginServer&#34;, example.applyValue(getRegistryResult -&gt; getRegistryResult.loginServer()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
@@ -978,78 +206,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry scope map.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args) {
         return getRegistryScopeMap(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container Registry scope map.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args) {
@@ -1058,78 +220,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry scope map.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", TypeShape.of(GetRegistryScopeMapResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Registry scope map.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
-     *             .name(&#34;example-scope-map&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actions&#34;, example.applyValue(getRegistryScopeMapResult -&gt; getRegistryScopeMapResult.actions()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args, InvokeOptions options) {
@@ -1138,78 +234,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry token.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args) {
         return getRegistryToken(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container Registry token.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args) {
@@ -1218,78 +248,12 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry token.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryToken:getRegistryToken", TypeShape.of(GetRegistryTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Registry token.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
-     *             .name(&#34;exampletoken&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .containerRegistryName(&#34;example-registry&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;scopeMapId&#34;, example.applyValue(getRegistryTokenResult -&gt; getRegistryTokenResult.scopeMapId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args, InvokeOptions options) {

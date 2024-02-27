@@ -21,94 +21,92 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automanage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	automanage/configuration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automanage/configuration"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-automanage"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automanage.NewConfiguration(ctx, "example", &automanage.ConfigurationArgs{
-//				Name:              pulumi.String("example-acmp"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Antimalware: &automanage.ConfigurationAntimalwareArgs{
-//					Exclusions: &automanage.ConfigurationAntimalwareExclusionsArgs{
-//						Extensions: pulumi.String("exe;dll"),
-//						Paths:      pulumi.String("C:\\Windows\\Temp;D:\\Temp"),
-//						Processes:  pulumi.String("svchost.exe;notepad.exe"),
-//					},
-//					RealTimeProtectionEnabled:  pulumi.Bool(true),
-//					ScheduledScanEnabled:       pulumi.Bool(true),
-//					ScheduledScanType:          pulumi.String("Quick"),
-//					ScheduledScanDay:           pulumi.Int(1),
-//					ScheduledScanTimeInMinutes: pulumi.Int(1339),
-//				},
-//				AzureSecurityBaseline: &automanage.ConfigurationAzureSecurityBaselineArgs{
-//					AssignmentType: pulumi.String("ApplyAndAutoCorrect"),
-//				},
-//				AutomationAccountEnabled: pulumi.Bool(true),
-//				Backup: &automanage.ConfigurationBackupArgs{
-//					PolicyName:                    pulumi.String("acctest-backup-policy-%d"),
-//					TimeZone:                      pulumi.String("UTC"),
-//					InstantRpRetentionRangeInDays: pulumi.Int(2),
-//					SchedulePolicy: &automanage.ConfigurationBackupSchedulePolicyArgs{
-//						ScheduleRunFrequency: pulumi.String("Daily"),
-//						ScheduleRunDays: pulumi.StringArray{
-//							pulumi.String("Monday"),
-//							pulumi.String("Tuesday"),
-//						},
-//						ScheduleRunTimes: pulumi.StringArray{
-//							pulumi.String("12:00"),
-//						},
-//						SchedulePolicyType: pulumi.String("SimpleSchedulePolicy"),
-//					},
-//					RetentionPolicy: &automanage.ConfigurationBackupRetentionPolicyArgs{
-//						RetentionPolicyType: pulumi.String("LongTermRetentionPolicy"),
-//						DailySchedule: &automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs{
-//							RetentionTimes: pulumi.StringArray{
-//								pulumi.String("12:00"),
-//							},
-//							RetentionDuration: &automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs{
-//								Count:        pulumi.Int(7),
-//								DurationType: pulumi.String("Days"),
-//							},
-//						},
-//						WeeklySchedule: &automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs{
-//							RetentionTimes: pulumi.StringArray{
-//								pulumi.String("14:00"),
-//							},
-//							RetentionDuration: &automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs{
-//								Count:        pulumi.Int(4),
-//								DurationType: pulumi.String("Weeks"),
-//							},
-//						},
-//					},
-//				},
-//				BootDiagnosticsEnabled:    pulumi.Bool(true),
-//				DefenderForCloudEnabled:   pulumi.Bool(true),
-//				GuestConfigurationEnabled: pulumi.Bool(true),
-//				LogAnalyticsEnabled:       pulumi.Bool(true),
-//				StatusChangeAlertEnabled:  pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-automanage",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automanage/configuration.NewConfiguration(ctx, "example", &automanage/configuration.ConfigurationArgs{
+// Name: "example-acmp",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Antimalware: map[string]interface{}{
+// "exclusions": map[string]interface{}{
+// "extensions": "exe;dll",
+// "paths": "C:\\Windows\\Temp;D:\\Temp",
+// "processes": "svchost.exe;notepad.exe",
+// },
+// "realTimeProtectionEnabled": true,
+// "scheduledScanEnabled": true,
+// "scheduledScanType": "Quick",
+// "scheduledScanDay": 1,
+// "scheduledScanTimeInMinutes": 1339,
+// },
+// AzureSecurityBaseline: map[string]interface{}{
+// "assignmentType": "ApplyAndAutoCorrect",
+// },
+// AutomationAccountEnabled: true,
+// Backup: map[string]interface{}{
+// "policyName": "acctest-backup-policy-%d",
+// "timeZone": "UTC",
+// "instantRpRetentionRangeInDays": 2,
+// "schedulePolicy": map[string]interface{}{
+// "scheduleRunFrequency": "Daily",
+// "scheduleRunDays": []string{
+// "Monday",
+// "Tuesday",
+// },
+// "scheduleRunTimes": []string{
+// "12:00",
+// },
+// "schedulePolicyType": "SimpleSchedulePolicy",
+// },
+// "retentionPolicy": map[string]interface{}{
+// "retentionPolicyType": "LongTermRetentionPolicy",
+// "dailySchedule": map[string]interface{}{
+// "retentionTimes": []string{
+// "12:00",
+// },
+// "retentionDuration": map[string]interface{}{
+// "count": 7,
+// "durationType": "Days",
+// },
+// },
+// "weeklySchedule": map[string]interface{}{
+// "retentionTimes": []string{
+// "14:00",
+// },
+// "retentionDuration": map[string]interface{}{
+// "count": 4,
+// "durationType": "Weeks",
+// },
+// },
+// },
+// },
+// BootDiagnosticsEnabled: true,
+// DefenderForCloudEnabled: true,
+// GuestConfigurationEnabled: true,
+// LogAnalyticsEnabled: true,
+// StatusChangeAlertEnabled: true,
+// Tags: map[string]interface{}{
+// "env": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

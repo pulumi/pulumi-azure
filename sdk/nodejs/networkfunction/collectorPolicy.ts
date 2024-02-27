@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West US 2",
  * });
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ * const exampleExpressRoutePort = new azure.network/expressRoutePort.ExpressRoutePort("example", {
  *     name: "example-erp",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     bandwidthInGbps: 10,
  *     encapsulation: "Dot1Q",
  * });
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ * const exampleExpressRouteCircuit = new azure.network/expressRouteCircuit.ExpressRouteCircuit("example", {
  *     name: "example-erc",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         family: "MeteredData",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ * const exampleExpressRouteCircuitPeering = new azure.network/expressRouteCircuitPeering.ExpressRouteCircuitPeering("example", {
  *     peeringType: "MicrosoftPeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,
@@ -50,12 +50,12 @@ import * as utilities from "../utilities";
  *         advertisedPublicPrefixes: ["123.6.0.0/24"],
  *     },
  * });
- * const exampleAzureTrafficCollector = new azure.networkfunction.AzureTrafficCollector("example", {
+ * const exampleAzureTrafficCollector = new azure.networkfunction/azureTrafficCollector.AzureTrafficCollector("example", {
  *     name: "example-nfatc",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleCollectorPolicy = new azure.networkfunction.CollectorPolicy("example", {
+ * const exampleCollectorPolicy = new azure.networkfunction/collectorPolicy.CollectorPolicy("example", {
  *     name: "example-nfcp",
  *     trafficCollectorId: exampleAzureTrafficCollector.id,
  *     location: example.location,

@@ -577,31 +577,6 @@ class SharedImageVersion(pulumi.CustomResource):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        existing = azure.compute.get_image(name="search-api",
-            resource_group_name="packerimages")
-        existing_get_shared_image = azure.compute.get_shared_image(name="existing-image",
-            gallery_name="existing_gallery",
-            resource_group_name="existing-resources")
-        example = azure.compute.SharedImageVersion("example",
-            name="0.0.1",
-            gallery_name=existing_get_shared_image.gallery_name,
-            image_name=existing_get_shared_image.name,
-            resource_group_name=existing_get_shared_image.resource_group_name,
-            location=existing_get_shared_image.location,
-            managed_image_id=existing.id,
-            target_regions=[azure.compute.SharedImageVersionTargetRegionArgs(
-                name=existing_get_shared_image.location,
-                regional_replica_count=5,
-                storage_account_type="Standard_LRS",
-            )])
-        ```
-
         ## Import
 
         Shared Image Versions can be imported using the `resource id`, e.g.
@@ -648,31 +623,6 @@ class SharedImageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        existing = azure.compute.get_image(name="search-api",
-            resource_group_name="packerimages")
-        existing_get_shared_image = azure.compute.get_shared_image(name="existing-image",
-            gallery_name="existing_gallery",
-            resource_group_name="existing-resources")
-        example = azure.compute.SharedImageVersion("example",
-            name="0.0.1",
-            gallery_name=existing_get_shared_image.gallery_name,
-            image_name=existing_get_shared_image.name,
-            resource_group_name=existing_get_shared_image.resource_group_name,
-            location=existing_get_shared_image.location,
-            managed_image_id=existing.id,
-            target_regions=[azure.compute.SharedImageVersionTargetRegionArgs(
-                name=existing_get_shared_image.location,
-                regional_replica_count=5,
-                storage_account_type="Standard_LRS",
-            )])
-        ```
 
         ## Import
 

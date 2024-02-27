@@ -435,30 +435,30 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_lab = azure.devtest.Lab("example",
-            name="YourDevTestLab",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_lab = azure.devtest.lab.Lab("example",
+            name=YourDevTestLab,
             location=example.location,
             resource_group_name=example.name)
-        example_schedule = azure.devtest.Schedule("example",
-            name="LabVmAutoStart",
+        example_schedule = azure.devtest.schedule.Schedule("example",
+            name=LabVmAutoStart,
             location=example.location,
             resource_group_name=example.name,
             lab_name=example_lab.name,
-            weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
-                time="1100",
-                week_days=[
-                    "Monday",
-                    "Tuesday",
+            weekly_recurrence={
+                time: 1100,
+                weekDays: [
+                    Monday,
+                    Tuesday,
                 ],
-            ),
-            time_zone_id="Pacific Standard Time",
-            task_type="LabVmsStartupTask",
-            notification_settings=azure.devtest.ScheduleNotificationSettingsArgs(),
+            },
+            time_zone_id=Pacific Standard Time,
+            task_type=LabVmsStartupTask,
+            notification_settings={},
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -500,30 +500,30 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_lab = azure.devtest.Lab("example",
-            name="YourDevTestLab",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_lab = azure.devtest.lab.Lab("example",
+            name=YourDevTestLab,
             location=example.location,
             resource_group_name=example.name)
-        example_schedule = azure.devtest.Schedule("example",
-            name="LabVmAutoStart",
+        example_schedule = azure.devtest.schedule.Schedule("example",
+            name=LabVmAutoStart,
             location=example.location,
             resource_group_name=example.name,
             lab_name=example_lab.name,
-            weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
-                time="1100",
-                week_days=[
-                    "Monday",
-                    "Tuesday",
+            weekly_recurrence={
+                time: 1100,
+                weekDays: [
+                    Monday,
+                    Tuesday,
                 ],
-            ),
-            time_zone_id="Pacific Standard Time",
-            task_type="LabVmsStartupTask",
-            notification_settings=azure.devtest.ScheduleNotificationSettingsArgs(),
+            },
+            time_zone_id=Pacific Standard Time,
+            task_type=LabVmsStartupTask,
+            notification_settings={},
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

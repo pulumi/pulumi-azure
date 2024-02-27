@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Hsm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Hsm
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-compute",
     ///         ResourceGroupName = example.Name,
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Hsm
     ///         },
     ///     });
     /// 
-    ///     var example2 = new Azure.Network.Subnet("example2", new()
+    ///     var example2 = new Azure.Network.Subnet.Subnet("example2", new()
     ///     {
     ///         Name = "example-hsmsubnet",
     ///         ResourceGroupName = example.Name,
@@ -65,23 +65,23 @@ namespace Pulumi.Azure.Hsm
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "first",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "first" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.HardwareSecurityModules/dedicatedHSMs",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.HardwareSecurityModules/dedicatedHSMs" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/networkinterfaces/*",
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var example3 = new Azure.Network.Subnet("example3", new()
+    ///     var example3 = new Azure.Network.Subnet.Subnet("example3", new()
     ///     {
     ///         Name = "gatewaysubnet",
     ///         ResourceGroupName = example.Name,
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Hsm
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example-pip",
     ///         Location = example.Location,
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Hsm
     ///         AllocationMethod = "Dynamic",
     ///     });
     /// 
-    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway.VirtualNetworkGateway("example", new()
     ///     {
     ///         Name = "example-vnetgateway",
     ///         Location = example.Location,
@@ -110,36 +110,36 @@ namespace Pulumi.Azure.Hsm
     ///         Sku = "Standard",
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             
     ///             {
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
-    ///                 SubnetId = example3.Id,
+    ///                 { "publicIpAddressId", examplePublicIp.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
+    ///                 { "subnetId", example3.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleModule = new Azure.Hsm.Module("example", new()
+    ///     var exampleModule = new Azure.Hsm.Module.Module("example", new()
     ///     {
     ///         Name = "example-hsm",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "payShield10K_LMK1_CPS60",
-    ///         ManagementNetworkProfile = new Azure.Hsm.Inputs.ModuleManagementNetworkProfileArgs
+    ///         ManagementNetworkProfile = 
     ///         {
-    ///             NetworkInterfacePrivateIpAddresses = new[]
+    ///             { "networkInterfacePrivateIpAddresses", new[]
     ///             {
     ///                 "10.2.1.7",
-    ///             },
-    ///             SubnetId = example2.Id,
+    ///             } },
+    ///             { "subnetId", example2.Id },
     ///         },
-    ///         NetworkProfile = new Azure.Hsm.Inputs.ModuleNetworkProfileArgs
+    ///         NetworkProfile = 
     ///         {
-    ///             NetworkInterfacePrivateIpAddresses = new[]
+    ///             { "networkInterfacePrivateIpAddresses", new[]
     ///             {
     ///                 "10.2.1.8",
-    ///             },
-    ///             SubnetId = example2.Id,
+    ///             } },
+    ///             { "subnetId", example2.Id },
     ///         },
     ///         StampId = "stamp2",
     ///         Tags = 

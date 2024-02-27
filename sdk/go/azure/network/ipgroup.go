@@ -21,41 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/iPGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/iPGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewIPGroup(ctx, "example", &network.IPGroupArgs{
-//				Name:              pulumi.String("example1-ipgroup"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Cidrs: pulumi.StringArray{
-//					pulumi.String("192.168.0.1"),
-//					pulumi.String("172.16.240.0/20"),
-//					pulumi.String("10.48.0.0/12"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/iPGroup.NewIPGroup(ctx, "example", &network/iPGroup.IPGroupArgs{
+// Name: "example1-ipgroup",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Cidrs: []string{
+// "192.168.0.1",
+// "172.16.240.0/20",
+// "10.48.0.0/12",
+// },
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

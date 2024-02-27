@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Logic App Standard instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.logicapps.getStandard({
- *     name: "logicappstd",
- *     resourceGroupName: "example-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
 
@@ -92,19 +79,6 @@ export interface GetStandardResult {
 }
 /**
  * Use this data source to access information about an existing Logic App Standard instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.logicapps.getStandard({
- *     name: "logicappstd",
- *     resourceGroupName: "example-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
     return pulumi.output(args).apply((a: any) => getStandard(a, opts))

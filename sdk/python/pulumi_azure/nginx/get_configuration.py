@@ -104,16 +104,6 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Nginx Configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str nginx_deployment_id: The ID of the Nginx Deployment.
     """
@@ -136,16 +126,6 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = 
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Use this data source to access information about an existing Nginx Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str nginx_deployment_id: The ID of the Nginx Deployment.

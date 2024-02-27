@@ -23,20 +23,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	policy/definition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/policy/definition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := policy/definition.NewDefinition(ctx, "policy", &policy/definition.DefinitionArgs{
+// Name: "accTestPolicy",
+// PolicyType: "Custom",
+// Mode: "Indexed",
+// DisplayName: "acceptance test policy definition",
+// Metadata: "    {\n    \"category\": \"General\"\n    }\n\n",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
-//				Name:        pulumi.String("accTestPolicy"),
-//				PolicyType:  pulumi.String("Custom"),
-//				Mode:        pulumi.String("Indexed"),
-//				DisplayName: pulumi.String("acceptance test policy definition"),
-//				Metadata:    pulumi.String("    {\n    \"category\": \"General\"\n    }\n\n"),
-//				PolicyRule: pulumi.String(` {
+//	PolicyRule: ` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",
@@ -48,9 +48,9 @@ import (
 //	    }
 //	  }
 //
-// `),
+// `,
 //
-//				Parameters: pulumi.String(` {
+//	Parameters: ` {
 //	    "allowedLocations": {
 //	      "type": "Array",
 //	      "metadata": {
@@ -61,16 +61,14 @@ import (
 //	    }
 //	  }
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

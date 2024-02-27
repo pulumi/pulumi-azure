@@ -21,48 +21,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
+//	sentinel/dataConnectorAzureActiveDirectory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/dataConnectorAzureActiveDirectory"
+//	sentinel/logAnalyticsWorkspaceOnboarding "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/logAnalyticsWorkspaceOnboarding"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-workspace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sentinel.NewDataConnectorAzureActiveDirectory(ctx, "example", &sentinel.DataConnectorAzureActiveDirectoryArgs{
-//				Name:                    pulumi.String("example"),
-//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "example-workspace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogAnalyticsWorkspaceOnboarding, err := sentinel/logAnalyticsWorkspaceOnboarding.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboardingArgs{
+// WorkspaceId: exampleAnalyticsWorkspace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sentinel/dataConnectorAzureActiveDirectory.NewDataConnectorAzureActiveDirectory(ctx, "example", &sentinel/dataConnectorAzureActiveDirectory.DataConnectorAzureActiveDirectoryArgs{
+// Name: "example",
+// LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

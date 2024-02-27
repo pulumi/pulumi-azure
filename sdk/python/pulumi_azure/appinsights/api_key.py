@@ -197,48 +197,48 @@ class ApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        read_telemetry = azure.appinsights.ApiKey("read_telemetry",
-            name="tf-test-appinsights-read-telemetry-api-key",
+            application_type=web)
+        read_telemetry = azure.appinsights.api_key.ApiKey("read_telemetry",
+            name=tf-test-appinsights-read-telemetry-api-key,
             application_insights_id=example_insights.id,
             read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
+                aggregate,
+                api,
+                draft,
+                extendqueries,
+                search,
             ])
-        write_annotations = azure.appinsights.ApiKey("write_annotations",
-            name="tf-test-appinsights-write-annotations-api-key",
+        write_annotations = azure.appinsights.api_key.ApiKey("write_annotations",
+            name=tf-test-appinsights-write-annotations-api-key,
             application_insights_id=example_insights.id,
-            write_permissions=["annotations"])
-        authenticate_sdk_control_channel = azure.appinsights.ApiKey("authenticate_sdk_control_channel",
-            name="tf-test-appinsights-authenticate-sdk-control-channel-api-key",
+            write_permissions=[annotations])
+        authenticate_sdk_control_channel = azure.appinsights.api_key.ApiKey("authenticate_sdk_control_channel",
+            name=tf-test-appinsights-authenticate-sdk-control-channel-api-key,
             application_insights_id=example_insights.id,
-            read_permissions=["agentconfig"])
-        full_permissions = azure.appinsights.ApiKey("full_permissions",
-            name="tf-test-appinsights-full-permissions-api-key",
+            read_permissions=[agentconfig])
+        full_permissions = azure.appinsights.api_key.ApiKey("full_permissions",
+            name=tf-test-appinsights-full-permissions-api-key,
             application_insights_id=example_insights.id,
             read_permissions=[
-                "agentconfig",
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
+                agentconfig,
+                aggregate,
+                api,
+                draft,
+                extendqueries,
+                search,
             ],
-            write_permissions=["annotations"])
-        pulumi.export("readTelemetryApiKey", read_telemetry.api_key)
-        pulumi.export("writeAnnotationsApiKey", write_annotations.api_key)
-        pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel.api_key)
-        pulumi.export("fullPermissionsApiKey", full_permissions.api_key)
+            write_permissions=[annotations])
+        pulumi.export("readTelemetryApiKey", read_telemetry["apiKey"])
+        pulumi.export("writeAnnotationsApiKey", write_annotations["apiKey"])
+        pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel["apiKey"])
+        pulumi.export("fullPermissionsApiKey", full_permissions["apiKey"])
         ```
 
         ## Import
@@ -273,48 +273,48 @@ class ApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        read_telemetry = azure.appinsights.ApiKey("read_telemetry",
-            name="tf-test-appinsights-read-telemetry-api-key",
+            application_type=web)
+        read_telemetry = azure.appinsights.api_key.ApiKey("read_telemetry",
+            name=tf-test-appinsights-read-telemetry-api-key,
             application_insights_id=example_insights.id,
             read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
+                aggregate,
+                api,
+                draft,
+                extendqueries,
+                search,
             ])
-        write_annotations = azure.appinsights.ApiKey("write_annotations",
-            name="tf-test-appinsights-write-annotations-api-key",
+        write_annotations = azure.appinsights.api_key.ApiKey("write_annotations",
+            name=tf-test-appinsights-write-annotations-api-key,
             application_insights_id=example_insights.id,
-            write_permissions=["annotations"])
-        authenticate_sdk_control_channel = azure.appinsights.ApiKey("authenticate_sdk_control_channel",
-            name="tf-test-appinsights-authenticate-sdk-control-channel-api-key",
+            write_permissions=[annotations])
+        authenticate_sdk_control_channel = azure.appinsights.api_key.ApiKey("authenticate_sdk_control_channel",
+            name=tf-test-appinsights-authenticate-sdk-control-channel-api-key,
             application_insights_id=example_insights.id,
-            read_permissions=["agentconfig"])
-        full_permissions = azure.appinsights.ApiKey("full_permissions",
-            name="tf-test-appinsights-full-permissions-api-key",
+            read_permissions=[agentconfig])
+        full_permissions = azure.appinsights.api_key.ApiKey("full_permissions",
+            name=tf-test-appinsights-full-permissions-api-key,
             application_insights_id=example_insights.id,
             read_permissions=[
-                "agentconfig",
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
+                agentconfig,
+                aggregate,
+                api,
+                draft,
+                extendqueries,
+                search,
             ],
-            write_permissions=["annotations"])
-        pulumi.export("readTelemetryApiKey", read_telemetry.api_key)
-        pulumi.export("writeAnnotationsApiKey", write_annotations.api_key)
-        pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel.api_key)
-        pulumi.export("fullPermissionsApiKey", full_permissions.api_key)
+            write_permissions=[annotations])
+        pulumi.export("readTelemetryApiKey", read_telemetry["apiKey"])
+        pulumi.export("writeAnnotationsApiKey", write_annotations["apiKey"])
+        pulumi.export("authenticateSdkControlChannel", authenticate_sdk_control_channel["apiKey"])
+        pulumi.export("fullPermissionsApiKey", full_permissions["apiKey"])
         ```
 
         ## Import

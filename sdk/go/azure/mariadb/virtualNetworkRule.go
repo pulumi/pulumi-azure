@@ -23,73 +23,73 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mariadb/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/server"
+//	mariadb/virtualNetworkRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/virtualNetworkRule"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.7.29.0/29"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				Name:               pulumi.String("internal"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.7.29.0/29"),
-//				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Sql"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mariadb.NewServer(ctx, "example", &mariadb.ServerArgs{
-//				Name:                       pulumi.String("mariadb-server-1"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				AdministratorLogin:         pulumi.String("mariadbadminun"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				Version:                    pulumi.String("10.2"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//				SkuName:                    pulumi.String("GP_Gen5_2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mariadb.NewVirtualNetworkRule(ctx, "example", &mariadb.VirtualNetworkRuleArgs{
-//				Name:              pulumi.String("mariadb-vnet-rule"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				SubnetId:          internal.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.7.29.0/29",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// internal, err := network/subnet.NewSubnet(ctx, "internal", &network/subnet.SubnetArgs{
+// Name: "internal",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.7.29.0/29",
+// },
+// ServiceEndpoints: []string{
+// "Microsoft.Sql",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mariadb/server.NewServer(ctx, "example", &mariadb/server.ServerArgs{
+// Name: "mariadb-server-1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AdministratorLogin: "mariadbadminun",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// Version: "10.2",
+// SslEnforcementEnabled: true,
+// SkuName: "GP_Gen5_2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mariadb/virtualNetworkRule.NewVirtualNetworkRule(ctx, "example", &mariadb/virtualNetworkRule.VirtualNetworkRuleArgs{
+// Name: "mariadb-vnet-rule",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// SubnetId: internal.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

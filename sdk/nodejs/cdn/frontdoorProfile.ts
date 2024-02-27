@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ * const exampleFrontdoorProfile = new azure.cdn/frontdoorProfile.FrontdoorProfile("example", {
  *     name: "example-cdn-profile",
  *     resourceGroupName: example.name,
  *     skuName: "Standard_AzureFrontDoor",

@@ -1143,17 +1143,6 @@ def get_account(min_tls_version: Optional[str] = None,
     """
     Use this data source to access information about an existing Storage Account.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_account(name="packerimages",
-        resource_group_name="packer-storage")
-    pulumi.export("storageAccountTier", example.account_tier)
-    ```
-
 
     :param str min_tls_version: The minimum supported TLS version for this storage account.
     :param str name: Specifies the name of the Storage Account
@@ -1268,17 +1257,6 @@ def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[str]]] = 
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Storage Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.storage.get_account(name="packerimages",
-        resource_group_name="packer-storage")
-    pulumi.export("storageAccountTier", example.account_tier)
-    ```
 
 
     :param str min_tls_version: The minimum supported TLS version for this storage account.

@@ -14,64 +14,6 @@ import (
 
 // Manages an Arc Kubernetes Cluster Extension.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/arckubernetes"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "testdata/public.cer",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := arckubernetes.NewCluster(ctx, "example", &arckubernetes.ClusterArgs{
-//				Name:                      pulumi.String("example-akcc"),
-//				ResourceGroupName:         example.Name,
-//				Location:                  pulumi.String("West Europe"),
-//				AgentPublicKeyCertificate: invokeFilebase64.Result,
-//				Identity: &arckubernetes.ClusterIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"ENV": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = arckubernetes.NewClusterExtension(ctx, "example", &arckubernetes.ClusterExtensionArgs{
-//				Name:          pulumi.String("example-ext"),
-//				ClusterId:     exampleCluster.ID(),
-//				ExtensionType: pulumi.String("microsoft.flux"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

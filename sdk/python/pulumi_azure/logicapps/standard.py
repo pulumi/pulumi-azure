@@ -797,34 +797,34 @@ class Standard(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="elastic",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            kind=elastic,
+            sku={
+                tier: WorkflowStandard,
+                size: WS1,
+            })
+        example_standard = azure.logicapps.standard.Standard("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             app_settings={
-                "FUNCTIONS_WORKER_RUNTIME": "node",
-                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+                FUNCTIONS_WORKER_RUNTIME: node,
+                WEBSITE_NODE_DEFAULT_VERSION: ~18,
             })
         ```
         ### For Container Mode)
@@ -835,39 +835,39 @@ class Standard(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
+            kind=Linux,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            sku={
+                tier: WorkflowStandard,
+                size: WS1,
+            })
+        example_standard = azure.logicapps.standard.Standard("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.logicapps.StandardSiteConfigArgs(
-                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            ),
+            site_config={
+                linuxFxVersion: DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice,
+            },
             app_settings={
-                "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
-                "DOCKER_REGISTRY_SERVER_USERNAME": "username",
-                "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
+                DOCKER_REGISTRY_SERVER_URL: https://<server-name>.azurecr.io,
+                DOCKER_REGISTRY_SERVER_USERNAME: username,
+                DOCKER_REGISTRY_SERVER_PASSWORD: password,
             })
         ```
 
@@ -920,34 +920,34 @@ class Standard(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="elastic",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            kind=elastic,
+            sku={
+                tier: WorkflowStandard,
+                size: WS1,
+            })
+        example_standard = azure.logicapps.standard.Standard("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             app_settings={
-                "FUNCTIONS_WORKER_RUNTIME": "node",
-                "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+                FUNCTIONS_WORKER_RUNTIME: node,
+                WEBSITE_NODE_DEFAULT_VERSION: ~18,
             })
         ```
         ### For Container Mode)
@@ -958,39 +958,39 @@ class Standard(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azure-functions-test-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=functionsapptestsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=azure-functions-test-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
+            kind=Linux,
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="WorkflowStandard",
-                size="WS1",
-            ))
-        example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            sku={
+                tier: WorkflowStandard,
+                size: WS1,
+            })
+        example_standard = azure.logicapps.standard.Standard("example",
+            name=test-azure-functions,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.logicapps.StandardSiteConfigArgs(
-                linux_fx_version="DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            ),
+            site_config={
+                linuxFxVersion: DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice,
+            },
             app_settings={
-                "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
-                "DOCKER_REGISTRY_SERVER_USERNAME": "username",
-                "DOCKER_REGISTRY_SERVER_PASSWORD": "password",
+                DOCKER_REGISTRY_SERVER_URL: https://<server-name>.azurecr.io,
+                DOCKER_REGISTRY_SERVER_USERNAME: username,
+                DOCKER_REGISTRY_SERVER_PASSWORD: password,
             })
         ```
 

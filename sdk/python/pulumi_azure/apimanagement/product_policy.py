@@ -198,27 +198,6 @@ class ProductPolicy(pulumi.CustomResource):
         """
         Manages an API Management Product Policy
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_product_policy = azure.apimanagement.ProductPolicy("example",
-            product_id=example.product_id,
-            api_management_name=example.api_management_name,
-            resource_group_name=example.resource_group_name,
-            xml_content=\"\"\"<policies>
-          <inbound>
-            <find-and-replace from="xyz" to="abc" />
-          </inbound>
-        </policies>
-        \"\"\")
-        ```
-
         ## Import
 
         API Management Product Policy can be imported using the `resource id`, e.g.
@@ -243,27 +222,6 @@ class ProductPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Product Policy
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name="example-apim",
-            resource_group_name="search-service")
-        example_product_policy = azure.apimanagement.ProductPolicy("example",
-            product_id=example.product_id,
-            api_management_name=example.api_management_name,
-            resource_group_name=example.resource_group_name,
-            xml_content=\"\"\"<policies>
-          <inbound>
-            <find-and-replace from="xyz" to="abc" />
-          </inbound>
-        </policies>
-        \"\"\")
-        ```
 
         ## Import
 

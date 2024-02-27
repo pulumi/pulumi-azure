@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.TimeSeriesInsightsStandardEnvironmentArgs;
  * import com.pulumi.azure.iot.TimeSeriesInsightsReferenceDataSet;
  * import com.pulumi.azure.iot.TimeSeriesInsightsReferenceDataSetArgs;
- * import com.pulumi.azure.iot.inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,10 +63,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .timeSeriesInsightsEnvironmentId(exampleTimeSeriesInsightsStandardEnvironment.id())
  *             .location(example.location())
- *             .keyProperties(TimeSeriesInsightsReferenceDataSetKeyPropertyArgs.builder()
- *                 .name(&#34;keyProperty1&#34;)
- *                 .type(&#34;String&#34;)
- *                 .build())
+ *             .keyProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

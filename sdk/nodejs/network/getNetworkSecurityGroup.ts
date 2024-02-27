@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Network Security Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getNetworkSecurityGroup({
- *     name: "example",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- * });
- * export const location = example.then(example => example.location);
- * ```
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
 
@@ -73,19 +60,6 @@ export interface GetNetworkSecurityGroupResult {
 }
 /**
  * Use this data source to access information about an existing Network Security Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getNetworkSecurityGroup({
- *     name: "example",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- * });
- * export const location = example.then(example => example.location);
- * ```
  */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSecurityGroup(a, opts))

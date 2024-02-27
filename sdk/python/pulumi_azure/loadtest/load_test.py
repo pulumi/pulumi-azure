@@ -259,16 +259,16 @@ class LoadTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_load_test = azure.loadtest.LoadTest("example",
+        example_load_test = azure.loadtest.load_test.LoadTest("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name)
         ```
         ## Blocks Reference
@@ -325,16 +325,16 @@ class LoadTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_load_test = azure.loadtest.LoadTest("example",
+        example_load_test = azure.loadtest.load_test.LoadTest("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name)
         ```
         ## Blocks Reference

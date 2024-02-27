@@ -21,70 +21,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/routeTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/routeTable"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/subnetRouteTableAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetRouteTableAssociation"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-network"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("frontend"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
-//				Name:              pulumi.String("example-routetable"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Routes: network.RouteTableRouteArray{
-//					&network.RouteTableRouteArgs{
-//						Name:               pulumi.String("example"),
-//						AddressPrefix:      pulumi.String("10.100.0.0/14"),
-//						NextHopType:        pulumi.String("VirtualAppliance"),
-//						NextHopInIpAddress: pulumi.String("10.10.1.1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
-//				SubnetId:     exampleSubnet.ID(),
-//				RouteTableId: exampleRouteTable.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-network",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "frontend",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleRouteTable, err := network/routeTable.NewRouteTable(ctx, "example", &network/routeTable.RouteTableArgs{
+// Name: "example-routetable",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Routes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "addressPrefix": "10.100.0.0/14",
+// "nextHopType": "VirtualAppliance",
+// "nextHopInIpAddress": "10.10.1.1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetRouteTableAssociation.NewSubnetRouteTableAssociation(ctx, "example", &network/subnetRouteTableAssociation.SubnetRouteTableAssociationArgs{
+// SubnetId: exampleSubnet.Id,
+// RouteTableId: exampleRouteTable.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -295,24 +295,6 @@ class OutputPowerbi(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output powerBI.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.get_resource_group(name="example-resources")
-        example_get_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example.name)
-        example_output_powerbi = azure.streamanalytics.OutputPowerbi("example",
-            name="output-to-powerbi",
-            stream_analytics_job_id=example_get_job.id,
-            dataset="example-dataset",
-            table="example-table",
-            group_id="00000000-0000-0000-0000-000000000000",
-            group_name="some-group-name")
-        ```
-
         ## Import
 
         Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.
@@ -340,24 +322,6 @@ class OutputPowerbi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output powerBI.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.get_resource_group(name="example-resources")
-        example_get_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example.name)
-        example_output_powerbi = azure.streamanalytics.OutputPowerbi("example",
-            name="output-to-powerbi",
-            stream_analytics_job_id=example_get_job.id,
-            dataset="example-dataset",
-            table="example-table",
-            group_id="00000000-0000-0000-0000-000000000000",
-            group_name="some-group-name")
-        ```
 
         ## Import
 

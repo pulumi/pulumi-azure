@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "my-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "my-sql-server",
     ///         ResourceGroupName = example.Name,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleElasticPool = new Azure.MSSql.ElasticPool("example", new()
+    ///     var exampleElasticPool = new Azure.Mssql.ElasticPool.ElasticPool("example", new()
     ///     {
     ///         Name = "test-epool",
     ///         ResourceGroupName = example.Name,
@@ -46,17 +46,17 @@ namespace Pulumi.Azure.MSSql
     ///         ServerName = exampleServer.Name,
     ///         LicenseType = "LicenseIncluded",
     ///         MaxSizeGb = 756,
-    ///         Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "BasicPool",
-    ///             Tier = "Basic",
-    ///             Family = "Gen4",
-    ///             Capacity = 4,
+    ///             { "name", "BasicPool" },
+    ///             { "tier", "Basic" },
+    ///             { "family", "Gen4" },
+    ///             { "capacity", 4 },
     ///         },
-    ///         PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///         PerDatabaseSettings = 
     ///         {
-    ///             MinCapacity = 0.25,
-    ///             MaxCapacity = 4,
+    ///             { "minCapacity", 0.25 },
+    ///             { "maxCapacity", 4 },
     ///         },
     ///     });
     /// 

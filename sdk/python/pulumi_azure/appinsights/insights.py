@@ -591,16 +591,16 @@ class Insights(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
+            application_type=web)
+        pulumi.export("instrumentationKey", example_insights["instrumentationKey"])
+        pulumi.export("appId", example_insights["appId"])
         ```
         ### Workspace Mode
 
@@ -608,23 +608,23 @@ class Insights(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="workspace-test",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=workspace-test,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
             workspace_id=example_analytics_workspace.id,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
+            application_type=web)
+        pulumi.export("instrumentationKey", example_insights["instrumentationKey"])
+        pulumi.export("appId", example_insights["appId"])
         ```
 
         ## Import
@@ -670,16 +670,16 @@ class Insights(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
+            application_type=web)
+        pulumi.export("instrumentationKey", example_insights["instrumentationKey"])
+        pulumi.export("appId", example_insights["appId"])
         ```
         ### Workspace Mode
 
@@ -687,23 +687,23 @@ class Insights(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="workspace-test",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=workspace-test,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
             workspace_id=example_analytics_workspace.id,
-            application_type="web")
-        pulumi.export("instrumentationKey", example_insights.instrumentation_key)
-        pulumi.export("appId", example_insights.app_id)
+            application_type=web)
+        pulumi.export("instrumentationKey", example_insights["instrumentationKey"])
+        pulumi.export("appId", example_insights["appId"])
         ```
 
         ## Import

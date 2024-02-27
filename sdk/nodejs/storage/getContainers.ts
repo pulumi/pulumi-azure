@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about the existing Storage Containers within a Storage Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getContainers({
- *     storageAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1",
- * });
- * export const containerId = example.then(example => example.containers?.[0]?.resourceManagerId);
- * ```
  */
 export function getContainers(args: GetContainersArgs, opts?: pulumi.InvokeOptions): Promise<GetContainersResult> {
 
@@ -61,18 +49,6 @@ export interface GetContainersResult {
 }
 /**
  * Use this data source to access information about the existing Storage Containers within a Storage Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getContainers({
- *     storageAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1",
- * });
- * export const containerId = example.then(example => example.containers?.[0]?.resourceManagerId);
- * ```
  */
 export function getContainersOutput(args: GetContainersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainersResult> {
     return pulumi.output(args).apply((a: any) => getContainers(a, opts))

@@ -17,17 +17,17 @@ namespace Pulumi.Azure.DomainServices
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var deploy = new Azure.Core.ResourceGroup("deploy", new()
+    ///     var deploy = new Azure.Core.ResourceGroup.ResourceGroup("deploy", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var deployVirtualNetwork = new Azure.Network.VirtualNetwork("deploy", new()
+    ///     var deployVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("deploy", new()
     ///     {
     ///         Name = "deploy-vnet",
     ///         Location = deploy.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var deploySubnet = new Azure.Network.Subnet("deploy", new()
+    ///     var deploySubnet = new Azure.Network.Subnet.Subnet("deploy", new()
     ///     {
     ///         Name = "deploy-subnet",
     ///         ResourceGroupName = deploy.Name,
@@ -49,101 +49,101 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var deployNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("deploy", new()
+    ///     var deployNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("deploy", new()
     ///     {
     ///         Name = "deploy-nsg",
     ///         Location = deploy.Location,
     ///         ResourceGroupName = deploy.Name,
     ///         SecurityRules = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             
     ///             {
-    ///                 Name = "AllowSyncWithAzureAD",
-    ///                 Priority = 101,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "443",
-    ///                 SourceAddressPrefix = "AzureActiveDirectoryDomainServices",
-    ///                 DestinationAddressPrefix = "*",
+    ///                 { "name", "AllowSyncWithAzureAD" },
+    ///                 { "priority", 101 },
+    ///                 { "direction", "Inbound" },
+    ///                 { "access", "Allow" },
+    ///                 { "protocol", "Tcp" },
+    ///                 { "sourcePortRange", "*" },
+    ///                 { "destinationPortRange", "443" },
+    ///                 { "sourceAddressPrefix", "AzureActiveDirectoryDomainServices" },
+    ///                 { "destinationAddressPrefix", "*" },
     ///             },
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             
     ///             {
-    ///                 Name = "AllowRD",
-    ///                 Priority = 201,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "3389",
-    ///                 SourceAddressPrefix = "CorpNetSaw",
-    ///                 DestinationAddressPrefix = "*",
+    ///                 { "name", "AllowRD" },
+    ///                 { "priority", 201 },
+    ///                 { "direction", "Inbound" },
+    ///                 { "access", "Allow" },
+    ///                 { "protocol", "Tcp" },
+    ///                 { "sourcePortRange", "*" },
+    ///                 { "destinationPortRange", "3389" },
+    ///                 { "sourceAddressPrefix", "CorpNetSaw" },
+    ///                 { "destinationAddressPrefix", "*" },
     ///             },
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             
     ///             {
-    ///                 Name = "AllowPSRemoting",
-    ///                 Priority = 301,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "5986",
-    ///                 SourceAddressPrefix = "AzureActiveDirectoryDomainServices",
-    ///                 DestinationAddressPrefix = "*",
+    ///                 { "name", "AllowPSRemoting" },
+    ///                 { "priority", 301 },
+    ///                 { "direction", "Inbound" },
+    ///                 { "access", "Allow" },
+    ///                 { "protocol", "Tcp" },
+    ///                 { "sourcePortRange", "*" },
+    ///                 { "destinationPortRange", "5986" },
+    ///                 { "sourceAddressPrefix", "AzureActiveDirectoryDomainServices" },
+    ///                 { "destinationAddressPrefix", "*" },
     ///             },
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             
     ///             {
-    ///                 Name = "AllowLDAPS",
-    ///                 Priority = 401,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "636",
-    ///                 SourceAddressPrefix = "*",
-    ///                 DestinationAddressPrefix = "*",
+    ///                 { "name", "AllowLDAPS" },
+    ///                 { "priority", 401 },
+    ///                 { "direction", "Inbound" },
+    ///                 { "access", "Allow" },
+    ///                 { "protocol", "Tcp" },
+    ///                 { "sourcePortRange", "*" },
+    ///                 { "destinationPortRange", "636" },
+    ///                 { "sourceAddressPrefix", "*" },
+    ///                 { "destinationAddressPrefix", "*" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var deploySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("deploy", new()
+    ///     var deploySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("deploy", new()
     ///     {
     ///         SubnetId = deploySubnet.Id,
     ///         NetworkSecurityGroupId = deployNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var dcAdmins = new AzureAD.Group("dc_admins", new()
+    ///     var dcAdmins = new Azuread.Index.Group.Group("dc_admins", new()
     ///     {
     ///         DisplayName = "AAD DC Administrators",
     ///         SecurityEnabled = true,
     ///     });
     /// 
-    ///     var admin = new AzureAD.User("admin", new()
+    ///     var admin = new Azuread.Index.User.User("admin", new()
     ///     {
     ///         UserPrincipalName = "dc-admin@hashicorp-example.com",
     ///         DisplayName = "DC Administrator",
     ///         Password = "Pa55w0Rd!!1",
     ///     });
     /// 
-    ///     var adminGroupMember = new AzureAD.GroupMember("admin", new()
+    ///     var adminGroupMember = new Azuread.Index.GroupMember.GroupMember("admin", new()
     ///     {
     ///         GroupObjectId = dcAdmins.ObjectId,
     ///         MemberObjectId = admin.ObjectId,
     ///     });
     /// 
-    ///     var example = new AzureAD.ServicePrincipal("example", new()
+    ///     var example = new Azuread.Index.ServicePrincipal.ServicePrincipal("example", new()
     ///     {
     ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
     ///     });
     /// 
-    ///     var aadds = new Azure.Core.ResourceGroup("aadds", new()
+    ///     var aadds = new Azure.Core.ResourceGroup.ResourceGroup("aadds", new()
     ///     {
     ///         Name = "aadds-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleService = new Azure.DomainServices.Service("example", new()
+    ///     var exampleService = new Azure.Domainservices.Service.Service("example", new()
     ///     {
     ///         Name = "example-aadds",
     ///         Location = aadds.Location,
@@ -151,25 +151,25 @@ namespace Pulumi.Azure.DomainServices
     ///         DomainName = "widgetslogin.net",
     ///         Sku = "Enterprise",
     ///         FilteredSyncEnabled = false,
-    ///         InitialReplicaSet = new Azure.DomainServices.Inputs.ServiceInitialReplicaSetArgs
+    ///         InitialReplicaSet = 
     ///         {
-    ///             SubnetId = deploySubnet.Id,
+    ///             { "subnetId", deploySubnet.Id },
     ///         },
-    ///         Notifications = new Azure.DomainServices.Inputs.ServiceNotificationsArgs
+    ///         Notifications = 
     ///         {
-    ///             AdditionalRecipients = new[]
+    ///             { "additionalRecipients", new[]
     ///             {
     ///                 "notifyA@example.net",
     ///                 "notifyB@example.org",
-    ///             },
-    ///             NotifyDcAdmins = true,
-    ///             NotifyGlobalAdmins = true,
+    ///             } },
+    ///             { "notifyDcAdmins", true },
+    ///             { "notifyGlobalAdmins", true },
     ///         },
-    ///         Security = new Azure.DomainServices.Inputs.ServiceSecurityArgs
+    ///         Security = 
     ///         {
-    ///             SyncKerberosPasswords = true,
-    ///             SyncNtlmPasswords = true,
-    ///             SyncOnPremPasswords = true,
+    ///             { "syncKerberosPasswords", true },
+    ///             { "syncNtlmPasswords", true },
+    ///             { "syncOnPremPasswords", true },
     ///         },
     ///         Tags = 
     ///         {

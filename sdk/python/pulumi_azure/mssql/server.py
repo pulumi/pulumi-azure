@@ -601,101 +601,24 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="database-rg",
-            location="West Europe")
-        example_server = azure.mssql.Server("example",
-            name="mssqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=database-rg,
+            location=West Europe)
+        example_server = azure.mssql.server.Server("example",
+            name=mssqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="thisIsKat11",
-            minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
-                login_username="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-            ),
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=thisIsKat11,
+            minimum_tls_version=1.2,
+            azuread_administrator={
+                loginUsername: AzureAD Admin,
+                objectId: 00000000-0000-0000-0000-000000000000,
+            },
             tags={
-                "environment": "production",
+                environment: production,
             })
-        ```
-        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-admin",
-            location=example.location,
-            resource_group_name=example.name)
-        # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="mssqltdeexample",
-            location=example.location,
-            resource_group_name=example.name,
-            enabled_for_disk_encryption=True,
-            tenant_id=example_user_assigned_identity.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
-                        "Get",
-                        "List",
-                        "Create",
-                        "Delete",
-                        "Update",
-                        "Recover",
-                        "Purge",
-                        "GetRotationPolicy",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_user_assigned_identity.tenant_id,
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
-                        "Get",
-                        "WrapKey",
-                        "UnwrapKey",
-                    ],
-                ),
-            ])
-        example_key = azure.keyvault.Key("example",
-            name="example-key",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "unwrapKey",
-                "wrapKey",
-            ])
-        example_server = azure.mssql.Server("example",
-            name="example-resource",
-            resource_group_name=example.name,
-            location=example.location,
-            version="12.0",
-            administrator_login="Example-Administrator",
-            administrator_login_password="Example_Password!",
-            minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
-                login_username=example_user_assigned_identity.name,
-                object_id=example_user_assigned_identity.principal_id,
-            ),
-            identity=azure.mssql.ServerIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            primary_user_assigned_identity_id=example_user_assigned_identity.id,
-            transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 
         ## Import
@@ -747,101 +670,24 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="database-rg",
-            location="West Europe")
-        example_server = azure.mssql.Server("example",
-            name="mssqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=database-rg,
+            location=West Europe)
+        example_server = azure.mssql.server.Server("example",
+            name=mssqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="thisIsKat11",
-            minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
-                login_username="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-            ),
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=thisIsKat11,
+            minimum_tls_version=1.2,
+            azuread_administrator={
+                loginUsername: AzureAD Admin,
+                objectId: 00000000-0000-0000-0000-000000000000,
+            },
             tags={
-                "environment": "production",
+                environment: production,
             })
-        ```
-        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            name="example-admin",
-            location=example.location,
-            resource_group_name=example.name)
-        # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="mssqltdeexample",
-            location=example.location,
-            resource_group_name=example.name,
-            enabled_for_disk_encryption=True,
-            tenant_id=example_user_assigned_identity.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
-            access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
-                        "Get",
-                        "List",
-                        "Create",
-                        "Delete",
-                        "Update",
-                        "Recover",
-                        "Purge",
-                        "GetRotationPolicy",
-                    ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_user_assigned_identity.tenant_id,
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
-                        "Get",
-                        "WrapKey",
-                        "UnwrapKey",
-                    ],
-                ),
-            ])
-        example_key = azure.keyvault.Key("example",
-            name="example-key",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "unwrapKey",
-                "wrapKey",
-            ])
-        example_server = azure.mssql.Server("example",
-            name="example-resource",
-            resource_group_name=example.name,
-            location=example.location,
-            version="12.0",
-            administrator_login="Example-Administrator",
-            administrator_login_password="Example_Password!",
-            minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
-                login_username=example_user_assigned_identity.name,
-                object_id=example_user_assigned_identity.principal_id,
-            ),
-            identity=azure.mssql.ServerIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            primary_user_assigned_identity_id=example_user_assigned_identity.id,
-            transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
 
         ## Import

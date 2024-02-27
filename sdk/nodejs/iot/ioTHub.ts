@@ -25,50 +25,50 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorage",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "examplecontainer",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "example-namespace",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: "Basic",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ * const exampleEventHub = new azure.eventhub/eventHub.EventHub("example", {
  *     name: "example-eventhub",
  *     resourceGroupName: example.name,
  *     namespaceName: exampleEventHubNamespace.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ * const exampleAuthorizationRule = new azure.eventhub/authorizationRule.AuthorizationRule("example", {
  *     resourceGroupName: example.name,
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
  *     name: "acctest",
  *     send: true,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "Example-IoTHub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     localAuthenticationEnabled: false,
  *     sku: {
  *         name: "S1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  *     endpoints: [
  *         {

@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.iot.getDpsSharedAccessPolicy({
- *     name: "example",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     iothubDpsName: exampleAzurermIothubDps.name,
- * });
- * ```
  */
 export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> {
 
@@ -78,19 +65,6 @@ export interface GetDpsSharedAccessPolicyResult {
 }
 /**
  * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.iot.getDpsSharedAccessPolicy({
- *     name: "example",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     iothubDpsName: exampleAzurermIothubDps.name,
- * });
- * ```
  */
 export function getDpsSharedAccessPolicyOutput(args: GetDpsSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsSharedAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDpsSharedAccessPolicy(a, opts))

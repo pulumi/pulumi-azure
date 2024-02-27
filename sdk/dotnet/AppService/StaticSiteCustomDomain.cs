@@ -21,20 +21,20 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleStaticSite = new Azure.AppService.StaticSite("example", new()
+    ///     var exampleStaticSite = new Azure.Appservice.StaticSite.StaticSite("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord.CNameRecord("example", new()
     ///     {
     ///         Name = "my-domain",
     ///         ZoneName = "contoso.com",
@@ -43,15 +43,10 @@ namespace Pulumi.Azure.AppService
     ///         Record = exampleStaticSite.DefaultHostName,
     ///     });
     /// 
-    ///     var exampleStaticSiteCustomDomain = new Azure.AppService.StaticSiteCustomDomain("example", new()
+    ///     var exampleStaticSiteCustomDomain = new Azure.Appservice.StaticSiteCustomDomain.StaticSiteCustomDomain("example", new()
     ///     {
     ///         StaticSiteId = exampleStaticSite.Id,
-    ///         DomainName = Output.Tuple(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).Apply(values =&gt;
-    ///         {
-    ///             var name = values.Item1;
-    ///             var zoneName = values.Item2;
-    ///             return $"{name}.{zoneName}";
-    ///         }),
+    ///         DomainName = $"{exampleCNameRecord.Name}.{exampleCNameRecord.ZoneName}",
     ///         ValidationType = "cname-delegation",
     ///     });
     /// 
@@ -67,27 +62,27 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleStaticSite = new Azure.AppService.StaticSite("example", new()
+    ///     var exampleStaticSite = new Azure.Appservice.StaticSite.StaticSite("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleStaticSiteCustomDomain = new Azure.AppService.StaticSiteCustomDomain("example", new()
+    ///     var exampleStaticSiteCustomDomain = new Azure.Appservice.StaticSiteCustomDomain.StaticSiteCustomDomain("example", new()
     ///     {
     ///         StaticSiteId = exampleStaticSite.Id,
     ///         DomainName = "my-domain.contoso.com",
     ///         ValidationType = "dns-txt-token",
     ///     });
     /// 
-    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
+    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord.TxtRecord("example", new()
     ///     {
     ///         Name = "_dnsauth.my-domain",
     ///         ZoneName = "contoso.com",
@@ -95,9 +90,9 @@ namespace Pulumi.Azure.AppService
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             
     ///             {
-    ///                 Value = exampleStaticSiteCustomDomain.ValidationToken,
+    ///                 { "value", exampleStaticSiteCustomDomain.ValidationToken },
     ///             },
     ///         },
     ///     });

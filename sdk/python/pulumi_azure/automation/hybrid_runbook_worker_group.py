@@ -172,16 +172,16 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("example",
-            name="example",
+            sku_name=Basic)
+        example_hybrid_runbook_worker_group = azure.automation.hybrid_runbook_worker_group.HybridRunbookWorkerGroup("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         ```
@@ -216,16 +216,16 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_hybrid_runbook_worker_group = azure.automation.HybridRunbookWorkerGroup("example",
-            name="example",
+            sku_name=Basic)
+        example_hybrid_runbook_worker_group = azure.automation.hybrid_runbook_worker_group.HybridRunbookWorkerGroup("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         ```

@@ -21,64 +21,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	appservice/appService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/appService"
+//	appservice/customHostnameBinding "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/customHostnameBinding"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	index/randomId "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomId"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
-//					"azi_id": pulumi.String("1"),
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("some-resource-group"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("some-app-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              server.Hex,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname:          pulumi.String("www.mywebsite.com"),
-//				AppServiceName:    exampleAppService.Name,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+// Keepers: map[string]interface{}{
+// "azi_id": 1,
+// },
+// ByteLength: 8,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "some-resource-group",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "some-app-service-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAppService, err := appservice/appService.NewAppService(ctx, "example", &appservice/appService.AppServiceArgs{
+// Name: server.Hex,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/customHostnameBinding.NewCustomHostnameBinding(ctx, "example", &appservice/customHostnameBinding.CustomHostnameBindingArgs{
+// Hostname: "www.mywebsite.com",
+// AppServiceName: exampleAppService.Name,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

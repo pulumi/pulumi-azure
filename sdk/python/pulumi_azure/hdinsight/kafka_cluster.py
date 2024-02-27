@@ -799,56 +799,56 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="hdinsightstor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=hdinsightstor,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="hdinsight",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=hdinsight,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_kafka_cluster = azure.hdinsight.KafkaCluster("example",
-            name="example-hdicluster",
+            container_access_type=private)
+        example_kafka_cluster = azure.hdinsight.kafka_cluster.KafkaCluster("example",
+            name=example-hdicluster,
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="4.0",
-            tier="Standard",
-            component_version=azure.hdinsight.KafkaClusterComponentVersionArgs(
-                kafka="2.1",
-            ),
-            gateway=azure.hdinsight.KafkaClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.KafkaClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.KafkaClusterRolesArgs(
-                head_node=azure.hdinsight.KafkaClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.KafkaClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    number_of_disks_per_node=3,
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.KafkaClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            cluster_version=4.0,
+            tier=Standard,
+            component_version={
+                kafka: 2.1,
+            },
+            gateway={
+                username: acctestusrgw,
+                password: Password123!,
+            },
+            storage_accounts=[{
+                storageContainerId: example_container.id,
+                storageAccountKey: example_account.primary_access_key,
+                isDefault: True,
+            }],
+            roles={
+                headNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+                workerNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                    numberOfDisksPerNode: 3,
+                    targetInstanceCount: 3,
+                },
+                zookeeperNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+            })
         ```
 
         ## Import
@@ -900,56 +900,56 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="hdinsightstor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=hdinsightstor,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="hdinsight",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=hdinsight,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_kafka_cluster = azure.hdinsight.KafkaCluster("example",
-            name="example-hdicluster",
+            container_access_type=private)
+        example_kafka_cluster = azure.hdinsight.kafka_cluster.KafkaCluster("example",
+            name=example-hdicluster,
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="4.0",
-            tier="Standard",
-            component_version=azure.hdinsight.KafkaClusterComponentVersionArgs(
-                kafka="2.1",
-            ),
-            gateway=azure.hdinsight.KafkaClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.KafkaClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.KafkaClusterRolesArgs(
-                head_node=azure.hdinsight.KafkaClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.KafkaClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    number_of_disks_per_node=3,
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.KafkaClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            cluster_version=4.0,
+            tier=Standard,
+            component_version={
+                kafka: 2.1,
+            },
+            gateway={
+                username: acctestusrgw,
+                password: Password123!,
+            },
+            storage_accounts=[{
+                storageContainerId: example_container.id,
+                storageAccountKey: example_account.primary_access_key,
+                isDefault: True,
+            }],
+            roles={
+                headNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+                workerNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                    numberOfDisksPerNode: 3,
+                    targetInstanceCount: 3,
+                },
+                zookeeperNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+            })
         ```
 
         ## Import

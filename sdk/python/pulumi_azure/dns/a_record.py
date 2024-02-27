@@ -300,18 +300,18 @@ class ARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_a_record = azure.dns.ARecord("example",
-            name="test",
+        example_a_record = azure.dns.a_record.ARecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["10.0.180.17"])
+            records=[10.0.180.17])
         ```
         ### Alias Record)
 
@@ -319,20 +319,20 @@ class ARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_public_ip = azure.network.PublicIp("example",
-            name="mypublicip",
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=mypublicip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic",
-            ip_version="IPv4")
-        example_a_record = azure.dns.ARecord("example",
-            name="test",
+            allocation_method=Dynamic,
+            ip_version=IPv4)
+        example_a_record = azure.dns.a_record.ARecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
@@ -374,18 +374,18 @@ class ARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_a_record = azure.dns.ARecord("example",
-            name="test",
+        example_a_record = azure.dns.a_record.ARecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["10.0.180.17"])
+            records=[10.0.180.17])
         ```
         ### Alias Record)
 
@@ -393,20 +393,20 @@ class ARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_public_ip = azure.network.PublicIp("example",
-            name="mypublicip",
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=mypublicip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic",
-            ip_version="IPv4")
-        example_a_record = azure.dns.ARecord("example",
-            name="test",
+            allocation_method=Dynamic,
+            ip_version=IPv4)
+        example_a_record = azure.dns.a_record.ARecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,

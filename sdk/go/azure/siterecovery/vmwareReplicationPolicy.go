@@ -21,46 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	siterecovery/vMWareReplicationPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/vMWareReplicationPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("eastus"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
-//				Name:                            pulumi.String("example-vault"),
-//				Location:                        example.Location,
-//				ResourceGroupName:               example.Name,
-//				Sku:                             pulumi.String("Standard"),
-//				ClassicVmwareReplicationEnabled: pulumi.Bool(true),
-//				SoftDeleteEnabled:               pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
-//				Name:                            pulumi.String("example-policy"),
-//				RecoveryVaultId:                 exampleVault.ID(),
-//				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
-//				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "eastus",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVault, err := recoveryservices/vault.NewVault(ctx, "example", &recoveryservices/vault.VaultArgs{
+// Name: "example-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// ClassicVmwareReplicationEnabled: true,
+// SoftDeleteEnabled: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/vMWareReplicationPolicy.NewVMWareReplicationPolicy(ctx, "example", &siterecovery/vMWareReplicationPolicy.VMWareReplicationPolicyArgs{
+// Name: "example-policy",
+// RecoveryVaultId: exampleVault.Id,
+// RecoveryPointRetentionInMinutes: 1440,
+// ApplicationConsistentSnapshotFrequencyInMinutes: 240,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

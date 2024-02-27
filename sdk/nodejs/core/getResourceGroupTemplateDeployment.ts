@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Resource Group Template Deployment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.core.getResourceGroupTemplateDeployment({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * export const exampleOutput = notImplemented("jsondecode(data.azurerm_resource_group_template_deployment.example.output_content)").exampleOutput.value;
- * ```
  */
 export function getResourceGroupTemplateDeployment(args: GetResourceGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupTemplateDeploymentResult> {
 
@@ -65,24 +47,6 @@ export interface GetResourceGroupTemplateDeploymentResult {
 }
 /**
  * Use this data source to access information about an existing Resource Group Template Deployment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = azure.core.getResourceGroupTemplateDeployment({
- *     name: "existing",
- *     resourceGroupName: "existing",
- * });
- * export const id = example.then(example => example.id);
- * export const exampleOutput = notImplemented("jsondecode(data.azurerm_resource_group_template_deployment.example.output_content)").exampleOutput.value;
- * ```
  */
 export function getResourceGroupTemplateDeploymentOutput(args: GetResourceGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupTemplateDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getResourceGroupTemplateDeployment(a, opts))

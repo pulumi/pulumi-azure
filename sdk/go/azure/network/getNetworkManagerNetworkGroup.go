@@ -12,67 +12,6 @@ import (
 )
 
 // Use this data source to access information about a Network Manager Network Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := core.LookupSubscription(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-network-manager"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Scope: &network.NetworkManagerScopeArgs{
-//					SubscriptionIds: pulumi.StringArray{
-//						*pulumi.String(current.Id),
-//					},
-//				},
-//				ScopeAccesses: pulumi.StringArray{
-//					pulumi.String("Connectivity"),
-//					pulumi.String("SecurityAdmin"),
-//				},
-//				Description: pulumi.String("example network manager"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
-//				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_ = network.LookupNetworkManagerNetworkGroupOutput(ctx, network.GetNetworkManagerNetworkGroupOutputArgs{
-//				Name:             exampleNetworkManagerNetworkGroup.Name,
-//				NetworkManagerId: exampleNetworkManager.ID(),
-//			}, nil)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNetworkManagerNetworkGroup(ctx *pulumi.Context, args *LookupNetworkManagerNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkManagerNetworkGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkManagerNetworkGroupResult

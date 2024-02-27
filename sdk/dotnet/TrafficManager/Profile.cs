@@ -23,39 +23,39 @@ namespace Pulumi.Azure.TrafficManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server", new()
+    ///     var server = new Random.Index.RandomId.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", "1" },
+    ///             { "azi_id", 1 },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "trafficmanagerProfile",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("example", new()
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile.TrafficManagerProfile("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
-    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             RelativeName = server.Hex,
-    ///             Ttl = 100,
+    ///             { "relativeName", server.Hex },
+    ///             { "ttl", 100 },
     ///         },
-    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         MonitorConfig = 
     ///         {
-    ///             Protocol = "HTTP",
-    ///             Port = 80,
-    ///             Path = "/",
-    ///             IntervalInSeconds = 30,
-    ///             TimeoutInSeconds = 9,
-    ///             ToleratedNumberOfFailures = 3,
+    ///             { "protocol", "HTTP" },
+    ///             { "port", 80 },
+    ///             { "path", "/" },
+    ///             { "intervalInSeconds", 30 },
+    ///             { "timeoutInSeconds", 9 },
+    ///             { "toleratedNumberOfFailures", 3 },
     ///         },
     ///         Tags = 
     ///         {

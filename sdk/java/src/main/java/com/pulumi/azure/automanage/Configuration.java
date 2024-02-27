@@ -33,16 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.automanage.Configuration;
  * import com.pulumi.azure.automanage.ConfigurationArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationAntimalwareArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationAntimalwareExclusionsArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationAzureSecurityBaselineArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupSchedulePolicyArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupRetentionPolicyArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupRetentionPolicyDailyScheduleArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs;
- * import com.pulumi.azure.automanage.inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,58 +55,16 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-acmp&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .antimalware(ConfigurationAntimalwareArgs.builder()
- *                 .exclusions(ConfigurationAntimalwareExclusionsArgs.builder()
- *                     .extensions(&#34;exe;dll&#34;)
- *                     .paths(&#34;C:\\Windows\\Temp;D:\\Temp&#34;)
- *                     .processes(&#34;svchost.exe;notepad.exe&#34;)
- *                     .build())
- *                 .realTimeProtectionEnabled(true)
- *                 .scheduledScanEnabled(true)
- *                 .scheduledScanType(&#34;Quick&#34;)
- *                 .scheduledScanDay(1)
- *                 .scheduledScanTimeInMinutes(1339)
- *                 .build())
- *             .azureSecurityBaseline(ConfigurationAzureSecurityBaselineArgs.builder()
- *                 .assignmentType(&#34;ApplyAndAutoCorrect&#34;)
- *                 .build())
+ *             .antimalware(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .azureSecurityBaseline(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .automationAccountEnabled(true)
- *             .backup(ConfigurationBackupArgs.builder()
- *                 .policyName(&#34;acctest-backup-policy-%d&#34;)
- *                 .timeZone(&#34;UTC&#34;)
- *                 .instantRpRetentionRangeInDays(2)
- *                 .schedulePolicy(ConfigurationBackupSchedulePolicyArgs.builder()
- *                     .scheduleRunFrequency(&#34;Daily&#34;)
- *                     .scheduleRunDays(                    
- *                         &#34;Monday&#34;,
- *                         &#34;Tuesday&#34;)
- *                     .scheduleRunTimes(&#34;12:00&#34;)
- *                     .schedulePolicyType(&#34;SimpleSchedulePolicy&#34;)
- *                     .build())
- *                 .retentionPolicy(ConfigurationBackupRetentionPolicyArgs.builder()
- *                     .retentionPolicyType(&#34;LongTermRetentionPolicy&#34;)
- *                     .dailySchedule(ConfigurationBackupRetentionPolicyDailyScheduleArgs.builder()
- *                         .retentionTimes(&#34;12:00&#34;)
- *                         .retentionDuration(ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs.builder()
- *                             .count(7)
- *                             .durationType(&#34;Days&#34;)
- *                             .build())
- *                         .build())
- *                     .weeklySchedule(ConfigurationBackupRetentionPolicyWeeklyScheduleArgs.builder()
- *                         .retentionTimes(&#34;14:00&#34;)
- *                         .retentionDuration(ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs.builder()
- *                             .count(4)
- *                             .durationType(&#34;Weeks&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .backup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .bootDiagnosticsEnabled(true)
  *             .defenderForCloudEnabled(true)
  *             .guestConfigurationEnabled(true)
  *             .logAnalyticsEnabled(true)
  *             .statusChangeAlertEnabled(true)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

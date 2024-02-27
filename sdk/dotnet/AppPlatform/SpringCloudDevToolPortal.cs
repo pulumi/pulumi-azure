@@ -14,56 +14,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// Manages a Spring Cloud Dev Tool Portal.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "E0",
-    ///     });
-    /// 
-    ///     var exampleSpringCloudDevToolPortal = new Azure.AppPlatform.SpringCloudDevToolPortal("example", new()
-    ///     {
-    ///         Name = "default",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         PublicNetworkAccessEnabled = true,
-    ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudDevToolPortalSsoArgs
-    ///         {
-    ///             ClientId = "example id",
-    ///             ClientSecret = "example secret",
-    ///             MetadataUrl = $"https://login.microsoftonline.com/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId)}/v2.0/.well-known/openid-configuration",
-    ///             Scopes = new[]
-    ///             {
-    ///                 "openid",
-    ///                 "profile",
-    ///                 "email",
-    ///             },
-    ///         },
-    ///         ApplicationAcceleratorEnabled = true,
-    ///         ApplicationLiveViewEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.

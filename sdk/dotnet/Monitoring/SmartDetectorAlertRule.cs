@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     var exampleInsights = new Azure.Appinsights.Insights.Insights("example", new()
     ///     {
     ///         Name = "example-appinsights",
     ///         Location = example.Location,
@@ -36,14 +36,14 @@ namespace Pulumi.Azure.Monitoring
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example-action-group",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "example",
     ///     });
     /// 
-    ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("example", new()
+    ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule.SmartDetectorAlertRule("example", new()
     ///     {
     ///         Name = "example-smart-detector-alert-rule",
     ///         ResourceGroupName = example.Name,
@@ -54,12 +54,12 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///         Frequency = "PT1M",
     ///         DetectorType = "FailureAnomaliesDetector",
-    ///         ActionGroup = new Azure.Monitoring.Inputs.SmartDetectorAlertRuleActionGroupArgs
+    ///         ActionGroup = 
     ///         {
-    ///             Ids = new[]
+    ///             { "ids", new[]
     ///             {
     ///                 exampleActionGroup.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

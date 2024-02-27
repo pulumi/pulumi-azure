@@ -106,43 +106,6 @@ class CertificateContacts(pulumi.CustomResource):
 
         > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_access_policy = azure.keyvault.AccessPolicy("example",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            certificate_permissions=["ManageContacts"],
-            key_permissions=["Create"],
-            secret_permissions=["Set"])
-        example_certificate_contacts = azure.keyvault.CertificateContacts("example",
-            key_vault_id=example_key_vault.id,
-            contacts=[
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example@example.com",
-                    name="example",
-                    phone="01234567890",
-                ),
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example2@example.com",
-                ),
-            ])
-        ```
-
         ## Import
 
         Key Vault Certificate Contacts can be imported using the `resource id`, e.g.
@@ -168,43 +131,6 @@ class CertificateContacts(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_access_policy = azure.keyvault.AccessPolicy("example",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            certificate_permissions=["ManageContacts"],
-            key_permissions=["Create"],
-            secret_permissions=["Set"])
-        example_certificate_contacts = azure.keyvault.CertificateContacts("example",
-            key_vault_id=example_key_vault.id,
-            contacts=[
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example@example.com",
-                    name="example",
-                    phone="01234567890",
-                ),
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example2@example.com",
-                ),
-            ])
-        ```
 
         ## Import
 

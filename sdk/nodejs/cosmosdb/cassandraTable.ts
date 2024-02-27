@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "tflex-cosmosdb-account-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleCassandraKeyspace = new azure.cosmosdb.CassandraKeyspace("example", {
+ * const exampleCassandraKeyspace = new azure.cosmosdb/cassandraKeyspace.CassandraKeyspace("example", {
  *     name: "tfex-cosmos-cassandra-keyspace",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     throughput: 400,
  * });
- * const exampleCassandraTable = new azure.cosmosdb.CassandraTable("example", {
+ * const exampleCassandraTable = new azure.cosmosdb/cassandraTable.CassandraTable("example", {
  *     name: "testtable",
  *     cassandraKeyspaceId: exampleCassandraKeyspace.id,
  *     schema: {

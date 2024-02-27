@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan.VirtualWan("example", new()
     ///     {
     ///         Name = "example-vwan",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub.VirtualHub("example", new()
     ///     {
     ///         Name = "example-hub",
     ///         ResourceGroupName = example.Name,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
     ///         AddressPrefix = "10.0.0.0/24",
     ///     });
     /// 
-    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("example", new()
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway.VpnGateway("example", new()
     ///     {
     ///         Name = "example-vpng",
     ///         Location = example.Location,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Network
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///     });
     /// 
-    ///     var exampleVpnSite = new Azure.Network.VpnSite("example", new()
+    ///     var exampleVpnSite = new Azure.Network.VpnSite.VpnSite("example", new()
     ///     {
     ///         Name = "example-vpn-site",
     ///         Location = example.Location,
@@ -60,35 +60,35 @@ namespace Pulumi.Azure.Network
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///         Links = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             
     ///             {
-    ///                 Name = "link1",
-    ///                 IpAddress = "10.1.0.0",
+    ///                 { "name", "link1" },
+    ///                 { "ipAddress", "10.1.0.0" },
     ///             },
-    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             
     ///             {
-    ///                 Name = "link2",
-    ///                 IpAddress = "10.2.0.0",
+    ///                 { "name", "link2" },
+    ///                 { "ipAddress", "10.2.0.0" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleVpnGatewayConnection = new Azure.Network.VpnGatewayConnection("example", new()
+    ///     var exampleVpnGatewayConnection = new Azure.Network.VpnGatewayConnection.VpnGatewayConnection("example", new()
     ///     {
     ///         Name = "example",
     ///         VpnGatewayId = exampleVpnGateway.Id,
     ///         RemoteVpnSiteId = exampleVpnSite.Id,
     ///         VpnLinks = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VpnGatewayConnectionVpnLinkArgs
+    ///             
     ///             {
-    ///                 Name = "link1",
-    ///                 VpnSiteLinkId = exampleVpnSite.Links.Apply(links =&gt; links[0]?.Id),
+    ///                 { "name", "link1" },
+    ///                 { "vpnSiteLinkId", exampleVpnSite.Links[0].Id },
     ///             },
-    ///             new Azure.Network.Inputs.VpnGatewayConnectionVpnLinkArgs
+    ///             
     ///             {
-    ///                 Name = "link2",
-    ///                 VpnSiteLinkId = exampleVpnSite.Links.Apply(links =&gt; links[1]?.Id),
+    ///                 { "name", "link2" },
+    ///                 { "vpnSiteLinkId", exampleVpnSite.Links[1].Id },
     ///             },
     ///         },
     ///     });

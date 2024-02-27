@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sql.ManagedInstanceArgs;
  * import com.pulumi.azure.sql.ManagedInstanceFailoverGroup;
  * import com.pulumi.azure.sql.ManagedInstanceFailoverGroupArgs;
- * import com.pulumi.azure.sql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,7 +67,7 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
@@ -82,7 +81,7 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
@@ -91,10 +90,7 @@ import javax.annotation.Nullable;
  *             .location(primary.location())
  *             .managedInstanceName(primary.name())
  *             .partnerManagedInstanceId(secondary.id())
- *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode(&#34;Automatic&#34;)
- *                 .graceMinutes(60)
- *                 .build())
+ *             .readWriteEndpointFailoverPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

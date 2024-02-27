@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing EventGrid Domain
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventgrid.getDomain({
- *     name: "my-eventgrid-domain",
- *     resourceGroupName: "example-resources",
- * });
- * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
- * ```
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -102,19 +89,6 @@ export interface GetDomainResult {
 }
 /**
  * Use this data source to access information about an existing EventGrid Domain
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventgrid.getDomain({
- *     name: "my-eventgrid-domain",
- *     resourceGroupName: "example-resources",
- * });
- * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
- * ```
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

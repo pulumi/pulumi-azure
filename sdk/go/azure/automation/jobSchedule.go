@@ -23,30 +23,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	automation/jobSchedule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/jobSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := automation.NewJobSchedule(ctx, "example", &automation.JobScheduleArgs{
-//				ResourceGroupName:     pulumi.String("tf-rgr-automation"),
-//				AutomationAccountName: pulumi.String("tf-automation-account"),
-//				ScheduleName:          pulumi.String("hour"),
-//				RunbookName:           pulumi.String("Get-VirtualMachine"),
-//				Parameters: pulumi.StringMap{
-//					"resourcegroup": pulumi.String("tf-rgr-vm"),
-//					"vmname":        pulumi.String("TF-VM-01"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := automation/jobSchedule.NewJobSchedule(ctx, "example", &automation/jobSchedule.JobScheduleArgs{
+// ResourceGroupName: "tf-rgr-automation",
+// AutomationAccountName: "tf-automation-account",
+// ScheduleName: "hour",
+// RunbookName: "Get-VirtualMachine",
+// Parameters: map[string]interface{}{
+// "resourcegroup": "tf-rgr-vm",
+// "vmname": "TF-VM-01",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

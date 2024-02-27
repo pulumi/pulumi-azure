@@ -355,25 +355,25 @@ class SourceControl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("example",
-            name="example",
+            os_type=Linux,
+            sku_name=P1v2)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
+            name=example,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_source_control = azure.appservice.SourceControl("example",
+            site_config={})
+        example_source_control = azure.appservice.source_control.SourceControl("example",
             app_id=example_linux_web_app.id,
-            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
-            branch="master")
+            repo_url=https://github.com/Azure-Samples/python-docs-hello-world,
+            branch=master)
         ```
 
         ## Import
@@ -414,25 +414,25 @@ class SourceControl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("example",
-            name="example",
+            os_type=Linux,
+            sku_name=P1v2)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
+            name=example,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_source_control = azure.appservice.SourceControl("example",
+            site_config={})
+        example_source_control = azure.appservice.source_control.SourceControl("example",
             app_id=example_linux_web_app.id,
-            repo_url="https://github.com/Azure-Samples/python-docs-hello-world",
-            branch="master")
+            repo_url=https://github.com/Azure-Samples/python-docs-hello-world,
+            branch=master)
         ```
 
         ## Import

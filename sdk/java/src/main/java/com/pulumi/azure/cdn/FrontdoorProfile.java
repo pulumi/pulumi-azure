@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-cdn-profile&#34;)
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

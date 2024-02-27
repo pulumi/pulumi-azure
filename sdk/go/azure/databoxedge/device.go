@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databoxedge/device "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databoxedge/device"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-databoxedge"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
-//				Name:              pulumi.String("example-device"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("EdgeP_Base-Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-databoxedge",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = databoxedge/device.NewDevice(ctx, "example", &databoxedge/device.DeviceArgs{
+// Name: "example-device",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "EdgeP_Base-Standard",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

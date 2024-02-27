@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ZoneArgs;
  * import com.pulumi.azure.privatedns.TxtRecord;
  * import com.pulumi.azure.privatedns.TxtRecordArgs;
- * import com.pulumi.azure.privatedns.inputs.TxtRecordRecordArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,9 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value(&#34;v=spf1 mx ~all&#34;)
- *                 .build())
+ *             .records(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

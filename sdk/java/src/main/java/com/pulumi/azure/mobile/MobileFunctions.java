@@ -47,74 +47,12 @@ public final class MobileFunctions {
     /**
      * Get information about an Azure Mobile Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args) {
         return getNetwork(args, InvokeOptions.Empty);
     }
     /**
      * Get information about an Azure Mobile Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args) {
@@ -123,74 +61,12 @@ public final class MobileFunctions {
     /**
      * Get information about an Azure Mobile Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about an Azure Mobile Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
@@ -199,86 +75,12 @@ public final class MobileFunctions {
     /**
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args) {
         return getNetworkAttachedDataNetwork(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args) {
@@ -287,86 +89,12 @@ public final class MobileFunctions {
     /**
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", TypeShape.of(GetNetworkAttachedDataNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Mobile Network Attached Data Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkAttachedDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args, InvokeOptions options) {
@@ -375,86 +103,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Data Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args) {
         return getNetworkDataNetwork(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Data Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args) {
@@ -463,86 +117,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Data Network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", TypeShape.of(GetNetworkDataNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Data Network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkDataNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
-     *             .name(&#34;example-mndn&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args, InvokeOptions options) {
@@ -551,74 +131,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Packet Core Control Plane.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args) {
         return getNetworkPacketCoreControlPlane(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Packet Core Control Plane.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args) {
@@ -627,74 +145,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Packet Core Control Plane.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", TypeShape.of(GetNetworkPacketCoreControlPlaneResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Packet Core Control Plane.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args, InvokeOptions options) {
@@ -703,86 +159,12 @@ public final class MobileFunctions {
     /**
      * Get information a Mobile Network Packet Core Data Plane.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args) {
         return getNetworkPacketCoreDataPlane(args, InvokeOptions.Empty);
     }
     /**
      * Get information a Mobile Network Packet Core Data Plane.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args) {
@@ -791,86 +173,12 @@ public final class MobileFunctions {
     /**
      * Get information a Mobile Network Packet Core Data Plane.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", TypeShape.of(GetNetworkPacketCoreDataPlaneResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information a Mobile Network Packet Core Data Plane.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreControlPlaneArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkPacketCoreDataPlaneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs.builder()
-     *             .name(&#34;example-mnpccp&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
-     *             .name(&#34;example-mnpcdp&#34;)
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -&gt; getNetworkPacketCoreControlPlaneResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args, InvokeOptions options) {
@@ -879,88 +187,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.NetworkService;
-     * import com.pulumi.azure.mobile.NetworkServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args) {
         return getNetworkService(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.NetworkService;
-     * import com.pulumi.azure.mobile.NetworkServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args) {
@@ -969,88 +201,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.NetworkService;
-     * import com.pulumi.azure.mobile.NetworkServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkService:getNetworkService", TypeShape.of(GetNetworkServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.NetworkService;
-     * import com.pulumi.azure.mobile.NetworkServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args, InvokeOptions options) {
@@ -1059,88 +215,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args) {
         return getNetworkSim(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Sim.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args) {
@@ -1149,88 +229,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSim:getNetworkSim", TypeShape.of(GetNetworkSimResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Sim.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name(&#34;example-sim&#34;)
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -&gt; getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args, InvokeOptions options) {
@@ -1239,86 +243,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args) {
         return getNetworkSimGroup(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Sim Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args) {
@@ -1327,86 +257,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", TypeShape.of(GetNetworkSimGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Sim Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name(&#34;example-mnsg&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args, InvokeOptions options) {
@@ -1415,86 +271,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim Policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args) {
         return getNetworkSimPolicy(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Sim Policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args) {
@@ -1503,86 +285,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim Policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", TypeShape.of(GetNetworkSimPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Sim Policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
-     *             .name(&#34;example-mnsp&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args, InvokeOptions options) {
@@ -1591,86 +299,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Site.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args) {
         return getNetworkSite(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Site.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args) {
@@ -1679,86 +313,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Site.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSite:getNetworkSite", TypeShape.of(GetNetworkSiteResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Site.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -&gt; getNetworkResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args, InvokeOptions options) {
@@ -1767,86 +327,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Slice.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(test.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args) {
         return getNetworkSlice(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Slice.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(test.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args) {
@@ -1855,86 +341,12 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Slice.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(test.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSlice:getNetworkSlice", TypeShape.of(GetNetworkSliceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Slice.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSliceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .name(&#34;example-mn&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSlice = MobileFunctions.getNetworkSlice(GetNetworkSliceArgs.builder()
-     *             .name(&#34;example-mns&#34;)
-     *             .mobileNetworkId(test.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args, InvokeOptions options) {

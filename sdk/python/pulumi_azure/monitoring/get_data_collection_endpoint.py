@@ -152,17 +152,6 @@ def get_data_collection_endpoint(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Data Collection Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.monitoring.get_data_collection_endpoint(name="example-mdce",
-        resource_group_name=example_azurerm_resource_group["name"])
-    pulumi.export("endpointId", example.id)
-    ```
-
 
     :param str name: Specifies the name of the Data Collection Endpoint.
     :param str resource_group_name: Specifies the name of the resource group the Data Collection Endpoint is located in.
@@ -192,17 +181,6 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Use this data source to access information about an existing Data Collection Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.monitoring.get_data_collection_endpoint(name="example-mdce",
-        resource_group_name=example_azurerm_resource_group["name"])
-    pulumi.export("endpointId", example.id)
-    ```
 
 
     :param str name: Specifies the name of the Data Collection Endpoint.

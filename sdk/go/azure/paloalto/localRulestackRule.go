@@ -21,55 +21,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	paloalto/localRulestack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestack"
+//	paloalto/localRulestackRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestackRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
-//				Name:              pulumi.String("lrs-example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
-//				Name:        pulumi.String("example-rule"),
-//				RulestackId: exampleLocalRulestack.ID(),
-//				Priority:    pulumi.Int(1000),
-//				Action:      pulumi.String("Allow"),
-//				Applications: pulumi.StringArray{
-//					pulumi.String("any"),
-//				},
-//				Source: &paloalto.LocalRulestackRuleSourceArgs{
-//					Cidrs: pulumi.StringArray{
-//						pulumi.String("10.0.0.0/8"),
-//					},
-//				},
-//				Destination: &paloalto.LocalRulestackRuleDestinationArgs{
-//					Cidrs: pulumi.StringArray{
-//						pulumi.String("192.168.16.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLocalRulestack, err := paloalto/localRulestack.NewLocalRulestack(ctx, "example", &paloalto/localRulestack.LocalRulestackArgs{
+// Name: "lrs-example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = paloalto/localRulestackRule.NewLocalRulestackRule(ctx, "example", &paloalto/localRulestackRule.LocalRulestackRuleArgs{
+// Name: "example-rule",
+// RulestackId: exampleLocalRulestack.Id,
+// Priority: 1000,
+// Action: "Allow",
+// Applications: []string{
+// "any",
+// },
+// Source: map[string]interface{}{
+// "cidrs": []string{
+// "10.0.0.0/8",
+// },
+// },
+// Destination: map[string]interface{}{
+// "cidrs": []string{
+// "192.168.16.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

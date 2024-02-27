@@ -36,10 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.AccountArgs;
  * import com.pulumi.azure.netapp.SnapshotPolicy;
  * import com.pulumi.azure.netapp.SnapshotPolicyArgs;
- * import com.pulumi.azure.netapp.inputs.SnapshotPolicyHourlyScheduleArgs;
- * import com.pulumi.azure.netapp.inputs.SnapshotPolicyDailyScheduleArgs;
- * import com.pulumi.azure.netapp.inputs.SnapshotPolicyWeeklyScheduleArgs;
- * import com.pulumi.azure.netapp.inputs.SnapshotPolicyMonthlyScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,33 +66,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .enabled(true)
- *             .hourlySchedule(SnapshotPolicyHourlyScheduleArgs.builder()
- *                 .snapshotsToKeep(4)
- *                 .minute(15)
- *                 .build())
- *             .dailySchedule(SnapshotPolicyDailyScheduleArgs.builder()
- *                 .snapshotsToKeep(2)
- *                 .hour(20)
- *                 .minute(15)
- *                 .build())
- *             .weeklySchedule(SnapshotPolicyWeeklyScheduleArgs.builder()
- *                 .snapshotsToKeep(1)
- *                 .daysOfWeeks(                
- *                     &#34;Monday&#34;,
- *                     &#34;Friday&#34;)
- *                 .hour(23)
- *                 .minute(0)
- *                 .build())
- *             .monthlySchedule(SnapshotPolicyMonthlyScheduleArgs.builder()
- *                 .snapshotsToKeep(1)
- *                 .daysOfMonths(                
- *                     1,
- *                     15,
- *                     20,
- *                     30)
- *                 .hour(5)
- *                 .minute(45)
- *                 .build())
+ *             .hourlySchedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .dailySchedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .weeklySchedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .monthlySchedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

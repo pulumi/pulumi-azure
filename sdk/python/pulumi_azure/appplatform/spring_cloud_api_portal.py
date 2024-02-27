@@ -325,31 +325,31 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("example",
-            name="default",
+        example_spring_cloud_api_portal = azure.appplatform.spring_cloud_api_portal.SpringCloudApiPortal("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
             gateway_ids=[example_spring_cloud_gateway.id],
             https_only_enabled=False,
             public_network_access_enabled=True,
             instance_count=1,
             api_try_out_enabled=True,
-            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
-                client_id="test",
-                client_secret="secret",
-                issuer_uri="https://www.example.com/issueToken",
-                scopes=["read"],
-            ))
+            sso={
+                clientId: test,
+                clientSecret: secret,
+                issuerUri: https://www.example.com/issueToken,
+                scopes: [read],
+            })
         ```
 
         ## Import
@@ -388,31 +388,31 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("example",
-            name="default",
+        example_spring_cloud_api_portal = azure.appplatform.spring_cloud_api_portal.SpringCloudApiPortal("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
             gateway_ids=[example_spring_cloud_gateway.id],
             https_only_enabled=False,
             public_network_access_enabled=True,
             instance_count=1,
             api_try_out_enabled=True,
-            sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
-                client_id="test",
-                client_secret="secret",
-                issuer_uri="https://www.example.com/issueToken",
-                scopes=["read"],
-            ))
+            sso={
+                clientId: test,
+                clientSecret: secret,
+                issuerUri: https://www.example.com/issueToken,
+                scopes: [read],
+            })
         ```
 
         ## Import

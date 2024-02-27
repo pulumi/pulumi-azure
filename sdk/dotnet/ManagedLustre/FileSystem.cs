@@ -12,6 +12,66 @@ namespace Pulumi.Azure.ManagedLustre
     /// <summary>
     /// Manages an Azure Managed Lustre File System.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFileSystem = new Azure.Managedlustre.FileSystem.FileSystem("example", new()
+    ///     {
+    ///         Name = "example-amlfs",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "AMLFS-Durable-Premium-250",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         StorageCapacityInTb = 8,
+    ///         Zones = new[]
+    ///         {
+    ///             "2",
+    ///         },
+    ///         MaintenanceWindow = 
+    ///         {
+    ///             { "dayOfWeek", "Friday" },
+    ///             { "timeOfDayUtc", "22:00" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.

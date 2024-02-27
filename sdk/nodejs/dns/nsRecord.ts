@@ -11,15 +11,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleZone = new azure.dns.Zone("example", {
+ * const exampleZone = new azure.dns/zone.Zone("example", {
  *     name: "mydomain.com",
  *     resourceGroupName: example.name,
  * });
- * const exampleNsRecord = new azure.dns.NsRecord("example", {
+ * const exampleNsRecord = new azure.dns/nsRecord.NsRecord("example", {
  *     name: "test",
  *     zoneName: exampleZone.name,
  *     resourceGroupName: example.name,

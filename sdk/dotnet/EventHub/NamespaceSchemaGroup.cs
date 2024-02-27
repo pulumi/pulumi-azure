@@ -20,13 +20,13 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exampleRG-ehn-schemaGroup",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var test = new Azure.EventHub.EventHubNamespace("test", new()
+    ///     var test = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("test", new()
     ///     {
     ///         Name = "example-ehn-schemaGroup",
     ///         Location = testAzurermResourceGroup.Location,
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.EventHub
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var testNamespaceSchemaGroup = new Azure.EventHub.NamespaceSchemaGroup("test", new()
+    ///     var testNamespaceSchemaGroup = new Azure.Eventhub.NamespaceSchemaGroup.NamespaceSchemaGroup("test", new()
     ///     {
     ///         Name = "example-schemaGroup",
     ///         NamespaceId = test.Id,

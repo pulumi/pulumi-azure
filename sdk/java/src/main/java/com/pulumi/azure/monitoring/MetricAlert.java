@@ -38,11 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.monitoring.ActionGroup;
  * import com.pulumi.azure.monitoring.ActionGroupArgs;
- * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
  * import com.pulumi.azure.monitoring.MetricAlert;
  * import com.pulumi.azure.monitoring.MetricAlertArgs;
- * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
- * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,10 +70,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-actiongroup&#34;)
  *             .resourceGroupName(example.name())
  *             .shortName(&#34;exampleact&#34;)
- *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
- *                 .name(&#34;callmyapi&#34;)
- *                 .serviceUri(&#34;http://example.com/alert&#34;)
- *                 .build())
+ *             .webhookReceivers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
@@ -84,21 +78,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .scopes(toMonitor.id())
  *             .description(&#34;Action will be triggered when Transactions count is greater than 50.&#34;)
- *             .criterias(MetricAlertCriteriaArgs.builder()
- *                 .metricNamespace(&#34;Microsoft.Storage/storageAccounts&#34;)
- *                 .metricName(&#34;Transactions&#34;)
- *                 .aggregation(&#34;Total&#34;)
- *                 .operator(&#34;GreaterThan&#34;)
- *                 .threshold(50)
- *                 .dimensions(MetricAlertCriteriaDimensionArgs.builder()
- *                     .name(&#34;ApiName&#34;)
- *                     .operator(&#34;Include&#34;)
- *                     .values(&#34;*&#34;)
- *                     .build())
- *                 .build())
- *             .actions(MetricAlertActionArgs.builder()
- *                 .actionGroupId(main.id())
- *                 .build())
+ *             .criterias(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

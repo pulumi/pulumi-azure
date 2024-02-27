@@ -837,44 +837,44 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="test",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="test",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=test,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=test,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="GatewaySubnet",
+            address_spaces=[10.0.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=GatewaySubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="test",
+            address_prefixes=[10.0.1.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=test,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
-            name="test",
+            allocation_method=Dynamic)
+        example_virtual_network_gateway = azure.network.virtual_network_gateway.VirtualNetworkGateway("example",
+            name=test,
             location=example.location,
             resource_group_name=example.name,
-            type="Vpn",
-            vpn_type="RouteBased",
+            type=Vpn,
+            vpn_type=RouteBased,
             active_active=False,
             enable_bgp=False,
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
-            vpn_client_configuration=azure.network.VirtualNetworkGatewayVpnClientConfigurationArgs(
-                address_spaces=["10.2.0.0/24"],
-                root_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs(
-                    name="DigiCert-Federated-ID-Root-CA",
-                    public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            sku=Basic,
+            ip_configurations=[{
+                name: vnetGatewayConfig,
+                publicIpAddressId: example_public_ip.id,
+                privateIpAddressAllocation: Dynamic,
+                subnetId: example_subnet.id,
+            }],
+            vpn_client_configuration={
+                addressSpaces: [10.2.0.0/24],
+                rootCertificates: [{
+                    name: DigiCert-Federated-ID-Root-CA,
+                    publicCertData: MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -894,13 +894,13 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-                )],
-                revoked_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs(
-                    name="Verizon-Global-Root-CA",
-                    thumbprint="912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                )],
-            ))
+        ,
+                }],
+                revokedCertificates: [{
+                    name: Verizon-Global-Root-CA,
+                    thumbprint: 912198EEF23DCAC40939312FEE97DD560BAE49B1,
+                }],
+            })
         ```
 
         ## Import
@@ -963,44 +963,44 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="test",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="test",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=test,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=test,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="GatewaySubnet",
+            address_spaces=[10.0.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=GatewaySubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("example",
-            name="test",
+            address_prefixes=[10.0.1.0/24])
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=test,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
-            name="test",
+            allocation_method=Dynamic)
+        example_virtual_network_gateway = azure.network.virtual_network_gateway.VirtualNetworkGateway("example",
+            name=test,
             location=example.location,
             resource_group_name=example.name,
-            type="Vpn",
-            vpn_type="RouteBased",
+            type=Vpn,
+            vpn_type=RouteBased,
             active_active=False,
             enable_bgp=False,
-            sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=example_public_ip.id,
-                private_ip_address_allocation="Dynamic",
-                subnet_id=example_subnet.id,
-            )],
-            vpn_client_configuration=azure.network.VirtualNetworkGatewayVpnClientConfigurationArgs(
-                address_spaces=["10.2.0.0/24"],
-                root_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs(
-                    name="DigiCert-Federated-ID-Root-CA",
-                    public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            sku=Basic,
+            ip_configurations=[{
+                name: vnetGatewayConfig,
+                publicIpAddressId: example_public_ip.id,
+                privateIpAddressAllocation: Dynamic,
+                subnetId: example_subnet.id,
+            }],
+            vpn_client_configuration={
+                addressSpaces: [10.2.0.0/24],
+                rootCertificates: [{
+                    name: DigiCert-Federated-ID-Root-CA,
+                    publicCertData: MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -1020,13 +1020,13 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-        \"\"\",
-                )],
-                revoked_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs(
-                    name="Verizon-Global-Root-CA",
-                    thumbprint="912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                )],
-            ))
+        ,
+                }],
+                revokedCertificates: [{
+                    name: Verizon-Global-Root-CA,
+                    thumbprint: 912198EEF23DCAC40939312FEE97DD560BAE49B1,
+                }],
+            })
         ```
 
         ## Import

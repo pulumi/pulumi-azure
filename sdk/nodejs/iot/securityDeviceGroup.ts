@@ -15,27 +15,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "example-IoTHub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "S1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  * });
- * const exampleSecuritySolution = new azure.iot.SecuritySolution("example", {
+ * const exampleSecuritySolution = new azure.iot/securitySolution.SecuritySolution("example", {
  *     name: "example-Iot-Security-Solution",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     displayName: "Iot Security Solution",
  *     iothubIds: [exampleIoTHub.id],
  * });
- * const exampleSecurityDeviceGroup = new azure.iot.SecurityDeviceGroup("example", {
+ * const exampleSecurityDeviceGroup = new azure.iot/securityDeviceGroup.SecurityDeviceGroup("example", {
  *     name: "example-device-security-group",
  *     iothubId: exampleIoTHub.id,
  *     allowRule: {

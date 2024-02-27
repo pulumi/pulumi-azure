@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

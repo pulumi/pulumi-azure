@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ServiceFabric
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.ServiceFabric.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Servicefabric.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "example-servicefabric",
     ///         ResourceGroupName = example.Name,
@@ -40,13 +40,13 @@ namespace Pulumi.Azure.ServiceFabric
     ///         ManagementEndpoint = "https://example:80",
     ///         NodeTypes = new[]
     ///         {
-    ///             new Azure.ServiceFabric.Inputs.ClusterNodeTypeArgs
+    ///             
     ///             {
-    ///                 Name = "first",
-    ///                 InstanceCount = 3,
-    ///                 IsPrimary = true,
-    ///                 ClientEndpointPort = 2020,
-    ///                 HttpEndpointPort = 80,
+    ///                 { "name", "first" },
+    ///                 { "instanceCount", 3 },
+    ///                 { "isPrimary", true },
+    ///                 { "clientEndpointPort", 2020 },
+    ///                 { "httpEndpointPort", 80 },
     ///             },
     ///         },
     ///     });

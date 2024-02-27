@@ -139,21 +139,21 @@ class PostgresqlRole(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("example",
-            name="examplecluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_postgresql_cluster = azure.cosmosdb.postgresql_cluster.PostgresqlCluster("example",
+            name=examplecluster,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login_password="H@Sh1CoR3!",
+            administrator_login_password=H@Sh1CoR3!,
             coordinator_storage_quota_in_mb=131072,
             coordinator_vcore_count=2,
             node_count=0)
-        example_postgresql_role = azure.cosmosdb.PostgresqlRole("example",
-            name="examplerole",
+        example_postgresql_role = azure.cosmosdb.postgresql_role.PostgresqlRole("example",
+            name=examplerole,
             cluster_id=example_postgresql_cluster.id,
-            password="H@Sh1CoR3!")
+            password=H@Sh1CoR3!)
         ```
 
         ## Import
@@ -185,21 +185,21 @@ class PostgresqlRole(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_postgresql_cluster = azure.cosmosdb.PostgresqlCluster("example",
-            name="examplecluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_postgresql_cluster = azure.cosmosdb.postgresql_cluster.PostgresqlCluster("example",
+            name=examplecluster,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login_password="H@Sh1CoR3!",
+            administrator_login_password=H@Sh1CoR3!,
             coordinator_storage_quota_in_mb=131072,
             coordinator_vcore_count=2,
             node_count=0)
-        example_postgresql_role = azure.cosmosdb.PostgresqlRole("example",
-            name="examplerole",
+        example_postgresql_role = azure.cosmosdb.postgresql_role.PostgresqlRole("example",
+            name=examplerole,
             cluster_id=example_postgresql_cluster.id,
-            password="H@Sh1CoR3!")
+            password=H@Sh1CoR3!)
         ```
 
         ## Import

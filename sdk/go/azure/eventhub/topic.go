@@ -23,45 +23,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	servicebus/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/namespace"
+//	servicebus/topic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-servicebus-topic"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
-//				Name:              pulumi.String("tfex-servicebus-namespace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				Tags: pulumi.StringMap{
-//					"source": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
-//				Name:               pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId:        exampleNamespace.ID(),
-//				EnablePartitioning: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-servicebus-topic",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := servicebus/namespace.NewNamespace(ctx, "example", &servicebus/namespace.NamespaceArgs{
+// Name: "tfex-servicebus-namespace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// Tags: map[string]interface{}{
+// "source": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = servicebus/topic.NewTopic(ctx, "example", &servicebus/topic.TopicArgs{
+// Name: "tfex_servicebus_topic",
+// NamespaceId: exampleNamespace.Id,
+// EnablePartitioning: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

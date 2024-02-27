@@ -21,39 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/virtualMachineGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/virtualMachineGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewVirtualMachineGroup(ctx, "example", &mssql.VirtualMachineGroupArgs{
-//				Name:              pulumi.String("examplegroup"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SqlImageOffer:     pulumi.String("SQL2017-WS2016"),
-//				SqlImageSku:       pulumi.String("Developer"),
-//				WsfcDomainProfile: &mssql.VirtualMachineGroupWsfcDomainProfileArgs{
-//					Fqdn:              pulumi.String("testdomain.com"),
-//					ClusterSubnetType: pulumi.String("SingleSubnet"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/virtualMachineGroup.NewVirtualMachineGroup(ctx, "example", &mssql/virtualMachineGroup.VirtualMachineGroupArgs{
+// Name: "examplegroup",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SqlImageOffer: "SQL2017-WS2016",
+// SqlImageSku: "Developer",
+// WsfcDomainProfile: map[string]interface{}{
+// "fqdn": "testdomain.com",
+// "clusterSubnetType": "SingleSubnet",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

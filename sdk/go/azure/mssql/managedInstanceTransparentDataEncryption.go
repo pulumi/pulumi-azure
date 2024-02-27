@@ -26,234 +26,85 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/managedInstance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/managedInstance"
+//	mssql/managedInstanceTransparentDataEncryption "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/managedInstanceTransparentDataEncryption"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("EastUs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("acctest-vnet1-mssql"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location: pulumi.Any(test.Location),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnet1-mssql"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("managedinstancedelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Sql/managedInstances"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("mssqlinstance"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
-//				Vcores:                     pulumi.Int(4),
-//				AdministratorLogin:         pulumi.String("missadministrator"),
-//				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
-//				Identity: &mssql.ManagedInstanceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql.ManagedInstanceTransparentDataEncryptionArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Customer Managed Key
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("EastUs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("acctest-vnet1-mssql"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location: pulumi.Any(test.Location),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnet1-mssql"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("managedinstancedelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Sql/managedInstances"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("mssqlinstance"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
-//				Vcores:                     pulumi.Int(4),
-//				AdministratorLogin:         pulumi.String("missadministrator"),
-//				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
-//				Identity: &mssql.ManagedInstanceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 *pulumi.String(current.TenantId),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(false),
-//				SkuName:                  pulumi.String("standard"),
-//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-//					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
-//						KeyPermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//							pulumi.String("List"),
-//							pulumi.String("Create"),
-//							pulumi.String("Delete"),
-//							pulumi.String("Update"),
-//							pulumi.String("Recover"),
-//							pulumi.String("Purge"),
-//							pulumi.String("GetRotationPolicy"),
-//						},
-//					},
-//					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//							return &identity.TenantId, nil
-//						}).(pulumi.StringPtrOutput),
-//						ObjectId: exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//							return &identity.PrincipalId, nil
-//						}).(pulumi.StringPtrOutput),
-//						KeyPermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//							pulumi.String("WrapKey"),
-//							pulumi.String("UnwrapKey"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
-//				Name:       pulumi.String("byok"),
-//				KeyVaultId: exampleKeyVault.ID(),
-//				KeyType:    pulumi.String("RSA"),
-//				KeySize:    pulumi.Int(2048),
-//				KeyOpts: pulumi.StringArray{
-//					pulumi.String("unwrapKey"),
-//					pulumi.String("wrapKey"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql.ManagedInstanceTransparentDataEncryptionArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID(),
-//				KeyVaultKeyId:     exampleKey.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "EastUs",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "acctest-vnet1-mssql",
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: test.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "subnet1-mssql",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.0.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "managedinstancedelegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Sql/managedInstances",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+// "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleManagedInstance, err := mssql/managedInstance.NewManagedInstance(ctx, "example", &mssql/managedInstance.ManagedInstanceArgs{
+// Name: "mssqlinstance",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// LicenseType: "BasePrice",
+// SkuName: "GP_Gen5",
+// StorageSizeInGb: 32,
+// SubnetId: exampleSubnet.Id,
+// Vcores: 4,
+// AdministratorLogin: "missadministrator",
+// AdministratorLoginPassword: "NCC-1701-D",
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/managedInstanceTransparentDataEncryption.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql/managedInstanceTransparentDataEncryption.ManagedInstanceTransparentDataEncryptionArgs{
+// ManagedInstanceId: exampleManagedInstance.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

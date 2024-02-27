@@ -164,27 +164,6 @@ class ProductGroup(pulumi.CustomResource):
         """
         Manages an API Management Product Assignment to a Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_get_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        example_get_group = azure.apimanagement.get_group(name="my-group",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        example_product_group = azure.apimanagement.ProductGroup("example",
-            product_id=example_get_product.product_id,
-            group_name=example_get_group.name,
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        ```
-
         ## Import
 
         API Management Product Groups can be imported using the `resource id`, e.g.
@@ -208,27 +187,6 @@ class ProductGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Product Assignment to a Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_get_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        example_get_group = azure.apimanagement.get_group(name="my-group",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        example_product_group = azure.apimanagement.ProductGroup("example",
-            product_id=example_get_product.product_id,
-            group_name=example_get_group.name,
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        ```
 
         ## Import
 

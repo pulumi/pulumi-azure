@@ -280,54 +280,54 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-cosmosdb-account,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("example",
-            name="cosmos-sql-db",
+            offer_type=Standard,
+            kind=GlobalDocumentDB,
+            consistency_policy={
+                consistencyLevel: BoundedStaleness,
+                maxIntervalInSeconds: 10,
+                maxStalenessPrefix: 200,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_sql_database = azure.cosmosdb.sql_database.SqlDatabase("example",
+            name=cosmos-sql-db,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("example",
-            name="example-container",
+        example_sql_container = azure.cosmosdb.sql_container.SqlContainer("example",
+            name=example-container,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_sql_database.name,
-            partition_key_path="/definition")
-        example_service_plan = azure.appservice.ServicePlan("example",
+            partition_key_path=/definition)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
             location=example.location,
-            name="example-serviceplan",
+            name=example-serviceplan,
             resource_group_name=example.name,
-            sku_name="P1v2",
-            os_type="Linux")
-        example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            sku_name=P1v2,
+            os_type=Linux)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
             location=example.location,
-            name="example-linuxwebapp",
+            name=example-linuxwebapp,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_connection = azure.appservice.Connection("example",
-            name="example-serviceconnector",
+            site_config={})
+        example_connection = azure.appservice.connection.Connection("example",
+            name=example-serviceconnector,
             app_service_id=example_linux_web_app.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                type: systemAssignedIdentity,
+            })
         ```
 
         ## Import
@@ -365,54 +365,54 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-cosmosdb-account,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("example",
-            name="cosmos-sql-db",
+            offer_type=Standard,
+            kind=GlobalDocumentDB,
+            consistency_policy={
+                consistencyLevel: BoundedStaleness,
+                maxIntervalInSeconds: 10,
+                maxStalenessPrefix: 200,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_sql_database = azure.cosmosdb.sql_database.SqlDatabase("example",
+            name=cosmos-sql-db,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("example",
-            name="example-container",
+        example_sql_container = azure.cosmosdb.sql_container.SqlContainer("example",
+            name=example-container,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_sql_database.name,
-            partition_key_path="/definition")
-        example_service_plan = azure.appservice.ServicePlan("example",
+            partition_key_path=/definition)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
             location=example.location,
-            name="example-serviceplan",
+            name=example-serviceplan,
             resource_group_name=example.name,
-            sku_name="P1v2",
-            os_type="Linux")
-        example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            sku_name=P1v2,
+            os_type=Linux)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
             location=example.location,
-            name="example-linuxwebapp",
+            name=example-linuxwebapp,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_connection = azure.appservice.Connection("example",
-            name="example-serviceconnector",
+            site_config={})
+        example_connection = azure.appservice.connection.Connection("example",
+            name=example-serviceconnector,
             app_service_id=example_linux_web_app.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                type: systemAssignedIdentity,
+            })
         ```
 
         ## Import

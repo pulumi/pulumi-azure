@@ -322,15 +322,15 @@ class Lab(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_lab = azure.devtest.Lab("example",
-            name="example-devtestlab",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_lab = azure.devtest.lab.Lab("example",
+            name=example-devtestlab,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "Sydney": "Australia",
+                Sydney: Australia,
             })
         ```
 
@@ -367,15 +367,15 @@ class Lab(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_lab = azure.devtest.Lab("example",
-            name="example-devtestlab",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_lab = azure.devtest.lab.Lab("example",
+            name=example-devtestlab,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "Sydney": "Australia",
+                Sydney: Australia,
             })
         ```
 

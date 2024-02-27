@@ -141,26 +141,26 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="westeurope")
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=westeurope)
+        example_kubernetes_fleet_manager = azure.containerservice.kubernetes_fleet_manager.KubernetesFleetManager("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name,
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="example-dns-prefix",
-            ))
-        example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
-            name="example",
+            hub_profile={
+                dnsPrefix: example-dns-prefix,
+            })
+        example_fleet_update_strategy = azure.containerservice.fleet_update_strategy.FleetUpdateStrategy("example",
+            name=example,
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
-            stages=[azure.containerservice.FleetUpdateStrategyStageArgs(
-                name="example-stage-1",
-                groups=[azure.containerservice.FleetUpdateStrategyStageGroupArgs(
-                    name="example-group-1",
-                )],
-                after_stage_wait_in_seconds=21,
-            )])
+            stages=[{
+                name: example-stage-1,
+                groups: [{
+                    name: example-group-1,
+                }],
+                afterStageWaitInSeconds: 21,
+            }])
         ```
 
         ## Import
@@ -192,26 +192,26 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="westeurope")
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=westeurope)
+        example_kubernetes_fleet_manager = azure.containerservice.kubernetes_fleet_manager.KubernetesFleetManager("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name,
-            hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
-                dns_prefix="example-dns-prefix",
-            ))
-        example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
-            name="example",
+            hub_profile={
+                dnsPrefix: example-dns-prefix,
+            })
+        example_fleet_update_strategy = azure.containerservice.fleet_update_strategy.FleetUpdateStrategy("example",
+            name=example,
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
-            stages=[azure.containerservice.FleetUpdateStrategyStageArgs(
-                name="example-stage-1",
-                groups=[azure.containerservice.FleetUpdateStrategyStageGroupArgs(
-                    name="example-group-1",
-                )],
-                after_stage_wait_in_seconds=21,
-            )])
+            stages=[{
+                name: example-stage-1,
+                groups: [{
+                    name: example-group-1,
+                }],
+                afterStageWaitInSeconds: 21,
+            }])
         ```
 
         ## Import

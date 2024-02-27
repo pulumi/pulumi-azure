@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAlertProcessingRuleSuppression = new Azure.Monitoring.AlertProcessingRuleSuppression("example", new()
+    ///     var exampleAlertProcessingRuleSuppression = new Azure.Monitoring.AlertProcessingRuleSuppression.AlertProcessingRuleSuppression("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example",
@@ -36,54 +36,54 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             example.Id,
     ///         },
-    ///         Condition = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionArgs
+    ///         Condition = 
     ///         {
-    ///             TargetResourceType = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs
+    ///             { "targetResourceType", 
     ///             {
-    ///                 Operator = "Equals",
-    ///                 Values = new[]
+    ///                 { "operator", "Equals" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Microsoft.Compute/VirtualMachines",
-    ///                 },
-    ///             },
-    ///             Severity = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionSeverityArgs
+    ///                 } },
+    ///             } },
+    ///             { "severity", 
     ///             {
-    ///                 Operator = "Equals",
-    ///                 Values = new[]
+    ///                 { "operator", "Equals" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Sev0",
     ///                     "Sev1",
     ///                     "Sev2",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         Schedule = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             EffectiveFrom = "2022-01-01T01:02:03",
-    ///             EffectiveUntil = "2022-02-02T01:02:03",
-    ///             TimeZone = "Pacific Standard Time",
-    ///             Recurrence = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceArgs
+    ///             { "effectiveFrom", "2022-01-01T01:02:03" },
+    ///             { "effectiveUntil", "2022-02-02T01:02:03" },
+    ///             { "timeZone", "Pacific Standard Time" },
+    ///             { "recurrence", 
     ///             {
-    ///                 Dailies = new[]
+    ///                 { "dailies", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs
+    ///                     
     ///                     {
-    ///                         StartTime = "17:00:00",
-    ///                         EndTime = "09:00:00",
+    ///                         { "startTime", "17:00:00" },
+    ///                         { "endTime", "09:00:00" },
     ///                     },
-    ///                 },
-    ///                 Weeklies = new[]
+    ///                 } },
+    ///                 { "weeklies", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs
+    ///                     
     ///                     {
-    ///                         DaysOfWeeks = new[]
+    ///                         { "daysOfWeeks", new[]
     ///                         {
     ///                             "Saturday",
     ///                             "Sunday",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

@@ -27,24 +27,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	core/templateDeployment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/templateDeployment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTemplateDeployment, err := core/templateDeployment.NewTemplateDeployment(ctx, "example", &core/templateDeployment.TemplateDeploymentArgs{
+// Name: "acctesttemplate-01",
+// ResourceGroupName: example.Name,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTemplateDeployment, err := core.NewTemplateDeployment(ctx, "example", &core.TemplateDeploymentArgs{
-//				Name:              pulumi.String("acctesttemplate-01"),
-//				ResourceGroupName: example.Name,
-//				TemplateBody: pulumi.String(`{
+//	TemplateBody: `{
 //	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 //	  "contentVersion": "1.0.0.0",
 //	  "parameters": {
@@ -100,23 +101,19 @@ import (
 //	  }
 //	}
 //
-// `),
-//
-//				Parameters: pulumi.StringMap{
-//					"storageAccountType": pulumi.String("Standard_GRS"),
-//				},
-//				DeploymentMode: pulumi.String("Incremental"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("storageAccountName", exampleTemplateDeployment.Outputs.ApplyT(func(outputs map[string]string) (string, error) {
-//				return outputs.StorageAccountName, nil
-//			}).(pulumi.StringOutput))
-//			return nil
-//		})
-//	}
-//
+// `,
+// Parameters: map[string]interface{}{
+// "storageAccountType": "Standard_GRS",
+// },
+// DeploymentMode: "Incremental",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("storageAccountName", exampleTemplateDeployment.Outputs.StorageAccountName)
+// return nil
+// })
+// }
 // ```
 // ## Note
 //

@@ -23,13 +23,13 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-servicebus-subscription-rule-sql",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Servicebus.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "tfex-servicebus-namespace",
     ///         Location = example.Location,
@@ -41,21 +41,21 @@ namespace Pulumi.Azure.EventHub
     ///         },
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     var exampleTopic = new Azure.Servicebus.Topic.Topic("example", new()
     ///     {
     ///         Name = "tfex_servicebus_topic",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("example", new()
+    ///     var exampleSubscription = new Azure.Servicebus.Subscription.Subscription("example", new()
     ///     {
     ///         Name = "tfex_servicebus_subscription",
     ///         TopicId = exampleTopic.Id,
     ///         MaxDeliveryCount = 1,
     ///     });
     /// 
-    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
+    ///     var exampleSubscriptionRule = new Azure.Servicebus.SubscriptionRule.SubscriptionRule("example", new()
     ///     {
     ///         Name = "tfex_servicebus_rule",
     ///         SubscriptionId = exampleSubscription.Id,
@@ -75,13 +75,13 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-servicebus-subscription-rule-cor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Servicebus.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "tfex-servicebus-namespace",
     ///         Location = example.Location,
@@ -93,33 +93,33 @@ namespace Pulumi.Azure.EventHub
     ///         },
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     var exampleTopic = new Azure.Servicebus.Topic.Topic("example", new()
     ///     {
     ///         Name = "tfex_servicebus_topic",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("example", new()
+    ///     var exampleSubscription = new Azure.Servicebus.Subscription.Subscription("example", new()
     ///     {
     ///         Name = "tfex_servicebus_subscription",
     ///         TopicId = exampleTopic.Id,
     ///         MaxDeliveryCount = 1,
     ///     });
     /// 
-    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
+    ///     var exampleSubscriptionRule = new Azure.Servicebus.SubscriptionRule.SubscriptionRule("example", new()
     ///     {
     ///         Name = "tfex_servicebus_rule",
     ///         SubscriptionId = exampleSubscription.Id,
     ///         FilterType = "CorrelationFilter",
-    ///         CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
+    ///         CorrelationFilter = 
     ///         {
-    ///             CorrelationId = "high",
-    ///             Label = "red",
-    ///             Properties = 
+    ///             { "correlationId", "high" },
+    ///             { "label", "red" },
+    ///             { "properties", 
     ///             {
     ///                 { "customProperty", "value" },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

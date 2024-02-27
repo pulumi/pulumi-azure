@@ -206,16 +206,16 @@ class Mover(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name,
-            location="West Europe",
-            description="Example Storage Mover Description",
+            location=West Europe,
+            description=Example Storage Mover Description,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -250,16 +250,16 @@ class Mover(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name,
-            location="West Europe",
-            description="Example Storage Mover Description",
+            location=West Europe,
+            description=Example Storage Mover Description,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

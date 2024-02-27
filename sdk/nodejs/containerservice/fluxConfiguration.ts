@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
  *     name: "example-aks",
  *     location: "West Europe",
  *     resourceGroupName: example.name,
@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("example", {
+ * const exampleKubernetesClusterExtension = new azure.containerservice/kubernetesClusterExtension.KubernetesClusterExtension("example", {
  *     name: "example-ext",
  *     clusterId: test.id,
  *     extensionType: "microsoft.flux",
  * });
- * const exampleFluxConfiguration = new azure.containerservice.FluxConfiguration("example", {
+ * const exampleFluxConfiguration = new azure.containerservice/fluxConfiguration.FluxConfiguration("example", {
  *     name: "example-fc",
  *     clusterId: test.id,
  *     namespace: "flux",

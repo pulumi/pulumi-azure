@@ -238,53 +238,53 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.5.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.5.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example-nsg",
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=example-nsg,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=examplesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+            address_prefixes=[10.5.1.0/24])
+        example_subnet_network_security_group_association = azure.network.subnet_network_security_group_association.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.2.0/24")
-        example_virtual_hub_route_table = azure.network.VirtualHubRouteTable("example",
-            name="example-vhubroutetable",
+            address_prefix=10.0.2.0/24)
+        example_virtual_hub_route_table = azure.network.virtual_hub_route_table.VirtualHubRouteTable("example",
+            name=example-vhubroutetable,
             virtual_hub_id=example_virtual_hub.id,
-            labels=["label1"])
-        example_virtual_hub_connection = azure.network.VirtualHubConnection("example",
-            name="example-vhubconn",
+            labels=[label1])
+        example_virtual_hub_connection = azure.network.virtual_hub_connection.VirtualHubConnection("example",
+            name=example-vhubconn,
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id,
-            routing=azure.network.VirtualHubConnectionRoutingArgs(
-                associated_route_table_id=example_virtual_hub_route_table.id,
-            ))
-        example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("example",
+            routing={
+                associatedRouteTableId: example_virtual_hub_route_table.id,
+            })
+        example_virtual_hub_route_table_route = azure.network.virtual_hub_route_table_route.VirtualHubRouteTableRoute("example",
             route_table_id=example_virtual_hub_route_table.id,
-            name="example-route",
-            destinations_type="CIDR",
-            destinations=["10.0.0.0/16"],
-            next_hop_type="ResourceId",
+            name=example-route,
+            destinations_type=CIDR,
+            destinations=[10.0.0.0/16],
+            next_hop_type=ResourceId,
             next_hop=example_virtual_hub_connection.id)
         ```
 
@@ -322,53 +322,53 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.5.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.5.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example-nsg",
+        example_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("example",
+            name=example-nsg,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=examplesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+            address_prefixes=[10.5.1.0/24])
+        example_subnet_network_security_group_association = azure.network.subnet_network_security_group_association.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.2.0/24")
-        example_virtual_hub_route_table = azure.network.VirtualHubRouteTable("example",
-            name="example-vhubroutetable",
+            address_prefix=10.0.2.0/24)
+        example_virtual_hub_route_table = azure.network.virtual_hub_route_table.VirtualHubRouteTable("example",
+            name=example-vhubroutetable,
             virtual_hub_id=example_virtual_hub.id,
-            labels=["label1"])
-        example_virtual_hub_connection = azure.network.VirtualHubConnection("example",
-            name="example-vhubconn",
+            labels=[label1])
+        example_virtual_hub_connection = azure.network.virtual_hub_connection.VirtualHubConnection("example",
+            name=example-vhubconn,
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id,
-            routing=azure.network.VirtualHubConnectionRoutingArgs(
-                associated_route_table_id=example_virtual_hub_route_table.id,
-            ))
-        example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("example",
+            routing={
+                associatedRouteTableId: example_virtual_hub_route_table.id,
+            })
+        example_virtual_hub_route_table_route = azure.network.virtual_hub_route_table_route.VirtualHubRouteTableRoute("example",
             route_table_id=example_virtual_hub_route_table.id,
-            name="example-route",
-            destinations_type="CIDR",
-            destinations=["10.0.0.0/16"],
-            next_hop_type="ResourceId",
+            name=example-route,
+            destinations_type=CIDR,
+            destinations=[10.0.0.0/16],
+            next_hop_type=ResourceId,
             next_hop=example_virtual_hub_connection.id)
         ```
 

@@ -21,72 +21,73 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/routeServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/routeServer"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vn"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("RouteServerSubnet"),
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				ResourceGroupName:  example.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-pip"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewRouteServer(ctx, "example", &network.RouteServerArgs{
-//				Name:                         pulumi.String("example-routerserver"),
-//				ResourceGroupName:            example.Name,
-//				Location:                     example.Location,
-//				Sku:                          pulumi.String("Standard"),
-//				PublicIpAddressId:            examplePublicIp.ID(),
-//				SubnetId:                     exampleSubnet.ID(),
-//				BranchToBranchTrafficEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vn",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "RouteServerSubnet",
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// ResourceGroupName: example.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-pip",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AllocationMethod: "Static",
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/routeServer.NewRouteServer(ctx, "example", &network/routeServer.RouteServerArgs{
+// Name: "example-routerserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Standard",
+// PublicIpAddressId: examplePublicIp.Id,
+// SubnetId: exampleSubnet.Id,
+// BranchToBranchTrafficEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

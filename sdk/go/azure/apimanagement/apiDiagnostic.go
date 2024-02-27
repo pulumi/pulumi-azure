@@ -21,122 +21,123 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/api "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/api"
+//	apimanagement/apiDiagnostic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/apiDiagnostic"
+//	apimanagement/logger "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/logger"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@mycompany.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
-//				Name:              pulumi.String("example-api"),
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				Revision:          pulumi.String("1"),
-//				DisplayName:       pulumi.String("Example API"),
-//				Path:              pulumi.String("example"),
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("https"),
-//				},
-//				Import: &apimanagement.ApiImportArgs{
-//					ContentFormat: pulumi.String("swagger-link-json"),
-//					ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogger, err := apimanagement.NewLogger(ctx, "example", &apimanagement.LoggerArgs{
-//				Name:              pulumi.String("example-apimlogger"),
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: example.Name,
-//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
-//					InstrumentationKey: exampleInsights.InstrumentationKey,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewApiDiagnostic(ctx, "example", &apimanagement.ApiDiagnosticArgs{
-//				Identifier:              pulumi.String("applicationinsights"),
-//				ResourceGroupName:       example.Name,
-//				ApiManagementName:       exampleService.Name,
-//				ApiName:                 exampleApi.Name,
-//				ApiManagementLoggerId:   exampleLogger.ID(),
-//				SamplingPercentage:      pulumi.Float64(5),
-//				AlwaysLogErrors:         pulumi.Bool(true),
-//				LogClientIp:             pulumi.Bool(true),
-//				Verbosity:               pulumi.String("verbose"),
-//				HttpCorrelationProtocol: pulumi.String("W3C"),
-//				FrontendRequest: &apimanagement.ApiDiagnosticFrontendRequestArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("accept"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//				FrontendResponse: &apimanagement.ApiDiagnosticFrontendResponseArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("content-length"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//				BackendRequest: &apimanagement.ApiDiagnosticBackendRequestArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("accept"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//				BackendResponse: &apimanagement.ApiDiagnosticBackendResponseArgs{
-//					BodyBytes: pulumi.Int(32),
-//					HeadersToLogs: pulumi.StringArray{
-//						pulumi.String("content-type"),
-//						pulumi.String("content-length"),
-//						pulumi.String("origin"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "example-appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@mycompany.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApi, err := apimanagement/api.NewApi(ctx, "example", &apimanagement/api.ApiArgs{
+// Name: "example-api",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// Revision: "1",
+// DisplayName: "Example API",
+// Path: "example",
+// Protocols: []string{
+// "https",
+// },
+// Import: map[string]interface{}{
+// "contentFormat": "swagger-link-json",
+// "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogger, err := apimanagement/logger.NewLogger(ctx, "example", &apimanagement/logger.LoggerArgs{
+// Name: "example-apimlogger",
+// ApiManagementName: exampleService.Name,
+// ResourceGroupName: example.Name,
+// ApplicationInsights: map[string]interface{}{
+// "instrumentationKey": exampleInsights.InstrumentationKey,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/apiDiagnostic.NewApiDiagnostic(ctx, "example", &apimanagement/apiDiagnostic.ApiDiagnosticArgs{
+// Identifier: "applicationinsights",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// ApiName: exampleApi.Name,
+// ApiManagementLoggerId: exampleLogger.Id,
+// SamplingPercentage: 5,
+// AlwaysLogErrors: true,
+// LogClientIp: true,
+// Verbosity: "verbose",
+// HttpCorrelationProtocol: "W3C",
+// FrontendRequest: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "accept",
+// "origin",
+// },
+// },
+// FrontendResponse: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "content-length",
+// "origin",
+// },
+// },
+// BackendRequest: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "accept",
+// "origin",
+// },
+// },
+// BackendResponse: map[string]interface{}{
+// "bodyBytes": 32,
+// "headersToLogs": []string{
+// "content-type",
+// "content-length",
+// "origin",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

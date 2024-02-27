@@ -22,13 +22,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
+    ///     var exampleIntegrationAccount = new Azure.Logicapps.IntegrationAccount.IntegrationAccount("example", new()
     ///     {
     ///         Name = "example-ia",
     ///         Location = example.Location,
@@ -36,15 +36,15 @@ namespace Pulumi.Azure.LogicApps
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleIntegrationAccountBatchConfiguration = new Azure.LogicApps.IntegrationAccountBatchConfiguration("example", new()
+    ///     var exampleIntegrationAccountBatchConfiguration = new Azure.Logicapps.IntegrationAccountBatchConfiguration.IntegrationAccountBatchConfiguration("example", new()
     ///     {
     ///         Name = "exampleiabc",
     ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         BatchGroupName = "TestBatchGroup",
-    ///         ReleaseCriteria = new Azure.LogicApps.Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs
+    ///         ReleaseCriteria = 
     ///         {
-    ///             MessageCount = 80,
+    ///             { "messageCount", 80 },
     ///         },
     ///     });
     /// 

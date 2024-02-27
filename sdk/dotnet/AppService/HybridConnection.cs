@@ -26,25 +26,25 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exampleResourceGroup1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "exampleAppServicePlan1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example", new()
     ///     {
     ///         Name = "exampleAppService1",
     ///         Location = example.Location,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.AppService
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "exampleRN1",
     ///         Location = example.Location,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.AppService
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("example", new()
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection.HybridConnection("example", new()
     ///     {
     ///         Name = "exampleRHC1",
     ///         ResourceGroupName = example.Name,
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.AppService
     ///         UserMetadata = "examplemetadata",
     ///     });
     /// 
-    ///     var exampleHybridConnection2 = new Azure.AppService.HybridConnection("example", new()
+    ///     var exampleHybridConnection2 = new Azure.Appservice.HybridConnection.HybridConnection("example", new()
     ///     {
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = example.Name,

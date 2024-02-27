@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about Cosmos DB Restorable Database Accounts.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cosmosdb.getRestorableDatabaseAccounts({
- *     name: "example-ca",
- *     location: "West Europe",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getRestorableDatabaseAccounts(args: GetRestorableDatabaseAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorableDatabaseAccountsResult> {
 
@@ -65,19 +52,6 @@ export interface GetRestorableDatabaseAccountsResult {
 }
 /**
  * Use this data source to access information about Cosmos DB Restorable Database Accounts.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cosmosdb.getRestorableDatabaseAccounts({
- *     name: "example-ca",
- *     location: "West Europe",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getRestorableDatabaseAccountsOutput(args: GetRestorableDatabaseAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorableDatabaseAccountsResult> {
     return pulumi.output(args).apply((a: any) => getRestorableDatabaseAccounts(a, opts))

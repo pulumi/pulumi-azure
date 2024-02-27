@@ -19,62 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Bot Connection.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.bot.ChannelsRegistration;
- * import com.pulumi.azure.bot.ChannelsRegistrationArgs;
- * import com.pulumi.azure.bot.Connection;
- * import com.pulumi.azure.bot.ConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;global&#34;)
- *             .resourceGroupName(example.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .build());
- * 
- *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(example.name())
- *             .serviceProviderName(&#34;box&#34;)
- *             .clientId(&#34;exampleId&#34;)
- *             .clientSecret(&#34;exampleSecret&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Bot Connection can be imported using the `resource id`, e.g.

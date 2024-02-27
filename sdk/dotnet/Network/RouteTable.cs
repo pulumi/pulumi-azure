@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
+    ///     var exampleRouteTable = new Azure.Network.RouteTable.RouteTable("example", new()
     ///     {
     ///         Name = "example-route-table",
     ///         Location = example.Location,
@@ -39,11 +39,11 @@ namespace Pulumi.Azure.Network
     ///         DisableBgpRoutePropagation = false,
     ///         Routes = new[]
     ///         {
-    ///             new Azure.Network.Inputs.RouteTableRouteArgs
+    ///             
     ///             {
-    ///                 Name = "route1",
-    ///                 AddressPrefix = "10.1.0.0/16",
-    ///                 NextHopType = "VnetLocal",
+    ///                 { "name", "route1" },
+    ///                 { "addressPrefix", "10.1.0.0/16" },
+    ///                 { "nextHopType", "VnetLocal" },
     ///             },
     ///         },
     ///         Tags = 

@@ -239,36 +239,36 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="BlobStorage")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=BlobStorage)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        audit_logs = azure.storage.Account("audit_logs",
-            name="examplesa",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            identity={
+                type: SystemAssigned,
+            })
+        audit_logs = azure.storage.account.Account("audit_logs",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace_extended_auditing_policy = azure.synapse.WorkspaceExtendedAuditingPolicy("example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_workspace_extended_auditing_policy = azure.synapse.workspace_extended_auditing_policy.WorkspaceExtendedAuditingPolicy("example",
             synapse_workspace_id=example_workspace.id,
             storage_endpoint=audit_logs.primary_blob_endpoint,
             storage_account_access_key=audit_logs.primary_access_key,
@@ -308,36 +308,36 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="BlobStorage")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=BlobStorage)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        audit_logs = azure.storage.Account("audit_logs",
-            name="examplesa",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            identity={
+                type: SystemAssigned,
+            })
+        audit_logs = azure.storage.account.Account("audit_logs",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_workspace_extended_auditing_policy = azure.synapse.WorkspaceExtendedAuditingPolicy("example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_workspace_extended_auditing_policy = azure.synapse.workspace_extended_auditing_policy.WorkspaceExtendedAuditingPolicy("example",
             synapse_workspace_id=example_workspace.id,
             storage_endpoint=audit_logs.primary_blob_endpoint,
             storage_account_access_key=audit_logs.primary_access_key,

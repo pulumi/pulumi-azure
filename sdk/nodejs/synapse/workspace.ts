@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageacc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
+ *     isHnsEnabled: "true",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage/dataLakeGen2Filesystem.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ * const exampleWorkspace = new azure.synapse/workspace.Workspace("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -50,101 +50,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Env: "production",
  *     },
- * });
- * ```
- * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplestorageacc",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
- * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
- *     name: "example",
- *     storageAccountId: exampleAccount.id,
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     purgeProtectionEnabled: true,
- * });
- * const deployer = new azure.keyvault.AccessPolicy("deployer", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: [
- *         "Create",
- *         "Get",
- *         "Delete",
- *         "Purge",
- *         "GetRotationPolicy",
- *     ],
- * });
- * const exampleKey = new azure.keyvault.Key("example", {
- *     name: "workspaceencryptionkey",
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "unwrapKey",
- *         "wrapKey",
- *     ],
- * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
- *     sqlAdministratorLogin: "sqladminuser",
- *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     customerManagedKey: {
- *         keyVersionlessId: exampleKey.versionlessId,
- *         keyName: "enckey",
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     tags: {
- *         Env: "production",
- *     },
- * });
- * const workspacePolicy = new azure.keyvault.AccessPolicy("workspace_policy", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.identity.apply(identity => identity?.tenantId),
- *     objectId: exampleWorkspace.identity.apply(identity => identity?.principalId),
- *     keyPermissions: [
- *         "Get",
- *         "WrapKey",
- *         "UnwrapKey",
- *     ],
- * });
- * const exampleWorkspaceKey = new azure.synapse.WorkspaceKey("example", {
- *     customerManagedKeyVersionlessId: exampleKey.versionlessId,
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     active: true,
- *     customerManagedKeyName: "enckey",
- * });
- * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("example", {
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     login: "AzureAD Admin",
- *     objectId: "00000000-0000-0000-0000-000000000000",
- *     tenantId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
  *

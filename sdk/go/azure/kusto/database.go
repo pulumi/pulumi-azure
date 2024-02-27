@@ -19,48 +19,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	kusto/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/cluster"
+//	kusto/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("my-kusto-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
-//				Name:              pulumi.String("kustocluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Standard_D13_v2"),
-//					Capacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
-//				Name:              pulumi.String("my-kusto-database"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       cluster.Name,
-//				HotCachePeriod:    pulumi.String("P7D"),
-//				SoftDeletePeriod:  pulumi.String("P31D"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "my-kusto-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// cluster, err := kusto/cluster.NewCluster(ctx, "cluster", &kusto/cluster.ClusterArgs{
+// Name: "kustocluster",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Standard_D13_v2",
+// "capacity": 2,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kusto/database.NewDatabase(ctx, "database", &kusto/database.DatabaseArgs{
+// Name: "my-kusto-database",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: cluster.Name,
+// HotCachePeriod: "P7D",
+// SoftDeletePeriod: "P31D",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

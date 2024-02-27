@@ -130,10 +130,10 @@ def get_ns_record(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.NsRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
+    example = azure.dns.ns_record.NsRecord("example",
+        name=test,
+        zone_name=test-zone,
+        resource_group_name=test-rg)
     pulumi.export("dnsNsRecordId", example_azurerm_dns_ns_record["id"])
     ```
 
@@ -172,10 +172,10 @@ def get_ns_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.NsRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
+    example = azure.dns.ns_record.NsRecord("example",
+        name=test,
+        zone_name=test-zone,
+        resource_group_name=test-rg)
     pulumi.export("dnsNsRecordId", example_azurerm_dns_ns_record["id"])
     ```
 

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "example-law",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleDataSourceWindowsEvent = new Azure.LogAnalytics.DataSourceWindowsEvent("example", new()
+    ///     var exampleDataSourceWindowsEvent = new Azure.Loganalytics.DataSourceWindowsEvent.DataSourceWindowsEvent("example", new()
     ///     {
     ///         Name = "example-lad-wpc",
     ///         ResourceGroupName = example.Name,

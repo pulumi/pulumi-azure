@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Avs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var test = new Azure.Network.PublicIp("test", new()
+    ///     var test = new Azure.Network.PublicIp.PublicIp("test", new()
     ///     {
     ///         Name = "example-public-ip",
     ///         Location = testAzurermResourceGroup.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Avs
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var testVirtualNetwork = new Azure.Network.VirtualNetwork("test", new()
+    ///     var testVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("test", new()
     ///     {
     ///         Name = "example-VirtualNetwork",
     ///         Location = testAzurermResourceGroup.Location,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Avs
     ///         },
     ///     });
     /// 
-    ///     var netappSubnet = new Azure.Network.Subnet("netappSubnet", new()
+    ///     var netappSubnet = new Azure.Network.Subnet.Subnet("netappSubnet", new()
     ///     {
     ///         Name = "example-Subnet",
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
@@ -61,23 +61,23 @@ namespace Pulumi.Azure.Avs
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "testdelegation",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "testdelegation" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Netapp/volumes",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Netapp/volumes" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/networkinterfaces/*",
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var gatewaySubnet = new Azure.Network.Subnet("gatewaySubnet", new()
+    ///     var gatewaySubnet = new Azure.Network.Subnet.Subnet("gatewaySubnet", new()
     ///     {
     ///         Name = "GatewaySubnet",
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Avs
     ///         },
     ///     });
     /// 
-    ///     var testVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("test", new()
+    ///     var testVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway.VirtualNetworkGateway("test", new()
     ///     {
     ///         Name = "example-vnet-gateway",
     ///         Location = testAzurermResourceGroup.Location,
@@ -97,23 +97,23 @@ namespace Pulumi.Azure.Avs
     ///         Sku = "Standard",
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "vnetGatewayConfig",
-    ///                 PublicIpAddressId = test.Id,
-    ///                 SubnetId = gatewaySubnet.Id,
+    ///                 { "name", "vnetGatewayConfig" },
+    ///                 { "publicIpAddressId", test.Id },
+    ///                 { "subnetId", gatewaySubnet.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var testAccount = new Azure.NetApp.Account("test", new()
+    ///     var testAccount = new Azure.Netapp.Account.Account("test", new()
     ///     {
     ///         Name = "example-NetAppAccount",
     ///         Location = testAzurermResourceGroup.Location,
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///     });
     /// 
-    ///     var testPool = new Azure.NetApp.Pool("test", new()
+    ///     var testPool = new Azure.Netapp.Pool.Pool("test", new()
     ///     {
     ///         Name = "example-NetAppPool",
     ///         Location = testAzurermResourceGroup.Location,
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Avs
     ///         SizeInTb = 4,
     ///     });
     /// 
-    ///     var testVolume = new Azure.NetApp.Volume("test", new()
+    ///     var testVolume = new Azure.Netapp.Volume.Volume("test", new()
     ///     {
     ///         Name = "example-NetAppVolume",
     ///         Location = testAzurermResourceGroup.Location,
@@ -141,35 +141,35 @@ namespace Pulumi.Azure.Avs
     ///         AzureVmwareDataStoreEnabled = true,
     ///         ExportPolicyRules = new[]
     ///         {
-    ///             new Azure.NetApp.Inputs.VolumeExportPolicyRuleArgs
+    ///             
     ///             {
-    ///                 RuleIndex = 1,
-    ///                 AllowedClients = new[]
+    ///                 { "ruleIndex", 1 },
+    ///                 { "allowedClients", new[]
     ///                 {
     ///                     "0.0.0.0/0",
-    ///                 },
-    ///                 ProtocolsEnabled = "NFSv3",
-    ///                 UnixReadOnly = false,
-    ///                 UnixReadWrite = true,
-    ///                 RootAccessEnabled = true,
+    ///                 } },
+    ///                 { "protocolsEnabled", "NFSv3" },
+    ///                 { "unixReadOnly", false },
+    ///                 { "unixReadWrite", true },
+    ///                 { "rootAccessEnabled", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var testPrivateCloud = new Azure.Avs.PrivateCloud("test", new()
+    ///     var testPrivateCloud = new Azure.Avs.PrivateCloud.PrivateCloud("test", new()
     ///     {
     ///         Name = "example-PC",
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Location = testAzurermResourceGroup.Location,
     ///         SkuName = "av36",
-    ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
+    ///         ManagementCluster = 
     ///         {
-    ///             Size = 3,
+    ///             { "size", 3 },
     ///         },
     ///         NetworkSubnetCidr = "192.168.48.0/22",
     ///     });
     /// 
-    ///     var testCluster = new Azure.Avs.Cluster("test", new()
+    ///     var testCluster = new Azure.Avs.Cluster.Cluster("test", new()
     ///     {
     ///         Name = "example-vm-cluster",
     ///         VmwareCloudId = testPrivateCloud.Id,
@@ -177,24 +177,24 @@ namespace Pulumi.Azure.Avs
     ///         SkuName = "av36",
     ///     });
     /// 
-    ///     var testExpressRouteAuthorization = new Azure.Avs.ExpressRouteAuthorization("test", new()
+    ///     var testExpressRouteAuthorization = new Azure.Avs.ExpressRouteAuthorization.ExpressRouteAuthorization("test", new()
     ///     {
     ///         Name = "example-VmwareAuthorization",
     ///         PrivateCloudId = testPrivateCloud.Id,
     ///     });
     /// 
-    ///     var testVirtualNetworkGatewayConnection = new Azure.Network.VirtualNetworkGatewayConnection("test", new()
+    ///     var testVirtualNetworkGatewayConnection = new Azure.Network.VirtualNetworkGatewayConnection.VirtualNetworkGatewayConnection("test", new()
     ///     {
     ///         Name = "example-vnetgwconn",
     ///         Location = testAzurermResourceGroup.Location,
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Type = "ExpressRoute",
     ///         VirtualNetworkGatewayId = testVirtualNetworkGateway.Id,
-    ///         ExpressRouteCircuitId = testPrivateCloud.Circuits.Apply(circuits =&gt; circuits[0].ExpressRouteId),
+    ///         ExpressRouteCircuitId = testPrivateCloud.Circuits[0].ExpressRouteId,
     ///         AuthorizationKey = testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
     ///     });
     /// 
-    ///     var testNetappVolumeAttachment = new Azure.Avs.NetappVolumeAttachment("test", new()
+    ///     var testNetappVolumeAttachment = new Azure.Avs.NetappVolumeAttachment.NetappVolumeAttachment("test", new()
     ///     {
     ///         Name = "example-vmwareattachment",
     ///         NetappVolumeId = testVolume.Id,

@@ -29,21 +29,20 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.recoveryservices.Vault;
- * import com.pulumi.azure.recoveryservices.VaultArgs;
- * import com.pulumi.azure.siterecovery.VMWareReplicationPolicy;
- * import com.pulumi.azure.siterecovery.VMWareReplicationPolicyArgs;
- * import com.pulumi.azure.siterecovery.VmwareReplicationPolicyAssociation;
- * import com.pulumi.azure.siterecovery.VmwareReplicationPolicyAssociationArgs;
+ * import com.pulumi.azure.recoveryservices_vault.Vault;
+ * import com.pulumi.azure.recoveryservices_vault.VaultArgs;
+ * import com.pulumi.azure.siterecovery_vMWareReplicationPolicy.VMWareReplicationPolicy;
+ * import com.pulumi.azure.siterecovery_vMWareReplicationPolicy.VMWareReplicationPolicyArgs;
+ * import com.pulumi.azure.siterecovery_vmwareReplicationPolicyAssociation.VmwareReplicationPolicyAssociation;
+ * import com.pulumi.azure.siterecovery_vmwareReplicationPolicyAssociation.VmwareReplicationPolicyAssociationArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.siterecovery.VmwareReplicatedVm;
- * import com.pulumi.azure.siterecovery.VmwareReplicatedVmArgs;
- * import com.pulumi.azure.siterecovery.inputs.VmwareReplicatedVmNetworkInterfaceArgs;
+ * import com.pulumi.azure.siterecovery_vmwareReplicatedVm.VmwareReplicatedVm;
+ * import com.pulumi.azure.siterecovery_vmwareReplicatedVm.VmwareReplicatedVmArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,11 +118,7 @@ import javax.annotation.Nullable;
  *             .defaultLogStorageAccountId(exampleAccount.id())
  *             .defaultRecoveryDiskType(&#34;Standard_LRS&#34;)
  *             .targetNetworkId(exampleVirtualNetwork.id())
- *             .networkInterfaces(VmwareReplicatedVmNetworkInterfaceArgs.builder()
- *                 .sourceMacAddress(&#34;00:00:00:00:00:00&#34;)
- *                 .targetSubnetName(exampleSubnet.name())
- *                 .isPrimary(true)
- *                 .build())
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

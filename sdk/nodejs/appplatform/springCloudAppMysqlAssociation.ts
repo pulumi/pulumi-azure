@@ -13,21 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ * const exampleSpringCloudService = new azure.appplatform/springCloudService.SpringCloudService("example", {
  *     name: "example-springcloud",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ * const exampleSpringCloudApp = new azure.appplatform/springCloudApp.SpringCloudApp("example", {
  *     name: "example-springcloudapp",
  *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
  * });
- * const exampleServer = new azure.mysql.Server("example", {
+ * const exampleServer = new azure.mysql/server.Server("example", {
  *     name: "example-mysqlserver",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
- * const exampleDatabase = new azure.mysql.Database("example", {
+ * const exampleDatabase = new azure.mysql/database.Database("example", {
  *     name: "exampledb",
  *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     charset: "utf8",
  *     collation: "utf8_unicode_ci",
  * });
- * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform.SpringCloudAppMysqlAssociation("example", {
+ * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform/springCloudAppMysqlAssociation.SpringCloudAppMysqlAssociation("example", {
  *     name: "example-bind",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     mysqlServerId: exampleServer.id,

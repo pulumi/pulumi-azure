@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-law",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleDataSourceWindowsPerformanceCounter = new azure.loganalytics.DataSourceWindowsPerformanceCounter("example", {
+ * const exampleDataSourceWindowsPerformanceCounter = new azure.loganalytics/dataSourceWindowsPerformanceCounter.DataSourceWindowsPerformanceCounter("example", {
  *     name: "example-lad-wpc",
  *     resourceGroupName: example.name,
  *     workspaceName: exampleAnalyticsWorkspace.name,

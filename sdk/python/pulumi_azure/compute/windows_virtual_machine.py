@@ -1845,46 +1845,46 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+            address_prefixes=[10.0.2.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
-            name="example-machine",
+            ip_configurations=[{
+                name: internal,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_windows_virtual_machine = azure.compute.windows_virtual_machine.WindowsVirtualMachine("example",
+            name=example-machine,
             resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            admin_password="P@$$w0rd1234!",
+            size=Standard_F2,
+            admin_username=adminuser,
+            admin_password=P@$$w0rd1234!,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
-                publisher="MicrosoftWindowsServer",
-                offer="WindowsServer",
-                sku="2016-Datacenter",
-                version="latest",
-            ))
+            os_disk={
+                caching: ReadWrite,
+                storageAccountType: Standard_LRS,
+            },
+            source_image_reference={
+                publisher: MicrosoftWindowsServer,
+                offer: WindowsServer,
+                sku: 2016-Datacenter,
+                version: latest,
+            })
         ```
 
         ## Import
@@ -2000,46 +2000,46 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
+            address_prefixes=[10.0.2.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
-            name="example-machine",
+            ip_configurations=[{
+                name: internal,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_windows_virtual_machine = azure.compute.windows_virtual_machine.WindowsVirtualMachine("example",
+            name=example-machine,
             resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            admin_password="P@$$w0rd1234!",
+            size=Standard_F2,
+            admin_username=adminuser,
+            admin_password=P@$$w0rd1234!,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
-                publisher="MicrosoftWindowsServer",
-                offer="WindowsServer",
-                sku="2016-Datacenter",
-                version="latest",
-            ))
+            os_disk={
+                caching: ReadWrite,
+                storageAccountType: Standard_LRS,
+            },
+            source_image_reference={
+                publisher: MicrosoftWindowsServer,
+                offer: WindowsServer,
+                sku: 2016-Datacenter,
+                version: latest,
+            })
         ```
 
         ## Import

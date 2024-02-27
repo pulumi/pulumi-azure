@@ -206,22 +206,22 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("example",
-            name="example-ia",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_integration_account = azure.logicapps.integration_account.IntegrationAccount("example",
+            name=example-ia,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard")
-        example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("example",
-            name="example-iap",
+            sku_name=Standard)
+        example_integration_account_partner = azure.logicapps.integration_account_partner.IntegrationAccountPartner("example",
+            name=example-iap,
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="ZZ",
-                value="AA",
-            )])
+            business_identities=[{
+                qualifier: ZZ,
+                value: AA,
+            }])
         ```
 
         ## Import
@@ -255,22 +255,22 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("example",
-            name="example-ia",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_integration_account = azure.logicapps.integration_account.IntegrationAccount("example",
+            name=example-ia,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard")
-        example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("example",
-            name="example-iap",
+            sku_name=Standard)
+        example_integration_account_partner = azure.logicapps.integration_account_partner.IntegrationAccountPartner("example",
+            name=example-iap,
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="ZZ",
-                value="AA",
-            )])
+            business_identities=[{
+                qualifier: ZZ,
+                value: AA,
+            }])
         ```
 
         ## Import

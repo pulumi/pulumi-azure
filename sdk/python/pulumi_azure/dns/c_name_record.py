@@ -292,18 +292,18 @@ class CNameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="test",
+        example_c_name_record = azure.dns.c_name_record.CNameRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            record="contoso.com")
+            record=contoso.com)
         ```
         ### Alias Record)
 
@@ -311,20 +311,20 @@ class CNameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        target = azure.dns.CNameRecord("target",
-            name="target",
+        target = azure.dns.c_name_record.CNameRecord("target",
+            name=target,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            record="contoso.com")
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="test",
+            record=contoso.com)
+        example_c_name_record = azure.dns.c_name_record.CNameRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
@@ -364,18 +364,18 @@ class CNameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="test",
+        example_c_name_record = azure.dns.c_name_record.CNameRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            record="contoso.com")
+            record=contoso.com)
         ```
         ### Alias Record)
 
@@ -383,20 +383,20 @@ class CNameRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        target = azure.dns.CNameRecord("target",
-            name="target",
+        target = azure.dns.c_name_record.CNameRecord("target",
+            name=target,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            record="contoso.com")
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="test",
+            record=contoso.com)
+        example_c_name_record = azure.dns.c_name_record.CNameRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,

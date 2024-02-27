@@ -240,19 +240,6 @@ def get_volume(account_name: Optional[str] = None,
     """
     Uses this data source to access information about an existing NetApp Volume.
 
-    ## NetApp Volume Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_volume(resource_group_name="acctestRG",
-        account_name="acctestnetappaccount",
-        pool_name="acctestnetapppool",
-        name="example-volume")
-    pulumi.export("netappVolumeId", example.id)
-    ```
-
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
     :param str name: The name of the NetApp Volume.
@@ -299,19 +286,6 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Uses this data source to access information about an existing NetApp Volume.
-
-    ## NetApp Volume Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_volume(resource_group_name="acctestRG",
-        account_name="acctestnetappaccount",
-        pool_name="acctestnetapppool",
-        name="example-volume")
-    pulumi.export("netappVolumeId", example.id)
-    ```
 
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.

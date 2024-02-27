@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.search.Service("example", {
+ * const exampleService = new azure.search/service.Service("example", {
  *     name: "example-resource",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.search.Service("example", {
+ * const exampleService = new azure.search/service.Service("example", {
  *     name: "example-resource",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.search.Service("example", {
+ * const exampleService = new azure.search/service.Service("example", {
  *     name: "example-resource",
  *     resourceGroupName: example.name,
  *     location: example.location,

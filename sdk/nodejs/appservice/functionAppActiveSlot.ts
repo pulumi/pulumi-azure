@@ -14,25 +14,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "windowsfunctionappsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example-app-service-plan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     osType: "Windows",
  *     skuName: "Y1",
  * });
- * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ * const exampleWindowsFunctionApp = new azure.appservice/windowsFunctionApp.WindowsFunctionApp("example", {
  *     name: "example-windows-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleWindowsFunctionAppSlot = new azure.appservice.WindowsFunctionAppSlot("example", {
+ * const exampleWindowsFunctionAppSlot = new azure.appservice/windowsFunctionAppSlot.WindowsFunctionAppSlot("example", {
  *     name: "example-windows-function-app-slot",
  *     functionAppId: exampleWindowsFunctionApp.id,
  *     storageAccountName: exampleAccount.name,
  *     siteConfig: {},
  * });
- * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleWindowsFunctionAppSlot.id});
+ * const exampleFunctionAppActiveSlot = new azure.appservice/functionAppActiveSlot.FunctionAppActiveSlot("example", {slotId: exampleWindowsFunctionAppSlot.id});
  * ```
  * ### Linux Function App
  *
@@ -54,25 +54,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "linuxfunctionappsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example-app-service-plan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     osType: "Linux",
  *     skuName: "Y1",
  * });
- * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ * const exampleLinuxFunctionApp = new azure.appservice/linuxFunctionApp.LinuxFunctionApp("example", {
  *     name: "example-linux-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -80,13 +80,13 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  *     siteConfig: {},
  * });
- * const exampleLinuxFunctionAppSlot = new azure.appservice.LinuxFunctionAppSlot("example", {
+ * const exampleLinuxFunctionAppSlot = new azure.appservice/linuxFunctionAppSlot.LinuxFunctionAppSlot("example", {
  *     name: "example-linux-function-app-slot",
  *     functionAppId: exampleLinuxFunctionApp.name,
  *     storageAccountName: exampleAccount.name,
  *     siteConfig: {},
  * });
- * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleLinuxFunctionAppSlot.id});
+ * const exampleFunctionAppActiveSlot = new azure.appservice/functionAppActiveSlot.FunctionAppActiveSlot("example", {slotId: exampleLinuxFunctionAppSlot.id});
  * ```
  *
  * ## Import

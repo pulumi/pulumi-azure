@@ -33,13 +33,13 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     var config = new Config();
     ///     var prefix = config.Get("prefix") ?? "tfvmex";
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = $"{prefix}-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var main = new Azure.Network.VirtualNetwork("main", new()
+    ///     var main = new Azure.Network.VirtualNetwork.VirtualNetwork("main", new()
     ///     {
     ///         Name = $"{prefix}-network",
     ///         AddressSpaces = new[]
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Compute
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     var @internal = new Azure.Network.Subnet.Subnet("internal", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -61,23 +61,23 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("main", new()
+    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("main", new()
     ///     {
     ///         Name = $"{prefix}-nic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "testconfiguration1",
-    ///                 SubnetId = @internal.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "testconfiguration1" },
+    ///                 { "subnetId", @internal.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var mainVirtualMachine = new Azure.Compute.VirtualMachine("main", new()
+    ///     var mainVirtualMachine = new Azure.Compute.VirtualMachine.VirtualMachine("main", new()
     ///     {
     ///         Name = $"{prefix}-vm",
     ///         Location = example.Location,
@@ -87,29 +87,29 @@ namespace Pulumi.Azure.Compute
     ///             mainNetworkInterface.Id,
     ///         },
     ///         VmSize = "Standard_DS1_v2",
-    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         StorageImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         StorageOsDisk = 
     ///         {
-    ///             Name = "myosdisk1",
-    ///             Caching = "ReadWrite",
-    ///             CreateOption = "FromImage",
-    ///             ManagedDiskType = "Standard_LRS",
+    ///             { "name", "myosdisk1" },
+    ///             { "caching", "ReadWrite" },
+    ///             { "createOption", "FromImage" },
+    ///             { "managedDiskType", "Standard_LRS" },
     ///         },
-    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         OsProfile = 
     ///         {
-    ///             ComputerName = "hostname",
-    ///             AdminUsername = "testadmin",
-    ///             AdminPassword = "Password1234!",
+    ///             { "computerName", "hostname" },
+    ///             { "adminUsername", "testadmin" },
+    ///             { "adminPassword", "Password1234!" },
     ///         },
-    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         OsProfileLinuxConfig = 
     ///         {
-    ///             DisablePasswordAuthentication = false,
+    ///             { "disablePasswordAuthentication", false },
     ///         },
     ///         Tags = 
     ///         {

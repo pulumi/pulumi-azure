@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.securitycenter.SubscriptionPricing;
  * import com.pulumi.azure.securitycenter.SubscriptionPricingArgs;
- * import com.pulumi.azure.securitycenter.inputs.SubscriptionPricingExtensionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,19 +78,10 @@ import javax.annotation.Nullable;
  *             .tier(&#34;Standard&#34;)
  *             .resourceType(&#34;CloudPosture&#34;)
  *             .extensions(            
- *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;ContainerRegistriesVulnerabilityAssessments&#34;)
- *                     .build(),
- *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;AgentlessVmScanning&#34;)
- *                     .additionalExtensionProperties(Map.of(&#34;ExclusionTags&#34;, &#34;[]&#34;))
- *                     .build(),
- *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;AgentlessDiscoveryForKubernetes&#34;)
- *                     .build(),
- *                 SubscriptionPricingExtensionArgs.builder()
- *                     .name(&#34;SensitiveDataDiscovery&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

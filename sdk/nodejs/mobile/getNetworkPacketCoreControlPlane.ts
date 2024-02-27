@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Packet Core Control Plane.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetworkPacketCoreControlPlane({
- *     name: "example-mnpccp",
- *     resourceGroupName: "example-rg",
- * });
- * ```
  */
 export function getNetworkPacketCoreControlPlane(args: GetNetworkPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreControlPlaneResult> {
 
@@ -108,18 +96,6 @@ export interface GetNetworkPacketCoreControlPlaneResult {
 }
 /**
  * Get information about a Mobile Network Packet Core Control Plane.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetworkPacketCoreControlPlane({
- *     name: "example-mnpccp",
- *     resourceGroupName: "example-rg",
- * });
- * ```
  */
 export function getNetworkPacketCoreControlPlaneOutput(args: GetNetworkPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreControlPlaneResult> {
     return pulumi.output(args).apply((a: any) => getNetworkPacketCoreControlPlane(a, opts))

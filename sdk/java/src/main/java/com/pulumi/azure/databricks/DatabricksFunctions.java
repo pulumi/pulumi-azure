@@ -23,76 +23,12 @@ public final class DatabricksFunctions {
     /**
      * Use this data source to access information about an existing Databricks Access Connector.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args) {
         return getAccessConnector(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Databricks Access Connector.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args) {
@@ -101,76 +37,12 @@ public final class DatabricksFunctions {
     /**
      * Use this data source to access information about an existing Databricks Access Connector.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getAccessConnector:getAccessConnector", TypeShape.of(GetAccessConnectorResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Databricks Access Connector.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args, InvokeOptions options) {
@@ -179,76 +51,12 @@ public final class DatabricksFunctions {
     /**
      * Use this data source to access information about an existing Databricks workspace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
         return getWorkspace(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Databricks workspace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -257,76 +65,12 @@ public final class DatabricksFunctions {
     /**
      * Use this data source to access information about an existing Databricks workspace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Databricks workspace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspaceId&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.workspaceId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
@@ -335,76 +79,12 @@ public final class DatabricksFunctions {
     /**
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspacePrivateEndpointConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args) {
         return getWorkspacePrivateEndpointConnection(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspacePrivateEndpointConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args) {
@@ -413,76 +93,12 @@ public final class DatabricksFunctions {
     /**
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspacePrivateEndpointConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", TypeShape.of(GetWorkspacePrivateEndpointConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.databricks.DatabricksFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspacePrivateEndpointConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;databricksWorkspacePrivateEndpointConnectionStatus&#34;, example.applyValue(getWorkspacePrivateEndpointConnectionResult -&gt; getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args, InvokeOptions options) {

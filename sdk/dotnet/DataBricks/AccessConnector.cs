@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataBricks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccessConnector = new Azure.DataBricks.AccessConnector("example", new()
+    ///     var exampleAccessConnector = new Azure.Databricks.AccessConnector.AccessConnector("example", new()
     ///     {
     ///         Name = "example-resource",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Identity = new Azure.DataBricks.Inputs.AccessConnectorIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {

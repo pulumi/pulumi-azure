@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "tfex-servicebus",
  *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus/namespace.Namespace("example", {
  *     name: "tfex-servicebus-namespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleTopic = new azure.servicebus.Topic("example", {
+ * const exampleTopic = new azure.servicebus/topic.Topic("example", {
  *     name: "tfex_servicebus_topic",
  *     namespaceId: exampleNamespace.id,
  * });
- * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("example", {
+ * const exampleTopicAuthorizationRule = new azure.servicebus/topicAuthorizationRule.TopicAuthorizationRule("example", {
  *     name: "tfex_servicebus_topic_sasPolicy",
  *     topicId: exampleTopic.id,
  *     listen: true,

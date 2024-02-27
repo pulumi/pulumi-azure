@@ -11,15 +11,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleZone = new azure.dns.Zone("example", {
+ * const exampleZone = new azure.dns/zone.Zone("example", {
  *     name: "mydomain.com",
  *     resourceGroupName: example.name,
  * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
+ * const exampleCNameRecord = new azure.dns/cNameRecord.CNameRecord("example", {
  *     name: "test",
  *     zoneName: exampleZone.name,
  *     resourceGroupName: example.name,
@@ -33,22 +33,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleZone = new azure.dns.Zone("example", {
+ * const exampleZone = new azure.dns/zone.Zone("example", {
  *     name: "mydomain.com",
  *     resourceGroupName: example.name,
  * });
- * const target = new azure.dns.CNameRecord("target", {
+ * const target = new azure.dns/cNameRecord.CNameRecord("target", {
  *     name: "target",
  *     zoneName: exampleZone.name,
  *     resourceGroupName: example.name,
  *     ttl: 300,
  *     record: "contoso.com",
  * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
+ * const exampleCNameRecord = new azure.dns/cNameRecord.CNameRecord("example", {
  *     name: "test",
  *     zoneName: exampleZone.name,
  *     resourceGroupName: example.name,

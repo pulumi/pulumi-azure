@@ -252,24 +252,24 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-kusto-rg",
-            location="West Europe")
-        cluster = azure.kusto.Cluster("cluster",
-            name="kustocluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-kusto-rg,
+            location=West Europe)
+        cluster = azure.kusto.cluster.Cluster("cluster",
+            name=kustocluster,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        database = azure.kusto.Database("database",
-            name="my-kusto-database",
+            sku={
+                name: Standard_D13_v2,
+                capacity: 2,
+            })
+        database = azure.kusto.database.Database("database",
+            name=my-kusto-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
+            hot_cache_period=P7D,
+            soft_delete_period=P31D)
         ```
 
         ## Import
@@ -302,24 +302,24 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="my-kusto-rg",
-            location="West Europe")
-        cluster = azure.kusto.Cluster("cluster",
-            name="kustocluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=my-kusto-rg,
+            location=West Europe)
+        cluster = azure.kusto.cluster.Cluster("cluster",
+            name=kustocluster,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        database = azure.kusto.Database("database",
-            name="my-kusto-database",
+            sku={
+                name: Standard_D13_v2,
+                capacity: 2,
+            })
+        database = azure.kusto.database.Database("database",
+            name=my-kusto-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
+            hot_cache_period=P7D,
+            soft_delete_period=P31D)
         ```
 
         ## Import

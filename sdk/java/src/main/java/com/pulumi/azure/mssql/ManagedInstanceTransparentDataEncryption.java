@@ -32,15 +32,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.mssql.ManagedInstance;
  * import com.pulumi.azure.mssql.ManagedInstanceArgs;
- * import com.pulumi.azure.mssql.inputs.ManagedInstanceIdentityArgs;
  * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryption;
  * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryptionArgs;
  * import java.util.List;
@@ -73,16 +70,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;managedinstancedelegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Sql/managedInstances&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
@@ -96,150 +84,11 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .administratorLogin(&#34;missadministrator&#34;)
  *             .administratorLoginPassword(&#34;NCC-1701-D&#34;)
- *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption(&#34;exampleManagedInstanceTransparentDataEncryption&#34;, ManagedInstanceTransparentDataEncryptionArgs.builder()        
  *             .managedInstanceId(exampleManagedInstance.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Customer Managed Key
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
- * import com.pulumi.azure.network.Subnet;
- * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
- * import com.pulumi.azure.mssql.ManagedInstance;
- * import com.pulumi.azure.mssql.ManagedInstanceArgs;
- * import com.pulumi.azure.mssql.inputs.ManagedInstanceIdentityArgs;
- * import com.pulumi.azure.keyvault.KeyVault;
- * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
- * import com.pulumi.azure.keyvault.Key;
- * import com.pulumi.azure.keyvault.KeyArgs;
- * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryption;
- * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;EastUs&#34;)
- *             .build());
- * 
- *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .name(&#34;acctest-vnet1-mssql&#34;)
- *             .resourceGroupName(example.name())
- *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(test.location())
- *             .build());
- * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .name(&#34;subnet1-mssql&#34;)
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;managedinstancedelegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Sql/managedInstances&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;mssqlinstance&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .licenseType(&#34;BasePrice&#34;)
- *             .skuName(&#34;GP_Gen5&#34;)
- *             .storageSizeInGb(32)
- *             .subnetId(exampleSubnet.id())
- *             .vcores(4)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;NCC-1701-D&#34;)
- *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(false)
- *             .skuName(&#34;standard&#34;)
- *             .accessPolicies(            
- *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;List&#34;,
- *                         &#34;Create&#34;,
- *                         &#34;Delete&#34;,
- *                         &#34;Update&#34;,
- *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;,
- *                         &#34;GetRotationPolicy&#34;)
- *                     .build(),
- *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleManagedInstance.identity().applyValue(identity -&gt; identity.tenantId()))
- *                     .objectId(exampleManagedInstance.identity().applyValue(identity -&gt; identity.principalId()))
- *                     .keyPermissions(                    
- *                         &#34;Get&#34;,
- *                         &#34;WrapKey&#34;,
- *                         &#34;UnwrapKey&#34;)
- *                     .build())
- *             .build());
- * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .name(&#34;byok&#34;)
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
- *             .keySize(2048)
- *             .keyOpts(            
- *                 &#34;unwrapKey&#34;,
- *                 &#34;wrapKey&#34;)
- *             .build());
- * 
- *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption(&#34;exampleManagedInstanceTransparentDataEncryption&#34;, ManagedInstanceTransparentDataEncryptionArgs.builder()        
- *             .managedInstanceId(exampleManagedInstance.id())
- *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }

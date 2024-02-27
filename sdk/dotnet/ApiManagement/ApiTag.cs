@@ -12,51 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages the Assignment of an API Management API Tag to an API.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
-    ///     {
-    ///         Name = "example-apim",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
-    ///     {
-    ///         Name = "example-api",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         Revision = "1",
-    ///     });
-    /// 
-    ///     var exampleTag = new Azure.ApiManagement.Tag("example", new()
-    ///     {
-    ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
-    ///         Name = "example-tag",
-    ///     });
-    /// 
-    ///     var exampleApiTag = new Azure.ApiManagement.ApiTag("example", new()
-    ///     {
-    ///         ApiId = exampleApi.Id,
-    ///         Name = exampleTag.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management API Tags can be imported using the `resource id`, e.g.

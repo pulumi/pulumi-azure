@@ -247,6 +247,13 @@ class CacheRedisConfiguration(dict):
                
                > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         :param str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
+               
+               ```python
+               import pulumi
+               import pulumi_azure as azure
+               
+               example = azure.redis.cache.Cache("example", ignore_changes=[redis_configuration[0].rdb_storage_connection_string])
+               ```
         """
         if active_directory_authentication_enabled is not None:
             pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
@@ -416,6 +423,13 @@ class CacheRedisConfiguration(dict):
     def storage_account_subscription_id(self) -> Optional[str]:
         """
         The ID of the Subscription containing the Storage Account.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.redis.cache.Cache("example", ignore_changes=[redis_configuration[0].rdb_storage_connection_string])
+        ```
         """
         return pulumi.get(self, "storage_account_subscription_id")
 

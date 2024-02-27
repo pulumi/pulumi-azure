@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "example-sqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,104 +25,19 @@ import * as utilities from "../utilities";
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "AdminPassword123!",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("example", {
+ * const exampleServerExtendedAuditingPolicy = new azure.mssql/serverExtendedAuditingPolicy.ServerExtendedAuditingPolicy("example", {
  *     serverId: exampleServer.id,
  *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     storageAccountAccessKeyIsSecondary: false,
  *     retentionInDays: 6,
- * });
- * ```
- * ### With Storage Account Behind VNet And Firewall
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const primary = azure.core.getSubscription({});
- * const example = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example",
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "virtnetname-1",
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "subnetname-1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- *     serviceEndpoints: [
- *         "Microsoft.Sql",
- *         "Microsoft.Storage",
- *     ],
- *     enforcePrivateLinkEndpointNetworkPolicies: true,
- * });
- * const exampleServer = new azure.mssql.Server("example", {
- *     name: "example-sqlserver",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "AdminPassword123!",
- *     minimumTlsVersion: "1.2",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     scope: primary.then(primary => primary.id),
- *     roleDefinitionName: "Storage Blob Data Contributor",
- *     principalId: exampleServer.identity.apply(identity => identity?.principalId),
- * });
- * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
- *     name: "sql-vnet-rule",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     subnetId: exampleSubnet.id,
- * });
- * const exampleFirewallRule = new azure.sql.FirewallRule("example", {
- *     name: "FirewallRule1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "0.0.0.0",
- *     endIpAddress: "0.0.0.0",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplesa",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     allowNestedItemsToBePublic: false,
- *     networkRules: {
- *         defaultAction: "Deny",
- *         ipRules: ["127.0.0.1"],
- *         virtualNetworkSubnetIds: [exampleSubnet.id],
- *         bypasses: ["AzureServices"],
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("example", {
- *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
- *     serverId: exampleServer.id,
- *     retentionInDays: 6,
- *     logMonitoringEnabled: false,
- *     storageAccountSubscriptionId: primaryAzurermSubscription.subscriptionId,
  * });
  * ```
  *

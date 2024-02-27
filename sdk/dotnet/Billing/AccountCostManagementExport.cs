@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Billing
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -37,28 +37,28 @@ namespace Pulumi.Azure.Billing
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleAccountCostManagementExport = new Azure.Billing.AccountCostManagementExport("example", new()
+    ///     var exampleAccountCostManagementExport = new Azure.Billing.AccountCostManagementExport.AccountCostManagementExport("example", new()
     ///     {
     ///         Name = "example",
     ///         BillingAccountId = "example",
     ///         RecurrenceType = "Monthly",
     ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
     ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///         ExportDataStorageLocation = new Azure.Billing.Inputs.AccountCostManagementExportExportDataStorageLocationArgs
+    ///         ExportDataStorageLocation = 
     ///         {
-    ///             ContainerId = exampleContainer.ResourceManagerId,
-    ///             RootFolderPath = "/root/updated",
+    ///             { "containerId", exampleContainer.ResourceManagerId },
+    ///             { "rootFolderPath", "/root/updated" },
     ///         },
-    ///         ExportDataOptions = new Azure.Billing.Inputs.AccountCostManagementExportExportDataOptionsArgs
+    ///         ExportDataOptions = 
     ///         {
-    ///             Type = "Usage",
-    ///             TimeFrame = "WeekToDate",
+    ///             { "type", "Usage" },
+    ///             { "timeFrame", "WeekToDate" },
     ///         },
     ///     });
     /// 

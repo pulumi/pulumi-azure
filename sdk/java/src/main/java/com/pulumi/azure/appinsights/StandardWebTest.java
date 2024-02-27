@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appinsights.InsightsArgs;
  * import com.pulumi.azure.appinsights.StandardWebTest;
  * import com.pulumi.azure.appinsights.StandardWebTestArgs;
- * import com.pulumi.azure.appinsights.inputs.StandardWebTestRequestArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,9 +67,7 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .applicationInsightsId(exampleInsights.id())
  *             .geoLocations(&#34;example&#34;)
- *             .request(StandardWebTestRequestArgs.builder()
- *                 .url(&#34;http://www.example.com&#34;)
- *                 .build())
+ *             .request(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

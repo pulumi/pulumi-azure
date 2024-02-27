@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
@@ -102,7 +102,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.servicebus.SubscriptionArgs;
  * import com.pulumi.azure.servicebus.SubscriptionRule;
  * import com.pulumi.azure.servicebus.SubscriptionRuleArgs;
- * import com.pulumi.azure.servicebus.inputs.SubscriptionRuleCorrelationFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -126,7 +125,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
@@ -145,11 +144,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;tfex_servicebus_rule&#34;)
  *             .subscriptionId(exampleSubscription.id())
  *             .filterType(&#34;CorrelationFilter&#34;)
- *             .correlationFilter(SubscriptionRuleCorrelationFilterArgs.builder()
- *                 .correlationId(&#34;high&#34;)
- *                 .label(&#34;red&#34;)
- *                 .properties(Map.of(&#34;customProperty&#34;, &#34;value&#34;))
- *                 .build())
+ *             .correlationFilter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

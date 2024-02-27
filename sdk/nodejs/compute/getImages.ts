@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about existing Images within a Resource Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getImages({
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getImages(args: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
 
@@ -60,17 +49,6 @@ export interface GetImagesResult {
 }
 /**
  * Use this data source to access information about existing Images within a Resource Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getImages({
- *     resourceGroupName: "example-resources",
- * });
- * ```
  */
 export function getImagesOutput(args: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
     return pulumi.output(args).apply((a: any) => getImages(a, opts))

@@ -12,49 +12,6 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages a Management Group Policy Exemption.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGroup = new Azure.Management.Group("example", new()
-    ///     {
-    ///         DisplayName = "Example MgmtGroup",
-    ///     });
-    /// 
-    ///     var example = Azure.Policy.GetPolicySetDefinition.Invoke(new()
-    ///     {
-    ///         DisplayName = "Audit machines with insecure password security settings",
-    ///     });
-    /// 
-    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("example", new()
-    ///     {
-    ///         Name = "assignment1",
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
-    ///         Location = "westus",
-    ///         Identity = new Azure.Management.Inputs.GroupPolicyAssignmentIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleGroupPolicyExemption = new Azure.Management.GroupPolicyExemption("example", new()
-    ///     {
-    ///         Name = "exemption1",
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyAssignmentId = exampleGroupPolicyAssignment.Id,
-    ///         ExemptionCategory = "Mitigated",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Policy Exemptions can be imported using the `resource id`, e.g.

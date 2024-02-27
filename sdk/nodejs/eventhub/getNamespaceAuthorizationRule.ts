@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventhub.getNamespaceAuthorizationRule({
- *     name: "navi",
- *     resourceGroupName: "example-resources",
- *     namespaceName: "example-ns",
- * });
- * export const eventhubAuthorizationRuleId = exampleAzuremEventhubNamespaceAuthorizationRule.id;
- * ```
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
 
@@ -99,20 +85,6 @@ export interface GetNamespaceAuthorizationRuleResult {
 }
 /**
  * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.eventhub.getNamespaceAuthorizationRule({
- *     name: "navi",
- *     resourceGroupName: "example-resources",
- *     namespaceName: "example-ns",
- * });
- * export const eventhubAuthorizationRuleId = exampleAzuremEventhubNamespaceAuthorizationRule.id;
- * ```
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))

@@ -21,67 +21,67 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databricks/virtualNetworkPeering "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databricks/virtualNetworkPeering"
+//	databricks/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databricks/workspace"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	network/virtualNetworkPeering "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetworkPeering"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			remote, err := network.NewVirtualNetwork(ctx, "remote", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("remote-vnet"),
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//				Location: example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
-//				Name:              pulumi.String("example-workspace"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetworkPeering, err := databricks.NewVirtualNetworkPeering(ctx, "example", &databricks.VirtualNetworkPeeringArgs{
-//				Name:                       pulumi.String("databricks-vnet-peer"),
-//				ResourceGroupName:          example.Name,
-//				WorkspaceId:                exampleWorkspace.ID(),
-//				RemoteAddressSpacePrefixes: remote.AddressSpaces,
-//				RemoteVirtualNetworkId:     remote.ID(),
-//				AllowVirtualNetworkAccess:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualNetworkPeering(ctx, "remote", &network.VirtualNetworkPeeringArgs{
-//				Name:                      pulumi.String("peer-to-databricks"),
-//				ResourceGroupName:         example.Name,
-//				VirtualNetworkName:        remote.Name,
-//				RemoteVirtualNetworkId:    exampleVirtualNetworkPeering.VirtualNetworkId,
-//				AllowVirtualNetworkAccess: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// remote, err := network/virtualNetwork.NewVirtualNetwork(ctx, "remote", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "remote-vnet",
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.1.0/24",
+// },
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkspace, err := databricks/workspace.NewWorkspace(ctx, "example", &databricks/workspace.WorkspaceArgs{
+// Name: "example-workspace",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetworkPeering, err := databricks/virtualNetworkPeering.NewVirtualNetworkPeering(ctx, "example", &databricks/virtualNetworkPeering.VirtualNetworkPeeringArgs{
+// Name: "databricks-vnet-peer",
+// ResourceGroupName: example.Name,
+// WorkspaceId: exampleWorkspace.Id,
+// RemoteAddressSpacePrefixes: remote.AddressSpaces,
+// RemoteVirtualNetworkId: remote.Id,
+// AllowVirtualNetworkAccess: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualNetworkPeering.NewVirtualNetworkPeering(ctx, "remote", &network/virtualNetworkPeering.VirtualNetworkPeeringArgs{
+// Name: "peer-to-databricks",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: remote.Name,
+// RemoteVirtualNetworkId: exampleVirtualNetworkPeering.VirtualNetworkId,
+// AllowVirtualNetworkAccess: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

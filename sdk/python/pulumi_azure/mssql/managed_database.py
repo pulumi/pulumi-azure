@@ -206,32 +206,32 @@ class ManagedDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("example",
-            name="managedsqlinstance",
+            address_prefixes=[10.0.2.0/24])
+        example_managed_instance = azure.mssql.managed_instance.ManagedInstance("example",
+            name=managedsqlinstance,
             resource_group_name=example.name,
             location=example.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
+            license_type=BasePrice,
+            sku_name=GP_Gen5,
             storage_size_in_gb=32,
             subnet_id=example_subnet.id,
             vcores=4,
-            administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11")
-        example_managed_database = azure.mssql.ManagedDatabase("example",
-            name="example",
+            administrator_login=msadministrator,
+            administrator_login_password=thisIsDog11)
+        example_managed_database = azure.mssql.managed_database.ManagedDatabase("example",
+            name=example,
             managed_instance_id=example_managed_instance.id)
         ```
 
@@ -264,32 +264,32 @@ class ManagedDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("example",
-            name="managedsqlinstance",
+            address_prefixes=[10.0.2.0/24])
+        example_managed_instance = azure.mssql.managed_instance.ManagedInstance("example",
+            name=managedsqlinstance,
             resource_group_name=example.name,
             location=example.location,
-            license_type="BasePrice",
-            sku_name="GP_Gen5",
+            license_type=BasePrice,
+            sku_name=GP_Gen5,
             storage_size_in_gb=32,
             subnet_id=example_subnet.id,
             vcores=4,
-            administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11")
-        example_managed_database = azure.mssql.ManagedDatabase("example",
-            name="example",
+            administrator_login=msadministrator,
+            administrator_login_password=thisIsDog11)
+        example_managed_database = azure.mssql.managed_database.ManagedDatabase("example",
+            name=example,
             managed_instance_id=example_managed_instance.id)
         ```
 

@@ -32,23 +32,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingPredictiveArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,29 +80,10 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard_F2&#34;)
  *             .instances(2)
  *             .adminUsername(&#34;myadmin&#34;)
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username(&#34;myadmin&#34;)
- *                 .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com&#34;)
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;TestNetworkProfile&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;TestIPConfiguration&#34;)
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
- *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;StandardSSD_LRS&#34;)
- *                 .build())
- *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .adminSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting(&#34;exampleAutoscaleSetting&#34;, AutoscaleSettingArgs.builder()        
@@ -119,68 +91,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *             .profiles(AutoscaleSettingProfileArgs.builder()
- *                 .name(&#34;defaultProfile&#34;)
- *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
- *                     .default_(1)
- *                     .minimum(1)
- *                     .maximum(10)
- *                     .build())
- *                 .rules(                
- *                     AutoscaleSettingProfileRuleArgs.builder()
- *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
- *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *                             .timeGrain(&#34;PT1M&#34;)
- *                             .statistic(&#34;Average&#34;)
- *                             .timeWindow(&#34;PT5M&#34;)
- *                             .timeAggregation(&#34;Average&#34;)
- *                             .operator(&#34;GreaterThan&#34;)
- *                             .threshold(75)
- *                             .metricNamespace(&#34;microsoft.compute/virtualmachinescalesets&#34;)
- *                             .dimensions(AutoscaleSettingProfileRuleMetricTriggerDimensionArgs.builder()
- *                                 .name(&#34;AppName&#34;)
- *                                 .operator(&#34;Equals&#34;)
- *                                 .values(&#34;App1&#34;)
- *                                 .build())
- *                             .build())
- *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
- *                             .direction(&#34;Increase&#34;)
- *                             .type(&#34;ChangeCount&#34;)
- *                             .value(&#34;1&#34;)
- *                             .cooldown(&#34;PT1M&#34;)
- *                             .build())
- *                         .build(),
- *                     AutoscaleSettingProfileRuleArgs.builder()
- *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
- *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *                             .timeGrain(&#34;PT1M&#34;)
- *                             .statistic(&#34;Average&#34;)
- *                             .timeWindow(&#34;PT5M&#34;)
- *                             .timeAggregation(&#34;Average&#34;)
- *                             .operator(&#34;LessThan&#34;)
- *                             .threshold(25)
- *                             .build())
- *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
- *                             .direction(&#34;Decrease&#34;)
- *                             .type(&#34;ChangeCount&#34;)
- *                             .value(&#34;1&#34;)
- *                             .cooldown(&#34;PT1M&#34;)
- *                             .build())
- *                         .build())
- *                 .build())
- *             .predictive(AutoscaleSettingPredictiveArgs.builder()
- *                 .scaleMode(&#34;Enabled&#34;)
- *                 .lookAheadTime(&#34;PT5M&#34;)
- *                 .build())
- *             .notification(AutoscaleSettingNotificationArgs.builder()
- *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
- *                     .sendToSubscriptionAdministrator(true)
- *                     .sendToSubscriptionCoAdministrator(true)
- *                     .customEmails(&#34;admin@contoso.com&#34;)
- *                     .build())
- *                 .build())
+ *             .profiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .predictive(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .notification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -195,23 +108,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRecurrenceArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -252,29 +156,10 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard_F2&#34;)
  *             .instances(2)
  *             .adminUsername(&#34;myadmin&#34;)
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username(&#34;myadmin&#34;)
- *                 .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com&#34;)
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;TestNetworkProfile&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;TestIPConfiguration&#34;)
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
- *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;StandardSSD_LRS&#34;)
- *                 .build())
- *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .adminSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting(&#34;exampleAutoscaleSetting&#34;, AutoscaleSettingArgs.builder()        
@@ -282,66 +167,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *             .profiles(AutoscaleSettingProfileArgs.builder()
- *                 .name(&#34;Weekends&#34;)
- *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
- *                     .default_(1)
- *                     .minimum(1)
- *                     .maximum(10)
- *                     .build())
- *                 .rules(                
- *                     AutoscaleSettingProfileRuleArgs.builder()
- *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
- *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *                             .timeGrain(&#34;PT1M&#34;)
- *                             .statistic(&#34;Average&#34;)
- *                             .timeWindow(&#34;PT5M&#34;)
- *                             .timeAggregation(&#34;Average&#34;)
- *                             .operator(&#34;GreaterThan&#34;)
- *                             .threshold(90)
- *                             .build())
- *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
- *                             .direction(&#34;Increase&#34;)
- *                             .type(&#34;ChangeCount&#34;)
- *                             .value(&#34;2&#34;)
- *                             .cooldown(&#34;PT1M&#34;)
- *                             .build())
- *                         .build(),
- *                     AutoscaleSettingProfileRuleArgs.builder()
- *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
- *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *                             .timeGrain(&#34;PT1M&#34;)
- *                             .statistic(&#34;Average&#34;)
- *                             .timeWindow(&#34;PT5M&#34;)
- *                             .timeAggregation(&#34;Average&#34;)
- *                             .operator(&#34;LessThan&#34;)
- *                             .threshold(10)
- *                             .build())
- *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
- *                             .direction(&#34;Decrease&#34;)
- *                             .type(&#34;ChangeCount&#34;)
- *                             .value(&#34;2&#34;)
- *                             .cooldown(&#34;PT1M&#34;)
- *                             .build())
- *                         .build())
- *                 .recurrence(AutoscaleSettingProfileRecurrenceArgs.builder()
- *                     .timezone(&#34;Pacific Standard Time&#34;)
- *                     .days(                    
- *                         &#34;Saturday&#34;,
- *                         &#34;Sunday&#34;)
- *                     .hours(12)
- *                     .minutes(0)
- *                     .build())
- *                 .build())
- *             .notification(AutoscaleSettingNotificationArgs.builder()
- *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
- *                     .sendToSubscriptionAdministrator(true)
- *                     .sendToSubscriptionCoAdministrator(true)
- *                     .customEmails(&#34;admin@contoso.com&#34;)
- *                     .build())
- *                 .build())
+ *             .profiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .notification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -356,23 +183,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileFixedDateArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -413,29 +231,10 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Standard_F2&#34;)
  *             .instances(2)
  *             .adminUsername(&#34;myadmin&#34;)
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username(&#34;myadmin&#34;)
- *                 .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com&#34;)
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name(&#34;TestNetworkProfile&#34;)
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name(&#34;TestIPConfiguration&#34;)
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
- *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;StandardSSD_LRS&#34;)
- *                 .build())
- *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .adminSshKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting(&#34;exampleAutoscaleSetting&#34;, AutoscaleSettingArgs.builder()        
@@ -444,63 +243,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *             .profiles(AutoscaleSettingProfileArgs.builder()
- *                 .name(&#34;forJuly&#34;)
- *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
- *                     .default_(1)
- *                     .minimum(1)
- *                     .maximum(10)
- *                     .build())
- *                 .rules(                
- *                     AutoscaleSettingProfileRuleArgs.builder()
- *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
- *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *                             .timeGrain(&#34;PT1M&#34;)
- *                             .statistic(&#34;Average&#34;)
- *                             .timeWindow(&#34;PT5M&#34;)
- *                             .timeAggregation(&#34;Average&#34;)
- *                             .operator(&#34;GreaterThan&#34;)
- *                             .threshold(90)
- *                             .build())
- *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
- *                             .direction(&#34;Increase&#34;)
- *                             .type(&#34;ChangeCount&#34;)
- *                             .value(&#34;2&#34;)
- *                             .cooldown(&#34;PT1M&#34;)
- *                             .build())
- *                         .build(),
- *                     AutoscaleSettingProfileRuleArgs.builder()
- *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
- *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
- *                             .timeGrain(&#34;PT1M&#34;)
- *                             .statistic(&#34;Average&#34;)
- *                             .timeWindow(&#34;PT5M&#34;)
- *                             .timeAggregation(&#34;Average&#34;)
- *                             .operator(&#34;LessThan&#34;)
- *                             .threshold(10)
- *                             .build())
- *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
- *                             .direction(&#34;Decrease&#34;)
- *                             .type(&#34;ChangeCount&#34;)
- *                             .value(&#34;2&#34;)
- *                             .cooldown(&#34;PT1M&#34;)
- *                             .build())
- *                         .build())
- *                 .fixedDate(AutoscaleSettingProfileFixedDateArgs.builder()
- *                     .timezone(&#34;Pacific Standard Time&#34;)
- *                     .start(&#34;2020-07-01T00:00:00Z&#34;)
- *                     .end(&#34;2020-07-31T23:59:59Z&#34;)
- *                     .build())
- *                 .build())
- *             .notification(AutoscaleSettingNotificationArgs.builder()
- *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
- *                     .sendToSubscriptionAdministrator(true)
- *                     .sendToSubscriptionCoAdministrator(true)
- *                     .customEmails(&#34;admin@contoso.com&#34;)
- *                     .build())
- *                 .build())
+ *             .profiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .notification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

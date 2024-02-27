@@ -77,76 +77,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Availability Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args) {
         return getAvailabilitySet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Availability Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args) {
@@ -155,76 +91,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Availability Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", TypeShape.of(GetAvailabilitySetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Availability Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetAvailabilitySetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getAvailabilitySet(GetAvailabilitySetArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;availabilitySetId&#34;, example.applyValue(getAvailabilitySetResult -&gt; getAvailabilitySetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args, InvokeOptions options) {
@@ -233,76 +105,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Bastion Host.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args) {
         return getBastionHost(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Bastion Host.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args) {
@@ -311,76 +119,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Bastion Host.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getBastionHost:getBastionHost", TypeShape.of(GetBastionHostResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Bastion Host.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetBastionHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getBastionHost(GetBastionHostArgs.builder()
-     *             .name(&#34;existing-bastion&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBastionHostResult -&gt; getBastionHostResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args, InvokeOptions options) {
@@ -389,76 +133,12 @@ public final class ComputeFunctions {
     /**
      * Gets information about an existing Confidential Ledger.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args) {
         return getConfidentialLedger(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Confidential Ledger.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args) {
@@ -467,76 +147,12 @@ public final class ComputeFunctions {
     /**
      * Gets information about an existing Confidential Ledger.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getConfidentialLedger:getConfidentialLedger", TypeShape.of(GetConfidentialLedgerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Confidential Ledger.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetConfidentialLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = ComputeFunctions.getConfidentialLedger(GetConfidentialLedgerArgs.builder()
-     *             .name(&#34;example-ledger&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ledgerEndpoint&#34;, current.applyValue(getConfidentialLedgerResult -&gt; getConfidentialLedgerResult.ledgerEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args, InvokeOptions options) {
@@ -545,78 +161,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Dedicated Host.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args) {
         return getDedicatedHost(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Dedicated Host.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args) {
@@ -625,78 +175,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Dedicated Host.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDedicatedHost:getDedicatedHost", TypeShape.of(GetDedicatedHostResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Dedicated Host.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .name(&#34;example-host&#34;)
-     *             .dedicatedHostGroupName(&#34;example-host-group&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;dedicatedHostId&#34;, example.applyValue(getDedicatedHostResult -&gt; getDedicatedHostResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args, InvokeOptions options) {
@@ -705,76 +189,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Dedicated Host Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args) {
         return getDedicatedHostGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Dedicated Host Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args) {
@@ -783,76 +203,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Dedicated Host Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", TypeShape.of(GetDedicatedHostGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Dedicated Host Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDedicatedHostGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDedicatedHostGroup(GetDedicatedHostGroupArgs.builder()
-     *             .name(&#34;example-dedicated-host-group&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDedicatedHostGroupResult -&gt; getDedicatedHostGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args, InvokeOptions options) {
@@ -861,76 +217,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Disk Access.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args) {
         return getDiskAccess(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Disk Access.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args) {
@@ -939,76 +231,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Disk Access.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDiskAccess:getDiskAccess", TypeShape.of(GetDiskAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Disk Access.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskAccessArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getDiskAccess(GetDiskAccessArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDiskAccessResult -&gt; getDiskAccessResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args, InvokeOptions options) {
@@ -1017,76 +245,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args) {
         return getDiskEncryptionSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args) {
@@ -1095,76 +259,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", TypeShape.of(GetDiskEncryptionSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Disk Encryption Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetDiskEncryptionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getDiskEncryptionSet(GetDiskEncryptionSetArgs.builder()
-     *             .name(&#34;example-des&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getDiskEncryptionSetResult -&gt; getDiskEncryptionSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args, InvokeOptions options) {
@@ -1173,76 +273,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Image.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
         return getImage(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Image.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -1251,76 +287,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Image.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Image.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var search = ComputeFunctions.getImage(GetImageArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;packerimages&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;imageId&#34;, search.applyValue(getImageResult -&gt; getImageResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -1329,72 +301,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing Images within a Resource Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args) {
         return getImages(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about existing Images within a Resource Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
@@ -1403,36 +315,6 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing Images within a Resource Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
@@ -1440,74 +322,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing Images within a Resource Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetImagesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getImages(GetImagesArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about existing IP Groups.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
@@ -1520,38 +340,6 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing IP Groups.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
      * 
@@ -1562,38 +350,6 @@ public final class ComputeFunctions {
     }
     /**
      * Use this data source to access information about existing IP Groups.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
@@ -1606,38 +362,6 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing IP Groups.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
      * 
@@ -1649,76 +373,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Managed Disk.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args) {
         return getManagedDisk(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Managed Disk.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args) {
@@ -1727,76 +387,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Managed Disk.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getManagedDisk:getManagedDisk", TypeShape.of(GetManagedDiskResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Managed Disk.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var existing = ComputeFunctions.getManagedDisk(GetManagedDiskArgs.builder()
-     *             .name(&#34;example-datadisk&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, existing.applyValue(getManagedDiskResult -&gt; getManagedDiskResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args, InvokeOptions options) {
@@ -1805,76 +401,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args) {
         return getOrchestratedVirtualMachineScaleSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args) {
@@ -1883,76 +415,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", TypeShape.of(GetOrchestratedVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {
@@ -1961,80 +429,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about a Platform Image.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args) {
         return getPlatformImage(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about a Platform Image.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args) {
@@ -2043,80 +443,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about a Platform Image.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getPlatformImage:getPlatformImage", TypeShape.of(GetPlatformImageResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about a Platform Image.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getPlatformImage(GetPlatformImageArgs.builder()
-     *             .location(&#34;West Europe&#34;)
-     *             .publisher(&#34;Canonical&#34;)
-     *             .offer(&#34;0001-com-ubuntu-server-focal&#34;)
-     *             .sku(&#34;20_04-lts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPlatformImageResult -&gt; getPlatformImageResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args, InvokeOptions options) {
@@ -2125,76 +457,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args) {
         return getSharedImage(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args) {
@@ -2203,76 +471,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImage:getSharedImage", TypeShape.of(GetSharedImageResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .name(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args, InvokeOptions options) {
@@ -2281,74 +485,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args) {
         return getSharedImageGallery(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args) {
@@ -2357,74 +499,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImageGallery:getSharedImageGallery", TypeShape.of(GetSharedImageGalleryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageGalleryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageGallery(GetSharedImageGalleryArgs.builder()
-     *             .name(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args, InvokeOptions options) {
@@ -2433,78 +513,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args) {
         return getSharedImageVersion(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args) {
@@ -2513,78 +527,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", TypeShape.of(GetSharedImageVersionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .name(&#34;1.0.0&#34;)
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args, InvokeOptions options) {
@@ -2593,76 +541,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args) {
         return getSharedImageVersions(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args) {
@@ -2671,76 +555,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSharedImageVersions:getSharedImageVersions", TypeShape.of(GetSharedImageVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSharedImageVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .imageName(&#34;my-image&#34;)
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args, InvokeOptions options) {
@@ -2749,74 +569,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Snapshot.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
         return getSnapshot(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Snapshot.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -2825,74 +583,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Snapshot.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Snapshot.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .name(&#34;my-snapshot&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -2901,76 +597,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing SSH Public Key.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args) {
         return getSshPublicKey(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing SSH Public Key.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args) {
@@ -2979,76 +611,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing SSH Public Key.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getSshPublicKey:getSshPublicKey", TypeShape.of(GetSshPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing SSH Public Key.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSshPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getSshPublicKey(GetSshPublicKeyArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getSshPublicKeyResult -&gt; getSshPublicKeyResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args, InvokeOptions options) {
@@ -3057,76 +625,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Virtual Machine.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args) {
         return getVirtualMachine(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Virtual Machine.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args) {
@@ -3135,76 +639,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Virtual Machine.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getVirtualMachine:getVirtualMachine", TypeShape.of(GetVirtualMachineResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Virtual Machine.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;virtualMachineId&#34;, example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args, InvokeOptions options) {
@@ -3213,76 +653,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Virtual Machine Scale Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args) {
         return getVirtualMachineScaleSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Virtual Machine Scale Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args) {
@@ -3291,76 +667,12 @@ public final class ComputeFunctions {
     /**
      * Use this data source to access information about an existing Virtual Machine Scale Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", TypeShape.of(GetVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Virtual Machine Scale Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetVirtualMachineScaleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getVirtualMachineScaleSetResult -&gt; getVirtualMachineScaleSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {

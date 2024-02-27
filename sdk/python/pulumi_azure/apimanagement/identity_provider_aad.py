@@ -235,22 +235,22 @@ class IdentityProviderAad(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_aad = azure.apimanagement.IdentityProviderAad("example",
+            publisher_name=My Company,
+            publisher_email=company@mycompany.io,
+            sku_name=Developer_1)
+        example_identity_provider_aad = azure.apimanagement.identity_provider_aad.IdentityProviderAad("example",
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            client_id="00000000-0000-0000-0000-000000000000",
-            client_secret="00000000000000000000000000000000",
-            allowed_tenants=["00000000-0000-0000-0000-000000000000"])
+            client_id=00000000-0000-0000-0000-000000000000,
+            client_secret=00000000000000000000000000000000,
+            allowed_tenants=[00000000-0000-0000-0000-000000000000])
         ```
 
         ## Import
@@ -285,22 +285,22 @@ class IdentityProviderAad(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@mycompany.io",
-            sku_name="Developer_1")
-        example_identity_provider_aad = azure.apimanagement.IdentityProviderAad("example",
+            publisher_name=My Company,
+            publisher_email=company@mycompany.io,
+            sku_name=Developer_1)
+        example_identity_provider_aad = azure.apimanagement.identity_provider_aad.IdentityProviderAad("example",
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            client_id="00000000-0000-0000-0000-000000000000",
-            client_secret="00000000000000000000000000000000",
-            allowed_tenants=["00000000-0000-0000-0000-000000000000"])
+            client_id=00000000-0000-0000-0000-000000000000,
+            client_secret=00000000000000000000000000000000,
+            allowed_tenants=[00000000-0000-0000-0000-000000000000])
         ```
 
         ## Import

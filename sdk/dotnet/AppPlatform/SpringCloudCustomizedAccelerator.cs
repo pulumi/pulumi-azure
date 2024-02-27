@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -36,21 +36,21 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudAccelerator = new Azure.AppPlatform.SpringCloudAccelerator("example", new()
+    ///     var exampleSpringCloudAccelerator = new Azure.Appplatform.SpringCloudAccelerator.SpringCloudAccelerator("example", new()
     ///     {
     ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
-    ///     var exampleSpringCloudCustomizedAccelerator = new Azure.AppPlatform.SpringCloudCustomizedAccelerator("example", new()
+    ///     var exampleSpringCloudCustomizedAccelerator = new Azure.Appplatform.SpringCloudCustomizedAccelerator.SpringCloudCustomizedAccelerator("example", new()
     ///     {
     ///         Name = "example",
     ///         SpringCloudAcceleratorId = exampleSpringCloudAccelerator.Id,
-    ///         GitRepository = new Azure.AppPlatform.Inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs
+    ///         GitRepository = 
     ///         {
-    ///             Url = "https://github.com/Azure-Samples/piggymetrics",
-    ///             GitTag = "spring.version.2.0.3",
-    ///             IntervalInSeconds = 100,
+    ///             { "url", "https://github.com/Azure-Samples/piggymetrics" },
+    ///             { "gitTag", "spring.version.2.0.3" },
+    ///             { "intervalInSeconds", 100 },
     ///         },
     ///         AcceleratorTags = new[]
     ///         {

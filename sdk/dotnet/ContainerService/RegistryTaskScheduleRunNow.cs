@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
+    ///     var exampleRegistry = new Azure.Containerservice.Registry.Registry("example", new()
     ///     {
     ///         Name = "example-acr",
     ///         ResourceGroupName = example.Name,
@@ -36,27 +36,27 @@ namespace Pulumi.Azure.ContainerService
     ///         Sku = "Basic",
     ///     });
     /// 
-    ///     var exampleRegistryTask = new Azure.ContainerService.RegistryTask("example", new()
+    ///     var exampleRegistryTask = new Azure.Containerservice.RegistryTask.RegistryTask("example", new()
     ///     {
     ///         Name = "example-task",
     ///         ContainerRegistryId = exampleRegistry.Id,
-    ///         Platform = new Azure.ContainerService.Inputs.RegistryTaskPlatformArgs
+    ///         Platform = 
     ///         {
-    ///             Os = "Linux",
+    ///             { "os", "Linux" },
     ///         },
-    ///         DockerStep = new Azure.ContainerService.Inputs.RegistryTaskDockerStepArgs
+    ///         DockerStep = 
     ///         {
-    ///             DockerfilePath = "Dockerfile",
-    ///             ContextPath = "https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main",
-    ///             ContextAccessToken = "&lt;github personal access token&gt;",
-    ///             ImageNames = new[]
+    ///             { "dockerfilePath", "Dockerfile" },
+    ///             { "contextPath", "https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main" },
+    ///             { "contextAccessToken", "&lt;github personal access token&gt;" },
+    ///             { "imageNames", new[]
     ///             {
     ///                 "helloworld:{{.Run.ID}}",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryTaskScheduleRunNow = new Azure.ContainerService.RegistryTaskScheduleRunNow("example", new()
+    ///     var exampleRegistryTaskScheduleRunNow = new Azure.Containerservice.RegistryTaskScheduleRunNow.RegistryTaskScheduleRunNow("example", new()
     ///     {
     ///         ContainerRegistryTaskId = exampleRegistryTask.Id,
     ///     });

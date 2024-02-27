@@ -12,44 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an Authorization Server within an API Management Service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
-    ///     {
-    ///         Name = "search-api",
-    ///         ResourceGroupName = "search-service",
-    ///     });
-    /// 
-    ///     var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("example", new()
-    ///     {
-    ///         Name = "test-server",
-    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
-    ///         DisplayName = "Test Server",
-    ///         AuthorizationEndpoint = "https://example.mydomain.com/client/authorize",
-    ///         ClientId = "42424242-4242-4242-4242-424242424242",
-    ///         ClientRegistrationEndpoint = "https://example.mydomain.com/client/register",
-    ///         GrantTypes = new[]
-    ///         {
-    ///             "authorizationCode",
-    ///         },
-    ///         AuthorizationMethods = new[]
-    ///         {
-    ///             "GET",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// API Management Authorization Servers can be imported using the `resource id`, e.g.

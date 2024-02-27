@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/apiVersionSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/apiVersionSet"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("pub1"),
-//				PublisherEmail:    pulumi.String("pub1@email.com"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewApiVersionSet(ctx, "example", &apimanagement.ApiVersionSetArgs{
-//				Name:              pulumi.String("example-apimapi-1_0_0"),
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				DisplayName:       pulumi.String("ExampleAPIVersionSet"),
-//				VersioningScheme:  pulumi.String("Segment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "pub1",
+// PublisherEmail: "pub1@email.com",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/apiVersionSet.NewApiVersionSet(ctx, "example", &apimanagement/apiVersionSet.ApiVersionSetArgs{
+// Name: "example-apimapi-1_0_0",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// DisplayName: "ExampleAPIVersionSet",
+// VersioningScheme: "Segment",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

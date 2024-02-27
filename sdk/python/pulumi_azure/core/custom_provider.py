@@ -274,17 +274,17 @@ class CustomProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_custom_provider = azure.core.CustomProvider("example",
-            name="example_provider",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_custom_provider = azure.core.custom_provider.CustomProvider("example",
+            name=example_provider,
             location=example.location,
             resource_group_name=example.name,
-            resource_types=[azure.core.CustomProviderResourceTypeArgs(
-                name="dEf1",
-                endpoint="https://testendpoint.com/",
-            )])
+            resource_types=[{
+                name: dEf1,
+                endpoint: https://testendpoint.com/,
+            }])
         ```
 
         ## Import
@@ -320,17 +320,17 @@ class CustomProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_custom_provider = azure.core.CustomProvider("example",
-            name="example_provider",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_custom_provider = azure.core.custom_provider.CustomProvider("example",
+            name=example_provider,
             location=example.location,
             resource_group_name=example.name,
-            resource_types=[azure.core.CustomProviderResourceTypeArgs(
-                name="dEf1",
-                endpoint="https://testendpoint.com/",
-            )])
+            resource_types=[{
+                name: dEf1,
+                endpoint: https://testendpoint.com/,
+            }])
         ```
 
         ## Import

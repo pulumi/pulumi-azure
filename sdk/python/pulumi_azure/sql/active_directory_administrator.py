@@ -231,31 +231,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
         > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `mssql.Server` resource instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mysqlserver",
-            resource_group_name=example.name,
-            location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("example",
-            server_name=example_sql_server.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -283,31 +258,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         Allows you to set a user or group as the AD administrator for an Azure SQL server.
 
         > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `mssql.Server` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mysqlserver",
-            resource_group_name=example.name,
-            location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("example",
-            server_name=example_sql_server.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
 
         ## Import
 

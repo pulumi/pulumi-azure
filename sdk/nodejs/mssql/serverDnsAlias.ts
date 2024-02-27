@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "example-sqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "AdminPassword123!",
  * });
- * const exampleServerDnsAlias = new azure.mssql.ServerDnsAlias("example", {
+ * const exampleServerDnsAlias = new azure.mssql/serverDnsAlias.ServerDnsAlias("example", {
  *     name: "example-dns-alias",
  *     mssqlServerId: exampleServer.id,
  * });

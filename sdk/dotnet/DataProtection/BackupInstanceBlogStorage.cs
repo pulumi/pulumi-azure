@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "storageaccountname",
     ///         ResourceGroupName = example.Name,
@@ -37,34 +37,34 @@ namespace Pulumi.Azure.DataProtection
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
+    ///     var exampleBackupVault = new Azure.Dataprotection.BackupVault.BackupVault("example", new()
     ///     {
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment.Assignment("example", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Account Backup Contributor",
-    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         PrincipalId = exampleBackupVault.Identity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("example", new()
+    ///     var exampleBackupPolicyBlobStorage = new Azure.Dataprotection.BackupPolicyBlobStorage.BackupPolicyBlobStorage("example", new()
     ///     {
     ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
     ///         RetentionDuration = "P30D",
     ///     });
     /// 
-    ///     var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("example", new()
+    ///     var exampleBackupInstanceBlogStorage = new Azure.Dataprotection.BackupInstanceBlogStorage.BackupInstanceBlogStorage("example", new()
     ///     {
     ///         Name = "example-backup-instance",
     ///         VaultId = exampleBackupVault.Id,

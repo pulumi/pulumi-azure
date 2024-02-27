@@ -24,39 +24,39 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleActionRuleSuppression = new Azure.Monitoring.ActionRuleSuppression("example", new()
+    ///     var exampleActionRuleSuppression = new Azure.Monitoring.ActionRuleSuppression.ActionRuleSuppression("example", new()
     ///     {
     ///         Name = "example-amar",
     ///         ResourceGroupName = example.Name,
-    ///         Scope = new Azure.Monitoring.Inputs.ActionRuleSuppressionScopeArgs
+    ///         Scope = 
     ///         {
-    ///             Type = "ResourceGroup",
-    ///             ResourceIds = new[]
+    ///             { "type", "ResourceGroup" },
+    ///             { "resourceIds", new[]
     ///             {
     ///                 example.Id,
-    ///             },
+    ///             } },
     ///         },
-    ///         Suppression = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionArgs
+    ///         Suppression = 
     ///         {
-    ///             RecurrenceType = "Weekly",
-    ///             Schedule = new Azure.Monitoring.Inputs.ActionRuleSuppressionSuppressionScheduleArgs
+    ///             { "recurrenceType", "Weekly" },
+    ///             { "schedule", 
     ///             {
-    ///                 StartDateUtc = "2019-01-01T01:02:03Z",
-    ///                 EndDateUtc = "2019-01-03T15:02:07Z",
-    ///                 RecurrenceWeeklies = new[]
+    ///                 { "startDateUtc", "2019-01-01T01:02:03Z" },
+    ///                 { "endDateUtc", "2019-01-03T15:02:07Z" },
+    ///                 { "recurrenceWeeklies", new[]
     ///                 {
     ///                     "Sunday",
     ///                     "Monday",
     ///                     "Friday",
     ///                     "Saturday",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

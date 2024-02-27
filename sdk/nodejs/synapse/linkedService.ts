@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage/dataLakeGen2Filesystem.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ * const exampleWorkspace = new azure.synapse/workspace.Workspace("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -43,22 +43,22 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
+ * const exampleFirewallRule = new azure.synapse/firewallRule.FirewallRule("example", {
  *     name: "allowAll",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "255.255.255.255",
  * });
- * const exampleIntegrationRuntimeAzure = new azure.synapse.IntegrationRuntimeAzure("example", {
+ * const exampleIntegrationRuntimeAzure = new azure.synapse/integrationRuntimeAzure.IntegrationRuntimeAzure("example", {
  *     name: "example",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     location: example.location,
  * });
- * const exampleLinkedService = new azure.synapse.LinkedService("example", {
+ * const exampleLinkedService = new azure.synapse/linkedService.LinkedService("example", {
  *     name: "example",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     type: "AzureBlobStorage",
- *     typePropertiesJson: pulumi.interpolate`{
+ *     typePropertiesJson: `{
  *   "connectionString": "${exampleAccount.primaryConnectionString}"
  * }
  * `,

@@ -37,12 +37,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
  * import com.pulumi.azure.network.NetworkSecurityRule;
  * import com.pulumi.azure.network.NetworkSecurityRuleArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
  * import com.pulumi.azure.network.RouteTable;
@@ -207,16 +205,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;managedinstancedelegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Sql/managedInstances&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        

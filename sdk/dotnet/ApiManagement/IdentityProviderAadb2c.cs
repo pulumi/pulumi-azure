@@ -19,17 +19,17 @@ namespace Pulumi.Azure.ApiManagement
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
     ///     {
     ///         Name = "example-apim",
     ///         Location = example.Location,
@@ -39,18 +39,18 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApplication = new AzureAD.Application("example", new()
+    ///     var exampleApplication = new Azuread.Index.Application.Application("example", new()
     ///     {
     ///         DisplayName = "acctestam-example",
     ///     });
     /// 
-    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("example", new()
+    ///     var exampleApplicationPassword = new Azuread.Index.ApplicationPassword.ApplicationPassword("example", new()
     ///     {
     ///         ApplicationObjectId = exampleApplication.ObjectId,
     ///         EndDateRelative = "36h",
     ///     });
     /// 
-    ///     var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("example", new()
+    ///     var exampleIdentityProviderAadb2c = new Azure.Apimanagement.IdentityProviderAadb2c.IdentityProviderAadb2c("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,

@@ -223,14 +223,14 @@ class Device(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-databoxedge",
-            location="West Europe")
-        example_device = azure.databoxedge.Device("example",
-            name="example-device",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-databoxedge,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EdgeP_Base-Standard")
+            sku_name=EdgeP_Base-Standard)
         ```
 
         ## Import
@@ -264,14 +264,14 @@ class Device(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-databoxedge",
-            location="West Europe")
-        example_device = azure.databoxedge.Device("example",
-            name="example-device",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-databoxedge,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EdgeP_Base-Standard")
+            sku_name=EdgeP_Base-Standard)
         ```
 
         ## Import

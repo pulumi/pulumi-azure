@@ -21,55 +21,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	devtest/lab "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/lab"
+//	devtest/schedule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/schedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
-//				Name:              pulumi.String("YourDevTestLab"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devtest.NewSchedule(ctx, "example", &devtest.ScheduleArgs{
-//				Name:              pulumi.String("LabVmAutoStart"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				LabName:           exampleLab.Name,
-//				WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
-//					Time: pulumi.String("1100"),
-//					WeekDays: pulumi.StringArray{
-//						pulumi.String("Monday"),
-//						pulumi.String("Tuesday"),
-//					},
-//				},
-//				TimeZoneId:           pulumi.String("Pacific Standard Time"),
-//				TaskType:             pulumi.String("LabVmsStartupTask"),
-//				NotificationSettings: nil,
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLab, err := devtest/lab.NewLab(ctx, "example", &devtest/lab.LabArgs{
+// Name: "YourDevTestLab",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devtest/schedule.NewSchedule(ctx, "example", &devtest/schedule.ScheduleArgs{
+// Name: "LabVmAutoStart",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// LabName: exampleLab.Name,
+// WeeklyRecurrence: map[string]interface{}{
+// "time": "1100",
+// "weekDays": []string{
+// "Monday",
+// "Tuesday",
+// },
+// },
+// TimeZoneId: "Pacific Standard Time",
+// TaskType: "LabVmsStartupTask",
+// NotificationSettings: nil,
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

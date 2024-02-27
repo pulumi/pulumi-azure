@@ -749,57 +749,27 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        acr = azure.containerservice.registry.Registry("acr",
+            name=containerRegistry1,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="North Europe",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
+                {
+                    location: East US,
+                    zoneRedundancyEnabled: True,
+                    tags: {},
+                },
+                {
+                    location: North Europe,
+                    zoneRedundancyEnabled: True,
+                    tags: {},
+                },
             ])
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            name="registry-uai")
-        example = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=existing["id"])
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            identity=azure.containerservice.RegistryIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.containerservice.RegistryEncryptionArgs(
-                enabled=True,
-                key_vault_key_id=example.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ))
         ```
         ### Attaching A Container Registry To A Kubernetes Cluster)
 
@@ -807,33 +777,33 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="containerRegistry1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=containerRegistry1,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
+            sku=Premium)
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example-aks1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
+            dns_prefix=exampleaks1,
+            default_node_pool={
+                name: default,
+                nodeCount: 1,
+                vmSize: Standard_D2_v2,
+            },
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
-        example_assignment = azure.authorization.Assignment("example",
+        example_assignment = azure.authorization.assignment.Assignment("example",
             principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
-            role_definition_name="AcrPull",
+            role_definition_name=AcrPull,
             scope=example_registry.id,
             skip_service_principal_aad_check=True)
         ```
@@ -891,57 +861,27 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        acr = azure.containerservice.registry.Registry("acr",
+            name=containerRegistry1,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="North Europe",
-                    zone_redundancy_enabled=True,
-                    tags={},
-                ),
+                {
+                    location: East US,
+                    zoneRedundancyEnabled: True,
+                    tags: {},
+                },
+                {
+                    location: North Europe,
+                    zoneRedundancyEnabled: True,
+                    tags: {},
+                },
             ])
-        ```
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            name="registry-uai")
-        example = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=existing["id"])
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            identity=azure.containerservice.RegistryIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            encryption=azure.containerservice.RegistryEncryptionArgs(
-                enabled=True,
-                key_vault_key_id=example.id,
-                identity_client_id=example_user_assigned_identity.client_id,
-            ))
         ```
         ### Attaching A Container Registry To A Kubernetes Cluster)
 
@@ -949,33 +889,33 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="containerRegistry1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=containerRegistry1,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
+            sku=Premium)
+        example_kubernetes_cluster = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example-aks1,
             location=example.location,
             resource_group_name=example.name,
-            dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_D2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
+            dns_prefix=exampleaks1,
+            default_node_pool={
+                name: default,
+                nodeCount: 1,
+                vmSize: Standard_D2_v2,
+            },
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
-        example_assignment = azure.authorization.Assignment("example",
+        example_assignment = azure.authorization.assignment.Assignment("example",
             principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
-            role_definition_name="AcrPull",
+            role_definition_name=AcrPull,
             scope=example_registry.id,
             skip_service_principal_aad_check=True)
         ```

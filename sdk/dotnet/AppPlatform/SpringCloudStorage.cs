@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -37,14 +37,14 @@ namespace Pulumi.Azure.AppPlatform
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSpringCloudStorage = new Azure.AppPlatform.SpringCloudStorage("example", new()
+    ///     var exampleSpringCloudStorage = new Azure.Appplatform.SpringCloudStorage.SpringCloudStorage("example", new()
     ///     {
     ///         Name = "example",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,

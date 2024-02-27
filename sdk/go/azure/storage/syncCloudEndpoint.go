@@ -23,77 +23,79 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/share "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/share"
+//	storage/sync "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/sync"
+//	storage/syncCloudEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/syncCloudEndpoint"
+//	storage/syncGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/syncGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSync, err := storage.NewSync(ctx, "example", &storage.SyncArgs{
-//				Name:              pulumi.String("example-ss"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSyncGroup, err := storage.NewSyncGroup(ctx, "example", &storage.SyncGroupArgs{
-//				Name:          pulumi.String("example-ss-group"),
-//				StorageSyncId: exampleSync.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:               pulumi.String("example-share"),
-//				StorageAccountName: exampleAccount.Name,
-//				Quota:              pulumi.Int(50),
-//				Acls: storage.ShareAclArray{
-//					&storage.ShareAclArgs{
-//						Id: pulumi.String("GhostedRecall"),
-//						AccessPolicies: storage.ShareAclAccessPolicyArray{
-//							&storage.ShareAclAccessPolicyArgs{
-//								Permissions: pulumi.String("r"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewSyncCloudEndpoint(ctx, "example", &storage.SyncCloudEndpointArgs{
-//				Name:               pulumi.String("example-ss-ce"),
-//				StorageSyncGroupId: exampleSyncGroup.ID(),
-//				FileShareName:      exampleShare.Name,
-//				StorageAccountId:   exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSync, err := storage/sync.NewSync(ctx, "example", &storage/sync.SyncArgs{
+// Name: "example-ss",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSyncGroup, err := storage/syncGroup.NewSyncGroup(ctx, "example", &storage/syncGroup.SyncGroupArgs{
+// Name: "example-ss-group",
+// StorageSyncId: exampleSync.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleShare, err := storage/share.NewShare(ctx, "example", &storage/share.ShareArgs{
+// Name: "example-share",
+// StorageAccountName: exampleAccount.Name,
+// Quota: 50,
+// Acls: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "GhostedRecall",
+// "accessPolicies": []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": "r",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/syncCloudEndpoint.NewSyncCloudEndpoint(ctx, "example", &storage/syncCloudEndpoint.SyncCloudEndpointArgs{
+// Name: "example-ss-ce",
+// StorageSyncGroupId: exampleSyncGroup.Id,
+// FileShareName: exampleShare.Name,
+// StorageAccountId: exampleAccount.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

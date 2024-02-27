@@ -680,27 +680,27 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_job = azure.streamanalytics.Job("example",
-            name="example-job",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_job = azure.streamanalytics.job.Job("example",
+            name=example-job,
             resource_group_name=example.name,
             location=example.location,
-            compatibility_level="1.2",
-            data_locale="en-GB",
+            compatibility_level=1.2,
+            data_locale=en-GB,
             events_late_arrival_max_delay_in_seconds=60,
             events_out_of_order_max_delay_in_seconds=50,
-            events_out_of_order_policy="Adjust",
-            output_error_policy="Drop",
+            events_out_of_order_policy=Adjust,
+            output_error_policy=Drop,
             streaming_units=3,
             tags={
-                "environment": "Example",
+                environment: Example,
             },
-            transformation_query=\"\"\"    SELECT *
+            transformation_query=    SELECT *
             INTO [YourOutputAlias]
             FROM [YourInputAlias]
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -754,27 +754,27 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_job = azure.streamanalytics.Job("example",
-            name="example-job",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_job = azure.streamanalytics.job.Job("example",
+            name=example-job,
             resource_group_name=example.name,
             location=example.location,
-            compatibility_level="1.2",
-            data_locale="en-GB",
+            compatibility_level=1.2,
+            data_locale=en-GB,
             events_late_arrival_max_delay_in_seconds=60,
             events_out_of_order_max_delay_in_seconds=50,
-            events_out_of_order_policy="Adjust",
-            output_error_policy="Drop",
+            events_out_of_order_policy=Adjust,
+            output_error_policy=Drop,
             streaming_units=3,
             tags={
-                "environment": "Example",
+                environment: Example,
             },
-            transformation_query=\"\"\"    SELECT *
+            transformation_query=    SELECT *
             INTO [YourOutputAlias]
             FROM [YourInputAlias]
-        \"\"\")
+        )
         ```
 
         ## Import

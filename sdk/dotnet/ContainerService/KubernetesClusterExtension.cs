@@ -22,31 +22,31 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example-aks",
     ///         Location = "West Europe",
     ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "example-aks",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_DS2_v2",
+    ///             { "name", "default" },
+    ///             { "nodeCount", 1 },
+    ///             { "vmSize", "Standard_DS2_v2" },
     ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleKubernetesClusterExtension = new Azure.ContainerService.KubernetesClusterExtension("example", new()
+    ///     var exampleKubernetesClusterExtension = new Azure.Containerservice.KubernetesClusterExtension.KubernetesClusterExtension("example", new()
     ///     {
     ///         Name = "example-ext",
     ///         ClusterId = exampleKubernetesCluster.Id,

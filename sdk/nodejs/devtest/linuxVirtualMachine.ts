@@ -9,57 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linux Virtual Machine within a Dev Test Lab.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleLab = new azure.devtest.Lab("example", {
- *     name: "example-devtestlab",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tags: {
- *         Sydney: "Australia",
- *     },
- * });
- * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
- *     name: "example-network",
- *     labName: exampleLab.name,
- *     resourceGroupName: example.name,
- *     subnet: {
- *         usePublicIpAddress: "Allow",
- *         useInVirtualMachineCreation: "Allow",
- *     },
- * });
- * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("example", {
- *     name: "example-vm03",
- *     labName: exampleLab.name,
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_DS2",
- *     username: "exampleuser99",
- *     sshKey: std.file({
- *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result),
- *     labVirtualNetworkId: exampleVirtualNetwork.id,
- *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
- *     storageType: "Premium",
- *     notes: "Some notes about this Virtual Machine.",
- *     galleryImageReference: {
- *         publisher: "Canonical",
- *         offer: "0001-com-ubuntu-server-jammy",
- *         sku: "22_04-lts",
- *         version: "latest",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.

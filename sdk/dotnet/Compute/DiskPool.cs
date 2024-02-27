@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         ResourceGroupName = example.Name,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = exampleVirtualNetwork.ResourceGroupName,
@@ -52,22 +52,22 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "diskspool",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "diskspool" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Actions = new[]
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/read",
-    ///                     },
-    ///                     Name = "Microsoft.StoragePool/diskPools",
-    ///                 },
+    ///                     } },
+    ///                     { "name", "Microsoft.StoragePool/diskPools" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleDiskPool = new Azure.Compute.DiskPool("example", new()
+    ///     var exampleDiskPool = new Azure.Compute.DiskPool.DiskPool("example", new()
     ///     {
     ///         Name = "example-disk-pool",
     ///         ResourceGroupName = example.Name,

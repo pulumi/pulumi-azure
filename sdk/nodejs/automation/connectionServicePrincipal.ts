@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automation Connection with type `AzureServicePrincipal`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "resourceGroup-example",
- *     location: "West Europe",
- * });
- * const example = azure.core.getClientConfig({});
- * const exampleAccount = new azure.automation.Account("example", {
- *     name: "account-example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleConnectionServicePrincipal = new azure.automation.ConnectionServicePrincipal("example", {
- *     name: "connection-example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
- *     applicationId: "00000000-0000-0000-0000-000000000000",
- *     tenantId: example.then(example => example.tenantId),
- *     subscriptionId: example.then(example => example.subscriptionId),
- *     certificateThumbprint: std.file({
- *         input: "automation_certificate_test.thumb",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Automation Connection can be imported using the `resource id`, e.g.

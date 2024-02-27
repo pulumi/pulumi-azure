@@ -21,139 +21,141 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	compute/linuxVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/dataCollectionEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/dataCollectionEndpoint"
+//	monitoring/dataCollectionRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/dataCollectionRule"
+//	monitoring/dataCollectionRuleAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/dataCollectionRuleAssociation"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("virtualnetwork"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("machine"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_B1ls"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				AdminPassword:                 pulumi.String("example-Password@7890"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
-//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataCollectionRule, err := monitoring.NewDataCollectionRule(ctx, "example", &monitoring.DataCollectionRuleArgs{
-//				Name:              pulumi.String("example-dcr"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
-//					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
-//						Name: pulumi.String("example-destination-metrics"),
-//					},
-//				},
-//				DataFlows: monitoring.DataCollectionRuleDataFlowArray{
-//					&monitoring.DataCollectionRuleDataFlowArgs{
-//						Streams: pulumi.StringArray{
-//							pulumi.String("Microsoft-InsightsMetrics"),
-//						},
-//						Destinations: pulumi.StringArray{
-//							pulumi.String("example-destination-metrics"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "example", &monitoring.DataCollectionEndpointArgs{
-//				Name:              pulumi.String("example-dce"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// associate to a Data Collection Rule
-//			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1", &monitoring.DataCollectionRuleAssociationArgs{
-//				Name:                 pulumi.String("example1-dcra"),
-//				TargetResourceId:     exampleLinuxVirtualMachine.ID(),
-//				DataCollectionRuleId: exampleDataCollectionRule.ID(),
-//				Description:          pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// associate to a Data Collection Endpoint
-//			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example2", &monitoring.DataCollectionRuleAssociationArgs{
-//				TargetResourceId:         exampleLinuxVirtualMachine.ID(),
-//				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
-//				Description:              pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "virtualnetwork",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: "nic",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "subnetId": exampleSubnet.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinuxVirtualMachine, err := compute/linuxVirtualMachine.NewLinuxVirtualMachine(ctx, "example", &compute/linuxVirtualMachine.LinuxVirtualMachineArgs{
+// Name: "machine",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Size: "Standard_B1ls",
+// AdminUsername: "adminuser",
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// AdminPassword: "example-Password@7890",
+// DisablePasswordAuthentication: false,
+// OsDisk: map[string]interface{}{
+// "caching": "ReadWrite",
+// "storageAccountType": "Standard_LRS",
+// },
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataCollectionRule, err := monitoring/dataCollectionRule.NewDataCollectionRule(ctx, "example", &monitoring/dataCollectionRule.DataCollectionRuleArgs{
+// Name: "example-dcr",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Destinations: map[string]interface{}{
+// "azureMonitorMetrics": map[string]interface{}{
+// "name": "example-destination-metrics",
+// },
+// },
+// DataFlows: []map[string]interface{}{
+// map[string]interface{}{
+// "streams": []string{
+// "Microsoft-InsightsMetrics",
+// },
+// "destinations": []string{
+// "example-destination-metrics",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataCollectionEndpoint, err := monitoring/dataCollectionEndpoint.NewDataCollectionEndpoint(ctx, "example", &monitoring/dataCollectionEndpoint.DataCollectionEndpointArgs{
+// Name: "example-dce",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// // associate to a Data Collection Rule
+// _, err = monitoring/dataCollectionRuleAssociation.NewDataCollectionRuleAssociation(ctx, "example1", &monitoring/dataCollectionRuleAssociation.DataCollectionRuleAssociationArgs{
+// Name: "example1-dcra",
+// TargetResourceId: exampleLinuxVirtualMachine.Id,
+// DataCollectionRuleId: exampleDataCollectionRule.Id,
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// // associate to a Data Collection Endpoint
+// _, err = monitoring/dataCollectionRuleAssociation.NewDataCollectionRuleAssociation(ctx, "example2", &monitoring/dataCollectionRuleAssociation.DataCollectionRuleAssociationArgs{
+// TargetResourceId: exampleLinuxVirtualMachine.Id,
+// DataCollectionEndpointId: exampleDataCollectionEndpoint.Id,
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

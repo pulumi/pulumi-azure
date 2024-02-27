@@ -22,50 +22,50 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk.ManagedDisk("example", new()
     ///     {
     ///         Name = "example-disk",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
-    ///         DiskSizeGb = 1,
+    ///         DiskSizeGb = "1",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
+    ///     var exampleBackupVault = new Azure.Dataprotection.BackupVault.BackupVault("example", new()
     ///     {
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var example1 = new Azure.Authorization.Assignment("example1", new()
+    ///     var example1 = new Azure.Authorization.Assignment.Assignment("example1", new()
     ///     {
     ///         Scope = example.Id,
     ///         RoleDefinitionName = "Disk Snapshot Contributor",
-    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         PrincipalId = exampleBackupVault.Identity.PrincipalId,
     ///     });
     /// 
-    ///     var example2 = new Azure.Authorization.Assignment("example2", new()
+    ///     var example2 = new Azure.Authorization.Assignment.Assignment("example2", new()
     ///     {
     ///         Scope = exampleManagedDisk.Id,
     ///         RoleDefinitionName = "Disk Backup Reader",
-    ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         PrincipalId = exampleBackupVault.Identity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("example", new()
+    ///     var exampleBackupPolicyDisk = new Azure.Dataprotection.BackupPolicyDisk.BackupPolicyDisk("example", new()
     ///     {
     ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.DataProtection
     ///         DefaultRetentionDuration = "P7D",
     ///     });
     /// 
-    ///     var exampleBackupInstanceDisk = new Azure.DataProtection.BackupInstanceDisk("example", new()
+    ///     var exampleBackupInstanceDisk = new Azure.Dataprotection.BackupInstanceDisk.BackupInstanceDisk("example", new()
     ///     {
     ///         Name = "example-backup-instance",
     ///         Location = exampleBackupVault.Location,

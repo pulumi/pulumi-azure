@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Confidential Ledger.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const ledger = new azure.confidentialledger.Ledger("ledger", {
- *     name: "example-ledger",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     ledgerType: "Private",
- *     azureadBasedServicePrincipals: [{
- *         principalId: current.then(current => current.objectId),
- *         tenantId: current.then(current => current.tenantId),
- *         ledgerRoleName: "Administrator",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Confidential Ledgers can be imported using the `resource id`, e.g.

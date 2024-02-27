@@ -170,23 +170,23 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_server = azure.mariadb.Server("example",
-            name="mariadb-server-1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_server = azure.mariadb.server.Server("example",
+            name=mariadb-server-1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="B_Gen5_2",
+            sku_name=B_Gen5_2,
             ssl_enforcement_enabled=True,
-            administrator_login="mariadbadmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="10.2")
-        example_configuration = azure.mariadb.Configuration("example",
-            name="interactive_timeout",
+            administrator_login=mariadbadmin,
+            administrator_login_password=H@Sh1CoR3!,
+            version=10.2)
+        example_configuration = azure.mariadb.configuration.Configuration("example",
+            name=interactive_timeout,
             resource_group_name=example.name,
             server_name=example_server.name,
-            value="600")
+            value=600)
         ```
 
         ## Import
@@ -219,23 +219,23 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_server = azure.mariadb.Server("example",
-            name="mariadb-server-1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_server = azure.mariadb.server.Server("example",
+            name=mariadb-server-1,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="B_Gen5_2",
+            sku_name=B_Gen5_2,
             ssl_enforcement_enabled=True,
-            administrator_login="mariadbadmin",
-            administrator_login_password="H@Sh1CoR3!",
-            version="10.2")
-        example_configuration = azure.mariadb.Configuration("example",
-            name="interactive_timeout",
+            administrator_login=mariadbadmin,
+            administrator_login_password=H@Sh1CoR3!,
+            version=10.2)
+        example_configuration = azure.mariadb.configuration.Configuration("example",
+            name=interactive_timeout,
             resource_group_name=example.name,
             server_name=example_server.name,
-            value="600")
+            value=600)
         ```
 
         ## Import

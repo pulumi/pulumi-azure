@@ -22,13 +22,13 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracct",
     ///         ResourceGroupName = example.Name,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.EventGrid
     ///         },
     ///     });
     /// 
-    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("example", new()
+    ///     var exampleSystemTopic = new Azure.Eventgrid.SystemTopic.SystemTopic("example", new()
     ///     {
     ///         Name = "example-topic",
     ///         ResourceGroupName = example.Name,

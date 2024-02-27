@@ -308,31 +308,31 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example,
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name)
-        example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("example",
-            name="example",
+        example_spring_cloud_build_deployment = azure.appplatform.spring_cloud_build_deployment.SpringCloudBuildDeployment("example",
+            name=example,
             spring_cloud_app_id=example_spring_cloud_app.id,
-            build_result_id="<default>",
+            build_result_id=<default>,
             instance_count=2,
             environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
+                Foo: Bar,
+                Env: Staging,
             },
-            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ))
+            quota={
+                cpu: 2,
+                memory: 4Gi,
+            })
         ```
 
         ## Import
@@ -371,31 +371,31 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example,
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name)
-        example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("example",
-            name="example",
+        example_spring_cloud_build_deployment = azure.appplatform.spring_cloud_build_deployment.SpringCloudBuildDeployment("example",
+            name=example,
             spring_cloud_app_id=example_spring_cloud_app.id,
-            build_result_id="<default>",
+            build_result_id=<default>,
             instance_count=2,
             environment_variables={
-                "Foo": "Bar",
-                "Env": "Staging",
+                Foo: Bar,
+                Env: Staging,
             },
-            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ))
+            quota={
+                cpu: 2,
+                memory: 4Gi,
+            })
         ```
 
         ## Import

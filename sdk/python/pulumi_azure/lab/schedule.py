@@ -272,38 +272,38 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_lab = azure.lab.Lab("example",
-            name="example-lab",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_lab = azure.lab.lab.Lab("example",
+            name=example-lab,
             resource_group_name=example.name,
             location=example.location,
-            title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
-        example_schedule = azure.lab.Schedule("example",
-            name="example-labschedule",
+            title=Test Title,
+            security={
+                openAccessEnabled: False,
+            },
+            virtual_machine={
+                adminUser: {
+                    username: testadmin,
+                    password: Password1234!,
+                },
+                imageReference: {
+                    publisher: Canonical,
+                    offer: 0001-com-ubuntu-server-jammy,
+                    sku: 22_04-lts,
+                    version: latest,
+                },
+                sku: {
+                    name: Classic_Fsv2_2_4GB_128_S_SSD,
+                    capacity: 1,
+                },
+            })
+        example_schedule = azure.lab.schedule.Schedule("example",
+            name=example-labschedule,
             lab_id=example_lab.id,
-            stop_time="2022-11-28T00:00:00Z",
-            time_zone="America/Los_Angeles")
+            stop_time=2022-11-28T00:00:00Z,
+            time_zone=America/Los_Angeles)
         ```
 
         ## Import
@@ -339,38 +339,38 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_lab = azure.lab.Lab("example",
-            name="example-lab",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_lab = azure.lab.lab.Lab("example",
+            name=example-lab,
             resource_group_name=example.name,
             location=example.location,
-            title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
-        example_schedule = azure.lab.Schedule("example",
-            name="example-labschedule",
+            title=Test Title,
+            security={
+                openAccessEnabled: False,
+            },
+            virtual_machine={
+                adminUser: {
+                    username: testadmin,
+                    password: Password1234!,
+                },
+                imageReference: {
+                    publisher: Canonical,
+                    offer: 0001-com-ubuntu-server-jammy,
+                    sku: 22_04-lts,
+                    version: latest,
+                },
+                sku: {
+                    name: Classic_Fsv2_2_4GB_128_S_SSD,
+                    capacity: 1,
+                },
+            })
+        example_schedule = azure.lab.schedule.Schedule("example",
+            name=example-labschedule,
             lab_id=example_lab.id,
-            stop_time="2022-11-28T00:00:00Z",
-            time_zone="America/Los_Angeles")
+            stop_time=2022-11-28T00:00:00Z,
+            time_zone=America/Los_Angeles)
         ```
 
         ## Import

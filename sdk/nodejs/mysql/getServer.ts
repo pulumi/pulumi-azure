@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing MySQL Server.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mysql.getServer({
- *     name: "existingMySqlServer",
- *     resourceGroupName: "existingResGroup",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -123,19 +110,6 @@ export interface GetServerResult {
 }
 /**
  * Use this data source to access information about an existing MySQL Server.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mysql.getServer({
- *     name: "existingMySqlServer",
- *     resourceGroupName: "existingResGroup",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

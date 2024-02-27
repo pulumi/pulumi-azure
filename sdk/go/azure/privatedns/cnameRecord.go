@@ -21,42 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	privatedns/cnameRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/cnameRecord"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("mydomain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewCnameRecord(ctx, "example", &privatedns.CnameRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Record:            pulumi.String("contoso.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+// Name: "mydomain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/cnameRecord.NewCnameRecord(ctx, "example", &privatedns/cnameRecord.CnameRecordArgs{
+// Name: "test",
+// ZoneName: exampleZone.Name,
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Record: "contoso.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

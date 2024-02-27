@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	elasticcloud/elasticsearch "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/elasticcloud/elasticsearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticcloud.NewElasticsearch(ctx, "test", &elasticcloud.ElasticsearchArgs{
-//				Name:                     pulumi.String("example-elasticsearch"),
-//				ResourceGroupName:        test.Name,
-//				Location:                 test.Location,
-//				SkuName:                  pulumi.String("ess-consumption-2024_Monthly"),
-//				ElasticCloudEmailAddress: pulumi.String("user@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := core/resourceGroup.NewResourceGroup(ctx, "test", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticcloud/elasticsearch.NewElasticsearch(ctx, "test", &elasticcloud/elasticsearch.ElasticsearchArgs{
+// Name: "example-elasticsearch",
+// ResourceGroupName: test.Name,
+// Location: test.Location,
+// SkuName: "ess-consumption-2024_Monthly",
+// ElasticCloudEmailAddress: "user@example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -9,33 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const example = azure.appservice.getFunctionAppOutput({
- *     name: "test-azure-functions",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     url: example.apply(example => `https://${example.defaultHostname}`),
- *     key: "foo",
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

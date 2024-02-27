@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing App Service Environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appservice.GetAppServiceEnvironment(ctx, &appservice.GetAppServiceEnvironmentArgs{
-//				Name:              "existing-ase",
-//				ResourceGroupName: "existing-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAppServiceEnvironment(ctx *pulumi.Context, args *GetAppServiceEnvironmentArgs, opts ...pulumi.InvokeOption) (*GetAppServiceEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAppServiceEnvironmentResult

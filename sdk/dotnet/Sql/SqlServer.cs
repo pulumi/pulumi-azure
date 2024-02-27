@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "database-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Sql
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer.SqlServer("example", new()
     ///     {
     ///         Name = "mssqlserver",
     ///         ResourceGroupName = example.Name,

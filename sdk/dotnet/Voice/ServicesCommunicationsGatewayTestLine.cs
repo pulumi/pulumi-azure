@@ -22,19 +22,19 @@ namespace Pulumi.Azure.Voice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Central US",
     ///     });
     /// 
-    ///     var exampleServicesCommunicationsGateway = new Azure.Voice.ServicesCommunicationsGateway("example", new()
+    ///     var exampleServicesCommunicationsGateway = new Azure.Voice.ServicesCommunicationsGateway.ServicesCommunicationsGateway("example", new()
     ///     {
     ///         Name = "example-vcg",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleServicesCommunicationsGatewayTestLine = new Azure.Voice.ServicesCommunicationsGatewayTestLine("example", new()
+    ///     var exampleServicesCommunicationsGatewayTestLine = new Azure.Voice.ServicesCommunicationsGatewayTestLine.ServicesCommunicationsGatewayTestLine("example", new()
     ///     {
     ///         Name = "example-vtl",
     ///         Location = "West Central US",

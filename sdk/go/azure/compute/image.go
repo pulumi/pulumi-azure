@@ -14,44 +14,6 @@ import (
 
 // Manages a custom virtual machine image that can be used to create virtual machines.
 //
-// ## Example Usage
-//
-// > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
-//				Name:              "examplevm",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewImage(ctx, "example", &compute.ImageArgs{
-//				Name:                   pulumi.String("exampleimage"),
-//				Location:               *pulumi.String(example.Location),
-//				ResourceGroupName:      *pulumi.String(example.Name),
-//				SourceVirtualMachineId: *pulumi.String(example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Images can be imported using the `resource id`, e.g.

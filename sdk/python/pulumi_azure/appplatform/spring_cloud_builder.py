@@ -175,25 +175,25 @@ class SpringCloudBuilder(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="E0")
-        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_builder = azure.appplatform.spring_cloud_builder.SpringCloudBuilder("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
-                name="mix",
-                build_pack_ids=["tanzu-buildpacks/java-azure"],
-            )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
-                id="io.buildpacks.stacks.bionic",
-                version="base",
-            ))
+            build_pack_groups=[{
+                name: mix,
+                buildPackIds: [tanzu-buildpacks/java-azure],
+            }],
+            stack={
+                id: io.buildpacks.stacks.bionic,
+                version: base,
+            })
         ```
 
         ## Import
@@ -228,25 +228,25 @@ class SpringCloudBuilder(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="E0")
-        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_builder = azure.appplatform.spring_cloud_builder.SpringCloudBuilder("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
-                name="mix",
-                build_pack_ids=["tanzu-buildpacks/java-azure"],
-            )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
-                id="io.buildpacks.stacks.bionic",
-                version="base",
-            ))
+            build_pack_groups=[{
+                name: mix,
+                buildPackIds: [tanzu-buildpacks/java-azure],
+            }],
+            stack={
+                id: io.buildpacks.stacks.bionic,
+                version: base,
+            })
         ```
 
         ## Import

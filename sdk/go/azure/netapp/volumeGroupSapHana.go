@@ -21,256 +21,259 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/proximity"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	compute/availabilitySet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/availabilitySet"
+//	compute/linuxVirtualMachine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/linuxVirtualMachine"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	netapp/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/account"
+//	netapp/pool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/pool"
+//	netapp/volumeGroupSapHana "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/volumeGroupSapHana"
+//	network/networkInterface "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkInterface"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	proximity/placementGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/proximity/placementGroup"
+//	index/randomString "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomString"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := random.NewRandomString(ctx, "example", &random.RandomStringArgs{
-//				Length:  pulumi.Int(12),
-//				Special: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			adminUsername := "exampleadmin"
-//			adminPassword := example.Result
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
-//				Location: pulumi.Any(location),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-vnet", prefix)),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.6.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String(fmt.Sprintf("%v-delegated-subnet", prefix)),
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.6.2.0/24"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("testdelegation"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Netapp/volumes"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/networkinterfaces/*"),
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example1, err := network.NewSubnet(ctx, "example1", &network.SubnetArgs{
-//				Name:               pulumi.String(fmt.Sprintf("%v-hosts-subnet", prefix)),
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.6.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlacementGroup, err := proximity.NewPlacementGroup(ctx, "example", &proximity.PlacementGroupArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-ppg", prefix)),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAvailabilitySet, err := compute.NewAvailabilitySet(ctx, "example", &compute.AvailabilitySetArgs{
-//				Name:                      pulumi.String(fmt.Sprintf("%v-avset", prefix)),
-//				Location:                  exampleResourceGroup.Location,
-//				ResourceGroupName:         exampleResourceGroup.Name,
-//				ProximityPlacementGroupId: examplePlacementGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-//					&network.NetworkInterfaceIpConfigurationArgs{
-//						Name:                       pulumi.String("internal"),
-//						SubnetId:                   example1.ID(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String(fmt.Sprintf("%v-vm", prefix)),
-//				ResourceGroupName:             exampleResourceGroup.Name,
-//				Location:                      exampleResourceGroup.Location,
-//				Size:                          pulumi.String("Standard_M8ms"),
-//				AdminUsername:                 pulumi.String(adminUsername),
-//				AdminPassword:                 pulumi.String(adminPassword),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				ProximityPlacementGroupId:     examplePlacementGroup.ID(),
-//				AvailabilitySetId:             exampleAvailabilitySet.ID(),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
-//				},
-//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//					Caching:            pulumi.String("ReadWrite"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-netapp-account", prefix)),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePool, err := netapp.NewPool(ctx, "example", &netapp.PoolArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-netapp-pool", prefix)),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				AccountName:       exampleAccount.Name,
-//				ServiceLevel:      pulumi.String("Standard"),
-//				SizeInTb:          pulumi.Int(8),
-//				QosType:           pulumi.String("Manual"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = netapp.NewVolumeGroupSapHana(ctx, "example", &netapp.VolumeGroupSapHanaArgs{
-//				Name:                  pulumi.String(fmt.Sprintf("%v-netapp-volumegroup", prefix)),
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				AccountName:           exampleAccount.Name,
-//				GroupDescription:      pulumi.String("Test volume group"),
-//				ApplicationIdentifier: pulumi.String("TST"),
-//				Volumes: netapp.VolumeGroupSapHanaVolumeArray{
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
-//						Name:                      pulumi.String(fmt.Sprintf("%v-netapp-volume-1", prefix)),
-//						VolumePath:                pulumi.String("my-unique-file-path-1"),
-//						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID(),
-//						SubnetId:                  exampleSubnet.ID(),
-//						ProximityPlacementGroupId: examplePlacementGroup.ID(),
-//						VolumeSpecName:            pulumi.String("data"),
-//						StorageQuotaInGb:          pulumi.Int(1024),
-//						ThroughputInMibps:         pulumi.Float64(24),
-//						Protocols:                 pulumi.String("NFSv4.1"),
-//						SecurityStyle:             pulumi.String("unix"),
-//						SnapshotDirectoryVisible:  pulumi.Bool(false),
-//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
-//						Tags: pulumi.StringMap{
-//							"foo": pulumi.String("bar"),
-//						},
-//					},
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
-//						Name:                      pulumi.String(fmt.Sprintf("%v-netapp-volume-2", prefix)),
-//						VolumePath:                pulumi.String("my-unique-file-path-2"),
-//						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID(),
-//						SubnetId:                  exampleSubnet.ID(),
-//						ProximityPlacementGroupId: examplePlacementGroup.ID(),
-//						VolumeSpecName:            pulumi.String("log"),
-//						StorageQuotaInGb:          pulumi.Int(1024),
-//						ThroughputInMibps:         pulumi.Float64(24),
-//						Protocols:                 pulumi.String("NFSv4.1"),
-//						SecurityStyle:             pulumi.String("unix"),
-//						SnapshotDirectoryVisible:  pulumi.Bool(false),
-//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
-//						Tags: pulumi.StringMap{
-//							"foo": pulumi.String("bar"),
-//						},
-//					},
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
-//						Name:                      pulumi.String(fmt.Sprintf("%v-netapp-volume-3", prefix)),
-//						VolumePath:                pulumi.String("my-unique-file-path-3"),
-//						ServiceLevel:              pulumi.String("Standard"),
-//						CapacityPoolId:            examplePool.ID(),
-//						SubnetId:                  exampleSubnet.ID(),
-//						ProximityPlacementGroupId: examplePlacementGroup.ID(),
-//						VolumeSpecName:            pulumi.String("shared"),
-//						StorageQuotaInGb:          pulumi.Int(1024),
-//						ThroughputInMibps:         pulumi.Float64(24),
-//						Protocols:                 pulumi.String("NFSv4.1"),
-//						SecurityStyle:             pulumi.String("unix"),
-//						SnapshotDirectoryVisible:  pulumi.Bool(false),
-//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := random.NewRandomString(ctx, "example", &random.RandomStringArgs{
+// Length: 12,
+// Special: true,
+// })
+// if err != nil {
+// return err
+// }
+// adminUsername := "exampleadmin";
+// adminPassword := example.Result;
+// exampleResourceGroup, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: fmt.Sprintf("%v-resources", prefix),
+// Location: location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: fmt.Sprintf("%v-vnet", prefix),
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// AddressSpaces: []string{
+// "10.6.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: fmt.Sprintf("%v-delegated-subnet", prefix),
+// ResourceGroupName: exampleResourceGroup.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.6.2.0/24",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testdelegation",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Netapp/volumes",
+// "actions": []string{
+// "Microsoft.Network/networkinterfaces/*",
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// example1, err := network/subnet.NewSubnet(ctx, "example1", &network/subnet.SubnetArgs{
+// Name: fmt.Sprintf("%v-hosts-subnet", prefix),
+// ResourceGroupName: exampleResourceGroup.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.6.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// examplePlacementGroup, err := proximity/placementGroup.NewPlacementGroup(ctx, "example", &proximity/placementGroup.PlacementGroupArgs{
+// Name: fmt.Sprintf("%v-ppg", prefix),
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAvailabilitySet, err := compute/availabilitySet.NewAvailabilitySet(ctx, "example", &compute/availabilitySet.AvailabilitySetArgs{
+// Name: fmt.Sprintf("%v-avset", prefix),
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// ProximityPlacementGroupId: examplePlacementGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkInterface, err := network/networkInterface.NewNetworkInterface(ctx, "example", &network/networkInterface.NetworkInterfaceArgs{
+// Name: fmt.Sprintf("%v-nic", prefix),
+// ResourceGroupName: exampleResourceGroup.Name,
+// Location: exampleResourceGroup.Location,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "internal",
+// "subnetId": example1.Id,
+// "privateIpAddressAllocation": "Dynamic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/linuxVirtualMachine.NewLinuxVirtualMachine(ctx, "example", &compute/linuxVirtualMachine.LinuxVirtualMachineArgs{
+// Name: fmt.Sprintf("%v-vm", prefix),
+// ResourceGroupName: exampleResourceGroup.Name,
+// Location: exampleResourceGroup.Location,
+// Size: "Standard_M8ms",
+// AdminUsername: adminUsername,
+// AdminPassword: adminPassword,
+// DisablePasswordAuthentication: false,
+// ProximityPlacementGroupId: examplePlacementGroup.Id,
+// AvailabilitySetId: exampleAvailabilitySet.Id,
+// NetworkInterfaceIds: []interface{}{
+// exampleNetworkInterface.Id,
+// },
+// SourceImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// OsDisk: map[string]interface{}{
+// "storageAccountType": "Standard_LRS",
+// "caching": "ReadWrite",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := netapp/account.NewAccount(ctx, "example", &netapp/account.AccountArgs{
+// Name: fmt.Sprintf("%v-netapp-account", prefix),
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// examplePool, err := netapp/pool.NewPool(ctx, "example", &netapp/pool.PoolArgs{
+// Name: fmt.Sprintf("%v-netapp-pool", prefix),
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// AccountName: exampleAccount.Name,
+// ServiceLevel: "Standard",
+// SizeInTb: 8,
+// QosType: "Manual",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = netapp/volumeGroupSapHana.NewVolumeGroupSapHana(ctx, "example", &netapp/volumeGroupSapHana.VolumeGroupSapHanaArgs{
+// Name: fmt.Sprintf("%v-netapp-volumegroup", prefix),
+// Location: exampleResourceGroup.Location,
+// ResourceGroupName: exampleResourceGroup.Name,
+// AccountName: exampleAccount.Name,
+// GroupDescription: "Test volume group",
+// ApplicationIdentifier: "TST",
+// Volumes: []interface{}{
+// map[string]interface{}{
+// "name": fmt.Sprintf("%v-netapp-volume-1", prefix),
+// "volumePath": "my-unique-file-path-1",
+// "serviceLevel": "Standard",
+// "capacityPoolId": examplePool.Id,
+// "subnetId": exampleSubnet.Id,
+// "proximityPlacementGroupId": examplePlacementGroup.Id,
+// "volumeSpecName": "data",
+// "storageQuotaInGb": 1024,
+// "throughputInMibps": 24,
+// "protocols": "NFSv4.1",
+// "securityStyle": "unix",
+// "snapshotDirectoryVisible": false,
+// "exportPolicyRules": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleIndex": 1,
+// "allowedClients": "0.0.0.0/0",
+// "nfsv3Enabled": false,
+// "nfsv41Enabled": true,
+// "unixReadOnly": false,
+// "unixReadWrite": true,
+// "rootAccessEnabled": false,
+// },
+// },
+// "tags": map[string]interface{}{
+// "foo": "bar",
+// },
+// },
+// map[string]interface{}{
+// "name": fmt.Sprintf("%v-netapp-volume-2", prefix),
+// "volumePath": "my-unique-file-path-2",
+// "serviceLevel": "Standard",
+// "capacityPoolId": examplePool.Id,
+// "subnetId": exampleSubnet.Id,
+// "proximityPlacementGroupId": examplePlacementGroup.Id,
+// "volumeSpecName": "log",
+// "storageQuotaInGb": 1024,
+// "throughputInMibps": 24,
+// "protocols": "NFSv4.1",
+// "securityStyle": "unix",
+// "snapshotDirectoryVisible": false,
+// "exportPolicyRules": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleIndex": 1,
+// "allowedClients": "0.0.0.0/0",
+// "nfsv3Enabled": false,
+// "nfsv41Enabled": true,
+// "unixReadOnly": false,
+// "unixReadWrite": true,
+// "rootAccessEnabled": false,
+// },
+// },
+// "tags": map[string]interface{}{
+// "foo": "bar",
+// },
+// },
+// map[string]interface{}{
+// "name": fmt.Sprintf("%v-netapp-volume-3", prefix),
+// "volumePath": "my-unique-file-path-3",
+// "serviceLevel": "Standard",
+// "capacityPoolId": examplePool.Id,
+// "subnetId": exampleSubnet.Id,
+// "proximityPlacementGroupId": examplePlacementGroup.Id,
+// "volumeSpecName": "shared",
+// "storageQuotaInGb": 1024,
+// "throughputInMibps": 24,
+// "protocols": "NFSv4.1",
+// "securityStyle": "unix",
+// "snapshotDirectoryVisible": false,
+// "exportPolicyRules": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleIndex": 1,
+// "allowedClients": "0.0.0.0/0",
+// "nfsv3Enabled": false,
+// "nfsv41Enabled": true,
+// "unixReadOnly": false,
+// "unixReadWrite": true,
+// "rootAccessEnabled": false,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

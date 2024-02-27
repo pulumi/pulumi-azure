@@ -419,39 +419,39 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exampleRG1",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exampleRG1,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet1,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        ase = azure.network.Subnet("ase",
-            name="asesubnet",
+            address_spaces=[10.0.0.0/16])
+        ase = azure.network.subnet.Subnet("ase",
+            name=asesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        gateway = azure.network.Subnet("gateway",
-            name="gatewaysubnet",
+            address_prefixes=[10.0.1.0/24])
+        gateway = azure.network.subnet.Subnet("gateway",
+            name=gatewaysubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_environment = azure.appservice.Environment("example",
-            name="example-ase",
+            address_prefixes=[10.0.2.0/24])
+        example_environment = azure.appservice.environment.Environment("example",
+            name=example-ase,
             resource_group_name=example.name,
             subnet_id=ase.id,
-            pricing_tier="I2",
+            pricing_tier=I2,
             front_end_scale_factor=10,
-            internal_load_balancing_mode="Web, Publishing",
+            internal_load_balancing_mode=Web, Publishing,
             allowed_user_ip_cidrs=[
-                "11.22.33.44/32",
-                "55.66.77.0/24",
+                11.22.33.44/32,
+                55.66.77.0/24,
             ],
-            cluster_settings=[azure.appservice.EnvironmentClusterSettingArgs(
-                name="DisableTls1.0",
-                value="1",
-            )])
+            cluster_settings=[{
+                name: DisableTls1.0,
+                value: 1,
+            }])
         ```
 
         ## Import
@@ -493,39 +493,39 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exampleRG1",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exampleRG1,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet1,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        ase = azure.network.Subnet("ase",
-            name="asesubnet",
+            address_spaces=[10.0.0.0/16])
+        ase = azure.network.subnet.Subnet("ase",
+            name=asesubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        gateway = azure.network.Subnet("gateway",
-            name="gatewaysubnet",
+            address_prefixes=[10.0.1.0/24])
+        gateway = azure.network.subnet.Subnet("gateway",
+            name=gatewaysubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_environment = azure.appservice.Environment("example",
-            name="example-ase",
+            address_prefixes=[10.0.2.0/24])
+        example_environment = azure.appservice.environment.Environment("example",
+            name=example-ase,
             resource_group_name=example.name,
             subnet_id=ase.id,
-            pricing_tier="I2",
+            pricing_tier=I2,
             front_end_scale_factor=10,
-            internal_load_balancing_mode="Web, Publishing",
+            internal_load_balancing_mode=Web, Publishing,
             allowed_user_ip_cidrs=[
-                "11.22.33.44/32",
-                "55.66.77.0/24",
+                11.22.33.44/32,
+                55.66.77.0/24,
             ],
-            cluster_settings=[azure.appservice.EnvironmentClusterSettingArgs(
-                name="DisableTls1.0",
-                value="1",
-            )])
+            cluster_settings=[{
+                name: DisableTls1.0,
+                value: 1,
+            }])
         ```
 
         ## Import

@@ -217,21 +217,6 @@ class MongoDatabase(pulumi.CustomResource):
         """
         Manages a Mongo Database within a Cosmos DB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
-            name="tfex-cosmos-mongo-db",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            throughput=400)
-        ```
-
         ## Import
 
         Cosmos Mongo Database can be imported using the `resource id`, e.g.
@@ -260,21 +245,6 @@ class MongoDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mongo Database within a Cosmos DB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
-            name="tfex-cosmos-mongo-db",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            throughput=400)
-        ```
 
         ## Import
 

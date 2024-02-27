@@ -265,47 +265,47 @@ class CassandraTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tflex-cosmosdb-account-rg",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="tfex-cosmosdb-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tflex-cosmosdb-account-rg,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=tfex-cosmosdb-account,
             resource_group_name=example.name,
             location=example.location,
-            offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
-                name="EnableCassandra",
-            )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
-            name="tfex-cosmos-cassandra-keyspace",
+            offer_type=Standard,
+            capabilities=[{
+                name: EnableCassandra,
+            }],
+            consistency_policy={
+                consistencyLevel: Strong,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_cassandra_keyspace = azure.cosmosdb.cassandra_keyspace.CassandraKeyspace("example",
+            name=tfex-cosmos-cassandra-keyspace,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_cassandra_table = azure.cosmosdb.CassandraTable("example",
-            name="testtable",
+        example_cassandra_table = azure.cosmosdb.cassandra_table.CassandraTable("example",
+            name=testtable,
             cassandra_keyspace_id=example_cassandra_keyspace.id,
-            schema=azure.cosmosdb.CassandraTableSchemaArgs(
-                columns=[
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test1",
-                        type="ascii",
-                    ),
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test2",
-                        type="int",
-                    ),
+            schema={
+                columns: [
+                    {
+                        name: test1,
+                        type: ascii,
+                    },
+                    {
+                        name: test2,
+                        type: int,
+                    },
                 ],
-                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
-                    name="test1",
-                )],
-            ))
+                partitionKeys: [{
+                    name: test1,
+                }],
+            })
         ```
 
         ## Import
@@ -341,47 +341,47 @@ class CassandraTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tflex-cosmosdb-account-rg",
-            location="West Europe")
-        example_account = azure.cosmosdb.Account("example",
-            name="tfex-cosmosdb-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tflex-cosmosdb-account-rg,
+            location=West Europe)
+        example_account = azure.cosmosdb.account.Account("example",
+            name=tfex-cosmosdb-account,
             resource_group_name=example.name,
             location=example.location,
-            offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
-                name="EnableCassandra",
-            )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
-            name="tfex-cosmos-cassandra-keyspace",
+            offer_type=Standard,
+            capabilities=[{
+                name: EnableCassandra,
+            }],
+            consistency_policy={
+                consistencyLevel: Strong,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_cassandra_keyspace = azure.cosmosdb.cassandra_keyspace.CassandraKeyspace("example",
+            name=tfex-cosmos-cassandra-keyspace,
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_cassandra_table = azure.cosmosdb.CassandraTable("example",
-            name="testtable",
+        example_cassandra_table = azure.cosmosdb.cassandra_table.CassandraTable("example",
+            name=testtable,
             cassandra_keyspace_id=example_cassandra_keyspace.id,
-            schema=azure.cosmosdb.CassandraTableSchemaArgs(
-                columns=[
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test1",
-                        type="ascii",
-                    ),
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test2",
-                        type="int",
-                    ),
+            schema={
+                columns: [
+                    {
+                        name: test1,
+                        type: ascii,
+                    },
+                    {
+                        name: test2,
+                        type: int,
+                    },
                 ],
-                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
-                    name="test1",
-                )],
-            ))
+                partitionKeys: [{
+                    name: test1,
+                }],
+            })
         ```
 
         ## Import

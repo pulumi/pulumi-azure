@@ -24,71 +24,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	appservice/functionApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/functionApp"
+//	appservice/functionAppSlot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/functionAppSlot"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("azure-functions-test-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("functionsapptestsa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("azure-functions-test-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "example", &appservice.FunctionAppArgs{
-//				Name:                    pulumi.String("test-azure-functions"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
-//				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewFunctionAppSlot(ctx, "example", &appservice.FunctionAppSlotArgs{
-//				Name:                    pulumi.String("test-azure-functions_slot"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
-//				FunctionAppName:         exampleFunctionApp.Name,
-//				StorageAccountName:      exampleAccount.Name,
-//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "azure-functions-test-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "functionsapptestsa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "azure-functions-test-service-plan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleFunctionApp, err := appservice/functionApp.NewFunctionApp(ctx, "example", &appservice/functionApp.FunctionAppArgs{
+// Name: "test-azure-functions",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/functionAppSlot.NewFunctionAppSlot(ctx, "example", &appservice/functionAppSlot.FunctionAppSlotArgs{
+// Name: "test-azure-functions_slot",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// FunctionAppName: exampleFunctionApp.Name,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

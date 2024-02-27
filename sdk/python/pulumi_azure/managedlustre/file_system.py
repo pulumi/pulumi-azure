@@ -452,6 +452,39 @@ class FileSystem(pulumi.CustomResource):
         """
         Manages an Azure Managed Lustre File System.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=[10.0.2.0/24])
+        example_file_system = azure.managedlustre.file_system.FileSystem("example",
+            name=example-amlfs,
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name=AMLFS-Durable-Premium-250,
+            subnet_id=example_subnet.id,
+            storage_capacity_in_tb=8,
+            zones=[2],
+            maintenance_window={
+                dayOfWeek: Friday,
+                timeOfDayUtc: 22:00,
+            })
+        ```
+
         ## Import
 
         Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.
@@ -485,6 +518,39 @@ class FileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Managed Lustre File System.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=[10.0.2.0/24])
+        example_file_system = azure.managedlustre.file_system.FileSystem("example",
+            name=example-amlfs,
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name=AMLFS-Durable-Premium-250,
+            subnet_id=example_subnet.id,
+            storage_capacity_in_tb=8,
+            zones=[2],
+            maintenance_window={
+                dayOfWeek: Friday,
+                timeOfDayUtc: 22:00,
+            })
+        ```
 
         ## Import
 

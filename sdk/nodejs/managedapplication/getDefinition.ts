@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Managed Application Definition.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.managedapplication.getDefinition({
- *     name: "examplemanagedappdef",
- *     resourceGroupName: "exampleresources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
 
@@ -57,19 +44,6 @@ export interface GetDefinitionResult {
 }
 /**
  * Uses this data source to access information about an existing Managed Application Definition.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.managedapplication.getDefinition({
- *     name: "examplemanagedappdef",
- *     resourceGroupName: "exampleresources",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getDefinition(a, opts))

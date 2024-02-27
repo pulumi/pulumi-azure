@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.NotebookWorkspace;
  * import com.pulumi.azure.cosmosdb.NotebookWorkspaceArgs;
  * import java.util.List;
@@ -61,13 +59,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(example.location())
- *                 .failoverPriority(0)
- *                 .build())
+ *             .consistencyPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .geoLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNotebookWorkspace = new NotebookWorkspace(&#34;exampleNotebookWorkspace&#34;, NotebookWorkspaceArgs.builder()        

@@ -21,87 +21,88 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	backup/containerStorageAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/backup/containerStorageAccount"
+//	backup/policyFileShare "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/backup/policyFileShare"
+//	backup/protectedFileShare "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/backup/protectedFileShare"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/share "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/share"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-recovery_vault"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("tfex-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:               pulumi.String("example-share"),
-//				StorageAccountName: sa.Name,
-//				Quota:              pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: vault.Name,
-//				StorageAccountId:  sa.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyFileShare, err := backup.NewPolicyFileShare(ctx, "example", &backup.PolicyFileShareArgs{
-//				Name:              pulumi.String("tfex-recovery-vault-policy"),
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: vault.Name,
-//				Backup: &backup.PolicyFileShareBackupArgs{
-//					Frequency: pulumi.String("Daily"),
-//					Time:      pulumi.String("23:00"),
-//				},
-//				RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
-//					Count: pulumi.Int(10),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewProtectedFileShare(ctx, "share1", &backup.ProtectedFileShareArgs{
-//				ResourceGroupName:      example.Name,
-//				RecoveryVaultName:      vault.Name,
-//				SourceStorageAccountId: protection_container.StorageAccountId,
-//				SourceFileShareName:    exampleShare.Name,
-//				BackupPolicyId:         examplePolicyFileShare.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-recovery_vault",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// vault, err := recoveryservices/vault.NewVault(ctx, "vault", &recoveryservices/vault.VaultArgs{
+// Name: "tfex-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// sa, err := storage/account.NewAccount(ctx, "sa", &storage/account.AccountArgs{
+// Name: "examplesa",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleShare, err := storage/share.NewShare(ctx, "example", &storage/share.ShareArgs{
+// Name: "example-share",
+// StorageAccountName: sa.Name,
+// Quota: 1,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = backup/containerStorageAccount.NewContainerStorageAccount(ctx, "protection-container", &backup/containerStorageAccount.ContainerStorageAccountArgs{
+// ResourceGroupName: example.Name,
+// RecoveryVaultName: vault.Name,
+// StorageAccountId: sa.Id,
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyFileShare, err := backup/policyFileShare.NewPolicyFileShare(ctx, "example", &backup/policyFileShare.PolicyFileShareArgs{
+// Name: "tfex-recovery-vault-policy",
+// ResourceGroupName: example.Name,
+// RecoveryVaultName: vault.Name,
+// Backup: map[string]interface{}{
+// "frequency": "Daily",
+// "time": "23:00",
+// },
+// RetentionDaily: map[string]interface{}{
+// "count": 10,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = backup/protectedFileShare.NewProtectedFileShare(ctx, "share1", &backup/protectedFileShare.ProtectedFileShareArgs{
+// ResourceGroupName: example.Name,
+// RecoveryVaultName: vault.Name,
+// SourceStorageAccountId: protection_container.StorageAccountId,
+// SourceFileShareName: exampleShare.Name,
+// BackupPolicyId: examplePolicyFileShare.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

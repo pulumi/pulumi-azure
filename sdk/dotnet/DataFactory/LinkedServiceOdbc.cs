@@ -24,35 +24,35 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var anonymous = new Azure.DataFactory.LinkedServiceOdbc("anonymous", new()
+    ///     var anonymous = new Azure.Datafactory.LinkedServiceOdbc.LinkedServiceOdbc("anonymous", new()
     ///     {
     ///         Name = "anonymous",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///     });
     /// 
-    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdbc("basic_auth", new()
+    ///     var basicAuth = new Azure.Datafactory.LinkedServiceOdbc.LinkedServiceOdbc("basic_auth", new()
     ///     {
     ///         Name = "basic_auth",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-    ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdbcBasicAuthenticationArgs
+    ///         BasicAuthentication = 
     ///         {
-    ///             Username = "onrylmz",
-    ///             Password = "Ch4ngeM3!",
+    ///             { "username", "onrylmz" },
+    ///             { "password", "Ch4ngeM3!" },
     ///         },
     ///     });
     /// 

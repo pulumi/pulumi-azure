@@ -22,25 +22,25 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "examplekustocluster",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
+    ///             { "name", "Standard_D13_v2" },
+    ///             { "capacity", 2 },
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database.Database("example", new()
     ///     {
     ///         Name = "example-kusto-database",
     ///         ResourceGroupName = example.Name,
@@ -50,19 +50,19 @@ namespace Pulumi.Azure.Kusto
     ///         SoftDeletePeriod = "P31D",
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "exampleIoTHub",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "B1",
-    ///             Capacity = 1,
+    ///             { "name", "B1" },
+    ///             { "capacity", "1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("example", new()
+    ///     var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy.SharedAccessPolicy("example", new()
     ///     {
     ///         Name = "example-shared-access-policy",
     ///         ResourceGroupName = example.Name,
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Kusto
     ///         RegistryRead = true,
     ///     });
     /// 
-    ///     var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("example", new()
+    ///     var exampleConsumerGroup = new Azure.Iot.ConsumerGroup.ConsumerGroup("example", new()
     ///     {
     ///         Name = "example-consumer-group",
     ///         ResourceGroupName = example.Name,
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Kusto
     ///         EventhubEndpointName = "events",
     ///     });
     /// 
-    ///     var exampleIotHubDataConnection = new Azure.Kusto.IotHubDataConnection("example", new()
+    ///     var exampleIotHubDataConnection = new Azure.Kusto.IotHubDataConnection.IotHubDataConnection("example", new()
     ///     {
     ///         Name = "my-kusto-iothub-data-connection",
     ///         ResourceGroupName = example.Name,

@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
  * import com.pulumi.azure.synapse.Workspace;
  * import com.pulumi.azure.synapse.WorkspaceArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceAadAdminArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.WorkspaceSecurityAlertPolicy;
  * import com.pulumi.azure.synapse.WorkspaceSecurityAlertPolicyArgs;
  * import java.util.List;
@@ -79,15 +77,9 @@ import javax.annotation.Nullable;
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .aadAdmin(WorkspaceAadAdminArgs.builder()
- *                 .login(&#34;AzureAD Admin&#34;)
- *                 .objectId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .tenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *                 .build())
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Env&#34;, &#34;production&#34;))
+ *             .aadAdmin(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var auditLogs = new Account(&#34;auditLogs&#34;, AccountArgs.builder()        

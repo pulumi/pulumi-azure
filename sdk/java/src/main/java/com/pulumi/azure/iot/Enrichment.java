@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
  * import com.pulumi.azure.iot.EndpointStorageContainer;
  * import com.pulumi.azure.iot.EndpointStorageContainerArgs;
  * import com.pulumi.azure.iot.Route;
@@ -77,11 +76,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;exampleIothub&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;testing&#34;))
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEndpointStorageContainer = new EndpointStorageContainer(&#34;exampleEndpointStorageContainer&#34;, EndpointStorageContainerArgs.builder()        

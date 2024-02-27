@@ -22,13 +22,13 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "westus2",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "exampleacc",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleStorageDefender = new Azure.SecurityCenter.StorageDefender("example", new()
+    ///     var exampleStorageDefender = new Azure.Securitycenter.StorageDefender.StorageDefender("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///     });

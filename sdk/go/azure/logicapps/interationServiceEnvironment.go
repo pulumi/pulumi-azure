@@ -23,108 +23,107 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/interationServiceEnvironment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/interationServiceEnvironment"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exampleRG1"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/22"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			isesubnet1, err := network.NewSubnet(ctx, "isesubnet1", &network.SubnetArgs{
-//				Name:               pulumi.String("isesubnet1"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/27"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("integrationServiceEnvironments"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.Logic/integrationServiceEnvironments"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			isesubnet2, err := network.NewSubnet(ctx, "isesubnet2", &network.SubnetArgs{
-//				Name:               pulumi.String("isesubnet2"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.32/27"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			isesubnet3, err := network.NewSubnet(ctx, "isesubnet3", &network.SubnetArgs{
-//				Name:               pulumi.String("isesubnet3"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.64/27"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			isesubnet4, err := network.NewSubnet(ctx, "isesubnet4", &network.SubnetArgs{
-//				Name:               pulumi.String("isesubnet4"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.96/27"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewInterationServiceEnvironment(ctx, "example", &logicapps.InterationServiceEnvironmentArgs{
-//				Name:               pulumi.String("example-ise"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				SkuName:            pulumi.String("Developer_0"),
-//				AccessEndpointType: pulumi.String("Internal"),
-//				VirtualNetworkSubnetIds: pulumi.StringArray{
-//					isesubnet1.ID(),
-//					isesubnet2.ID(),
-//					isesubnet3.ID(),
-//					isesubnet4.ID(),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("development"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exampleRG1",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/22",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// isesubnet1, err := network/subnet.NewSubnet(ctx, "isesubnet1", &network/subnet.SubnetArgs{
+// Name: "isesubnet1",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/27",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "integrationServiceEnvironments",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.Logic/integrationServiceEnvironments",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// isesubnet2, err := network/subnet.NewSubnet(ctx, "isesubnet2", &network/subnet.SubnetArgs{
+// Name: "isesubnet2",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.32/27",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// isesubnet3, err := network/subnet.NewSubnet(ctx, "isesubnet3", &network/subnet.SubnetArgs{
+// Name: "isesubnet3",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.64/27",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// isesubnet4, err := network/subnet.NewSubnet(ctx, "isesubnet4", &network/subnet.SubnetArgs{
+// Name: "isesubnet4",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.96/27",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/interationServiceEnvironment.NewInterationServiceEnvironment(ctx, "example", &logicapps/interationServiceEnvironment.InterationServiceEnvironmentArgs{
+// Name: "example-ise",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Developer_0",
+// AccessEndpointType: "Internal",
+// VirtualNetworkSubnetIds: []interface{}{
+// isesubnet1.Id,
+// isesubnet2.Id,
+// isesubnet3.Id,
+// isesubnet4.Id,
+// },
+// Tags: map[string]interface{}{
+// "environment": "development",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

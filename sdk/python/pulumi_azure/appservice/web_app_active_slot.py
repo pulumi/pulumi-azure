@@ -124,26 +124,55 @@ class WebAppActiveSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Windows",
-            sku_name="P1v2")
-        example_windows_web_app = azure.appservice.WindowsWebApp("example",
-            name="example-windows-web-app",
+            os_type=Windows,
+            sku_name=P1v2)
+        example_windows_web_app = azure.appservice.windows_web_app.WindowsWebApp("example",
+            name=example-windows-web-app,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
-            name="example-windows-web-app-slot",
+            site_config={})
+        example_windows_web_app_slot = azure.appservice.windows_web_app_slot.WindowsWebAppSlot("example",
+            name=example-windows-web-app-slot,
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
-        example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
+            site_config={})
+        example_web_app_active_slot = azure.appservice.web_app_active_slot.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
+        ```
+        ### Linux Web App
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
+            resource_group_name=example.name,
+            location=example.location,
+            os_type=Linux,
+            sku_name=P1v2)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
+            name=example-linux-web-app,
+            resource_group_name=example.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_linux_web_app_slot = azure.appservice.linux_web_app_slot.LinuxWebAppSlot("example",
+            name=example-linux-web-app-slot,
+            app_service_name=example_linux_web_app.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_web_app_active_slot = azure.appservice.web_app_active_slot.WebAppActiveSlot("example", slot_id=example_linux_web_app_slot.id)
         ```
 
         ## Import
@@ -175,26 +204,55 @@ class WebAppActiveSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Windows",
-            sku_name="P1v2")
-        example_windows_web_app = azure.appservice.WindowsWebApp("example",
-            name="example-windows-web-app",
+            os_type=Windows,
+            sku_name=P1v2)
+        example_windows_web_app = azure.appservice.windows_web_app.WindowsWebApp("example",
+            name=example-windows-web-app,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
-            name="example-windows-web-app-slot",
+            site_config={})
+        example_windows_web_app_slot = azure.appservice.windows_web_app_slot.WindowsWebAppSlot("example",
+            name=example-windows-web-app-slot,
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
-        example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
+            site_config={})
+        example_web_app_active_slot = azure.appservice.web_app_active_slot.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
+        ```
+        ### Linux Web App
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
+            resource_group_name=example.name,
+            location=example.location,
+            os_type=Linux,
+            sku_name=P1v2)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
+            name=example-linux-web-app,
+            resource_group_name=example.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_linux_web_app_slot = azure.appservice.linux_web_app_slot.LinuxWebAppSlot("example",
+            name=example-linux-web-app-slot,
+            app_service_name=example_linux_web_app.name,
+            location=example_service_plan.location,
+            service_plan_id=example_service_plan.id,
+            site_config={})
+        example_web_app_active_slot = azure.appservice.web_app_active_slot.WebAppActiveSlot("example", slot_id=example_linux_web_app_slot.id)
         ```
 
         ## Import

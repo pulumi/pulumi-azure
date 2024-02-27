@@ -22,40 +22,40 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("example", new()
+    ///     var exampleKubernetesFleetManager = new Azure.Containerservice.KubernetesFleetManager.KubernetesFleetManager("example", new()
     ///     {
     ///         Location = example.Location,
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
-    ///         HubProfile = new Azure.ContainerService.Inputs.KubernetesFleetManagerHubProfileArgs
+    ///         HubProfile = 
     ///         {
-    ///             DnsPrefix = "example-dns-prefix",
+    ///             { "dnsPrefix", "example-dns-prefix" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFleetUpdateStrategy = new Azure.ContainerService.FleetUpdateStrategy("example", new()
+    ///     var exampleFleetUpdateStrategy = new Azure.Containerservice.FleetUpdateStrategy.FleetUpdateStrategy("example", new()
     ///     {
     ///         Name = "example",
     ///         KubernetesFleetManagerId = exampleKubernetesFleetManager.Id,
     ///         Stages = new[]
     ///         {
-    ///             new Azure.ContainerService.Inputs.FleetUpdateStrategyStageArgs
+    ///             
     ///             {
-    ///                 Name = "example-stage-1",
-    ///                 Groups = new[]
+    ///                 { "name", "example-stage-1" },
+    ///                 { "groups", new[]
     ///                 {
-    ///                     new Azure.ContainerService.Inputs.FleetUpdateStrategyStageGroupArgs
+    ///                     
     ///                     {
-    ///                         Name = "example-group-1",
+    ///                         { "name", "example-group-1" },
     ///                     },
-    ///                 },
-    ///                 AfterStageWaitInSeconds = 21,
+    ///                 } },
+    ///                 { "afterStageWaitInSeconds", 21 },
     ///             },
     ///         },
     ///     });

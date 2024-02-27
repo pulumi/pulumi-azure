@@ -21,47 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	loganalytics/dataSourceWindowsPerformanceCounter "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/loganalytics/dataSourceWindowsPerformanceCounter"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-law"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = loganalytics.NewDataSourceWindowsPerformanceCounter(ctx, "example", &loganalytics.DataSourceWindowsPerformanceCounterArgs{
-//				Name:              pulumi.String("example-lad-wpc"),
-//				ResourceGroupName: example.Name,
-//				WorkspaceName:     exampleAnalyticsWorkspace.Name,
-//				ObjectName:        pulumi.String("CPU"),
-//				InstanceName:      pulumi.String("*"),
-//				CounterName:       pulumi.String("CPU"),
-//				IntervalSeconds:   pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "example-law",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = loganalytics/dataSourceWindowsPerformanceCounter.NewDataSourceWindowsPerformanceCounter(ctx, "example", &loganalytics/dataSourceWindowsPerformanceCounter.DataSourceWindowsPerformanceCounterArgs{
+// Name: "example-lad-wpc",
+// ResourceGroupName: example.Name,
+// WorkspaceName: exampleAnalyticsWorkspace.Name,
+// ObjectName: "CPU",
+// InstanceName: "*",
+// CounterName: "CPU",
+// IntervalSeconds: 10,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

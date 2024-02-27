@@ -21,55 +21,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	search/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/search/service"
+//	search/sharedPrivateLinkService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/search/sharedPrivateLinkService"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resourceGroup"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testService, err := search.NewService(ctx, "test", &search.ServiceArgs{
-//				Name:              pulumi.String("example-search"),
-//				ResourceGroupName: test.Name,
-//				Location:          test.Location,
-//				Sku:               pulumi.String("standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAccount, err := storage.NewAccount(ctx, "test", &storage.AccountArgs{
-//				Name:                   pulumi.String("xiaxintestsaforsearchspl"),
-//				ResourceGroupName:      test.Name,
-//				Location:               test.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = search.NewSharedPrivateLinkService(ctx, "test", &search.SharedPrivateLinkServiceArgs{
-//				Name:             pulumi.String("example-spl"),
-//				SearchServiceId:  testService.ID(),
-//				SubresourceName:  pulumi.String("blob"),
-//				TargetResourceId: testAccount.ID(),
-//				RequestMessage:   pulumi.String("please approve"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := core/resourceGroup.NewResourceGroup(ctx, "test", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resourceGroup",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// testService, err := search/service.NewService(ctx, "test", &search/service.ServiceArgs{
+// Name: "example-search",
+// ResourceGroupName: test.Name,
+// Location: test.Location,
+// Sku: "standard",
+// })
+// if err != nil {
+// return err
+// }
+// testAccount, err := storage/account.NewAccount(ctx, "test", &storage/account.AccountArgs{
+// Name: "xiaxintestsaforsearchspl",
+// ResourceGroupName: test.Name,
+// Location: test.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = search/sharedPrivateLinkService.NewSharedPrivateLinkService(ctx, "test", &search/sharedPrivateLinkService.SharedPrivateLinkServiceArgs{
+// Name: "example-spl",
+// SearchServiceId: testService.Id,
+// SubresourceName: "blob",
+// TargetResourceId: testAccount.Id,
+// RequestMessage: "please approve",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

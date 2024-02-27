@@ -13,70 +13,12 @@ namespace Pulumi.Azure.Stack
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Stack HCI Cluster instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Stack.GetHciCluster.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getHciClusterResult =&gt; getHciClusterResult.Id),
-        ///         ["location"] = example.Apply(getHciClusterResult =&gt; getHciClusterResult.Location),
-        ///         ["clientId"] = example.Apply(getHciClusterResult =&gt; getHciClusterResult.ClientId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetHciClusterResult> InvokeAsync(GetHciClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Stack HCI Cluster instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Stack.GetHciCluster.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getHciClusterResult =&gt; getHciClusterResult.Id),
-        ///         ["location"] = example.Apply(getHciClusterResult =&gt; getHciClusterResult.Location),
-        ///         ["clientId"] = example.Apply(getHciClusterResult =&gt; getHciClusterResult.ClientId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetHciClusterResult> Invoke(GetHciClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterInvokeArgs(), options.WithDefaults());

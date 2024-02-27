@@ -33,12 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.IotHubDeviceUpdateAccountArgs;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.iot.IotHubDeviceUpdateInstance;
  * import com.pulumi.azure.iot.IotHubDeviceUpdateInstanceArgs;
- * import com.pulumi.azure.iot.inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,10 +65,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
@@ -86,11 +81,8 @@ import javax.annotation.Nullable;
  *             .deviceUpdateAccountId(exampleIotHubDeviceUpdateAccount.id())
  *             .iothubId(exampleIoTHub.id())
  *             .diagnosticEnabled(true)
- *             .diagnosticStorageAccount(IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs.builder()
- *                 .connectionString(exampleAccount.primaryConnectionString())
- *                 .id(exampleAccount.id())
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .diagnosticStorageAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

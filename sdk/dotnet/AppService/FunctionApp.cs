@@ -28,13 +28,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azure-functions-test-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "functionsapptestsa",
     ///         ResourceGroupName = example.Name,
@@ -43,19 +43,19 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "azure-functions-test-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azure.Appservice.FunctionApp.FunctionApp("example", new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         Location = example.Location,
@@ -77,13 +77,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azure-functions-cptest-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "functionsapptestsa",
     ///         ResourceGroupName = example.Name,
@@ -92,20 +92,20 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "azure-functions-test-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "FunctionApp",
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Dynamic",
-    ///             Size = "Y1",
+    ///             { "tier", "Dynamic" },
+    ///             { "size", "Y1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azure.Appservice.FunctionApp.FunctionApp("example", new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         Location = example.Location,
@@ -127,13 +127,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azure-functions-cptest-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "functionsapptestsa",
     ///         ResourceGroupName = example.Name,
@@ -142,21 +142,21 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "azure-functions-test-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "Linux",
     ///         Reserved = true,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Dynamic",
-    ///             Size = "Y1",
+    ///             { "tier", "Dynamic" },
+    ///             { "size", "Y1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azure.Appservice.FunctionApp.FunctionApp("example", new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         Location = example.Location,
@@ -172,6 +172,72 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// 
     /// &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
+    /// ### Python In A Consumption Plan)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "azure-functions-example-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
+    ///     {
+    ///         Name = "functionsappexamlpesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
+    ///     {
+    ///         Name = "azure-functions-example-sp",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "Linux",
+    ///         Reserved = true,
+    ///         Sku = 
+    ///         {
+    ///             { "tier", "Dynamic" },
+    ///             { "size", "Y1" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.Appservice.FunctionApp.FunctionApp("example", new()
+    ///     {
+    ///         Name = "example-azure-function",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         OsType = "linux",
+    ///         Version = "~4",
+    ///         AppSettings = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "FUNCTIONS_WORKER_RUNTIME", "python" },
+    ///             },
+    ///         },
+    ///         SiteConfig = 
+    ///         {
+    ///             { "linuxFxVersion", "python|3.9" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
     /// 
     /// ## Import
     /// 

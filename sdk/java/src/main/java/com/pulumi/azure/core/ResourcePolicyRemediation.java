@@ -29,8 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.policy.Definition;
  * import com.pulumi.azure.policy.DefinitionArgs;
  * import com.pulumi.azure.core.ResourcePolicyAssignment;
@@ -76,15 +76,15 @@ import javax.annotation.Nullable;
  *             .name(&#34;assignment1&#34;)
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(exampleDefinition.id())
- *             .parameters(example.location().applyValue(location -&gt; serializeJson(
+ *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
  *                         jsonProperty(&#34;value&#34;, jsonArray(
- *                             location, 
+ *                             example.location(), 
  *                             &#34;East US&#34;
  *                         ))
  *                     ))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        

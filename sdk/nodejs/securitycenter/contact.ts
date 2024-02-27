@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.securitycenter.Contact("example", {
+ * const example = new azure.securitycenter/contact.Contact("example", {
  *     name: "contact",
  *     email: "contact@example.com",
  *     phone: "+1-555-555-5555",

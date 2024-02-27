@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-maps-account&#34;)
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;G2&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleCreator = new Creator(&#34;exampleCreator&#34;, CreatorArgs.builder()        
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .mapsAccountId(exampleAccount.id())
  *             .location(example.location())
  *             .storageUnits(1)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

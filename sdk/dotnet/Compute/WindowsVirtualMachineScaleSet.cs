@@ -32,13 +32,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         ResourceGroupName = example.Name,
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     var @internal = new Azure.Network.Subnet.Subnet("internal", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet("example", new()
+    ///     var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet.WindowsVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "example-vmss",
     ///         ResourceGroupName = example.Name,
@@ -70,33 +70,33 @@ namespace Pulumi.Azure.Compute
     ///         AdminPassword = "P@55w0rd1234!",
     ///         AdminUsername = "adminuser",
     ///         ComputerNamePrefix = "vm-",
-    ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "MicrosoftWindowsServer",
-    ///             Offer = "WindowsServer",
-    ///             Sku = "2016-Datacenter-Server-Core",
-    ///             Version = "latest",
+    ///             { "publisher", "MicrosoftWindowsServer" },
+    ///             { "offer", "WindowsServer" },
+    ///             { "sku", "2016-Datacenter-Server-Core" },
+    ///             { "version", "latest" },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
+    ///             { "storageAccountType", "Standard_LRS" },
+    ///             { "caching", "ReadWrite" },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "example" },
+    ///                 { "primary", true },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "internal",
-    ///                         Primary = true,
-    ///                         SubnetId = @internal.Id,
+    ///                         { "name", "internal" },
+    ///                         { "primary", true },
+    ///                         { "subnetId", @internal.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

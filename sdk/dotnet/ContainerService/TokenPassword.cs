@@ -12,6 +12,68 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Container Registry Token Password.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resource-group",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleRegistry = new Azure.Containerservice.Registry.Registry("example", new()
+    ///     {
+    ///         Name = "example-registry",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Premium",
+    ///         AdminEnabled = false,
+    ///         GeoreplicationLocations = new[]
+    ///         {
+    ///             "East US",
+    ///             "West Europe",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryScopeMap = new Azure.Containerservice.RegistryScopeMap.RegistryScopeMap("example", new()
+    ///     {
+    ///         Name = "example-scope-map",
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/repo1/content/read",
+    ///             "repositories/repo1/content/write",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryToken = new Azure.Containerservice.RegistryToken.RegistryToken("example", new()
+    ///     {
+    ///         Name = "exampletoken",
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         ScopeMapId = exampleRegistryScopeMap.Id,
+    ///     });
+    /// 
+    ///     var exampleTokenPassword = new Azure.Containerservice.TokenPassword.TokenPassword("example", new()
+    ///     {
+    ///         ContainerRegistryTokenId = exampleRegistryToken.Id,
+    ///         Password1 = 
+    ///         {
+    ///             { "expiry", "2023-03-22T17:57:36+08:00" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Container Registry Token Passwords can be imported using the `resource id`, e.g.

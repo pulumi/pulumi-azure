@@ -21,74 +21,75 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	digitaltwins/endpointEventHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/endpointEventHub"
+//	digitaltwins/instance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/instance"
+//	eventhub/authorizationRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/authorizationRule"
+//	eventhub/eventHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHub"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example_resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "example", &digitaltwins.InstanceArgs{
-//				Name:              pulumi.String("example-DT"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("example-eh-ns"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("example-eh"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(2),
-//				MessageRetention:  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "example", &eventhub.AuthorizationRuleArgs{
-//				Name:              pulumi.String("example-ar"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				EventhubName:      exampleEventHub.Name,
-//				ResourceGroupName: example.Name,
-//				Listen:            pulumi.Bool(false),
-//				Send:              pulumi.Bool(true),
-//				Manage:            pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = digitaltwins.NewEndpointEventHub(ctx, "example", &digitaltwins.EndpointEventHubArgs{
-//				Name:                              pulumi.String("example-EH"),
-//				DigitalTwinsId:                    exampleInstance.ID(),
-//				EventhubPrimaryConnectionString:   exampleAuthorizationRule.PrimaryConnectionString,
-//				EventhubSecondaryConnectionString: exampleAuthorizationRule.SecondaryConnectionString,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example_resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInstance, err := digitaltwins/instance.NewInstance(ctx, "example", &digitaltwins/instance.InstanceArgs{
+// Name: "example-DT",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHubNamespace, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "example", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "example-eh-ns",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHub, err := eventhub/eventHub.NewEventHub(ctx, "example", &eventhub/eventHub.EventHubArgs{
+// Name: "example-eh",
+// NamespaceName: exampleEventHubNamespace.Name,
+// ResourceGroupName: example.Name,
+// PartitionCount: 2,
+// MessageRetention: 1,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAuthorizationRule, err := eventhub/authorizationRule.NewAuthorizationRule(ctx, "example", &eventhub/authorizationRule.AuthorizationRuleArgs{
+// Name: "example-ar",
+// NamespaceName: exampleEventHubNamespace.Name,
+// EventhubName: exampleEventHub.Name,
+// ResourceGroupName: example.Name,
+// Listen: false,
+// Send: true,
+// Manage: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = digitaltwins/endpointEventHub.NewEndpointEventHub(ctx, "example", &digitaltwins/endpointEventHub.EndpointEventHubArgs{
+// Name: "example-EH",
+// DigitalTwinsId: exampleInstance.Id,
+// EventhubPrimaryConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
+// EventhubSecondaryConnectionString: exampleAuthorizationRule.SecondaryConnectionString,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -23,91 +23,92 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/account"
+//	cosmosdb/sqlContainer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/sqlContainer"
+//	cosmosdb/sqlDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/sqlDatabase"
+//	iot/endpointCosmosdbAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/endpointCosmosdbAccount"
+//	iot/ioTHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/ioTHub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("exampleIothub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("B1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//				Tags: pulumi.StringMap{
-//					"purpose": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel: pulumi.String("Strong"),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         example.Location,
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
-//				Name:              pulumi.String("cosmos-sql-db"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-//				Name:              pulumi.String("example-container"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//				DatabaseName:      exampleSqlDatabase.Name,
-//				PartitionKeyPath:  pulumi.String("/definition/id"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewEndpointCosmosdbAccount(ctx, "example", &iot.EndpointCosmosdbAccountArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				IothubId:          exampleIoTHub.ID(),
-//				ContainerName:     exampleSqlContainer.Name,
-//				DatabaseName:      exampleSqlDatabase.Name,
-//				EndpointUri:       exampleAccount.Endpoint,
-//				PrimaryKey:        exampleAccount.PrimaryKey,
-//				SecondaryKey:      exampleAccount.SecondaryKey,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIoTHub, err := iot/ioTHub.NewIoTHub(ctx, "example", &iot/ioTHub.IoTHubArgs{
+// Name: "exampleIothub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "B1",
+// "capacity": "1",
+// },
+// Tags: map[string]interface{}{
+// "purpose": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cosmosdb/account.NewAccount(ctx, "example", &cosmosdb/account.AccountArgs{
+// Name: "cosmosdb-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// OfferType: "Standard",
+// Kind: "GlobalDocumentDB",
+// ConsistencyPolicy: map[string]interface{}{
+// "consistencyLevel": "Strong",
+// },
+// GeoLocations: []map[string]interface{}{
+// map[string]interface{}{
+// "location": example.Location,
+// "failoverPriority": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlDatabase, err := cosmosdb/sqlDatabase.NewSqlDatabase(ctx, "example", &cosmosdb/sqlDatabase.SqlDatabaseArgs{
+// Name: "cosmos-sql-db",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSqlContainer, err := cosmosdb/sqlContainer.NewSqlContainer(ctx, "example", &cosmosdb/sqlContainer.SqlContainerArgs{
+// Name: "example-container",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// DatabaseName: exampleSqlDatabase.Name,
+// PartitionKeyPath: "/definition/id",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/endpointCosmosdbAccount.NewEndpointCosmosdbAccount(ctx, "example", &iot/endpointCosmosdbAccount.EndpointCosmosdbAccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// IothubId: exampleIoTHub.Id,
+// ContainerName: exampleSqlContainer.Name,
+// DatabaseName: exampleSqlDatabase.Name,
+// EndpointUri: exampleAccount.Endpoint,
+// PrimaryKey: exampleAccount.PrimaryKey,
+// SecondaryKey: exampleAccount.SecondaryKey,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -27,52 +27,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/account"
+//	cosmosdb/notebookWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/notebookWorkspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel: pulumi.String("BoundedStaleness"),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         example.Location,
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewNotebookWorkspace(ctx, "example", &cosmosdb.NotebookWorkspaceArgs{
-//				Name:              pulumi.String("default"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cosmosdb/account.NewAccount(ctx, "example", &cosmosdb/account.AccountArgs{
+// Name: "example-cosmosdb-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// OfferType: "Standard",
+// Kind: "GlobalDocumentDB",
+// ConsistencyPolicy: map[string]interface{}{
+// "consistencyLevel": "BoundedStaleness",
+// },
+// GeoLocations: []map[string]interface{}{
+// map[string]interface{}{
+// "location": example.Location,
+// "failoverPriority": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/notebookWorkspace.NewNotebookWorkspace(ctx, "example", &cosmosdb/notebookWorkspace.NotebookWorkspaceArgs{
+// Name: "default",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

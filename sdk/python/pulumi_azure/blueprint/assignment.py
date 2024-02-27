@@ -449,62 +449,6 @@ class Assignment(pulumi.CustomResource):
 
         > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.get_subscription()
-        example_get_definition = azure.blueprint.get_definition(name="exampleBlueprint",
-            scope_id=example.id)
-        example_get_published_version = azure.blueprint.get_published_version(scope_id=example_get_definition.scope_id,
-            blueprint_name=example_get_definition.name,
-            version="v1.0.0")
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="exampleRG-bp",
-            location="West Europe",
-            tags={
-                "Environment": "example",
-            })
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            name="bp-user-example")
-        operator = azure.authorization.Assignment("operator",
-            scope=example.id,
-            role_definition_name="Blueprint Operator",
-            principal_id=example_user_assigned_identity.principal_id)
-        owner = azure.authorization.Assignment("owner",
-            scope=example.id,
-            role_definition_name="Owner",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_assignment = azure.blueprint.Assignment("example",
-            name="testAccBPAssignment",
-            target_subscription_id=example.id,
-            version_id=example_get_published_version.id,
-            location=example_resource_group.location,
-            lock_mode="AllResourcesDoNotDelete",
-            lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            resource_groups=\"\"\"    {
-              "ResourceGroup": {
-                "name": "exampleRG-bp"
-              }
-            }
-        \"\"\",
-            parameter_values=\"\"\"    {
-              "allowedlocationsforresourcegroups_listOfAllowedLocations": {
-                "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
-              }
-            }
-        \"\"\")
-        ```
-
         ## Import
 
         Azure Blueprint Assignments can be imported using the `resource id`, e.g.
@@ -542,62 +486,6 @@ class Assignment(pulumi.CustomResource):
         > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
         > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.get_subscription()
-        example_get_definition = azure.blueprint.get_definition(name="exampleBlueprint",
-            scope_id=example.id)
-        example_get_published_version = azure.blueprint.get_published_version(scope_id=example_get_definition.scope_id,
-            blueprint_name=example_get_definition.name,
-            version="v1.0.0")
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="exampleRG-bp",
-            location="West Europe",
-            tags={
-                "Environment": "example",
-            })
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            name="bp-user-example")
-        operator = azure.authorization.Assignment("operator",
-            scope=example.id,
-            role_definition_name="Blueprint Operator",
-            principal_id=example_user_assigned_identity.principal_id)
-        owner = azure.authorization.Assignment("owner",
-            scope=example.id,
-            role_definition_name="Owner",
-            principal_id=example_user_assigned_identity.principal_id)
-        example_assignment = azure.blueprint.Assignment("example",
-            name="testAccBPAssignment",
-            target_subscription_id=example.id,
-            version_id=example_get_published_version.id,
-            location=example_resource_group.location,
-            lock_mode="AllResourcesDoNotDelete",
-            lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            resource_groups=\"\"\"    {
-              "ResourceGroup": {
-                "name": "exampleRG-bp"
-              }
-            }
-        \"\"\",
-            parameter_values=\"\"\"    {
-              "allowedlocationsforresourcegroups_listOfAllowedLocations": {
-                "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
-              }
-            }
-        \"\"\")
-        ```
 
         ## Import
 

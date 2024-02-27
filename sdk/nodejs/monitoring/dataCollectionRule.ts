@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     name: "example-uai",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-workspace",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights/analyticsSolution.AnalyticsSolution("example", {
  *     solutionName: "WindowsEventForwarding",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -40,38 +40,38 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/WindowsEventForwarding",
  *     },
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "exeventns",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     capacity: 1,
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ * const exampleEventHub = new azure.eventhub/eventHub.EventHub("example", {
  *     name: "exevent2",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examstorage",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "examplecontainer",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("example", {
+ * const exampleDataCollectionEndpoint = new azure.monitoring/dataCollectionEndpoint.DataCollectionEndpoint("example", {
  *     name: "example-dcre",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("example", {
+ * const exampleDataCollectionRule = new azure.monitoring/dataCollectionRule.DataCollectionRule("example", {
  *     name: "example-rule",
  *     resourceGroupName: example.name,
  *     location: example.location,

@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("example", {
+ * const exampleLinkedServiceSnowflake = new azure.datafactory/linkedServiceSnowflake.LinkedServiceSnowflake("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
- * const exampleDatasetSnowflake = new azure.datafactory.DatasetSnowflake("example", {
+ * const exampleDatasetSnowflake = new azure.datafactory/datasetSnowflake.DatasetSnowflake("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceSnowflake.name,

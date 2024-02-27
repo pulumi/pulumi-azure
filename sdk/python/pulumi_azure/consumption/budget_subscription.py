@@ -306,67 +306,6 @@ class BudgetSubscription(pulumi.CustomResource):
         """
         Manages a Subscription Consumption Budget.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example",
-            resource_group_name=example.name,
-            short_name="example")
-        example_budget_subscription = azure.consumption.BudgetSubscription("example",
-            name="example",
-            subscription_id=current.id,
-            amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetSubscriptionFilterArgs(
-                dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example.name],
-                )],
-                tags=[azure.consumption.BudgetSubscriptionFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
-                    ],
-                )],
-            ),
-            notifications=[
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                    contact_groups=[example_action_group.id],
-                    contact_roles=["Owner"],
-                ),
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                ),
-            ])
-        ```
-
         ## Import
 
         Subscription Consumption Budgets can be imported using the `resource id`, e.g.
@@ -396,67 +335,6 @@ class BudgetSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Consumption Budget.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example",
-            resource_group_name=example.name,
-            short_name="example")
-        example_budget_subscription = azure.consumption.BudgetSubscription("example",
-            name="example",
-            subscription_id=current.id,
-            amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetSubscriptionFilterArgs(
-                dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example.name],
-                )],
-                tags=[azure.consumption.BudgetSubscriptionFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
-                    ],
-                )],
-            ),
-            notifications=[
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                    contact_groups=[example_action_group.id],
-                    contact_roles=["Owner"],
-                ),
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
-                    ],
-                ),
-            ])
-        ```
 
         ## Import
 

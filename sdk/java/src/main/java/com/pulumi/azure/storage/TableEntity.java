@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .tableName(exampleTable.name())
  *             .partitionKey(&#34;examplepartition&#34;)
  *             .rowKey(&#34;examplerow&#34;)
- *             .entity(Map.of(&#34;example&#34;, &#34;example&#34;))
+ *             .entity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

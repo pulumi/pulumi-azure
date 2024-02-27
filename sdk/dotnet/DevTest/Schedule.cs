@@ -22,33 +22,33 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.DevTest.Lab("example", new()
+    ///     var exampleLab = new Azure.Devtest.Lab.Lab("example", new()
     ///     {
     ///         Name = "YourDevTestLab",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSchedule = new Azure.DevTest.Schedule("example", new()
+    ///     var exampleSchedule = new Azure.Devtest.Schedule.Schedule("example", new()
     ///     {
     ///         Name = "LabVmAutoStart",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         LabName = exampleLab.Name,
-    ///         WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
+    ///         WeeklyRecurrence = 
     ///         {
-    ///             Time = "1100",
-    ///             WeekDays = new[]
+    ///             { "time", "1100" },
+    ///             { "weekDays", new[]
     ///             {
     ///                 "Monday",
     ///                 "Tuesday",
-    ///             },
+    ///             } },
     ///         },
     ///         TimeZoneId = "Pacific Standard Time",
     ///         TaskType = "LabVmsStartupTask",

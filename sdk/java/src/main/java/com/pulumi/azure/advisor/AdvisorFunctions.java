@@ -17,80 +17,12 @@ public final class AdvisorFunctions {
     /**
      * Use this data source to access information about an existing Advisor Recommendations.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.advisor.AdvisorFunctions;
-     * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
-     *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations() {
         return getRecommendations(GetRecommendationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Advisor Recommendations.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.advisor.AdvisorFunctions;
-     * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
-     *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain() {
@@ -99,80 +31,12 @@ public final class AdvisorFunctions {
     /**
      * Use this data source to access information about an existing Advisor Recommendations.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.advisor.AdvisorFunctions;
-     * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
-     *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args) {
         return getRecommendations(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Advisor Recommendations.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.advisor.AdvisorFunctions;
-     * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
-     *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain(GetRecommendationsPlainArgs args) {
@@ -181,80 +45,12 @@ public final class AdvisorFunctions {
     /**
      * Use this data source to access information about an existing Advisor Recommendations.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.advisor.AdvisorFunctions;
-     * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
-     *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:advisor/getRecommendations:getRecommendations", TypeShape.of(GetRecommendationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Advisor Recommendations.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.advisor.AdvisorFunctions;
-     * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
-     *             .filterByCategories(            
-     *                 &#34;security&#34;,
-     *                 &#34;cost&#34;)
-     *             .filterByResourceGroups(&#34;example-resgroups&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;recommendations&#34;, example.applyValue(getRecommendationsResult -&gt; getRecommendationsResult.recommendations()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain(GetRecommendationsPlainArgs args, InvokeOptions options) {

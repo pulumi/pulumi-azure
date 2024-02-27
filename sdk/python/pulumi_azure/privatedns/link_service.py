@@ -397,57 +397,57 @@ class LinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+            address_spaces=[10.5.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"],
+            address_prefixes=[10.5.1.0/24],
             enforce_private_link_service_network_policies=True)
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-api",
-            sku="Standard",
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-api,
+            sku=Standard,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
-            sku="Standard",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=example-lb,
+            sku=Standard,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name=example_public_ip.name,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_link_service = azure.privatedns.LinkService("example",
-            name="example-privatelink",
+            frontend_ip_configurations=[{
+                name: example_public_ip.name,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_link_service = azure.privatedns.link_service.LinkService("example",
+            name=example-privatelink,
             resource_group_name=example.name,
             location=example.location,
-            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
-            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            auto_approval_subscription_ids=[00000000-0000-0000-0000-000000000000],
+            visibility_subscription_ids=[00000000-0000-0000-0000-000000000000],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
             nat_ip_configurations=[
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="primary",
-                    private_ip_address="10.5.1.17",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=True,
-                ),
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="secondary",
-                    private_ip_address="10.5.1.18",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=False,
-                ),
+                {
+                    name: primary,
+                    privateIpAddress: 10.5.1.17,
+                    privateIpAddressVersion: IPv4,
+                    subnetId: example_subnet.id,
+                    primary: True,
+                },
+                {
+                    name: secondary,
+                    privateIpAddress: 10.5.1.18,
+                    privateIpAddressVersion: IPv4,
+                    subnetId: example_subnet.id,
+                    primary: False,
+                },
             ])
         ```
 
@@ -491,57 +491,57 @@ class LinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+            address_spaces=[10.5.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.1.0/24"],
+            address_prefixes=[10.5.1.0/24],
             enforce_private_link_service_network_policies=True)
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-api",
-            sku="Standard",
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-api,
+            sku=Standard,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
-            sku="Standard",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=example-lb,
+            sku=Standard,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name=example_public_ip.name,
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_link_service = azure.privatedns.LinkService("example",
-            name="example-privatelink",
+            frontend_ip_configurations=[{
+                name: example_public_ip.name,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_link_service = azure.privatedns.link_service.LinkService("example",
+            name=example-privatelink,
             resource_group_name=example.name,
             location=example.location,
-            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
-            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            auto_approval_subscription_ids=[00000000-0000-0000-0000-000000000000],
+            visibility_subscription_ids=[00000000-0000-0000-0000-000000000000],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
             nat_ip_configurations=[
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="primary",
-                    private_ip_address="10.5.1.17",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=True,
-                ),
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="secondary",
-                    private_ip_address="10.5.1.18",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=False,
-                ),
+                {
+                    name: primary,
+                    privateIpAddress: 10.5.1.17,
+                    privateIpAddressVersion: IPv4,
+                    subnetId: example_subnet.id,
+                    primary: True,
+                },
+                {
+                    name: secondary,
+                    privateIpAddress: 10.5.1.18,
+                    privateIpAddressVersion: IPv4,
+                    subnetId: example_subnet.id,
+                    primary: False,
+                },
             ])
         ```
 

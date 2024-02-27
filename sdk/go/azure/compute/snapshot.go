@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/managedDisk "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/managedDisk"
+//	compute/snapshot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/snapshot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("snapshot-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String("managed-disk"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Empty"),
-//				DiskSizeGb:         pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewSnapshot(ctx, "example", &compute.SnapshotArgs{
-//				Name:              pulumi.String("snapshot"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				CreateOption:      pulumi.String("Copy"),
-//				SourceUri:         exampleManagedDisk.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "snapshot-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleManagedDisk, err := compute/managedDisk.NewManagedDisk(ctx, "example", &compute/managedDisk.ManagedDiskArgs{
+// Name: "managed-disk",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccountType: "Standard_LRS",
+// CreateOption: "Empty",
+// DiskSizeGb: "10",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/snapshot.NewSnapshot(ctx, "example", &compute/snapshot.SnapshotArgs{
+// Name: "snapshot",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// CreateOption: "Copy",
+// SourceUri: exampleManagedDisk.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

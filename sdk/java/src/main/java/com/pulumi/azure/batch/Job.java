@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.batch.AccountArgs;
  * import com.pulumi.azure.batch.Pool;
  * import com.pulumi.azure.batch.PoolArgs;
- * import com.pulumi.azure.batch.inputs.PoolFixedScaleArgs;
- * import com.pulumi.azure.batch.inputs.PoolStorageImageReferenceArgs;
  * import com.pulumi.azure.batch.Job;
  * import com.pulumi.azure.batch.JobArgs;
  * import java.util.List;
@@ -66,15 +64,8 @@ import javax.annotation.Nullable;
  *             .accountName(exampleAccount.name())
  *             .nodeAgentSkuId(&#34;batch.node.ubuntu 16.04&#34;)
  *             .vmSize(&#34;Standard_A1&#34;)
- *             .fixedScale(PoolFixedScaleArgs.builder()
- *                 .targetDedicatedNodes(1)
- *                 .build())
- *             .storageImageReference(PoolStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .fixedScale(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        

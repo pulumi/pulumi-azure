@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	mariadb/firewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/firewallRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
-//				Name:              pulumi.String("test-rule"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//				ServerName:        pulumi.String("test-server"),
-//				StartIpAddress:    pulumi.String("40.112.8.12"),
-//				EndIpAddress:      pulumi.String("40.112.8.12"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mariadb/firewallRule.NewFirewallRule(ctx, "example", &mariadb/firewallRule.FirewallRuleArgs{
+// Name: "test-rule",
+// ResourceGroupName: "test-rg",
+// ServerName: "test-server",
+// StartIpAddress: "40.112.8.12",
+// EndIpAddress: "40.112.8.12",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### IP Range)
 //
@@ -51,27 +49,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	mariadb/firewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/firewallRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
-//				Name:              pulumi.String("test-rule"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//				ServerName:        pulumi.String("test-server"),
-//				StartIpAddress:    pulumi.String("40.112.0.0"),
-//				EndIpAddress:      pulumi.String("40.112.255.255"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mariadb/firewallRule.NewFirewallRule(ctx, "example", &mariadb/firewallRule.FirewallRuleArgs{
+// Name: "test-rule",
+// ResourceGroupName: "test-rg",
+// ServerName: "test-server",
+// StartIpAddress: "40.112.0.0",
+// EndIpAddress: "40.112.255.255",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

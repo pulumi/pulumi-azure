@@ -21,50 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	batch/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/batch/account"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("testbatch"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("teststorage"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = batch.NewAccount(ctx, "example", &batch.AccountArgs{
-//				Name:                             pulumi.String("testbatchaccount"),
-//				ResourceGroupName:                example.Name,
-//				Location:                         example.Location,
-//				PoolAllocationMode:               pulumi.String("BatchService"),
-//				StorageAccountId:                 exampleAccount.ID(),
-//				StorageAccountAuthenticationMode: pulumi.String("StorageKeys"),
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "testbatch",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "teststorage",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = batch/account.NewAccount(ctx, "example", &batch/account.AccountArgs{
+// Name: "testbatchaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PoolAllocationMode: "BatchService",
+// StorageAccountId: exampleAccount.Id,
+// StorageAccountAuthenticationMode: "StorageKeys",
+// Tags: map[string]interface{}{
+// "env": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

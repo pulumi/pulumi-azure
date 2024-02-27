@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.core.ResourceGroupCostManagementView;
  * import com.pulumi.azure.core.ResourceGroupCostManagementViewArgs;
- * import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewDatasetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,13 +59,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupId(example.id())
  *             .reportType(&#34;Usage&#34;)
  *             .timeframe(&#34;MonthToDate&#34;)
- *             .dataset(ResourceGroupCostManagementViewDatasetArgs.builder()
- *                 .granularity(&#34;Monthly&#34;)
- *                 .aggregations(ResourceGroupCostManagementViewDatasetAggregationArgs.builder()
- *                     .name(&#34;totalCost&#34;)
- *                     .columnName(&#34;Cost&#34;)
- *                     .build())
- *                 .build())
+ *             .dataset(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

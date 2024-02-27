@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     addressSpaces: ["10.7.29.0/29"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const internal = new azure.network.Subnet("internal", {
+ * const internal = new azure.network/subnet.Subnet("internal", {
  *     name: "internal",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
- * const exampleServer = new azure.mariadb.Server("example", {
+ * const exampleServer = new azure.mariadb/server.Server("example", {
  *     name: "mariadb-server-1",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  *     skuName: "GP_Gen5_2",
  * });
- * const exampleVirtualNetworkRule = new azure.mariadb.VirtualNetworkRule("example", {
+ * const exampleVirtualNetworkRule = new azure.mariadb/virtualNetworkRule.VirtualNetworkRule("example", {
  *     name: "mariadb-vnet-rule",
  *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,

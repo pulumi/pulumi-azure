@@ -17,76 +17,12 @@ public final class AppinsightsFunctions {
     /**
      * Use this data source to access information about an existing Application Insights component.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appinsights.AppinsightsFunctions;
-     * import com.pulumi.azure.appinsights.inputs.GetInsightsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args) {
         return getInsights(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Application Insights component.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appinsights.AppinsightsFunctions;
-     * import com.pulumi.azure.appinsights.inputs.GetInsightsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInsightsResult> getInsightsPlain(GetInsightsPlainArgs args) {
@@ -95,76 +31,12 @@ public final class AppinsightsFunctions {
     /**
      * Use this data source to access information about an existing Application Insights component.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appinsights.AppinsightsFunctions;
-     * import com.pulumi.azure.appinsights.inputs.GetInsightsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appinsights/getInsights:getInsights", TypeShape.of(GetInsightsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Application Insights component.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appinsights.AppinsightsFunctions;
-     * import com.pulumi.azure.appinsights.inputs.GetInsightsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppinsightsFunctions.getInsights(GetInsightsArgs.builder()
-     *             .name(&#34;production&#34;)
-     *             .resourceGroupName(&#34;networking&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;applicationInsightsInstrumentationKey&#34;, example.applyValue(getInsightsResult -&gt; getInsightsResult.instrumentationKey()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInsightsResult> getInsightsPlain(GetInsightsPlainArgs args, InvokeOptions options) {

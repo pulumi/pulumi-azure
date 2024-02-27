@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Grafana Dashboard.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.dashboard.getGrafana({
- *     name: "example-grafana-dashboard",
- *     resourceGroupName: "example-rg",
- * });
- * export const name = example.then(example => example.name);
- * ```
  */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
 
@@ -116,19 +103,6 @@ export interface GetGrafanaResult {
 }
 /**
  * Use this data source to access information about an existing Grafana Dashboard.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.dashboard.getGrafana({
- *     name: "example-grafana-dashboard",
- *     resourceGroupName: "example-rg",
- * });
- * export const name = example.then(example => example.name);
- * ```
  */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
     return pulumi.output(args).apply((a: any) => getGrafana(a, opts))

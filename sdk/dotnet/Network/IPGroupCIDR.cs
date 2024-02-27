@@ -26,20 +26,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "test-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIPGroup = new Azure.Network.IPGroup("example", new()
+    ///     var exampleIPGroup = new Azure.Network.IPGroup.IPGroup("example", new()
     ///     {
     ///         Name = "test-ipgroup",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleIPGroupCIDR = new Azure.Network.IPGroupCIDR("example", new()
+    ///     var exampleIPGroupCIDR = new Azure.Network.IPGroupCIDR.IPGroupCIDR("example", new()
     ///     {
     ///         IpGroupId = exampleIPGroup.Id,
     ///         Cidr = "10.10.10.0/24",

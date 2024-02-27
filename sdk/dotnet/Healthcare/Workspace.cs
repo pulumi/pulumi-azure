@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Azure.Healthcare.Workspace("test", new()
+    ///     var test = new Azure.Healthcare.Workspace.Workspace("test", new()
     ///     {
     ///         Name = "tfexworkspace",
     ///         ResourceGroupName = "tfex-resource_group",

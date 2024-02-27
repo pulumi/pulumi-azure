@@ -22,13 +22,13 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "atp-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorage",
     ///         ResourceGroupName = example.Name,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///         },
     ///     });
     /// 
-    ///     var exampleAdvancedThreatProtection = new Azure.SecurityCenter.AdvancedThreatProtection("example", new()
+    ///     var exampleAdvancedThreatProtection = new Azure.Securitycenter.AdvancedThreatProtection.AdvancedThreatProtection("example", new()
     ///     {
     ///         TargetResourceId = exampleAccount.Id,
     ///         Enabled = true,

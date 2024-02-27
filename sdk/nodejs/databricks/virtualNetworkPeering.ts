@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const remote = new azure.network.VirtualNetwork("remote", {
+ * const remote = new azure.network/virtualNetwork.VirtualNetwork("remote", {
  *     name: "remote-vnet",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.1.0/24"],
  *     location: example.location,
  * });
- * const exampleWorkspace = new azure.databricks.Workspace("example", {
+ * const exampleWorkspace = new azure.databricks/workspace.Workspace("example", {
  *     name: "example-workspace",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: "standard",
  * });
- * const exampleVirtualNetworkPeering = new azure.databricks.VirtualNetworkPeering("example", {
+ * const exampleVirtualNetworkPeering = new azure.databricks/virtualNetworkPeering.VirtualNetworkPeering("example", {
  *     name: "databricks-vnet-peer",
  *     resourceGroupName: example.name,
  *     workspaceId: exampleWorkspace.id,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     remoteVirtualNetworkId: remote.id,
  *     allowVirtualNetworkAccess: true,
  * });
- * const remoteVirtualNetworkPeering = new azure.network.VirtualNetworkPeering("remote", {
+ * const remoteVirtualNetworkPeering = new azure.network/virtualNetworkPeering.VirtualNetworkPeering("remote", {
  *     name: "peer-to-databricks",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: remote.name,

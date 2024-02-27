@@ -16,63 +16,6 @@ import (
 //
 // > **Note:** The `sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "example", &sql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("managedsqlinstance"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				AdministratorLogin:         pulumi.String("mradministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SubnetId:                   pulumi.Any(exampleAzurermSubnet.Id),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				Vcores:                     pulumi.Int(4),
-//				StorageSizeInGb:            pulumi.Int(32),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "example", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
-//				ManagedInstanceName: exampleManagedInstance.Name,
-//				ResourceGroupName:   example.Name,
-//				Login:               pulumi.String("sqladmin"),
-//				TenantId:            *pulumi.String(current.TenantId),
-//				ObjectId:            *pulumi.String(current.ObjectId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

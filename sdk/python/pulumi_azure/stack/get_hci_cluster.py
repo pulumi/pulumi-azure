@@ -128,19 +128,6 @@ def get_hci_cluster(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Azure Stack HCI Cluster instance.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.stack.get_hci_cluster(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("location", example.location)
-    pulumi.export("clientId", example.client_id)
-    ```
-
 
     :param str name: The name of the Azure Stack HCI Cluster.
     :param str resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster exists.
@@ -168,19 +155,6 @@ def get_hci_cluster_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHciClusterResult]:
     """
     Use this data source to access information about an existing Azure Stack HCI Cluster instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.stack.get_hci_cluster(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("location", example.location)
-    pulumi.export("clientId", example.client_id)
-    ```
 
 
     :param str name: The name of the Azure Stack HCI Cluster.

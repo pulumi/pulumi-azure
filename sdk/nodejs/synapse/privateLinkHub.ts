@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.synapse.PrivateLinkHub("example", {
+ * const example = new azure.synapse/privateLinkHub.PrivateLinkHub("example", {
  *     name: "example",
  *     resourceGroupName: "example-rg",
  *     location: "West Europe",

@@ -21,52 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dataprotection/resourceGuard "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/resourceGuard"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	recoveryservices/vaultResourceGuardAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vaultResourceGuardAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dataprotection.NewResourceGuard(ctx, "example", &dataprotection.ResourceGuardArgs{
-//				Name:              pulumi.String("example-resourceguard"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				SoftDeleteEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = recoveryservices.NewVaultResourceGuardAssociation(ctx, "test", &recoveryservices.VaultResourceGuardAssociationArgs{
-//				Name:            pulumi.String("VaultProxy"),
-//				VaultId:         pulumi.Any(testAzurermRecoveryServicesVault.Id),
-//				ResourceGuardId: pulumi.Any(testAzurermDataProtectionResourceGuard.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dataprotection/resourceGuard.NewResourceGuard(ctx, "example", &dataprotection/resourceGuard.ResourceGuardArgs{
+// Name: "example-resourceguard",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = recoveryservices/vault.NewVault(ctx, "vault", &recoveryservices/vault.VaultArgs{
+// Name: "example-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// SoftDeleteEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = recoveryservices/vaultResourceGuardAssociation.NewVaultResourceGuardAssociation(ctx, "test", &recoveryservices/vaultResourceGuardAssociation.VaultResourceGuardAssociationArgs{
+// Name: "VaultProxy",
+// VaultId: testAzurermRecoveryServicesVault.Id,
+// ResourceGuardId: testAzurermDataProtectionResourceGuard.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

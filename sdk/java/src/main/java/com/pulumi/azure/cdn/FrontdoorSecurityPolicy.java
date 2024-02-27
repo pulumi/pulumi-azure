@@ -30,17 +30,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
  * import com.pulumi.azure.dns.Zone;
  * import com.pulumi.azure.dns.ZoneArgs;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,23 +69,7 @@ import javax.annotation.Nullable;
  *             .redirectUrl(&#34;https://www.contoso.com&#34;)
  *             .customBlockResponseStatusCode(403)
  *             .customBlockResponseBody(&#34;PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==&#34;)
- *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                 .name(&#34;Rule1&#34;)
- *                 .enabled(true)
- *                 .priority(1)
- *                 .rateLimitDurationInMinutes(1)
- *                 .rateLimitThreshold(10)
- *                 .type(&#34;MatchRule&#34;)
- *                 .action(&#34;Block&#34;)
- *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                     .matchVariable(&#34;RemoteAddr&#34;)
- *                     .operator(&#34;IPMatch&#34;)
- *                     .negationCondition(false)
- *                     .matchValues(                    
- *                         &#34;192.168.1.0/24&#34;,
- *                         &#34;10.0.1.0/24&#34;)
- *                     .build())
- *                 .build())
+ *             .customRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
@@ -103,26 +82,13 @@ import javax.annotation.Nullable;
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
  *             .hostName(&#34;contoso.fabrikam.com&#34;)
- *             .tls(FrontdoorCustomDomainTlsArgs.builder()
- *                 .certificateType(&#34;ManagedCertificate&#34;)
- *                 .minimumTlsVersion(&#34;TLS12&#34;)
- *                 .build())
+ *             .tls(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy(&#34;exampleFrontdoorSecurityPolicy&#34;, FrontdoorSecurityPolicyArgs.builder()        
  *             .name(&#34;Example-Security-Policy&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
- *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
- *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
- *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
- *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
- *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
- *                             .build())
- *                         .patternsToMatch(&#34;/*&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .securityPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

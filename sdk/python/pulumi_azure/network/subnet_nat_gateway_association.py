@@ -106,24 +106,24 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-nat-gateway-rg",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-nat-gateway-rg,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_nat_gateway = azure.network.NatGateway("example",
-            name="example-natgateway",
+            address_prefixes=[10.0.2.0/24])
+        example_nat_gateway = azure.network.nat_gateway.NatGateway("example",
+            name=example-natgateway,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet_nat_gateway_association = azure.network.SubnetNatGatewayAssociation("example",
+        example_subnet_nat_gateway_association = azure.network.subnet_nat_gateway_association.SubnetNatGatewayAssociation("example",
             subnet_id=example_subnet.id,
             nat_gateway_id=example_nat_gateway.id)
         ```
@@ -156,24 +156,24 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-nat-gateway-rg",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-nat-gateway-rg,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_nat_gateway = azure.network.NatGateway("example",
-            name="example-natgateway",
+            address_prefixes=[10.0.2.0/24])
+        example_nat_gateway = azure.network.nat_gateway.NatGateway("example",
+            name=example-natgateway,
             location=example.location,
             resource_group_name=example.name)
-        example_subnet_nat_gateway_association = azure.network.SubnetNatGatewayAssociation("example",
+        example_subnet_nat_gateway_association = azure.network.subnet_nat_gateway_association.SubnetNatGatewayAssociation("example",
             subnet_id=example_subnet.id,
             nat_gateway_id=example_nat_gateway.id)
         ```

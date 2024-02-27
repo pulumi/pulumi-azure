@@ -29,16 +29,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
- * import com.pulumi.azure.network.VpnGateway;
- * import com.pulumi.azure.network.VpnGatewayArgs;
- * import com.pulumi.azure.network.VnpGatewayNatRule;
- * import com.pulumi.azure.network.VnpGatewayNatRuleArgs;
- * import com.pulumi.azure.network.inputs.VnpGatewayNatRuleExternalMappingArgs;
- * import com.pulumi.azure.network.inputs.VnpGatewayNatRuleInternalMappingArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
+ * import com.pulumi.azure.network_vpnGateway.VpnGateway;
+ * import com.pulumi.azure.network_vpnGateway.VpnGatewayArgs;
+ * import com.pulumi.azure.network_vnpGatewayNatRule.VnpGatewayNatRule;
+ * import com.pulumi.azure.network_vnpGatewayNatRule.VnpGatewayNatRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,12 +80,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-vpngatewaynatrule&#34;)
  *             .resourceGroupName(example.name())
  *             .vpnGatewayId(exampleVpnGateway.id())
- *             .externalMappings(VnpGatewayNatRuleExternalMappingArgs.builder()
- *                 .addressSpace(&#34;192.168.21.0/26&#34;)
- *                 .build())
- *             .internalMappings(VnpGatewayNatRuleInternalMappingArgs.builder()
- *                 .addressSpace(&#34;10.4.0.0/26&#34;)
- *                 .build())
+ *             .externalMappings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .internalMappings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -302,19 +302,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.relay.Namespace("example",
-            name="example-relay",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=example-relay,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             tags={
-                "source": "terraform",
+                source: terraform,
             })
-        example_namespace_authorization_rule = azure.relay.NamespaceAuthorizationRule("example",
-            name="example",
+        example_namespace_authorization_rule = azure.relay.namespace_authorization_rule.NamespaceAuthorizationRule("example",
+            name=example,
             resource_group_name=example.name,
             namespace_name=example_namespace.name,
             listen=True,
@@ -354,19 +354,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.relay.Namespace("example",
-            name="example-relay",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=example-relay,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             tags={
-                "source": "terraform",
+                source: terraform,
             })
-        example_namespace_authorization_rule = azure.relay.NamespaceAuthorizationRule("example",
-            name="example",
+        example_namespace_authorization_rule = azure.relay.namespace_authorization_rule.NamespaceAuthorizationRule("example",
+            name=example,
             resource_group_name=example.name,
             namespace_name=example_namespace.name,
             listen=True,

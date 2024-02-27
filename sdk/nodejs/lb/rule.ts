@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "LoadBalancerRG",
  *     location: "West Europe",
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "PublicIPForLB",
  *     location: "West US",
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ * const exampleLoadBalancer = new azure.lb/loadBalancer.LoadBalancer("example", {
  *     name: "TestLoadBalancer",
  *     location: "West US",
  *     resourceGroupName: example.name,
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleRule = new azure.lb.Rule("example", {
+ * const exampleRule = new azure.lb/rule.Rule("example", {
  *     loadbalancerId: exampleLoadBalancer.id,
  *     name: "LBRule",
  *     protocol: "Tcp",

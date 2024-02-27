@@ -238,29 +238,29 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="servicebus-replication",
-            location="West Europe")
-        primary = azure.servicebus.Namespace("primary",
-            name="servicebus-primary",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=servicebus-replication,
+            location=West Europe)
+        primary = azure.servicebus.namespace.Namespace("primary",
+            name=servicebus-primary,
             location=example.location,
             resource_group_name=example.name,
-            sku="Premium",
+            sku=Premium,
             capacity=1)
-        secondary = azure.servicebus.Namespace("secondary",
-            name="servicebus-secondary",
+        secondary = azure.servicebus.namespace.Namespace("secondary",
+            name=servicebus-secondary,
             location=example.location,
             resource_group_name=example.name,
-            sku="Premium",
+            sku=Premium,
             capacity=1)
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
-            name="examplerule",
-            namespace_id=example_azurerm_servicebus_namespace["id"],
+        example_namespace_authorization_rule = azure.servicebus.namespace_authorization_rule.NamespaceAuthorizationRule("example",
+            name=examplerule,
+            namespace_id=example_azurerm_servicebus_namespace.id,
             listen=True,
             send=True,
             manage=False)
-        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("example",
-            name="servicebus-alias-name",
+        example_namespace_disaster_recovery_config = azure.servicebus.namespace_disaster_recovery_config.NamespaceDisasterRecoveryConfig("example",
+            name=servicebus-alias-name,
             primary_namespace_id=primary.id,
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)
@@ -298,29 +298,29 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="servicebus-replication",
-            location="West Europe")
-        primary = azure.servicebus.Namespace("primary",
-            name="servicebus-primary",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=servicebus-replication,
+            location=West Europe)
+        primary = azure.servicebus.namespace.Namespace("primary",
+            name=servicebus-primary,
             location=example.location,
             resource_group_name=example.name,
-            sku="Premium",
+            sku=Premium,
             capacity=1)
-        secondary = azure.servicebus.Namespace("secondary",
-            name="servicebus-secondary",
+        secondary = azure.servicebus.namespace.Namespace("secondary",
+            name=servicebus-secondary,
             location=example.location,
             resource_group_name=example.name,
-            sku="Premium",
+            sku=Premium,
             capacity=1)
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
-            name="examplerule",
-            namespace_id=example_azurerm_servicebus_namespace["id"],
+        example_namespace_authorization_rule = azure.servicebus.namespace_authorization_rule.NamespaceAuthorizationRule("example",
+            name=examplerule,
+            namespace_id=example_azurerm_servicebus_namespace.id,
             listen=True,
             send=True,
             manage=False)
-        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("example",
-            name="servicebus-alias-name",
+        example_namespace_disaster_recovery_config = azure.servicebus.namespace_disaster_recovery_config.NamespaceDisasterRecoveryConfig("example",
+            name=servicebus-alias-name,
             primary_namespace_id=primary.id,
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)

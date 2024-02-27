@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
  * Manages a Mobile Network Packet Core Data Plane.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -34,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkArgs;
  * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlane;
  * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlaneArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlanePlatformArgs;
  * import com.pulumi.azure.mobile.NetworkPacketCoreDataPlane;
  * import com.pulumi.azure.mobile.NetworkPacketCoreDataPlaneArgs;
  * import java.util.List;
@@ -80,10 +78,7 @@ import javax.annotation.Nullable;
  *             .controlPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
  *             .controlPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
  *             .controlPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
- *             .platform(NetworkPacketCoreControlPlanePlatformArgs.builder()
- *                 .type(&#34;AKS-HCI&#34;)
- *                 .edgeDeviceId(exampleDevice.id())
- *                 .build())
+ *             .platform(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkPacketCoreDataPlane = new NetworkPacketCoreDataPlane(&#34;exampleNetworkPacketCoreDataPlane&#34;, NetworkPacketCoreDataPlaneArgs.builder()        
@@ -94,7 +89,7 @@ import javax.annotation.Nullable;
  *             .userPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
  *             .userPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
  *             .userPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

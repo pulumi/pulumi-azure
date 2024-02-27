@@ -12,63 +12,6 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages a certificate in an Azure Batch account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "testbatch",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
-    ///     {
-    ///         Name = "teststorage",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
-    ///     var exampleAccount2 = new Azure.Batch.Account("example", new()
-    ///     {
-    ///         Name = "testbatchaccount",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         PoolAllocationMode = "BatchService",
-    ///         StorageAccountId = exampleAccount.Id,
-    ///         StorageAccountAuthenticationMode = "StorageKeys",
-    ///         Tags = 
-    ///         {
-    ///             { "env", "test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.Batch.Certificate("example", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount2.Name,
-    ///         BatchCertificate = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "certificate.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Format = "Pfx",
-    ///         Password = "password",
-    ///         Thumbprint = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-    ///         ThumbprintAlgorithm = "SHA1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Batch Certificates can be imported using the `resource id`, e.g.

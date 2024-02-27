@@ -234,44 +234,44 @@ class LinkedServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_primary = azure.core.ResourceGroup("example-primary",
-            name="example-resources-primary",
-            location="East US")
-        example_primary_cache = azure.redis.Cache("example-primary",
-            name="example-cache1",
+        example_primary = azure.core.resource_group.ResourceGroup("example-primary",
+            name=example-resources-primary,
+            location=East US)
+        example_primary_cache = azure.redis.cache.Cache("example-primary",
+            name=example-cache1,
             location=example_primary.location,
             resource_group_name=example_primary.name,
             capacity=1,
-            family="P",
-            sku_name="Premium",
+            family=P,
+            sku_name=Premium,
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_secondary = azure.core.ResourceGroup("example-secondary",
-            name="example-resources-secondary",
-            location="West US")
-        example_secondary_cache = azure.redis.Cache("example-secondary",
-            name="example-cache2",
+            redis_configuration={
+                maxmemoryReserved: 2,
+                maxmemoryDelta: 2,
+                maxmemoryPolicy: allkeys-lru,
+            })
+        example_secondary = azure.core.resource_group.ResourceGroup("example-secondary",
+            name=example-resources-secondary,
+            location=West US)
+        example_secondary_cache = azure.redis.cache.Cache("example-secondary",
+            name=example-cache2,
             location=example_secondary.location,
             resource_group_name=example_secondary.name,
             capacity=1,
-            family="P",
-            sku_name="Premium",
+            family=P,
+            sku_name=Premium,
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_link = azure.redis.LinkedServer("example-link",
+            redis_configuration={
+                maxmemoryReserved: 2,
+                maxmemoryDelta: 2,
+                maxmemoryPolicy: allkeys-lru,
+            })
+        example_link = azure.redis.linked_server.LinkedServer("example-link",
             target_redis_cache_name=example_primary_cache.name,
             resource_group_name=example_primary_cache.resource_group_name,
             linked_redis_cache_id=example_secondary_cache.id,
             linked_redis_cache_location=example_secondary_cache.location,
-            server_role="Secondary")
+            server_role=Secondary)
         ```
 
         ## Import
@@ -305,44 +305,44 @@ class LinkedServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_primary = azure.core.ResourceGroup("example-primary",
-            name="example-resources-primary",
-            location="East US")
-        example_primary_cache = azure.redis.Cache("example-primary",
-            name="example-cache1",
+        example_primary = azure.core.resource_group.ResourceGroup("example-primary",
+            name=example-resources-primary,
+            location=East US)
+        example_primary_cache = azure.redis.cache.Cache("example-primary",
+            name=example-cache1,
             location=example_primary.location,
             resource_group_name=example_primary.name,
             capacity=1,
-            family="P",
-            sku_name="Premium",
+            family=P,
+            sku_name=Premium,
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_secondary = azure.core.ResourceGroup("example-secondary",
-            name="example-resources-secondary",
-            location="West US")
-        example_secondary_cache = azure.redis.Cache("example-secondary",
-            name="example-cache2",
+            redis_configuration={
+                maxmemoryReserved: 2,
+                maxmemoryDelta: 2,
+                maxmemoryPolicy: allkeys-lru,
+            })
+        example_secondary = azure.core.resource_group.ResourceGroup("example-secondary",
+            name=example-resources-secondary,
+            location=West US)
+        example_secondary_cache = azure.redis.cache.Cache("example-secondary",
+            name=example-cache2,
             location=example_secondary.location,
             resource_group_name=example_secondary.name,
             capacity=1,
-            family="P",
-            sku_name="Premium",
+            family=P,
+            sku_name=Premium,
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_link = azure.redis.LinkedServer("example-link",
+            redis_configuration={
+                maxmemoryReserved: 2,
+                maxmemoryDelta: 2,
+                maxmemoryPolicy: allkeys-lru,
+            })
+        example_link = azure.redis.linked_server.LinkedServer("example-link",
             target_redis_cache_name=example_primary_cache.name,
             resource_group_name=example_primary_cache.resource_group_name,
             linked_redis_cache_id=example_secondary_cache.id,
             linked_redis_cache_location=example_secondary_cache.location,
-            server_role="Secondary")
+            server_role=Secondary)
         ```
 
         ## Import

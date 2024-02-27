@@ -859,59 +859,59 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West US")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West US)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("example",
+            sku=Standard)
+        example_vm_ware_replication_policy = azure.siterecovery.v_m_ware_replication_policy.VMWareReplicationPolicy("example",
             recovery_vault_id=example_vault.id,
-            name="example-policy",
+            name=example-policy,
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
-        test = azure.siterecovery.VmwareReplicationPolicyAssociation("test",
-            name="example-association",
+        test = azure.siterecovery.vmware_replication_policy_association.VmwareReplicationPolicyAssociation("test",
+            name=example-association,
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-net",
+            account_tier=Standard,
+            account_kind=StorageV2,
+            account_replication_type=LRS)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-net,
             resource_group_name=example.name,
-            address_spaces=["192.168.2.0/24"],
+            address_spaces=[192.168.2.0/24],
             location=example.location)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.2.0/24"])
-        example_vmware_replicated_vm = azure.siterecovery.VmwareReplicatedVm("example",
-            name="example-vmware-vm",
+            address_prefixes=[192.168.2.0/24])
+        example_vmware_replicated_vm = azure.siterecovery.vmware_replicated_vm.VmwareReplicatedVm("example",
+            name=example-vmware-vm,
             recovery_vault_id=example_vault.id,
-            source_vm_name="example-vm",
-            appliance_name="example-appliance",
-            recovery_replication_policy_id=example_azurerm_site_recovery_vmware_replication_policy_association["policyId"],
-            physical_server_credential_name="example-creds",
-            license_type="NotSpecified",
+            source_vm_name=example-vm,
+            appliance_name=example-appliance,
+            recovery_replication_policy_id=example_azurerm_site_recovery_vmware_replication_policy_association.policy_id,
+            physical_server_credential_name=example-creds,
+            license_type=NotSpecified,
             target_boot_diagnostics_storage_account_id=example_account.id,
-            target_vm_name="example_replicated_vm",
+            target_vm_name=example_replicated_vm,
             target_resource_group_id=example.id,
             default_log_storage_account_id=example_account.id,
-            default_recovery_disk_type="Standard_LRS",
+            default_recovery_disk_type=Standard_LRS,
             target_network_id=example_virtual_network.id,
-            network_interfaces=[azure.siterecovery.VmwareReplicatedVmNetworkInterfaceArgs(
-                source_mac_address="00:00:00:00:00:00",
-                target_subnet_name=example_subnet.name,
-                is_primary=True,
-            )])
+            network_interfaces=[{
+                sourceMacAddress: 00:00:00:00:00:00,
+                targetSubnetName: example_subnet.name,
+                isPrimary: True,
+            }])
         ```
 
         ## Import
@@ -986,59 +986,59 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West US")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West US)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("example",
+            sku=Standard)
+        example_vm_ware_replication_policy = azure.siterecovery.v_m_ware_replication_policy.VMWareReplicationPolicy("example",
             recovery_vault_id=example_vault.id,
-            name="example-policy",
+            name=example-policy,
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
-        test = azure.siterecovery.VmwareReplicationPolicyAssociation("test",
-            name="example-association",
+        test = azure.siterecovery.vmware_replication_policy_association.VmwareReplicationPolicyAssociation("test",
+            name=example-association,
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-net",
+            account_tier=Standard,
+            account_kind=StorageV2,
+            account_replication_type=LRS)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-net,
             resource_group_name=example.name,
-            address_spaces=["192.168.2.0/24"],
+            address_spaces=[192.168.2.0/24],
             location=example.location)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["192.168.2.0/24"])
-        example_vmware_replicated_vm = azure.siterecovery.VmwareReplicatedVm("example",
-            name="example-vmware-vm",
+            address_prefixes=[192.168.2.0/24])
+        example_vmware_replicated_vm = azure.siterecovery.vmware_replicated_vm.VmwareReplicatedVm("example",
+            name=example-vmware-vm,
             recovery_vault_id=example_vault.id,
-            source_vm_name="example-vm",
-            appliance_name="example-appliance",
-            recovery_replication_policy_id=example_azurerm_site_recovery_vmware_replication_policy_association["policyId"],
-            physical_server_credential_name="example-creds",
-            license_type="NotSpecified",
+            source_vm_name=example-vm,
+            appliance_name=example-appliance,
+            recovery_replication_policy_id=example_azurerm_site_recovery_vmware_replication_policy_association.policy_id,
+            physical_server_credential_name=example-creds,
+            license_type=NotSpecified,
             target_boot_diagnostics_storage_account_id=example_account.id,
-            target_vm_name="example_replicated_vm",
+            target_vm_name=example_replicated_vm,
             target_resource_group_id=example.id,
             default_log_storage_account_id=example_account.id,
-            default_recovery_disk_type="Standard_LRS",
+            default_recovery_disk_type=Standard_LRS,
             target_network_id=example_virtual_network.id,
-            network_interfaces=[azure.siterecovery.VmwareReplicatedVmNetworkInterfaceArgs(
-                source_mac_address="00:00:00:00:00:00",
-                target_subnet_name=example_subnet.name,
-                is_primary=True,
-            )])
+            network_interfaces=[{
+                sourceMacAddress: 00:00:00:00:00:00,
+                targetSubnetName: example_subnet.name,
+                isPrimary: True,
+            }])
         ```
 
         ## Import

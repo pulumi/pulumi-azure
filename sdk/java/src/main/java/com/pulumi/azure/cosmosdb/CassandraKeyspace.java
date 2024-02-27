@@ -30,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.CassandraKeyspace;
  * import com.pulumi.azure.cosmosdb.CassandraKeyspaceArgs;
  * import java.util.List;
@@ -58,16 +55,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .offerType(&#34;Standard&#34;)
- *             .capabilities(AccountCapabilityArgs.builder()
- *                 .name(&#34;EnableCassandra&#34;)
- *                 .build())
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(example.location())
- *                 .failoverPriority(0)
- *                 .build())
+ *             .capabilities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .consistencyPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .geoLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleCassandraKeyspace = new CassandraKeyspace(&#34;exampleCassandraKeyspace&#34;, CassandraKeyspaceArgs.builder()        

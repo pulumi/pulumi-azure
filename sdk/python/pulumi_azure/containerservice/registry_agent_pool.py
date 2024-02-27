@@ -304,16 +304,16 @@ class RegistryAgentPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europ")
-        example_registry = azure.containerservice.Registry("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europ)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium")
-        example_registry_agent_pool = azure.containerservice.RegistryAgentPool("example",
-            name="example",
+            sku=Premium)
+        example_registry_agent_pool = azure.containerservice.registry_agent_pool.RegistryAgentPool("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             container_registry_name=example_registry.name)
@@ -353,16 +353,16 @@ class RegistryAgentPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europ")
-        example_registry = azure.containerservice.Registry("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europ)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium")
-        example_registry_agent_pool = azure.containerservice.RegistryAgentPool("example",
-            name="example",
+            sku=Premium)
+        example_registry_agent_pool = azure.containerservice.registry_agent_pool.RegistryAgentPool("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             container_registry_name=example_registry.name)

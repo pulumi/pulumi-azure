@@ -127,18 +127,6 @@ def get_replication_recovery_plan(name: Optional[str] = None,
     """
     Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    vault = azure.recoveryservices.get_vault(name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
-    example = azure.siterecovery.get_replication_recovery_plan(name="example-recovery-plan",
-        recovery_vault_id=vault.id)
-    ```
-
 
     :param str name: The name of the Replication Plan.
     :param str recovery_vault_id: The ID of the vault that should be updated.
@@ -166,18 +154,6 @@ def get_replication_recovery_plan_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryPlanResult]:
     """
     Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    vault = azure.recoveryservices.get_vault(name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
-    example = azure.siterecovery.get_replication_recovery_plan(name="example-recovery-plan",
-        recovery_vault_id=vault.id)
-    ```
 
 
     :param str name: The name of the Replication Plan.

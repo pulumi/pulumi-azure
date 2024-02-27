@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "acctest-01",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
+    ///     var exampleEnvironment = new Azure.Containerapp.Environment.Environment("example", new()
     ///     {
     ///         Name = "Example-Environment",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleEnvironmentDaprComponent = new Azure.ContainerApp.EnvironmentDaprComponent("example", new()
+    ///     var exampleEnvironmentDaprComponent = new Azure.Containerapp.EnvironmentDaprComponent.EnvironmentDaprComponent("example", new()
     ///     {
     ///         Name = "example-component",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,

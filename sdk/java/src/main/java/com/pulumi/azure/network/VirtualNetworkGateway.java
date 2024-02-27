@@ -36,16 +36,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.network.VirtualNetworkGateway;
- * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationArgs;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGateway;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGatewayArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -94,44 +92,8 @@ import javax.annotation.Nullable;
  *             .activeActive(false)
  *             .enableBgp(false)
  *             .sku(&#34;Basic&#34;)
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .name(&#34;vnetGatewayConfig&#34;)
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
- *             .vpnClientConfiguration(VirtualNetworkGatewayVpnClientConfigurationArgs.builder()
- *                 .addressSpaces(&#34;10.2.0.0/24&#34;)
- *                 .rootCertificates(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs.builder()
- *                     .name(&#34;DigiCert-Federated-ID-Root-CA&#34;)
- *                     .publicCertData(&#34;&#34;&#34;
- * MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
- * MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
- * d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
- * Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
- * BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
- * Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
- * MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
- * QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
- * zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
- * GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
- * GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
- * Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
- * DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
- * HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
- * jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
- * 9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
- * QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
- * uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
- * WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
- * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
- *                     &#34;&#34;&#34;)
- *                     .build())
- *                 .revokedCertificates(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs.builder()
- *                     .name(&#34;Verizon-Global-Root-CA&#34;)
- *                     .thumbprint(&#34;912198EEF23DCAC40939312FEE97DD560BAE49B1&#34;)
- *                     .build())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .vpnClientConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

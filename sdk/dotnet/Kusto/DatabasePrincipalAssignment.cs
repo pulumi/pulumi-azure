@@ -12,61 +12,6 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "KustoRG",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
-    ///     {
-    ///         Name = "kustocluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
-    ///     {
-    ///         Name = "KustoDatabase",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ClusterName = exampleCluster.Name,
-    ///         HotCachePeriod = "P7D",
-    ///         SoftDeletePeriod = "P31D",
-    ///     });
-    /// 
-    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("example", new()
-    ///     {
-    ///         Name = "KustoPrincipalAssignment",
-    ///         ResourceGroupName = example.Name,
-    ///         ClusterName = exampleCluster.Name,
-    ///         DatabaseName = exampleDatabase.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///         PrincipalType = "App",
-    ///         Role = "Viewer",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Kusto Database Principal Assignment can be imported using the `resource id`, e.g.

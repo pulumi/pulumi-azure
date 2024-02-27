@@ -23,83 +23,82 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGateway"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
-//				Name:                       pulumi.String("default"),
-//				SpringCloudServiceId:       exampleSpringCloudService.ID(),
-//				HttpsOnly:                  pulumi.Bool(false),
-//				PublicNetworkAccessEnabled: pulumi.Bool(true),
-//				InstanceCount:              pulumi.Int(2),
-//				ApiMetadata: &appplatform.SpringCloudGatewayApiMetadataArgs{
-//					Description:      pulumi.String("example description"),
-//					DocumentationUrl: pulumi.String("https://www.example.com/docs"),
-//					ServerUrl:        pulumi.String("https://wwww.example.com"),
-//					Title:            pulumi.String("example title"),
-//					Version:          pulumi.String("1.0"),
-//				},
-//				Cors: &appplatform.SpringCloudGatewayCorsArgs{
-//					CredentialsAllowed: pulumi.Bool(false),
-//					AllowedHeaders: pulumi.StringArray{
-//						pulumi.String("*"),
-//					},
-//					AllowedMethods: pulumi.StringArray{
-//						pulumi.String("PUT"),
-//					},
-//					AllowedOrigins: pulumi.StringArray{
-//						pulumi.String("example.com"),
-//					},
-//					ExposedHeaders: pulumi.StringArray{
-//						pulumi.String("x-example-header"),
-//					},
-//					MaxAgeSeconds: pulumi.Int(86400),
-//				},
-//				Quota: &appplatform.SpringCloudGatewayQuotaArgs{
-//					Cpu:    pulumi.String("1"),
-//					Memory: pulumi.String("2Gi"),
-//				},
-//				Sso: &appplatform.SpringCloudGatewaySsoArgs{
-//					ClientId:     pulumi.String("example id"),
-//					ClientSecret: pulumi.String("example secret"),
-//					IssuerUri:    pulumi.String("https://www.test.com/issueToken"),
-//					Scopes: pulumi.StringArray{
-//						pulumi.String("read"),
-//					},
-//				},
-//				LocalResponseCachePerInstance: &appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs{
-//					Size:       pulumi.String("100MB"),
-//					TimeToLive: pulumi.String("30s"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudGateway.NewSpringCloudGateway(ctx, "example", &appplatform/springCloudGateway.SpringCloudGatewayArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// HttpsOnly: false,
+// PublicNetworkAccessEnabled: true,
+// InstanceCount: 2,
+// ApiMetadata: map[string]interface{}{
+// "description": "example description",
+// "documentationUrl": "https://www.example.com/docs",
+// "serverUrl": "https://wwww.example.com",
+// "title": "example title",
+// "version": "1.0",
+// },
+// Cors: map[string]interface{}{
+// "credentialsAllowed": false,
+// "allowedHeaders": []string{
+// "*",
+// },
+// "allowedMethods": []string{
+// "PUT",
+// },
+// "allowedOrigins": []string{
+// "example.com",
+// },
+// "exposedHeaders": []string{
+// "x-example-header",
+// },
+// "maxAgeSeconds": 86400,
+// },
+// Quota: map[string]interface{}{
+// "cpu": "1",
+// "memory": "2Gi",
+// },
+// Sso: map[string]interface{}{
+// "clientId": "example id",
+// "clientSecret": "example secret",
+// "issuerUri": "https://www.test.com/issueToken",
+// "scopes": []string{
+// "read",
+// },
+// },
+// LocalResponseCachePerInstance: map[string]interface{}{
+// "size": "100MB",
+// "timeToLive": "30s",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

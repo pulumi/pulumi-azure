@@ -21,51 +21,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/privateLinkScope "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/privateLinkScope"
+//	monitoring/privateLinkScopedService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/privateLinkScopedService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateLinkScope, err := monitoring.NewPrivateLinkScope(ctx, "example", &monitoring.PrivateLinkScopeArgs{
-//				Name:              pulumi.String("example-ampls"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewPrivateLinkScopedService(ctx, "example", &monitoring.PrivateLinkScopedServiceArgs{
-//				Name:              pulumi.String("example-amplsservice"),
-//				ResourceGroupName: example.Name,
-//				ScopeName:         examplePrivateLinkScope.Name,
-//				LinkedResourceId:  exampleInsights.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "example-appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// examplePrivateLinkScope, err := monitoring/privateLinkScope.NewPrivateLinkScope(ctx, "example", &monitoring/privateLinkScope.PrivateLinkScopeArgs{
+// Name: "example-ampls",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/privateLinkScopedService.NewPrivateLinkScopedService(ctx, "example", &monitoring/privateLinkScopedService.PrivateLinkScopedServiceArgs{
+// Name: "example-amplsservice",
+// ResourceGroupName: example.Name,
+// ScopeName: examplePrivateLinkScope.Name,
+// LinkedResourceId: exampleInsights.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

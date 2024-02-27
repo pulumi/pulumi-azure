@@ -28,34 +28,34 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "example-appserviceplan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example", new()
     ///     {
     ///         Name = "example-app-service",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
-    ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///         SiteConfig = 
     ///         {
-    ///             DotnetFrameworkVersion = "v4.0",
-    ///             ScmType = "LocalGit",
+    ///             { "dotnetFrameworkVersion", "v4.0" },
+    ///             { "scmType", "LocalGit" },
     ///         },
     ///         AppSettings = 
     ///         {
@@ -63,11 +63,11 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///         ConnectionStrings = new[]
     ///         {
-    ///             new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///             
     ///             {
-    ///                 Name = "Database",
-    ///                 Type = "SQLServer",
-    ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///                 { "name", "Database" },
+    ///                 { "type", "SQLServer" },
+    ///                 { "value", "Server=some-server.mydomain.com;Integrated Security=SSPI" },
     ///             },
     ///         },
     ///     });

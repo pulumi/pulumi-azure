@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const acr = new azure.containerservice.Registry("acr", {
+ * const acr = new azure.containerservice/registry.Registry("acr", {
  *     name: "containerRegistry1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: "Standard",
  *     adminEnabled: false,
  * });
- * const webhook = new azure.containerservice.RegistryWebhook("webhook", {
+ * const webhook = new azure.containerservice/registryWebhook.RegistryWebhook("webhook", {
  *     name: "mywebhook",
  *     resourceGroupName: example.name,
  *     registryName: acr.name,

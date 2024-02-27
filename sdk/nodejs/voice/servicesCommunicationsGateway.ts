@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServicesCommunicationsGateway = new azure.voice.ServicesCommunicationsGateway("example", {
+ * const exampleServicesCommunicationsGateway = new azure.voice/servicesCommunicationsGateway.ServicesCommunicationsGateway("example", {
  *     name: "example-vcg",
  *     location: "West Europe",
  *     resourceGroupName: example.name,

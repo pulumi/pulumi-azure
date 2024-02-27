@@ -23,100 +23,47 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/workbookTemplate "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/workbookTemplate"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "Notebook/1.0",
-//				"items": []map[string]interface{}{
-//					map[string]interface{}{
-//						"type": 1,
-//						"content": map[string]interface{}{
-//							"json": "## New workbook\n---\n\nWelcome to your new workbook.",
-//						},
-//						"name": "text - 2",
-//					},
-//				},
-//				"styleSettings": nil,
-//				"$schema":       "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"ar": []map[string]interface{}{
-//					map[string]interface{}{
-//						"galleries": []map[string]interface{}{
-//							map[string]interface{}{
-//								"name":         "test",
-//								"category":     "Failures",
-//								"type":         "tsg",
-//								"resourceType": "microsoft.insights/components",
-//								"order":        100,
-//							},
-//						},
-//						"templateData": map[string]interface{}{
-//							"version": "Notebook/1.0",
-//							"items": []map[string]interface{}{
-//								map[string]interface{}{
-//									"type": 1,
-//									"content": map[string]interface{}{
-//										"json": "## New workbook\n---\n\nWelcome to your new workbook.",
-//									},
-//									"name": "text - 2",
-//								},
-//							},
-//							"styleSettings": nil,
-//							"$schema":       "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = appinsights.NewWorkbookTemplate(ctx, "example", &appinsights.WorkbookTemplateArgs{
-//				Name:              pulumi.String("example-aiwt"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("West Europe"),
-//				Author:            pulumi.String("test author"),
-//				Priority:          pulumi.Int(1),
-//				Galleries: appinsights.WorkbookTemplateGalleryArray{
-//					&appinsights.WorkbookTemplateGalleryArgs{
-//						Category:     pulumi.String("workbook"),
-//						Name:         pulumi.String("test"),
-//						Order:        pulumi.Int(100),
-//						ResourceType: pulumi.String("microsoft.insights/components"),
-//						Type:         pulumi.String("tsg"),
-//					},
-//				},
-//				TemplateData: pulumi.String(json0),
-//				Localized:    pulumi.String(json1),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appinsights/workbookTemplate.NewWorkbookTemplate(ctx, "example", &appinsights/workbookTemplate.WorkbookTemplateArgs{
+// Name: "example-aiwt",
+// ResourceGroupName: example.Name,
+// Location: "West Europe",
+// Author: "test author",
+// Priority: 1,
+// Galleries: []map[string]interface{}{
+// map[string]interface{}{
+// "category": "workbook",
+// "name": "test",
+// "order": 100,
+// "resourceType": "microsoft.insights/components",
+// "type": "tsg",
+// },
+// },
+// TemplateData: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// Localized: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

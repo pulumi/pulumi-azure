@@ -21,49 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	appinsights/standardWebTest "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/standardWebTest"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appinsights.NewStandardWebTest(ctx, "example", &appinsights.StandardWebTestArgs{
-//				Name:                  pulumi.String("example-test"),
-//				ResourceGroupName:     example.Name,
-//				Location:              pulumi.String("West Europe"),
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				GeoLocations: pulumi.StringArray{
-//					pulumi.String("example"),
-//				},
-//				Request: &appinsights.StandardWebTestRequestArgs{
-//					Url: pulumi.String("http://www.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appinsights/standardWebTest.NewStandardWebTest(ctx, "example", &appinsights/standardWebTest.StandardWebTestArgs{
+// Name: "example-test",
+// ResourceGroupName: example.Name,
+// Location: "West Europe",
+// ApplicationInsightsId: exampleInsights.Id,
+// GeoLocations: []string{
+// "example",
+// },
+// Request: map[string]interface{}{
+// "url": "http://www.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

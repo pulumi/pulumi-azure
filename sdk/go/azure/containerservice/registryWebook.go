@@ -21,53 +21,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/registry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registry"
+//	containerservice/registryWebhook "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryWebhook"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			acr, err := containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("containerRegistry1"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Standard"),
-//				AdminEnabled:      pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewRegistryWebhook(ctx, "webhook", &containerservice.RegistryWebhookArgs{
-//				Name:              pulumi.String("mywebhook"),
-//				ResourceGroupName: example.Name,
-//				RegistryName:      acr.Name,
-//				Location:          example.Location,
-//				ServiceUri:        pulumi.String("https://mywebhookreceiver.example/mytag"),
-//				Status:            pulumi.String("enabled"),
-//				Scope:             pulumi.String("mytag:*"),
-//				Actions: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//				CustomHeaders: pulumi.StringMap{
-//					"Content-Type": pulumi.String("application/json"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// acr, err := containerservice/registry.NewRegistry(ctx, "acr", &containerservice/registry.RegistryArgs{
+// Name: "containerRegistry1",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Standard",
+// AdminEnabled: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/registryWebhook.NewRegistryWebhook(ctx, "webhook", &containerservice/registryWebhook.RegistryWebhookArgs{
+// Name: "mywebhook",
+// ResourceGroupName: example.Name,
+// RegistryName: acr.Name,
+// Location: example.Location,
+// ServiceUri: "https://mywebhookreceiver.example/mytag",
+// Status: "enabled",
+// Scope: "mytag:*",
+// Actions: []string{
+// "push",
+// },
+// CustomHeaders: map[string]interface{}{
+// "Content-Type": "application/json",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

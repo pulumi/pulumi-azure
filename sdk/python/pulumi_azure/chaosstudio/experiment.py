@@ -239,84 +239,84 @@ class Experiment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="westeurope")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=westeurope)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
             resource_group_name=example.name,
             location=example.location,
-            name="example")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
-            address_spaces=["10.0.0.0/16"],
+            name=example)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example",
+            address_prefixes=[10.0.2.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example",
+            ip_configurations=[{
+                name: example,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_linux_virtual_machine = azure.compute.linux_virtual_machine.LinuxVirtualMachine("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            admin_password="example",
+            size=Standard_F2,
+            admin_username=adminuser,
+            admin_password=example,
             disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
-        example_target = azure.chaosstudio.Target("example",
+            os_disk={
+                caching: ReadWrite,
+                storageAccountType: Standard_LRS,
+            },
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            })
+        example_target = azure.chaosstudio.target.Target("example",
             location=example.location,
             target_resource_id=example_linux_virtual_machine.id,
-            target_type="Microsoft-VirtualMachine")
-        example_capability = azure.chaosstudio.Capability("example",
+            target_type=Microsoft-VirtualMachine)
+        example_capability = azure.chaosstudio.capability.Capability("example",
             chaos_studio_target_id=example_target.id,
-            capability_type="Shutdown-1.0")
-        example_experiment = azure.chaosstudio.Experiment("example",
+            capability_type=Shutdown-1.0)
+        example_experiment = azure.chaosstudio.experiment.Experiment("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name,
-            identity=azure.chaosstudio.ExperimentIdentityArgs(
-                type="SystemAssigned",
-            ),
-            selectors=[azure.chaosstudio.ExperimentSelectorArgs(
-                name="Selector1",
-                chaos_studio_target_ids=[example_target.id],
-            )],
-            steps=[azure.chaosstudio.ExperimentStepArgs(
-                name="example",
-                branches=[azure.chaosstudio.ExperimentStepBranchArgs(
-                    name="example",
-                    actions=[azure.chaosstudio.ExperimentStepBranchActionArgs(
-                        urn=example_capability.capability_urn,
-                        selector_name="Selector1",
-                        parameters={
-                            "abruptShutdown": "false",
+            identity={
+                type: SystemAssigned,
+            },
+            selectors=[{
+                name: Selector1,
+                chaosStudioTargetIds: [example_target.id],
+            }],
+            steps=[{
+                name: example,
+                branches: [{
+                    name: example,
+                    actions: [{
+                        urn: example_capability.capability_urn,
+                        selectorName: Selector1,
+                        parameters: {
+                            abruptShutdown: false,
                         },
-                        action_type="continuous",
-                        duration="PT10M",
-                    )],
-                )],
-            )])
+                        actionType: continuous,
+                        duration: PT10M,
+                    }],
+                }],
+            }])
         ```
 
         ## Import
@@ -351,84 +351,84 @@ class Experiment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="westeurope")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=westeurope)
+        example_user_assigned_identity = azure.authorization.user_assigned_identity.UserAssignedIdentity("example",
             resource_group_name=example.name,
             location=example.location,
-            name="example")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
-            address_spaces=["10.0.0.0/16"],
+            name=example)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example",
+            address_prefixes=[10.0.2.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="example",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example",
+            ip_configurations=[{
+                name: example,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_linux_virtual_machine = azure.compute.linux_virtual_machine.LinuxVirtualMachine("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            admin_password="example",
+            size=Standard_F2,
+            admin_username=adminuser,
+            admin_password=example,
             disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
-        example_target = azure.chaosstudio.Target("example",
+            os_disk={
+                caching: ReadWrite,
+                storageAccountType: Standard_LRS,
+            },
+            source_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            })
+        example_target = azure.chaosstudio.target.Target("example",
             location=example.location,
             target_resource_id=example_linux_virtual_machine.id,
-            target_type="Microsoft-VirtualMachine")
-        example_capability = azure.chaosstudio.Capability("example",
+            target_type=Microsoft-VirtualMachine)
+        example_capability = azure.chaosstudio.capability.Capability("example",
             chaos_studio_target_id=example_target.id,
-            capability_type="Shutdown-1.0")
-        example_experiment = azure.chaosstudio.Experiment("example",
+            capability_type=Shutdown-1.0)
+        example_experiment = azure.chaosstudio.experiment.Experiment("example",
             location=example.location,
-            name="example",
+            name=example,
             resource_group_name=example.name,
-            identity=azure.chaosstudio.ExperimentIdentityArgs(
-                type="SystemAssigned",
-            ),
-            selectors=[azure.chaosstudio.ExperimentSelectorArgs(
-                name="Selector1",
-                chaos_studio_target_ids=[example_target.id],
-            )],
-            steps=[azure.chaosstudio.ExperimentStepArgs(
-                name="example",
-                branches=[azure.chaosstudio.ExperimentStepBranchArgs(
-                    name="example",
-                    actions=[azure.chaosstudio.ExperimentStepBranchActionArgs(
-                        urn=example_capability.capability_urn,
-                        selector_name="Selector1",
-                        parameters={
-                            "abruptShutdown": "false",
+            identity={
+                type: SystemAssigned,
+            },
+            selectors=[{
+                name: Selector1,
+                chaosStudioTargetIds: [example_target.id],
+            }],
+            steps=[{
+                name: example,
+                branches: [{
+                    name: example,
+                    actions: [{
+                        urn: example_capability.capability_urn,
+                        selectorName: Selector1,
+                        parameters: {
+                            abruptShutdown: false,
                         },
-                        action_type="continuous",
-                        duration="PT10M",
-                    )],
-                )],
-            )])
+                        actionType: continuous,
+                        duration: PT10M,
+                    }],
+                }],
+            }])
         ```
 
         ## Import

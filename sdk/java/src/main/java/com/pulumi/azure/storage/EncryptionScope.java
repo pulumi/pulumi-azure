@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
  * import com.pulumi.azure.storage.EncryptionScope;
  * import com.pulumi.azure.storage.EncryptionScopeArgs;
  * import java.util.List;
@@ -58,9 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
- *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEncryptionScope = new EncryptionScope(&#34;exampleEncryptionScope&#34;, EncryptionScopeArgs.builder()        

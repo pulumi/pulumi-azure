@@ -25,49 +25,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/networkSecurityRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("acceptanceTestSecurityGroup1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "example", &network.NetworkSecurityRuleArgs{
-//				Name:                     pulumi.String("test123"),
-//				Priority:                 pulumi.Int(100),
-//				Direction:                pulumi.String("Outbound"),
-//				Access:                   pulumi.String("Allow"),
-//				Protocol:                 pulumi.String("Tcp"),
-//				SourcePortRange:          pulumi.String("*"),
-//				DestinationPortRange:     pulumi.String("*"),
-//				SourceAddressPrefix:      pulumi.String("*"),
-//				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        example.Name,
-//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSecurityGroup, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "example", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "acceptanceTestSecurityGroup1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkSecurityRule.NewNetworkSecurityRule(ctx, "example", &network/networkSecurityRule.NetworkSecurityRuleArgs{
+// Name: "test123",
+// Priority: 100,
+// Direction: "Outbound",
+// Access: "Allow",
+// Protocol: "Tcp",
+// SourcePortRange: "*",
+// DestinationPortRange: "*",
+// SourceAddressPrefix: "*",
+// DestinationAddressPrefix: "*",
+// ResourceGroupName: example.Name,
+// NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

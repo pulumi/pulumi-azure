@@ -21,62 +21,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/database"
+//	mssql/jobAgent "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/jobAgent"
+//	mssql/jobCredential "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/jobCredential"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("northeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                       pulumi.String("example-server"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
-//				Name:      pulumi.String("example-db"),
-//				ServerId:  exampleServer.ID(),
-//				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				SkuName:   pulumi.String("S1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleJobAgent, err := mssql.NewJobAgent(ctx, "example", &mssql.JobAgentArgs{
-//				Name:       pulumi.String("example-job-agent"),
-//				Location:   example.Location,
-//				DatabaseId: exampleDatabase.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewJobCredential(ctx, "example", &mssql.JobCredentialArgs{
-//				Name:       pulumi.String("example-credential"),
-//				JobAgentId: exampleJobAgent.ID(),
-//				Username:   pulumi.String("my-username"),
-//				Password:   pulumi.String("MyP4ssw0rd!!!"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "northeurope",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mssql/server.NewServer(ctx, "example", &mssql/server.ServerArgs{
+// Name: "example-server",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := mssql/database.NewDatabase(ctx, "example", &mssql/database.DatabaseArgs{
+// Name: "example-db",
+// ServerId: exampleServer.Id,
+// Collation: "SQL_Latin1_General_CP1_CI_AS",
+// SkuName: "S1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleJobAgent, err := mssql/jobAgent.NewJobAgent(ctx, "example", &mssql/jobAgent.JobAgentArgs{
+// Name: "example-job-agent",
+// Location: example.Location,
+// DatabaseId: exampleDatabase.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/jobCredential.NewJobCredential(ctx, "example", &mssql/jobCredential.JobCredentialArgs{
+// Name: "example-credential",
+// JobAgentId: exampleJobAgent.Id,
+// Username: "my-username",
+// Password: "MyP4ssw0rd!!!",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

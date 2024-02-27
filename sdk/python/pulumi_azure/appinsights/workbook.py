@@ -413,28 +413,28 @@ class Workbook(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_workbook = azure.appinsights.Workbook("example",
-            name="85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_workbook = azure.appinsights.workbook.Workbook("example",
+            name=85b3e8bb-fc93-40be-83f2-98f6bec18ba0,
             resource_group_name=example.name,
             location=example.location,
-            display_name="workbook1",
+            display_name=workbook1,
             data_json=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": "Test2022",
+                version: Notebook/1.0,
+                items: [{
+                    type: 1,
+                    content: {
+                        json: Test2022,
                     },
-                    "name": "text - 0",
+                    name: text - 0,
                 }],
-                "isLocked": False,
-                "fallbackResourceIds": ["Azure Monitor"],
+                isLocked: False,
+                fallbackResourceIds: [Azure Monitor],
             }),
             tags={
-                "ENV": "Test",
+                ENV: Test,
             })
         ```
 
@@ -478,28 +478,28 @@ class Workbook(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_workbook = azure.appinsights.Workbook("example",
-            name="85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_workbook = azure.appinsights.workbook.Workbook("example",
+            name=85b3e8bb-fc93-40be-83f2-98f6bec18ba0,
             resource_group_name=example.name,
             location=example.location,
-            display_name="workbook1",
+            display_name=workbook1,
             data_json=json.dumps({
-                "version": "Notebook/1.0",
-                "items": [{
-                    "type": 1,
-                    "content": {
-                        "json": "Test2022",
+                version: Notebook/1.0,
+                items: [{
+                    type: 1,
+                    content: {
+                        json: Test2022,
                     },
-                    "name": "text - 0",
+                    name: text - 0,
                 }],
-                "isLocked": False,
-                "fallbackResourceIds": ["Azure Monitor"],
+                isLocked: False,
+                fallbackResourceIds: [Azure Monitor],
             }),
             tags={
-                "ENV": "Test",
+                ENV: Test,
             })
         ```
 

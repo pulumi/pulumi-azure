@@ -24,26 +24,26 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSync = new Azure.Storage.Sync("example", new()
+    ///     var exampleSync = new Azure.Storage.Sync.Sync("example", new()
     ///     {
     ///         Name = "example-ss",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup("example", new()
+    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup.SyncGroup("example", new()
     ///     {
     ///         Name = "example-ss-group",
     ///         StorageSyncId = exampleSync.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -52,28 +52,28 @@ namespace Pulumi.Azure.Storage
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("example", new()
+    ///     var exampleShare = new Azure.Storage.Share.Share("example", new()
     ///     {
     ///         Name = "example-share",
     ///         StorageAccountName = exampleAccount.Name,
     ///         Quota = 50,
     ///         Acls = new[]
     ///         {
-    ///             new Azure.Storage.Inputs.ShareAclArgs
+    ///             
     ///             {
-    ///                 Id = "GhostedRecall",
-    ///                 AccessPolicies = new[]
+    ///                 { "id", "GhostedRecall" },
+    ///                 { "accessPolicies", new[]
     ///                 {
-    ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
+    ///                     
     ///                     {
-    ///                         Permissions = "r",
+    ///                         { "permissions", "r" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint("example", new()
+    ///     var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint.SyncCloudEndpoint("example", new()
     ///     {
     ///         Name = "example-ss-ce",
     ///         StorageSyncGroupId = exampleSyncGroup.Id,

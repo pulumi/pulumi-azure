@@ -22,13 +22,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
+    ///     var exampleIntegrationAccount = new Azure.Logicapps.IntegrationAccount.IntegrationAccount("example", new()
     ///     {
     ///         Name = "example-ia",
     ///         ResourceGroupName = example.Name,

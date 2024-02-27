@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
  * import com.pulumi.azure.sentinel.AlertRuleFusion;
  * import com.pulumi.azure.sentinel.AlertRuleFusionArgs;
  * import java.util.List;
@@ -67,10 +66,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *             .plan(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAlertRuleFusion = new AlertRuleFusion(&#34;exampleAlertRuleFusion&#34;, AlertRuleFusionArgs.builder()        

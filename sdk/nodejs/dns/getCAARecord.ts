@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.CaaRecord("example", {
+ * const example = new azure.dns/caaRecord.CaaRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
@@ -84,7 +84,7 @@ export interface GetCAARecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.dns.CaaRecord("example", {
+ * const example = new azure.dns/caaRecord.CaaRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",

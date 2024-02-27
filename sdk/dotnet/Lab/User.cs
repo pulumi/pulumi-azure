@@ -22,45 +22,45 @@ namespace Pulumi.Azure.Lab
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.Lab.Lab("example", new()
+    ///     var exampleLab = new Azure.Lab.Lab.Lab("example", new()
     ///     {
     ///         Name = "example-lab",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         Title = "Test Title",
-    ///         Security = new Azure.Lab.Inputs.LabSecurityArgs
+    ///         Security = 
     ///         {
-    ///             OpenAccessEnabled = false,
+    ///             { "openAccessEnabled", false },
     ///         },
-    ///         VirtualMachine = new Azure.Lab.Inputs.LabVirtualMachineArgs
+    ///         VirtualMachine = 
     ///         {
-    ///             AdminUser = new Azure.Lab.Inputs.LabVirtualMachineAdminUserArgs
+    ///             { "adminUser", 
     ///             {
-    ///                 Username = "testadmin",
-    ///                 Password = "Password1234!",
-    ///             },
-    ///             ImageReference = new Azure.Lab.Inputs.LabVirtualMachineImageReferenceArgs
+    ///                 { "username", "testadmin" },
+    ///                 { "password", "Password1234!" },
+    ///             } },
+    ///             { "imageReference", 
     ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "0001-com-ubuntu-server-jammy",
-    ///                 Sku = "22_04-lts",
-    ///                 Version = "latest",
-    ///             },
-    ///             Sku = new Azure.Lab.Inputs.LabVirtualMachineSkuArgs
+    ///                 { "publisher", "Canonical" },
+    ///                 { "offer", "0001-com-ubuntu-server-jammy" },
+    ///                 { "sku", "22_04-lts" },
+    ///                 { "version", "latest" },
+    ///             } },
+    ///             { "sku", 
     ///             {
-    ///                 Name = "Classic_Fsv2_2_4GB_128_S_SSD",
-    ///                 Capacity = 1,
-    ///             },
+    ///                 { "name", "Classic_Fsv2_2_4GB_128_S_SSD" },
+    ///                 { "capacity", 1 },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Azure.Lab.User("example", new()
+    ///     var exampleUser = new Azure.Lab.User.User("example", new()
     ///     {
     ///         Name = "example-labuser",
     ///         LabId = exampleLab.Id,

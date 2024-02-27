@@ -22,13 +22,13 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -37,14 +37,14 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "example",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleBlob = new Azure.Storage.Blob("example", new()
+    ///     var exampleBlob = new Azure.Storage.Blob.Blob("example", new()
     ///     {
     ///         Name = "example",
     ///         StorageAccountName = exampleAccount.Name,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         Source = new FileAsset("example.csv"),
     ///     });
     /// 
-    ///     var exampleJob = new Azure.StreamAnalytics.Job("example", new()
+    ///     var exampleJob = new Azure.Streamanalytics.Job.Job("example", new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = example.Name,
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ",
     ///     });
     /// 
-    ///     var exampleStreamInputBlob = new Azure.StreamAnalytics.StreamInputBlob("example", new()
+    ///     var exampleStreamInputBlob = new Azure.Streamanalytics.StreamInputBlob.StreamInputBlob("example", new()
     ///     {
     ///         Name = "exampleinput",
     ///         StreamAnalyticsJobName = exampleJob.Name,
@@ -86,15 +86,15 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         PathPattern = "",
     ///         DateFormat = "yyyy/MM/dd",
     ///         TimeFormat = "HH",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputBlobSerializationArgs
+    ///         Serialization = 
     ///         {
-    ///             Type = "Csv",
-    ///             Encoding = "UTF8",
-    ///             FieldDelimiter = ",",
+    ///             { "type", "Csv" },
+    ///             { "encoding", "UTF8" },
+    ///             { "fieldDelimiter", "," },
     ///         },
     ///     });
     /// 
-    ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("example", new()
+    ///     var exampleOutputBlob = new Azure.Streamanalytics.OutputBlob.OutputBlob("example", new()
     ///     {
     ///         Name = "exampleoutput",
     ///         StreamAnalyticsJobName = exampleJob.Name,
@@ -105,13 +105,13 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         PathPattern = "example-{date}-{time}",
     ///         DateFormat = "yyyy-MM-dd",
     ///         TimeFormat = "HH",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
+    ///         Serialization = 
     ///         {
-    ///             Type = "Avro",
+    ///             { "type", "Avro" },
     ///         },
     ///     });
     /// 
-    ///     var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("example", new()
+    ///     var exampleJobSchedule = new Azure.Streamanalytics.JobSchedule.JobSchedule("example", new()
     ///     {
     ///         StreamAnalyticsJobId = exampleJob.Id,
     ///         StartMode = "CustomTime",

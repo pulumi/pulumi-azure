@@ -31,15 +31,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.recoveryservices.Vault;
- * import com.pulumi.azure.recoveryservices.VaultArgs;
+ * import com.pulumi.azure.recoveryservices_vault.Vault;
+ * import com.pulumi.azure.recoveryservices_vault.VaultArgs;
  * import com.pulumi.azure.backup.PolicyFileShare;
  * import com.pulumi.azure.backup.PolicyFileShareArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareBackupArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionDailyArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionWeeklyArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionMonthlyArgs;
- * import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionYearlyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,36 +65,11 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .timezone(&#34;UTC&#34;)
- *             .backup(PolicyFileShareBackupArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .time(&#34;23:00&#34;)
- *                 .build())
- *             .retentionDaily(PolicyFileShareRetentionDailyArgs.builder()
- *                 .count(10)
- *                 .build())
- *             .retentionWeekly(PolicyFileShareRetentionWeeklyArgs.builder()
- *                 .count(7)
- *                 .weekdays(                
- *                     &#34;Sunday&#34;,
- *                     &#34;Wednesday&#34;,
- *                     &#34;Friday&#34;,
- *                     &#34;Saturday&#34;)
- *                 .build())
- *             .retentionMonthly(PolicyFileShareRetentionMonthlyArgs.builder()
- *                 .count(7)
- *                 .weekdays(                
- *                     &#34;Sunday&#34;,
- *                     &#34;Wednesday&#34;)
- *                 .weeks(                
- *                     &#34;First&#34;,
- *                     &#34;Last&#34;)
- *                 .build())
- *             .retentionYearly(PolicyFileShareRetentionYearlyArgs.builder()
- *                 .count(7)
- *                 .weekdays(&#34;Sunday&#34;)
- *                 .weeks(&#34;Last&#34;)
- *                 .months(&#34;January&#34;)
- *                 .build())
+ *             .backup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .retentionDaily(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .retentionWeekly(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .retentionMonthly(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .retentionYearly(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

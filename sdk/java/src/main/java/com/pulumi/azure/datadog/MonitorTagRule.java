@@ -32,13 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datadog.Monitor;
  * import com.pulumi.azure.datadog.MonitorArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorDatadogOrganizationArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorUserArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorIdentityArgs;
  * import com.pulumi.azure.datadog.MonitorTagRule;
  * import com.pulumi.azure.datadog.MonitorTagRuleArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorTagRuleLogArgs;
- * import com.pulumi.azure.datadog.inputs.MonitorTagRuleMetricArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,32 +56,16 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-monitor&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
- *                 .apiKey(&#34;XXXX&#34;)
- *                 .applicationKey(&#34;XXXX&#34;)
- *                 .build())
- *             .user(MonitorUserArgs.builder()
- *                 .name(&#34;Example&#34;)
- *                 .email(&#34;abc@xyz.com&#34;)
- *                 .build())
+ *             .datadogOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .user(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .skuName(&#34;Linked&#34;)
- *             .identity(MonitorIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleMonitorTagRule = new MonitorTagRule(&#34;exampleMonitorTagRule&#34;, MonitorTagRuleArgs.builder()        
  *             .datadogMonitorId(exampleMonitor.id())
- *             .logs(MonitorTagRuleLogArgs.builder()
- *                 .subscriptionLogEnabled(true)
- *                 .build())
- *             .metrics(MonitorTagRuleMetricArgs.builder()
- *                 .filters(MonitorTagRuleMetricFilterArgs.builder()
- *                     .name(&#34;Test&#34;)
- *                     .value(&#34;Logs&#34;)
- *                     .action(&#34;Include&#34;)
- *                     .build())
- *                 .build())
+ *             .logs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .metrics(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

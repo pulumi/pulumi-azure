@@ -13,106 +13,12 @@ namespace Pulumi.Azure.Sentinel
     {
         /// <summary>
         /// Use this data source to access information about an existing Anomaly Alert Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-        ///     {
-        ///         Name = "example-resources",
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
-        ///     {
-        ///         Name = "example-law",
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Sku = "PerGB2018",
-        ///     });
-        /// 
-        ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
-        ///     {
-        ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-        ///         CustomerManagedKeyEnabled = false,
-        ///     });
-        /// 
-        ///     var example = Azure.Sentinel.GetAlertRuleAnomaly.Invoke(new()
-        ///     {
-        ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-        ///         DisplayName = "Potential data staging",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getAlertRuleAnomalyResult =&gt; getAlertRuleAnomalyResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAlertRuleAnomalyResult> InvokeAsync(GetAlertRuleAnomalyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Anomaly Alert Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-        ///     {
-        ///         Name = "example-resources",
-        ///         Location = "West Europe",
-        ///     });
-        /// 
-        ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
-        ///     {
-        ///         Name = "example-law",
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
-        ///         Sku = "PerGB2018",
-        ///     });
-        /// 
-        ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
-        ///     {
-        ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-        ///         CustomerManagedKeyEnabled = false,
-        ///     });
-        /// 
-        ///     var example = Azure.Sentinel.GetAlertRuleAnomaly.Invoke(new()
-        ///     {
-        ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-        ///         DisplayName = "Potential data staging",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getAlertRuleAnomalyResult =&gt; getAlertRuleAnomalyResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAlertRuleAnomalyResult> Invoke(GetAlertRuleAnomalyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyInvokeArgs(), options.WithDefaults());

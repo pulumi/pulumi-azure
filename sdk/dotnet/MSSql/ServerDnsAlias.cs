@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "example-sqlserver",
     ///         ResourceGroupName = example.Name,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "AdminPassword123!",
     ///     });
     /// 
-    ///     var exampleServerDnsAlias = new Azure.MSSql.ServerDnsAlias("example", new()
+    ///     var exampleServerDnsAlias = new Azure.Mssql.ServerDnsAlias.ServerDnsAlias("example", new()
     ///     {
     ///         Name = "example-dns-alias",
     ///         MssqlServerId = exampleServer.Id,

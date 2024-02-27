@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,22 +37,22 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleStreamingEndpoint = new Azure.Media.StreamingEndpoint("example", new()
+    ///     var exampleStreamingEndpoint = new Azure.Media.StreamingEndpoint.StreamingEndpoint("example", new()
     ///     {
     ///         Name = "endpoint1",
     ///         ResourceGroupName = example.Name,
@@ -73,13 +73,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -88,58 +88,58 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleStreamingEndpoint = new Azure.Media.StreamingEndpoint("example", new()
+    ///     var exampleStreamingEndpoint = new Azure.Media.StreamingEndpoint.StreamingEndpoint("example", new()
     ///     {
     ///         Name = "endpoint1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         ScaleUnits = 2,
-    ///         AccessControl = new Azure.Media.Inputs.StreamingEndpointAccessControlArgs
+    ///         AccessControl = 
     ///         {
-    ///             IpAllows = new[]
+    ///             { "ipAllows", new[]
     ///             {
-    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlIpAllowArgs
+    ///                 
     ///                 {
-    ///                     Name = "AllowedIP",
-    ///                     Address = "192.168.1.1",
+    ///                     { "name", "AllowedIP" },
+    ///                     { "address", "192.168.1.1" },
     ///                 },
-    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlIpAllowArgs
+    ///                 
     ///                 {
-    ///                     Name = "AnotherIp",
-    ///                     Address = "192.168.1.2",
+    ///                     { "name", "AnotherIp" },
+    ///                     { "address", "192.168.1.2" },
     ///                 },
-    ///             },
-    ///             AkamaiSignatureHeaderAuthenticationKeys = new[]
+    ///             } },
+    ///             { "akamaiSignatureHeaderAuthenticationKeys", new[]
     ///             {
-    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                 
     ///                 {
-    ///                     Identifier = "id1",
-    ///                     Expiration = "2030-12-31T16:00:00Z",
-    ///                     Base64Key = "dGVzdGlkMQ==",
+    ///                     { "identifier", "id1" },
+    ///                     { "expiration", "2030-12-31T16:00:00Z" },
+    ///                     { "base64Key", "dGVzdGlkMQ==" },
     ///                 },
-    ///                 new Azure.Media.Inputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                 
     ///                 {
-    ///                     Identifier = "id2",
-    ///                     Expiration = "2032-01-28T16:00:00Z",
-    ///                     Base64Key = "dGVzdGlkMQ==",
+    ///                     { "identifier", "id2" },
+    ///                     { "expiration", "2032-01-28T16:00:00Z" },
+    ///                     { "base64Key", "dGVzdGlkMQ==" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

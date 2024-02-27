@@ -14,50 +14,6 @@ namespace Pulumi.Azure.Sql
     /// 
     /// &gt; **Note:** The `azure.sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "rg-example",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance("example", new()
-    ///     {
-    ///         Name = "managedsqlinstance",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AdministratorLogin = "mradministrator",
-    ///         AdministratorLoginPassword = "thisIsDog11",
-    ///         LicenseType = "BasePrice",
-    ///         SubnetId = exampleAzurermSubnet.Id,
-    ///         SkuName = "GP_Gen5",
-    ///         Vcores = 4,
-    ///         StorageSizeInGb = 32,
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.Sql.ManagedInstanceActiveDirectoryAdministrator("example", new()
-    ///     {
-    ///         ManagedInstanceName = exampleManagedInstance.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Login = "sqladmin",
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

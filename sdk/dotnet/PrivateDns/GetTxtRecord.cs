@@ -24,7 +24,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.TxtRecord("example", new()
+        ///     var example = new Azure.Privatedns.TxtRecord.TxtRecord("example", new()
         ///     {
         ///         Name = "test",
         ///         ZoneName = "test-zone",
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.PrivateDns.TxtRecord("example", new()
+        ///     var example = new Azure.Privatedns.TxtRecord.TxtRecord("example", new()
         ///     {
         ///         Name = "test",
         ///         ZoneName = "test-zone",

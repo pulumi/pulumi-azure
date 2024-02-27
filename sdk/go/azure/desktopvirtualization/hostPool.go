@@ -21,50 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	desktopvirtualization/hostPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/hostPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = desktopvirtualization.NewHostPool(ctx, "example", &desktopvirtualization.HostPoolArgs{
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				Name:                   pulumi.String("pooleddepthfirst"),
-//				FriendlyName:           pulumi.String("pooleddepthfirst"),
-//				ValidateEnvironment:    pulumi.Bool(true),
-//				StartVmOnConnect:       pulumi.Bool(true),
-//				CustomRdpProperties:    pulumi.String("audiocapturemode:i:1;audiomode:i:0;"),
-//				Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
-//				Type:                   pulumi.String("Pooled"),
-//				MaximumSessionsAllowed: pulumi.Int(50),
-//				LoadBalancerType:       pulumi.String("DepthFirst"),
-//				ScheduledAgentUpdates: &desktopvirtualization.HostPoolScheduledAgentUpdatesArgs{
-//					Enabled: pulumi.Bool(true),
-//					Schedules: desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArray{
-//						&desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs{
-//							DayOfWeek: pulumi.String("Saturday"),
-//							HourOfDay: pulumi.Int(2),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = desktopvirtualization/hostPool.NewHostPool(ctx, "example", &desktopvirtualization/hostPool.HostPoolArgs{
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Name: "pooleddepthfirst",
+// FriendlyName: "pooleddepthfirst",
+// ValidateEnvironment: true,
+// StartVmOnConnect: true,
+// CustomRdpProperties: "audiocapturemode:i:1;audiomode:i:0;",
+// Description: "Acceptance Test: A pooled host pool - pooleddepthfirst",
+// Type: "Pooled",
+// MaximumSessionsAllowed: 50,
+// LoadBalancerType: "DepthFirst",
+// ScheduledAgentUpdates: map[string]interface{}{
+// "enabled": true,
+// "schedules": []map[string]interface{}{
+// map[string]interface{}{
+// "dayOfWeek": "Saturday",
+// "hourOfDay": 2,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

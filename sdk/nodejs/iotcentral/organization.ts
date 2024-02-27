@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resource",
  *     location: "West Europe",
  * });
- * const exampleApplication = new azure.iotcentral.Application("example", {
+ * const exampleApplication = new azure.iotcentral/application.Application("example", {
  *     name: "example-iotcentral-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -29,12 +29,12 @@ import * as utilities from "../utilities";
  *         Foo: "Bar",
  *     },
  * });
- * const exampleParent = new azure.iotcentral.Organization("example_parent", {
+ * const exampleParent = new azure.iotcentral/organization.Organization("example_parent", {
  *     iotcentralApplicationId: exampleApplication.id,
  *     organizationId: "example-parent-organization-id",
  *     displayName: "Org example parent",
  * });
- * const exampleOrganization = new azure.iotcentral.Organization("example", {
+ * const exampleOrganization = new azure.iotcentral/organization.Organization("example", {
  *     iotcentralApplicationId: exampleApplication.id,
  *     organizationId: "example-child-organization-id",
  *     displayName: "Org example",

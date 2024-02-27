@@ -7,47 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Shared Private Link Resource for a Web Pubsub service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "terraform-webpubsub",
- *     location: "east us",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         certificatePermissions: ["managecontacts"],
- *         keyPermissions: ["create"],
- *         secretPermissions: ["set"],
- *     }],
- * });
- * const exampleService = new azure.webpubsub.Service("example", {
- *     name: "tfex-webpubsub",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     sku: "Standard_S1",
- *     capacity: 1,
- * });
- * const exampleSharedPrivateLinkResource = new azure.webpubsub.SharedPrivateLinkResource("example", {
- *     name: "tfex-webpubsub-splr",
- *     webPubsubId: exampleService.id,
- *     subresourceName: "vault",
- *     targetResourceId: exampleKeyVault.id,
- * });
- * ```
- *
  * ## Import
  *
  * Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.

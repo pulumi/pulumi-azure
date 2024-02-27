@@ -30,12 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import com.pulumi.azure.kusto.Database;
  * import com.pulumi.azure.kusto.DatabaseArgs;
  * import com.pulumi.azure.kusto.AttachedDatabaseConfiguration;
  * import com.pulumi.azure.kusto.AttachedDatabaseConfigurationArgs;
- * import com.pulumi.azure.kusto.inputs.AttachedDatabaseConfigurationSharingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,20 +56,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;cluster1&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
- *                 .capacity(1)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var followedCluster = new Cluster(&#34;followedCluster&#34;, ClusterArgs.builder()        
  *             .name(&#34;cluster2&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
- *                 .capacity(1)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var followedDatabase = new Database(&#34;followedDatabase&#34;, DatabaseArgs.builder()        
@@ -95,14 +87,7 @@ import javax.annotation.Nullable;
  *             .clusterName(followerCluster.name())
  *             .clusterResourceId(followedCluster.id())
  *             .databaseName(exampleDatabase.name())
- *             .sharing(AttachedDatabaseConfigurationSharingArgs.builder()
- *                 .externalTablesToExcludes(&#34;ExternalTable2&#34;)
- *                 .externalTablesToIncludes(&#34;ExternalTable1&#34;)
- *                 .materializedViewsToExcludes(&#34;MaterializedViewTable2&#34;)
- *                 .materializedViewsToIncludes(&#34;MaterializedViewTable1&#34;)
- *                 .tablesToExcludes(&#34;Table2&#34;)
- *                 .tablesToIncludes(&#34;Table1&#34;)
- *                 .build())
+ *             .sharing(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

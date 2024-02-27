@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const test = new azure.network.NetworkSecurityGroup("test", {
+ * const test = new azure.network/networkSecurityGroup.NetworkSecurityGroup("test", {
  *     name: "acctestnsg",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
+ * const testNetworkWatcher = new azure.network/networkWatcher.NetworkWatcher("test", {
  *     name: "acctestnw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage/account.Account("test", {
  *     name: "acctestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     enableHttpsTrafficOnly: true,
  * });
- * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
+ * const testAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("test", {
  *     name: "acctestlaw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("test", {
+ * const testNetworkWatcherFlowLog = new azure.network/networkWatcherFlowLog.NetworkWatcherFlowLog("test", {
  *     networkWatcherName: testNetworkWatcher.name,
  *     resourceGroupName: example.name,
  *     name: "example-log",

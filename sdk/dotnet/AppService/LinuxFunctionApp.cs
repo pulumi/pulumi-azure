@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "linuxfunctionappsa",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     var exampleServicePlan = new Azure.Appservice.ServicePlan.ServicePlan("example", new()
     ///     {
     ///         Name = "example-app-service-plan",
     ///         ResourceGroupName = example.Name,
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService
     ///         SkuName = "Y1",
     ///     });
     /// 
-    ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("example", new()
+    ///     var exampleLinuxFunctionApp = new Azure.Appservice.LinuxFunctionApp.LinuxFunctionApp("example", new()
     ///     {
     ///         Name = "example-linux-function-app",
     ///         ResourceGroupName = example.Name,

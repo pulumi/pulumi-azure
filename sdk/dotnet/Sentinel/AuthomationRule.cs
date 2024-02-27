@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "example-workspace",
     ///         Location = example.Location,
@@ -36,12 +36,12 @@ namespace Pulumi.Azure.Sentinel
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleAutomationRule = new Azure.Sentinel.AutomationRule("example", new()
+    ///     var exampleAutomationRule = new Azure.Sentinel.AutomationRule.AutomationRule("example", new()
     ///     {
     ///         Name = "56094f72-ac3f-40e7-a0c0-47bd95f70336",
     ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
@@ -49,10 +49,10 @@ namespace Pulumi.Azure.Sentinel
     ///         Order = 1,
     ///         ActionIncidents = new[]
     ///         {
-    ///             new Azure.Sentinel.Inputs.AutomationRuleActionIncidentArgs
+    ///             
     ///             {
-    ///                 Order = 1,
-    ///                 Status = "Active",
+    ///                 { "order", 1 },
+    ///                 { "status", "Active" },
     ///             },
     ///         },
     ///     });

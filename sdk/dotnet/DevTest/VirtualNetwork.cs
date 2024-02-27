@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.DevTest.Lab("example", new()
+    ///     var exampleLab = new Azure.Devtest.Lab.Lab("example", new()
     ///     {
     ///         Name = "example-devtestlab",
     ///         Location = example.Location,
@@ -39,15 +39,15 @@ namespace Pulumi.Azure.DevTest
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Devtest.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         LabName = exampleLab.Name,
     ///         ResourceGroupName = example.Name,
-    ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///         Subnet = 
     ///         {
-    ///             UsePublicIpAddress = "Allow",
-    ///             UseInVirtualMachineCreation = "Allow",
+    ///             { "usePublicIpAddress", "Allow" },
+    ///             { "useInVirtualMachineCreation", "Allow" },
     ///         },
     ///     });
     /// 

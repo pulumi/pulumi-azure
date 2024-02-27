@@ -286,35 +286,35 @@ class AccountNetworkRules(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"])
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+            address_prefixes=[10.0.2.0/24],
+            service_endpoints=[Microsoft.Storage])
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
+            account_tier=Standard,
+            account_replication_type=GRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_account_network_rules = azure.storage.AccountNetworkRules("example",
+        example_account_network_rules = azure.storage.account_network_rules.AccountNetworkRules("example",
             storage_account_id=example_account.id,
-            default_action="Allow",
-            ip_rules=["127.0.0.1"],
+            default_action=Allow,
+            ip_rules=[127.0.0.1],
             virtual_network_subnet_ids=[example_subnet.id],
-            bypasses=["Metrics"])
+            bypasses=[Metrics])
         ```
 
         ## Import
@@ -365,35 +365,35 @@ class AccountNetworkRules(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"])
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+            address_prefixes=[10.0.2.0/24],
+            service_endpoints=[Microsoft.Storage])
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
+            account_tier=Standard,
+            account_replication_type=GRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_account_network_rules = azure.storage.AccountNetworkRules("example",
+        example_account_network_rules = azure.storage.account_network_rules.AccountNetworkRules("example",
             storage_account_id=example_account.id,
-            default_action="Allow",
-            ip_rules=["127.0.0.1"],
+            default_action=Allow,
+            ip_rules=[127.0.0.1],
             virtual_network_subnet_ids=[example_subnet.id],
-            bypasses=["Metrics"])
+            bypasses=[Metrics])
         ```
 
         ## Import

@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -31,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleArgs;
  * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleDefinition;
  * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleDefinitionArgs;
- * import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,9 +58,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;7d206142-bf01-11ed-80bc-00155d61ee9e&#34;)
  *             .vaultBaseUrl(example.hsmUri())
  *             .description(&#34;desc foo&#34;)
- *             .permissions(ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs.builder()
- *                 .dataActions(&#34;Microsoft.KeyVault/managedHsm/keys/read/action&#34;)
- *                 .build())
+ *             .permissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

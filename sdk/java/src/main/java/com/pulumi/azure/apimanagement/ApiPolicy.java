@@ -17,54 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Management API Policy
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
- * import com.pulumi.azure.apimanagement.ApiPolicy;
- * import com.pulumi.azure.apimanagement.ApiPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name(&#34;my-api&#34;)
- *             .apiManagementName(&#34;example-apim&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
- *             .revision(&#34;2&#34;)
- *             .build());
- * 
- *         var exampleApiPolicy = new ApiPolicy(&#34;exampleApiPolicy&#34;, ApiPolicyArgs.builder()        
- *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
- *             .xmlContent(&#34;&#34;&#34;
- * &lt;policies&gt;
- *   &lt;inbound&gt;
- *     &lt;find-and-replace from=&#34;xyz&#34; to=&#34;abc&#34; /&gt;
- *   &lt;/inbound&gt;
- * &lt;/policies&gt;
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management API Policy can be imported using the `resource id`, e.g.

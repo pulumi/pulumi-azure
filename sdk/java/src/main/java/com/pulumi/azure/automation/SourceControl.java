@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.SourceControl;
  * import com.pulumi.azure.automation.SourceControlArgs;
- * import com.pulumi.azure.automation.inputs.SourceControlSecurityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,10 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .automationAccountId(exampleAccount.id())
  *             .folderPath(&#34;runbook&#34;)
- *             .security(SourceControlSecurityArgs.builder()
- *                 .token(&#34;ghp_xxx&#34;)
- *                 .tokenType(&#34;PersonalAccessToken&#34;)
- *                 .build())
+ *             .security(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .repositoryUrl(&#34;https://github.com/foo/bat.git&#34;)
  *             .sourceControlType(&#34;GitHub&#34;)
  *             .branch(&#34;main&#34;)

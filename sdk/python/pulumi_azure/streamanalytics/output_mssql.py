@@ -394,44 +394,6 @@ class OutputMssql(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_sql_server = azure.sql.SqlServer("example",
-            name="example-server",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="dbadmin",
-            administrator_login_password="example-password")
-        example_database = azure.sql.Database("example",
-            name="exampledb",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            requested_service_objective_name="S0",
-            collation="SQL_LATIN1_GENERAL_CP1_CI_AS",
-            max_size_bytes="268435456000",
-            create_mode="Default")
-        example_output_mssql = azure.streamanalytics.OutputMssql("example",
-            name="example-output-sql",
-            stream_analytics_job_name=example.name,
-            resource_group_name=example.resource_group_name,
-            server=example_sql_server.fully_qualified_domain_name,
-            user=example_sql_server.administrator_login,
-            password=example_sql_server.administrator_login_password,
-            database=example_database.name,
-            table="ExampleTable")
-        ```
-
         ## Import
 
         Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.
@@ -462,44 +424,6 @@ class OutputMssql(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_sql_server = azure.sql.SqlServer("example",
-            name="example-server",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="dbadmin",
-            administrator_login_password="example-password")
-        example_database = azure.sql.Database("example",
-            name="exampledb",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            server_name=example_sql_server.name,
-            requested_service_objective_name="S0",
-            collation="SQL_LATIN1_GENERAL_CP1_CI_AS",
-            max_size_bytes="268435456000",
-            create_mode="Default")
-        example_output_mssql = azure.streamanalytics.OutputMssql("example",
-            name="example-output-sql",
-            stream_analytics_job_name=example.name,
-            resource_group_name=example.resource_group_name,
-            server=example_sql_server.fully_qualified_domain_name,
-            user=example_sql_server.administrator_login,
-            password=example_sql_server.administrator_login_password,
-            database=example_database.name,
-            table="ExampleTable")
-        ```
 
         ## Import
 

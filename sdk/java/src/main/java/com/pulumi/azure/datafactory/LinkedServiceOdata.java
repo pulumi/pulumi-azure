@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.FactoryArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceOdata;
  * import com.pulumi.azure.datafactory.LinkedServiceOdataArgs;
- * import com.pulumi.azure.datafactory.inputs.LinkedServiceOdataBasicAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;basic_auth&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .url(&#34;https://services.odata.org/v4/TripPinServiceRW/People&#34;)
- *             .basicAuthentication(LinkedServiceOdataBasicAuthenticationArgs.builder()
- *                 .username(&#34;emma&#34;)
- *                 .password(&#34;Ch4ngeM3!&#34;)
- *                 .build())
+ *             .basicAuthentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

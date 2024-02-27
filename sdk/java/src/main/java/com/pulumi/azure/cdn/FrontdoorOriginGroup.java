@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
  * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupHealthProbeArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,17 +63,8 @@ import javax.annotation.Nullable;
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .sessionAffinityEnabled(true)
  *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
- *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
- *                 .intervalInSeconds(240)
- *                 .path(&#34;/healthProbe&#34;)
- *                 .protocol(&#34;Https&#34;)
- *                 .requestType(&#34;HEAD&#34;)
- *                 .build())
- *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
- *                 .additionalLatencyInMilliseconds(0)
- *                 .sampleSize(16)
- *                 .successfulSamplesRequired(3)
- *                 .build())
+ *             .healthProbe(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .loadBalancing(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

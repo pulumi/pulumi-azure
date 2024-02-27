@@ -308,53 +308,53 @@ class ExpressRouteConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_express_route_gateway = azure.network.ExpressRouteGateway("example",
-            name="example-expressroutegateway",
+            address_prefix=10.0.1.0/24)
+        example_express_route_gateway = azure.network.express_route_gateway.ExpressRouteGateway("example",
+            name=example-expressroutegateway,
             resource_group_name=example.name,
             location=example.location,
             virtual_hub_id=example_virtual_hub.id,
             scale_units=1)
-        example_express_route_port = azure.network.ExpressRoutePort("example",
-            name="example-erp",
+        example_express_route_port = azure.network.express_route_port.ExpressRoutePort("example",
+            name=example-erp,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Equinix-Seattle-SE2",
+            peering_location=Equinix-Seattle-SE2,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="example-erc",
+            encapsulation=Dot1Q)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=example-erc,
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="AzurePrivatePeering",
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            })
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
-            shared_key="ItsASecret",
+            shared_key=ItsASecret,
             peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.2.0/30",
+            primary_peer_address_prefix=192.168.1.0/30,
+            secondary_peer_address_prefix=192.168.2.0/30,
             vlan_id=100)
-        example_express_route_connection = azure.network.ExpressRouteConnection("example",
-            name="example-expressrouteconn",
+        example_express_route_connection = azure.network.express_route_connection.ExpressRouteConnection("example",
+            name=example-expressrouteconn,
             express_route_gateway_id=example_express_route_gateway.id,
             express_route_circuit_peering_id=example_express_route_circuit_peering.id)
         ```
@@ -395,53 +395,53 @@ class ExpressRouteConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-vhub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-vhub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_express_route_gateway = azure.network.ExpressRouteGateway("example",
-            name="example-expressroutegateway",
+            address_prefix=10.0.1.0/24)
+        example_express_route_gateway = azure.network.express_route_gateway.ExpressRouteGateway("example",
+            name=example-expressroutegateway,
             resource_group_name=example.name,
             location=example.location,
             virtual_hub_id=example_virtual_hub.id,
             scale_units=1)
-        example_express_route_port = azure.network.ExpressRoutePort("example",
-            name="example-erp",
+        example_express_route_port = azure.network.express_route_port.ExpressRoutePort("example",
+            name=example-erp,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Equinix-Seattle-SE2",
+            peering_location=Equinix-Seattle-SE2,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="example-erc",
+            encapsulation=Dot1Q)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=example-erc,
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="AzurePrivatePeering",
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            })
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
-            shared_key="ItsASecret",
+            shared_key=ItsASecret,
             peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.2.0/30",
+            primary_peer_address_prefix=192.168.1.0/30,
+            secondary_peer_address_prefix=192.168.2.0/30,
             vlan_id=100)
-        example_express_route_connection = azure.network.ExpressRouteConnection("example",
-            name="example-expressrouteconn",
+        example_express_route_connection = azure.network.express_route_connection.ExpressRouteConnection("example",
+            name=example-expressrouteconn,
             express_route_gateway_id=example_express_route_gateway.id,
             express_route_circuit_peering_id=example_express_route_circuit_peering.id)
         ```

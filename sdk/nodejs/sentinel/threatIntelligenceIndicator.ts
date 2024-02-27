@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "east us",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-law",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboarding("example", {
  *     resourceGroupName: example.name,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  * });
- * const exampleThreatIntelligenceIndicator = new azure.sentinel.ThreatIntelligenceIndicator("example", {
+ * const exampleThreatIntelligenceIndicator = new azure.sentinel/threatIntelligenceIndicator.ThreatIntelligenceIndicator("example", {
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     patternType: "domain-name",
  *     pattern: "http://example.com",

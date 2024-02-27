@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/postgresqlCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/postgresqlCluster"
+//	cosmosdb/postgresqlFirewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/postgresqlFirewallRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePostgresqlCluster, err := cosmosdb.NewPostgresqlCluster(ctx, "example", &cosmosdb.PostgresqlClusterArgs{
-//				Name:                        pulumi.String("examplecluster"),
-//				ResourceGroupName:           example.Name,
-//				Location:                    example.Location,
-//				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
-//				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
-//				CoordinatorVcoreCount:       pulumi.Int(2),
-//				NodeCount:                   pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewPostgresqlFirewallRule(ctx, "example", &cosmosdb.PostgresqlFirewallRuleArgs{
-//				Name:           pulumi.String("example-firewallrule"),
-//				ClusterId:      examplePostgresqlCluster.ID(),
-//				StartIpAddress: pulumi.String("10.0.17.62"),
-//				EndIpAddress:   pulumi.String("10.0.17.64"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePostgresqlCluster, err := cosmosdb/postgresqlCluster.NewPostgresqlCluster(ctx, "example", &cosmosdb/postgresqlCluster.PostgresqlClusterArgs{
+// Name: "examplecluster",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// CoordinatorStorageQuotaInMb: 131072,
+// CoordinatorVcoreCount: 2,
+// NodeCount: 0,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/postgresqlFirewallRule.NewPostgresqlFirewallRule(ctx, "example", &cosmosdb/postgresqlFirewallRule.PostgresqlFirewallRuleArgs{
+// Name: "example-firewallrule",
+// ClusterId: examplePostgresqlCluster.Id,
+// StartIpAddress: "10.0.17.62",
+// EndIpAddress: "10.0.17.64",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

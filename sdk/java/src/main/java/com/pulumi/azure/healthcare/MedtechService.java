@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.healthcare.WorkspaceArgs;
  * import com.pulumi.azure.healthcare.MedtechService;
  * import com.pulumi.azure.healthcare.MedtechServiceArgs;
- * import com.pulumi.azure.healthcare.inputs.MedtechServiceIdentityArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -62,9 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemed&#34;)
  *             .workspaceId(exampleWorkspace.id())
  *             .location(&#34;east us&#34;)
- *             .identity(MedtechServiceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .eventhubNamespaceName(&#34;example-eventhub-namespace&#34;)
  *             .eventhubName(&#34;example-eventhub&#34;)
  *             .eventhubConsumerGroupName(&#34;$Default&#34;)

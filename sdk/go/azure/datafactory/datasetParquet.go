@@ -21,55 +21,55 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/datasetParquet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/datasetParquet"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServiceWeb "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServiceWeb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "example", &datafactory.LinkedServiceWebArgs{
-//				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID(),
-//				AuthenticationType: pulumi.String("Anonymous"),
-//				Url:                pulumi.String("https://www.bing.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewDatasetParquet(ctx, "example", &datafactory.DatasetParquetArgs{
-//				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID(),
-//				LinkedServiceName: exampleLinkedServiceWeb.Name,
-//				HttpServerLocation: &datafactory.DatasetParquetHttpServerLocationArgs{
-//					RelativeUrl: pulumi.String("http://www.bing.com"),
-//					Path:        pulumi.String("foo/bar/"),
-//					Filename:    pulumi.String("fizz.txt"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinkedServiceWeb, err := datafactory/linkedServiceWeb.NewLinkedServiceWeb(ctx, "example", &datafactory/linkedServiceWeb.LinkedServiceWebArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// AuthenticationType: "Anonymous",
+// Url: "https://www.bing.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/datasetParquet.NewDatasetParquet(ctx, "example", &datafactory/datasetParquet.DatasetParquetArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// LinkedServiceName: exampleLinkedServiceWeb.Name,
+// HttpServerLocation: map[string]interface{}{
+// "relativeUrl": "http://www.bing.com",
+// "path": "foo/bar/",
+// "filename": "fizz.txt",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

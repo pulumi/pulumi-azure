@@ -211,155 +211,15 @@ public final class PrivatednsFunctions {
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
         return getARecord(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
         return getARecordPlain(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .zoneName(&#34;test-zone&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
     }
@@ -518,76 +378,12 @@ public final class PrivatednsFunctions {
     /**
      * Use this data source to access information about an existing Private DNS Zone.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDnsZoneResult> getDnsZone(GetDnsZoneArgs args) {
         return getDnsZone(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Private DNS Zone.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDnsZoneResult> getDnsZonePlain(GetDnsZonePlainArgs args) {
@@ -596,76 +392,12 @@ public final class PrivatednsFunctions {
     /**
      * Use this data source to access information about an existing Private DNS Zone.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDnsZoneResult> getDnsZone(GetDnsZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getDnsZone:getDnsZone", TypeShape.of(GetDnsZoneResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Private DNS Zone.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getDnsZone(GetDnsZoneArgs.builder()
-     *             .name(&#34;contoso.internal&#34;)
-     *             .resourceGroupName(&#34;contoso-dns&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsZoneId&#34;, example.applyValue(getDnsZoneResult -&gt; getDnsZoneResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDnsZoneResult> getDnsZonePlain(GetDnsZonePlainArgs args, InvokeOptions options) {
@@ -978,74 +710,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args) {
         return getResolver(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Private DNS Resolver.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverResult> getResolverPlain(GetResolverPlainArgs args) {
@@ -1054,74 +724,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolver:getResolver", TypeShape.of(GetResolverResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Private DNS Resolver.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = PrivatednsFunctions.getResolver(GetResolverArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resourcegroup-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverResult> getResolverPlain(GetResolverPlainArgs args, InvokeOptions options) {
@@ -1130,74 +738,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args) {
         return getResolverDnsForwardingRuleset(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRulesetPlain(GetResolverDnsForwardingRulesetPlainArgs args) {
@@ -1206,74 +752,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", TypeShape.of(GetResolverDnsForwardingRulesetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverDnsForwardingRulesetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs.builder()
-     *             .name(&#34;example-ruleset&#34;)
-     *             .resourceGroupName(&#34;example-ruleset-resourcegroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRulesetPlain(GetResolverDnsForwardingRulesetPlainArgs args, InvokeOptions options) {
@@ -1282,74 +766,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Forwarding Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args) {
         return getResolverForwardingRule(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Private DNS Resolver Forwarding Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverForwardingRuleResult> getResolverForwardingRulePlain(GetResolverForwardingRulePlainArgs args) {
@@ -1358,74 +780,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Forwarding Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", TypeShape.of(GetResolverForwardingRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Private DNS Resolver Forwarding Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverForwardingRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverForwardingRuleResult> getResolverForwardingRulePlain(GetResolverForwardingRulePlainArgs args, InvokeOptions options) {
@@ -1434,74 +794,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Inbound Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args) {
         return getResolverInboundEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Private DNS Resolver Inbound Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverInboundEndpointResult> getResolverInboundEndpointPlain(GetResolverInboundEndpointPlainArgs args) {
@@ -1510,74 +808,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Inbound Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", TypeShape.of(GetResolverInboundEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Private DNS Resolver Inbound Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverInboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverInboundEndpoint(GetResolverInboundEndpointArgs.builder()
-     *             .name(&#34;example-drie&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverInboundEndpointResult> getResolverInboundEndpointPlain(GetResolverInboundEndpointPlainArgs args, InvokeOptions options) {
@@ -1586,74 +822,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Outbound Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args) {
         return getResolverOutboundEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Private DNS Resolver Outbound Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverOutboundEndpointResult> getResolverOutboundEndpointPlain(GetResolverOutboundEndpointPlainArgs args) {
@@ -1662,74 +836,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Outbound Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", TypeShape.of(GetResolverOutboundEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Private DNS Resolver Outbound Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverOutboundEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs.builder()
-     *             .name(&#34;example-endpoint&#34;)
-     *             .privateDnsResolverId(&#34;example-private-dns-resolver-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverOutboundEndpointResult> getResolverOutboundEndpointPlain(GetResolverOutboundEndpointPlainArgs args, InvokeOptions options) {
@@ -1738,74 +850,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Virtual Network Link.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args) {
         return getResolverVirtualNetworkLink(args, InvokeOptions.Empty);
     }
     /**
      * Gets information about an existing Private DNS Resolver Virtual Network Link.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args) {
@@ -1814,74 +864,12 @@ public final class PrivatednsFunctions {
     /**
      * Gets information about an existing Private DNS Resolver Virtual Network Link.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", TypeShape.of(GetResolverVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets information about an existing Private DNS Resolver Virtual Network Link.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetResolverVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;example-link&#34;)
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args, InvokeOptions options) {
@@ -2342,78 +1330,12 @@ public final class PrivatednsFunctions {
     /**
      * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args) {
         return getZoneVirtualNetworkLink(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args) {
@@ -2422,78 +1344,12 @@ public final class PrivatednsFunctions {
     /**
      * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", TypeShape.of(GetZoneVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .resourceGroupName(&#34;test-rg&#34;)
-     *             .privateDnsZoneName(&#34;test-zone&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args, InvokeOptions options) {

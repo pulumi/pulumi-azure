@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "acceptanceTestEventHubNamespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -27,14 +27,14 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ * const exampleEventHub = new azure.eventhub/eventHub.EventHub("example", {
  *     name: "acceptanceTestEventHub",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 2,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ * const exampleAuthorizationRule = new azure.eventhub/authorizationRule.AuthorizationRule("example", {
  *     name: "navi",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,

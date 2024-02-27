@@ -196,33 +196,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.postgresql.Server("example",
-            name="example-psqlserver",
-            resource_group_name=example.name,
-            location=example.location,
-            version="9.6",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            sku_name="GP_Gen5_2",
-            ssl_enforcement_enabled=True)
-        example_active_directory_administrator = azure.postgresql.ActiveDirectoryAdministrator("example",
-            server_name=example_server.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -247,33 +220,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.postgresql.Server("example",
-            name="example-psqlserver",
-            resource_group_name=example.name,
-            location=example.location,
-            version="9.6",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd",
-            sku_name="GP_Gen5_2",
-            ssl_enforcement_enabled=True)
-        example_active_directory_administrator = azure.postgresql.ActiveDirectoryAdministrator("example",
-            server_name=example_server.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
 
         ## Import
 

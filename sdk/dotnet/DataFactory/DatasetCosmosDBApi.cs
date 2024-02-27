@@ -12,54 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
-    ///     {
-    ///         Name = "tfex-cosmosdb-account",
-    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///     });
-    /// 
-    ///     var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         AccountEndpoint = example.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
-    ///         Database = "foo",
-    ///     });
-    /// 
-    ///     var exampleDatasetCosmosDBApi = new Azure.DataFactory.DatasetCosmosDBApi("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceCosmosDb.Name,
-    ///         CollectionName = "bar",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Datasets can be imported using the `resource id`, e.g.

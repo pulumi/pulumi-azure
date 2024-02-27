@@ -13,27 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "resourcegroup1",
  *     location: "West US",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "vnet1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleDefinition = new azure.policy.Definition("example", {
+ * const exampleDefinition = new azure.policy/definition.Definition("example", {
  *     name: "only-deploy-in-westeurope",
  *     policyType: "Custom",
  *     mode: "All",
  *     displayName: "my-policy-definition",
  * });
- * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("example", {
+ * const exampleResourcePolicyAssignment = new azure.core/resourcePolicyAssignment.ResourcePolicyAssignment("example", {
  *     name: "assignment1",
  *     resourceId: exampleVirtualNetwork.id,
  *     policyDefinitionId: exampleDefinition.id,
- *     parameters: pulumi.jsonStringify({
+ *     parameters: JSON.stringify({
  *         listOfAllowedLocations: {
  *             value: [
  *                 example.location,
@@ -42,12 +42,12 @@ import * as utilities from "../utilities";
  *         },
  *     }),
  * });
- * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("example", {
+ * const exampleResourceGroupPolicyAssignment = new azure.core/resourceGroupPolicyAssignment.ResourceGroupPolicyAssignment("example", {
  *     name: "example",
  *     resourceGroupId: example.id,
  *     policyDefinitionId: exampleDefinition.id,
  * });
- * const exampleResourcePolicyRemediation = new azure.core.ResourcePolicyRemediation("example", {
+ * const exampleResourcePolicyRemediation = new azure.core/resourcePolicyRemediation.ResourcePolicyRemediation("example", {
  *     name: "remediation1",
  *     resourceId: exampleVirtualNetwork.id,
  *     policyAssignmentId: exampleResourceGroupPolicyAssignment.id,

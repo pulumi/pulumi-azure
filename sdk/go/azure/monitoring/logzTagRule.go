@@ -21,65 +21,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/logzMonitor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/logzMonitor"
+//	monitoring/logzTagRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/logzTagRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-logz"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "example", &monitoring.LogzMonitorArgs{
-//				Name:              pulumi.String("example-monitor"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Plan: &monitoring.LogzMonitorPlanArgs{
-//					BillingCycle:  pulumi.String("MONTHLY"),
-//					EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
-//					UsageType:     pulumi.String("COMMITTED"),
-//				},
-//				User: &monitoring.LogzMonitorUserArgs{
-//					Email:       pulumi.String("user@example.com"),
-//					FirstName:   pulumi.String("Example"),
-//					LastName:    pulumi.String("User"),
-//					PhoneNumber: pulumi.String("+12313803556"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewLogzTagRule(ctx, "example", &monitoring.LogzTagRuleArgs{
-//				LogzMonitorId: exampleLogzMonitor.ID(),
-//				TagFilters: monitoring.LogzTagRuleTagFilterArray{
-//					&monitoring.LogzTagRuleTagFilterArgs{
-//						Name:   pulumi.String("name1"),
-//						Action: pulumi.String("Include"),
-//						Value:  pulumi.String("value1"),
-//					},
-//					&monitoring.LogzTagRuleTagFilterArgs{
-//						Name:   pulumi.String("name2"),
-//						Action: pulumi.String("Exclude"),
-//						Value:  pulumi.String("value2"),
-//					},
-//				},
-//				SendAadLogs:          pulumi.Bool(true),
-//				SendActivityLogs:     pulumi.Bool(true),
-//				SendSubscriptionLogs: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-logz",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogzMonitor, err := monitoring/logzMonitor.NewLogzMonitor(ctx, "example", &monitoring/logzMonitor.LogzMonitorArgs{
+// Name: "example-monitor",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Plan: map[string]interface{}{
+// "billingCycle": "MONTHLY",
+// "effectiveDate": "2022-06-06T00:00:00Z",
+// "usageType": "COMMITTED",
+// },
+// User: map[string]interface{}{
+// "email": "user@example.com",
+// "firstName": "Example",
+// "lastName": "User",
+// "phoneNumber": "+12313803556",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/logzTagRule.NewLogzTagRule(ctx, "example", &monitoring/logzTagRule.LogzTagRuleArgs{
+// LogzMonitorId: exampleLogzMonitor.Id,
+// TagFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "name1",
+// "action": "Include",
+// "value": "value1",
+// },
+// map[string]interface{}{
+// "name": "name2",
+// "action": "Exclude",
+// "value": "value2",
+// },
+// },
+// SendAadLogs: true,
+// SendActivityLogs: true,
+// SendSubscriptionLogs: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

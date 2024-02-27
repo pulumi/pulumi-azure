@@ -14,46 +14,6 @@ import (
 
 // Manages a Active Directory Domain Service Trust.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/domainservices"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := domainservices.LookupService(ctx, &domainservices.LookupServiceArgs{
-//				Name:              "example-ds",
-//				ResourceGroupName: "example-rg",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = domainservices.NewServiceTrust(ctx, "example", &domainservices.ServiceTrustArgs{
-//				Name:              pulumi.String("example-trust"),
-//				DomainServiceId:   *pulumi.String(example.Id),
-//				TrustedDomainFqdn: pulumi.String("example.com"),
-//				TrustedDomainDnsIps: pulumi.StringArray{
-//					pulumi.String("10.1.0.3"),
-//					pulumi.String("10.1.0.4"),
-//				},
-//				Password: pulumi.String("Password123"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.

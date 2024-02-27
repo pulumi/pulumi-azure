@@ -298,32 +298,6 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            key_vault_id=example_key_vault.id)
-        ```
-
         ## Import
 
         Data Factory Key Vault Linked Service's can be imported using the `resource id`, e.g.
@@ -351,32 +325,6 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            key_vault_id=example_key_vault.id)
-        ```
 
         ## Import
 

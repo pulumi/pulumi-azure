@@ -443,26 +443,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an App Service certificate.
 
-        ## Example Usage
-
-        This example provisions an App Service Certificate from a Local File.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_certificate = azure.appservice.Certificate("example",
-            name="example-cert",
-            resource_group_name=example.name,
-            location=example.location,
-            pfx_blob=std.filebase64(input="certificate.pfx").result,
-            password="password123!")
-        ```
-
         ## Import
 
         App Service Certificates can be imported using the `resource id`, e.g.
@@ -494,26 +474,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service certificate.
-
-        ## Example Usage
-
-        This example provisions an App Service Certificate from a Local File.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_certificate = azure.appservice.Certificate("example",
-            name="example-cert",
-            resource_group_name=example.name,
-            location=example.location,
-            pfx_blob=std.filebase64(input="certificate.pfx").result,
-            password="password123!")
-        ```
 
         ## Import
 

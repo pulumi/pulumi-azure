@@ -38,76 +38,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args) {
         return getFrontdoorCustomDomain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args) {
@@ -116,76 +52,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", TypeShape.of(GetFrontdoorCustomDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args, InvokeOptions options) {
@@ -194,76 +66,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args) {
         return getFrontdoorEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args) {
@@ -272,76 +80,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", TypeShape.of(GetFrontdoorEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorEndpoint(GetFrontdoorEndpointArgs.builder()
-     *             .name(&#34;existing-endpoint&#34;)
-     *             .profileName(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args, InvokeOptions options) {
@@ -350,74 +94,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs args) {
         return getFrontdoorFirewallPolicy(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicyPlain(GetFrontdoorFirewallPolicyPlainArgs args) {
@@ -426,74 +108,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", TypeShape.of(GetFrontdoorFirewallPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
-     *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorFirewallPolicyResult> getFrontdoorFirewallPolicyPlain(GetFrontdoorFirewallPolicyPlainArgs args, InvokeOptions options) {
@@ -502,76 +122,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args) {
         return getFrontdoorOriginGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args) {
@@ -580,76 +136,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Origin Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs.builder()
-     *             .name(&#34;example-origin-group&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args, InvokeOptions options) {
@@ -658,74 +150,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args) {
         return getFrontdoorProfile(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args) {
@@ -734,74 +164,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", TypeShape.of(GetFrontdoorProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Profile.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorProfile(GetFrontdoorProfileArgs.builder()
-     *             .name(&#34;existing-cdn-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args, InvokeOptions options) {
@@ -810,76 +178,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args) {
         return getFrontdoorRuleSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args) {
@@ -888,76 +192,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", TypeShape.of(GetFrontdoorRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorRuleSet(GetFrontdoorRuleSetArgs.builder()
-     *             .name(&#34;existing-rule-set&#34;)
-     *             .profileName(&#34;existing-profile&#34;)
-     *             .resourceGroupName(&#34;existing-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args, InvokeOptions options) {
@@ -966,76 +206,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args) {
         return getFrontdoorSecret(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args) {
@@ -1044,76 +220,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Secret.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getFrontdoorSecret(GetFrontdoorSecretArgs.builder()
-     *             .name(&#34;example-secret&#34;)
-     *             .profileName(&#34;example-profile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args, InvokeOptions options) {
@@ -1122,76 +234,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing CDN Profile.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetProfileResult> getProfile(GetProfileArgs args) {
         return getProfile(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing CDN Profile.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProfileResult> getProfilePlain(GetProfilePlainArgs args) {
@@ -1200,76 +248,12 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing CDN Profile.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetProfileResult> getProfile(GetProfileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getProfile:getProfile", TypeShape.of(GetProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing CDN Profile.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.cdn.CdnFunctions;
-     * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CdnFunctions.getProfile(GetProfileArgs.builder()
-     *             .name(&#34;myfirstcdnprofile&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;cdnProfileId&#34;, example.applyValue(getProfileResult -&gt; getProfileResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProfileResult> getProfilePlain(GetProfilePlainArgs args, InvokeOptions options) {

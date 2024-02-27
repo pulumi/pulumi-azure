@@ -171,21 +171,21 @@ class SpringCloudStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_spring_cloud_storage = azure.appplatform.SpringCloudStorage("example",
-            name="example",
+        example_spring_cloud_storage = azure.appplatform.spring_cloud_storage.SpringCloudStorage("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
             storage_account_name=example_account.name,
             storage_account_key=example_account.primary_access_key)
@@ -221,21 +221,21 @@ class SpringCloudStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=GRS)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_spring_cloud_storage = azure.appplatform.SpringCloudStorage("example",
-            name="example",
+        example_spring_cloud_storage = azure.appplatform.spring_cloud_storage.SpringCloudStorage("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
             storage_account_name=example_account.name,
             storage_account_key=example_account.primary_access_key)

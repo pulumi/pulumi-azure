@@ -187,35 +187,35 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=StorageV2,
+            is_hns_enabled=true)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("example",
-            name="AllowAll",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            identity={
+                type: SystemAssigned,
+            })
+        example_firewall_rule = azure.synapse.firewall_rule.FirewallRule("example",
+            name=AllowAll,
             synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
+            start_ip_address=0.0.0.0,
+            end_ip_address=255.255.255.255)
         ```
 
         ## Import
@@ -252,35 +252,35 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            account_kind=StorageV2,
+            is_hns_enabled=true)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("example",
-            name="AllowAll",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
+            identity={
+                type: SystemAssigned,
+            })
+        example_firewall_rule = azure.synapse.firewall_rule.FirewallRule("example",
+            name=AllowAll,
             synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
+            start_ip_address=0.0.0.0,
+            end_ip_address=255.255.255.255)
         ```
 
         ## Import

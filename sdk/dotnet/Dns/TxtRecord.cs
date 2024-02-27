@@ -20,19 +20,19 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
+    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord.TxtRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
@@ -40,13 +40,13 @@ namespace Pulumi.Azure.Dns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             
     ///             {
-    ///                 Value = "google-site-authenticator",
+    ///                 { "value", "google-site-authenticator" },
     ///             },
-    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             
     ///             {
-    ///                 Value = "more site information here",
+    ///                 { "value", "more site information here" },
     ///             },
     ///         },
     ///         Tags = 

@@ -23,58 +23,36 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/workbook "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/workbook"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "Notebook/1.0",
-//				"items": []map[string]interface{}{
-//					map[string]interface{}{
-//						"type": 1,
-//						"content": map[string]interface{}{
-//							"json": "Test2022",
-//						},
-//						"name": "text - 0",
-//					},
-//				},
-//				"isLocked": false,
-//				"fallbackResourceIds": []string{
-//					"Azure Monitor",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = appinsights.NewWorkbook(ctx, "example", &appinsights.WorkbookArgs{
-//				Name:              pulumi.String("85b3e8bb-fc93-40be-83f2-98f6bec18ba0"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				DisplayName:       pulumi.String("workbook1"),
-//				DataJson:          pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"ENV": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appinsights/workbook.NewWorkbook(ctx, "example", &appinsights/workbook.WorkbookArgs{
+// Name: "85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DisplayName: "workbook1",
+// DataJson: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// Tags: map[string]interface{}{
+// "ENV": "Test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

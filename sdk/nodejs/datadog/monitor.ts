@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-datadog",
  *     location: "West US 2",
  * });
- * const exampleMonitor = new azure.datadog.Monitor("example", {
+ * const exampleMonitor = new azure.datadog/monitor.Monitor("example", {
  *     name: "example-monitor",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -41,23 +41,6 @@ import * as utilities from "../utilities";
  * ## Role Assignment
  *
  * To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
- *
- * ### Role assignment on the monitor created
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const primary = azure.core.getSubscription({});
- * const monitoringReader = azure.authorization.getRoleDefinition({
- *     name: "Monitoring Reader",
- * });
- * const example = new azure.authorization.Assignment("example", {
- *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: monitoringReader.then(monitoringReader => monitoringReader.roleDefinitionId),
- *     principalId: exampleAzurermDatadogMonitor.identity[0].principalId,
- * });
- * ```
  *
  * ## Import
  *

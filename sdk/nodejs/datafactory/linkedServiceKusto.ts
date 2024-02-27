@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleCluster = new azure.kusto.Cluster("example", {
+ * const exampleCluster = new azure.kusto/cluster.Cluster("example", {
  *     name: "kustocluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -34,26 +34,26 @@ import * as utilities from "../utilities";
  *         capacity: 2,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("example", {
+ * const exampleDatabase = new azure.kusto/database.Database("example", {
  *     name: "my-kusto-database",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     clusterName: exampleCluster.name,
  * });
- * const exampleLinkedServiceKusto = new azure.datafactory.LinkedServiceKusto("example", {
+ * const exampleLinkedServiceKusto = new azure.datafactory/linkedServiceKusto.LinkedServiceKusto("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     kustoEndpoint: exampleCluster.uri,
  *     kustoDatabaseName: exampleDatabase.name,
  *     useManagedIdentity: true,
  * });
- * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("example", {
+ * const exampleDatabasePrincipalAssignment = new azure.kusto/databasePrincipalAssignment.DatabasePrincipalAssignment("example", {
  *     name: "KustoPrincipalAssignment",
  *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
- *     tenantId: exampleFactory.identity.apply(identity => identity?.tenantId),
- *     principalId: exampleFactory.identity.apply(identity => identity?.principalId),
+ *     tenantId: exampleFactory.identity.tenantId,
+ *     principalId: exampleFactory.identity.principalId,
  *     principalType: "App",
  *     role: "Viewer",
  * });

@@ -149,22 +149,22 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("example",
-            name="example-psqlflexibleserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.postgresql.flexible_server.FlexibleServer("example",
+            name=example-psqlflexibleserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
+            version=12,
+            administrator_login=psqladmin,
+            administrator_password=H@Sh1CoR3!,
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("example",
-            name="backslash_quote",
+            sku_name=GP_Standard_D4s_v3)
+        example_flexible_server_configuration = azure.postgresql.flexible_server_configuration.FlexibleServerConfiguration("example",
+            name=backslash_quote,
             server_id=example_flexible_server.id,
-            value="on")
+            value=on)
         ```
         ### Azure Extensions
 
@@ -172,22 +172,22 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("example",
-            name="example-psqlflexibleserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.postgresql.flexible_server.FlexibleServer("example",
+            name=example-psqlflexibleserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
+            version=12,
+            administrator_login=psqladmin,
+            administrator_password=H@Sh1CoR3!,
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("example",
-            name="azure.extensions",
+            sku_name=GP_Standard_D4s_v3)
+        example_flexible_server_configuration = azure.postgresql.flexible_server_configuration.FlexibleServerConfiguration("example",
+            name=azure.extensions,
             server_id=example_flexible_server.id,
-            value="CUBE,CITEXT,BTREE_GIST")
+            value=CUBE,CITEXT,BTREE_GIST)
         ```
 
         ## Import
@@ -223,22 +223,22 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("example",
-            name="example-psqlflexibleserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.postgresql.flexible_server.FlexibleServer("example",
+            name=example-psqlflexibleserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
+            version=12,
+            administrator_login=psqladmin,
+            administrator_password=H@Sh1CoR3!,
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("example",
-            name="backslash_quote",
+            sku_name=GP_Standard_D4s_v3)
+        example_flexible_server_configuration = azure.postgresql.flexible_server_configuration.FlexibleServerConfiguration("example",
+            name=backslash_quote,
             server_id=example_flexible_server.id,
-            value="on")
+            value=on)
         ```
         ### Azure Extensions
 
@@ -246,22 +246,22 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("example",
-            name="example-psqlflexibleserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.postgresql.flexible_server.FlexibleServer("example",
+            name=example-psqlflexibleserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
+            version=12,
+            administrator_login=psqladmin,
+            administrator_password=H@Sh1CoR3!,
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_configuration = azure.postgresql.FlexibleServerConfiguration("example",
-            name="azure.extensions",
+            sku_name=GP_Standard_D4s_v3)
+        example_flexible_server_configuration = azure.postgresql.flexible_server_configuration.FlexibleServerConfiguration("example",
+            name=azure.extensions,
             server_id=example_flexible_server.id,
-            value="CUBE,CITEXT,BTREE_GIST")
+            value=CUBE,CITEXT,BTREE_GIST)
         ```
 
         ## Import

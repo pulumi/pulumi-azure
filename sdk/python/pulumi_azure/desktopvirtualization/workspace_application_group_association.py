@@ -106,26 +106,26 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example-virtualdesktop",
-            location="West Europe")
-        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
-            name="pooledbreadthfirst",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example-virtualdesktop,
+            location=West Europe)
+        pooledbreadthfirst = azure.desktopvirtualization.host_pool.HostPool("pooledbreadthfirst",
+            name=pooledbreadthfirst,
             location=example.location,
             resource_group_name=example.name,
-            type="Pooled",
-            load_balancer_type="BreadthFirst")
-        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
-            name="remoteapp",
+            type=Pooled,
+            load_balancer_type=BreadthFirst)
+        remoteapp = azure.desktopvirtualization.application_group.ApplicationGroup("remoteapp",
+            name=remoteapp,
             location=example.location,
             resource_group_name=example.name,
-            type="RemoteApp",
+            type=RemoteApp,
             host_pool_id=pooledbreadthfirst.id)
-        workspace = azure.desktopvirtualization.Workspace("workspace",
-            name="workspace",
+        workspace = azure.desktopvirtualization.workspace.Workspace("workspace",
+            name=workspace,
             location=example.location,
             resource_group_name=example.name)
-        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
+        workspaceremoteapp = azure.desktopvirtualization.workspace_application_group_association.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
             workspace_id=workspace.id,
             application_group_id=remoteapp.id)
         ```
@@ -158,26 +158,26 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example-virtualdesktop",
-            location="West Europe")
-        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
-            name="pooledbreadthfirst",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example-virtualdesktop,
+            location=West Europe)
+        pooledbreadthfirst = azure.desktopvirtualization.host_pool.HostPool("pooledbreadthfirst",
+            name=pooledbreadthfirst,
             location=example.location,
             resource_group_name=example.name,
-            type="Pooled",
-            load_balancer_type="BreadthFirst")
-        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
-            name="remoteapp",
+            type=Pooled,
+            load_balancer_type=BreadthFirst)
+        remoteapp = azure.desktopvirtualization.application_group.ApplicationGroup("remoteapp",
+            name=remoteapp,
             location=example.location,
             resource_group_name=example.name,
-            type="RemoteApp",
+            type=RemoteApp,
             host_pool_id=pooledbreadthfirst.id)
-        workspace = azure.desktopvirtualization.Workspace("workspace",
-            name="workspace",
+        workspace = azure.desktopvirtualization.workspace.Workspace("workspace",
+            name=workspace,
             location=example.location,
             resource_group_name=example.name)
-        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
+        workspaceremoteapp = azure.desktopvirtualization.workspace_application_group_association.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
             workspace_id=workspace.id,
             application_group_id=remoteapp.id)
         ```

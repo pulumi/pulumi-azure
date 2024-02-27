@@ -32,12 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.storage.ManagementPolicy;
  * import com.pulumi.azure.storage.ManagementPolicyArgs;
- * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleArgs;
- * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleFiltersArgs;
- * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsArgs;
- * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsBaseBlobArgs;
- * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsSnapshotArgs;
- * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsVersionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,56 +62,8 @@ import javax.annotation.Nullable;
  *         var exampleManagementPolicy = new ManagementPolicy(&#34;exampleManagementPolicy&#34;, ManagementPolicyArgs.builder()        
  *             .storageAccountId(exampleAccount.id())
  *             .rules(            
- *                 ManagementPolicyRuleArgs.builder()
- *                     .name(&#34;rule1&#34;)
- *                     .enabled(true)
- *                     .filters(ManagementPolicyRuleFiltersArgs.builder()
- *                         .prefixMatches(&#34;container1/prefix1&#34;)
- *                         .blobTypes(&#34;blockBlob&#34;)
- *                         .matchBlobIndexTags(ManagementPolicyRuleFiltersMatchBlobIndexTagArgs.builder()
- *                             .name(&#34;tag1&#34;)
- *                             .operation(&#34;==&#34;)
- *                             .value(&#34;val1&#34;)
- *                             .build())
- *                         .build())
- *                     .actions(ManagementPolicyRuleActionsArgs.builder()
- *                         .baseBlob(ManagementPolicyRuleActionsBaseBlobArgs.builder()
- *                             .tierToCoolAfterDaysSinceModificationGreaterThan(10)
- *                             .tierToArchiveAfterDaysSinceModificationGreaterThan(50)
- *                             .deleteAfterDaysSinceModificationGreaterThan(100)
- *                             .build())
- *                         .snapshot(ManagementPolicyRuleActionsSnapshotArgs.builder()
- *                             .deleteAfterDaysSinceCreationGreaterThan(30)
- *                             .build())
- *                         .build())
- *                     .build(),
- *                 ManagementPolicyRuleArgs.builder()
- *                     .name(&#34;rule2&#34;)
- *                     .enabled(false)
- *                     .filters(ManagementPolicyRuleFiltersArgs.builder()
- *                         .prefixMatches(                        
- *                             &#34;container2/prefix1&#34;,
- *                             &#34;container2/prefix2&#34;)
- *                         .blobTypes(&#34;blockBlob&#34;)
- *                         .build())
- *                     .actions(ManagementPolicyRuleActionsArgs.builder()
- *                         .baseBlob(ManagementPolicyRuleActionsBaseBlobArgs.builder()
- *                             .tierToCoolAfterDaysSinceModificationGreaterThan(11)
- *                             .tierToArchiveAfterDaysSinceModificationGreaterThan(51)
- *                             .deleteAfterDaysSinceModificationGreaterThan(101)
- *                             .build())
- *                         .snapshot(ManagementPolicyRuleActionsSnapshotArgs.builder()
- *                             .changeTierToArchiveAfterDaysSinceCreation(90)
- *                             .changeTierToCoolAfterDaysSinceCreation(23)
- *                             .deleteAfterDaysSinceCreationGreaterThan(31)
- *                             .build())
- *                         .version(ManagementPolicyRuleActionsVersionArgs.builder()
- *                             .changeTierToArchiveAfterDaysSinceCreation(9)
- *                             .changeTierToCoolAfterDaysSinceCreation(90)
- *                             .deleteAfterDaysSinceCreation(3)
- *                             .build())
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

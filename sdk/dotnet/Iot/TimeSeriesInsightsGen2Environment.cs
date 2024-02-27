@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var storage = new Azure.Storage.Account("storage", new()
+    ///     var storage = new Azure.Storage.Account.Account("storage", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Iot
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment("example", new()
+    ///     var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment.TimeSeriesInsightsGen2Environment("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -48,10 +48,10 @@ namespace Pulumi.Azure.Iot
     ///         {
     ///             "id",
     ///         },
-    ///         Storage = new Azure.Iot.Inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs
+    ///         Storage = 
     ///         {
-    ///             Name = storage.Name,
-    ///             Key = storage.PrimaryAccessKey,
+    ///             { "name", storage.Name },
+    ///             { "key", storage.PrimaryAccessKey },
     ///         },
     ///     });
     /// 

@@ -373,26 +373,26 @@ class RegistryWebook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        acr = azure.containerservice.registry.Registry("acr",
+            name=containerRegistry1,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard",
+            sku=Standard,
             admin_enabled=False)
-        webhook = azure.containerservice.RegistryWebhook("webhook",
-            name="mywebhook",
+        webhook = azure.containerservice.registry_webhook.RegistryWebhook("webhook",
+            name=mywebhook,
             resource_group_name=example.name,
             registry_name=acr.name,
             location=example.location,
-            service_uri="https://mywebhookreceiver.example/mytag",
-            status="enabled",
-            scope="mytag:*",
-            actions=["push"],
+            service_uri=https://mywebhookreceiver.example/mytag,
+            status=enabled,
+            scope=mytag:*,
+            actions=[push],
             custom_headers={
-                "Content-Type": "application/json",
+                Content-Type: application/json,
             })
         ```
 
@@ -432,26 +432,26 @@ class RegistryWebook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        acr = azure.containerservice.registry.Registry("acr",
+            name=containerRegistry1,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard",
+            sku=Standard,
             admin_enabled=False)
-        webhook = azure.containerservice.RegistryWebhook("webhook",
-            name="mywebhook",
+        webhook = azure.containerservice.registry_webhook.RegistryWebhook("webhook",
+            name=mywebhook,
             resource_group_name=example.name,
             registry_name=acr.name,
             location=example.location,
-            service_uri="https://mywebhookreceiver.example/mytag",
-            status="enabled",
-            scope="mytag:*",
-            actions=["push"],
+            service_uri=https://mywebhookreceiver.example/mytag,
+            status=enabled,
+            scope=mytag:*,
+            actions=[push],
             custom_headers={
-                "Content-Type": "application/json",
+                Content-Type: application/json,
             })
         ```
 

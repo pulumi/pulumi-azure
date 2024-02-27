@@ -204,33 +204,33 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.random_id.RandomId("server",
             keepers={
-                "azi_id": "1",
+                azi_id: 1,
             },
             byte_length=8)
-        example = azure.core.ResourceGroup("example",
-            name="redis-resourcegroup",
-            location="West Europe")
-        example_cache = azure.redis.Cache("example",
-            name=server.hex.apply(lambda hex: f"redis{hex}"),
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=redis-resourcegroup,
+            location=West Europe)
+        example_cache = azure.redis.cache.Cache("example",
+            name=fredis{server.hex},
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
-            family="P",
-            sku_name="Premium",
+            family=P,
+            sku_name=Premium,
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_firewall_rule = azure.redis.FirewallRule("example",
-            name="someIPrange",
+            redis_configuration={
+                maxmemoryReserved: 2,
+                maxmemoryDelta: 2,
+                maxmemoryPolicy: allkeys-lru,
+            })
+        example_firewall_rule = azure.redis.firewall_rule.FirewallRule("example",
+            name=someIPrange,
             redis_cache_name=example_cache.name,
             resource_group_name=example.name,
-            start_ip="1.2.3.4",
-            end_ip="2.3.4.5")
+            start_ip=1.2.3.4,
+            end_ip=2.3.4.5)
         ```
 
         ## Import
@@ -265,33 +265,33 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server",
+        server = random.index.random_id.RandomId("server",
             keepers={
-                "azi_id": "1",
+                azi_id: 1,
             },
             byte_length=8)
-        example = azure.core.ResourceGroup("example",
-            name="redis-resourcegroup",
-            location="West Europe")
-        example_cache = azure.redis.Cache("example",
-            name=server.hex.apply(lambda hex: f"redis{hex}"),
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=redis-resourcegroup,
+            location=West Europe)
+        example_cache = azure.redis.cache.Cache("example",
+            name=fredis{server.hex},
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
-            family="P",
-            sku_name="Premium",
+            family=P,
+            sku_name=Premium,
             enable_non_ssl_port=False,
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs(
-                maxmemory_reserved=2,
-                maxmemory_delta=2,
-                maxmemory_policy="allkeys-lru",
-            ))
-        example_firewall_rule = azure.redis.FirewallRule("example",
-            name="someIPrange",
+            redis_configuration={
+                maxmemoryReserved: 2,
+                maxmemoryDelta: 2,
+                maxmemoryPolicy: allkeys-lru,
+            })
+        example_firewall_rule = azure.redis.firewall_rule.FirewallRule("example",
+            name=someIPrange,
             redis_cache_name=example_cache.name,
             resource_group_name=example.name,
-            start_ip="1.2.3.4",
-            end_ip="2.3.4.5")
+            start_ip=1.2.3.4,
+            end_ip=2.3.4.5)
         ```
 
         ## Import

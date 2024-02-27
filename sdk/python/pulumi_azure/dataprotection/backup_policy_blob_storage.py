@@ -139,19 +139,19 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("example",
-            name="example-backup-policy",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_blob_storage = azure.dataprotection.backup_policy_blob_storage.BackupPolicyBlobStorage("example",
+            name=example-backup-policy,
             vault_id=example_backup_vault.id,
-            retention_duration="P30D")
+            retention_duration=P30D)
         ```
 
         ## Import
@@ -183,19 +183,19 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("example",
-            name="example-backup-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_backup_vault = azure.dataprotection.backup_vault.BackupVault("example",
+            name=example-backup-vault,
             resource_group_name=example.name,
             location=example.location,
-            datastore_type="VaultStore",
-            redundancy="LocallyRedundant")
-        example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("example",
-            name="example-backup-policy",
+            datastore_type=VaultStore,
+            redundancy=LocallyRedundant)
+        example_backup_policy_blob_storage = azure.dataprotection.backup_policy_blob_storage.BackupPolicyBlobStorage("example",
+            name=example-backup-policy,
             vault_id=example_backup_vault.id,
-            retention_duration="P30D")
+            retention_duration=P30D)
         ```
 
         ## Import

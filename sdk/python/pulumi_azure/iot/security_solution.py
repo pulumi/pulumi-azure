@@ -536,22 +536,22 @@ class SecuritySolution(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example-IoTHub",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example-IoTHub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_security_solution = azure.iot.SecuritySolution("example",
-            name="example-Iot-Security-Solution",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_security_solution = azure.iot.security_solution.SecuritySolution("example",
+            name=example-Iot-Security-Solution,
             resource_group_name=example.name,
             location=example.location,
-            display_name="Iot Security Solution",
+            display_name=Iot Security Solution,
             iothub_ids=[example_io_t_hub.id])
         ```
 
@@ -596,22 +596,22 @@ class SecuritySolution(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example-IoTHub",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example-IoTHub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_security_solution = azure.iot.SecuritySolution("example",
-            name="example-Iot-Security-Solution",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_security_solution = azure.iot.security_solution.SecuritySolution("example",
+            name=example-Iot-Security-Solution,
             resource_group_name=example.name,
             location=example.location,
-            display_name="Iot Security Solution",
+            display_name=Iot Security Solution,
             iothub_ids=[example_io_t_hub.id])
         ```
 

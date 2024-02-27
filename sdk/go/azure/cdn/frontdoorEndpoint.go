@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	cdn/frontdoorEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorEndpoint"
+//	cdn/frontdoorProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorProfile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-cdn-frontdoor"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:              pulumi.String("example-profile"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
-//				Name:                  pulumi.String("example-endpoint"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				Tags: pulumi.StringMap{
-//					"ENV": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-cdn-frontdoor",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoorProfile, err := cdn/frontdoorProfile.NewFrontdoorProfile(ctx, "example", &cdn/frontdoorProfile.FrontdoorProfileArgs{
+// Name: "example-profile",
+// ResourceGroupName: example.Name,
+// SkuName: "Standard_AzureFrontDoor",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cdn/frontdoorEndpoint.NewFrontdoorEndpoint(ctx, "example", &cdn/frontdoorEndpoint.FrontdoorEndpointArgs{
+// Name: "example-endpoint",
+// CdnFrontdoorProfileId: exampleFrontdoorProfile.Id,
+// Tags: map[string]interface{}{
+// "ENV": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

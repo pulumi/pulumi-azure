@@ -253,39 +253,39 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="example-sb-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=example-sb-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Premium",
+            sku=Premium,
             capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["172.17.0.0/16"],
+            address_spaces=[172.17.0.0/16],
             dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
+                10.0.0.4,
+                10.0.0.5,
             ])
-        example_subnet = azure.network.Subnet("example",
-            name="default",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=default,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["172.17.0.0/24"],
-            service_endpoints=["Microsoft.ServiceBus"])
-        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("example",
+            address_prefixes=[172.17.0.0/24],
+            service_endpoints=[Microsoft.ServiceBus])
+        example_namespace_network_rule_set = azure.servicebus.namespace_network_rule_set.NamespaceNetworkRuleSet("example",
             namespace_id=example_namespace.id,
-            default_action="Deny",
+            default_action=Deny,
             public_network_access_enabled=True,
-            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
-                subnet_id=example_subnet.id,
-                ignore_missing_vnet_service_endpoint=False,
-            )],
-            ip_rules=["1.1.1.1"])
+            network_rules=[{
+                subnetId: example_subnet.id,
+                ignoreMissingVnetServiceEndpoint: False,
+            }],
+            ip_rules=[1.1.1.1])
         ```
 
         ## Import
@@ -326,39 +326,39 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="example-sb-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=example-sb-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Premium",
+            sku=Premium,
             capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["172.17.0.0/16"],
+            address_spaces=[172.17.0.0/16],
             dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
+                10.0.0.4,
+                10.0.0.5,
             ])
-        example_subnet = azure.network.Subnet("example",
-            name="default",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=default,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["172.17.0.0/24"],
-            service_endpoints=["Microsoft.ServiceBus"])
-        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("example",
+            address_prefixes=[172.17.0.0/24],
+            service_endpoints=[Microsoft.ServiceBus])
+        example_namespace_network_rule_set = azure.servicebus.namespace_network_rule_set.NamespaceNetworkRuleSet("example",
             namespace_id=example_namespace.id,
-            default_action="Deny",
+            default_action=Deny,
             public_network_access_enabled=True,
-            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
-                subnet_id=example_subnet.id,
-                ignore_missing_vnet_service_endpoint=False,
-            )],
-            ip_rules=["1.1.1.1"])
+            network_rules=[{
+                subnetId: example_subnet.id,
+                ignoreMissingVnetServiceEndpoint: False,
+            }],
+            ip_rules=[1.1.1.1])
         ```
 
         ## Import

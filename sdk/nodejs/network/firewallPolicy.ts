@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFirewallPolicy = new azure.network.FirewallPolicy("example", {
+ * const exampleFirewallPolicy = new azure.network/firewallPolicy.FirewallPolicy("example", {
  *     name: "example-policy",
  *     resourceGroupName: example.name,
  *     location: example.location,

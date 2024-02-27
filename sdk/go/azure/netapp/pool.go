@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	netapp/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/account"
+//	netapp/pool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/pool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String("example-netappaccount"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = netapp.NewPool(ctx, "example", &netapp.PoolArgs{
-//				Name:              pulumi.String("example-netapppool"),
-//				AccountName:       exampleAccount.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ServiceLevel:      pulumi.String("Premium"),
-//				SizeInTb:          pulumi.Int(4),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := netapp/account.NewAccount(ctx, "example", &netapp/account.AccountArgs{
+// Name: "example-netappaccount",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = netapp/pool.NewPool(ctx, "example", &netapp/pool.PoolArgs{
+// Name: "example-netapppool",
+// AccountName: exampleAccount.Name,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ServiceLevel: "Premium",
+// SizeInTb: 4,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

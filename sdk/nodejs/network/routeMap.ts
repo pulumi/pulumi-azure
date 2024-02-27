@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ * const exampleVirtualWan = new azure.network/virtualWan.VirtualWan("example", {
  *     name: "example-vwan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ * const exampleVirtualHub = new azure.network/virtualHub.VirtualHub("example", {
  *     name: "example-vhub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
- * const exampleRouteMap = new azure.network.RouteMap("example", {
+ * const exampleRouteMap = new azure.network/routeMap.RouteMap("example", {
  *     name: "example-rm",
  *     virtualHubId: exampleVirtualHub.id,
  *     rules: [{

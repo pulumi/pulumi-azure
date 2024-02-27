@@ -21,109 +21,111 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	privatedns/resolver "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/resolver"
+//	privatedns/resolverDnsForwardingRuleset "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/resolverDnsForwardingRuleset"
+//	privatedns/resolverForwardingRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/resolverForwardingRule"
+//	privatedns/resolverOutboundEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/resolverOutboundEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("west europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("outbounddns"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.64/28"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//							Name: pulumi.String("Microsoft.Network/dnsResolvers"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResolver, err := privatedns.NewResolver(ctx, "example", &privatedns.ResolverArgs{
-//				Name:              pulumi.String("example-resolver"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "example", &privatedns.ResolverOutboundEndpointArgs{
-//				Name:                 pulumi.String("example-endpoint"),
-//				PrivateDnsResolverId: exampleResolver.ID(),
-//				Location:             exampleResolver.Location,
-//				SubnetId:             exampleSubnet.ID(),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResolverDnsForwardingRuleset, err := privatedns.NewResolverDnsForwardingRuleset(ctx, "example", &privatedns.ResolverDnsForwardingRulesetArgs{
-//				Name:              pulumi.String("example-drdfr"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				PrivateDnsResolverOutboundEndpointIds: pulumi.StringArray{
-//					exampleResolverOutboundEndpoint.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewResolverForwardingRule(ctx, "example", &privatedns.ResolverForwardingRuleArgs{
-//				Name:                   pulumi.String("example-rule"),
-//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID(),
-//				DomainName:             pulumi.String("onprem.local."),
-//				Enabled:                pulumi.Bool(true),
-//				TargetDnsServers: privatedns.ResolverForwardingRuleTargetDnsServerArray{
-//					&privatedns.ResolverForwardingRuleTargetDnsServerArgs{
-//						IpAddress: pulumi.String("10.10.0.1"),
-//						Port:      pulumi.Int(53),
-//					},
-//				},
-//				Metadata: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "west europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "outbounddns",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.0.64/28",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Microsoft.Network.dnsResolvers",
+// "serviceDelegation": map[string]interface{}{
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// "name": "Microsoft.Network/dnsResolvers",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleResolver, err := privatedns/resolver.NewResolver(ctx, "example", &privatedns/resolver.ResolverArgs{
+// Name: "example-resolver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VirtualNetworkId: exampleVirtualNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleResolverOutboundEndpoint, err := privatedns/resolverOutboundEndpoint.NewResolverOutboundEndpoint(ctx, "example", &privatedns/resolverOutboundEndpoint.ResolverOutboundEndpointArgs{
+// Name: "example-endpoint",
+// PrivateDnsResolverId: exampleResolver.Id,
+// Location: exampleResolver.Location,
+// SubnetId: exampleSubnet.Id,
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleResolverDnsForwardingRuleset, err := privatedns/resolverDnsForwardingRuleset.NewResolverDnsForwardingRuleset(ctx, "example", &privatedns/resolverDnsForwardingRuleset.ResolverDnsForwardingRulesetArgs{
+// Name: "example-drdfr",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PrivateDnsResolverOutboundEndpointIds: []interface{}{
+// exampleResolverOutboundEndpoint.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/resolverForwardingRule.NewResolverForwardingRule(ctx, "example", &privatedns/resolverForwardingRule.ResolverForwardingRuleArgs{
+// Name: "example-rule",
+// DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.Id,
+// DomainName: "onprem.local.",
+// Enabled: true,
+// TargetDnsServers: []map[string]interface{}{
+// map[string]interface{}{
+// "ipAddress": "10.10.0.1",
+// "port": 53,
+// },
+// },
+// Metadata: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

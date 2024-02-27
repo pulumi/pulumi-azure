@@ -247,30 +247,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an Automation Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="account1",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Basic")
-        example_certificate = azure.automation.Certificate("example",
-            name="certificate1",
-            resource_group_name=example.name,
-            automation_account_name=example_account.name,
-            description="This is an example certificate",
-            base64=std.filebase64(input="certificate.pfx").result,
-            exportable=True)
-        ```
-
         ## Import
 
         Automation Certificates can be imported using the `resource id`, e.g.
@@ -296,30 +272,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="account1",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Basic")
-        example_certificate = azure.automation.Certificate("example",
-            name="certificate1",
-            resource_group_name=example.name,
-            automation_account_name=example_account.name,
-            description="This is an example certificate",
-            base64=std.filebase64(input="certificate.pfx").result,
-            exportable=True)
-        ```
 
         ## Import
 

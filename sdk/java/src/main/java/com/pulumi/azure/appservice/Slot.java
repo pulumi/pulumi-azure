@@ -45,15 +45,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.AppService;
  * import com.pulumi.azure.appservice.AppServiceArgs;
- * import com.pulumi.azure.appservice.inputs.AppServiceSiteConfigArgs;
- * import com.pulumi.azure.appservice.inputs.AppServiceConnectionStringArgs;
  * import com.pulumi.azure.appservice.Slot;
  * import com.pulumi.azure.appservice.SlotArgs;
- * import com.pulumi.azure.appservice.inputs.SlotSiteConfigArgs;
- * import com.pulumi.azure.appservice.inputs.SlotConnectionStringArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 
@@ -81,10 +76,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;some-app-service-plan&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
@@ -92,15 +84,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
- *             .siteConfig(AppServiceSiteConfigArgs.builder()
- *                 .dotnetFrameworkVersion(&#34;v4.0&#34;)
- *                 .build())
- *             .appSettings(Map.of(&#34;SOME_KEY&#34;, &#34;some-value&#34;))
- *             .connectionStrings(AppServiceConnectionStringArgs.builder()
- *                 .name(&#34;Database&#34;)
- *                 .type(&#34;SQLServer&#34;)
- *                 .value(&#34;Server=some-server.mydomain.com;Integrated Security=SSPI&#34;)
- *                 .build())
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .appSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .connectionStrings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSlot = new Slot(&#34;exampleSlot&#34;, SlotArgs.builder()        
@@ -109,15 +95,9 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
- *             .siteConfig(SlotSiteConfigArgs.builder()
- *                 .dotnetFrameworkVersion(&#34;v4.0&#34;)
- *                 .build())
- *             .appSettings(Map.of(&#34;SOME_KEY&#34;, &#34;some-value&#34;))
- *             .connectionStrings(SlotConnectionStringArgs.builder()
- *                 .name(&#34;Database&#34;)
- *                 .type(&#34;SQLServer&#34;)
- *                 .value(&#34;Server=some-server.mydomain.com;Integrated Security=SSPI&#34;)
- *                 .build())
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .appSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .connectionStrings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -136,13 +116,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.AppService;
  * import com.pulumi.azure.appservice.AppServiceArgs;
- * import com.pulumi.azure.appservice.inputs.AppServiceSiteConfigArgs;
  * import com.pulumi.azure.appservice.Slot;
  * import com.pulumi.azure.appservice.SlotArgs;
- * import com.pulumi.azure.appservice.inputs.SlotSiteConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -157,7 +134,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 
@@ -170,10 +147,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;some-app-service-plan&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
@@ -181,11 +155,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
- *             .siteConfig(AppServiceSiteConfigArgs.builder()
- *                 .javaVersion(&#34;1.8&#34;)
- *                 .javaContainer(&#34;JETTY&#34;)
- *                 .javaContainerVersion(&#34;9.3&#34;)
- *                 .build())
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSlot = new Slot(&#34;exampleSlot&#34;, SlotArgs.builder()        
@@ -194,11 +164,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
- *             .siteConfig(SlotSiteConfigArgs.builder()
- *                 .javaVersion(&#34;1.8&#34;)
- *                 .javaContainer(&#34;JETTY&#34;)
- *                 .javaContainerVersion(&#34;9.3&#34;)
- *                 .build())
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

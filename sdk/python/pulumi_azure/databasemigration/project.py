@@ -271,32 +271,32 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service = azure.databasemigration.Service("example",
-            name="example-dbms",
+            address_prefixes=[10.0.1.0/24])
+        example_service = azure.databasemigration.service.Service("example",
+            name=example-dbms,
             location=example.location,
             resource_group_name=example.name,
             subnet_id=example_subnet.id,
-            sku_name="Standard_1vCores")
-        example_project = azure.databasemigration.Project("example",
-            name="example-dbms-project",
+            sku_name=Standard_1vCores)
+        example_project = azure.databasemigration.project.Project("example",
+            name=example-dbms-project,
             service_name=example_service.name,
             resource_group_name=example.name,
             location=example.location,
-            source_platform="SQL",
-            target_platform="SQLDB")
+            source_platform=SQL,
+            target_platform=SQLDB)
         ```
 
         ## Import
@@ -334,32 +334,32 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        example_service = azure.databasemigration.Service("example",
-            name="example-dbms",
+            address_prefixes=[10.0.1.0/24])
+        example_service = azure.databasemigration.service.Service("example",
+            name=example-dbms,
             location=example.location,
             resource_group_name=example.name,
             subnet_id=example_subnet.id,
-            sku_name="Standard_1vCores")
-        example_project = azure.databasemigration.Project("example",
-            name="example-dbms-project",
+            sku_name=Standard_1vCores)
+        example_project = azure.databasemigration.project.Project("example",
+            name=example-dbms-project,
             service_name=example_service.name,
             resource_group_name=example.name,
             location=example.location,
-            source_platform="SQL",
-            target_platform="SQLDB")
+            source_platform=SQL,
+            target_platform=SQLDB)
         ```
 
         ## Import

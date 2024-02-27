@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datafactory.getTriggerSchedules({
- *     dataFactoryId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1",
- * });
- * export const items = example.then(example => example.items);
- * ```
  */
 export function getTriggerSchedules(args: GetTriggerSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerSchedulesResult> {
 
@@ -53,18 +41,6 @@ export interface GetTriggerSchedulesResult {
 }
 /**
  * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datafactory.getTriggerSchedules({
- *     dataFactoryId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1",
- * });
- * export const items = example.then(example => example.items);
- * ```
  */
 export function getTriggerSchedulesOutput(args: GetTriggerSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerSchedulesResult> {
     return pulumi.output(args).apply((a: any) => getTriggerSchedules(a, opts))

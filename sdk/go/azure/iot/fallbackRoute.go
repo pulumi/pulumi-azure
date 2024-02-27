@@ -27,83 +27,84 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iot/endpointStorageContainer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/endpointStorageContainer"
+//	iot/fallbackRoute "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/fallbackRoute"
+//	iot/ioTHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/ioTHub"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageaccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("example"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("exampleIothub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("S1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//				Tags: pulumi.StringMap{
-//					"purpose": pulumi.String("testing"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEndpointStorageContainer, err := iot.NewEndpointStorageContainer(ctx, "example", &iot.EndpointStorageContainerArgs{
-//				ResourceGroupName:       example.Name,
-//				IothubId:                exampleIoTHub.ID(),
-//				Name:                    pulumi.String("example"),
-//				ConnectionString:        exampleAccount.PrimaryBlobConnectionString,
-//				BatchFrequencyInSeconds: pulumi.Int(60),
-//				MaxChunkSizeInBytes:     pulumi.Int(10485760),
-//				ContainerName:           exampleContainer.Name,
-//				Encoding:                pulumi.String("Avro"),
-//				FileNameFormat:          pulumi.String("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewFallbackRoute(ctx, "example", &iot.FallbackRouteArgs{
-//				ResourceGroupName: example.Name,
-//				IothubName:        exampleIoTHub.Name,
-//				Condition:         pulumi.String("true"),
-//				EndpointNames:     exampleEndpointStorageContainer.Name,
-//				Enabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "example",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIoTHub, err := iot/ioTHub.NewIoTHub(ctx, "example", &iot/ioTHub.IoTHubArgs{
+// Name: "exampleIothub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "S1",
+// "capacity": "1",
+// },
+// Tags: map[string]interface{}{
+// "purpose": "testing",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleEndpointStorageContainer, err := iot/endpointStorageContainer.NewEndpointStorageContainer(ctx, "example", &iot/endpointStorageContainer.EndpointStorageContainerArgs{
+// ResourceGroupName: example.Name,
+// IothubId: exampleIoTHub.Id,
+// Name: "example",
+// ConnectionString: exampleAccount.PrimaryBlobConnectionString,
+// BatchFrequencyInSeconds: 60,
+// MaxChunkSizeInBytes: 10485760,
+// ContainerName: exampleContainer.Name,
+// Encoding: "Avro",
+// FileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/fallbackRoute.NewFallbackRoute(ctx, "example", &iot/fallbackRoute.FallbackRouteArgs{
+// ResourceGroupName: example.Name,
+// IothubName: exampleIoTHub.Name,
+// Condition: "true",
+// EndpointNames: exampleEndpointStorageContainer.Name,
+// Enabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

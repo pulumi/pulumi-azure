@@ -23,45 +23,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devcenter"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	devcenter/devCenter "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devcenter/devCenter"
+//	devcenter/project "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devcenter/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := devcenter.NewDevCenter(ctx, "example", &devcenter.DevCenterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Identity: &devcenter.DevCenterIdentityArgs{
-//					Type: pulumi.String("example-value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devcenter.NewProject(ctx, "example", &devcenter.ProjectArgs{
-//				DevCenterId:       example.ID(),
-//				Location:          exampleResourceGroup.Location,
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleResourceGroup, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// example, err := devcenter/devCenter.NewDevCenter(ctx, "example", &devcenter/devCenter.DevCenterArgs{
+// Name: "example",
+// ResourceGroupName: exampleResourceGroup.Name,
+// Location: exampleResourceGroup.Location,
+// Identity: map[string]interface{}{
+// "type": "example-value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devcenter/project.NewProject(ctx, "example", &devcenter/project.ProjectArgs{
+// DevCenterId: example.Id,
+// Location: exampleResourceGroup.Location,
+// Name: "example",
+// ResourceGroupName: exampleResourceGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

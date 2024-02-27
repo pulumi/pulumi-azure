@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/ptrRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/ptrRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewPtrRecord(ctx, "example", &dns.PtrRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsPtrRecordId", exampleAzurermDnsPtrRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/ptrRecord.NewPtrRecord(ctx, "example", &dns/ptrRecord.PtrRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsPtrRecordId", exampleAzurermDnsPtrRecord.Id)
+// return nil
+// })
+// }
 // ```
 func LookupPtrRecord(ctx *pulumi.Context, args *LookupPtrRecordArgs, opts ...pulumi.InvokeOption) (*LookupPtrRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

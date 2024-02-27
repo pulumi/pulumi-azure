@@ -243,41 +243,6 @@ class NetworkSimGroup(pulumi.CustomResource):
         """
         Manages a Mobile Network Sim Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
-            resource_group_name="name_of_resource_group")
-        example_get_key_vault = azure.keyvault.get_key_vault(name="example-kv",
-            resource_group_name="some-resource-group")
-        example_get_key = azure.keyvault.get_key(name="example-key",
-            key_vault_id=example_get_key_vault.id)
-        example_network_sim_group = azure.mobile.NetworkSimGroup("example",
-            name="example-mnsg",
-            location=example_resource_group.location,
-            mobile_network_id=example_network.id,
-            encryption_key_url=example_get_key.id,
-            identity=azure.mobile.NetworkSimGroupIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example.id],
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
-
         ## Import
 
         Mobile Network Sim Groups can be imported using the `resource id`, e.g.
@@ -305,41 +270,6 @@ class NetworkSimGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim Group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
-            resource_group_name="name_of_resource_group")
-        example_get_key_vault = azure.keyvault.get_key_vault(name="example-kv",
-            resource_group_name="some-resource-group")
-        example_get_key = azure.keyvault.get_key(name="example-key",
-            key_vault_id=example_get_key_vault.id)
-        example_network_sim_group = azure.mobile.NetworkSimGroup("example",
-            name="example-mnsg",
-            location=example_resource_group.location,
-            mobile_network_id=example_network.id,
-            encryption_key_url=example_get_key.id,
-            identity=azure.mobile.NetworkSimGroupIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example.id],
-            ),
-            tags={
-                "key": "value",
-            })
-        ```
 
         ## Import
 

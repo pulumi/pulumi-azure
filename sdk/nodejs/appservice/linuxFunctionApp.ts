@@ -15,25 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "linuxfunctionappsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example-app-service-plan",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     osType: "Linux",
  *     skuName: "Y1",
  * });
- * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ * const exampleLinuxFunctionApp = new azure.appservice/linuxFunctionApp.LinuxFunctionApp("example", {
  *     name: "example-linux-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,

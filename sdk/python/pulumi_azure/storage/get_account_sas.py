@@ -157,55 +157,6 @@ def get_account_sas(connection_string: Optional[str] = None,
     Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
     and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_resource_group = azure.core.ResourceGroup("example",
-        name="resourceGroupName",
-        location="West Europe")
-    example_account = azure.storage.Account("example",
-        name="storageaccountname",
-        resource_group_name=example_resource_group.name,
-        location=example_resource_group.location,
-        account_tier="Standard",
-        account_replication_type="GRS",
-        tags={
-            "environment": "staging",
-        })
-    example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-        https_only=True,
-        signed_version="2017-07-29",
-        resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-            service=True,
-            container=False,
-            object=False,
-        ),
-        services=azure.storage.GetAccountSASServicesArgs(
-            blob=True,
-            queue=False,
-            table=False,
-            file=False,
-        ),
-        start="2018-03-21T00:00:00Z",
-        expiry="2020-03-21T00:00:00Z",
-        permissions=azure.storage.GetAccountSASPermissionsArgs(
-            read=True,
-            write=True,
-            delete=False,
-            list=False,
-            add=True,
-            create=True,
-            update=False,
-            process=False,
-            tag=False,
-            filter=False,
-        ))
-    pulumi.export("sasUrlQueryString", example.sas)
-    ```
-
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
@@ -264,55 +215,6 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
 
     Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
     and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example_resource_group = azure.core.ResourceGroup("example",
-        name="resourceGroupName",
-        location="West Europe")
-    example_account = azure.storage.Account("example",
-        name="storageaccountname",
-        resource_group_name=example_resource_group.name,
-        location=example_resource_group.location,
-        account_tier="Standard",
-        account_replication_type="GRS",
-        tags={
-            "environment": "staging",
-        })
-    example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-        https_only=True,
-        signed_version="2017-07-29",
-        resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-            service=True,
-            container=False,
-            object=False,
-        ),
-        services=azure.storage.GetAccountSASServicesArgs(
-            blob=True,
-            queue=False,
-            table=False,
-            file=False,
-        ),
-        start="2018-03-21T00:00:00Z",
-        expiry="2020-03-21T00:00:00Z",
-        permissions=azure.storage.GetAccountSASPermissionsArgs(
-            read=True,
-            write=True,
-            delete=False,
-            list=False,
-            add=True,
-            create=True,
-            update=False,
-            process=False,
-            tag=False,
-            filter=False,
-        ))
-    pulumi.export("sasUrlQueryString", example.sas)
-    ```
 
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.

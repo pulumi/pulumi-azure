@@ -142,23 +142,23 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("example",
-            name="default",
+        example_spring_cloud_api_portal = azure.appplatform.spring_cloud_api_portal.SpringCloudApiPortal("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
             gateway_ids=[example_spring_cloud_gateway.id])
-        example_spring_cloud_api_portal_custom_domain = azure.appplatform.SpringCloudApiPortalCustomDomain("example",
-            name="example.com",
+        example_spring_cloud_api_portal_custom_domain = azure.appplatform.spring_cloud_api_portal_custom_domain.SpringCloudApiPortalCustomDomain("example",
+            name=example.com,
             spring_cloud_api_portal_id=example_spring_cloud_api_portal.id)
         ```
 
@@ -193,23 +193,23 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_gateway = azure.appplatform.spring_cloud_gateway.SpringCloudGateway("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("example",
-            name="default",
+        example_spring_cloud_api_portal = azure.appplatform.spring_cloud_api_portal.SpringCloudApiPortal("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id,
             gateway_ids=[example_spring_cloud_gateway.id])
-        example_spring_cloud_api_portal_custom_domain = azure.appplatform.SpringCloudApiPortalCustomDomain("example",
-            name="example.com",
+        example_spring_cloud_api_portal_custom_domain = azure.appplatform.spring_cloud_api_portal_custom_domain.SpringCloudApiPortalCustomDomain("example",
+            name=example.com,
             spring_cloud_api_portal_id=example_spring_cloud_api_portal.id)
         ```
 

@@ -307,33 +307,33 @@ class OutboundRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="LoadBalancerRG",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="PublicIPForLB",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=LoadBalancerRG,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=PublicIPForLB,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="TestLoadBalancer",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=TestLoadBalancer,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("example",
-            name="example",
+            frontend_ip_configurations=[{
+                name: PublicIPAddress,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.backend_address_pool.BackendAddressPool("example",
+            name=example,
             loadbalancer_id=example_load_balancer.id)
-        example_outbound_rule = azure.lb.OutboundRule("example",
-            name="OutboundRule",
+        example_outbound_rule = azure.lb.outbound_rule.OutboundRule("example",
+            name=OutboundRule,
             loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
+            protocol=Tcp,
             backend_address_pool_id=example_backend_address_pool.id,
-            frontend_ip_configurations=[azure.lb.OutboundRuleFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-            )])
+            frontend_ip_configurations=[{
+                name: PublicIPAddress,
+            }])
         ```
 
         ## Import
@@ -372,33 +372,33 @@ class OutboundRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="LoadBalancerRG",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="PublicIPForLB",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=LoadBalancerRG,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=PublicIPForLB,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("example",
-            name="TestLoadBalancer",
+            allocation_method=Static)
+        example_load_balancer = azure.lb.load_balancer.LoadBalancer("example",
+            name=TestLoadBalancer,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-                public_ip_address_id=example_public_ip.id,
-            )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("example",
-            name="example",
+            frontend_ip_configurations=[{
+                name: PublicIPAddress,
+                publicIpAddressId: example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.backend_address_pool.BackendAddressPool("example",
+            name=example,
             loadbalancer_id=example_load_balancer.id)
-        example_outbound_rule = azure.lb.OutboundRule("example",
-            name="OutboundRule",
+        example_outbound_rule = azure.lb.outbound_rule.OutboundRule("example",
+            name=OutboundRule,
             loadbalancer_id=example_load_balancer.id,
-            protocol="Tcp",
+            protocol=Tcp,
             backend_address_pool_id=example_backend_address_pool.id,
-            frontend_ip_configurations=[azure.lb.OutboundRuleFrontendIpConfigurationArgs(
-                name="PublicIPAddress",
-            )])
+            frontend_ip_configurations=[{
+                name: PublicIPAddress,
+            }])
         ```
 
         ## Import

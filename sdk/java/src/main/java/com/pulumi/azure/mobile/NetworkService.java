@@ -35,12 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkArgs;
  * import com.pulumi.azure.mobile.NetworkService;
  * import com.pulumi.azure.mobile.NetworkServiceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleQosPolicyArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleQosPolicyMaximumBitRateArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServiceServiceQosPolicyArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkServiceServiceQosPolicyMaximumBitRateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,43 +66,9 @@ import javax.annotation.Nullable;
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .servicePrecedence(0)
- *             .pccRules(NetworkServicePccRuleArgs.builder()
- *                 .name(&#34;default-rule&#34;)
- *                 .precedence(1)
- *                 .trafficControlEnabled(true)
- *                 .qosPolicy(NetworkServicePccRuleQosPolicyArgs.builder()
- *                     .allocationAndRetentionPriorityLevel(9)
- *                     .qosIndicator(9)
- *                     .preemptionCapability(&#34;NotPreempt&#34;)
- *                     .preemptionVulnerability(&#34;Preemptable&#34;)
- *                     .guaranteedBitRate(NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs.builder()
- *                         .downlink(&#34;100 Mbps&#34;)
- *                         .uplink(&#34;10 Mbps&#34;)
- *                         .build())
- *                     .maximumBitRate(NetworkServicePccRuleQosPolicyMaximumBitRateArgs.builder()
- *                         .downlink(&#34;1 Gbps&#34;)
- *                         .uplink(&#34;100 Mbps&#34;)
- *                         .build())
- *                     .build())
- *                 .serviceDataFlowTemplates(NetworkServicePccRuleServiceDataFlowTemplateArgs.builder()
- *                     .direction(&#34;Uplink&#34;)
- *                     .name(&#34;IP-to-server&#34;)
- *                     .ports()
- *                     .protocols(&#34;ip&#34;)
- *                     .remoteIpLists(&#34;10.3.4.0/24&#34;)
- *                     .build())
- *                 .build())
- *             .serviceQosPolicy(NetworkServiceServiceQosPolicyArgs.builder()
- *                 .allocationAndRetentionPriorityLevel(9)
- *                 .qosIndicator(9)
- *                 .preemptionCapability(&#34;NotPreempt&#34;)
- *                 .preemptionVulnerability(&#34;Preemptable&#34;)
- *                 .maximumBitRate(NetworkServiceServiceQosPolicyMaximumBitRateArgs.builder()
- *                     .downlink(&#34;1 Gbps&#34;)
- *                     .uplink(&#34;100 Mbps&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .pccRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .serviceQosPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

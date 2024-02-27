@@ -21,18 +21,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "azure-functions-test-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "functionsapptestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "azure-functions-test-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         size: "S1",
  *     },
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ * const exampleFunctionApp = new azure.appservice/functionApp.FunctionApp("example", {
  *     name: "test-azure-functions",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -56,18 +56,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "azure-functions-cptest-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "functionsapptestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "azure-functions-test-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *         size: "Y1",
  *     },
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ * const exampleFunctionApp = new azure.appservice/functionApp.FunctionApp("example", {
  *     name: "test-azure-functions",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -92,18 +92,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "azure-functions-cptest-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "functionsapptestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
  *     name: "azure-functions-test-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  *         size: "Y1",
  *     },
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ * const exampleFunctionApp = new azure.appservice/functionApp.FunctionApp("example", {
  *     name: "test-azure-functions",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -127,6 +127,53 @@ import * as utilities from "../utilities";
  * ```
  *
  * > **Note:** Version `~3` or `~4` is required for Linux Function Apps.
+ * ### Python In A Consumption Plan)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
+ *     name: "azure-functions-example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage/account.Account("example", {
+ *     name: "functionsappexamlpesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const examplePlan = new azure.appservice/plan.Plan("example", {
+ *     name: "azure-functions-example-sp",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     kind: "Linux",
+ *     reserved: true,
+ *     sku: {
+ *         tier: "Dynamic",
+ *         size: "Y1",
+ *     },
+ * });
+ * const exampleFunctionApp = new azure.appservice/functionApp.FunctionApp("example", {
+ *     name: "example-azure-function",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     appServicePlanId: examplePlan.id,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     osType: "linux",
+ *     version: "~4",
+ *     appSettings: [{
+ *         FUNCTIONS_WORKER_RUNTIME: "python",
+ *     }],
+ *     siteConfig: {
+ *         linuxFxVersion: "python|3.9",
+ *     },
+ * });
+ * ```
+ *
+ * > **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
  *
  * ## Import
  *

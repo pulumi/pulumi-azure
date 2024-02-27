@@ -230,43 +230,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Manages the Shared Private Link Resource for a Web Pubsub service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="terraform-webpubsub",
-            location="east us")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["managecontacts"],
-                key_permissions=["create"],
-                secret_permissions=["set"],
-            )])
-        example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard_S1",
-            capacity=1)
-        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("example",
-            name="tfex-webpubsub-splr",
-            web_pubsub_id=example_service.id,
-            subresource_name="vault",
-            target_resource_id=example_key_vault.id)
-        ```
-
         ## Import
 
         Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -295,43 +258,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Resource for a Web Pubsub service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="terraform-webpubsub",
-            location="east us")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["managecontacts"],
-                key_permissions=["create"],
-                secret_permissions=["set"],
-            )])
-        example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard_S1",
-            capacity=1)
-        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("example",
-            name="tfex-webpubsub-splr",
-            web_pubsub_id=example_service.id,
-            subresource_name="vault",
-            target_resource_id=example_key_vault.id)
-        ```
 
         ## Import
 

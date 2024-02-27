@@ -2494,17 +2494,17 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
+            account_tier=Standard,
+            account_replication_type=GRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
         ### With Network Rules
@@ -2513,36 +2513,36 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="virtnetname",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=virtnetname,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="subnetname",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=subnetname,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
+            address_prefixes=[10.0.2.0/24],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                Microsoft.Sql,
+                Microsoft.Storage,
             ])
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["100.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-            ),
+            account_tier=Standard,
+            account_replication_type=LRS,
+            network_rules={
+                defaultAction: Deny,
+                ipRules: [100.0.0.1],
+                virtualNetworkSubnetIds: [example_subnet.id],
+            },
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
 
@@ -2630,17 +2630,17 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS",
+            account_tier=Standard,
+            account_replication_type=GRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
         ### With Network Rules
@@ -2649,36 +2649,36 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="virtnetname",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=virtnetname,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="subnetname",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=subnetname,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
+            address_prefixes=[10.0.2.0/24],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                Microsoft.Sql,
+                Microsoft.Storage,
             ])
-        example_account = azure.storage.Account("example",
-            name="storageaccountname",
+        example_account = azure.storage.account.Account("example",
+            name=storageaccountname,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["100.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-            ),
+            account_tier=Standard,
+            account_replication_type=LRS,
+            network_rules={
+                defaultAction: Deny,
+                ipRules: [100.0.0.1],
+                virtualNetworkSubnetIds: [example_subnet.id],
+            },
             tags={
-                "environment": "staging",
+                environment: staging,
             })
         ```
 

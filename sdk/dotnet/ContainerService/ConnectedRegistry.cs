@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
+    ///     var exampleRegistry = new Azure.Containerservice.Registry.Registry("example", new()
     ///     {
     ///         Name = "exampleacr",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService
     ///         DataEndpointEnabled = true,
     ///     });
     /// 
-    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("example", new()
+    ///     var exampleRegistryScopeMap = new Azure.Containerservice.RegistryScopeMap.RegistryScopeMap("example", new()
     ///     {
     ///         Name = "examplescopemap",
     ///         ContainerRegistryName = exampleRegistry.Name,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryToken = new Azure.ContainerService.RegistryToken("example", new()
+    ///     var exampleRegistryToken = new Azure.Containerservice.RegistryToken.RegistryToken("example", new()
     ///     {
     ///         Name = "exampletoken",
     ///         ContainerRegistryName = exampleRegistry.Name,
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService
     ///         ScopeMapId = exampleRegistryScopeMap.Id,
     ///     });
     /// 
-    ///     var exampleConnectedRegistry = new Azure.ContainerService.ConnectedRegistry("example", new()
+    ///     var exampleConnectedRegistry = new Azure.Containerservice.ConnectedRegistry.ConnectedRegistry("example", new()
     ///     {
     ///         Name = "examplecr",
     ///         ContainerRegistryId = exampleRegistry.Id,

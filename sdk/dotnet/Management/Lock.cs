@@ -13,28 +13,6 @@ namespace Pulumi.Azure.Management
     /// Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
     /// 
     /// ## Example Usage
-    /// ### Subscription Level Lock)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var subscription_level = new Azure.Management.Lock("subscription-level", new()
-    ///     {
-    ///         Name = "subscription-level",
-    ///         Scope = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         LockLevel = "CanNotDelete",
-    ///         Notes = "Items can't be deleted in this subscription!",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Resource Group Level Lock)
     /// 
     /// ```csharp
@@ -45,13 +23,13 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "locked-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var resource_group_level = new Azure.Management.Lock("resource-group-level", new()
+    ///     var resource_group_level = new Azure.Management.Lock.Lock("resource-group-level", new()
     ///     {
     ///         Name = "resource-group-level",
     ///         Scope = example.Id,
@@ -71,13 +49,13 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "locked-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "locked-publicip",
     ///         Location = example.Location,
@@ -86,7 +64,7 @@ namespace Pulumi.Azure.Management
     ///         IdleTimeoutInMinutes = 30,
     ///     });
     /// 
-    ///     var public_ip = new Azure.Management.Lock("public-ip", new()
+    ///     var public_ip = new Azure.Management.Lock.Lock("public-ip", new()
     ///     {
     ///         Name = "resource-ip",
     ///         Scope = examplePublicIp.Id,

@@ -21,153 +21,152 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	cdn/frontdoorFirewallPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorFirewallPolicy"
+//	cdn/frontdoorProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorProfile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-cdn-frontdoor"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:              pulumi.String("example-profile"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewFrontdoorFirewallPolicy(ctx, "example", &cdn.FrontdoorFirewallPolicyArgs{
-//				Name:                          pulumi.String("examplecdnfdwafpolicy"),
-//				ResourceGroupName:             example.Name,
-//				SkuName:                       exampleFrontdoorProfile.SkuName,
-//				Enabled:                       pulumi.Bool(true),
-//				Mode:                          pulumi.String("Prevention"),
-//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
-//				CustomBlockResponseStatusCode: pulumi.Int(403),
-//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
-//				CustomRules: cdn.FrontdoorFirewallPolicyCustomRuleArray{
-//					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
-//						Name:                       pulumi.String("Rule1"),
-//						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(1),
-//						RateLimitDurationInMinutes: pulumi.Int(1),
-//						RateLimitThreshold:         pulumi.Int(10),
-//						Type:                       pulumi.String("MatchRule"),
-//						Action:                     pulumi.String("Block"),
-//						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
-//							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
-//								MatchVariable:     pulumi.String("RemoteAddr"),
-//								Operator:          pulumi.String("IPMatch"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("10.0.1.0/24"),
-//									pulumi.String("10.0.0.0/24"),
-//								},
-//							},
-//						},
-//					},
-//					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
-//						Name:                       pulumi.String("Rule2"),
-//						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(2),
-//						RateLimitDurationInMinutes: pulumi.Int(1),
-//						RateLimitThreshold:         pulumi.Int(10),
-//						Type:                       pulumi.String("MatchRule"),
-//						Action:                     pulumi.String("Block"),
-//						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
-//							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
-//								MatchVariable:     pulumi.String("RemoteAddr"),
-//								Operator:          pulumi.String("IPMatch"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("192.168.1.0/24"),
-//								},
-//							},
-//							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
-//								MatchVariable:     pulumi.String("RequestHeader"),
-//								Selector:          pulumi.String("UserAgent"),
-//								Operator:          pulumi.String("Contains"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("windows"),
-//								},
-//								Transforms: pulumi.StringArray{
-//									pulumi.String("Lowercase"),
-//									pulumi.String("Trim"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				ManagedRules: cdn.FrontdoorFirewallPolicyManagedRuleArray{
-//					&cdn.FrontdoorFirewallPolicyManagedRuleArgs{
-//						Type:    pulumi.String("DefaultRuleSet"),
-//						Version: pulumi.String("1.0"),
-//						Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleExclusionArray{
-//							&cdn.FrontdoorFirewallPolicyManagedRuleExclusionArgs{
-//								MatchVariable: pulumi.String("QueryStringArgNames"),
-//								Operator:      pulumi.String("Equals"),
-//								Selector:      pulumi.String("not_suspicious"),
-//							},
-//						},
-//						Overrides: cdn.FrontdoorFirewallPolicyManagedRuleOverrideArray{
-//							&cdn.FrontdoorFirewallPolicyManagedRuleOverrideArgs{
-//								RuleGroupName: pulumi.String("PHP"),
-//								Rules: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{
-//									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{
-//										RuleId:  pulumi.String("933100"),
-//										Enabled: pulumi.Bool(false),
-//										Action:  pulumi.String("Block"),
-//									},
-//								},
-//							},
-//							&cdn.FrontdoorFirewallPolicyManagedRuleOverrideArgs{
-//								RuleGroupName: pulumi.String("SQLI"),
-//								Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray{
-//									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs{
-//										MatchVariable: pulumi.String("QueryStringArgNames"),
-//										Operator:      pulumi.String("Equals"),
-//										Selector:      pulumi.String("really_not_suspicious"),
-//									},
-//								},
-//								Rules: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{
-//									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{
-//										RuleId: pulumi.String("942200"),
-//										Action: pulumi.String("Block"),
-//										Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray{
-//											&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs{
-//												MatchVariable: pulumi.String("QueryStringArgNames"),
-//												Operator:      pulumi.String("Equals"),
-//												Selector:      pulumi.String("innocent"),
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//					&cdn.FrontdoorFirewallPolicyManagedRuleArgs{
-//						Type:    pulumi.String("Microsoft_BotManagerRuleSet"),
-//						Version: pulumi.String("1.0"),
-//						Action:  pulumi.String("Log"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-cdn-frontdoor",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoorProfile, err := cdn/frontdoorProfile.NewFrontdoorProfile(ctx, "example", &cdn/frontdoorProfile.FrontdoorProfileArgs{
+// Name: "example-profile",
+// ResourceGroupName: example.Name,
+// SkuName: "Premium_AzureFrontDoor",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cdn/frontdoorFirewallPolicy.NewFrontdoorFirewallPolicy(ctx, "example", &cdn/frontdoorFirewallPolicy.FrontdoorFirewallPolicyArgs{
+// Name: "examplecdnfdwafpolicy",
+// ResourceGroupName: example.Name,
+// SkuName: exampleFrontdoorProfile.SkuName,
+// Enabled: true,
+// Mode: "Prevention",
+// RedirectUrl: "https://www.contoso.com",
+// CustomBlockResponseStatusCode: 403,
+// CustomBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+// CustomRules: []interface{}{
+// map[string]interface{}{
+// "name": "Rule1",
+// "enabled": true,
+// "priority": 1,
+// "rateLimitDurationInMinutes": 1,
+// "rateLimitThreshold": 10,
+// "type": "MatchRule",
+// "action": "Block",
+// "matchConditions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "RemoteAddr",
+// "operator": "IPMatch",
+// "negationCondition": false,
+// "matchValues": []string{
+// "10.0.1.0/24",
+// "10.0.0.0/24",
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "Rule2",
+// "enabled": true,
+// "priority": 2,
+// "rateLimitDurationInMinutes": 1,
+// "rateLimitThreshold": 10,
+// "type": "MatchRule",
+// "action": "Block",
+// "matchConditions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "RemoteAddr",
+// "operator": "IPMatch",
+// "negationCondition": false,
+// "matchValues": []string{
+// "192.168.1.0/24",
+// },
+// },
+// map[string]interface{}{
+// "matchVariable": "RequestHeader",
+// "selector": "UserAgent",
+// "operator": "Contains",
+// "negationCondition": false,
+// "matchValues": []string{
+// "windows",
+// },
+// "transforms": []string{
+// "Lowercase",
+// "Trim",
+// },
+// },
+// },
+// },
+// },
+// ManagedRules: []interface{}{
+// map[string]interface{}{
+// "type": "DefaultRuleSet",
+// "version": "1.0",
+// "exclusions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "QueryStringArgNames",
+// "operator": "Equals",
+// "selector": "not_suspicious",
+// },
+// },
+// "overrides": []interface{}{
+// map[string]interface{}{
+// "ruleGroupName": "PHP",
+// "rules": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleId": "933100",
+// "enabled": false,
+// "action": "Block",
+// },
+// },
+// },
+// map[string]interface{}{
+// "ruleGroupName": "SQLI",
+// "exclusions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "QueryStringArgNames",
+// "operator": "Equals",
+// "selector": "really_not_suspicious",
+// },
+// },
+// "rules": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleId": "942200",
+// "action": "Block",
+// "exclusions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "QueryStringArgNames",
+// "operator": "Equals",
+// "selector": "innocent",
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "type": "Microsoft_BotManagerRuleSet",
+// "version": "1.0",
+// "action": "Log",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

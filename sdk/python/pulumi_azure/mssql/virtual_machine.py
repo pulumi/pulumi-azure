@@ -565,31 +565,6 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Manages a Microsoft SQL Virtual Machine
 
-        ## Example Usage
-
-        This example provisions a brief Managed Microsoft SQL Virtual Machine.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.compute.get_virtual_machine(name="example-vm",
-            resource_group_name="example-resources")
-        example_virtual_machine = azure.mssql.VirtualMachine("example",
-            virtual_machine_id=example.id,
-            sql_license_type="PAYG",
-            r_services_enabled=True,
-            sql_connectivity_port=1433,
-            sql_connectivity_type="PRIVATE",
-            sql_connectivity_update_password="Password1234!",
-            sql_connectivity_update_username="sqllogin",
-            auto_patching=azure.mssql.VirtualMachineAutoPatchingArgs(
-                day_of_week="Sunday",
-                maintenance_window_duration_in_minutes=60,
-                maintenance_window_starting_hour=2,
-            ))
-        ```
-
         ## Import
 
         Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.
@@ -625,31 +600,6 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Virtual Machine
-
-        ## Example Usage
-
-        This example provisions a brief Managed Microsoft SQL Virtual Machine.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.compute.get_virtual_machine(name="example-vm",
-            resource_group_name="example-resources")
-        example_virtual_machine = azure.mssql.VirtualMachine("example",
-            virtual_machine_id=example.id,
-            sql_license_type="PAYG",
-            r_services_enabled=True,
-            sql_connectivity_port=1433,
-            sql_connectivity_type="PRIVATE",
-            sql_connectivity_update_password="Password1234!",
-            sql_connectivity_update_username="sqllogin",
-            auto_patching=azure.mssql.VirtualMachineAutoPatchingArgs(
-                day_of_week="Sunday",
-                maintenance_window_duration_in_minutes=60,
-                maintenance_window_starting_hour=2,
-            ))
-        ```
 
         ## Import
 

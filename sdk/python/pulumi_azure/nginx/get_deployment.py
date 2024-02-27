@@ -240,17 +240,6 @@ def get_deployment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Nginx Deployment.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.nginx.get_deployment(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Nginx Deployment.
     :param str resource_group_name: The name of the Resource Group where the Nginx Deployment exists.
@@ -287,17 +276,6 @@ def get_deployment_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Use this data source to access information about an existing Nginx Deployment.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.nginx.get_deployment(name="existing",
-        resource_group_name="existing")
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Nginx Deployment.

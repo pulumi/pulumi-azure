@@ -23,58 +23,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudConfigurationService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudConfigurationService"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudConfigurationService(ctx, "example", &appplatform.SpringCloudConfigurationServiceArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				Repositories: appplatform.SpringCloudConfigurationServiceRepositoryArray{
-//					&appplatform.SpringCloudConfigurationServiceRepositoryArgs{
-//						Name:  pulumi.String("fake"),
-//						Label: pulumi.String("master"),
-//						Patterns: pulumi.StringArray{
-//							pulumi.String("app/dev"),
-//						},
-//						Uri: pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
-//						SearchPaths: pulumi.StringArray{
-//							pulumi.String("dir1"),
-//							pulumi.String("dir2"),
-//						},
-//						StrictHostKeyChecking: pulumi.Bool(false),
-//						Username:              pulumi.String("adminuser"),
-//						Password:              pulumi.String("H@Sh1CoR3!"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudConfigurationService.NewSpringCloudConfigurationService(ctx, "example", &appplatform/springCloudConfigurationService.SpringCloudConfigurationServiceArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// Repositories: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "fake",
+// "label": "master",
+// "patterns": []string{
+// "app/dev",
+// },
+// "uri": "https://github.com/Azure-Samples/piggymetrics",
+// "searchPaths": []string{
+// "dir1",
+// "dir2",
+// },
+// "strictHostKeyChecking": false,
+// "username": "adminuser",
+// "password": "H@Sh1CoR3!",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -20,60 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.StorageFunctions;
- * import com.pulumi.azure.storage.inputs.GetAccountArgs;
- * import com.pulumi.azure.datafactory.Factory;
- * import com.pulumi.azure.datafactory.FactoryArgs;
- * import com.pulumi.azure.datafactory.LinkedServiceAzureFileStorage;
- * import com.pulumi.azure.datafactory.LinkedServiceAzureFileStorageArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
- *             .name(&#34;storageaccountname&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
- * 
- *         var exampleLinkedServiceAzureFileStorage = new LinkedServiceAzureFileStorage(&#34;exampleLinkedServiceAzureFileStorage&#34;, LinkedServiceAzureFileStorageArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(example.applyValue(getAccountResult -&gt; getAccountResult).applyValue(example -&gt; example.applyValue(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Data Factory Linked Service&#39;s can be imported using the `resource id`, e.g.

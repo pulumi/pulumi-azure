@@ -371,63 +371,63 @@ class DataFlow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
-            name="linked_service",
+        example_linked_custom_service = azure.datafactory.linked_custom_service.LinkedCustomService("example",
+            name=linked_service,
             data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
+            type=AzureBlobStorage,
+            type_properties_json=f{{
+          "connectionString": "{example_account.primary_connection_string}"
         }}
-        \"\"\"))
-        example1 = azure.datafactory.DatasetJson("example1",
-            name="dataset1",
+        )
+        example1 = azure.datafactory.dataset_json.DatasetJson("example1",
+            name=dataset1,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="foo.txt",
-            ),
-            encoding="UTF-8")
-        example2 = azure.datafactory.DatasetJson("example2",
-            name="dataset2",
+            azure_blob_storage_location={
+                container: container,
+                path: foo/bar/,
+                filename: foo.txt,
+            },
+            encoding=UTF-8)
+        example2 = azure.datafactory.dataset_json.DatasetJson("example2",
+            name=dataset2,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="bar.txt",
-            ),
-            encoding="UTF-8")
-        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1",
-            name="example",
+            azure_blob_storage_location={
+                container: container,
+                path: foo/bar/,
+                filename: bar.txt,
+            },
+            encoding=UTF-8)
+        example1_flowlet_data_flow = azure.datafactory.flowlet_data_flow.FlowletDataFlow("example1",
+            name=example,
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            script=\"\"\"source(
+            sources=[{
+                name: source1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                name: sink1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            script=source(
           allowSchemaDrift: true, 
           validateSchema: false, 
           limit: 100, 
@@ -438,23 +438,23 @@ class DataFlow(pulumi.CustomResource):
           validateSchema: false, 
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
-        \"\"\")
-        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
-            name="example",
+        )
+        example2_flowlet_data_flow = azure.datafactory.flowlet_data_flow.FlowletDataFlow("example2",
+            name=example,
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            script=\"\"\"source(
+            sources=[{
+                name: source1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                name: sink1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            script=source(
           allowSchemaDrift: true, 
           validateSchema: false, 
           limit: 100, 
@@ -465,35 +465,35 @@ class DataFlow(pulumi.CustomResource):
           validateSchema: false, 
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
-        \"\"\")
-        example_data_flow = azure.datafactory.DataFlow("example",
-            name="example",
+        )
+        example_data_flow = azure.datafactory.data_flow.DataFlow("example",
+            name=example,
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.DataFlowSourceArgs(
-                name="source1",
-                flowlet=azure.datafactory.DataFlowSourceFlowletArgs(
-                    name=example1_flowlet_data_flow.name,
-                    parameters={
-                        "Key1": "value1",
+            sources=[{
+                name: source1,
+                flowlet: {
+                    name: example1_flowlet_data_flow.name,
+                    parameters: {
+                        Key1: value1,
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSourceDatasetArgs(
-                    name=example1.name,
-                ),
-            )],
-            sinks=[azure.datafactory.DataFlowSinkArgs(
-                name="sink1",
-                flowlet=azure.datafactory.DataFlowSinkFlowletArgs(
-                    name=example2_flowlet_data_flow.name,
-                    parameters={
-                        "Key1": "value1",
+                },
+                dataset: {
+                    name: example1.name,
+                },
+            }],
+            sinks=[{
+                name: sink1,
+                flowlet: {
+                    name: example2_flowlet_data_flow.name,
+                    parameters: {
+                        Key1: value1,
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSinkDatasetArgs(
-                    name=example2.name,
-                ),
-            )],
-            script=\"\"\"source(
+                },
+                dataset: {
+                    name: example2.name,
+                },
+            }],
+            script=source(
           allowSchemaDrift: true, 
           validateSchema: false, 
           limit: 100, 
@@ -504,7 +504,7 @@ class DataFlow(pulumi.CustomResource):
           validateSchema: false, 
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -543,63 +543,63 @@ class DataFlow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
-            name="linked_service",
+        example_linked_custom_service = azure.datafactory.linked_custom_service.LinkedCustomService("example",
+            name=linked_service,
             data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString": "{primary_connection_string}"
+            type=AzureBlobStorage,
+            type_properties_json=f{{
+          "connectionString": "{example_account.primary_connection_string}"
         }}
-        \"\"\"))
-        example1 = azure.datafactory.DatasetJson("example1",
-            name="dataset1",
+        )
+        example1 = azure.datafactory.dataset_json.DatasetJson("example1",
+            name=dataset1,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="foo.txt",
-            ),
-            encoding="UTF-8")
-        example2 = azure.datafactory.DatasetJson("example2",
-            name="dataset2",
+            azure_blob_storage_location={
+                container: container,
+                path: foo/bar/,
+                filename: foo.txt,
+            },
+            encoding=UTF-8)
+        example2 = azure.datafactory.dataset_json.DatasetJson("example2",
+            name=dataset2,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="bar.txt",
-            ),
-            encoding="UTF-8")
-        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1",
-            name="example",
+            azure_blob_storage_location={
+                container: container,
+                path: foo/bar/,
+                filename: bar.txt,
+            },
+            encoding=UTF-8)
+        example1_flowlet_data_flow = azure.datafactory.flowlet_data_flow.FlowletDataFlow("example1",
+            name=example,
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            script=\"\"\"source(
+            sources=[{
+                name: source1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                name: sink1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            script=source(
           allowSchemaDrift: true, 
           validateSchema: false, 
           limit: 100, 
@@ -610,23 +610,23 @@ class DataFlow(pulumi.CustomResource):
           validateSchema: false, 
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
-        \"\"\")
-        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
-            name="example",
+        )
+        example2_flowlet_data_flow = azure.datafactory.flowlet_data_flow.FlowletDataFlow("example2",
+            name=example,
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            script=\"\"\"source(
+            sources=[{
+                name: source1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                name: sink1,
+                linkedService: {
+                    name: example_linked_custom_service.name,
+                },
+            }],
+            script=source(
           allowSchemaDrift: true, 
           validateSchema: false, 
           limit: 100, 
@@ -637,35 +637,35 @@ class DataFlow(pulumi.CustomResource):
           validateSchema: false, 
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
-        \"\"\")
-        example_data_flow = azure.datafactory.DataFlow("example",
-            name="example",
+        )
+        example_data_flow = azure.datafactory.data_flow.DataFlow("example",
+            name=example,
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.DataFlowSourceArgs(
-                name="source1",
-                flowlet=azure.datafactory.DataFlowSourceFlowletArgs(
-                    name=example1_flowlet_data_flow.name,
-                    parameters={
-                        "Key1": "value1",
+            sources=[{
+                name: source1,
+                flowlet: {
+                    name: example1_flowlet_data_flow.name,
+                    parameters: {
+                        Key1: value1,
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSourceDatasetArgs(
-                    name=example1.name,
-                ),
-            )],
-            sinks=[azure.datafactory.DataFlowSinkArgs(
-                name="sink1",
-                flowlet=azure.datafactory.DataFlowSinkFlowletArgs(
-                    name=example2_flowlet_data_flow.name,
-                    parameters={
-                        "Key1": "value1",
+                },
+                dataset: {
+                    name: example1.name,
+                },
+            }],
+            sinks=[{
+                name: sink1,
+                flowlet: {
+                    name: example2_flowlet_data_flow.name,
+                    parameters: {
+                        Key1: value1,
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSinkDatasetArgs(
-                    name=example2.name,
-                ),
-            )],
-            script=\"\"\"source(
+                },
+                dataset: {
+                    name: example2.name,
+                },
+            }],
+            script=source(
           allowSchemaDrift: true, 
           validateSchema: false, 
           limit: 100, 
@@ -676,7 +676,7 @@ class DataFlow(pulumi.CustomResource):
           validateSchema: false, 
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
-        \"\"\")
+        )
         ```
 
         ## Import

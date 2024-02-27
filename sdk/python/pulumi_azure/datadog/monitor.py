@@ -354,43 +354,29 @@ class Monitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-datadog",
-            location="West US 2")
-        example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-datadog,
+            location=West US 2)
+        example_monitor = azure.datadog.monitor.Monitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
+            datadog_organization={
+                apiKey: XXXX,
+                applicationKey: XXXX,
+            },
+            user={
+                name: Example,
+                email: abc@xyz.com,
+            },
+            sku_name=Linked,
+            identity={
+                type: SystemAssigned,
+            })
         ```
         ## Role Assignment
 
         To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
-
-        ### Role assignment on the monitor created
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        monitoring_reader = azure.authorization.get_role_definition(name="Monitoring Reader")
-        example = azure.authorization.Assignment("example",
-            scope=primary.id,
-            role_definition_id=monitoring_reader.role_definition_id,
-            principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
-        ```
 
         ## Import
 
@@ -428,43 +414,29 @@ class Monitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-datadog",
-            location="West US 2")
-        example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-datadog,
+            location=West US 2)
+        example_monitor = azure.datadog.monitor.Monitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
+            datadog_organization={
+                apiKey: XXXX,
+                applicationKey: XXXX,
+            },
+            user={
+                name: Example,
+                email: abc@xyz.com,
+            },
+            sku_name=Linked,
+            identity={
+                type: SystemAssigned,
+            })
         ```
         ## Role Assignment
 
         To enable metrics flow, perform role assignment on the identity created above. `Monitoring reader(43d0d8ad-25c7-4714-9337-8ba259a9fe05)` role is required .
-
-        ### Role assignment on the monitor created
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        monitoring_reader = azure.authorization.get_role_definition(name="Monitoring Reader")
-        example = azure.authorization.Assignment("example",
-            scope=primary.id,
-            role_definition_id=monitoring_reader.role_definition_id,
-            principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
-        ```
 
         ## Import
 

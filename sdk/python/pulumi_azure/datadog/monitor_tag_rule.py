@@ -175,37 +175,37 @@ class MonitorTagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-datadog",
-            location="West US 2")
-        example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-datadog,
+            location=West US 2)
+        example_monitor = azure.datadog.monitor.Monitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
+            datadog_organization={
+                apiKey: XXXX,
+                applicationKey: XXXX,
+            },
+            user={
+                name: Example,
+                email: abc@xyz.com,
+            },
+            sku_name=Linked,
+            identity={
+                type: SystemAssigned,
+            })
+        example_monitor_tag_rule = azure.datadog.monitor_tag_rule.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
-            logs=[azure.datadog.MonitorTagRuleLogArgs(
-                subscription_log_enabled=True,
-            )],
-            metrics=[azure.datadog.MonitorTagRuleMetricArgs(
-                filters=[azure.datadog.MonitorTagRuleMetricFilterArgs(
-                    name="Test",
-                    value="Logs",
-                    action="Include",
-                )],
-            )])
+            logs=[{
+                subscriptionLogEnabled: True,
+            }],
+            metrics=[{
+                filters: [{
+                    name: Test,
+                    value: Logs,
+                    action: Include,
+                }],
+            }])
         ```
 
         ## Import
@@ -238,37 +238,37 @@ class MonitorTagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-datadog",
-            location="West US 2")
-        example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-datadog,
+            location=West US 2)
+        example_monitor = azure.datadog.monitor.Monitor("example",
+            name=example-monitor,
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
-            sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
+            datadog_organization={
+                apiKey: XXXX,
+                applicationKey: XXXX,
+            },
+            user={
+                name: Example,
+                email: abc@xyz.com,
+            },
+            sku_name=Linked,
+            identity={
+                type: SystemAssigned,
+            })
+        example_monitor_tag_rule = azure.datadog.monitor_tag_rule.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
-            logs=[azure.datadog.MonitorTagRuleLogArgs(
-                subscription_log_enabled=True,
-            )],
-            metrics=[azure.datadog.MonitorTagRuleMetricArgs(
-                filters=[azure.datadog.MonitorTagRuleMetricFilterArgs(
-                    name="Test",
-                    value="Logs",
-                    action="Include",
-                )],
-            )])
+            logs=[{
+                subscriptionLogEnabled: True,
+            }],
+            metrics=[{
+                filters: [{
+                    name: Test,
+                    value: Logs,
+                    action: Include,
+                }],
+            }])
         ```
 
         ## Import

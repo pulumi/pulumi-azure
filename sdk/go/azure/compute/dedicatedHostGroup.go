@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/dedicatedHostGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/dedicatedHostGroup"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg-compute"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewDedicatedHostGroup(ctx, "example", &compute.DedicatedHostGroupArgs{
-//				Name:                     pulumi.String("example-dedicated-host-group"),
-//				ResourceGroupName:        example.Name,
-//				Location:                 example.Location,
-//				PlatformFaultDomainCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg-compute",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/dedicatedHostGroup.NewDedicatedHostGroup(ctx, "example", &compute/dedicatedHostGroup.DedicatedHostGroupArgs{
+// Name: "example-dedicated-host-group",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PlatformFaultDomainCount: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

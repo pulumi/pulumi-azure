@@ -21,42 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/actionHttp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/actionHttp"
+//	logicapps/workflow "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/workflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("workflow-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "example", &logicapps.WorkflowArgs{
-//				Name:              pulumi.String("workflow1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewActionHttp(ctx, "example", &logicapps.ActionHttpArgs{
-//				Name:       pulumi.String("webhook"),
-//				LogicAppId: exampleWorkflow.ID(),
-//				Method:     pulumi.String("GET"),
-//				Uri:        pulumi.String("http://example.com/some-webhook"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "workflow-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkflow, err := logicapps/workflow.NewWorkflow(ctx, "example", &logicapps/workflow.WorkflowArgs{
+// Name: "workflow1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/actionHttp.NewActionHttp(ctx, "example", &logicapps/actionHttp.ActionHttpArgs{
+// Name: "webhook",
+// LogicAppId: exampleWorkflow.Id,
+// Method: "GET",
+// Uri: "http://example.com/some-webhook",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

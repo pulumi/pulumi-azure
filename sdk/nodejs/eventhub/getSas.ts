@@ -6,50 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     name: "example-ehn",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     name: "example-eh",
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     partitionCount: 1,
- *     messageRetention: 1,
- * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
- *     name: "example-ehar",
- *     namespaceName: exampleEventHubNamespace.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     listen: true,
- *     send: true,
- *     manage: true,
- * });
- * const example = azure.eventhub.getAuthorizationRuleOutput({
- *     name: exampleAuthorizationRule.name,
- *     namespaceName: exampleEventHubNamespace.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleGetSas = example.apply(example => azure.eventhub.getSasOutput({
- *     connectionString: example.primaryConnectionString,
- *     expiry: "2023-06-23T00:00:00Z",
- * }));
- * ```
  */
 export function getSas(args: GetSasArgs, opts?: pulumi.InvokeOptions): Promise<GetSasResult> {
 
@@ -91,50 +47,6 @@ export interface GetSasResult {
 }
 /**
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     name: "example-ehn",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     name: "example-eh",
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     partitionCount: 1,
- *     messageRetention: 1,
- * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
- *     name: "example-ehar",
- *     namespaceName: exampleEventHubNamespace.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     listen: true,
- *     send: true,
- *     manage: true,
- * });
- * const example = azure.eventhub.getAuthorizationRuleOutput({
- *     name: exampleAuthorizationRule.name,
- *     namespaceName: exampleEventHubNamespace.name,
- *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleGetSas = example.apply(example => azure.eventhub.getSasOutput({
- *     connectionString: example.primaryConnectionString,
- *     expiry: "2023-06-23T00:00:00Z",
- * }));
- * ```
  */
 export function getSasOutput(args: GetSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSasResult> {
     return pulumi.output(args).apply((a: any) => getSas(a, opts))

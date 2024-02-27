@@ -27,60 +27,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appservice/appService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/appService"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("example-appserviceplan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              pulumi.String("example-app-service"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
-//				SiteConfig: &appservice.AppServiceSiteConfigArgs{
-//					DotnetFrameworkVersion: pulumi.String("v4.0"),
-//					ScmType:                pulumi.String("LocalGit"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"SOME_KEY": pulumi.String("some-value"),
-//				},
-//				ConnectionStrings: appservice.AppServiceConnectionStringArray{
-//					&appservice.AppServiceConnectionStringArgs{
-//						Name:  pulumi.String("Database"),
-//						Type:  pulumi.String("SQLServer"),
-//						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePlan, err := appservice/plan.NewPlan(ctx, "example", &appservice/plan.PlanArgs{
+// Name: "example-appserviceplan",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "size": "S1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/appService.NewAppService(ctx, "example", &appservice/appService.AppServiceArgs{
+// Name: "example-app-service",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AppServicePlanId: examplePlan.Id,
+// SiteConfig: map[string]interface{}{
+// "dotnetFrameworkVersion": "v4.0",
+// "scmType": "LocalGit",
+// },
+// AppSettings: map[string]interface{}{
+// "SOME_KEY": "some-value",
+// },
+// ConnectionStrings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Database",
+// "type": "SQLServer",
+// "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

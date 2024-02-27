@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const anonymous = new azure.datafactory.LinkedServiceOdata("anonymous", {
+ * const anonymous = new azure.datafactory/linkedServiceOdata.LinkedServiceOdata("anonymous", {
  *     name: "anonymous",
  *     dataFactoryId: exampleFactory.id,
  *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
  * });
- * const basicAuth = new azure.datafactory.LinkedServiceOdata("basic_auth", {
+ * const basicAuth = new azure.datafactory/linkedServiceOdata.LinkedServiceOdata("basic_auth", {
  *     name: "basic_auth",
  *     dataFactoryId: exampleFactory.id,
  *     url: "https://services.odata.org/v4/TripPinServiceRW/People",

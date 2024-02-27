@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetNetworkDdosProtectionPlan.Invoke(new()
-        ///     {
-        ///         Name = exampleAzurermNetworkDdosProtectionPlan.Name,
-        ///         ResourceGroupName = exampleAzurermNetworkDdosProtectionPlan.ResourceGroupName,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["ddosProtectionPlanId"] = example.Apply(getNetworkDdosProtectionPlanResult =&gt; getNetworkDdosProtectionPlanResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkDdosProtectionPlanResult> InvokeAsync(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetNetworkDdosProtectionPlan.Invoke(new()
-        ///     {
-        ///         Name = exampleAzurermNetworkDdosProtectionPlan.Name,
-        ///         ResourceGroupName = exampleAzurermNetworkDdosProtectionPlan.ResourceGroupName,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["ddosProtectionPlanId"] = example.Apply(getNetworkDdosProtectionPlanResult =&gt; getNetworkDdosProtectionPlanResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkDdosProtectionPlanResult> Invoke(GetNetworkDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanInvokeArgs(), options.WithDefaults());

@@ -440,18 +440,18 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("example",
-            name="example",
+        example_integration_runtime_managed = azure.datafactory.integration_runtime_managed.IntegrationRuntimeManaged("example",
+            name=example,
             data_factory_id=example_factory.id,
             location=example.location,
-            node_size="Standard_D8_v3")
+            node_size=Standard_D8_v3)
         ```
 
         ## Import
@@ -494,18 +494,18 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("example",
-            name="example",
+        example_integration_runtime_managed = azure.datafactory.integration_runtime_managed.IntegrationRuntimeManaged("example",
+            name=example,
             data_factory_id=example_factory.id,
             location=example.location,
-            node_size="Standard_D8_v3")
+            node_size=Standard_D8_v3)
         ```
 
         ## Import

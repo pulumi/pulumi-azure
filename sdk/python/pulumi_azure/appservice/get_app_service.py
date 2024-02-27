@@ -287,17 +287,6 @@ def get_app_service(name: Optional[str] = None,
 
     !> **Note:** The `appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxWebApp` data sources instead.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_app_service(name="search-app-service",
-        resource_group_name="search-service")
-    pulumi.export("appServiceId", example.id)
-    ```
-
 
     :param str name: The name of the App Service.
     :param str resource_group_name: The Name of the Resource Group where the App Service exists.
@@ -340,17 +329,6 @@ def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing App Service.
 
     !> **Note:** The `appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxWebApp` data sources instead.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_app_service(name="search-app-service",
-        resource_group_name="search-service")
-    pulumi.export("appServiceId", example.id)
-    ```
 
 
     :param str name: The name of the App Service.

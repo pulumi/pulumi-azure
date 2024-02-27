@@ -12,52 +12,6 @@ namespace Pulumi.Azure.ArcKubernetes
     /// <summary>
     /// Manages an Arc Kubernetes Cluster Extension.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("example", new()
-    ///     {
-    ///         Name = "example-akcc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "West Europe",
-    ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "testdata/public.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "ENV", "Test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleClusterExtension = new Azure.ArcKubernetes.ClusterExtension("example", new()
-    ///     {
-    ///         Name = "example-ext",
-    ///         ClusterId = exampleCluster.Id,
-    ///         ExtensionType = "microsoft.flux",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

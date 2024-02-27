@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleWorkbook = new azure.appinsights.Workbook("example", {
+ * const exampleWorkbook = new azure.appinsights/workbook.Workbook("example", {
  *     name: "85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
  *     resourceGroupName: example.name,
  *     location: example.location,

@@ -21,65 +21,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/blobInventoryPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/blobInventoryPolicy"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				BlobProperties: &storage.AccountBlobPropertiesArgs{
-//					VersioningEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("examplecontainer"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewBlobInventoryPolicy(ctx, "example", &storage.BlobInventoryPolicyArgs{
-//				StorageAccountId: exampleAccount.ID(),
-//				Rules: storage.BlobInventoryPolicyRuleArray{
-//					&storage.BlobInventoryPolicyRuleArgs{
-//						Name:                 pulumi.String("rule1"),
-//						StorageContainerName: exampleContainer.Name,
-//						Format:               pulumi.String("Csv"),
-//						Schedule:             pulumi.String("Daily"),
-//						Scope:                pulumi.String("Container"),
-//						SchemaFields: pulumi.StringArray{
-//							pulumi.String("Name"),
-//							pulumi.String("Last-Modified"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// BlobProperties: map[string]interface{}{
+// "versioningEnabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "examplecontainer",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/blobInventoryPolicy.NewBlobInventoryPolicy(ctx, "example", &storage/blobInventoryPolicy.BlobInventoryPolicyArgs{
+// StorageAccountId: exampleAccount.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "rule1",
+// "storageContainerName": exampleContainer.Name,
+// "format": "Csv",
+// "schedule": "Daily",
+// "scope": "Container",
+// "schemaFields": []string{
+// "Name",
+// "Last-Modified",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

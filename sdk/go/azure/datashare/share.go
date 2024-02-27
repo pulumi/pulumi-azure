@@ -21,54 +21,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datashare"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datashare/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datashare/account"
+//	datashare/share "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datashare/share"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
-//				Name:              pulumi.String("example-dsa"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Identity: &datashare.AccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datashare.NewShare(ctx, "example", &datashare.ShareArgs{
-//				Name:        pulumi.String("example_dss"),
-//				AccountId:   exampleAccount.ID(),
-//				Kind:        pulumi.String("CopyBased"),
-//				Description: pulumi.String("example desc"),
-//				Terms:       pulumi.String("example terms"),
-//				SnapshotSchedule: &datashare.ShareSnapshotScheduleArgs{
-//					Name:       pulumi.String("example-ss"),
-//					Recurrence: pulumi.String("Day"),
-//					StartTime:  pulumi.String("2020-04-17T04:47:52.9614956Z"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := datashare/account.NewAccount(ctx, "example", &datashare/account.AccountArgs{
+// Name: "example-dsa",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datashare/share.NewShare(ctx, "example", &datashare/share.ShareArgs{
+// Name: "example_dss",
+// AccountId: exampleAccount.Id,
+// Kind: "CopyBased",
+// Description: "example desc",
+// Terms: "example terms",
+// SnapshotSchedule: map[string]interface{}{
+// "name": "example-ss",
+// "recurrence": "Day",
+// "startTime": "2020-04-17T04:47:52.9614956Z",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,109 +21,110 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	cdn/frontdoorCustomDomain "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorCustomDomain"
+//	cdn/frontdoorFirewallPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorFirewallPolicy"
+//	cdn/frontdoorProfile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorProfile"
+//	cdn/frontdoorSecurityPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorSecurityPolicy"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-cdn-frontdoor"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:              pulumi.String("example-profile"),
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorFirewallPolicy, err := cdn.NewFrontdoorFirewallPolicy(ctx, "example", &cdn.FrontdoorFirewallPolicyArgs{
-//				Name:                          pulumi.String("exampleWAF"),
-//				ResourceGroupName:             example.Name,
-//				SkuName:                       exampleFrontdoorProfile.SkuName,
-//				Enabled:                       pulumi.Bool(true),
-//				Mode:                          pulumi.String("Prevention"),
-//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
-//				CustomBlockResponseStatusCode: pulumi.Int(403),
-//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
-//				CustomRules: cdn.FrontdoorFirewallPolicyCustomRuleArray{
-//					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
-//						Name:                       pulumi.String("Rule1"),
-//						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(1),
-//						RateLimitDurationInMinutes: pulumi.Int(1),
-//						RateLimitThreshold:         pulumi.Int(10),
-//						Type:                       pulumi.String("MatchRule"),
-//						Action:                     pulumi.String("Block"),
-//						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
-//							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
-//								MatchVariable:     pulumi.String("RemoteAddr"),
-//								Operator:          pulumi.String("IPMatch"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("192.168.1.0/24"),
-//									pulumi.String("10.0.1.0/24"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
-//				Name:              pulumi.String("sub-domain.domain.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
-//				Name:                  pulumi.String("example-customDomain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				DnsZoneId:             exampleZone.ID(),
-//				HostName:              pulumi.String("contoso.fabrikam.com"),
-//				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
-//					CertificateType:   pulumi.String("ManagedCertificate"),
-//					MinimumTlsVersion: pulumi.String("TLS12"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewFrontdoorSecurityPolicy(ctx, "example", &cdn.FrontdoorSecurityPolicyArgs{
-//				Name:                  pulumi.String("Example-Security-Policy"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				SecurityPolicies: &cdn.FrontdoorSecurityPolicySecurityPoliciesArgs{
-//					Firewall: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{
-//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID(),
-//						Association: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{
-//							Domains: cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{
-//								&cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{
-//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID(),
-//								},
-//							},
-//							PatternsToMatch: pulumi.String("/*"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-cdn-frontdoor",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoorProfile, err := cdn/frontdoorProfile.NewFrontdoorProfile(ctx, "example", &cdn/frontdoorProfile.FrontdoorProfileArgs{
+// Name: "example-profile",
+// ResourceGroupName: example.Name,
+// SkuName: "Standard_AzureFrontDoor",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoorFirewallPolicy, err := cdn/frontdoorFirewallPolicy.NewFrontdoorFirewallPolicy(ctx, "example", &cdn/frontdoorFirewallPolicy.FrontdoorFirewallPolicyArgs{
+// Name: "exampleWAF",
+// ResourceGroupName: example.Name,
+// SkuName: exampleFrontdoorProfile.SkuName,
+// Enabled: true,
+// Mode: "Prevention",
+// RedirectUrl: "https://www.contoso.com",
+// CustomBlockResponseStatusCode: 403,
+// CustomBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+// CustomRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Rule1",
+// "enabled": true,
+// "priority": 1,
+// "rateLimitDurationInMinutes": 1,
+// "rateLimitThreshold": 10,
+// "type": "MatchRule",
+// "action": "Block",
+// "matchConditions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "RemoteAddr",
+// "operator": "IPMatch",
+// "negationCondition": false,
+// "matchValues": []string{
+// "192.168.1.0/24",
+// "10.0.1.0/24",
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := dns/zone.NewZone(ctx, "example", &dns/zone.ZoneArgs{
+// Name: "sub-domain.domain.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoorCustomDomain, err := cdn/frontdoorCustomDomain.NewFrontdoorCustomDomain(ctx, "example", &cdn/frontdoorCustomDomain.FrontdoorCustomDomainArgs{
+// Name: "example-customDomain",
+// CdnFrontdoorProfileId: exampleFrontdoorProfile.Id,
+// DnsZoneId: exampleZone.Id,
+// HostName: "contoso.fabrikam.com",
+// Tls: map[string]interface{}{
+// "certificateType": "ManagedCertificate",
+// "minimumTlsVersion": "TLS12",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cdn/frontdoorSecurityPolicy.NewFrontdoorSecurityPolicy(ctx, "example", &cdn/frontdoorSecurityPolicy.FrontdoorSecurityPolicyArgs{
+// Name: "Example-Security-Policy",
+// CdnFrontdoorProfileId: exampleFrontdoorProfile.Id,
+// SecurityPolicies: map[string]interface{}{
+// "firewall": map[string]interface{}{
+// "cdnFrontdoorFirewallPolicyId": exampleFrontdoorFirewallPolicy.Id,
+// "association": map[string]interface{}{
+// "domains": []map[string]interface{}{
+// map[string]interface{}{
+// "cdnFrontdoorDomainId": exampleFrontdoorCustomDomain.Id,
+// },
+// },
+// "patternsToMatch": "/*",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

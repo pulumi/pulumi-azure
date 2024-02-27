@@ -274,38 +274,38 @@ class TagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_monitor = azure.newrelic.Monitor("example",
-            name="example-nrm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_monitor = azure.newrelic.monitor.Monitor("example",
+            name=example-nrm,
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_tag_rule = azure.newrelic.TagRule("example",
+            plan={
+                effectiveDate: 2023-06-06T00:00:00Z,
+            },
+            user={
+                email: user@example.com,
+                firstName: Example,
+                lastName: User,
+                phoneNumber: +12313803556,
+            })
+        example_tag_rule = azure.newrelic.tag_rule.TagRule("example",
             monitor_id=example_monitor.id,
             azure_active_directory_log_enabled=True,
             activity_log_enabled=True,
             metric_enabled=True,
             subscription_log_enabled=True,
-            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
-                name="key",
-                action="Include",
-                value="value",
-            )],
-            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
-                name="key",
-                action="Exclude",
-                value="value",
-            )])
+            log_tag_filters=[{
+                name: key,
+                action: Include,
+                value: value,
+            }],
+            metric_tag_filters=[{
+                name: key,
+                action: Exclude,
+                value: value,
+            }])
         ```
 
         ## Import
@@ -341,38 +341,38 @@ class TagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_monitor = azure.newrelic.Monitor("example",
-            name="example-nrm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_monitor = azure.newrelic.monitor.Monitor("example",
+            name=example-nrm,
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.newrelic.MonitorPlanArgs(
-                effective_date="2023-06-06T00:00:00Z",
-            ),
-            user=azure.newrelic.MonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
-        example_tag_rule = azure.newrelic.TagRule("example",
+            plan={
+                effectiveDate: 2023-06-06T00:00:00Z,
+            },
+            user={
+                email: user@example.com,
+                firstName: Example,
+                lastName: User,
+                phoneNumber: +12313803556,
+            })
+        example_tag_rule = azure.newrelic.tag_rule.TagRule("example",
             monitor_id=example_monitor.id,
             azure_active_directory_log_enabled=True,
             activity_log_enabled=True,
             metric_enabled=True,
             subscription_log_enabled=True,
-            log_tag_filters=[azure.newrelic.TagRuleLogTagFilterArgs(
-                name="key",
-                action="Include",
-                value="value",
-            )],
-            metric_tag_filters=[azure.newrelic.TagRuleMetricTagFilterArgs(
-                name="key",
-                action="Exclude",
-                value="value",
-            )])
+            log_tag_filters=[{
+                name: key,
+                action: Include,
+                value: value,
+            }],
+            metric_tag_filters=[{
+                name: key,
+                action: Exclude,
+                value: value,
+            }])
         ```
 
         ## Import

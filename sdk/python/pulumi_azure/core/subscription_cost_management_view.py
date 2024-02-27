@@ -367,21 +367,21 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.SubscriptionCostManagementView("example",
-            name="example",
-            display_name="Cost View per Month",
-            chart_type="StackedColumn",
+        example = azure.core.subscription_cost_management_view.SubscriptionCostManagementView("example",
+            name=example,
+            display_name=Cost View per Month,
+            chart_type=StackedColumn,
             accumulated=False,
-            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
-            report_type="Usage",
-            timeframe="MonthToDate",
-            dataset=azure.core.SubscriptionCostManagementViewDatasetArgs(
-                granularity="Monthly",
-                aggregations=[azure.core.SubscriptionCostManagementViewDatasetAggregationArgs(
-                    name="totalCost",
-                    column_name="Cost",
-                )],
-            ))
+            subscription_id=/subscription/00000000-0000-0000-0000-000000000000,
+            report_type=Usage,
+            timeframe=MonthToDate,
+            dataset={
+                granularity: Monthly,
+                aggregations: [{
+                    name: totalCost,
+                    columnName: Cost,
+                }],
+            })
         ```
 
         ## Import
@@ -420,21 +420,21 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.SubscriptionCostManagementView("example",
-            name="example",
-            display_name="Cost View per Month",
-            chart_type="StackedColumn",
+        example = azure.core.subscription_cost_management_view.SubscriptionCostManagementView("example",
+            name=example,
+            display_name=Cost View per Month,
+            chart_type=StackedColumn,
             accumulated=False,
-            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
-            report_type="Usage",
-            timeframe="MonthToDate",
-            dataset=azure.core.SubscriptionCostManagementViewDatasetArgs(
-                granularity="Monthly",
-                aggregations=[azure.core.SubscriptionCostManagementViewDatasetAggregationArgs(
-                    name="totalCost",
-                    column_name="Cost",
-                )],
-            ))
+            subscription_id=/subscription/00000000-0000-0000-0000-000000000000,
+            report_type=Usage,
+            timeframe=MonthToDate,
+            dataset={
+                granularity: Monthly,
+                aggregations: [{
+                    name: totalCost,
+                    columnName: Cost,
+                }],
+            })
         ```
 
         ## Import

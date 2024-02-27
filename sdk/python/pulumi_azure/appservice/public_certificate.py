@@ -212,37 +212,6 @@ class PublicCertificate(pulumi.CustomResource):
         """
         Manages an App Service Public Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
-            location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
-        example_public_certificate = azure.appservice.PublicCertificate("example",
-            resource_group_name=example.name,
-            app_service_name=example_app_service.name,
-            certificate_name="example-public-certificate",
-            certificate_location="Unknown",
-            blob=std.filebase64(input="app_service_public_certificate.cer").result)
-        ```
-
         ## Import
 
         App Service Public Certificates can be imported using the `resource id`, e.g.
@@ -267,37 +236,6 @@ class PublicCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Public Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="example-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
-            location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
-        example_public_certificate = azure.appservice.PublicCertificate("example",
-            resource_group_name=example.name,
-            app_service_name=example_app_service.name,
-            certificate_name="example-public-certificate",
-            certificate_location="Unknown",
-            blob=std.filebase64(input="app_service_public_certificate.cer").result)
-        ```
 
         ## Import
 

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("example", new()
+    ///     var exampleHostPool = new Azure.Desktopvirtualization.HostPool.HostPool("example", new()
     ///     {
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -41,17 +41,17 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         Type = "Pooled",
     ///         MaximumSessionsAllowed = 50,
     ///         LoadBalancerType = "DepthFirst",
-    ///         ScheduledAgentUpdates = new Azure.DesktopVirtualization.Inputs.HostPoolScheduledAgentUpdatesArgs
+    ///         ScheduledAgentUpdates = 
     ///         {
-    ///             Enabled = true,
-    ///             Schedules = new[]
+    ///             { "enabled", true },
+    ///             { "schedules", new[]
     ///             {
-    ///                 new Azure.DesktopVirtualization.Inputs.HostPoolScheduledAgentUpdatesScheduleArgs
+    ///                 
     ///                 {
-    ///                     DayOfWeek = "Saturday",
-    ///                     HourOfDay = 2,
+    ///                     { "dayOfWeek", "Saturday" },
+    ///                     { "hourOfDay", 2 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -13,34 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "tfex-recovery_vault",
  *     location: "West Europe",
  * });
- * const vault = new azure.recoveryservices.Vault("vault", {
+ * const vault = new azure.recoveryservices/vault.Vault("vault", {
  *     name: "tfex-recovery-vault",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const sa = new azure.storage.Account("sa", {
+ * const sa = new azure.storage/account.Account("sa", {
  *     name: "examplesa",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("example", {
+ * const exampleShare = new azure.storage/share.Share("example", {
  *     name: "example-share",
  *     storageAccountName: sa.name,
  *     quota: 1,
  * });
- * const protection_container = new azure.backup.ContainerStorageAccount("protection-container", {
+ * const protection_container = new azure.backup/containerStorageAccount.ContainerStorageAccount("protection-container", {
  *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     storageAccountId: sa.id,
  * });
- * const examplePolicyFileShare = new azure.backup.PolicyFileShare("example", {
+ * const examplePolicyFileShare = new azure.backup/policyFileShare.PolicyFileShare("example", {
  *     name: "tfex-recovery-vault-policy",
  *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *         count: 10,
  *     },
  * });
- * const share1 = new azure.backup.ProtectedFileShare("share1", {
+ * const share1 = new azure.backup/protectedFileShare.ProtectedFileShare("share1", {
  *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     sourceStorageAccountId: protection_container.storageAccountId,

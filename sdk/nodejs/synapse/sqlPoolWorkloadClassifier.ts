@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage/dataLakeGen2Filesystem.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ * const exampleWorkspace = new azure.synapse/workspace.Workspace("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSqlPool = new azure.synapse.SqlPool("example", {
+ * const exampleSqlPool = new azure.synapse/sqlPool.SqlPool("example", {
  *     name: "example",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     skuName: "DW100c",
  *     createMode: "Default",
  * });
- * const exampleSqlPoolWorkloadGroup = new azure.synapse.SqlPoolWorkloadGroup("example", {
+ * const exampleSqlPoolWorkloadGroup = new azure.synapse/sqlPoolWorkloadGroup.SqlPoolWorkloadGroup("example", {
  *     name: "example",
  *     sqlPoolId: exampleSqlPool.id,
  *     importance: "normal",
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     minResourcePercentPerRequest: 3,
  *     queryExecutionTimeoutInSeconds: 0,
  * });
- * const exampleSqlPoolWorkloadClassifier = new azure.synapse.SqlPoolWorkloadClassifier("example", {
+ * const exampleSqlPoolWorkloadClassifier = new azure.synapse/sqlPoolWorkloadClassifier.SqlPoolWorkloadClassifier("example", {
  *     name: "example",
  *     workloadGroupId: exampleSqlPoolWorkloadGroup.id,
  *     context: "example_context",

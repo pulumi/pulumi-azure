@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exprtTest",
  *     location: "West Europe",
  * });
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ * const exampleExpressRoutePort = new azure.network/expressRoutePort.ExpressRoutePort("example", {
  *     name: "port1",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     bandwidthInGbps: 10,
  *     encapsulation: "Dot1Q",
  * });
- * const exampleExpressRoutePortAuthorization = new azure.network.ExpressRoutePortAuthorization("example", {
+ * const exampleExpressRoutePortAuthorization = new azure.network/expressRoutePortAuthorization.ExpressRoutePortAuthorization("example", {
  *     name: "exampleERCAuth",
  *     expressRoutePortName: exampleExpressRoutePort.name,
  *     resourceGroupName: example.name,

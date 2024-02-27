@@ -108,35 +108,35 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-            ))
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            blob_properties={
+                versioningEnabled: True,
+            })
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("example",
+            container_access_type=private)
+        example_blob_inventory_policy = azure.storage.blob_inventory_policy.BlobInventoryPolicy("example",
             storage_account_id=example_account.id,
-            rules=[azure.storage.BlobInventoryPolicyRuleArgs(
-                name="rule1",
-                storage_container_name=example_container.name,
-                format="Csv",
-                schedule="Daily",
-                scope="Container",
-                schema_fields=[
-                    "Name",
-                    "Last-Modified",
+            rules=[{
+                name: rule1,
+                storageContainerName: example_container.name,
+                format: Csv,
+                schedule: Daily,
+                scope: Container,
+                schemaFields: [
+                    Name,
+                    Last-Modified,
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -167,35 +167,35 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
-                versioning_enabled=True,
-            ))
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS,
+            blob_properties={
+                versioningEnabled: True,
+            })
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("example",
+            container_access_type=private)
+        example_blob_inventory_policy = azure.storage.blob_inventory_policy.BlobInventoryPolicy("example",
             storage_account_id=example_account.id,
-            rules=[azure.storage.BlobInventoryPolicyRuleArgs(
-                name="rule1",
-                storage_container_name=example_container.name,
-                format="Csv",
-                schedule="Daily",
-                scope="Container",
-                schema_fields=[
-                    "Name",
-                    "Last-Modified",
+            rules=[{
+                name: rule1,
+                storageContainerName: example_container.name,
+                format: Csv,
+                schedule: Daily,
+                scope: Container,
+                schemaFields: [
+                    Name,
+                    Last-Modified,
                 ],
-            )])
+            }])
         ```
 
         ## Import

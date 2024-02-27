@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Network.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
-//				Name:              "production",
-//				ResourceGroupName: "networking",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("virtualNetworkId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualNetworkResult

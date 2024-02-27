@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Lab
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.Lab.ServicePlan("example", new()
+    ///     var exampleServicePlan = new Azure.Lab.ServicePlan.ServicePlan("example", new()
     ///     {
     ///         Name = "example-lp",
     ///         ResourceGroupName = example.Name,

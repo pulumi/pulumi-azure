@@ -238,19 +238,19 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name,
-            location="West Europe")
-        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("example",
-            name="example-se",
+            location=West Europe)
+        example_mover_source_endpoint = azure.storage.mover_source_endpoint.MoverSourceEndpoint("example",
+            name=example-se,
             storage_mover_id=example_mover.id,
-            export="/",
-            host="192.168.0.1",
-            nfs_version="NFSv3")
+            export=/,
+            host=192.168.0.1,
+            nfs_version=NFSv3)
         ```
 
         ## Import
@@ -285,19 +285,19 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name,
-            location="West Europe")
-        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("example",
-            name="example-se",
+            location=West Europe)
+        example_mover_source_endpoint = azure.storage.mover_source_endpoint.MoverSourceEndpoint("example",
+            name=example-se,
             storage_mover_id=example_mover.id,
-            export="/",
-            host="192.168.0.1",
-            nfs_version="NFSv3")
+            export=/,
+            host=192.168.0.1,
+            nfs_version=NFSv3)
         ```
 
         ## Import

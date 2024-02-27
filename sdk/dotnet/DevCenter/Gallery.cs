@@ -22,42 +22,42 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var testUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("test", new()
+    ///     var testUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("test", new()
     ///     {
     ///         Name = "example-uai",
     ///         Location = testAzurermResourceGroup.Location,
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///     });
     /// 
-    ///     var test = new Azure.DevCenter.DevCenter("test", new()
+    ///     var test = new Azure.Devcenter.DevCenter.DevCenter("test", new()
     ///     {
     ///         Name = "example-devcenter",
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Location = testAzurermResourceGroup.Location,
-    ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             { "type", "UserAssigned" },
+    ///             { "identityIds", new[]
     ///             {
     ///                 testUserAssignedIdentity.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("example", new()
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery.SharedImageGallery("example", new()
     ///     {
     ///         Name = "example-image-gallery",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleGallery = new Azure.DevCenter.Gallery("example", new()
+    ///     var exampleGallery = new Azure.Devcenter.Gallery.Gallery("example", new()
     ///     {
     ///         DevCenterId = exampleAzurermDevCenter.Id,
     ///         SharedGalleryId = exampleSharedImageGallery.Id,

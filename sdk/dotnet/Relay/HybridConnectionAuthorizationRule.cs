@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Relay
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "example-relay",
     ///         Location = example.Location,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Relay
     ///         },
     ///     });
     /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("example", new()
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection.HybridConnection("example", new()
     ///     {
     ///         Name = "acctestrnhc-%d",
     ///         ResourceGroupName = example.Name,
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Relay
     ///         UserMetadata = "testmetadata",
     ///     });
     /// 
-    ///     var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule("example", new()
+    ///     var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule.HybridConnectionAuthorizationRule("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,

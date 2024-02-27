@@ -23,44 +23,41 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/mover "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/mover"
+//	storage/moverAgent "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverAgent"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMover, err := storage.NewMover(ctx, "example", &storage.MoverArgs{
-//				Name:              pulumi.String("example-ssm"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewMoverAgent(ctx, "example", &storage.MoverAgentArgs{
-//				Name:           pulumi.String("example-sa"),
-//				StorageMoverId: exampleMover.ID(),
-//				ArcVirtualMachineId: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
-//				}).(pulumi.StringOutput),
-//				ArcVirtualMachineUuid: pulumi.String("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9"),
-//				Description:           pulumi.String("Example Agent Description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMover, err := storage/mover.NewMover(ctx, "example", &storage/mover.MoverArgs{
+// Name: "example-ssm",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/moverAgent.NewMoverAgent(ctx, "example", &storage/moverAgent.MoverAgentArgs{
+// Name: "example-sa",
+// StorageMoverId: exampleMover.Id,
+// ArcVirtualMachineId: fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", example.Id),
+// ArcVirtualMachineUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+// Description: "Example Agent Description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

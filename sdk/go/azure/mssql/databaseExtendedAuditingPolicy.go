@@ -21,64 +21,64 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/database"
+//	mssql/databaseExtendedAuditingPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/databaseExtendedAuditingPolicy"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                       pulumi.String("example-sqlserver"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("missadministrator"),
-//				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
-//				Name:     pulumi.String("example-db"),
-//				ServerId: exampleServer.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "example", &mssql.DatabaseExtendedAuditingPolicyArgs{
-//				DatabaseId:                         exampleDatabase.ID(),
-//				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
-//				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
-//				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
-//				RetentionInDays:                    pulumi.Int(6),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mssql/server.NewServer(ctx, "example", &mssql/server.ServerArgs{
+// Name: "example-sqlserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "missadministrator",
+// AdministratorLoginPassword: "AdminPassword123!",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := mssql/database.NewDatabase(ctx, "example", &mssql/database.DatabaseArgs{
+// Name: "example-db",
+// ServerId: exampleServer.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/databaseExtendedAuditingPolicy.NewDatabaseExtendedAuditingPolicy(ctx, "example", &mssql/databaseExtendedAuditingPolicy.DatabaseExtendedAuditingPolicyArgs{
+// DatabaseId: exampleDatabase.Id,
+// StorageEndpoint: exampleAccount.PrimaryBlobEndpoint,
+// StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// StorageAccountAccessKeyIsSecondary: false,
+// RetentionInDays: 6,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

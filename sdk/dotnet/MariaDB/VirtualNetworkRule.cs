@@ -24,13 +24,13 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.MariaDB
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     var @internal = new Azure.Network.Subnet.Subnet("internal", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.MariaDB
     ///         },
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MariaDB.Server("example", new()
+    ///     var exampleServer = new Azure.Mariadb.Server.Server("example", new()
     ///     {
     ///         Name = "mariadb-server-1",
     ///         Location = example.Location,
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MariaDB
     ///         SkuName = "GP_Gen5_2",
     ///     });
     /// 
-    ///     var exampleVirtualNetworkRule = new Azure.MariaDB.VirtualNetworkRule("example", new()
+    ///     var exampleVirtualNetworkRule = new Azure.Mariadb.VirtualNetworkRule.VirtualNetworkRule("example", new()
     ///     {
     ///         Name = "mariadb-vnet-rule",
     ///         ResourceGroupName = example.Name,

@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to access information about all existing trigger schedules in Azure Data Factory.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := datafactory.GetTriggerSchedules(ctx, &datafactory.GetTriggerSchedulesArgs{
-//				DataFactoryId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("items", example.Items)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTriggerSchedules(ctx *pulumi.Context, args *GetTriggerSchedulesArgs, opts ...pulumi.InvokeOption) (*GetTriggerSchedulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTriggerSchedulesResult

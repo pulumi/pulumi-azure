@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const exampleService = new azure.search.Service("example", {
- *     name: "example-search-service",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "standard",
- * });
- * const test = new azure.datafactory.LinkedServiceAzureSearch("test", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     url: std.joinOutput({
- *         separator: "",
- *         input: [
- *             "https://",
- *             exampleService.name,
- *             ".search.windows.net",
- *         ],
- *     }).apply(invoke => invoke.result),
- *     searchServiceKey: exampleService.primaryKey,
- * });
- * ```
- *
  * ## Import
  *
  * Data Factory Linked Service's can be imported using the `resource id`, e.g.

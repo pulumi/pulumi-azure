@@ -21,65 +21,66 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/securityPartnerProvider "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/securityPartnerProvider"
+//	network/virtualHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHub"
+//	network/virtualWan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualWan"
+//	network/vpnGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
-//				Name:              pulumi.String("example-vwan"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
-//				Name:              pulumi.String("example-vhub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
-//				AddressPrefix:     pulumi.String("10.0.2.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVpnGateway(ctx, "example", &network.VpnGatewayArgs{
-//				Name:              pulumi.String("example-vpngw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				VirtualHubId:      exampleVirtualHub.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSecurityPartnerProvider(ctx, "example", &network.SecurityPartnerProviderArgs{
-//				Name:                 pulumi.String("example-spp"),
-//				ResourceGroupName:    example.Name,
-//				Location:             example.Location,
-//				VirtualHubId:         exampleVirtualHub.ID(),
-//				SecurityProviderName: pulumi.String("IBoss"),
-//				Tags: pulumi.StringMap{
-//					"ENV": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualWan, err := network/virtualWan.NewVirtualWan(ctx, "example", &network/virtualWan.VirtualWanArgs{
+// Name: "example-vwan",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualHub, err := network/virtualHub.NewVirtualHub(ctx, "example", &network/virtualHub.VirtualHubArgs{
+// Name: "example-vhub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VirtualWanId: exampleVirtualWan.Id,
+// AddressPrefix: "10.0.2.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/vpnGateway.NewVpnGateway(ctx, "example", &network/vpnGateway.VpnGatewayArgs{
+// Name: "example-vpngw",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// VirtualHubId: exampleVirtualHub.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/securityPartnerProvider.NewSecurityPartnerProvider(ctx, "example", &network/securityPartnerProvider.SecurityPartnerProviderArgs{
+// Name: "example-spp",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VirtualHubId: exampleVirtualHub.Id,
+// SecurityProviderName: "IBoss",
+// Tags: map[string]interface{}{
+// "ENV": "Prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

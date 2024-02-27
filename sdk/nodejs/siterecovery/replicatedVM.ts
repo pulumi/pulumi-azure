@@ -15,34 +15,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const primary = new azure.core.ResourceGroup("primary", {
+ * const primary = new azure.core/resourceGroup.ResourceGroup("primary", {
  *     name: "tfex-replicated-vm-primary",
  *     location: "West US",
  * });
- * const secondary = new azure.core.ResourceGroup("secondary", {
+ * const secondary = new azure.core/resourceGroup.ResourceGroup("secondary", {
  *     name: "tfex-replicated-vm-secondary",
  *     location: "East US",
  * });
- * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
+ * const primaryVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("primary", {
  *     name: "network1",
  *     resourceGroupName: primary.name,
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: primary.location,
  * });
- * const primarySubnet = new azure.network.Subnet("primary", {
+ * const primarySubnet = new azure.network/subnet.Subnet("primary", {
  *     name: "network1-subnet",
  *     resourceGroupName: primary.name,
  *     virtualNetworkName: primaryVirtualNetwork.name,
  *     addressPrefixes: ["192.168.1.0/24"],
  * });
- * const primaryPublicIp = new azure.network.PublicIp("primary", {
+ * const primaryPublicIp = new azure.network/publicIp.PublicIp("primary", {
  *     name: "vm-public-ip-primary",
  *     allocationMethod: "Static",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
  *     sku: "Basic",
  * });
- * const vmNetworkInterface = new azure.network.NetworkInterface("vm", {
+ * const vmNetworkInterface = new azure.network/networkInterface.NetworkInterface("vm", {
  *     name: "vm-nic",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: primaryPublicIp.id,
  *     }],
  * });
- * const vm = new azure.compute.VirtualMachine("vm", {
+ * const vm = new azure.compute/virtualMachine.VirtualMachine("vm", {
  *     name: "vm",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
@@ -81,44 +81,44 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: false,
  *     },
  * });
- * const vault = new azure.recoveryservices.Vault("vault", {
+ * const vault = new azure.recoveryservices/vault.Vault("vault", {
  *     name: "example-recovery-vault",
  *     location: secondary.location,
  *     resourceGroupName: secondary.name,
  *     sku: "Standard",
  * });
- * const primaryFabric = new azure.siterecovery.Fabric("primary", {
+ * const primaryFabric = new azure.siterecovery/fabric.Fabric("primary", {
  *     name: "primary-fabric",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     location: primary.location,
  * });
- * const secondaryFabric = new azure.siterecovery.Fabric("secondary", {
+ * const secondaryFabric = new azure.siterecovery/fabric.Fabric("secondary", {
  *     name: "secondary-fabric",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     location: secondary.location,
  * });
- * const primaryProtectionContainer = new azure.siterecovery.ProtectionContainer("primary", {
+ * const primaryProtectionContainer = new azure.siterecovery/protectionContainer.ProtectionContainer("primary", {
  *     name: "primary-protection-container",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: primaryFabric.name,
  * });
- * const secondaryProtectionContainer = new azure.siterecovery.ProtectionContainer("secondary", {
+ * const secondaryProtectionContainer = new azure.siterecovery/protectionContainer.ProtectionContainer("secondary", {
  *     name: "secondary-protection-container",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: secondaryFabric.name,
  * });
- * const policy = new azure.siterecovery.ReplicationPolicy("policy", {
+ * const policy = new azure.siterecovery/replicationPolicy.ReplicationPolicy("policy", {
  *     name: "policy",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryPointRetentionInMinutes: 24 * 60,
  *     applicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
  * });
- * const container_mapping = new azure.siterecovery.ProtectionContainerMapping("container-mapping", {
+ * const container_mapping = new azure.siterecovery/protectionContainerMapping.ProtectionContainerMapping("container-mapping", {
  *     name: "container-mapping",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
@@ -127,13 +127,13 @@ import * as utilities from "../utilities";
  *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
  *     recoveryReplicationPolicyId: policy.id,
  * });
- * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondary", {
+ * const secondaryVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("secondary", {
  *     name: "network2",
  *     resourceGroupName: secondary.name,
  *     addressSpaces: ["192.168.2.0/24"],
  *     location: secondary.location,
  * });
- * const network_mapping = new azure.siterecovery.NetworkMapping("network-mapping", {
+ * const network_mapping = new azure.siterecovery/networkMapping.NetworkMapping("network-mapping", {
  *     name: "network-mapping",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
@@ -142,27 +142,27 @@ import * as utilities from "../utilities";
  *     sourceNetworkId: primaryVirtualNetwork.id,
  *     targetNetworkId: secondaryVirtualNetwork.id,
  * });
- * const primaryAccount = new azure.storage.Account("primary", {
+ * const primaryAccount = new azure.storage/account.Account("primary", {
  *     name: "primaryrecoverycache",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const secondarySubnet = new azure.network.Subnet("secondary", {
+ * const secondarySubnet = new azure.network/subnet.Subnet("secondary", {
  *     name: "network2-subnet",
  *     resourceGroupName: secondary.name,
  *     virtualNetworkName: secondaryVirtualNetwork.name,
  *     addressPrefixes: ["192.168.2.0/24"],
  * });
- * const secondaryPublicIp = new azure.network.PublicIp("secondary", {
+ * const secondaryPublicIp = new azure.network/publicIp.PublicIp("secondary", {
  *     name: "vm-public-ip-secondary",
  *     allocationMethod: "Static",
  *     location: secondary.location,
  *     resourceGroupName: secondary.name,
  *     sku: "Basic",
  * });
- * const vm_replication = new azure.siterecovery.ReplicatedVM("vm-replication", {
+ * const vm_replication = new azure.siterecovery/replicatedVM.ReplicatedVM("vm-replication", {
  *     name: "vm-replication",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
@@ -174,7 +174,7 @@ import * as utilities from "../utilities";
  *     targetRecoveryFabricId: secondaryFabric.id,
  *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
  *     managedDisks: [{
- *         diskId: vm.storageOsDisk.apply(storageOsDisk => storageOsDisk.managedDiskId),
+ *         diskId: vm.storageOsDisk.managedDiskId,
  *         stagingStorageAccountId: primaryAccount.id,
  *         targetResourceGroupId: secondary.id,
  *         targetDiskType: "Premium_LRS",

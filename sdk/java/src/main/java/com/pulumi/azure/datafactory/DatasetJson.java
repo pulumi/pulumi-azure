@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.LinkedServiceWebArgs;
  * import com.pulumi.azure.datafactory.DatasetJson;
  * import com.pulumi.azure.datafactory.DatasetJsonArgs;
- * import com.pulumi.azure.datafactory.inputs.DatasetJsonHttpServerLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,11 +72,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceWeb.name())
- *             .httpServerLocation(DatasetJsonHttpServerLocationArgs.builder()
- *                 .relativeUrl(&#34;/fizz/buzz/&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;foo.txt&#34;)
- *                 .build())
+ *             .httpServerLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .encoding(&#34;UTF-8&#34;)
  *             .build());
  * 

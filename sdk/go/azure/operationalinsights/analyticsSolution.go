@@ -23,60 +23,57 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	operationalinsights/analyticsSolution "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsSolution"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
+//	index/randomId "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomId"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("k8s-log-analytics-test"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			workspace, err := random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
-//					"group_name": example.Name,
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name: workspace.Hex.ApplyT(func(hex string) (string, error) {
-//					return fmt.Sprintf("k8s-workspace-%v", hex), nil
-//				}).(pulumi.StringOutput),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("ContainerInsights"),
-//				Location:            example.Location,
-//				ResourceGroupName:   example.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/ContainerInsights"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "k8s-log-analytics-test",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// workspace, err := random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
+// Keepers: map[string]interface{}{
+// "group_name": example.Name,
+// },
+// ByteLength: 8,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: fmt.Sprintf("k8s-workspace-%v", workspace.Hex),
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = operationalinsights/analyticsSolution.NewAnalyticsSolution(ctx, "example", &operationalinsights/analyticsSolution.AnalyticsSolutionArgs{
+// SolutionName: "ContainerInsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// WorkspaceResourceId: exampleAnalyticsWorkspace.Id,
+// WorkspaceName: exampleAnalyticsWorkspace.Name,
+// Plan: map[string]interface{}{
+// "publisher": "Microsoft",
+// "product": "OMSGallery/ContainerInsights",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

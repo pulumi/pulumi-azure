@@ -7,49 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the Shared Private Link Resource for a Signalr service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "terraform-signalr",
- *     location: "east us",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         certificatePermissions: ["ManageContacts"],
- *         keyPermissions: ["Create"],
- *         secretPermissions: ["Set"],
- *     }],
- * });
- * const test = new azure.signalr.Service("test", {
- *     name: "tfex-signalr",
- *     location: testAzurermResourceGroup.location,
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     sku: {
- *         name: "Standard_S1",
- *         capacity: 1,
- *     },
- * });
- * const exampleSharedPrivateLinkResource = new azure.signalr.SharedPrivateLinkResource("example", {
- *     name: "tfex-signalr-splr",
- *     signalrServiceId: exampleAzurermSignalrService.id,
- *     subResourceName: "vault",
- *     targetResourceId: exampleKeyVault.id,
- * });
- * ```
- *
  * ## Import
  *
  * Signalr Shared Private Link Resource can be imported using the `resource id`, e.g.

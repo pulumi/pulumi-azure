@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-//				Name:              exampleAzurermKeyVault.Name,
-//				ResourceGroupName: exampleAzurermKeyVault.ResourceGroupName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.GetDiagnosticCategories(ctx, &monitoring.GetDiagnosticCategoriesArgs{
-//				ResourceId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDiagnosticCategories(ctx *pulumi.Context, args *GetDiagnosticCategoriesArgs, opts ...pulumi.InvokeOption) (*GetDiagnosticCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDiagnosticCategoriesResult

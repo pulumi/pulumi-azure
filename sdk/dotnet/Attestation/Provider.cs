@@ -12,37 +12,6 @@ namespace Pulumi.Azure.Attestation
     /// <summary>
     /// Manages an Attestation Provider.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleProvider = new Azure.Attestation.Provider("example", new()
-    ///     {
-    ///         Name = "exampleprovider",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         PolicySigningCertificateData = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./example/cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Attestation Providers can be imported using the `resource id`, e.g.

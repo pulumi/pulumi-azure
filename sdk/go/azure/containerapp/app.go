@@ -21,64 +21,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	containerapp/app "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerapp/app"
+//	containerapp/environment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerapp/environment"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("acctest-01"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//				RetentionInDays:   pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "example", &containerapp.EnvironmentArgs{
-//				Name:                    pulumi.String("Example-Environment"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
-//				Name:                      pulumi.String("example-app"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
-//				ResourceGroupName:         example.Name,
-//				RevisionMode:              pulumi.String("Single"),
-//				Template: &containerapp.AppTemplateArgs{
-//					Containers: containerapp.AppTemplateContainerArray{
-//						&containerapp.AppTemplateContainerArgs{
-//							Name:   pulumi.String("examplecontainerapp"),
-//							Image:  pulumi.String("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"),
-//							Cpu:    pulumi.Float64(0.25),
-//							Memory: pulumi.String("0.5Gi"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "acctest-01",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// RetentionInDays: 30,
+// })
+// if err != nil {
+// return err
+// }
+// exampleEnvironment, err := containerapp/environment.NewEnvironment(ctx, "example", &containerapp/environment.EnvironmentArgs{
+// Name: "Example-Environment",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerapp/app.NewApp(ctx, "example", &containerapp/app.AppArgs{
+// Name: "example-app",
+// ContainerAppEnvironmentId: exampleEnvironment.Id,
+// ResourceGroupName: example.Name,
+// RevisionMode: "Single",
+// Template: map[string]interface{}{
+// "containers": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "examplecontainerapp",
+// "image": "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
+// "cpu": 0.25,
+// "memory": "0.5Gi",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-logz",
  *     location: "West Europe",
  * });
- * const exampleLogzMonitor = new azure.monitoring.LogzMonitor("example", {
+ * const exampleLogzMonitor = new azure.monitoring/logzMonitor.LogzMonitor("example", {
  *     name: "example-monitor",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -35,14 +35,14 @@ import * as utilities from "../utilities";
  *         phoneNumber: "+12313803556",
  *     },
  * });
- * const exampleLogzSubAccount = new azure.monitoring.LogzSubAccount("example", {
+ * const exampleLogzSubAccount = new azure.monitoring/logzSubAccount.LogzSubAccount("example", {
  *     name: "example-subaccount",
  *     logzMonitorId: exampleLogzMonitor.id,
  *     user: {
- *         email: exampleLogzMonitor.user.apply(user => user.email),
- *         firstName: exampleLogzMonitor.user.apply(user => user.firstName),
- *         lastName: exampleLogzMonitor.user.apply(user => user.lastName),
- *         phoneNumber: exampleLogzMonitor.user.apply(user => user.phoneNumber),
+ *         email: exampleLogzMonitor.user.email,
+ *         firstName: exampleLogzMonitor.user.firstName,
+ *         lastName: exampleLogzMonitor.user.lastName,
+ *         phoneNumber: exampleLogzMonitor.user.phoneNumber,
  *     },
  * });
  * ```

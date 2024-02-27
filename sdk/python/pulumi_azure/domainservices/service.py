@@ -503,111 +503,111 @@ class Service(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        deploy = azure.core.ResourceGroup("deploy",
-            name="example-resources",
-            location="West Europe")
-        deploy_virtual_network = azure.network.VirtualNetwork("deploy",
-            name="deploy-vnet",
+        deploy = azure.core.resource_group.ResourceGroup("deploy",
+            name=example-resources,
+            location=West Europe)
+        deploy_virtual_network = azure.network.virtual_network.VirtualNetwork("deploy",
+            name=deploy-vnet,
             location=deploy.location,
             resource_group_name=deploy.name,
-            address_spaces=["10.0.1.0/16"])
-        deploy_subnet = azure.network.Subnet("deploy",
-            name="deploy-subnet",
+            address_spaces=[10.0.1.0/16])
+        deploy_subnet = azure.network.subnet.Subnet("deploy",
+            name=deploy-subnet,
             resource_group_name=deploy.name,
             virtual_network_name=deploy_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        deploy_network_security_group = azure.network.NetworkSecurityGroup("deploy",
-            name="deploy-nsg",
+            address_prefixes=[10.0.1.0/24])
+        deploy_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("deploy",
+            name=deploy-nsg,
             location=deploy.location,
             resource_group_name=deploy.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowSyncWithAzureAD",
-                    priority=101,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="443",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowRD",
-                    priority=201,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="3389",
-                    source_address_prefix="CorpNetSaw",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowPSRemoting",
-                    priority=301,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="5986",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowLDAPS",
-                    priority=401,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="636",
-                    source_address_prefix="*",
-                    destination_address_prefix="*",
-                ),
+                {
+                    name: AllowSyncWithAzureAD,
+                    priority: 101,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 443,
+                    sourceAddressPrefix: AzureActiveDirectoryDomainServices,
+                    destinationAddressPrefix: *,
+                },
+                {
+                    name: AllowRD,
+                    priority: 201,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 3389,
+                    sourceAddressPrefix: CorpNetSaw,
+                    destinationAddressPrefix: *,
+                },
+                {
+                    name: AllowPSRemoting,
+                    priority: 301,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 5986,
+                    sourceAddressPrefix: AzureActiveDirectoryDomainServices,
+                    destinationAddressPrefix: *,
+                },
+                {
+                    name: AllowLDAPS,
+                    priority: 401,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 636,
+                    sourceAddressPrefix: *,
+                    destinationAddressPrefix: *,
+                },
             ])
-        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
+        deploy_subnet_network_security_group_association = azure.network.subnet_network_security_group_association.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
             network_security_group_id=deploy_network_security_group.id)
-        dc_admins = azuread.Group("dc_admins",
-            display_name="AAD DC Administrators",
+        dc_admins = azuread.index.group.Group("dc_admins",
+            display_name=AAD DC Administrators,
             security_enabled=True)
-        admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.com",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("admin",
+        admin = azuread.index.user.User("admin",
+            user_principal_name=dc-admin@hashicorp-example.com,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
+        admin_group_member = azuread.index.group_member.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        aadds = azure.core.ResourceGroup("aadds",
-            name="aadds-rg",
-            location="westeurope")
-        example_service = azure.domainservices.Service("example",
-            name="example-aadds",
+        example = azuread.index.service_principal.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
+        aadds = azure.core.resource_group.ResourceGroup("aadds",
+            name=aadds-rg,
+            location=westeurope)
+        example_service = azure.domainservices.service.Service("example",
+            name=example-aadds,
             location=aadds.location,
             resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
+            domain_name=widgetslogin.net,
+            sku=Enterprise,
             filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
-                subnet_id=deploy_subnet.id,
-            ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
-                additional_recipients=[
-                    "notifyA@example.net",
-                    "notifyB@example.org",
+            initial_replica_set={
+                subnetId: deploy_subnet.id,
+            },
+            notifications={
+                additionalRecipients: [
+                    notifyA@example.net,
+                    notifyB@example.org,
                 ],
-                notify_dc_admins=True,
-                notify_global_admins=True,
-            ),
-            security=azure.domainservices.ServiceSecurityArgs(
-                sync_kerberos_passwords=True,
-                sync_ntlm_passwords=True,
-                sync_on_prem_passwords=True,
-            ),
+                notifyDcAdmins: True,
+                notifyGlobalAdmins: True,
+            },
+            security={
+                syncKerberosPasswords: True,
+                syncNtlmPasswords: True,
+                syncOnPremPasswords: True,
+            },
             tags={
-                "Environment": "prod",
+                Environment: prod,
             })
         ```
 
@@ -648,111 +648,111 @@ class Service(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        deploy = azure.core.ResourceGroup("deploy",
-            name="example-resources",
-            location="West Europe")
-        deploy_virtual_network = azure.network.VirtualNetwork("deploy",
-            name="deploy-vnet",
+        deploy = azure.core.resource_group.ResourceGroup("deploy",
+            name=example-resources,
+            location=West Europe)
+        deploy_virtual_network = azure.network.virtual_network.VirtualNetwork("deploy",
+            name=deploy-vnet,
             location=deploy.location,
             resource_group_name=deploy.name,
-            address_spaces=["10.0.1.0/16"])
-        deploy_subnet = azure.network.Subnet("deploy",
-            name="deploy-subnet",
+            address_spaces=[10.0.1.0/16])
+        deploy_subnet = azure.network.subnet.Subnet("deploy",
+            name=deploy-subnet,
             resource_group_name=deploy.name,
             virtual_network_name=deploy_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"])
-        deploy_network_security_group = azure.network.NetworkSecurityGroup("deploy",
-            name="deploy-nsg",
+            address_prefixes=[10.0.1.0/24])
+        deploy_network_security_group = azure.network.network_security_group.NetworkSecurityGroup("deploy",
+            name=deploy-nsg,
             location=deploy.location,
             resource_group_name=deploy.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowSyncWithAzureAD",
-                    priority=101,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="443",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowRD",
-                    priority=201,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="3389",
-                    source_address_prefix="CorpNetSaw",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowPSRemoting",
-                    priority=301,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="5986",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowLDAPS",
-                    priority=401,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="636",
-                    source_address_prefix="*",
-                    destination_address_prefix="*",
-                ),
+                {
+                    name: AllowSyncWithAzureAD,
+                    priority: 101,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 443,
+                    sourceAddressPrefix: AzureActiveDirectoryDomainServices,
+                    destinationAddressPrefix: *,
+                },
+                {
+                    name: AllowRD,
+                    priority: 201,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 3389,
+                    sourceAddressPrefix: CorpNetSaw,
+                    destinationAddressPrefix: *,
+                },
+                {
+                    name: AllowPSRemoting,
+                    priority: 301,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 5986,
+                    sourceAddressPrefix: AzureActiveDirectoryDomainServices,
+                    destinationAddressPrefix: *,
+                },
+                {
+                    name: AllowLDAPS,
+                    priority: 401,
+                    direction: Inbound,
+                    access: Allow,
+                    protocol: Tcp,
+                    sourcePortRange: *,
+                    destinationPortRange: 636,
+                    sourceAddressPrefix: *,
+                    destinationAddressPrefix: *,
+                },
             ])
-        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
+        deploy_subnet_network_security_group_association = azure.network.subnet_network_security_group_association.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
             network_security_group_id=deploy_network_security_group.id)
-        dc_admins = azuread.Group("dc_admins",
-            display_name="AAD DC Administrators",
+        dc_admins = azuread.index.group.Group("dc_admins",
+            display_name=AAD DC Administrators,
             security_enabled=True)
-        admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.com",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("admin",
+        admin = azuread.index.user.User("admin",
+            user_principal_name=dc-admin@hashicorp-example.com,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
+        admin_group_member = azuread.index.group_member.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        aadds = azure.core.ResourceGroup("aadds",
-            name="aadds-rg",
-            location="westeurope")
-        example_service = azure.domainservices.Service("example",
-            name="example-aadds",
+        example = azuread.index.service_principal.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
+        aadds = azure.core.resource_group.ResourceGroup("aadds",
+            name=aadds-rg,
+            location=westeurope)
+        example_service = azure.domainservices.service.Service("example",
+            name=example-aadds,
             location=aadds.location,
             resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
+            domain_name=widgetslogin.net,
+            sku=Enterprise,
             filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
-                subnet_id=deploy_subnet.id,
-            ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
-                additional_recipients=[
-                    "notifyA@example.net",
-                    "notifyB@example.org",
+            initial_replica_set={
+                subnetId: deploy_subnet.id,
+            },
+            notifications={
+                additionalRecipients: [
+                    notifyA@example.net,
+                    notifyB@example.org,
                 ],
-                notify_dc_admins=True,
-                notify_global_admins=True,
-            ),
-            security=azure.domainservices.ServiceSecurityArgs(
-                sync_kerberos_passwords=True,
-                sync_ntlm_passwords=True,
-                sync_on_prem_passwords=True,
-            ),
+                notifyDcAdmins: True,
+                notifyGlobalAdmins: True,
+            },
+            security={
+                syncKerberosPasswords: True,
+                syncNtlmPasswords: True,
+                syncOnPremPasswords: True,
+            },
             tags={
-                "Environment": "prod",
+                Environment: prod,
             })
         ```
 

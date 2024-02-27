@@ -293,42 +293,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a certificate in an Azure Batch account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="testbatch",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="teststorage",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account2 = azure.batch.Account("example",
-            name="testbatchaccount",
-            resource_group_name=example.name,
-            location=example.location,
-            pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys",
-            tags={
-                "env": "test",
-            })
-        example_certificate = azure.batch.Certificate("example",
-            resource_group_name=example.name,
-            account_name=example_account2.name,
-            certificate=std.filebase64(input="certificate.pfx").result,
-            format="Pfx",
-            password="password",
-            thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-            thumbprint_algorithm="SHA1")
-        ```
-
         ## Import
 
         Batch Certificates can be imported using the `resource id`, e.g.
@@ -355,42 +319,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a certificate in an Azure Batch account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="testbatch",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="teststorage",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_account2 = azure.batch.Account("example",
-            name="testbatchaccount",
-            resource_group_name=example.name,
-            location=example.location,
-            pool_allocation_mode="BatchService",
-            storage_account_id=example_account.id,
-            storage_account_authentication_mode="StorageKeys",
-            tags={
-                "env": "test",
-            })
-        example_certificate = azure.batch.Certificate("example",
-            resource_group_name=example.name,
-            account_name=example_account2.name,
-            certificate=std.filebase64(input="certificate.pfx").result,
-            format="Pfx",
-            password="password",
-            thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-            thumbprint_algorithm="SHA1")
-        ```
 
         ## Import
 

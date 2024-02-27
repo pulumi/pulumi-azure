@@ -73,10 +73,7 @@ import javax.annotation.Nullable;
  *         var exampleWatchlistItem = new WatchlistItem(&#34;exampleWatchlistItem&#34;, WatchlistItemArgs.builder()        
  *             .name(&#34;0aac6fa5-223e-49cf-9bfd-3554dc9d2b76&#34;)
  *             .watchlistId(exampleWatchlist.id())
- *             .properties(Map.ofEntries(
- *                 Map.entry(&#34;k1&#34;, &#34;v1&#34;),
- *                 Map.entry(&#34;k2&#34;, &#34;v2&#34;)
- *             ))
+ *             .properties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

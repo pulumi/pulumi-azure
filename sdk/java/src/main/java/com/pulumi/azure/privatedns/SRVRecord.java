@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ZoneArgs;
  * import com.pulumi.azure.privatedns.SRVRecord;
  * import com.pulumi.azure.privatedns.SRVRecordArgs;
- * import com.pulumi.azure.privatedns.inputs.SRVRecordRecordArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,19 +63,9 @@ import javax.annotation.Nullable;
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
  *             .records(            
- *                 SRVRecordRecordArgs.builder()
- *                     .priority(1)
- *                     .weight(5)
- *                     .port(8080)
- *                     .target(&#34;target1.contoso.com&#34;)
- *                     .build(),
- *                 SRVRecordRecordArgs.builder()
- *                     .priority(10)
- *                     .weight(10)
- *                     .port(8080)
- *                     .target(&#34;target2.contoso.com&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

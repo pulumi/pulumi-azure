@@ -24,13 +24,13 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleWorkspaceTable = new Azure.LogAnalytics.WorkspaceTable("example", new()
+    ///     var exampleWorkspaceTable = new Azure.Loganalytics.WorkspaceTable.WorkspaceTable("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         Name = "AppMetrics",

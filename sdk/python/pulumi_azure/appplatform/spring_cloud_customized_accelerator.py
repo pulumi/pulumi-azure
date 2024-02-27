@@ -306,32 +306,32 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="west europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=west europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_accelerator = azure.appplatform.spring_cloud_accelerator.SpringCloudAccelerator("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("example",
-            name="example",
+        example_spring_cloud_customized_accelerator = azure.appplatform.spring_cloud_customized_accelerator.SpringCloudCustomizedAccelerator("example",
+            name=example,
             spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
-            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
-                url="https://github.com/Azure-Samples/piggymetrics",
-                git_tag="spring.version.2.0.3",
-                interval_in_seconds=100,
-            ),
+            git_repository={
+                url: https://github.com/Azure-Samples/piggymetrics,
+                gitTag: spring.version.2.0.3,
+                intervalInSeconds: 100,
+            },
             accelerator_tags=[
-                "tag-a",
-                "tag-b",
+                tag-a,
+                tag-b,
             ],
-            description="example description",
-            display_name="example name",
-            icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
+            description=example description,
+            display_name=example name,
+            icon_url=https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg)
         ```
 
         ## Import
@@ -368,32 +368,32 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="west europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=west europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_accelerator = azure.appplatform.SpringCloudAccelerator("example",
-            name="default",
+            sku_name=E0)
+        example_spring_cloud_accelerator = azure.appplatform.spring_cloud_accelerator.SpringCloudAccelerator("example",
+            name=default,
             spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("example",
-            name="example",
+        example_spring_cloud_customized_accelerator = azure.appplatform.spring_cloud_customized_accelerator.SpringCloudCustomizedAccelerator("example",
+            name=example,
             spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
-            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
-                url="https://github.com/Azure-Samples/piggymetrics",
-                git_tag="spring.version.2.0.3",
-                interval_in_seconds=100,
-            ),
+            git_repository={
+                url: https://github.com/Azure-Samples/piggymetrics,
+                gitTag: spring.version.2.0.3,
+                intervalInSeconds: 100,
+            },
             accelerator_tags=[
-                "tag-a",
-                "tag-b",
+                tag-a,
+                tag-b,
             ],
-            description="example description",
-            display_name="example name",
-            icon_url="https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg")
+            description=example description,
+            display_name=example name,
+            icon_url=https://images.freecreatives.com/wp-content/uploads/2015/05/smiley-559124_640.jpg)
         ```
 
         ## Import

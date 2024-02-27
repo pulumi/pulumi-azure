@@ -29,13 +29,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "EastUs",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "mssqlserver",
     ///         ResourceGroupName = example.Name,
@@ -44,10 +44,10 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
     ///         MinimumTlsVersion = "1.2",
-    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         AzureadAdministrator = 
     ///         {
-    ///             LoginUsername = "AzureAD Admin",
-    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///             { "loginUsername", "AzureAD Admin" },
+    ///             { "objectId", "00000000-0000-0000-0000-000000000000" },
     ///         },
     ///         Tags = 
     ///         {
@@ -55,115 +55,9 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("example", new()
+    ///     var exampleServerTransparentDataEncryption = new Azure.Mssql.ServerTransparentDataEncryption.ServerTransparentDataEncryption("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Customer Managed Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "EastUs",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
-    ///     {
-    ///         Name = "mssqlserver",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "missadministrator",
-    ///         AdministratorLoginPassword = "thisIsKat11",
-    ///         MinimumTlsVersion = "1.2",
-    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
-    ///         {
-    ///             LoginUsername = "AzureAD Admin",
-    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "production" },
-    ///         },
-    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     // Create a key vault with policies for the deployer to create a key &amp; SQL Server to wrap/unwrap/get key
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = false,
-    ///         SkuName = "standard",
-    ///         AccessPolicies = new[]
-    ///         {
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///             {
-    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 KeyPermissions = new[]
-    ///                 {
-    ///                     "Get",
-    ///                     "List",
-    ///                     "Create",
-    ///                     "Delete",
-    ///                     "Update",
-    ///                     "Recover",
-    ///                     "Purge",
-    ///                     "GetRotationPolicy",
-    ///                 },
-    ///             },
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
-    ///             {
-    ///                 TenantId = exampleServer.Identity.Apply(identity =&gt; identity?.TenantId),
-    ///                 ObjectId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///                 KeyPermissions = new[]
-    ///                 {
-    ///                     "Get",
-    ///                     "WrapKey",
-    ///                     "UnwrapKey",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
-    ///     {
-    ///         Name = "byok",
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         KeyType = "RSA",
-    ///         KeySize = 2048,
-    ///         KeyOpts = new[]
-    ///         {
-    ///             "unwrapKey",
-    ///             "wrapKey",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("example", new()
-    ///     {
-    ///         ServerId = exampleServer.Id,
-    ///         KeyVaultKeyId = exampleKey.Id,
     ///     });
     /// 
     /// });

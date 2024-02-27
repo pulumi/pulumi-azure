@@ -12,52 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages an Azure Subscription Policy Remediation.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var exampleGetPolicyDefintion = Azure.Policy.GetPolicyDefintion.Invoke(new()
-    ///     {
-    ///         DisplayName = "Allowed resource types",
-    ///     });
-    /// 
-    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
-    ///     {
-    ///         Name = "exampleAssignment",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyDefinitionId = exampleGetPolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
-    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["value"] = new[]
-    ///                 {
-    ///                     "West Europe",
-    ///                     "East US",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleSubscriptionPolicyRemediation = new Azure.Core.SubscriptionPolicyRemediation("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Policy Remediations can be imported using the `resource id`, e.g.

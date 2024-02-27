@@ -34,26 +34,20 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.NetworkWatcher;
  * import com.pulumi.azure.network.NetworkWatcherArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.VirtualMachine;
- * import com.pulumi.azure.compute.VirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachine;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachineArgs;
  * import com.pulumi.azure.compute.Extension;
  * import com.pulumi.azure.compute.ExtensionArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.network.NetworkPacketCapture;
  * import com.pulumi.azure.network.NetworkPacketCaptureArgs;
- * import com.pulumi.azure.network.inputs.NetworkPacketCaptureStorageLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -96,11 +90,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;pctest-nic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;testconfiguration1&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
@@ -109,26 +99,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .vmSize(&#34;Standard_F2&#34;)
- *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;osdisk&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(&#34;pctest-vm&#34;)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
- *                 .build())
- *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(false)
- *                 .build())
+ *             .storageImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageOsDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfileLinuxConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
@@ -153,9 +127,7 @@ import javax.annotation.Nullable;
  *             .networkWatcherName(exampleNetworkWatcher.name())
  *             .resourceGroupName(example.name())
  *             .targetResourceId(exampleVirtualMachine.id())
- *             .storageLocation(NetworkPacketCaptureStorageLocationArgs.builder()
- *                 .storageAccountId(exampleAccount.id())
- *                 .build())
+ *             .storageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

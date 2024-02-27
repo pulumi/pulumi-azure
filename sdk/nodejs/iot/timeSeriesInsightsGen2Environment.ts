@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const storage = new azure.storage.Account("storage", {
+ * const storage = new azure.storage/account.Account("storage", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("example", {
+ * const exampleTimeSeriesInsightsGen2Environment = new azure.iot/timeSeriesInsightsGen2Environment.TimeSeriesInsightsGen2Environment("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,

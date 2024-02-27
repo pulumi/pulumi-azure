@@ -202,25 +202,25 @@ class TableEntity(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azureexample",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureexamplestorage1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azureexample,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureexamplestorage1,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("example",
-            name="myexampletable",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_table = azure.storage.table.Table("example",
+            name=myexampletable,
             storage_account_name=example_account.name)
-        example_table_entity = azure.storage.TableEntity("example",
+        example_table_entity = azure.storage.table_entity.TableEntity("example",
             storage_account_name=example_account.name,
             table_name=example_table.name,
-            partition_key="examplepartition",
-            row_key="examplerow",
+            partition_key=examplepartition,
+            row_key=examplerow,
             entity={
-                "example": "example",
+                example: example,
             })
         ```
 
@@ -255,25 +255,25 @@ class TableEntity(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="azureexample",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureexamplestorage1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=azureexample,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureexamplestorage1,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_table = azure.storage.Table("example",
-            name="myexampletable",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_table = azure.storage.table.Table("example",
+            name=myexampletable,
             storage_account_name=example_account.name)
-        example_table_entity = azure.storage.TableEntity("example",
+        example_table_entity = azure.storage.table_entity.TableEntity("example",
             storage_account_name=example_account.name,
             table_name=example_table.name,
-            partition_key="examplepartition",
-            row_key="examplerow",
+            partition_key=examplepartition,
+            row_key=examplerow,
             entity={
-                "example": "example",
+                example: example,
             })
         ```
 

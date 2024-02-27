@@ -206,11 +206,11 @@ class PrivateLinkScope(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="west europe")
-        example_private_link_scope = azure.arc.PrivateLinkScope("example",
-            name="plsexample",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=west europe)
+        example_private_link_scope = azure.arc.private_link_scope.PrivateLinkScope("example",
+            name=plsexample,
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -246,11 +246,11 @@ class PrivateLinkScope(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="west europe")
-        example_private_link_scope = azure.arc.PrivateLinkScope("example",
-            name="plsexample",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=west europe)
+        example_private_link_scope = azure.arc.private_link_scope.PrivateLinkScope("example",
+            name=plsexample,
             resource_group_name=example.name,
             location=example.location)
         ```

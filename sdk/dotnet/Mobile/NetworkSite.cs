@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDevice = new Azure.DataboxEdge.Device("example", new()
+    ///     var exampleDevice = new Azure.Databoxedge.Device.Device("example", new()
     ///     {
     ///         Name = "example-device",
     ///         ResourceGroupName = example.Name,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Mobile
     ///         SkuName = "EdgeP_Base-Standard",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network.Network("example", new()
     ///     {
     ///         Name = "example-mn",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Mobile
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite("example", new()
+    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite.NetworkSite("example", new()
     ///     {
     ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,

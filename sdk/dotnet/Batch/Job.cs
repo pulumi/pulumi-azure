@@ -22,40 +22,40 @@ namespace Pulumi.Azure.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Batch.Account("example", new()
+    ///     var exampleAccount = new Azure.Batch.Account.Account("example", new()
     ///     {
     ///         Name = "exampleaccount",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var examplePool = new Azure.Batch.Pool("example", new()
+    ///     var examplePool = new Azure.Batch.Pool.Pool("example", new()
     ///     {
     ///         Name = "examplepool",
     ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
     ///         NodeAgentSkuId = "batch.node.ubuntu 16.04",
     ///         VmSize = "Standard_A1",
-    ///         FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
+    ///         FixedScale = 
     ///         {
-    ///             TargetDedicatedNodes = 1,
+    ///             { "targetDedicatedNodes", 1 },
     ///         },
-    ///         StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
+    ///         StorageImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 
-    ///     var exampleJob = new Azure.Batch.Job("example", new()
+    ///     var exampleJob = new Azure.Batch.Job.Job("example", new()
     ///     {
     ///         Name = "examplejob",
     ///         BatchPoolId = examplePool.Id,

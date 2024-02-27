@@ -16,58 +16,6 @@ import (
 //
 // > **Note** A bot can only have a single Email Channel associated with it.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "example", &bot.ChannelsRegistrationArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          pulumi.String("global"),
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    *pulumi.String(current.ClientId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewChannelEmail(ctx, "example", &bot.ChannelEmailArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: example.Name,
-//				EmailAddress:      pulumi.String("example.com"),
-//				EmailPassword:     pulumi.String("123456"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.

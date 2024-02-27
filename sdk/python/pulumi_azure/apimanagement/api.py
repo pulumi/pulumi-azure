@@ -901,28 +901,28 @@ class Api(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("example",
-            name="example-api",
+            publisher_name=My Company,
+            publisher_email=company@exmaple.com,
+            sku_name=Developer_1)
+        example_api = azure.apimanagement.api.Api("example",
+            name=example-api,
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            revision="1",
-            display_name="Example API",
-            path="example",
-            protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
+            revision=1,
+            display_name=Example API,
+            path=example,
+            protocols=[https],
+            import_={
+                contentFormat: swagger-link-json,
+                contentValue: http://conferenceapi.azurewebsites.net/?format=json,
+            })
         ```
 
         ## Import
@@ -981,28 +981,28 @@ class Api(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="My Company",
-            publisher_email="company@exmaple.com",
-            sku_name="Developer_1")
-        example_api = azure.apimanagement.Api("example",
-            name="example-api",
+            publisher_name=My Company,
+            publisher_email=company@exmaple.com,
+            sku_name=Developer_1)
+        example_api = azure.apimanagement.api.Api("example",
+            name=example-api,
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            revision="1",
-            display_name="Example API",
-            path="example",
-            protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
+            revision=1,
+            display_name=Example API,
+            path=example,
+            protocols=[https],
+            import_={
+                contentFormat: swagger-link-json,
+                contentValue: http://conferenceapi.azurewebsites.net/?format=json,
+            })
         ```
 
         ## Import

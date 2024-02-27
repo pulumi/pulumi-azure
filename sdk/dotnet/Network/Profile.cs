@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "examplegroup",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "examplevnet",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "examplesubnet",
     ///         ResourceGroupName = example.Name,
@@ -50,37 +50,37 @@ namespace Pulumi.Azure.Network
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "delegation",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "delegation" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.ContainerInstance/containerGroups",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.ContainerInstance/containerGroups" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleProfile = new Azure.Network.Profile("example", new()
+    ///     var exampleProfile = new Azure.Network.Profile.Profile("example", new()
     ///     {
     ///         Name = "examplenetprofile",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         ContainerNetworkInterface = new Azure.Network.Inputs.ProfileContainerNetworkInterfaceArgs
+    ///         ContainerNetworkInterface = 
     ///         {
-    ///             Name = "examplecnic",
-    ///             IpConfigurations = new[]
+    ///             { "name", "examplecnic" },
+    ///             { "ipConfigurations", new[]
     ///             {
-    ///                 new Azure.Network.Inputs.ProfileContainerNetworkInterfaceIpConfigurationArgs
+    ///                 
     ///                 {
-    ///                     Name = "exampleipconfig",
-    ///                     SubnetId = exampleSubnet.Id,
+    ///                     { "name", "exampleipconfig" },
+    ///                     { "subnetId", exampleSubnet.Id },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

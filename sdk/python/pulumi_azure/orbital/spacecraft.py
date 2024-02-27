@@ -303,28 +303,28 @@ class Spacecraft(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_spacecraft = azure.orbital.Spacecraft("example",
-            name="example-spacecraft",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_spacecraft = azure.orbital.spacecraft.Spacecraft("example",
+            name=example-spacecraft,
             resource_group_name=example.name,
-            location="westeurope",
-            norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=30,
-                center_frequency_mhz=2050,
-                direction="Uplink",
-                polarization="LHCP",
-                name="examplename",
-            )],
+            location=westeurope,
+            norad_id=12345,
+            links=[{
+                bandwidthMhz: 30,
+                centerFrequencyMhz: 2050,
+                direction: Uplink,
+                polarization: LHCP,
+                name: examplename,
+            }],
             two_line_elements=[
-                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
-                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+                1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621,
+                2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495,
             ],
-            title_line="AQUA",
+            title_line=AQUA,
             tags={
-                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+                aks-managed-cluster-name: 9a57225d-a405-4d40-aa46-f13d2342abef,
             })
         ```
 
@@ -362,28 +362,28 @@ class Spacecraft(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_spacecraft = azure.orbital.Spacecraft("example",
-            name="example-spacecraft",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_spacecraft = azure.orbital.spacecraft.Spacecraft("example",
+            name=example-spacecraft,
             resource_group_name=example.name,
-            location="westeurope",
-            norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=30,
-                center_frequency_mhz=2050,
-                direction="Uplink",
-                polarization="LHCP",
-                name="examplename",
-            )],
+            location=westeurope,
+            norad_id=12345,
+            links=[{
+                bandwidthMhz: 30,
+                centerFrequencyMhz: 2050,
+                direction: Uplink,
+                polarization: LHCP,
+                name: examplename,
+            }],
             two_line_elements=[
-                "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
-                "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
+                1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621,
+                2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495,
             ],
-            title_line="AQUA",
+            title_line=AQUA,
             tags={
-                "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
+                aks-managed-cluster-name: 9a57225d-a405-4d40-aa46-f13d2342abef,
             })
         ```
 

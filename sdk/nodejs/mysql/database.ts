@@ -11,11 +11,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.mysql.Server("example", {
+ * const exampleServer = new azure.mysql/server.Server("example", {
  *     name: "example-mysqlserver",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
- * const exampleDatabase = new azure.mysql.Database("example", {
+ * const exampleDatabase = new azure.mysql/database.Database("example", {
  *     name: "exampledb",
  *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,

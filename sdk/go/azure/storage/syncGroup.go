@@ -21,40 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/sync "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/sync"
+//	storage/syncGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/syncGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSync, err := storage.NewSync(ctx, "example", &storage.SyncArgs{
-//				Name:              pulumi.String("example-ss"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewSyncGroup(ctx, "example", &storage.SyncGroupArgs{
-//				Name:          pulumi.String("example-ss-group"),
-//				StorageSyncId: exampleSync.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSync, err := storage/sync.NewSync(ctx, "example", &storage/sync.SyncArgs{
+// Name: "example-ss",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/syncGroup.NewSyncGroup(ctx, "example", &storage/syncGroup.SyncGroupArgs{
+// Name: "example-ss-group",
+// StorageSyncId: exampleSync.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

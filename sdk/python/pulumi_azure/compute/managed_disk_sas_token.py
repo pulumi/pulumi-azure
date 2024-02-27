@@ -172,20 +172,20 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.core.ResourceGroup("test",
-            name="testrg",
-            location="West Europe")
-        test_managed_disk = azure.compute.ManagedDisk("test",
-            name="tst-disk-export",
+        test = azure.core.resource_group.ResourceGroup("test",
+            name=testrg,
+            location=West Europe)
+        test_managed_disk = azure.compute.managed_disk.ManagedDisk("test",
+            name=tst-disk-export,
             location=test.location,
             resource_group_name=test.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=1)
-        test_managed_disk_sas_token = azure.compute.ManagedDiskSasToken("test",
+        test_managed_disk_sas_token = azure.compute.managed_disk_sas_token.ManagedDiskSasToken("test",
             managed_disk_id=test_managed_disk.id,
             duration_in_seconds=300,
-            access_level="Read")
+            access_level=Read)
         ```
 
         ## Import
@@ -226,20 +226,20 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.core.ResourceGroup("test",
-            name="testrg",
-            location="West Europe")
-        test_managed_disk = azure.compute.ManagedDisk("test",
-            name="tst-disk-export",
+        test = azure.core.resource_group.ResourceGroup("test",
+            name=testrg,
+            location=West Europe)
+        test_managed_disk = azure.compute.managed_disk.ManagedDisk("test",
+            name=tst-disk-export,
             location=test.location,
             resource_group_name=test.name,
-            storage_account_type="Standard_LRS",
-            create_option="Empty",
+            storage_account_type=Standard_LRS,
+            create_option=Empty,
             disk_size_gb=1)
-        test_managed_disk_sas_token = azure.compute.ManagedDiskSasToken("test",
+        test_managed_disk_sas_token = azure.compute.managed_disk_sas_token.ManagedDiskSasToken("test",
             managed_disk_id=test_managed_disk.id,
             duration_in_seconds=300,
-            access_level="Read")
+            access_level=Read)
         ```
 
         ## Import

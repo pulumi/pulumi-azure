@@ -25,59 +25,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/group "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/group"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewGroup(ctx, "example", &containerservice.GroupArgs{
-//				Name:              pulumi.String("example-continst"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpAddressType:     pulumi.String("Public"),
-//				DnsNameLabel:      pulumi.String("aci-label"),
-//				OsType:            pulumi.String("Linux"),
-//				Containers: containerservice.GroupContainerArray{
-//					&containerservice.GroupContainerArgs{
-//						Name:   pulumi.String("hello-world"),
-//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-helloworld:latest"),
-//						Cpu:    pulumi.Float64(0.5),
-//						Memory: pulumi.Float64(1.5),
-//						Ports: containerservice.GroupContainerPortArray{
-//							&containerservice.GroupContainerPortArgs{
-//								Port:     pulumi.Int(443),
-//								Protocol: pulumi.String("TCP"),
-//							},
-//						},
-//					},
-//					&containerservice.GroupContainerArgs{
-//						Name:   pulumi.String("sidecar"),
-//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"),
-//						Cpu:    pulumi.Float64(0.5),
-//						Memory: pulumi.Float64(1.5),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("testing"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/group.NewGroup(ctx, "example", &containerservice/group.GroupArgs{
+// Name: "example-continst",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// IpAddressType: "Public",
+// DnsNameLabel: "aci-label",
+// OsType: "Linux",
+// Containers: []interface{}{
+// map[string]interface{}{
+// "name": "hello-world",
+// "image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+// "cpu": "0.5",
+// "memory": "1.5",
+// "ports": []map[string]interface{}{
+// map[string]interface{}{
+// "port": 443,
+// "protocol": "TCP",
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "sidecar",
+// "image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
+// "cpu": "0.5",
+// "memory": "1.5",
+// },
+// },
+// Tags: map[string]interface{}{
+// "environment": "testing",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

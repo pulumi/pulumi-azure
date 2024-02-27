@@ -23,49 +23,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-aks1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("exampleaks1"),
-//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("default"),
-//					NodeCount: pulumi.Int(1),
-//					VmSize:    pulumi.String("Standard_D2_v2"),
-//				},
-//				Identity: &containerservice.KubernetesClusterIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (*string, error) {
-//				return &kubeConfigs[0].ClientCertificate, nil
-//			}).(pulumi.StringPtrOutput))
-//			ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleKubernetesCluster, err := containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+// Name: "example-aks1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// DnsPrefix: "exampleaks1",
+// DefaultNodePool: map[string]interface{}{
+// "name": "default",
+// "nodeCount": 1,
+// "vmSize": "Standard_D2_v2",
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Tags: map[string]interface{}{
+// "Environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs[0].ClientCertificate)
+// ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -216,58 +212,58 @@ type KubernetesCluster struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+	// 	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+	// 	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+	// 	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+	// 	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-	// 			Name:     pulumi.String("example"),
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-	// 			Name:              pulumi.String("privatelink.eastus2.azmk8s.io"),
-	// 			ResourceGroupName: example.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-	// 			Name:              pulumi.String("aks-example-identity"),
-	// 			ResourceGroupName: example.Name,
-	// 			Location:          example.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-	// 			Name:                  pulumi.String("aksexamplewithprivatednszone1"),
-	// 			Location:              example.Location,
-	// 			ResourceGroupName:     example.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+	// Name: "example",
+	// Location: "West Europe",
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+	// Name: "privatelink.eastus2.azmk8s.io",
+	// ResourceGroupName: example.Name,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+	// Name: "aks-example-identity",
+	// ResourceGroupName: example.Name,
+	// Location: example.Location,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+	// Scope: exampleZone.Id,
+	// RoleDefinitionName: "Private DNS Zone Contributor",
+	// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+	// Name: "aksexamplewithprivatednszone1",
+	// Location: example.Location,
+	// ResourceGroupName: example.Name,
+	// DnsPrefix: "aksexamplednsprefix1",
+	// PrivateClusterEnabled: true,
+	// PrivateDnsZoneId: exampleZone.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
@@ -500,58 +496,58 @@ type kubernetesClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+	// 	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+	// 	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+	// 	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+	// 	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-	// 			Name:     pulumi.String("example"),
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-	// 			Name:              pulumi.String("privatelink.eastus2.azmk8s.io"),
-	// 			ResourceGroupName: example.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-	// 			Name:              pulumi.String("aks-example-identity"),
-	// 			ResourceGroupName: example.Name,
-	// 			Location:          example.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-	// 			Name:                  pulumi.String("aksexamplewithprivatednszone1"),
-	// 			Location:              example.Location,
-	// 			ResourceGroupName:     example.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+	// Name: "example",
+	// Location: "West Europe",
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+	// Name: "privatelink.eastus2.azmk8s.io",
+	// ResourceGroupName: example.Name,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+	// Name: "aks-example-identity",
+	// ResourceGroupName: example.Name,
+	// Location: example.Location,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+	// Scope: exampleZone.Id,
+	// RoleDefinitionName: "Private DNS Zone Contributor",
+	// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+	// Name: "aksexamplewithprivatednszone1",
+	// Location: example.Location,
+	// ResourceGroupName: example.Name,
+	// DnsPrefix: "aksexamplednsprefix1",
+	// PrivateClusterEnabled: true,
+	// PrivateDnsZoneId: exampleZone.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
@@ -742,58 +738,58 @@ type KubernetesClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+	// 	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+	// 	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+	// 	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+	// 	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-	// 			Name:     pulumi.String("example"),
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-	// 			Name:              pulumi.String("privatelink.eastus2.azmk8s.io"),
-	// 			ResourceGroupName: example.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-	// 			Name:              pulumi.String("aks-example-identity"),
-	// 			ResourceGroupName: example.Name,
-	// 			Location:          example.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-	// 			Name:                  pulumi.String("aksexamplewithprivatednszone1"),
-	// 			Location:              example.Location,
-	// 			ResourceGroupName:     example.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+	// Name: "example",
+	// Location: "West Europe",
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+	// Name: "privatelink.eastus2.azmk8s.io",
+	// ResourceGroupName: example.Name,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+	// Name: "aks-example-identity",
+	// ResourceGroupName: example.Name,
+	// Location: example.Location,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+	// Scope: exampleZone.Id,
+	// RoleDefinitionName: "Private DNS Zone Contributor",
+	// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+	// Name: "aksexamplewithprivatednszone1",
+	// Location: example.Location,
+	// ResourceGroupName: example.Name,
+	// DnsPrefix: "aksexamplednsprefix1",
+	// PrivateClusterEnabled: true,
+	// PrivateDnsZoneId: exampleZone.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
@@ -970,58 +966,58 @@ type kubernetesClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+	// 	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+	// 	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+	// 	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+	// 	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-	// 			Name:     pulumi.String("example"),
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-	// 			Name:              pulumi.String("privatelink.eastus2.azmk8s.io"),
-	// 			ResourceGroupName: example.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-	// 			Name:              pulumi.String("aks-example-identity"),
-	// 			ResourceGroupName: example.Name,
-	// 			Location:          example.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-	// 			Name:                  pulumi.String("aksexamplewithprivatednszone1"),
-	// 			Location:              example.Location,
-	// 			ResourceGroupName:     example.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+	// Name: "example",
+	// Location: "West Europe",
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+	// Name: "privatelink.eastus2.azmk8s.io",
+	// ResourceGroupName: example.Name,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+	// Name: "aks-example-identity",
+	// ResourceGroupName: example.Name,
+	// Location: example.Location,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+	// Scope: exampleZone.Id,
+	// RoleDefinitionName: "Private DNS Zone Contributor",
+	// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+	// Name: "aksexamplewithprivatednszone1",
+	// Location: example.Location,
+	// ResourceGroupName: example.Name,
+	// DnsPrefix: "aksexamplednsprefix1",
+	// PrivateClusterEnabled: true,
+	// PrivateDnsZoneId: exampleZone.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
@@ -1193,58 +1189,58 @@ type KubernetesClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+	// 	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+	// 	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+	// 	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+	// 	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-	// 			Name:     pulumi.String("example"),
-	// 			Location: pulumi.String("West Europe"),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-	// 			Name:              pulumi.String("privatelink.eastus2.azmk8s.io"),
-	// 			ResourceGroupName: example.Name,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-	// 			Name:              pulumi.String("aks-example-identity"),
-	// 			ResourceGroupName: example.Name,
-	// 			Location:          example.Location,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-	// 			Scope:              exampleZone.ID(),
-	// 			RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-	// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-	// 			Name:                  pulumi.String("aksexamplewithprivatednszone1"),
-	// 			Location:              example.Location,
-	// 			ResourceGroupName:     example.Name,
-	// 			DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-	// 			PrivateClusterEnabled: pulumi.Bool(true),
-	// 			PrivateDnsZoneId:      exampleZone.ID(),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+	// Name: "example",
+	// Location: "West Europe",
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+	// Name: "privatelink.eastus2.azmk8s.io",
+	// ResourceGroupName: example.Name,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+	// Name: "aks-example-identity",
+	// ResourceGroupName: example.Name,
+	// Location: example.Location,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+	// Scope: exampleZone.Id,
+	// RoleDefinitionName: "Private DNS Zone Contributor",
+	// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+	// Name: "aksexamplewithprivatednszone1",
+	// Location: example.Location,
+	// ResourceGroupName: example.Name,
+	// DnsPrefix: "aksexamplednsprefix1",
+	// PrivateClusterEnabled: true,
+	// PrivateDnsZoneId: exampleZone.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
@@ -1686,61 +1682,60 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("privatelink.eastus2.azmk8s.io"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("aks-example-identity"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleZone.ID(),
-//				RoleDefinitionName: pulumi.String("Private DNS Zone Contributor"),
-//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:                  pulumi.String("aksexamplewithprivatednszone1"),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				DnsPrefix:             pulumi.String("aksexamplednsprefix1"),
-//				PrivateClusterEnabled: pulumi.Bool(true),
-//				PrivateDnsZoneId:      exampleZone.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+// Name: "privatelink.eastus2.azmk8s.io",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "aks-example-identity",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/assignment.NewAssignment(ctx, "example", &authorization/assignment.AssignmentArgs{
+// Scope: exampleZone.Id,
+// RoleDefinitionName: "Private DNS Zone Contributor",
+// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+// Name: "aksexamplewithprivatednszone1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// DnsPrefix: "aksexamplednsprefix1",
+// PrivateClusterEnabled: true,
+// PrivateDnsZoneId: exampleZone.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 func (o KubernetesClusterOutput) PrivateClusterPublicFqdnEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PrivateClusterPublicFqdnEnabled }).(pulumi.BoolPtrOutput)

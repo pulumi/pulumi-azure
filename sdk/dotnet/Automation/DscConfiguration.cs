@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "account1",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleDscConfiguration = new Azure.Automation.DscConfiguration("example", new()
+    ///     var exampleDscConfiguration = new Azure.Automation.DscConfiguration.DscConfiguration("example", new()
     ///     {
     ///         Name = "test",
     ///         ResourceGroupName = example.Name,

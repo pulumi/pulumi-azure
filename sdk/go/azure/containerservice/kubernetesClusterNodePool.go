@@ -25,55 +25,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+//	containerservice/kubernetesClusterNodePool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesClusterNodePool"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-aks1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("exampleaks1"),
-//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("default"),
-//					NodeCount: pulumi.Int(1),
-//					VmSize:    pulumi.String("Standard_D2_v2"),
-//				},
-//				ServicePrincipal: &containerservice.KubernetesClusterServicePrincipalArgs{
-//					ClientId:     pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					ClientSecret: pulumi.String("00000000000000000000000000000000"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewKubernetesClusterNodePool(ctx, "example", &containerservice.KubernetesClusterNodePoolArgs{
-//				Name:                pulumi.String("internal"),
-//				KubernetesClusterId: exampleKubernetesCluster.ID(),
-//				VmSize:              pulumi.String("Standard_DS2_v2"),
-//				NodeCount:           pulumi.Int(1),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleKubernetesCluster, err := containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+// Name: "example-aks1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// DnsPrefix: "exampleaks1",
+// DefaultNodePool: map[string]interface{}{
+// "name": "default",
+// "nodeCount": 1,
+// "vmSize": "Standard_D2_v2",
+// },
+// ServicePrincipal: map[string]interface{}{
+// "clientId": "00000000-0000-0000-0000-000000000000",
+// "clientSecret": "00000000000000000000000000000000",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/kubernetesClusterNodePool.NewKubernetesClusterNodePool(ctx, "example", &containerservice/kubernetesClusterNodePool.KubernetesClusterNodePoolArgs{
+// Name: "internal",
+// KubernetesClusterId: exampleKubernetesCluster.Id,
+// VmSize: "Standard_DS2_v2",
+// NodeCount: 1,
+// Tags: map[string]interface{}{
+// "Environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

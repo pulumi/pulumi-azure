@@ -21,48 +21,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/integrationAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/integrationAccount"
+//	logicapps/integrationAccountPartner "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/integrationAccountPartner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
-//				Name:              pulumi.String("example-ia"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewIntegrationAccountPartner(ctx, "example", &logicapps.IntegrationAccountPartnerArgs{
-//				Name:                   pulumi.String("example-iap"),
-//				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
-//					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
-//						Qualifier: pulumi.String("ZZ"),
-//						Value:     pulumi.String("AA"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIntegrationAccount, err := logicapps/integrationAccount.NewIntegrationAccount(ctx, "example", &logicapps/integrationAccount.IntegrationAccountArgs{
+// Name: "example-ia",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/integrationAccountPartner.NewIntegrationAccountPartner(ctx, "example", &logicapps/integrationAccountPartner.IntegrationAccountPartnerArgs{
+// Name: "example-iap",
+// ResourceGroupName: example.Name,
+// IntegrationAccountName: exampleIntegrationAccount.Name,
+// BusinessIdentities: []map[string]interface{}{
+// map[string]interface{}{
+// "qualifier": "ZZ",
+// "value": "AA",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

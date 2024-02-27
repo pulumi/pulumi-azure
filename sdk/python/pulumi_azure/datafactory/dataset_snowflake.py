@@ -405,23 +405,23 @@ class DatasetSnowflake(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("example",
-            name="example",
+        example_linked_service_snowflake = azure.datafactory.linked_service_snowflake.LinkedServiceSnowflake("example",
+            name=example,
             data_factory_id=example_factory.id,
-            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
-        example_dataset_snowflake = azure.datafactory.DatasetSnowflake("example",
-            name="example",
+            connection_string=jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh)
+        example_dataset_snowflake = azure.datafactory.dataset_snowflake.DatasetSnowflake("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_snowflake.name,
-            schema_name="foo_schema",
-            table_name="foo_table")
+            schema_name=foo_schema,
+            table_name=foo_table)
         ```
 
         ## Import
@@ -463,23 +463,23 @@ class DatasetSnowflake(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("example",
-            name="example",
+        example_linked_service_snowflake = azure.datafactory.linked_service_snowflake.LinkedServiceSnowflake("example",
+            name=example,
             data_factory_id=example_factory.id,
-            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
-        example_dataset_snowflake = azure.datafactory.DatasetSnowflake("example",
-            name="example",
+            connection_string=jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh)
+        example_dataset_snowflake = azure.datafactory.dataset_snowflake.DatasetSnowflake("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_snowflake.name,
-            schema_name="foo_schema",
-            table_name="foo_table")
+            schema_name=foo_schema,
+            table_name=foo_table)
         ```
 
         ## Import

@@ -23,76 +23,12 @@ public final class LogicappsFunctions {
     /**
      * Use this data source to access information about an existing Logic App Integration Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args) {
         return getIntegrationAccount(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Logic App Integration Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetIntegrationAccountResult> getIntegrationAccountPlain(GetIntegrationAccountPlainArgs args) {
@@ -101,76 +37,12 @@ public final class LogicappsFunctions {
     /**
      * Use this data source to access information about an existing Logic App Integration Account.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getIntegrationAccount:getIntegrationAccount", TypeShape.of(GetIntegrationAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Logic App Integration Account.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetIntegrationAccountArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getIntegrationAccount(GetIntegrationAccountArgs.builder()
-     *             .name(&#34;example-account&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIntegrationAccountResult -&gt; getIntegrationAccountResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetIntegrationAccountResult> getIntegrationAccountPlain(GetIntegrationAccountPlainArgs args, InvokeOptions options) {
@@ -179,76 +51,12 @@ public final class LogicappsFunctions {
     /**
      * Use this data source to access information about an existing Logic App Standard instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetStandardResult> getStandard(GetStandardArgs args) {
         return getStandard(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Logic App Standard instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStandardResult> getStandardPlain(GetStandardPlainArgs args) {
@@ -257,76 +65,12 @@ public final class LogicappsFunctions {
     /**
      * Use this data source to access information about an existing Logic App Standard instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetStandardResult> getStandard(GetStandardArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getStandard:getStandard", TypeShape.of(GetStandardResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Logic App Standard instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetStandardArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name(&#34;logicappstd&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getStandardResult -&gt; getStandardResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStandardResult> getStandardPlain(GetStandardPlainArgs args, InvokeOptions options) {
@@ -335,76 +79,12 @@ public final class LogicappsFunctions {
     /**
      * Use this data source to access information about an existing Logic App Workflow.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkflowResult> getWorkflow(GetWorkflowArgs args) {
         return getWorkflow(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Logic App Workflow.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkflowResult> getWorkflowPlain(GetWorkflowPlainArgs args) {
@@ -413,76 +93,12 @@ public final class LogicappsFunctions {
     /**
      * Use this data source to access information about an existing Logic App Workflow.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkflowResult> getWorkflow(GetWorkflowArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:logicapps/getWorkflow:getWorkflow", TypeShape.of(GetWorkflowResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Logic App Workflow.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.logicapps.LogicappsFunctions;
-     * import com.pulumi.azure.logicapps.inputs.GetWorkflowArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LogicappsFunctions.getWorkflow(GetWorkflowArgs.builder()
-     *             .name(&#34;workflow1&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;accessEndpoint&#34;, example.applyValue(getWorkflowResult -&gt; getWorkflowResult.accessEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkflowResult> getWorkflowPlain(GetWorkflowPlainArgs args, InvokeOptions options) {

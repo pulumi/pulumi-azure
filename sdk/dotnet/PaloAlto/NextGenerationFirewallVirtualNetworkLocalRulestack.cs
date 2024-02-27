@@ -22,13 +22,13 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resource-group",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example-public-ip",
     ///         Location = example.Location,
@@ -37,14 +37,14 @@ namespace Pulumi.Azure.PaloAlto
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("example", new()
     ///     {
     ///         Name = "example-nsg",
     ///         Location = test.Location,
     ///         ResourceGroupName = test.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.PaloAlto
     ///         },
     ///     });
     /// 
-    ///     var trust = new Azure.Network.Subnet("trust", new()
+    ///     var trust = new Azure.Network.Subnet.Subnet("trust", new()
     ///     {
     ///         Name = "example-trust-subnet",
     ///         ResourceGroupName = example.Name,
@@ -70,28 +70,28 @@ namespace Pulumi.Azure.PaloAlto
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "trusted",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "trusted" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
-    ///                     Actions = new[]
+    ///                     { "name", "PaloAltoNetworks.Cloudngfw/firewalls" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var trustSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("trust", new()
+    ///     var trustSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("trust", new()
     ///     {
     ///         SubnetId = trust.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var untrust = new Azure.Network.Subnet("untrust", new()
+    ///     var untrust = new Azure.Network.Subnet.Subnet("untrust", new()
     ///     {
     ///         Name = "example-untrust-subnet",
     ///         ResourceGroupName = example.Name,
@@ -102,35 +102,35 @@ namespace Pulumi.Azure.PaloAlto
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "untrusted",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "untrusted" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
-    ///                     Actions = new[]
+    ///                     { "name", "PaloAltoNetworks.Cloudngfw/firewalls" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var untrustSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("untrust", new()
+    ///     var untrustSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("untrust", new()
     ///     {
     ///         SubnetId = untrust.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
+    ///     var exampleLocalRulestack = new Azure.Paloalto.LocalRulestack.LocalRulestack("example", new()
     ///     {
     ///         Name = "example-rulestack",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Locatio,
     ///     });
     /// 
-    ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("example", new()
+    ///     var exampleLocalRulestackRule = new Azure.Paloalto.LocalRulestackRule.LocalRulestackRule("example", new()
     ///     {
     ///         Name = "example-rulestack-rule",
     ///         RulestackId = exampleLocalRulestack.Id,
@@ -140,39 +140,39 @@ namespace Pulumi.Azure.PaloAlto
     ///         {
     ///             "any",
     ///         },
-    ///         Destination = new Azure.PaloAlto.Inputs.LocalRulestackRuleDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             Cidrs = new[]
+    ///             { "cidrs", new[]
     ///             {
     ///                 "any",
-    ///             },
+    ///             } },
     ///         },
-    ///         Source = new Azure.PaloAlto.Inputs.LocalRulestackRuleSourceArgs
+    ///         Source = 
     ///         {
-    ///             Cidrs = new[]
+    ///             { "cidrs", new[]
     ///             {
     ///                 "any",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new Azure.PaloAlto.NextGenerationFirewallVirtualNetworkLocalRulestack("example", new()
+    ///     var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new Azure.Paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack.NextGenerationFirewallVirtualNetworkLocalRulestack("example", new()
     ///     {
     ///         Name = "example-ngfwvn",
     ///         ResourceGroupName = example.Name,
     ///         RulestackId = exampleLocalRulestack.Id,
-    ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs
+    ///         NetworkProfile = 
     ///         {
-    ///             PublicIpAddressIds = new[]
+    ///             { "publicIpAddressIds", new[]
     ///             {
     ///                 examplePublicIp.Id,
-    ///             },
-    ///             VnetConfiguration = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs
+    ///             } },
+    ///             { "vnetConfiguration", 
     ///             {
-    ///                 VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///                 TrustedSubnetId = trust.Id,
-    ///                 UntrustedSubnetId = untrust.Id,
-    ///             },
+    ///                 { "virtualNetworkId", exampleVirtualNetwork.Id },
+    ///                 { "trustedSubnetId", trust.Id },
+    ///                 { "untrustedSubnetId", untrust.Id },
+    ///             } },
     ///         },
     ///     });
     /// 

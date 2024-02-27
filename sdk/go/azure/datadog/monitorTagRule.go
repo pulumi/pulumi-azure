@@ -21,67 +21,66 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datadog"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datadog/monitor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datadog/monitor"
+//	datadog/monitorTagRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datadog/monitorTagRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-datadog"),
-//				Location: pulumi.String("West US 2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMonitor, err := datadog.NewMonitor(ctx, "example", &datadog.MonitorArgs{
-//				Name:              pulumi.String("example-monitor"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
-//					ApiKey:         pulumi.String("XXXX"),
-//					ApplicationKey: pulumi.String("XXXX"),
-//				},
-//				User: &datadog.MonitorUserArgs{
-//					Name:  pulumi.String("Example"),
-//					Email: pulumi.String("abc@xyz.com"),
-//				},
-//				SkuName: pulumi.String("Linked"),
-//				Identity: &datadog.MonitorIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewMonitorTagRule(ctx, "example", &datadog.MonitorTagRuleArgs{
-//				DatadogMonitorId: exampleMonitor.ID(),
-//				Logs: datadog.MonitorTagRuleLogArray{
-//					&datadog.MonitorTagRuleLogArgs{
-//						SubscriptionLogEnabled: pulumi.Bool(true),
-//					},
-//				},
-//				Metrics: datadog.MonitorTagRuleMetricArray{
-//					&datadog.MonitorTagRuleMetricArgs{
-//						Filters: datadog.MonitorTagRuleMetricFilterArray{
-//							&datadog.MonitorTagRuleMetricFilterArgs{
-//								Name:   pulumi.String("Test"),
-//								Value:  pulumi.String("Logs"),
-//								Action: pulumi.String("Include"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-datadog",
+// Location: "West US 2",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMonitor, err := datadog/monitor.NewMonitor(ctx, "example", &datadog/monitor.MonitorArgs{
+// Name: "example-monitor",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DatadogOrganization: map[string]interface{}{
+// "apiKey": "XXXX",
+// "applicationKey": "XXXX",
+// },
+// User: map[string]interface{}{
+// "name": "Example",
+// "email": "abc@xyz.com",
+// },
+// SkuName: "Linked",
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datadog/monitorTagRule.NewMonitorTagRule(ctx, "example", &datadog/monitorTagRule.MonitorTagRuleArgs{
+// DatadogMonitorId: exampleMonitor.Id,
+// Logs: []map[string]interface{}{
+// map[string]interface{}{
+// "subscriptionLogEnabled": true,
+// },
+// },
+// Metrics: []map[string]interface{}{
+// map[string]interface{}{
+// "filters": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Test",
+// "value": "Logs",
+// "action": "Include",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

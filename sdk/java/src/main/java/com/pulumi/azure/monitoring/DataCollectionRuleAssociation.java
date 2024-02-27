@@ -26,22 +26,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.DataCollectionRule;
  * import com.pulumi.azure.monitoring.DataCollectionRuleArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs;
- * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataFlowArgs;
  * import com.pulumi.azure.monitoring.DataCollectionEndpoint;
  * import com.pulumi.azure.monitoring.DataCollectionEndpointArgs;
  * import com.pulumi.azure.monitoring.DataCollectionRuleAssociation;
@@ -82,11 +76,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;nic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;internal&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
@@ -98,31 +88,16 @@ import javax.annotation.Nullable;
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminPassword(&#34;example-Password@7890&#34;)
  *             .disablePasswordAuthentication(false)
- *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .storageAccountType(&#34;Standard_LRS&#34;)
- *                 .build())
- *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
+ *             .osDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDataCollectionRule = new DataCollectionRule(&#34;exampleDataCollectionRule&#34;, DataCollectionRuleArgs.builder()        
  *             .name(&#34;example-dcr&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .destinations(DataCollectionRuleDestinationsArgs.builder()
- *                 .azureMonitorMetrics(DataCollectionRuleDestinationsAzureMonitorMetricsArgs.builder()
- *                     .name(&#34;example-destination-metrics&#34;)
- *                     .build())
- *                 .build())
- *             .dataFlows(DataCollectionRuleDataFlowArgs.builder()
- *                 .streams(&#34;Microsoft-InsightsMetrics&#34;)
- *                 .destinations(&#34;example-destination-metrics&#34;)
- *                 .build())
+ *             .destinations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .dataFlows(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        

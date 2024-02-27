@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;example-iotcentral-app-display-name&#34;)
  *             .sku(&#34;ST1&#34;)
  *             .template(&#34;iotc-default@1.0.0&#34;)
- *             .tags(Map.of(&#34;Foo&#34;, &#34;Bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleParent = new Organization(&#34;exampleParent&#34;, OrganizationArgs.builder()        

@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-datadog",
  *     location: "West US 2",
  * });
- * const exampleMonitor = new azure.datadog.Monitor("example", {
+ * const exampleMonitor = new azure.datadog/monitor.Monitor("example", {
  *     name: "example-monitor",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleMonitorSsoConfiguration = new azure.datadog.MonitorSsoConfiguration("example", {
+ * const exampleMonitorSsoConfiguration = new azure.datadog/monitorSsoConfiguration.MonitorSsoConfiguration("example", {
  *     datadogMonitorId: exampleMonitor.id,
  *     singleSignOnEnabled: "Enable",
  *     enterpriseApplicationId: "XXXX",

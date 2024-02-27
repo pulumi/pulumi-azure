@@ -22,13 +22,13 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exampleRG1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet1",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var ase = new Azure.Network.Subnet("ase", new()
+    ///     var ase = new Azure.Network.Subnet.Subnet("ase", new()
     ///     {
     ///         Name = "asesubnet",
     ///         ResourceGroupName = example.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var gateway = new Azure.Network.Subnet("gateway", new()
+    ///     var gateway = new Azure.Network.Subnet.Subnet("gateway", new()
     ///     {
     ///         Name = "gatewaysubnet",
     ///         ResourceGroupName = example.Name,
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.AppService.Environment("example", new()
+    ///     var exampleEnvironment = new Azure.Appservice.Environment.Environment("example", new()
     ///     {
     ///         Name = "example-ase",
     ///         ResourceGroupName = example.Name,
@@ -76,10 +76,10 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///         ClusterSettings = new[]
     ///         {
-    ///             new Azure.AppService.Inputs.EnvironmentClusterSettingArgs
+    ///             
     ///             {
-    ///                 Name = "DisableTls1.0",
-    ///                 Value = "1",
+    ///                 { "name", "DisableTls1.0" },
+    ///                 { "value", "1" },
     ///             },
     ///         },
     ///     });

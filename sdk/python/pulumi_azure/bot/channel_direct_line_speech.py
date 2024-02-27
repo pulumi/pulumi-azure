@@ -296,36 +296,6 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         """
         Manages a Direct Line Speech integration for a Bot Channel
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cognitive.Account("example",
-            name="example-cogacct",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="SpeechServices",
-            sku_name="S0")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example-bcr",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
-            cognitive_service_location=example_account.location,
-            cognitive_service_access_key=example_account.primary_access_key)
-        ```
-
         ## Import
 
         Direct Line Speech Channels can be imported using the `resource id`, e.g.
@@ -353,36 +323,6 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Direct Line Speech integration for a Bot Channel
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cognitive.Account("example",
-            name="example-cogacct",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="SpeechServices",
-            sku_name="S0")
-        example_channels_registration = azure.bot.ChannelsRegistration("example",
-            name="example-bcr",
-            location="global",
-            resource_group_name=example.name,
-            sku="F0",
-            microsoft_app_id=current.client_id)
-        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
-            cognitive_service_location=example_account.location,
-            cognitive_service_access_key=example_account.primary_access_key)
-        ```
 
         ## Import
 

@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Cdn
     {
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
-        ///     {
-        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
-        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
-        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorCustomDomainResult> InvokeAsync(GetFrontdoorCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorCustomDomainResult>("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args ?? new GetFrontdoorCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
-        ///     {
-        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
-        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
-        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorCustomDomainResult> Invoke(GetFrontdoorCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorCustomDomainResult>("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args ?? new GetFrontdoorCustomDomainInvokeArgs(), options.WithDefaults());

@@ -21,52 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	eventhub/eventhubNamespaceDisasterRecoveryConfig "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventhubNamespaceDisasterRecoveryConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("eventhub-replication"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primary, err := eventhub.NewEventHubNamespace(ctx, "primary", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("eventhub-primary"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondary, err := eventhub.NewEventHubNamespace(ctx, "secondary", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("eventhub-secondary"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eventhub.NewEventhubNamespaceDisasterRecoveryConfig(ctx, "example", &eventhub.EventhubNamespaceDisasterRecoveryConfigArgs{
-//				Name:               pulumi.String("replicate-eventhub"),
-//				ResourceGroupName:  example.Name,
-//				NamespaceName:      primary.Name,
-//				PartnerNamespaceId: secondary.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "eventhub-replication",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// primary, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "primary", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "eventhub-primary",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// secondary, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "secondary", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "eventhub-secondary",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eventhub/eventhubNamespaceDisasterRecoveryConfig.NewEventhubNamespaceDisasterRecoveryConfig(ctx, "example", &eventhub/eventhubNamespaceDisasterRecoveryConfig.EventhubNamespaceDisasterRecoveryConfigArgs{
+// Name: "replicate-eventhub",
+// ResourceGroupName: example.Name,
+// NamespaceName: primary.Name,
+// PartnerNamespaceId: secondary.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,23 +17,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-cdn-frontdoor",
  *     location: "West Europe",
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ * const exampleFrontdoorProfile = new azure.cdn/frontdoorProfile.FrontdoorProfile("example", {
  *     name: "example-profile",
  *     resourceGroupName: example.name,
  *     skuName: "Premium_AzureFrontDoor",
  * });
- * const exampleFrontdoorEndpoint = new azure.cdn.FrontdoorEndpoint("example", {
+ * const exampleFrontdoorEndpoint = new azure.cdn/frontdoorEndpoint.FrontdoorEndpoint("example", {
  *     name: "example-endpoint",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     tags: {
  *         endpoint: "contoso.com",
  *     },
  * });
- * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ * const exampleFrontdoorOriginGroup = new azure.cdn/frontdoorOriginGroup.FrontdoorOriginGroup("example", {
  *     name: "example-originGroup",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     sessionAffinityEnabled: true,
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         successfulSamplesRequired: 3,
  *     },
  * });
- * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ * const exampleFrontdoorOrigin = new azure.cdn/frontdoorOrigin.FrontdoorOrigin("example", {
  *     name: "example-origin",
  *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
  *     enabled: true,
@@ -62,11 +62,11 @@ import * as utilities from "../utilities";
  *     priority: 1,
  *     weight: 500,
  * });
- * const exampleFrontdoorRuleSet = new azure.cdn.FrontdoorRuleSet("example", {
+ * const exampleFrontdoorRuleSet = new azure.cdn/frontdoorRuleSet.FrontdoorRuleSet("example", {
  *     name: "exampleruleset",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
- * const exampleFrontdoorRule = new azure.cdn.FrontdoorRule("example", {
+ * const exampleFrontdoorRule = new azure.cdn/frontdoorRule.FrontdoorRule("example", {
  *     name: "examplerule",
  *     cdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.id,
  *     order: 1,

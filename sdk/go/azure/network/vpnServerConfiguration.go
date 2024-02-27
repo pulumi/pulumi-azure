@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/vpnServerConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/vpnServerConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVpnServerConfiguration(ctx, "test", &network.VpnServerConfigurationArgs{
-//				Name:              pulumi.String("example-config"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VpnAuthenticationTypes: pulumi.StringArray{
-//					pulumi.String("Certificate"),
-//				},
-//				ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
-//					&network.VpnServerConfigurationClientRootCertificateArgs{
-//						Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
-//						PublicCertData: pulumi.String(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/vpnServerConfiguration.NewVpnServerConfiguration(ctx, "test", &network/vpnServerConfiguration.VpnServerConfigurationArgs{
+// Name: "example-config",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VpnAuthenticationTypes: []string{
+// "Certificate",
+// },
+// ClientRootCertificates: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "DigiCert-Federated-ID-Root-CA",
+// "publicCertData": `MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
 // MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
 // d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
 // Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -67,18 +65,16 @@ import (
 // uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
 // WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
 // M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
-// `),
-//
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

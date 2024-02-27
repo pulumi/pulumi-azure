@@ -693,45 +693,6 @@ class ServiceAzureBot(pulumi.CustomResource):
         """
         Manages an Azure Bot Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
-            location=example.location,
-            resource_group_name=example.name,
-            application_type="web")
-        example_api_key = azure.appinsights.ApiKey("example",
-            name="example-appinsightsapikey",
-            application_insights_id=example_insights.id,
-            read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
-            ])
-        current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("example",
-            name="exampleazurebot",
-            resource_group_name=example.name,
-            location="global",
-            microsoft_app_id=current.client_id,
-            sku="F0",
-            endpoint="https://example.com",
-            developer_app_insights_api_key=example_api_key.api_key,
-            developer_app_insights_application_id=example_insights.app_id,
-            tags={
-                "environment": "test",
-            })
-        ```
-
         ## Import
 
         Azure Bot Services can be imported using the `resource id`, e.g.
@@ -771,45 +732,6 @@ class ServiceAzureBot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Bot Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
-            location=example.location,
-            resource_group_name=example.name,
-            application_type="web")
-        example_api_key = azure.appinsights.ApiKey("example",
-            name="example-appinsightsapikey",
-            application_insights_id=example_insights.id,
-            read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
-            ])
-        current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("example",
-            name="exampleazurebot",
-            resource_group_name=example.name,
-            location="global",
-            microsoft_app_id=current.client_id,
-            sku="F0",
-            endpoint="https://example.com",
-            developer_app_insights_api_key=example_api_key.api_key,
-            developer_app_insights_application_id=example_insights.app_id,
-            tags={
-                "environment": "test",
-            })
-        ```
 
         ## Import
 

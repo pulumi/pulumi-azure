@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleCapacityReservationGroup = new azure.compute.CapacityReservationGroup("example", {
+ * const exampleCapacityReservationGroup = new azure.compute/capacityReservationGroup.CapacityReservationGroup("example", {
  *     name: "example-capacity-reservation-group",
  *     resourceGroupName: example.name,
  *     location: example.location,

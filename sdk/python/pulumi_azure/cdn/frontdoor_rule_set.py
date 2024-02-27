@@ -107,15 +107,15 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("example",
-            name="ExampleRuleSet",
+            sku_name=Standard_AzureFrontDoor)
+        example_frontdoor_rule_set = azure.cdn.frontdoor_rule_set.FrontdoorRuleSet("example",
+            name=ExampleRuleSet,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
@@ -147,15 +147,15 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("example",
-            name="ExampleRuleSet",
+            sku_name=Standard_AzureFrontDoor)
+        example_frontdoor_rule_set = azure.cdn.frontdoor_rule_set.FrontdoorRuleSet("example",
+            name=ExampleRuleSet,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 

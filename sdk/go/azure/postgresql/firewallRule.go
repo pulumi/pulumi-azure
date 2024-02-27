@@ -22,46 +22,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	postgresql/firewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/firewallRule"
+//	postgresql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
-//				Name:                  pulumi.String("example-postgre-server"),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				SkuName:               pulumi.String("GP_Gen5_2"),
-//				Version:               pulumi.String("11"),
-//				SslEnforcementEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewFirewallRule(ctx, "example", &postgresql.FirewallRuleArgs{
-//				Name:              pulumi.String("office"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				StartIpAddress:    pulumi.String("40.112.8.12"),
-//				EndIpAddress:      pulumi.String("40.112.8.12"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := postgresql/server.NewServer(ctx, "example", &postgresql/server.ServerArgs{
+// Name: "example-postgre-server",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "GP_Gen5_2",
+// Version: "11",
+// SslEnforcementEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = postgresql/firewallRule.NewFirewallRule(ctx, "example", &postgresql/firewallRule.FirewallRuleArgs{
+// Name: "office",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// StartIpAddress: "40.112.8.12",
+// EndIpAddress: "40.112.8.12",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### IP Range)
 //
@@ -70,39 +69,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	postgresql/firewallRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/firewallRule"
+//	postgresql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := postgresql.NewServer(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewFirewallRule(ctx, "example", &postgresql.FirewallRuleArgs{
-//				Name:              pulumi.String("office"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				StartIpAddress:    pulumi.String("40.112.0.0"),
-//				EndIpAddress:      pulumi.String("40.112.255.255"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := postgresql/server.NewServer(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = postgresql/firewallRule.NewFirewallRule(ctx, "example", &postgresql/firewallRule.FirewallRuleArgs{
+// Name: "office",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// StartIpAddress: "40.112.0.0",
+// EndIpAddress: "40.112.255.255",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

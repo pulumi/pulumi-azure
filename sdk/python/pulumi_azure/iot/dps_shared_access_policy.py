@@ -400,19 +400,19 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_iot_hub_dps = azure.iot.iot_hub_dps.IotHubDps("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("example",
-            name="example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_dps_shared_access_policy = azure.iot.dps_shared_access_policy.DpsSharedAccessPolicy("example",
+            name=example,
             resource_group_name=example.name,
             iothub_dps_name=example_iot_hub_dps.name,
             enrollment_write=True,
@@ -461,19 +461,19 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_iot_hub_dps = azure.iot.iot_hub_dps.IotHubDps("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IotHubDpsSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("example",
-            name="example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_dps_shared_access_policy = azure.iot.dps_shared_access_policy.DpsSharedAccessPolicy("example",
+            name=example,
             resource_group_name=example.name,
             iothub_dps_name=example_iot_hub_dps.name,
             enrollment_write=True,

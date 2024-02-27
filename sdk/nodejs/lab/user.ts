@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleLab = new azure.lab.Lab("example", {
+ * const exampleLab = new azure.lab/lab.Lab("example", {
  *     name: "example-lab",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleUser = new azure.lab.User("example", {
+ * const exampleUser = new azure.lab/user.User("example", {
  *     name: "example-labuser",
  *     labId: exampleLab.id,
  *     email: "terraform-acctest@example.com",

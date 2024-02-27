@@ -21,54 +21,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	servicebus/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/namespace"
+//	servicebus/topic "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topic"
+//	servicebus/topicAuthorizationRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicebus/topicAuthorizationRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-servicebus"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
-//				Name:              pulumi.String("tfex-servicebus-namespace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				Tags: pulumi.StringMap{
-//					"source": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
-//				Name:        pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId: exampleNamespace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
-//				Name:    pulumi.String("tfex_servicebus_topic_sasPolicy"),
-//				TopicId: exampleTopic.ID(),
-//				Listen:  pulumi.Bool(true),
-//				Send:    pulumi.Bool(false),
-//				Manage:  pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-servicebus",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := servicebus/namespace.NewNamespace(ctx, "example", &servicebus/namespace.NamespaceArgs{
+// Name: "tfex-servicebus-namespace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// Tags: map[string]interface{}{
+// "source": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopic, err := servicebus/topic.NewTopic(ctx, "example", &servicebus/topic.TopicArgs{
+// Name: "tfex_servicebus_topic",
+// NamespaceId: exampleNamespace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = servicebus/topicAuthorizationRule.NewTopicAuthorizationRule(ctx, "example", &servicebus/topicAuthorizationRule.TopicAuthorizationRuleArgs{
+// Name: "tfex_servicebus_topic_sasPolicy",
+// TopicId: exampleTopic.Id,
+// Listen: true,
+// Send: false,
+// Manage: false,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

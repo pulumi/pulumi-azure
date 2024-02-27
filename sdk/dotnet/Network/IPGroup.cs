@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIPGroup = new Azure.Network.IPGroup("example", new()
+    ///     var exampleIPGroup = new Azure.Network.IPGroup.IPGroup("example", new()
     ///     {
     ///         Name = "example1-ipgroup",
     ///         Location = example.Location,

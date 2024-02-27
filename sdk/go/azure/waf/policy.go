@@ -21,133 +21,131 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/waf"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	waf/policy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/waf/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewPolicy(ctx, "example", &waf.PolicyArgs{
-//				Name:              pulumi.String("example-wafpolicy"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				CustomRules: waf.PolicyCustomRuleArray{
-//					&waf.PolicyCustomRuleArgs{
-//						Name:     pulumi.String("Rule1"),
-//						Priority: pulumi.Int(1),
-//						RuleType: pulumi.String("MatchRule"),
-//						MatchConditions: waf.PolicyCustomRuleMatchConditionArray{
-//							&waf.PolicyCustomRuleMatchConditionArgs{
-//								MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
-//									&waf.PolicyCustomRuleMatchConditionMatchVariableArgs{
-//										VariableName: pulumi.String("RemoteAddr"),
-//									},
-//								},
-//								Operator:          pulumi.String("IPMatch"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("192.168.1.0/24"),
-//									pulumi.String("10.0.0.0/24"),
-//								},
-//							},
-//						},
-//						Action: pulumi.String("Block"),
-//					},
-//					&waf.PolicyCustomRuleArgs{
-//						Name:     pulumi.String("Rule2"),
-//						Priority: pulumi.Int(2),
-//						RuleType: pulumi.String("MatchRule"),
-//						MatchConditions: waf.PolicyCustomRuleMatchConditionArray{
-//							&waf.PolicyCustomRuleMatchConditionArgs{
-//								MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
-//									&waf.PolicyCustomRuleMatchConditionMatchVariableArgs{
-//										VariableName: pulumi.String("RemoteAddr"),
-//									},
-//								},
-//								Operator:          pulumi.String("IPMatch"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("192.168.1.0/24"),
-//								},
-//							},
-//							&waf.PolicyCustomRuleMatchConditionArgs{
-//								MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
-//									&waf.PolicyCustomRuleMatchConditionMatchVariableArgs{
-//										VariableName: pulumi.String("RequestHeaders"),
-//										Selector:     pulumi.String("UserAgent"),
-//									},
-//								},
-//								Operator:          pulumi.String("Contains"),
-//								NegationCondition: pulumi.Bool(false),
-//								MatchValues: pulumi.StringArray{
-//									pulumi.String("Windows"),
-//								},
-//							},
-//						},
-//						Action: pulumi.String("Block"),
-//					},
-//				},
-//				PolicySettings: &waf.PolicyPolicySettingsArgs{
-//					Enabled:                pulumi.Bool(true),
-//					Mode:                   pulumi.String("Prevention"),
-//					RequestBodyCheck:       pulumi.Bool(true),
-//					FileUploadLimitInMb:    pulumi.Int(100),
-//					MaxRequestBodySizeInKb: pulumi.Int(128),
-//				},
-//				ManagedRules: &waf.PolicyManagedRulesArgs{
-//					Exclusions: waf.PolicyManagedRulesExclusionArray{
-//						&waf.PolicyManagedRulesExclusionArgs{
-//							MatchVariable:         pulumi.String("RequestHeaderNames"),
-//							Selector:              pulumi.String("x-company-secret-header"),
-//							SelectorMatchOperator: pulumi.String("Equals"),
-//						},
-//						&waf.PolicyManagedRulesExclusionArgs{
-//							MatchVariable:         pulumi.String("RequestCookieNames"),
-//							Selector:              pulumi.String("too-tasty"),
-//							SelectorMatchOperator: pulumi.String("EndsWith"),
-//						},
-//					},
-//					ManagedRuleSets: waf.PolicyManagedRulesManagedRuleSetArray{
-//						&waf.PolicyManagedRulesManagedRuleSetArgs{
-//							Type:    pulumi.String("OWASP"),
-//							Version: pulumi.String("3.2"),
-//							RuleGroupOverrides: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{
-//								&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{
-//									RuleGroupName: pulumi.String("REQUEST-920-PROTOCOL-ENFORCEMENT"),
-//									Rules: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{
-//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
-//											Id:      pulumi.String("920300"),
-//											Enabled: pulumi.Bool(true),
-//											Action:  pulumi.String("Log"),
-//										},
-//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
-//											Id:      pulumi.String("920440"),
-//											Enabled: pulumi.Bool(true),
-//											Action:  pulumi.String("Block"),
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = waf/policy.NewPolicy(ctx, "example", &waf/policy.PolicyArgs{
+// Name: "example-wafpolicy",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// CustomRules: []interface{}{
+// map[string]interface{}{
+// "name": "Rule1",
+// "priority": 1,
+// "ruleType": "MatchRule",
+// "matchConditions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariables": []map[string]interface{}{
+// map[string]interface{}{
+// "variableName": "RemoteAddr",
+// },
+// },
+// "operator": "IPMatch",
+// "negationCondition": false,
+// "matchValues": []string{
+// "192.168.1.0/24",
+// "10.0.0.0/24",
+// },
+// },
+// },
+// "action": "Block",
+// },
+// map[string]interface{}{
+// "name": "Rule2",
+// "priority": 2,
+// "ruleType": "MatchRule",
+// "matchConditions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariables": []map[string]interface{}{
+// map[string]interface{}{
+// "variableName": "RemoteAddr",
+// },
+// },
+// "operator": "IPMatch",
+// "negationCondition": false,
+// "matchValues": []string{
+// "192.168.1.0/24",
+// },
+// },
+// map[string]interface{}{
+// "matchVariables": []map[string]interface{}{
+// map[string]interface{}{
+// "variableName": "RequestHeaders",
+// "selector": "UserAgent",
+// },
+// },
+// "operator": "Contains",
+// "negationCondition": false,
+// "matchValues": []string{
+// "Windows",
+// },
+// },
+// },
+// "action": "Block",
+// },
+// },
+// PolicySettings: map[string]interface{}{
+// "enabled": true,
+// "mode": "Prevention",
+// "requestBodyCheck": true,
+// "fileUploadLimitInMb": 100,
+// "maxRequestBodySizeInKb": 128,
+// },
+// ManagedRules: map[string]interface{}{
+// "exclusions": []map[string]interface{}{
+// map[string]interface{}{
+// "matchVariable": "RequestHeaderNames",
+// "selector": "x-company-secret-header",
+// "selectorMatchOperator": "Equals",
+// },
+// map[string]interface{}{
+// "matchVariable": "RequestCookieNames",
+// "selector": "too-tasty",
+// "selectorMatchOperator": "EndsWith",
+// },
+// },
+// "managedRuleSets": []map[string]interface{}{
+// map[string]interface{}{
+// "type": "OWASP",
+// "version": "3.2",
+// "ruleGroupOverrides": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleGroupName": "REQUEST-920-PROTOCOL-ENFORCEMENT",
+// "rules": []map[string]interface{}{
+// map[string]interface{}{
+// "id": "920300",
+// "enabled": true,
+// "action": "Log",
+// },
+// map[string]interface{}{
+// "id": "920440",
+// "enabled": true,
+// "action": "Block",
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

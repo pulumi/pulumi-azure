@@ -21,89 +21,89 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
+//	storage/objectReplication "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/objectReplication"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			src, err := core.NewResourceGroup(ctx, "src", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("srcResourceGroupName"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			srcAccount, err := storage.NewAccount(ctx, "src", &storage.AccountArgs{
-//				Name:                   pulumi.String("srcstorageaccount"),
-//				ResourceGroupName:      src.Name,
-//				Location:               src.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				BlobProperties: &storage.AccountBlobPropertiesArgs{
-//					VersioningEnabled: pulumi.Bool(true),
-//					ChangeFeedEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			srcContainer, err := storage.NewContainer(ctx, "src", &storage.ContainerArgs{
-//				Name:                pulumi.String("srcstrcontainer"),
-//				StorageAccountName:  srcAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			dst, err := core.NewResourceGroup(ctx, "dst", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("dstResourceGroupName"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			dstAccount, err := storage.NewAccount(ctx, "dst", &storage.AccountArgs{
-//				Name:                   pulumi.String("dststorageaccount"),
-//				ResourceGroupName:      dst.Name,
-//				Location:               dst.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				BlobProperties: &storage.AccountBlobPropertiesArgs{
-//					VersioningEnabled: pulumi.Bool(true),
-//					ChangeFeedEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			dstContainer, err := storage.NewContainer(ctx, "dst", &storage.ContainerArgs{
-//				Name:                pulumi.String("dststrcontainer"),
-//				StorageAccountName:  dstAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewObjectReplication(ctx, "example", &storage.ObjectReplicationArgs{
-//				SourceStorageAccountId:      srcAccount.ID(),
-//				DestinationStorageAccountId: dstAccount.ID(),
-//				Rules: storage.ObjectReplicationRuleArray{
-//					&storage.ObjectReplicationRuleArgs{
-//						SourceContainerName:      srcContainer.Name,
-//						DestinationContainerName: dstContainer.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// src, err := core/resourceGroup.NewResourceGroup(ctx, "src", &core/resourceGroup.ResourceGroupArgs{
+// Name: "srcResourceGroupName",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// srcAccount, err := storage/account.NewAccount(ctx, "src", &storage/account.AccountArgs{
+// Name: "srcstorageaccount",
+// ResourceGroupName: src.Name,
+// Location: src.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// BlobProperties: map[string]interface{}{
+// "versioningEnabled": true,
+// "changeFeedEnabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// srcContainer, err := storage/container.NewContainer(ctx, "src", &storage/container.ContainerArgs{
+// Name: "srcstrcontainer",
+// StorageAccountName: srcAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// dst, err := core/resourceGroup.NewResourceGroup(ctx, "dst", &core/resourceGroup.ResourceGroupArgs{
+// Name: "dstResourceGroupName",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// dstAccount, err := storage/account.NewAccount(ctx, "dst", &storage/account.AccountArgs{
+// Name: "dststorageaccount",
+// ResourceGroupName: dst.Name,
+// Location: dst.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// BlobProperties: map[string]interface{}{
+// "versioningEnabled": true,
+// "changeFeedEnabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// dstContainer, err := storage/container.NewContainer(ctx, "dst", &storage/container.ContainerArgs{
+// Name: "dststrcontainer",
+// StorageAccountName: dstAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/objectReplication.NewObjectReplication(ctx, "example", &storage/objectReplication.ObjectReplicationArgs{
+// SourceStorageAccountId: srcAccount.Id,
+// DestinationStorageAccountId: dstAccount.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "sourceContainerName": srcContainer.Name,
+// "destinationContainerName": dstContainer.Name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

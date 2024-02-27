@@ -24,31 +24,31 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "servicebus-replication",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var primary = new Azure.ServiceBus.Namespace("primary", new()
+    ///     var primary = new Azure.Servicebus.Namespace.Namespace("primary", new()
     ///     {
     ///         Name = "servicebus-primary",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Premium",
-    ///         Capacity = 1,
+    ///         Capacity = "1",
     ///     });
     /// 
-    ///     var secondary = new Azure.ServiceBus.Namespace("secondary", new()
+    ///     var secondary = new Azure.Servicebus.Namespace.Namespace("secondary", new()
     ///     {
     ///         Name = "servicebus-secondary",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Premium",
-    ///         Capacity = 1,
+    ///         Capacity = "1",
     ///     });
     /// 
-    ///     var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("example", new()
+    ///     var exampleNamespaceAuthorizationRule = new Azure.Servicebus.NamespaceAuthorizationRule.NamespaceAuthorizationRule("example", new()
     ///     {
     ///         Name = "examplerule",
     ///         NamespaceId = exampleAzurermServicebusNamespace.Id,
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("example", new()
+    ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.Servicebus.NamespaceDisasterRecoveryConfig.NamespaceDisasterRecoveryConfig("example", new()
     ///     {
     ///         Name = "servicebus-alias-name",
     ///         PrimaryNamespaceId = primary.Id,

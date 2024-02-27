@@ -10,52 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
  *
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const rg = new azure.core.ResourceGroup("rg", {
- *     name: "resourceGroupName",
- *     location: "West Europe",
- * });
- * const storage = new azure.storage.Account("storage", {
- *     name: "storageaccountname",
- *     resourceGroupName: rg.name,
- *     location: rg.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const container = new azure.storage.Container("container", {
- *     name: "mycontainer",
- *     storageAccountName: storage.name,
- *     containerAccessType: "private",
- * });
- * const example = azure.storage.getAccountBlobContainerSASOutput({
- *     connectionString: storage.primaryConnectionString,
- *     containerName: container.name,
- *     httpsOnly: true,
- *     ipAddress: "168.1.5.65",
- *     start: "2018-03-21",
- *     expiry: "2018-03-21",
- *     permissions: {
- *         read: true,
- *         add: true,
- *         create: false,
- *         write: false,
- *         "delete": true,
- *         list: true,
- *     },
- *     cacheControl: "max-age=5",
- *     contentDisposition: "inline",
- *     contentEncoding: "deflate",
- *     contentLanguage: "en-US",
- *     contentType: "application/json",
- * });
- * export const sasUrlQueryString = example.apply(example => example.sas);
- * ```
  */
 export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> {
 
@@ -161,52 +115,6 @@ export interface GetAccountBlobContainerSASResult {
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
  *
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const rg = new azure.core.ResourceGroup("rg", {
- *     name: "resourceGroupName",
- *     location: "West Europe",
- * });
- * const storage = new azure.storage.Account("storage", {
- *     name: "storageaccountname",
- *     resourceGroupName: rg.name,
- *     location: rg.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const container = new azure.storage.Container("container", {
- *     name: "mycontainer",
- *     storageAccountName: storage.name,
- *     containerAccessType: "private",
- * });
- * const example = azure.storage.getAccountBlobContainerSASOutput({
- *     connectionString: storage.primaryConnectionString,
- *     containerName: container.name,
- *     httpsOnly: true,
- *     ipAddress: "168.1.5.65",
- *     start: "2018-03-21",
- *     expiry: "2018-03-21",
- *     permissions: {
- *         read: true,
- *         add: true,
- *         create: false,
- *         write: false,
- *         "delete": true,
- *         list: true,
- *     },
- *     cacheControl: "max-age=5",
- *     contentDisposition: "inline",
- *     contentEncoding: "deflate",
- *     contentLanguage: "en-US",
- *     contentType: "application/json",
- * });
- * export const sasUrlQueryString = example.apply(example => example.sas);
- * ```
  */
 export function getAccountBlobContainerSASOutput(args: GetAccountBlobContainerSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountBlobContainerSASResult> {
     return pulumi.output(args).apply((a: any) => getAccountBlobContainerSAS(a, opts))

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -29,12 +29,12 @@ import * as utilities from "../utilities";
  *         versioningEnabled: true,
  *     },
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "examplecontainer",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleBlobInventoryPolicy = new azure.storage.BlobInventoryPolicy("example", {
+ * const exampleBlobInventoryPolicy = new azure.storage/blobInventoryPolicy.BlobInventoryPolicy("example", {
  *     storageAccountId: exampleAccount.id,
  *     rules: [{
  *         name: "rule1",

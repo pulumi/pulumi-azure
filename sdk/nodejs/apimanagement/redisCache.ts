@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.apimanagement.Service("example", {
+ * const exampleService = new azure.apimanagement/service.Service("example", {
  *     name: "example-apim",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Consumption_0",
  * });
- * const exampleCache = new azure.redis.Cache("example", {
+ * const exampleCache = new azure.redis/cache.Cache("example", {
  *     name: "example-cache",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     minimumTlsVersion: "1.2",
  *     redisConfiguration: {},
  * });
- * const exampleRedisCache = new azure.apimanagement.RedisCache("example", {
+ * const exampleRedisCache = new azure.apimanagement/redisCache.RedisCache("example", {
  *     name: "example-Redis-Cache",
  *     apiManagementId: exampleService.id,
  *     connectionString: exampleCache.primaryConnectionString,

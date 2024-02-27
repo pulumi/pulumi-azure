@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .storageAccountType(&#34;Standard_LRS&#34;)
  *             .createOption(&#34;Empty&#34;)
  *             .diskSizeGb(&#34;1&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .storageAccountType(&#34;Standard_LRS&#34;)
  *             .createOption(&#34;Empty&#34;)
  *             .diskSizeGb(&#34;1&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var copy = new ManagedDisk(&#34;copy&#34;, ManagedDiskArgs.builder()        
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .createOption(&#34;Copy&#34;)
  *             .sourceResourceId(source.id())
  *             .diskSizeGb(&#34;1&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

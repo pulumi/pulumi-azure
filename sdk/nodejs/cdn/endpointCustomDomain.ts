@@ -9,57 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Custom Domain for a CDN Endpoint.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-rg",
- *     location: "west europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleProfile = new azure.cdn.Profile("example", {
- *     name: "example-profile",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard_Verizon",
- * });
- * const exampleEndpoint = new azure.cdn.Endpoint("example", {
- *     name: "example-endpoint",
- *     profileName: exampleProfile.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     origins: [{
- *         name: "example",
- *         hostName: exampleAccount.primaryBlobHost,
- *     }],
- * });
- * const example = azure.dns.getZone({
- *     name: "example-domain.com",
- *     resourceGroupName: "domain-rg",
- * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
- *     name: "example",
- *     zoneName: example.then(example => example.name),
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     ttl: 3600,
- *     targetResourceId: exampleEndpoint.id,
- * });
- * const exampleEndpointCustomDomain = new azure.cdn.EndpointCustomDomain("example", {
- *     name: "example-domain",
- *     cdnEndpointId: exampleEndpoint.id,
- *     hostName: pulumi.all([exampleCNameRecord.name, example]).apply(([name, example]) => `${name}.${example.name}`),
- * });
- * ```
- *
  * ## Import
  *
  * CDN Endpoint Custom Domains can be imported using the `resource id`, e.g.

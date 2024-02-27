@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.relay.Namespace("example", {
+ * const exampleNamespace = new azure.relay/namespace.Namespace("example", {
  *     name: "example-relay",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         source: "managed",
  *     },
  * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
+ * const exampleHybridConnection = new azure.relay/hybridConnection.HybridConnection("example", {
  *     name: "acctestrnhc-%d",
  *     resourceGroupName: example.name,
  *     relayNamespaceName: exampleNamespace.name,

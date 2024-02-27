@@ -21,91 +21,91 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
-//				Name:              pulumi.String("example-mn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				MobileCountryCode: pulumi.String("001"),
-//				MobileNetworkCode: pulumi.String("01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetworkService(ctx, "example", &mobile.NetworkServiceArgs{
-//				Name:              pulumi.String("example-mns"),
-//				MobileNetworkId:   exampleNetwork.ID(),
-//				Location:          example.Location,
-//				ServicePrecedence: pulumi.Int(0),
-//				PccRules: mobile.NetworkServicePccRuleArray{
-//					&mobile.NetworkServicePccRuleArgs{
-//						Name:                  pulumi.String("default-rule"),
-//						Precedence:            pulumi.Int(1),
-//						TrafficControlEnabled: pulumi.Bool(true),
-//						QosPolicy: &mobile.NetworkServicePccRuleQosPolicyArgs{
-//							AllocationAndRetentionPriorityLevel: pulumi.Int(9),
-//							QosIndicator:                        pulumi.Int(9),
-//							PreemptionCapability:                pulumi.String("NotPreempt"),
-//							PreemptionVulnerability:             pulumi.String("Preemptable"),
-//							GuaranteedBitRate: &mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs{
-//								Downlink: pulumi.String("100 Mbps"),
-//								Uplink:   pulumi.String("10 Mbps"),
-//							},
-//							MaximumBitRate: &mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs{
-//								Downlink: pulumi.String("1 Gbps"),
-//								Uplink:   pulumi.String("100 Mbps"),
-//							},
-//						},
-//						ServiceDataFlowTemplates: mobile.NetworkServicePccRuleServiceDataFlowTemplateArray{
-//							&mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs{
-//								Direction: pulumi.String("Uplink"),
-//								Name:      pulumi.String("IP-to-server"),
-//								Ports:     pulumi.StringArray{},
-//								Protocols: pulumi.StringArray{
-//									pulumi.String("ip"),
-//								},
-//								RemoteIpLists: pulumi.StringArray{
-//									pulumi.String("10.3.4.0/24"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				ServiceQosPolicy: &mobile.NetworkServiceServiceQosPolicyArgs{
-//					AllocationAndRetentionPriorityLevel: pulumi.Int(9),
-//					QosIndicator:                        pulumi.Int(9),
-//					PreemptionCapability:                pulumi.String("NotPreempt"),
-//					PreemptionVulnerability:             pulumi.String("Preemptable"),
-//					MaximumBitRate: &mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs{
-//						Downlink: pulumi.String("1 Gbps"),
-//						Uplink:   pulumi.String("100 Mbps"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetwork, err := mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkService.NewNetworkService(ctx, "example", &mobile/networkService.NetworkServiceArgs{
+// Name: "example-mns",
+// MobileNetworkId: exampleNetwork.Id,
+// Location: example.Location,
+// ServicePrecedence: 0,
+// PccRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "default-rule",
+// "precedence": 1,
+// "trafficControlEnabled": true,
+// "qosPolicy": map[string]interface{}{
+// "allocationAndRetentionPriorityLevel": 9,
+// "qosIndicator": 9,
+// "preemptionCapability": "NotPreempt",
+// "preemptionVulnerability": "Preemptable",
+// "guaranteedBitRate": map[string]interface{}{
+// "downlink": "100 Mbps",
+// "uplink": "10 Mbps",
+// },
+// "maximumBitRate": map[string]interface{}{
+// "downlink": "1 Gbps",
+// "uplink": "100 Mbps",
+// },
+// },
+// "serviceDataFlowTemplates": []map[string]interface{}{
+// map[string]interface{}{
+// "direction": "Uplink",
+// "name": "IP-to-server",
+// "ports": []interface{}{
+// },
+// "protocols": []string{
+// "ip",
+// },
+// "remoteIpLists": []string{
+// "10.3.4.0/24",
+// },
+// },
+// },
+// },
+// },
+// ServiceQosPolicy: map[string]interface{}{
+// "allocationAndRetentionPriorityLevel": 9,
+// "qosIndicator": 9,
+// "preemptionCapability": "NotPreempt",
+// "preemptionVulnerability": "Preemptable",
+// "maximumBitRate": map[string]interface{}{
+// "downlink": "1 Gbps",
+// "uplink": "100 Mbps",
+// },
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

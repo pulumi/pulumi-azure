@@ -13,68 +13,12 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to access information about an existing Kubernetes Cluster Node Pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         KubernetesClusterName = "existing-cluster",
-        ///         ResourceGroupName = "existing-resource-group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getClusterNodePoolResult =&gt; getClusterNodePoolResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterNodePoolResult> InvokeAsync(GetClusterNodePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Kubernetes Cluster Node Pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         KubernetesClusterName = "existing-cluster",
-        ///         ResourceGroupName = "existing-resource-group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getClusterNodePoolResult =&gt; getClusterNodePoolResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());

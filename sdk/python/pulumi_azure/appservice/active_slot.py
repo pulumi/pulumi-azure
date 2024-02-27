@@ -143,12 +143,12 @@ class ActiveSlot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server")
-        example = azure.core.ResourceGroup("example")
-        example_plan = azure.appservice.Plan("example")
-        example_app_service = azure.appservice.AppService("example")
-        example_slot = azure.appservice.Slot("example")
-        example_active_slot = azure.appservice.ActiveSlot("example",
+        server = random.index.random_id.RandomId("server")
+        example = azure.core.resource_group.ResourceGroup("example")
+        example_plan = azure.appservice.plan.Plan("example")
+        example_app_service = azure.appservice.app_service.AppService("example")
+        example_slot = azure.appservice.slot.Slot("example")
+        example_active_slot = azure.appservice.active_slot.ActiveSlot("example",
             resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)
@@ -180,12 +180,12 @@ class ActiveSlot(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.RandomId("server")
-        example = azure.core.ResourceGroup("example")
-        example_plan = azure.appservice.Plan("example")
-        example_app_service = azure.appservice.AppService("example")
-        example_slot = azure.appservice.Slot("example")
-        example_active_slot = azure.appservice.ActiveSlot("example",
+        server = random.index.random_id.RandomId("server")
+        example = azure.core.resource_group.ResourceGroup("example")
+        example_plan = azure.appservice.plan.Plan("example")
+        example_app_service = azure.appservice.app_service.AppService("example")
+        example_slot = azure.appservice.slot.Slot("example")
+        example_active_slot = azure.appservice.active_slot.ActiveSlot("example",
             resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)

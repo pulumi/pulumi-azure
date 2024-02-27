@@ -21,66 +21,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/newrelic"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	newrelic/monitor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/newrelic/monitor"
+//	newrelic/tagRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/newrelic/tagRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMonitor, err := newrelic.NewMonitor(ctx, "example", &newrelic.MonitorArgs{
-//				Name:              pulumi.String("example-nrm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Plan: &newrelic.MonitorPlanArgs{
-//					EffectiveDate: pulumi.String("2023-06-06T00:00:00Z"),
-//				},
-//				User: &newrelic.MonitorUserArgs{
-//					Email:       pulumi.String("user@example.com"),
-//					FirstName:   pulumi.String("Example"),
-//					LastName:    pulumi.String("User"),
-//					PhoneNumber: pulumi.String("+12313803556"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = newrelic.NewTagRule(ctx, "example", &newrelic.TagRuleArgs{
-//				MonitorId:                      exampleMonitor.ID(),
-//				AzureActiveDirectoryLogEnabled: pulumi.Bool(true),
-//				ActivityLogEnabled:             pulumi.Bool(true),
-//				MetricEnabled:                  pulumi.Bool(true),
-//				SubscriptionLogEnabled:         pulumi.Bool(true),
-//				LogTagFilters: newrelic.TagRuleLogTagFilterArray{
-//					&newrelic.TagRuleLogTagFilterArgs{
-//						Name:   pulumi.String("key"),
-//						Action: pulumi.String("Include"),
-//						Value:  pulumi.String("value"),
-//					},
-//				},
-//				MetricTagFilters: newrelic.TagRuleMetricTagFilterArray{
-//					&newrelic.TagRuleMetricTagFilterArgs{
-//						Name:   pulumi.String("key"),
-//						Action: pulumi.String("Exclude"),
-//						Value:  pulumi.String("value"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMonitor, err := newrelic/monitor.NewMonitor(ctx, "example", &newrelic/monitor.MonitorArgs{
+// Name: "example-nrm",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Plan: map[string]interface{}{
+// "effectiveDate": "2023-06-06T00:00:00Z",
+// },
+// User: map[string]interface{}{
+// "email": "user@example.com",
+// "firstName": "Example",
+// "lastName": "User",
+// "phoneNumber": "+12313803556",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = newrelic/tagRule.NewTagRule(ctx, "example", &newrelic/tagRule.TagRuleArgs{
+// MonitorId: exampleMonitor.Id,
+// AzureActiveDirectoryLogEnabled: true,
+// ActivityLogEnabled: true,
+// MetricEnabled: true,
+// SubscriptionLogEnabled: true,
+// LogTagFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "key",
+// "action": "Include",
+// "value": "value",
+// },
+// },
+// MetricTagFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "key",
+// "action": "Exclude",
+// "value": "value",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

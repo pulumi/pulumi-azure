@@ -368,35 +368,35 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example-springcloudapp,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-cosmosdb-account,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("example",
-            name="example-bind",
+            offer_type=Standard,
+            kind=GlobalDocumentDB,
+            consistency_policy={
+                consistencyLevel: Strong,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.spring_cloud_app_cosmos_dbassociation.SpringCloudAppCosmosDBAssociation("example",
+            name=example-bind,
             spring_cloud_app_id=example_spring_cloud_app.id,
             cosmosdb_account_id=example_account.id,
-            api_type="table",
+            api_type=table,
             cosmosdb_access_key=example_account.primary_key)
         ```
 
@@ -436,35 +436,35 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
+        example_spring_cloud_app = azure.appplatform.spring_cloud_app.SpringCloudApp("example",
+            name=example-springcloudapp,
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
+        example_account = azure.cosmosdb.account.Account("example",
+            name=example-cosmosdb-account,
             location=example.location,
             resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
-        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("example",
-            name="example-bind",
+            offer_type=Standard,
+            kind=GlobalDocumentDB,
+            consistency_policy={
+                consistencyLevel: Strong,
+            },
+            geo_locations=[{
+                location: example.location,
+                failoverPriority: 0,
+            }])
+        example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.spring_cloud_app_cosmos_dbassociation.SpringCloudAppCosmosDBAssociation("example",
+            name=example-bind,
             spring_cloud_app_id=example_spring_cloud_app.id,
             cosmosdb_account_id=example_account.id,
-            api_type="table",
+            api_type=table,
             cosmosdb_access_key=example_account.primary_key)
         ```
 

@@ -25,13 +25,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.RouteTable;
  * import com.pulumi.azure.network.RouteTableArgs;
- * import com.pulumi.azure.network.inputs.RouteTableRouteArgs;
  * import com.pulumi.azure.network.SubnetRouteTableAssociation;
  * import com.pulumi.azure.network.SubnetRouteTableAssociationArgs;
  * import java.util.List;
@@ -70,12 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-routetable&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .routes(RouteTableRouteArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .addressPrefix(&#34;10.100.0.0/14&#34;)
- *                 .nextHopType(&#34;VirtualAppliance&#34;)
- *                 .nextHopInIpAddress(&#34;10.10.1.1&#34;)
- *                 .build())
+ *             .routes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation(&#34;exampleSubnetRouteTableAssociation&#34;, SubnetRouteTableAssociationArgs.builder()        

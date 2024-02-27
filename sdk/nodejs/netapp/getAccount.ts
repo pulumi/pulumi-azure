@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Account.
- *
- * ## NetApp Account Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getAccount({
- *     resourceGroupName: "acctestRG",
- *     name: "acctestnetappaccount",
- * });
- * export const netappAccountId = example.then(example => example.id);
- * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -66,19 +53,6 @@ export interface GetAccountResult {
 }
 /**
  * Uses this data source to access information about an existing NetApp Account.
- *
- * ## NetApp Account Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.netapp.getAccount({
- *     resourceGroupName: "acctestRG",
- *     name: "acctestnetappaccount",
- * });
- * export const netappAccountId = example.then(example => example.id);
- * ```
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

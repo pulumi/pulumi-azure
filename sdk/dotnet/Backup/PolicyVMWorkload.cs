@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-bpvmw",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
+    ///     var exampleVault = new Azure.Recoveryservices.Vault.Vault("example", new()
     ///     {
     ///         Name = "example-rsv",
     ///         Location = example.Location,
@@ -37,43 +37,43 @@ namespace Pulumi.Azure.Backup
     ///         SoftDeleteEnabled = false,
     ///     });
     /// 
-    ///     var examplePolicyVMWorkload = new Azure.Backup.PolicyVMWorkload("example", new()
+    ///     var examplePolicyVMWorkload = new Azure.Backup.PolicyVMWorkload.PolicyVMWorkload("example", new()
     ///     {
     ///         Name = "example-bpvmw",
     ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = exampleVault.Name,
     ///         WorkloadType = "SQLDataBase",
-    ///         Settings = new Azure.Backup.Inputs.PolicyVMWorkloadSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             TimeZone = "UTC",
-    ///             CompressionEnabled = false,
+    ///             { "timeZone", "UTC" },
+    ///             { "compressionEnabled", false },
     ///         },
     ///         ProtectionPolicies = new[]
     ///         {
-    ///             new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyArgs
+    ///             
     ///             {
-    ///                 PolicyType = "Full",
-    ///                 Backup = new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyBackupArgs
+    ///                 { "policyType", "Full" },
+    ///                 { "backup", 
     ///                 {
-    ///                     Frequency = "Daily",
-    ///                     Time = "15:00",
-    ///                 },
-    ///                 RetentionDaily = new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs
+    ///                     { "frequency", "Daily" },
+    ///                     { "time", "15:00" },
+    ///                 } },
+    ///                 { "retentionDaily", 
     ///                 {
-    ///                     Count = 8,
-    ///                 },
+    ///                     { "count", 8 },
+    ///                 } },
     ///             },
-    ///             new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyArgs
+    ///             
     ///             {
-    ///                 PolicyType = "Log",
-    ///                 Backup = new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyBackupArgs
+    ///                 { "policyType", "Log" },
+    ///                 { "backup", 
     ///                 {
-    ///                     FrequencyInMinutes = 15,
-    ///                 },
-    ///                 SimpleRetention = new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs
+    ///                     { "frequencyInMinutes", 15 },
+    ///                 } },
+    ///                 { "simpleRetention", 
     ///                 {
-    ///                     Count = 8,
-    ///                 },
+    ///                     { "count", 8 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

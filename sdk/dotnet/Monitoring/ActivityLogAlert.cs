@@ -22,28 +22,28 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var main = new Azure.Monitoring.ActionGroup("main", new()
+    ///     var main = new Azure.Monitoring.ActionGroup.ActionGroup("main", new()
     ///     {
     ///         Name = "example-actiongroup",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "p0action",
     ///         WebhookReceivers = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///             
     ///             {
-    ///                 Name = "callmyapi",
-    ///                 ServiceUri = "http://example.com/alert",
+    ///                 { "name", "callmyapi" },
+    ///                 { "serviceUri", "http://example.com/alert" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var toMonitor = new Azure.Storage.Account("to_monitor", new()
+    ///     var toMonitor = new Azure.Storage.Account.Account("to_monitor", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Monitoring
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("main", new()
+    ///     var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert.ActivityLogAlert("main", new()
     ///     {
     ///         Name = "example-activitylogalert",
     ///         ResourceGroupName = example.Name,
@@ -61,21 +61,21 @@ namespace Pulumi.Azure.Monitoring
     ///             example.Id,
     ///         },
     ///         Description = "This alert will monitor a specific storage account updates.",
-    ///         Criteria = new Azure.Monitoring.Inputs.ActivityLogAlertCriteriaArgs
+    ///         Criteria = 
     ///         {
-    ///             ResourceId = toMonitor.Id,
-    ///             OperationName = "Microsoft.Storage/storageAccounts/write",
-    ///             Category = "Recommendation",
+    ///             { "resourceId", toMonitor.Id },
+    ///             { "operationName", "Microsoft.Storage/storageAccounts/write" },
+    ///             { "category", "Recommendation" },
     ///         },
     ///         Actions = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.ActivityLogAlertActionArgs
+    ///             
     ///             {
-    ///                 ActionGroupId = main.Id,
-    ///                 WebhookProperties = 
+    ///                 { "actionGroupId", main.Id },
+    ///                 { "webhookProperties", 
     ///                 {
     ///                     { "from", "source" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

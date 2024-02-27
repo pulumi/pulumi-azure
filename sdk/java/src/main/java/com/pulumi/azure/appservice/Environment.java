@@ -30,13 +30,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.appservice.Environment;
  * import com.pulumi.azure.appservice.EnvironmentArgs;
- * import com.pulumi.azure.appservice.inputs.EnvironmentClusterSettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,10 +85,7 @@ import javax.annotation.Nullable;
  *             .allowedUserIpCidrs(            
  *                 &#34;11.22.33.44/32&#34;,
  *                 &#34;55.66.77.0/24&#34;)
- *             .clusterSettings(EnvironmentClusterSettingArgs.builder()
- *                 .name(&#34;DisableTls1.0&#34;)
- *                 .value(&#34;1&#34;)
- *                 .build())
+ *             .clusterSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

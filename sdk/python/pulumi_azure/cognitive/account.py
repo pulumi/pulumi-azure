@@ -890,17 +890,17 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cognitive.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cognitive.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            kind="Face",
-            sku_name="S0",
+            kind=Face,
+            sku_name=S0,
             tags={
-                "Acceptance": "Test",
+                Acceptance: Test,
             })
         ```
 
@@ -965,17 +965,17 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cognitive.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cognitive.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            kind="Face",
-            sku_name="S0",
+            kind=Face,
+            sku_name=S0,
             tags={
-                "Acceptance": "Test",
+                Acceptance: Test,
             })
         ```
 

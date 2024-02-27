@@ -171,24 +171,24 @@ class ConsumerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="test",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=test,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                name: S1,
+                capacity: 1,
+            },
             tags={
-                "purpose": "testing",
+                purpose: testing,
             })
-        example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="group",
+        example_consumer_group = azure.iot.consumer_group.ConsumerGroup("example",
+            name=group,
             iothub_name=example_io_t_hub.name,
-            eventhub_endpoint_name="events",
+            eventhub_endpoint_name=events,
             resource_group_name=example.name)
         ```
 
@@ -222,24 +222,24 @@ class ConsumerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="test",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=test,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                name: S1,
+                capacity: 1,
+            },
             tags={
-                "purpose": "testing",
+                purpose: testing,
             })
-        example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="group",
+        example_consumer_group = azure.iot.consumer_group.ConsumerGroup("example",
+            name=group,
             iothub_name=example_io_t_hub.name,
-            eventhub_endpoint_name="events",
+            eventhub_endpoint_name=events,
             resource_group_name=example.name)
         ```
 

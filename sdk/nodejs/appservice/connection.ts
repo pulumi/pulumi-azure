@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "example-cosmosdb-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -35,34 +35,34 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ * const exampleSqlDatabase = new azure.cosmosdb/sqlDatabase.SqlDatabase("example", {
  *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ * const exampleSqlContainer = new azure.cosmosdb/sqlContainer.SqlContainer("example", {
  *     name: "example-container",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/definition",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     location: example.location,
  *     name: "example-serviceplan",
  *     resourceGroupName: example.name,
  *     skuName: "P1v2",
  *     osType: "Linux",
  * });
- * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ * const exampleLinuxWebApp = new azure.appservice/linuxWebApp.LinuxWebApp("example", {
  *     location: example.location,
  *     name: "example-linuxwebapp",
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleConnection = new azure.appservice.Connection("example", {
+ * const exampleConnection = new azure.appservice/connection.Connection("example", {
  *     name: "example-serviceconnector",
  *     appServiceId: exampleLinuxWebApp.id,
  *     targetResourceId: exampleSqlDatabase.id,

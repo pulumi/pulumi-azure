@@ -23,75 +23,75 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/customDataset "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/customDataset"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedCustomService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedCustomService"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountKind: "BlobStorage",
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinkedCustomService, err := datafactory/linkedCustomService.NewLinkedCustomService(ctx, "example", &datafactory/linkedCustomService.LinkedCustomServiceArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// Type: "AzureBlobStorage",
+// TypePropertiesJson: fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", exampleAccount.PrimaryConnectionString),
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "content",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/customDataset.NewCustomDataset(ctx, "example", &datafactory/customDataset.CustomDatasetArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// Type: "Json",
+// LinkedService: map[string]interface{}{
+// "name": exampleLinkedCustomService.Name,
+// "parameters": map[string]interface{}{
+// "key1": "value1",
+// },
+// },
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Identity: &datafactory.FactoryIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountKind:            pulumi.String("BlobStorage"),
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Type:          pulumi.String("AzureBlobStorage"),
-//				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
-//					return fmt.Sprintf("{\n  \"connectionString\":\"%v\"\n}\n", primaryConnectionString), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("content"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewCustomDataset(ctx, "example", &datafactory.CustomDatasetArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Type:          pulumi.String("Json"),
-//				LinkedService: &datafactory.CustomDatasetLinkedServiceArgs{
-//					Name: exampleLinkedCustomService.Name,
-//					Parameters: pulumi.StringMap{
-//						"key1": pulumi.String("value1"),
-//					},
-//				},
-//				TypePropertiesJson: exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf(`{
+//	TypePropertiesJson: fmt.Sprintf(`{
 //	  "location": {
 //	    "container":"%v",
 //	    "fileName":"foo.txt",
@@ -101,25 +101,24 @@ import (
 //	  "encodingName":"UTF-8"
 //	}
 //
-// `, name), nil
+// `, exampleContainer.Name),
+// Description: "test description",
+// Annotations: []string{
+// "test1",
+// "test2",
+// "test3",
+// },
+// Folder: "testFolder",
+// Parameters: map[string]interface{}{
+// "foo": "test1",
+// "Bar": "Test2",
+// },
+// AdditionalProperties: map[string]interface{}{
+// "foo": "test1",
+// "bar": "test2",
+// },
 //
-//				}).(pulumi.StringOutput),
-//				Description: pulumi.String("test description"),
-//				Annotations: pulumi.StringArray{
-//					pulumi.String("test1"),
-//					pulumi.String("test2"),
-//					pulumi.String("test3"),
-//				},
-//				Folder: pulumi.String("testFolder"),
-//				Parameters: pulumi.StringMap{
-//					"foo": pulumi.String("test1"),
-//					"Bar": pulumi.String("Test2"),
-//				},
-//				AdditionalProperties: pulumi.StringMap{
-//					"foo": pulumi.String("test1"),
-//					"bar": pulumi.String("test2"),
-//				},
-//				SchemaJson: pulumi.String(`{
+//	SchemaJson: `{
 //	  "type": "object",
 //	  "properties": {
 //	    "name": {
@@ -139,16 +138,14 @@ import (
 //	  }
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

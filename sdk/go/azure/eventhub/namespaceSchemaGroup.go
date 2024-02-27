@@ -19,43 +19,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	eventhub/namespaceSchemaGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/namespaceSchemaGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exampleRG-ehn-schemaGroup"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := eventhub.NewEventHubNamespace(ctx, "test", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("example-ehn-schemaGroup"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eventhub.NewNamespaceSchemaGroup(ctx, "test", &eventhub.NamespaceSchemaGroupArgs{
-//				Name:                pulumi.String("example-schemaGroup"),
-//				NamespaceId:         test.ID(),
-//				SchemaCompatibility: pulumi.String("Forward"),
-//				SchemaType:          pulumi.String("Avro"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exampleRG-ehn-schemaGroup",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// test, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "test", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "example-ehn-schemaGroup",
+// Location: testAzurermResourceGroup.Location,
+// ResourceGroupName: testAzurermResourceGroup.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eventhub/namespaceSchemaGroup.NewNamespaceSchemaGroup(ctx, "test", &eventhub/namespaceSchemaGroup.NamespaceSchemaGroupArgs{
+// Name: "example-schemaGroup",
+// NamespaceId: test.Id,
+// SchemaCompatibility: "Forward",
+// SchemaType: "Avro",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

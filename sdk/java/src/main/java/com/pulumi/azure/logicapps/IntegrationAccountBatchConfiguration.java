@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
  * import com.pulumi.azure.logicapps.IntegrationAccountBatchConfiguration;
  * import com.pulumi.azure.logicapps.IntegrationAccountBatchConfigurationArgs;
- * import com.pulumi.azure.logicapps.inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,9 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .batchGroupName(&#34;TestBatchGroup&#34;)
- *             .releaseCriteria(IntegrationAccountBatchConfigurationReleaseCriteriaArgs.builder()
- *                 .messageCount(80)
- *                 .build())
+ *             .releaseCriteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

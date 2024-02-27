@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Dedicated Host Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getDedicatedHostGroup({
- *     name: "example-dedicated-host-group",
- *     resourceGroupName: "example-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
 
@@ -76,19 +63,6 @@ export interface GetDedicatedHostGroupResult {
 }
 /**
  * Use this data source to access information about an existing Dedicated Host Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getDedicatedHostGroup({
- *     name: "example-dedicated-host-group",
- *     resourceGroupName: "example-rg",
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHostGroup(a, opts))

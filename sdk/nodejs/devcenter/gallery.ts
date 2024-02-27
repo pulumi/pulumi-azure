@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const testUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("test", {
+ * const testUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("test", {
  *     name: "example-uai",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
- * const test = new azure.devcenter.DevCenter("test", {
+ * const test = new azure.devcenter/devCenter.DevCenter("test", {
  *     name: "example-devcenter",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     location: testAzurermResourceGroup.location,
@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  *         identityIds: [testUserAssignedIdentity.id],
  *     },
  * });
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
+ * const exampleSharedImageGallery = new azure.compute/sharedImageGallery.SharedImageGallery("example", {
  *     name: "example-image-gallery",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleGallery = new azure.devcenter.Gallery("example", {
+ * const exampleGallery = new azure.devcenter/gallery.Gallery("example", {
  *     devCenterId: exampleAzurermDevCenter.id,
  *     sharedGalleryId: exampleSharedImageGallery.id,
  *     name: "example",

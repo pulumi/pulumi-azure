@@ -13,30 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "rg-example-virtualdesktop",
  *     location: "West Europe",
  * });
- * const pooledbreadthfirst = new azure.desktopvirtualization.HostPool("pooledbreadthfirst", {
+ * const pooledbreadthfirst = new azure.desktopvirtualization/hostPool.HostPool("pooledbreadthfirst", {
  *     name: "pooledbreadthfirst",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     type: "Pooled",
  *     loadBalancerType: "BreadthFirst",
  * });
- * const remoteapp = new azure.desktopvirtualization.ApplicationGroup("remoteapp", {
+ * const remoteapp = new azure.desktopvirtualization/applicationGroup.ApplicationGroup("remoteapp", {
  *     name: "remoteapp",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     type: "RemoteApp",
  *     hostPoolId: pooledbreadthfirst.id,
  * });
- * const workspace = new azure.desktopvirtualization.Workspace("workspace", {
+ * const workspace = new azure.desktopvirtualization/workspace.Workspace("workspace", {
  *     name: "workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const workspaceremoteapp = new azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp", {
+ * const workspaceremoteapp = new azure.desktopvirtualization/workspaceApplicationGroupAssociation.WorkspaceApplicationGroupAssociation("workspaceremoteapp", {
  *     workspaceId: workspace.id,
  *     applicationGroupId: remoteapp.id,
  * });

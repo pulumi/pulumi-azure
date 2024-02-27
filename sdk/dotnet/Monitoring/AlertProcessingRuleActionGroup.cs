@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example-action-group",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "action",
     ///     });
     /// 
-    ///     var exampleAlertProcessingRuleActionGroup = new Azure.Monitoring.AlertProcessingRuleActionGroup("example", new()
+    ///     var exampleAlertProcessingRuleActionGroup = new Azure.Monitoring.AlertProcessingRuleActionGroup.AlertProcessingRuleActionGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example",
@@ -47,54 +47,54 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             exampleActionGroup.Id,
     ///         },
-    ///         Condition = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupConditionArgs
+    ///         Condition = 
     ///         {
-    ///             TargetResourceType = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs
+    ///             { "targetResourceType", 
     ///             {
-    ///                 Operator = "Equals",
-    ///                 Values = new[]
+    ///                 { "operator", "Equals" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Microsoft.Compute/VirtualMachines",
-    ///                 },
-    ///             },
-    ///             Severity = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupConditionSeverityArgs
+    ///                 } },
+    ///             } },
+    ///             { "severity", 
     ///             {
-    ///                 Operator = "Equals",
-    ///                 Values = new[]
+    ///                 { "operator", "Equals" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Sev0",
     ///                     "Sev1",
     ///                     "Sev2",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         Schedule = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             EffectiveFrom = "2022-01-01T01:02:03",
-    ///             EffectiveUntil = "2022-02-02T01:02:03",
-    ///             TimeZone = "Pacific Standard Time",
-    ///             Recurrence = new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceArgs
+    ///             { "effectiveFrom", "2022-01-01T01:02:03" },
+    ///             { "effectiveUntil", "2022-02-02T01:02:03" },
+    ///             { "timeZone", "Pacific Standard Time" },
+    ///             { "recurrence", 
     ///             {
-    ///                 Dailies = new[]
+    ///                 { "dailies", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs
+    ///                     
     ///                     {
-    ///                         StartTime = "17:00:00",
-    ///                         EndTime = "09:00:00",
+    ///                         { "startTime", "17:00:00" },
+    ///                         { "endTime", "09:00:00" },
     ///                     },
-    ///                 },
-    ///                 Weeklies = new[]
+    ///                 } },
+    ///                 { "weeklies", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs
+    ///                     
     ///                     {
-    ///                         DaysOfWeeks = new[]
+    ///                         { "daysOfWeeks", new[]
     ///                         {
     ///                             "Saturday",
     ///                             "Sunday",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

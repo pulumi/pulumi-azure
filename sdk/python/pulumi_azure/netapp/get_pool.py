@@ -114,18 +114,6 @@ def get_pool(account_name: Optional[str] = None,
     """
     Uses this data source to access information about an existing NetApp Pool.
 
-    ## NetApp Pool Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_pool(resource_group_name="acctestRG",
-        account_name="acctestnetappaccount",
-        name="acctestnetapppool")
-    pulumi.export("netappPoolId", example.id)
-    ```
-
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
     :param str name: The name of the NetApp Pool.
@@ -155,18 +143,6 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Uses this data source to access information about an existing NetApp Pool.
-
-    ## NetApp Pool Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_pool(resource_group_name="acctestRG",
-        account_name="acctestnetappaccount",
-        name="acctestnetapppool")
-    pulumi.export("netappPoolId", example.id)
-    ```
 
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.

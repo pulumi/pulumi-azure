@@ -22,74 +22,72 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/aadDiagnosticSetting "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/aadDiagnosticSetting"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("west europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageaccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewAadDiagnosticSetting(ctx, "example", &monitoring.AadDiagnosticSettingArgs{
-//				Name:             pulumi.String("setting1"),
-//				StorageAccountId: exampleAccount.ID(),
-//				EnabledLogs: monitoring.AadDiagnosticSettingEnabledLogArray{
-//					&monitoring.AadDiagnosticSettingEnabledLogArgs{
-//						Category: pulumi.String("SignInLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
-//					},
-//					&monitoring.AadDiagnosticSettingEnabledLogArgs{
-//						Category: pulumi.String("AuditLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
-//					},
-//					&monitoring.AadDiagnosticSettingEnabledLogArgs{
-//						Category: pulumi.String("NonInteractiveUserSignInLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
-//					},
-//					&monitoring.AadDiagnosticSettingEnabledLogArgs{
-//						Category: pulumi.String("ServicePrincipalSignInLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "west europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountKind: "StorageV2",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/aadDiagnosticSetting.NewAadDiagnosticSetting(ctx, "example", &monitoring/aadDiagnosticSetting.AadDiagnosticSettingArgs{
+// Name: "setting1",
+// StorageAccountId: exampleAccount.Id,
+// EnabledLogs: []map[string]interface{}{
+// map[string]interface{}{
+// "category": "SignInLogs",
+// "retentionPolicy": map[string]interface{}{
+// "enabled": true,
+// "days": 1,
+// },
+// },
+// map[string]interface{}{
+// "category": "AuditLogs",
+// "retentionPolicy": map[string]interface{}{
+// "enabled": true,
+// "days": 1,
+// },
+// },
+// map[string]interface{}{
+// "category": "NonInteractiveUserSignInLogs",
+// "retentionPolicy": map[string]interface{}{
+// "enabled": true,
+// "days": 1,
+// },
+// },
+// map[string]interface{}{
+// "category": "ServicePrincipalSignInLogs",
+// "retentionPolicy": map[string]interface{}{
+// "enabled": true,
+// "days": 1,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

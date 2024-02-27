@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVpnServerConfiguration = new azure.network.VpnServerConfiguration("example", {
+ * const exampleVpnServerConfiguration = new azure.network/vpnServerConfiguration.VpnServerConfiguration("example", {
  *     name: "example-VPNSC",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  * });
- * const exampleVpnServerConfigurationPolicyGroup = new azure.network.VpnServerConfigurationPolicyGroup("example", {
+ * const exampleVpnServerConfigurationPolicyGroup = new azure.network/vpnServerConfigurationPolicyGroup.VpnServerConfigurationPolicyGroup("example", {
  *     name: "example-VPNSCPG",
  *     vpnServerConfigurationId: exampleVpnServerConfiguration.id,
  *     policies: [{

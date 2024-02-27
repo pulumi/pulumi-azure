@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a set of existing Public IP Addresses.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getPublicIPs({
- *     resourceGroupName: "pip-test",
- *     attachmentStatus: "Attached",
- * });
- * ```
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
 
@@ -73,18 +61,6 @@ export interface GetPublicIPsResult {
 }
 /**
  * Use this data source to access information about a set of existing Public IP Addresses.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getPublicIPs({
- *     resourceGroupName: "pip-test",
- *     attachmentStatus: "Attached",
- * });
- * ```
  */
 export function getPublicIPsOutput(args: GetPublicIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPsResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPs(a, opts))

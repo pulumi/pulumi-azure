@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.dashboard.Grafana;
  * import com.pulumi.azure.dashboard.GrafanaArgs;
- * import com.pulumi.azure.dashboard.inputs.GrafanaIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,10 +59,8 @@ import javax.annotation.Nullable;
  *             .apiKeyEnabled(true)
  *             .deterministicOutboundIpEnabled(true)
  *             .publicNetworkAccessEnabled(false)
- *             .identity(GrafanaIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

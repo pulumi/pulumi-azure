@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container Registry Token Password.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
+ *     name: "example-resource-group",
+ *     location: "West Europe",
+ * });
+ * const exampleRegistry = new azure.containerservice/registry.Registry("example", {
+ *     name: "example-registry",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Premium",
+ *     adminEnabled: false,
+ *     georeplicationLocations: [
+ *         "East US",
+ *         "West Europe",
+ *     ],
+ * });
+ * const exampleRegistryScopeMap = new azure.containerservice/registryScopeMap.RegistryScopeMap("example", {
+ *     name: "example-scope-map",
+ *     containerRegistryName: exampleRegistry.name,
+ *     resourceGroupName: example.name,
+ *     actions: [
+ *         "repositories/repo1/content/read",
+ *         "repositories/repo1/content/write",
+ *     ],
+ * });
+ * const exampleRegistryToken = new azure.containerservice/registryToken.RegistryToken("example", {
+ *     name: "exampletoken",
+ *     containerRegistryName: exampleRegistry.name,
+ *     resourceGroupName: example.name,
+ *     scopeMapId: exampleRegistryScopeMap.id,
+ * });
+ * const exampleTokenPassword = new azure.containerservice/tokenPassword.TokenPassword("example", {
+ *     containerRegistryTokenId: exampleRegistryToken.id,
+ *     password1: {
+ *         expiry: "2023-03-22T17:57:36+08:00",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Container Registry Token Passwords can be imported using the `resource id`, e.g.

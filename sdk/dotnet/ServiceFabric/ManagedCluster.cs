@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ServiceFabric
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.ServiceFabric.ManagedCluster("example", new()
+    ///     var example = new Azure.Servicefabric.ManagedCluster.ManagedCluster("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example",
@@ -30,31 +30,31 @@ namespace Pulumi.Azure.ServiceFabric
     ///         HttpGatewayPort = 4567,
     ///         LbRules = new[]
     ///         {
-    ///             new Azure.ServiceFabric.Inputs.ManagedClusterLbRuleArgs
+    ///             
     ///             {
-    ///                 BackendPort = 38080,
-    ///                 FrontendPort = 80,
-    ///                 ProbeProtocol = "http",
-    ///                 ProbeRequestPath = "/test",
-    ///                 Protocol = "tcp",
+    ///                 { "backendPort", 38080 },
+    ///                 { "frontendPort", 80 },
+    ///                 { "probeProtocol", "http" },
+    ///                 { "probeRequestPath", "/test" },
+    ///                 { "protocol", "tcp" },
     ///             },
     ///         },
     ///         ClientConnectionPort = 12345,
     ///         NodeTypes = new[]
     ///         {
-    ///             new Azure.ServiceFabric.Inputs.ManagedClusterNodeTypeArgs
+    ///             
     ///             {
-    ///                 DataDiskSizeGb = 130,
-    ///                 Name = "test1",
-    ///                 Primary = true,
-    ///                 ApplicationPortRange = "30000-49000",
-    ///                 EphemeralPortRange = "10000-20000",
-    ///                 VmSize = "Standard_DS1_v2",
-    ///                 VmImagePublisher = "MicrosoftWindowsServer",
-    ///                 VmImageSku = "2019-Datacenter-with-Containers",
-    ///                 VmImageOffer = "WindowsServer",
-    ///                 VmImageVersion = "latest",
-    ///                 VmInstanceCount = 5,
+    ///                 { "dataDiskSizeGb", 130 },
+    ///                 { "name", "test1" },
+    ///                 { "primary", true },
+    ///                 { "applicationPortRange", "30000-49000" },
+    ///                 { "ephemeralPortRange", "10000-20000" },
+    ///                 { "vmSize", "Standard_DS1_v2" },
+    ///                 { "vmImagePublisher", "MicrosoftWindowsServer" },
+    ///                 { "vmImageSku", "2019-Datacenter-with-Containers" },
+    ///                 { "vmImageOffer", "WindowsServer" },
+    ///                 { "vmImageVersion", "latest" },
+    ///                 { "vmInstanceCount", 5 },
     ///             },
     ///         },
     ///     });

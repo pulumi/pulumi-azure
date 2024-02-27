@@ -21,95 +21,94 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	siterecovery/fabric "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/fabric"
+//	siterecovery/networkMapping "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/networkMapping"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-network-mapping-primary"),
-//				Location: pulumi.String("West US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-network-mapping-secondary"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-recovery-vault"),
-//				Location:          secondary.Location,
-//				ResourceGroupName: secondary.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewFabric(ctx, "primary", &siterecovery.FabricArgs{
-//				Name:              pulumi.String("primary-fabric"),
-//				ResourceGroupName: secondary.Name,
-//				RecoveryVaultName: vault.Name,
-//				Location:          primary.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewFabric(ctx, "secondary", &siterecovery.FabricArgs{
-//				Name:              pulumi.String("secondary-fabric"),
-//				ResourceGroupName: secondary.Name,
-//				RecoveryVaultName: vault.Name,
-//				Location:          secondary.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("network1"),
-//				ResourceGroupName: primary.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("192.168.1.0/24"),
-//				},
-//				Location: primary.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "secondary", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("network2"),
-//				ResourceGroupName: secondary.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("192.168.2.0/24"),
-//				},
-//				Location: secondary.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewNetworkMapping(ctx, "recovery-mapping", &siterecovery.NetworkMappingArgs{
-//				Name:                     pulumi.String("recovery-network-mapping-1"),
-//				ResourceGroupName:        secondary.Name,
-//				RecoveryVaultName:        vault.Name,
-//				SourceRecoveryFabricName: pulumi.String("primary-fabric"),
-//				TargetRecoveryFabricName: pulumi.String("secondary-fabric"),
-//				SourceNetworkId:          primaryVirtualNetwork.ID(),
-//				TargetNetworkId:          secondaryVirtualNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := core/resourceGroup.NewResourceGroup(ctx, "primary", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-network-mapping-primary",
+// Location: "West US",
+// })
+// if err != nil {
+// return err
+// }
+// secondary, err := core/resourceGroup.NewResourceGroup(ctx, "secondary", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tfex-network-mapping-secondary",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// vault, err := recoveryservices/vault.NewVault(ctx, "vault", &recoveryservices/vault.VaultArgs{
+// Name: "example-recovery-vault",
+// Location: secondary.Location,
+// ResourceGroupName: secondary.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/fabric.NewFabric(ctx, "primary", &siterecovery/fabric.FabricArgs{
+// Name: "primary-fabric",
+// ResourceGroupName: secondary.Name,
+// RecoveryVaultName: vault.Name,
+// Location: primary.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/fabric.NewFabric(ctx, "secondary", &siterecovery/fabric.FabricArgs{
+// Name: "secondary-fabric",
+// ResourceGroupName: secondary.Name,
+// RecoveryVaultName: vault.Name,
+// Location: secondary.Location,
+// })
+// if err != nil {
+// return err
+// }
+// primaryVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "primary", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "network1",
+// ResourceGroupName: primary.Name,
+// AddressSpaces: []string{
+// "192.168.1.0/24",
+// },
+// Location: primary.Location,
+// })
+// if err != nil {
+// return err
+// }
+// secondaryVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "secondary", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "network2",
+// ResourceGroupName: secondary.Name,
+// AddressSpaces: []string{
+// "192.168.2.0/24",
+// },
+// Location: secondary.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/networkMapping.NewNetworkMapping(ctx, "recovery-mapping", &siterecovery/networkMapping.NetworkMappingArgs{
+// Name: "recovery-network-mapping-1",
+// ResourceGroupName: secondary.Name,
+// RecoveryVaultName: vault.Name,
+// SourceRecoveryFabricName: "primary-fabric",
+// TargetRecoveryFabricName: "secondary-fabric",
+// SourceNetworkId: primaryVirtualNetwork.Id,
+// TargetNetworkId: secondaryVirtualNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan.VirtualWan("example", new()
     ///     {
     ///         Name = "example-vwan",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub.VirtualHub("example", new()
     ///     {
     ///         Name = "example-vhub",
     ///         ResourceGroupName = example.Name,
@@ -44,34 +44,34 @@ namespace Pulumi.Azure.Network
     ///         AddressPrefix = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
+    ///     var exampleFirewall = new Azure.Network.Firewall.Firewall("example", new()
     ///     {
     ///         Name = "example-fw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "AZFW_Hub",
     ///         SkuTier = "Standard",
-    ///         VirtualHub = new Azure.Network.Inputs.FirewallVirtualHubArgs
+    ///         VirtualHub = 
     ///         {
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///             PublicIpCount = 1,
+    ///             { "virtualHubId", exampleVirtualHub.Id },
+    ///             { "publicIpCount", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleRoutingIntent = new Azure.Network.RoutingIntent("example", new()
+    ///     var exampleRoutingIntent = new Azure.Network.RoutingIntent.RoutingIntent("example", new()
     ///     {
     ///         Name = "example-routingintent",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         RoutingPolicies = new[]
     ///         {
-    ///             new Azure.Network.Inputs.RoutingIntentRoutingPolicyArgs
+    ///             
     ///             {
-    ///                 Name = "InternetTrafficPolicy",
-    ///                 Destinations = new[]
+    ///                 { "name", "InternetTrafficPolicy" },
+    ///                 { "destinations", new[]
     ///                 {
     ///                     "Internet",
-    ///                 },
-    ///                 NextHop = exampleFirewall.Id,
+    ///                 } },
+    ///                 { "nextHop", exampleFirewall.Id },
     ///             },
     ///         },
     ///     });

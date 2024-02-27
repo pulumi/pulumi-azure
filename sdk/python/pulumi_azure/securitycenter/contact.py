@@ -206,10 +206,10 @@ class Contact(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.Contact("example",
-            name="contact",
-            email="contact@example.com",
-            phone="+1-555-555-5555",
+        example = azure.securitycenter.contact.Contact("example",
+            name=contact,
+            email=contact@example.com,
+            phone=+1-555-555-5555,
             alert_notifications=True,
             alerts_to_admins=True)
         ```
@@ -247,10 +247,10 @@ class Contact(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.securitycenter.Contact("example",
-            name="contact",
-            email="contact@example.com",
-            phone="+1-555-555-5555",
+        example = azure.securitycenter.contact.Contact("example",
+            name=contact,
+            email=contact@example.com,
+            phone=+1-555-555-5555,
             alert_notifications=True,
             alerts_to_admins=True)
         ```

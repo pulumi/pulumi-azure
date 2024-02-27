@@ -24,13 +24,13 @@ namespace Pulumi.Azure.DatabaseMigration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DatabaseMigration
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.DatabaseMigration
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Azure.DatabaseMigration.Service("example", new()
+    ///     var exampleService = new Azure.Databasemigration.Service.Service("example", new()
     ///     {
     ///         Name = "example-dms",
     ///         Location = example.Location,

@@ -208,18 +208,18 @@ class AccessConnector(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_access_connector = azure.databricks.AccessConnector("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_access_connector = azure.databricks.access_connector.AccessConnector("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.databricks.AccessConnectorIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -254,18 +254,18 @@ class AccessConnector(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_access_connector = azure.databricks.AccessConnector("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_access_connector = azure.databricks.access_connector.AccessConnector("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.databricks.AccessConnectorIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

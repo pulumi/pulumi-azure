@@ -25,24 +25,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	securitycenter/setting "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/securitycenter/setting"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewSetting(ctx, "example", &securitycenter.SettingArgs{
-//				SettingName: pulumi.String("MCAS"),
-//				Enabled:     pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitycenter/setting.NewSetting(ctx, "example", &securitycenter/setting.SettingArgs{
+// SettingName: "MCAS",
+// Enabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

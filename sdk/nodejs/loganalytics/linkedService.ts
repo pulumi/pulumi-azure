@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "resourcegroup-01",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.automation.Account("example", {
+ * const exampleAccount = new azure.automation/account.Account("example", {
  *     name: "automation-01",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *         environment: "development",
  *     },
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "workspace-01",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleLinkedService = new azure.loganalytics.LinkedService("example", {
+ * const exampleLinkedService = new azure.loganalytics/linkedService.LinkedService("example", {
  *     resourceGroupName: example.name,
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     readAccessId: exampleAccount.id,

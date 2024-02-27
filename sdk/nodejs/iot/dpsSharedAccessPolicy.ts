@@ -13,20 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleIotHubDps = new azure.iot.IotHubDps("example", {
+ * const exampleIotHubDps = new azure.iot/iotHubDps.IotHubDps("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "S1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  * });
- * const exampleDpsSharedAccessPolicy = new azure.iot.DpsSharedAccessPolicy("example", {
+ * const exampleDpsSharedAccessPolicy = new azure.iot/dpsSharedAccessPolicy.DpsSharedAccessPolicy("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     iothubDpsName: exampleIotHubDps.name,

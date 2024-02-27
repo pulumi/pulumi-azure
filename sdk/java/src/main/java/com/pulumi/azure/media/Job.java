@@ -33,17 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.Transform;
  * import com.pulumi.azure.media.TransformArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputArgs;
- * import com.pulumi.azure.media.inputs.TransformOutputBuiltinPresetArgs;
  * import com.pulumi.azure.media.Asset;
  * import com.pulumi.azure.media.AssetArgs;
  * import com.pulumi.azure.media.Job;
  * import com.pulumi.azure.media.JobArgs;
- * import com.pulumi.azure.media.inputs.JobInputAssetArgs;
- * import com.pulumi.azure.media.inputs.JobOutputAssetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,10 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTransform = new Transform(&#34;exampleTransform&#34;, TransformArgs.builder()        
@@ -85,13 +77,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;My transform description&#34;)
- *             .outputs(TransformOutputArgs.builder()
- *                 .relativePriority(&#34;Normal&#34;)
- *                 .onErrorAction(&#34;ContinueJob&#34;)
- *                 .builtinPreset(TransformOutputBuiltinPresetArgs.builder()
- *                     .presetName(&#34;AACGoodQualityAudio&#34;)
- *                     .build())
- *                 .build())
+ *             .outputs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var input = new Asset(&#34;input&#34;, AssetArgs.builder()        
@@ -115,12 +101,8 @@ import javax.annotation.Nullable;
  *             .transformName(exampleTransform.name())
  *             .description(&#34;My Job description&#34;)
  *             .priority(&#34;Normal&#34;)
- *             .inputAsset(JobInputAssetArgs.builder()
- *                 .name(input.name())
- *                 .build())
- *             .outputAssets(JobOutputAssetArgs.builder()
- *                 .name(output.name())
- *                 .build())
+ *             .inputAsset(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outputAssets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

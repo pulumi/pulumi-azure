@@ -173,15 +173,15 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_application_security_group = azure.network.ApplicationSecurityGroup("example",
-            name="tf-appsecuritygroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_application_security_group = azure.network.application_security_group.ApplicationSecurityGroup("example",
+            name=tf-appsecuritygroup,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "Hello": "World",
+                Hello: World,
             })
         ```
 
@@ -215,15 +215,15 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tf-test",
-            location="West Europe")
-        example_application_security_group = azure.network.ApplicationSecurityGroup("example",
-            name="tf-appsecuritygroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tf-test,
+            location=West Europe)
+        example_application_security_group = azure.network.application_security_group.ApplicationSecurityGroup("example",
+            name=tf-appsecuritygroup,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "Hello": "World",
+                Hello: World,
             })
         ```
 

@@ -21,49 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	automation/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/account"
+//	automation/sourceControl "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/automation/sourceControl"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("example-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewSourceControl(ctx, "example", &automation.SourceControlArgs{
-//				Name:                pulumi.String("example"),
-//				AutomationAccountId: exampleAccount.ID(),
-//				FolderPath:          pulumi.String("runbook"),
-//				Security: &automation.SourceControlSecurityArgs{
-//					Token:     pulumi.String("ghp_xxx"),
-//					TokenType: pulumi.String("PersonalAccessToken"),
-//				},
-//				RepositoryUrl:     pulumi.String("https://github.com/foo/bat.git"),
-//				SourceControlType: pulumi.String("GitHub"),
-//				Branch:            pulumi.String("main"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := automation/account.NewAccount(ctx, "example", &automation/account.AccountArgs{
+// Name: "example-account",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = automation/sourceControl.NewSourceControl(ctx, "example", &automation/sourceControl.SourceControlArgs{
+// Name: "example",
+// AutomationAccountId: exampleAccount.Id,
+// FolderPath: "runbook",
+// Security: map[string]interface{}{
+// "token": "ghp_xxx",
+// "tokenType": "PersonalAccessToken",
+// },
+// RepositoryUrl: "https://github.com/foo/bat.git",
+// SourceControlType: "GitHub",
+// Branch: "main",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

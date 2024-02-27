@@ -21,7 +21,7 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Random.RandomString("example", new()
+    ///     var example = new Random.Index.RandomString.RandomString("example", new()
     ///     {
     ///         Length = 12,
     ///         Special = true,
@@ -31,13 +31,13 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var adminPassword = example.Result;
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = $"{prefix}-resources",
     ///         Location = location,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = $"{prefix}-vnet",
     ///         Location = exampleResourceGroup.Location,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.NetApp
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = $"{prefix}-delegated-subnet",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -59,23 +59,23 @@ namespace Pulumi.Azure.NetApp
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "testdelegation",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "testdelegation" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Netapp/volumes",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Netapp/volumes" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/networkinterfaces/*",
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var example1 = new Azure.Network.Subnet("example1", new()
+    ///     var example1 = new Azure.Network.Subnet.Subnet("example1", new()
     ///     {
     ///         Name = $"{prefix}-hosts-subnet",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -86,14 +86,14 @@ namespace Pulumi.Azure.NetApp
     ///         },
     ///     });
     /// 
-    ///     var examplePlacementGroup = new Azure.Proximity.PlacementGroup("example", new()
+    ///     var examplePlacementGroup = new Azure.Proximity.PlacementGroup.PlacementGroup("example", new()
     ///     {
     ///         Name = $"{prefix}-ppg",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleAvailabilitySet = new Azure.Compute.AvailabilitySet("example", new()
+    ///     var exampleAvailabilitySet = new Azure.Compute.AvailabilitySet.AvailabilitySet("example", new()
     ///     {
     ///         Name = $"{prefix}-avset",
     ///         Location = exampleResourceGroup.Location,
@@ -101,23 +101,23 @@ namespace Pulumi.Azure.NetApp
     ///         ProximityPlacementGroupId = examplePlacementGroup.Id,
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("example", new()
     ///     {
     ///         Name = $"{prefix}-nic",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "internal",
-    ///                 SubnetId = example1.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "internal" },
+    ///                 { "subnetId", example1.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine.LinuxVirtualMachine("example", new()
     ///     {
     ///         Name = $"{prefix}-vm",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -132,28 +132,28 @@ namespace Pulumi.Azure.NetApp
     ///         {
     ///             exampleNetworkInterface.Id,
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
+    ///             { "storageAccountType", "Standard_LRS" },
+    ///             { "caching", "ReadWrite" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     var exampleAccount = new Azure.Netapp.Account.Account("example", new()
     ///     {
     ///         Name = $"{prefix}-netapp-account",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var examplePool = new Azure.NetApp.Pool("example", new()
+    ///     var examplePool = new Azure.Netapp.Pool.Pool("example", new()
     ///     {
     ///         Name = $"{prefix}-netapp-pool",
     ///         Location = exampleResourceGroup.Location,
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.NetApp
     ///         QosType = "Manual",
     ///     });
     /// 
-    ///     var exampleVolumeGroupSapHana = new Azure.NetApp.VolumeGroupSapHana("example", new()
+    ///     var exampleVolumeGroupSapHana = new Azure.Netapp.VolumeGroupSapHana.VolumeGroupSapHana("example", new()
     ///     {
     ///         Name = $"{prefix}-netapp-volumegroup",
     ///         Location = exampleResourceGroup.Location,
@@ -174,97 +174,97 @@ namespace Pulumi.Azure.NetApp
     ///         ApplicationIdentifier = "TST",
     ///         Volumes = new[]
     ///         {
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             
     ///             {
-    ///                 Name = $"{prefix}-netapp-volume-1",
-    ///                 VolumePath = "my-unique-file-path-1",
-    ///                 ServiceLevel = "Standard",
-    ///                 CapacityPoolId = examplePool.Id,
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 ProximityPlacementGroupId = examplePlacementGroup.Id,
-    ///                 VolumeSpecName = "data",
-    ///                 StorageQuotaInGb = 1024,
-    ///                 ThroughputInMibps = 24,
-    ///                 Protocols = "NFSv4.1",
-    ///                 SecurityStyle = "unix",
-    ///                 SnapshotDirectoryVisible = false,
-    ///                 ExportPolicyRules = new[]
+    ///                 { "name", $"{prefix}-netapp-volume-1" },
+    ///                 { "volumePath", "my-unique-file-path-1" },
+    ///                 { "serviceLevel", "Standard" },
+    ///                 { "capacityPoolId", examplePool.Id },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "proximityPlacementGroupId", examplePlacementGroup.Id },
+    ///                 { "volumeSpecName", "data" },
+    ///                 { "storageQuotaInGb", 1024 },
+    ///                 { "throughputInMibps", 24 },
+    ///                 { "protocols", "NFSv4.1" },
+    ///                 { "securityStyle", "unix" },
+    ///                 { "snapshotDirectoryVisible", false },
+    ///                 { "exportPolicyRules", new[]
     ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     
     ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
+    ///                         { "ruleIndex", 1 },
+    ///                         { "allowedClients", "0.0.0.0/0" },
+    ///                         { "nfsv3Enabled", false },
+    ///                         { "nfsv41Enabled", true },
+    ///                         { "unixReadOnly", false },
+    ///                         { "unixReadWrite", true },
+    ///                         { "rootAccessEnabled", false },
     ///                     },
-    ///                 },
-    ///                 Tags = 
+    ///                 } },
+    ///                 { "tags", 
     ///                 {
     ///                     { "foo", "bar" },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             
     ///             {
-    ///                 Name = $"{prefix}-netapp-volume-2",
-    ///                 VolumePath = "my-unique-file-path-2",
-    ///                 ServiceLevel = "Standard",
-    ///                 CapacityPoolId = examplePool.Id,
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 ProximityPlacementGroupId = examplePlacementGroup.Id,
-    ///                 VolumeSpecName = "log",
-    ///                 StorageQuotaInGb = 1024,
-    ///                 ThroughputInMibps = 24,
-    ///                 Protocols = "NFSv4.1",
-    ///                 SecurityStyle = "unix",
-    ///                 SnapshotDirectoryVisible = false,
-    ///                 ExportPolicyRules = new[]
+    ///                 { "name", $"{prefix}-netapp-volume-2" },
+    ///                 { "volumePath", "my-unique-file-path-2" },
+    ///                 { "serviceLevel", "Standard" },
+    ///                 { "capacityPoolId", examplePool.Id },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "proximityPlacementGroupId", examplePlacementGroup.Id },
+    ///                 { "volumeSpecName", "log" },
+    ///                 { "storageQuotaInGb", 1024 },
+    ///                 { "throughputInMibps", 24 },
+    ///                 { "protocols", "NFSv4.1" },
+    ///                 { "securityStyle", "unix" },
+    ///                 { "snapshotDirectoryVisible", false },
+    ///                 { "exportPolicyRules", new[]
     ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     
     ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
+    ///                         { "ruleIndex", 1 },
+    ///                         { "allowedClients", "0.0.0.0/0" },
+    ///                         { "nfsv3Enabled", false },
+    ///                         { "nfsv41Enabled", true },
+    ///                         { "unixReadOnly", false },
+    ///                         { "unixReadWrite", true },
+    ///                         { "rootAccessEnabled", false },
     ///                     },
-    ///                 },
-    ///                 Tags = 
+    ///                 } },
+    ///                 { "tags", 
     ///                 {
     ///                     { "foo", "bar" },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             
     ///             {
-    ///                 Name = $"{prefix}-netapp-volume-3",
-    ///                 VolumePath = "my-unique-file-path-3",
-    ///                 ServiceLevel = "Standard",
-    ///                 CapacityPoolId = examplePool.Id,
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 ProximityPlacementGroupId = examplePlacementGroup.Id,
-    ///                 VolumeSpecName = "shared",
-    ///                 StorageQuotaInGb = 1024,
-    ///                 ThroughputInMibps = 24,
-    ///                 Protocols = "NFSv4.1",
-    ///                 SecurityStyle = "unix",
-    ///                 SnapshotDirectoryVisible = false,
-    ///                 ExportPolicyRules = new[]
+    ///                 { "name", $"{prefix}-netapp-volume-3" },
+    ///                 { "volumePath", "my-unique-file-path-3" },
+    ///                 { "serviceLevel", "Standard" },
+    ///                 { "capacityPoolId", examplePool.Id },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "proximityPlacementGroupId", examplePlacementGroup.Id },
+    ///                 { "volumeSpecName", "shared" },
+    ///                 { "storageQuotaInGb", 1024 },
+    ///                 { "throughputInMibps", 24 },
+    ///                 { "protocols", "NFSv4.1" },
+    ///                 { "securityStyle", "unix" },
+    ///                 { "snapshotDirectoryVisible", false },
+    ///                 { "exportPolicyRules", new[]
     ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     
     ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
+    ///                         { "ruleIndex", 1 },
+    ///                         { "allowedClients", "0.0.0.0/0" },
+    ///                         { "nfsv3Enabled", false },
+    ///                         { "nfsv41Enabled", true },
+    ///                         { "unixReadOnly", false },
+    ///                         { "unixReadWrite", true },
+    ///                         { "rootAccessEnabled", false },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

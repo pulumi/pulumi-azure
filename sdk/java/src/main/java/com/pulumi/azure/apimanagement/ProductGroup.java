@@ -16,60 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Management Product Assignment to a Group.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
- * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
- * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
- * import com.pulumi.azure.apimanagement.ProductGroup;
- * import com.pulumi.azure.apimanagement.ProductGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-api&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build());
- * 
- *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
- *             .productId(&#34;my-product&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .build());
- * 
- *         final var exampleGetGroup = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(&#34;my-group&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .build());
- * 
- *         var exampleProductGroup = new ProductGroup(&#34;exampleProductGroup&#34;, ProductGroupArgs.builder()        
- *             .productId(exampleGetProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
- *             .groupName(exampleGetGroup.applyValue(getGroupResult -&gt; getGroupResult.name()))
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management Product Groups can be imported using the `resource id`, e.g.

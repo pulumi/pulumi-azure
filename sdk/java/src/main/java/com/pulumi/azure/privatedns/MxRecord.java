@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ZoneArgs;
  * import com.pulumi.azure.privatedns.MxRecord;
  * import com.pulumi.azure.privatedns.MxRecordArgs;
- * import com.pulumi.azure.privatedns.inputs.MxRecordRecordArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,15 +63,9 @@ import javax.annotation.Nullable;
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
  *             .records(            
- *                 MxRecordRecordArgs.builder()
- *                     .preference(10)
- *                     .exchange(&#34;mx1.contoso.com&#34;)
- *                     .build(),
- *                 MxRecordRecordArgs.builder()
- *                     .preference(20)
- *                     .exchange(&#34;backupmx.contoso.com&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -27,9 +27,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.compute.ScaleSet;
      * import com.pulumi.azure.compute.ScaleSetArgs;
-     * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
-     * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
-     * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -47,24 +44,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *             .name(&#34;vm-scaleset&#34;)
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .location(exampleAzurermResourceGroup.location())
-     *             .sku(ScaleSetSkuArgs.builder()
-     *                 .name(vmSku)
-     *                 .tier(&#34;Standard&#34;)
-     *                 .capacity(instanceCount)
-     *                 .build())
-     *             .identity(ScaleSetIdentityArgs.builder()
-     *                 .type(&#34;SystemAssigned&#34;)
-     *                 .build())
-     *             .extensions(ScaleSetExtensionArgs.builder()
-     *                 .name(&#34;MSILinuxExtension&#34;)
-     *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
-     *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
-     *                 .typeHandlerVersion(&#34;1.0&#34;)
-     *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
-     *                 .build())
+     *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .extensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+     *         ctx.export(&#34;principalId&#34;, example.identity().principalId());
      *     }
      * }
      * ```
@@ -83,9 +68,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.compute.ScaleSet;
      * import com.pulumi.azure.compute.ScaleSetArgs;
-     * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
-     * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
-     * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -103,24 +85,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *             .name(&#34;vm-scaleset&#34;)
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .location(exampleAzurermResourceGroup.location())
-     *             .sku(ScaleSetSkuArgs.builder()
-     *                 .name(vmSku)
-     *                 .tier(&#34;Standard&#34;)
-     *                 .capacity(instanceCount)
-     *                 .build())
-     *             .identity(ScaleSetIdentityArgs.builder()
-     *                 .type(&#34;SystemAssigned&#34;)
-     *                 .build())
-     *             .extensions(ScaleSetExtensionArgs.builder()
-     *                 .name(&#34;MSILinuxExtension&#34;)
-     *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
-     *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
-     *                 .typeHandlerVersion(&#34;1.0&#34;)
-     *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
-     *                 .build())
+     *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .extensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
-     *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+     *         ctx.export(&#34;principalId&#34;, example.identity().principalId());
      *     }
      * }
      * ```
@@ -188,9 +158,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import com.pulumi.core.Output;
          * import com.pulumi.azure.compute.ScaleSet;
          * import com.pulumi.azure.compute.ScaleSetArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -208,24 +175,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *             .name(&#34;vm-scaleset&#34;)
          *             .resourceGroupName(exampleAzurermResourceGroup.name())
          *             .location(exampleAzurermResourceGroup.location())
-         *             .sku(ScaleSetSkuArgs.builder()
-         *                 .name(vmSku)
-         *                 .tier(&#34;Standard&#34;)
-         *                 .capacity(instanceCount)
-         *                 .build())
-         *             .identity(ScaleSetIdentityArgs.builder()
-         *                 .type(&#34;SystemAssigned&#34;)
-         *                 .build())
-         *             .extensions(ScaleSetExtensionArgs.builder()
-         *                 .name(&#34;MSILinuxExtension&#34;)
-         *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
-         *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
-         *                 .typeHandlerVersion(&#34;1.0&#34;)
-         *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
-         *                 .build())
+         *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .extensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
-         *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+         *         ctx.export(&#34;principalId&#34;, example.identity().principalId());
          *     }
          * }
          * ```
@@ -248,9 +203,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import com.pulumi.core.Output;
          * import com.pulumi.azure.compute.ScaleSet;
          * import com.pulumi.azure.compute.ScaleSetArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -268,24 +220,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *             .name(&#34;vm-scaleset&#34;)
          *             .resourceGroupName(exampleAzurermResourceGroup.name())
          *             .location(exampleAzurermResourceGroup.location())
-         *             .sku(ScaleSetSkuArgs.builder()
-         *                 .name(vmSku)
-         *                 .tier(&#34;Standard&#34;)
-         *                 .capacity(instanceCount)
-         *                 .build())
-         *             .identity(ScaleSetIdentityArgs.builder()
-         *                 .type(&#34;SystemAssigned&#34;)
-         *                 .build())
-         *             .extensions(ScaleSetExtensionArgs.builder()
-         *                 .name(&#34;MSILinuxExtension&#34;)
-         *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
-         *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
-         *                 .typeHandlerVersion(&#34;1.0&#34;)
-         *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
-         *                 .build())
+         *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .extensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
-         *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+         *         ctx.export(&#34;principalId&#34;, example.identity().principalId());
          *     }
          * }
          * ```
@@ -307,9 +247,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import com.pulumi.core.Output;
          * import com.pulumi.azure.compute.ScaleSet;
          * import com.pulumi.azure.compute.ScaleSetArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
-         * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -327,24 +264,12 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *             .name(&#34;vm-scaleset&#34;)
          *             .resourceGroupName(exampleAzurermResourceGroup.name())
          *             .location(exampleAzurermResourceGroup.location())
-         *             .sku(ScaleSetSkuArgs.builder()
-         *                 .name(vmSku)
-         *                 .tier(&#34;Standard&#34;)
-         *                 .capacity(instanceCount)
-         *                 .build())
-         *             .identity(ScaleSetIdentityArgs.builder()
-         *                 .type(&#34;SystemAssigned&#34;)
-         *                 .build())
-         *             .extensions(ScaleSetExtensionArgs.builder()
-         *                 .name(&#34;MSILinuxExtension&#34;)
-         *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
-         *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
-         *                 .typeHandlerVersion(&#34;1.0&#34;)
-         *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
-         *                 .build())
+         *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .extensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
-         *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+         *         ctx.export(&#34;principalId&#34;, example.identity().principalId());
          *     }
          * }
          * ```

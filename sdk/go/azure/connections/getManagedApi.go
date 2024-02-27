@@ -12,34 +12,6 @@ import (
 )
 
 // Uses this data source to access information about an existing Managed API.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/connections"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := connections.GetManagedApi(ctx, &connections.GetManagedApiArgs{
-//				Name:     "servicebus",
-//				Location: "West Europe",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetManagedApi(ctx *pulumi.Context, args *GetManagedApiArgs, opts ...pulumi.InvokeOption) (*GetManagedApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetManagedApiResult

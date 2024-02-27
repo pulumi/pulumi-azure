@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "example-uai",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleResourceDeploymentScriptPowerShell = new Azure.Core.ResourceDeploymentScriptPowerShell("example", new()
+    ///     var exampleResourceDeploymentScriptPowerShell = new Azure.Core.ResourceDeploymentScriptPowerShell.ResourceDeploymentScriptPowerShell("example", new()
     ///     {
     ///         Name = "example-rdsaps",
     ///         ResourceGroupName = example.Name,
@@ -52,13 +52,13 @@ namespace Pulumi.Azure.Core
     ///             $DeploymentScriptOutputs = @{}
     ///             $DeploymentScriptOutputs['text'] = $output
     /// ",
-    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptPowerShellIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             { "type", "UserAssigned" },
+    ///             { "identityIds", new[]
     ///             {
     ///                 exampleUserAssignedIdentity.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

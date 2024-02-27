@@ -70,21 +70,6 @@ def get_tenant_template_deployment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Tenant Template Deployment.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.core.get_tenant_template_deployment(name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_tenant_template_deployment.example.output_content)")["exampleOutput"]["value"])
-    ```
-
 
     :param str name: The name of this Tenant Template Deployment.
     """
@@ -104,21 +89,6 @@ def get_tenant_template_deployment_output(name: Optional[pulumi.Input[str]] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Tenant Template Deployment.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = azure.core.get_tenant_template_deployment(name="existing")
-    pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_tenant_template_deployment.example.output_content)")["exampleOutput"]["value"])
-    ```
 
 
     :param str name: The name of this Tenant Template Deployment.

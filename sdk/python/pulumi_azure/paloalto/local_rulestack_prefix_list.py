@@ -205,17 +205,17 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_local_rulestack_prefix_list = azure.paloalto.LocalRulestackPrefixList("example",
-            name="example",
+        example_local_rulestack_prefix_list = azure.paloalto.local_rulestack_prefix_list.LocalRulestackPrefixList("example",
+            name=example,
             rulestack_id=example_local_rulestack.id,
-            prefix_lists=["10.0.1.0/24"])
+            prefix_lists=[10.0.1.0/24])
         ```
 
         ## Import
@@ -249,17 +249,17 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_local_rulestack_prefix_list = azure.paloalto.LocalRulestackPrefixList("example",
-            name="example",
+        example_local_rulestack_prefix_list = azure.paloalto.local_rulestack_prefix_list.LocalRulestackPrefixList("example",
+            name=example,
             rulestack_id=example_local_rulestack.id,
-            prefix_lists=["10.0.1.0/24"])
+            prefix_lists=[10.0.1.0/24])
         ```
 
         ## Import

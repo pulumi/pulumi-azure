@@ -17,54 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Stream Analytics Output powerBI.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
- * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
- * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
- * import com.pulumi.azure.streamanalytics.OutputPowerbi;
- * import com.pulumi.azure.streamanalytics.OutputPowerbiArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
- *             .name(&#34;example-resources&#34;)
- *             .build());
- * 
- *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
- *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
- *             .build());
- * 
- *         var exampleOutputPowerbi = new OutputPowerbi(&#34;exampleOutputPowerbi&#34;, OutputPowerbiArgs.builder()        
- *             .name(&#34;output-to-powerbi&#34;)
- *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.id()))
- *             .dataset(&#34;example-dataset&#34;)
- *             .table(&#34;example-table&#34;)
- *             .groupId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .groupName(&#34;some-group-name&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.

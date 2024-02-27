@@ -23,39 +23,39 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server", new()
+    ///     var server = new Random.Index.RandomId.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", "1" },
+    ///             { "azi_id", 1 },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "redis-resourcegroup",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     var exampleCache = new Azure.Redis.Cache.Cache("example", new()
     ///     {
-    ///         Name = server.Hex.Apply(hex =&gt; $"redis{hex}"),
+    ///         Name = $"redis{server.Hex}",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Capacity = 1,
     ///         Family = "P",
     ///         SkuName = "Premium",
     ///         EnableNonSslPort = false,
-    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         RedisConfiguration = 
     ///         {
-    ///             MaxmemoryReserved = 2,
-    ///             MaxmemoryDelta = 2,
-    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///             { "maxmemoryReserved", 2 },
+    ///             { "maxmemoryDelta", 2 },
+    ///             { "maxmemoryPolicy", "allkeys-lru" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule("example", new()
+    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule.FirewallRule("example", new()
     ///     {
     ///         Name = "someIPrange",
     ///         RedisCacheName = exampleCache.Name,

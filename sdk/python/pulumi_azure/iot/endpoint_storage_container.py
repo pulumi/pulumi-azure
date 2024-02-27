@@ -445,37 +445,37 @@ class EndpointStorageContainer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="acctestcont",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=acctestcont,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+            container_access_type=private)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_endpoint_storage_container = azure.iot.endpoint_storage_container.EndpointStorageContainer("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
-            name="acctest",
-            container_name="acctestcont",
+            name=acctest,
+            container_name=acctestcont,
             connection_string=example_account.primary_blob_connection_string,
-            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+            file_name_format={iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm},
             batch_frequency_in_seconds=60,
             max_chunk_size_in_bytes=10485760,
-            encoding="JSON")
+            encoding=JSON)
         ```
 
         ## Import
@@ -520,37 +520,37 @@ class EndpointStorageContainer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="acctestcont",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=acctestcont,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+            container_access_type=private)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_endpoint_storage_container = azure.iot.endpoint_storage_container.EndpointStorageContainer("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
-            name="acctest",
-            container_name="acctestcont",
+            name=acctest,
+            container_name=acctestcont,
             connection_string=example_account.primary_blob_connection_string,
-            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+            file_name_format={iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm},
             batch_frequency_in_seconds=60,
             max_chunk_size_in_bytes=10485760,
-            encoding="JSON")
+            encoding=JSON)
         ```
 
         ## Import

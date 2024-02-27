@@ -189,17 +189,6 @@ def get_policy_assignment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Policy Assignment.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.policy.get_policy_assignment(name="existing",
-        scope_id=example_azurerm_resource_group["id"])
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
     :param str scope_id: The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
@@ -232,17 +221,6 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     Use this data source to access information about an existing Policy Assignment.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.policy.get_policy_assignment(name="existing",
-        scope_id=example_azurerm_resource_group["id"])
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.

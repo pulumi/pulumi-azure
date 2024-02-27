@@ -6,23 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Sentinel Alert Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.operationalinsights.getAnalyticsWorkspace({
- *     name: "example",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetAlertRule = example.then(example => azure.sentinel.getAlertRule({
- *     name: "existing",
- *     logAnalyticsWorkspaceId: example.id,
- * }));
- * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
- * ```
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
 
@@ -60,23 +43,6 @@ export interface GetAlertRuleResult {
 }
 /**
  * Use this data source to access information about an existing Sentinel Alert Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.operationalinsights.getAnalyticsWorkspace({
- *     name: "example",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetAlertRule = example.then(example => azure.sentinel.getAlertRule({
- *     name: "existing",
- *     logAnalyticsWorkspaceId: example.id,
- * }));
- * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
- * ```
  */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))

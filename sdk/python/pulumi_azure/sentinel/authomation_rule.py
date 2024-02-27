@@ -470,24 +470,24 @@ class AuthomationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=west europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_automation_rule = azure.sentinel.AutomationRule("example",
-            name="56094f72-ac3f-40e7-a0c0-47bd95f70336",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_automation_rule = azure.sentinel.automation_rule.AutomationRule("example",
+            name=56094f72-ac3f-40e7-a0c0-47bd95f70336,
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="automation_rule1",
+            display_name=automation_rule1,
             order=1,
-            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
-                order=1,
-                status="Active",
-            )])
+            action_incidents=[{
+                order: 1,
+                status: Active,
+            }])
         ```
 
         ## Import
@@ -532,24 +532,24 @@ class AuthomationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=west europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_automation_rule = azure.sentinel.AutomationRule("example",
-            name="56094f72-ac3f-40e7-a0c0-47bd95f70336",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_automation_rule = azure.sentinel.automation_rule.AutomationRule("example",
+            name=56094f72-ac3f-40e7-a0c0-47bd95f70336,
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="automation_rule1",
+            display_name=automation_rule1,
             order=1,
-            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
-                order=1,
-                status="Active",
-            )])
+            action_incidents=[{
+                order: 1,
+                status: Active,
+            }])
         ```
 
         ## Import

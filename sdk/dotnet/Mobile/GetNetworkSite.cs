@@ -13,70 +13,12 @@ namespace Pulumi.Azure.Mobile
     {
         /// <summary>
         /// Get information about a Mobile Network Site.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
-        ///     {
-        ///         Name = "example-mn",
-        ///         ResourceGroupName = "example-rg",
-        ///     });
-        /// 
-        ///     var exampleGetNetworkSite = Azure.Mobile.GetNetworkSite.Invoke(new()
-        ///     {
-        ///         Name = "example-mns",
-        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkSiteResult> InvokeAsync(GetNetworkSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSiteResult>("azure:mobile/getNetworkSite:getNetworkSite", args ?? new GetNetworkSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a Mobile Network Site.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
-        ///     {
-        ///         Name = "example-mn",
-        ///         ResourceGroupName = "example-rg",
-        ///     });
-        /// 
-        ///     var exampleGetNetworkSite = Azure.Mobile.GetNetworkSite.Invoke(new()
-        ///     {
-        ///         Name = "example-mns",
-        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkSiteResult> Invoke(GetNetworkSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSiteResult>("azure:mobile/getNetworkSite:getNetworkSite", args ?? new GetNetworkSiteInvokeArgs(), options.WithDefaults());

@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output powerBI.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleGetJob = example.then(example => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: example.name,
- * }));
- * const exampleOutputPowerbi = new azure.streamanalytics.OutputPowerbi("example", {
- *     name: "output-to-powerbi",
- *     streamAnalyticsJobId: exampleGetJob.then(exampleGetJob => exampleGetJob.id),
- *     dataset: "example-dataset",
- *     table: "example-table",
- *     groupId: "00000000-0000-0000-0000-000000000000",
- *     groupName: "some-group-name",
- * });
- * ```
- *
  * ## Import
  *
  * Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.

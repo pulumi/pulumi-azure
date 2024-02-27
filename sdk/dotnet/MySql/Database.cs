@@ -20,13 +20,13 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example", new()
+    ///     var exampleServer = new Azure.Mysql.Server.Server("example", new()
     ///     {
     ///         Name = "example-mysqlserver",
     ///         Location = example.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.MySql
     ///         SslMinimalTlsVersionEnforced = "TLS1_2",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MySql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mysql.Database.Database("example", new()
     ///     {
     ///         Name = "exampledb",
     ///         ResourceGroupName = example.Name,

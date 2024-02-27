@@ -22,37 +22,37 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "my-kusto-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var followerCluster = new Azure.Kusto.Cluster("follower_cluster", new()
+    ///     var followerCluster = new Azure.Kusto.Cluster.Cluster("follower_cluster", new()
     ///     {
     ///         Name = "cluster1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Dev(No SLA)_Standard_D11_v2",
-    ///             Capacity = 1,
+    ///             { "name", "Dev(No SLA)_Standard_D11_v2" },
+    ///             { "capacity", 1 },
     ///         },
     ///     });
     /// 
-    ///     var followedCluster = new Azure.Kusto.Cluster("followed_cluster", new()
+    ///     var followedCluster = new Azure.Kusto.Cluster.Cluster("followed_cluster", new()
     ///     {
     ///         Name = "cluster2",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Dev(No SLA)_Standard_D11_v2",
-    ///             Capacity = 1,
+    ///             { "name", "Dev(No SLA)_Standard_D11_v2" },
+    ///             { "capacity", 1 },
     ///         },
     ///     });
     /// 
-    ///     var followedDatabase = new Azure.Kusto.Database("followed_database", new()
+    ///     var followedDatabase = new Azure.Kusto.Database.Database("followed_database", new()
     ///     {
     ///         Name = "my-followed-database",
     ///         ResourceGroupName = example.Name,
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Kusto
     ///         ClusterName = followerCluster.Name,
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database.Database("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Kusto
     ///         ClusterName = followerCluster.Name,
     ///     });
     /// 
-    ///     var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("example", new()
+    ///     var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration.AttachedDatabaseConfiguration("example", new()
     ///     {
     ///         Name = "configuration1",
     ///         ResourceGroupName = example.Name,
@@ -76,32 +76,32 @@ namespace Pulumi.Azure.Kusto
     ///         ClusterName = followerCluster.Name,
     ///         ClusterResourceId = followedCluster.Id,
     ///         DatabaseName = exampleDatabase.Name,
-    ///         Sharing = new Azure.Kusto.Inputs.AttachedDatabaseConfigurationSharingArgs
+    ///         Sharing = 
     ///         {
-    ///             ExternalTablesToExcludes = new[]
+    ///             { "externalTablesToExcludes", new[]
     ///             {
     ///                 "ExternalTable2",
-    ///             },
-    ///             ExternalTablesToIncludes = new[]
+    ///             } },
+    ///             { "externalTablesToIncludes", new[]
     ///             {
     ///                 "ExternalTable1",
-    ///             },
-    ///             MaterializedViewsToExcludes = new[]
+    ///             } },
+    ///             { "materializedViewsToExcludes", new[]
     ///             {
     ///                 "MaterializedViewTable2",
-    ///             },
-    ///             MaterializedViewsToIncludes = new[]
+    ///             } },
+    ///             { "materializedViewsToIncludes", new[]
     ///             {
     ///                 "MaterializedViewTable1",
-    ///             },
-    ///             TablesToExcludes = new[]
+    ///             } },
+    ///             { "tablesToExcludes", new[]
     ///             {
     ///                 "Table2",
-    ///             },
-    ///             TablesToIncludes = new[]
+    ///             } },
+    ///             { "tablesToIncludes", new[]
     ///             {
     ///                 "Table1",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

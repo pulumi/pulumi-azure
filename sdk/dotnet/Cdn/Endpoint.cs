@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleProfile = new Azure.Cdn.Profile("example", new()
+    ///     var exampleProfile = new Azure.Cdn.Profile.Profile("example", new()
     ///     {
     ///         Name = "example-cdn",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Cdn
     ///         Sku = "Standard_Verizon",
     ///     });
     /// 
-    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
+    ///     var exampleEndpoint = new Azure.Cdn.Endpoint.Endpoint("example", new()
     ///     {
     ///         Name = "example",
     ///         ProfileName = exampleProfile.Name,
@@ -46,10 +46,10 @@ namespace Pulumi.Azure.Cdn
     ///         ResourceGroupName = example.Name,
     ///         Origins = new[]
     ///         {
-    ///             new Azure.Cdn.Inputs.EndpointOriginArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 HostName = "www.contoso.com",
+    ///                 { "name", "example" },
+    ///                 { "hostName", "www.contoso.com" },
     ///             },
     ///         },
     ///     });

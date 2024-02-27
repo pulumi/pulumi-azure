@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "exprtTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("example", new()
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort.ExpressRoutePort("example", new()
     ///     {
     ///         Name = "port1",
     ///         ResourceGroupName = example.Name,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network
     ///         Encapsulation = "Dot1Q",
     ///     });
     /// 
-    ///     var exampleExpressRoutePortAuthorization = new Azure.Network.ExpressRoutePortAuthorization("example", new()
+    ///     var exampleExpressRoutePortAuthorization = new Azure.Network.ExpressRoutePortAuthorization.ExpressRoutePortAuthorization("example", new()
     ///     {
     ///         Name = "exampleERCAuth",
     ///         ExpressRoutePortName = exampleExpressRoutePort.Name,

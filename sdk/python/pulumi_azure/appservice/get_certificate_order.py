@@ -273,17 +273,6 @@ def get_certificate_order(name: Optional[str] = None,
     """
     Use this data source to access information about an existing App Service Certificate Order.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_certificate_order(name="example-cert-order",
-        resource_group_name="example-resources")
-    pulumi.export("certificateOrderId", example.id)
-    ```
-
 
     :param str name: The name of the App Service.
     :param str resource_group_name: The Name of the Resource Group where the App Service exists.
@@ -323,17 +312,6 @@ def get_certificate_order_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateOrderResult]:
     """
     Use this data source to access information about an existing App Service Certificate Order.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.appservice.get_certificate_order(name="example-cert-order",
-        resource_group_name="example-resources")
-    pulumi.export("certificateOrderId", example.id)
-    ```
 
 
     :param str name: The name of the App Service.

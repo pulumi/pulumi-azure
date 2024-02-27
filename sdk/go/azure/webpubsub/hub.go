@@ -21,105 +21,104 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	webpubsub/hub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/webpubsub/hub"
+//	webpubsub/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/webpubsub/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("terraform-webpubsub"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("tfex-uai"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
-//				Name:              pulumi.String("tfex-webpubsub"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard_S1"),
-//				Capacity:          pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = webpubsub.NewHub(ctx, "example", &webpubsub.HubArgs{
-//				Name:        pulumi.String("tfex_wpsh"),
-//				WebPubsubId: exampleService.ID(),
-//				EventHandlers: webpubsub.HubEventHandlerArray{
-//					&webpubsub.HubEventHandlerArgs{
-//						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
-//						UserEventPattern: pulumi.String("*"),
-//						SystemEvents: pulumi.StringArray{
-//							pulumi.String("connect"),
-//							pulumi.String("connected"),
-//						},
-//					},
-//					&webpubsub.HubEventHandlerArgs{
-//						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
-//						UserEventPattern: pulumi.String("event1, event2"),
-//						SystemEvents: pulumi.StringArray{
-//							pulumi.String("connected"),
-//						},
-//						Auth: &webpubsub.HubEventHandlerAuthArgs{
-//							ManagedIdentityId: exampleUserAssignedIdentity.ID(),
-//						},
-//					},
-//				},
-//				EventListeners: webpubsub.HubEventListenerArray{
-//					&webpubsub.HubEventListenerArgs{
-//						SystemEventNameFilters: pulumi.StringArray{
-//							pulumi.String("connected"),
-//						},
-//						UserEventNameFilters: pulumi.StringArray{
-//							pulumi.String("event1"),
-//							pulumi.String("event2"),
-//						},
-//						EventhubNamespaceName: pulumi.Any(test.Name),
-//						EventhubName:          pulumi.Any(test1.Name),
-//					},
-//					&webpubsub.HubEventListenerArgs{
-//						SystemEventNameFilters: pulumi.StringArray{
-//							pulumi.String("connected"),
-//						},
-//						UserEventNameFilters: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//						EventhubNamespaceName: pulumi.Any(test.Name),
-//						EventhubName:          pulumi.Any(test1.Name),
-//					},
-//					&webpubsub.HubEventListenerArgs{
-//						SystemEventNameFilters: pulumi.StringArray{
-//							pulumi.String("connected"),
-//						},
-//						UserEventNameFilters: pulumi.StringArray{
-//							pulumi.String("event1"),
-//						},
-//						EventhubNamespaceName: pulumi.Any(test.Name),
-//						EventhubName:          pulumi.Any(test1.Name),
-//					},
-//				},
-//				AnonymousConnectionsEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "terraform-webpubsub",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "tfex-uai",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := webpubsub/service.NewService(ctx, "example", &webpubsub/service.ServiceArgs{
+// Name: "tfex-webpubsub",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard_S1",
+// Capacity: 1,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = webpubsub/hub.NewHub(ctx, "example", &webpubsub/hub.HubArgs{
+// Name: "tfex_wpsh",
+// WebPubsubId: exampleService.Id,
+// EventHandlers: []interface{}{
+// map[string]interface{}{
+// "urlTemplate": "https://test.com/api/{hub}/{event}",
+// "userEventPattern": "*",
+// "systemEvents": []string{
+// "connect",
+// "connected",
+// },
+// },
+// map[string]interface{}{
+// "urlTemplate": "https://test.com/api/{hub}/{event}",
+// "userEventPattern": "event1, event2",
+// "systemEvents": []string{
+// "connected",
+// },
+// "auth": map[string]interface{}{
+// "managedIdentityId": exampleUserAssignedIdentity.Id,
+// },
+// },
+// },
+// EventListeners: []interface{}{
+// map[string]interface{}{
+// "systemEventNameFilters": []string{
+// "connected",
+// },
+// "userEventNameFilters": []string{
+// "event1",
+// "event2",
+// },
+// "eventhubNamespaceName": test.Name,
+// "eventhubName": test1.Name,
+// },
+// map[string]interface{}{
+// "systemEventNameFilters": []string{
+// "connected",
+// },
+// "userEventNameFilters": []string{
+// "*",
+// },
+// "eventhubNamespaceName": test.Name,
+// "eventhubName": test1.Name,
+// },
+// map[string]interface{}{
+// "systemEventNameFilters": []string{
+// "connected",
+// },
+// "userEventNameFilters": []string{
+// "event1",
+// },
+// "eventhubNamespaceName": test.Name,
+// "eventhubName": test1.Name,
+// },
+// },
+// AnonymousConnectionsEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

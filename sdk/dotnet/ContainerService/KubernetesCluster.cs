@@ -24,27 +24,27 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example-aks1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "exampleaks1",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_D2_v2",
+    ///             { "name", "default" },
+    ///             { "nodeCount", 1 },
+    ///             { "vmSize", "Standard_D2_v2" },
     ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["clientCertificate"] = exampleKubernetesCluster.KubeConfigs.Apply(kubeConfigs =&gt; kubeConfigs[0].ClientCertificate),
+    ///         ["clientCertificate"] = exampleKubernetesCluster.KubeConfigs[0].ClientCertificate,
     ///         ["kubeConfig"] = exampleKubernetesCluster.KubeConfigRaw,
     ///     };
     /// });
@@ -408,33 +408,33 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Core.ResourceGroup("example", new()
+        ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
         ///     {
         ///         Name = "example",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+        ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
         ///     {
         ///         Name = "privatelink.eastus2.azmk8s.io",
         ///         ResourceGroupName = example.Name,
         ///     });
         /// 
-        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
         ///     {
         ///         Name = "aks-example-identity",
         ///         ResourceGroupName = example.Name,
         ///         Location = example.Location,
         ///     });
         /// 
-        ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+        ///     var exampleAssignment = new Azure.Authorization.Assignment.Assignment("example", new()
         ///     {
         ///         Scope = exampleZone.Id,
         ///         RoleDefinitionName = "Private DNS Zone Contributor",
         ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
         ///     });
         /// 
-        ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+        ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
         ///     {
         ///         Name = "aksexamplewithprivatednszone1",
         ///         Location = example.Location,
@@ -906,33 +906,33 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Core.ResourceGroup("example", new()
+        ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
         ///     {
         ///         Name = "example",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+        ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
         ///     {
         ///         Name = "privatelink.eastus2.azmk8s.io",
         ///         ResourceGroupName = example.Name,
         ///     });
         /// 
-        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
         ///     {
         ///         Name = "aks-example-identity",
         ///         ResourceGroupName = example.Name,
         ///         Location = example.Location,
         ///     });
         /// 
-        ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+        ///     var exampleAssignment = new Azure.Authorization.Assignment.Assignment("example", new()
         ///     {
         ///         Scope = exampleZone.Id,
         ///         RoleDefinitionName = "Private DNS Zone Contributor",
         ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
         ///     });
         /// 
-        ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+        ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
         ///     {
         ///         Name = "aksexamplewithprivatednszone1",
         ///         Location = example.Location,
@@ -1453,33 +1453,33 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Core.ResourceGroup("example", new()
+        ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
         ///     {
         ///         Name = "example",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+        ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
         ///     {
         ///         Name = "privatelink.eastus2.azmk8s.io",
         ///         ResourceGroupName = example.Name,
         ///     });
         /// 
-        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+        ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
         ///     {
         ///         Name = "aks-example-identity",
         ///         ResourceGroupName = example.Name,
         ///         Location = example.Location,
         ///     });
         /// 
-        ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+        ///     var exampleAssignment = new Azure.Authorization.Assignment.Assignment("example", new()
         ///     {
         ///         Scope = exampleZone.Id,
         ///         RoleDefinitionName = "Private DNS Zone Contributor",
         ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
         ///     });
         /// 
-        ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+        ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
         ///     {
         ///         Name = "aksexamplewithprivatednszone1",
         ///         Location = example.Location,

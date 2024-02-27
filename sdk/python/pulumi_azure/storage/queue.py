@@ -156,17 +156,17 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_queue = azure.storage.Queue("example",
-            name="mysamplequeue",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_queue = azure.storage.queue.Queue("example",
+            name=mysamplequeue,
             storage_account_name=example_account.name)
         ```
 
@@ -199,17 +199,17 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_queue = azure.storage.Queue("example",
-            name="mysamplequeue",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_queue = azure.storage.queue.Queue("example",
+            name=mysamplequeue,
             storage_account_name=example_account.name)
         ```
 

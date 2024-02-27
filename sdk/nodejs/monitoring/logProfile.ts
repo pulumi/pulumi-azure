@@ -19,25 +19,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "logprofiletest-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "afscsdfytw",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "logprofileeventhub",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     capacity: 2,
  * });
- * const exampleLogProfile = new azure.monitoring.LogProfile("example", {
+ * const exampleLogProfile = new azure.monitoring/logProfile.LogProfile("example", {
  *     name: "default",
  *     categories: [
  *         "Action",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *         "westus",
  *         "global",
  *     ],
- *     servicebusRuleId: pulumi.interpolate`${exampleEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
+ *     servicebusRuleId: `${exampleEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
  *     storageAccountId: exampleAccount.id,
  *     retentionPolicy: {
  *         enabled: true,

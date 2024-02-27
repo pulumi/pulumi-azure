@@ -266,66 +266,6 @@ class Script(pulumi.CustomResource):
         """
         Manages a Kusto Script.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_account = azure.storage.Account("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="setup-files",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("example",
-            name="script.txt",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
-            container_name=example_container.name,
-            https_only=True,
-            start="2017-03-21",
-            expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-                read=True,
-                add=False,
-                create=False,
-                write=True,
-                delete=False,
-                list=True,
-            ))
-        example_script = azure.kusto.Script("example",
-            name="example",
-            database_id=example_database.id,
-            url=example_blob.id,
-            sas_token=example.sas,
-            continue_on_errors_enabled=True,
-            force_an_update_when_value_changed="first")
-        ```
-
         ## Import
 
         Kusto Scripts can be imported using the `resource id`, e.g.
@@ -352,66 +292,6 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto Script.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_name=example_cluster.name)
-        example_account = azure.storage.Account("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="setup-files",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_blob = azure.storage.Blob("example",
-            name="script.txt",
-            storage_account_name=example_account.name,
-            storage_container_name=example_container.name,
-            type="Block",
-            source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
-            container_name=example_container.name,
-            https_only=True,
-            start="2017-03-21",
-            expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
-                read=True,
-                add=False,
-                create=False,
-                write=True,
-                delete=False,
-                list=True,
-            ))
-        example_script = azure.kusto.Script("example",
-            name="example",
-            database_id=example_database.id,
-            url=example_blob.id,
-            sas_token=example.sas,
-            continue_on_errors_enabled=True,
-            force_an_update_when_value_changed="first")
-        ```
 
         ## Import
 

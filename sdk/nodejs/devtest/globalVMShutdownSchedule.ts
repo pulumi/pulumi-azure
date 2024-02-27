@@ -17,23 +17,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "sample-rg",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "sample-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "sample-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: "sample-nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ * const exampleLinuxVirtualMachine = new azure.compute/linuxVirtualMachine.LinuxVirtualMachine("example", {
  *     name: "SampleVM",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     adminPassword: "Password1234!",
  *     disablePasswordAuthentication: false,
  * });
- * const exampleGlobalVMShutdownSchedule = new azure.devtest.GlobalVMShutdownSchedule("example", {
+ * const exampleGlobalVMShutdownSchedule = new azure.devtest/globalVMShutdownSchedule.GlobalVMShutdownSchedule("example", {
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     location: example.location,
  *     enabled: true,
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *     timezone: "Pacific Standard Time",
  *     notificationSettings: {
  *         enabled: true,
- *         timeInMinutes: 60,
+ *         timeInMinutes: "60",
  *         webhookUrl: "https://sample-webhook-url.example.com",
  *     },
  * });

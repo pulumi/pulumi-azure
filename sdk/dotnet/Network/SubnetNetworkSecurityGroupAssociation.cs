@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "frontend",
     ///         ResourceGroupName = example.Name,
@@ -50,29 +50,29 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("example", new()
     ///     {
     ///         Name = "example-nsg",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         SecurityRules = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             
     ///             {
-    ///                 Name = "test123",
-    ///                 Priority = 100,
-    ///                 Direction = "Inbound",
-    ///                 Access = "Allow",
-    ///                 Protocol = "Tcp",
-    ///                 SourcePortRange = "*",
-    ///                 DestinationPortRange = "*",
-    ///                 SourceAddressPrefix = "*",
-    ///                 DestinationAddressPrefix = "*",
+    ///                 { "name", "test123" },
+    ///                 { "priority", 100 },
+    ///                 { "direction", "Inbound" },
+    ///                 { "access", "Allow" },
+    ///                 { "protocol", "Tcp" },
+    ///                 { "sourcePortRange", "*" },
+    ///                 { "destinationPortRange", "*" },
+    ///                 { "sourceAddressPrefix", "*" },
+    ///                 { "destinationAddressPrefix", "*" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,

@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	dns/nsRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/nsRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dns.NewNsRecord(ctx, "example", &dns.NsRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dnsNsRecordId", exampleAzurermDnsNsRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dns/nsRecord.NewNsRecord(ctx, "example", &dns/nsRecord.NsRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("dnsNsRecordId", exampleAzurermDnsNsRecord.Id)
+// return nil
+// })
+// }
 // ```
 func LookupNsRecord(ctx *pulumi.Context, args *LookupNsRecordArgs, opts ...pulumi.InvokeOption) (*LookupNsRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

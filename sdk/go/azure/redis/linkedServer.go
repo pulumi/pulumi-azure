@@ -21,76 +21,75 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
+//	redis/linkedServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/linkedServer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "example-primary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources-primary"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redis.NewCache(ctx, "example-primary", &redis.CacheArgs{
-//				Name:              pulumi.String("example-cache1"),
-//				Location:          example_primary.Location,
-//				ResourceGroupName: example_primary.Name,
-//				Capacity:          pulumi.Int(1),
-//				Family:            pulumi.String("P"),
-//				SkuName:           pulumi.String("Premium"),
-//				EnableNonSslPort:  pulumi.Bool(false),
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-//					MaxmemoryReserved: pulumi.Int(2),
-//					MaxmemoryDelta:    pulumi.Int(2),
-//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourceGroup(ctx, "example-secondary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources-secondary"),
-//				Location: pulumi.String("West US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redis.NewCache(ctx, "example-secondary", &redis.CacheArgs{
-//				Name:              pulumi.String("example-cache2"),
-//				Location:          example_secondary.Location,
-//				ResourceGroupName: example_secondary.Name,
-//				Capacity:          pulumi.Int(1),
-//				Family:            pulumi.String("P"),
-//				SkuName:           pulumi.String("Premium"),
-//				EnableNonSslPort:  pulumi.Bool(false),
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-//					MaxmemoryReserved: pulumi.Int(2),
-//					MaxmemoryDelta:    pulumi.Int(2),
-//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redis.NewLinkedServer(ctx, "example-link", &redis.LinkedServerArgs{
-//				TargetRedisCacheName:     example_primaryCache.Name,
-//				ResourceGroupName:        example_primaryCache.ResourceGroupName,
-//				LinkedRedisCacheId:       example_secondaryCache.ID(),
-//				LinkedRedisCacheLocation: example_secondaryCache.Location,
-//				ServerRole:               pulumi.String("Secondary"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceGroup.NewResourceGroup(ctx, "example-primary", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources-primary",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redis/cache.NewCache(ctx, "example-primary", &redis/cache.CacheArgs{
+// Name: "example-cache1",
+// Location: example_primary.Location,
+// ResourceGroupName: example_primary.Name,
+// Capacity: 1,
+// Family: "P",
+// SkuName: "Premium",
+// EnableNonSslPort: false,
+// RedisConfiguration: map[string]interface{}{
+// "maxmemoryReserved": 2,
+// "maxmemoryDelta": 2,
+// "maxmemoryPolicy": "allkeys-lru",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/resourceGroup.NewResourceGroup(ctx, "example-secondary", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources-secondary",
+// Location: "West US",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redis/cache.NewCache(ctx, "example-secondary", &redis/cache.CacheArgs{
+// Name: "example-cache2",
+// Location: example_secondary.Location,
+// ResourceGroupName: example_secondary.Name,
+// Capacity: 1,
+// Family: "P",
+// SkuName: "Premium",
+// EnableNonSslPort: false,
+// RedisConfiguration: map[string]interface{}{
+// "maxmemoryReserved": 2,
+// "maxmemoryDelta": 2,
+// "maxmemoryPolicy": "allkeys-lru",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redis/linkedServer.NewLinkedServer(ctx, "example-link", &redis/linkedServer.LinkedServerArgs{
+// TargetRedisCacheName: example_primaryCache.Name,
+// ResourceGroupName: example_primaryCache.ResourceGroupName,
+// LinkedRedisCacheId: example_secondaryCache.Id,
+// LinkedRedisCacheLocation: example_secondaryCache.Location,
+// ServerRole: "Secondary",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

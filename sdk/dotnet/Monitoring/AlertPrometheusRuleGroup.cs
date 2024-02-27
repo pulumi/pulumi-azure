@@ -22,46 +22,46 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example-mag",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "testag",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.Monitoring.Workspace("example", new()
+    ///     var exampleWorkspace = new Azure.Monitoring.Workspace.Workspace("example", new()
     ///     {
     ///         Name = "example-amw",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var exampleKubernetesCluster = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example-cluster",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "example-aks",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_DS2_v2",
-    ///             EnableHostEncryption = true,
+    ///             { "name", "default" },
+    ///             { "nodeCount", 1 },
+    ///             { "vmSize", "Standard_DS2_v2" },
+    ///             { "enableHostEncryption", true },
     ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAlertPrometheusRuleGroup = new Azure.Monitoring.AlertPrometheusRuleGroup("example", new()
+    ///     var exampleAlertPrometheusRuleGroup = new Azure.Monitoring.AlertPrometheusRuleGroup.AlertPrometheusRuleGroup("example", new()
     ///     {
     ///         Name = "example-amprg",
     ///         Location = "West Europe",
@@ -76,45 +76,45 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///         Rules = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
+    ///             
     ///             {
-    ///                 Enabled = false,
-    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
-    /// ",
-    ///                 Record = "job_type:billing_jobs_duration_seconds:99p5m",
-    ///                 Labels = 
+    ///                 { "enabled", false },
+    ///                 { "expression", @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
+    /// " },
+    ///                 { "record", "job_type:billing_jobs_duration_seconds:99p5m" },
+    ///                 { "labels", 
     ///                 {
     ///                     { "team", "prod" },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
+    ///             
     ///             {
-    ///                 Alert = "Billing_Processing_Very_Slow",
-    ///                 Enabled = true,
-    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
-    /// ",
-    ///                 For = "PT5M",
-    ///                 Severity = 2,
-    ///                 Actions = new[]
+    ///                 { "alert", "Billing_Processing_Very_Slow" },
+    ///                 { "enabled", true },
+    ///                 { "expression", @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
+    /// " },
+    ///                 { "for", "PT5M" },
+    ///                 { "severity", 2 },
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleActionArgs
+    ///                     
     ///                     {
-    ///                         ActionGroupId = exampleActionGroup.Id,
+    ///                         { "actionGroupId", exampleActionGroup.Id },
     ///                     },
-    ///                 },
-    ///                 AlertResolution = new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs
+    ///                 } },
+    ///                 { "alertResolution", 
     ///                 {
-    ///                     AutoResolved = true,
-    ///                     TimeToResolve = "PT10M",
-    ///                 },
-    ///                 Annotations = 
+    ///                     { "autoResolved", true },
+    ///                     { "timeToResolve", "PT10M" },
+    ///                 } },
+    ///                 { "annotations", 
     ///                 {
     ///                     { "annotationName", "annotationValue" },
-    ///                 },
-    ///                 Labels = 
+    ///                 } },
+    ///                 { "labels", 
     ///                 {
     ///                     { "team", "prod" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Tags = 

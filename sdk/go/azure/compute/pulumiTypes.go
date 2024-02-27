@@ -14324,42 +14324,39 @@ type ScaleSetIdentity struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+	// 	compute/scaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/scaleSet"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-	// 			Name:              pulumi.String("vm-scaleset"),
-	// 			ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-	// 			Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
-	// 			Sku: &compute.ScaleSetSkuArgs{
-	// 				Name:     pulumi.Any(vmSku),
-	// 				Tier:     pulumi.String("Standard"),
-	// 				Capacity: pulumi.Any(instanceCount),
-	// 			},
-	// 			Identity: &compute.ScaleSetIdentityArgs{
-	// 				Type: pulumi.String("SystemAssigned"),
-	// 			},
-	// 			Extensions: compute.ScaleSetExtensionArray{
-	// 				&compute.ScaleSetExtensionArgs{
-	// 					Name:               pulumi.String("MSILinuxExtension"),
-	// 					Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-	// 					Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-	// 					TypeHandlerVersion: pulumi.String("1.0"),
-	// 					Settings:           pulumi.String("{\"port\": 50342}"),
-	// 				},
-	// 			},
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-	// 			return &identity.PrincipalId, nil
-	// 		}).(pulumi.StringPtrOutput))
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := compute/scaleSet.NewScaleSet(ctx, "example", &compute/scaleSet.ScaleSetArgs{
+	// Name: "vm-scaleset",
+	// ResourceGroupName: exampleAzurermResourceGroup.Name,
+	// Location: exampleAzurermResourceGroup.Location,
+	// Sku: map[string]interface{}{
+	// "name": vmSku,
+	// "tier": "Standard",
+	// "capacity": instanceCount,
+	// },
+	// Identity: map[string]interface{}{
+	// "type": "SystemAssigned",
+	// },
+	// Extensions: []map[string]interface{}{
+	// map[string]interface{}{
+	// "name": "MSILinuxExtension",
+	// "publisher": "Microsoft.ManagedIdentity",
+	// "type": "ManagedIdentityExtensionForLinux",
+	// "typeHandlerVersion": "1.0",
+	// "settings": "{\"port\": 50342}",
+	// },
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// ctx.Export("principalId", example.Identity.PrincipalId)
+	// return nil
+	// })
 	// }
 	// ```
 	IdentityIds []string `pulumi:"identityIds"`
@@ -14386,42 +14383,39 @@ type ScaleSetIdentityArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+	// 	compute/scaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/scaleSet"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-	// 			Name:              pulumi.String("vm-scaleset"),
-	// 			ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-	// 			Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
-	// 			Sku: &compute.ScaleSetSkuArgs{
-	// 				Name:     pulumi.Any(vmSku),
-	// 				Tier:     pulumi.String("Standard"),
-	// 				Capacity: pulumi.Any(instanceCount),
-	// 			},
-	// 			Identity: &compute.ScaleSetIdentityArgs{
-	// 				Type: pulumi.String("SystemAssigned"),
-	// 			},
-	// 			Extensions: compute.ScaleSetExtensionArray{
-	// 				&compute.ScaleSetExtensionArgs{
-	// 					Name:               pulumi.String("MSILinuxExtension"),
-	// 					Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-	// 					Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-	// 					TypeHandlerVersion: pulumi.String("1.0"),
-	// 					Settings:           pulumi.String("{\"port\": 50342}"),
-	// 				},
-	// 			},
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-	// 			return &identity.PrincipalId, nil
-	// 		}).(pulumi.StringPtrOutput))
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// example, err := compute/scaleSet.NewScaleSet(ctx, "example", &compute/scaleSet.ScaleSetArgs{
+	// Name: "vm-scaleset",
+	// ResourceGroupName: exampleAzurermResourceGroup.Name,
+	// Location: exampleAzurermResourceGroup.Location,
+	// Sku: map[string]interface{}{
+	// "name": vmSku,
+	// "tier": "Standard",
+	// "capacity": instanceCount,
+	// },
+	// Identity: map[string]interface{}{
+	// "type": "SystemAssigned",
+	// },
+	// Extensions: []map[string]interface{}{
+	// map[string]interface{}{
+	// "name": "MSILinuxExtension",
+	// "publisher": "Microsoft.ManagedIdentity",
+	// "type": "ManagedIdentityExtensionForLinux",
+	// "typeHandlerVersion": "1.0",
+	// "settings": "{\"port\": 50342}",
+	// },
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// ctx.Export("principalId", example.Identity.PrincipalId)
+	// return nil
+	// })
 	// }
 	// ```
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -14514,45 +14508,41 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	compute/scaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/scaleSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name:              pulumi.String("vm-scaleset"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
-//				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.Any(vmSku),
-//					Tier:     pulumi.String("Standard"),
-//					Capacity: pulumi.Any(instanceCount),
-//				},
-//				Identity: &compute.ScaleSetIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Extensions: compute.ScaleSetExtensionArray{
-//					&compute.ScaleSetExtensionArgs{
-//						Name:               pulumi.String("MSILinuxExtension"),
-//						Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-//						Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-//						TypeHandlerVersion: pulumi.String("1.0"),
-//						Settings:           pulumi.String("{\"port\": 50342}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-//				return &identity.PrincipalId, nil
-//			}).(pulumi.StringPtrOutput))
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := compute/scaleSet.NewScaleSet(ctx, "example", &compute/scaleSet.ScaleSetArgs{
+// Name: "vm-scaleset",
+// ResourceGroupName: exampleAzurermResourceGroup.Name,
+// Location: exampleAzurermResourceGroup.Location,
+// Sku: map[string]interface{}{
+// "name": vmSku,
+// "tier": "Standard",
+// "capacity": instanceCount,
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Extensions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "MSILinuxExtension",
+// "publisher": "Microsoft.ManagedIdentity",
+// "type": "ManagedIdentityExtensionForLinux",
+// "typeHandlerVersion": "1.0",
+// "settings": "{\"port\": 50342}",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("principalId", example.Identity.PrincipalId)
+// return nil
+// })
+// }
 // ```
 func (o ScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -14598,45 +14588,41 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	compute/scaleSet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/scaleSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name:              pulumi.String("vm-scaleset"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
-//				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.Any(vmSku),
-//					Tier:     pulumi.String("Standard"),
-//					Capacity: pulumi.Any(instanceCount),
-//				},
-//				Identity: &compute.ScaleSetIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Extensions: compute.ScaleSetExtensionArray{
-//					&compute.ScaleSetExtensionArgs{
-//						Name:               pulumi.String("MSILinuxExtension"),
-//						Publisher:          pulumi.String("Microsoft.ManagedIdentity"),
-//						Type:               pulumi.String("ManagedIdentityExtensionForLinux"),
-//						TypeHandlerVersion: pulumi.String("1.0"),
-//						Settings:           pulumi.String("{\"port\": 50342}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-//				return &identity.PrincipalId, nil
-//			}).(pulumi.StringPtrOutput))
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := compute/scaleSet.NewScaleSet(ctx, "example", &compute/scaleSet.ScaleSetArgs{
+// Name: "vm-scaleset",
+// ResourceGroupName: exampleAzurermResourceGroup.Name,
+// Location: exampleAzurermResourceGroup.Location,
+// Sku: map[string]interface{}{
+// "name": vmSku,
+// "tier": "Standard",
+// "capacity": instanceCount,
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Extensions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "MSILinuxExtension",
+// "publisher": "Microsoft.ManagedIdentity",
+// "type": "ManagedIdentityExtensionForLinux",
+// "typeHandlerVersion": "1.0",
+// "settings": "{\"port\": 50342}",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("principalId", example.Identity.PrincipalId)
+// return nil
+// })
+// }
 // ```
 func (o ScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSetIdentity) []string {

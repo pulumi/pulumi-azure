@@ -34,12 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datafactory.Factory;
  * import com.pulumi.azure.datafactory.FactoryArgs;
- * import com.pulumi.azure.datafactory.inputs.FactoryIdentityArgs;
  * import com.pulumi.azure.databricks.Workspace;
  * import com.pulumi.azure.databricks.WorkspaceArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceAzureDatabricks;
  * import com.pulumi.azure.datafactory.LinkedServiceAzureDatabricksArgs;
- * import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureDatabricksNewClusterConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,9 +60,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;TestDtaFactory92783401247&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .identity(FactoryIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
@@ -78,31 +74,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;ADBLinkedServiceViaMSI&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .description(&#34;ADB Linked Service via MSI&#34;)
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
+ *             .adbDomain(String.format(&#34;https://%s&#34;, exampleWorkspace.workspaceUrl()))
  *             .msiWorkSpaceResourceId(exampleWorkspace.id())
- *             .newClusterConfig(LinkedServiceAzureDatabricksNewClusterConfigArgs.builder()
- *                 .nodeType(&#34;Standard_NC12&#34;)
- *                 .clusterVersion(&#34;5.5.x-gpu-scala2.11&#34;)
- *                 .minNumberOfWorkers(1)
- *                 .maxNumberOfWorkers(5)
- *                 .driverNodeType(&#34;Standard_NC12&#34;)
- *                 .logDestination(&#34;dbfs:/logs&#34;)
- *                 .customTags(Map.ofEntries(
- *                     Map.entry(&#34;custom_tag1&#34;, &#34;sct_value_1&#34;),
- *                     Map.entry(&#34;custom_tag2&#34;, &#34;sct_value_2&#34;)
- *                 ))
- *                 .sparkConfig(Map.ofEntries(
- *                     Map.entry(&#34;config1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;config2&#34;, &#34;value2&#34;)
- *                 ))
- *                 .sparkEnvironmentVariables(Map.ofEntries(
- *                     Map.entry(&#34;envVar1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;envVar2&#34;, &#34;value2&#34;)
- *                 ))
- *                 .initScripts(                
- *                     &#34;init.sh&#34;,
- *                     &#34;init2.sh&#34;)
- *                 .build())
+ *             .newClusterConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -160,7 +134,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;ADB Linked Service via Access Token&#34;)
  *             .existingClusterId(&#34;0308-201146-sly615&#34;)
  *             .accessToken(&#34;SomeDatabricksAccessToken&#34;)
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
+ *             .adbDomain(String.format(&#34;https://%s&#34;, exampleWorkspace.workspaceUrl()))
  *             .build());
  * 
  *     }

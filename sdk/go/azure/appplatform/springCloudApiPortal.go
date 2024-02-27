@@ -23,63 +23,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudApiPortal "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApiPortal"
+//	appplatform/springCloudGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGateway"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudApiPortal(ctx, "example", &appplatform.SpringCloudApiPortalArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//				GatewayIds: pulumi.StringArray{
-//					exampleSpringCloudGateway.ID(),
-//				},
-//				HttpsOnlyEnabled:           pulumi.Bool(false),
-//				PublicNetworkAccessEnabled: pulumi.Bool(true),
-//				InstanceCount:              pulumi.Int(1),
-//				ApiTryOutEnabled:           pulumi.Bool(true),
-//				Sso: &appplatform.SpringCloudApiPortalSsoArgs{
-//					ClientId:     pulumi.String("test"),
-//					ClientSecret: pulumi.String("secret"),
-//					IssuerUri:    pulumi.String("https://www.example.com/issueToken"),
-//					Scopes: pulumi.StringArray{
-//						pulumi.String("read"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudGateway, err := appplatform/springCloudGateway.NewSpringCloudGateway(ctx, "example", &appplatform/springCloudGateway.SpringCloudGatewayArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudApiPortal.NewSpringCloudApiPortal(ctx, "example", &appplatform/springCloudApiPortal.SpringCloudApiPortalArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// GatewayIds: []interface{}{
+// exampleSpringCloudGateway.Id,
+// },
+// HttpsOnlyEnabled: false,
+// PublicNetworkAccessEnabled: true,
+// InstanceCount: 1,
+// ApiTryOutEnabled: true,
+// Sso: map[string]interface{}{
+// "clientId": "test",
+// "clientSecret": "secret",
+// "issuerUri": "https://www.example.com/issueToken",
+// "scopes": []string{
+// "read",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

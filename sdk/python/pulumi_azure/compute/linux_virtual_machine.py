@@ -1767,60 +1767,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
 
-        ## Example Usage
-
-        This example provisions a basic Linux Virtual Machine on an internal network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
-            location=example.location,
-            resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-machine",
-            resource_group_name=example.name,
-            location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
-        ```
-
         ## Import
 
         Linux Virtual Machines can be imported using the `resource id`, e.g.
@@ -1929,60 +1875,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         > **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `compute.VirtualMachine` resource instead.
 
         > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
-
-        ## Example Usage
-
-        This example provisions a basic Linux Virtual Machine on an internal network.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            address_spaces=["10.0.0.0/16"],
-            location=example.location,
-            resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="internal",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-machine",
-            resource_group_name=example.name,
-            location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
-        ```
 
         ## Import
 

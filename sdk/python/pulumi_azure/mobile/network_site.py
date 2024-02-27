@@ -189,26 +189,26 @@ class NetworkSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_device = azure.databoxedge.Device("example",
-            name="example-device",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EdgeP_Base-Standard")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+            sku_name=EdgeP_Base-Standard)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_site = azure.mobile.NetworkSite("example",
-            name="example-mns",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_site = azure.mobile.network_site.NetworkSite("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -242,26 +242,26 @@ class NetworkSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_device = azure.databoxedge.Device("example",
-            name="example-device",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_device = azure.databoxedge.device.Device("example",
+            name=example-device,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EdgeP_Base-Standard")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+            sku_name=EdgeP_Base-Standard)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_site = azure.mobile.NetworkSite("example",
-            name="example-mns",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_site = azure.mobile.network_site.NetworkSite("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

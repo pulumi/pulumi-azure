@@ -36,9 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.ServiceArgs;
  * import com.pulumi.azure.webpubsub.Hub;
  * import com.pulumi.azure.webpubsub.HubArgs;
- * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerArgs;
- * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerAuthArgs;
- * import com.pulumi.azure.webpubsub.inputs.HubEventListenerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,42 +72,12 @@ import javax.annotation.Nullable;
  *             .name(&#34;tfex_wpsh&#34;)
  *             .webPubsubId(exampleService.id())
  *             .eventHandlers(            
- *                 HubEventHandlerArgs.builder()
- *                     .urlTemplate(&#34;https://test.com/api/{hub}/{event}&#34;)
- *                     .userEventPattern(&#34;*&#34;)
- *                     .systemEvents(                    
- *                         &#34;connect&#34;,
- *                         &#34;connected&#34;)
- *                     .build(),
- *                 HubEventHandlerArgs.builder()
- *                     .urlTemplate(&#34;https://test.com/api/{hub}/{event}&#34;)
- *                     .userEventPattern(&#34;event1, event2&#34;)
- *                     .systemEvents(&#34;connected&#34;)
- *                     .auth(HubEventHandlerAuthArgs.builder()
- *                         .managedIdentityId(exampleUserAssignedIdentity.id())
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .eventListeners(            
- *                 HubEventListenerArgs.builder()
- *                     .systemEventNameFilters(&#34;connected&#34;)
- *                     .userEventNameFilters(                    
- *                         &#34;event1&#34;,
- *                         &#34;event2&#34;)
- *                     .eventhubNamespaceName(test.name())
- *                     .eventhubName(test1.name())
- *                     .build(),
- *                 HubEventListenerArgs.builder()
- *                     .systemEventNameFilters(&#34;connected&#34;)
- *                     .userEventNameFilters(&#34;*&#34;)
- *                     .eventhubNamespaceName(test.name())
- *                     .eventhubName(test1.name())
- *                     .build(),
- *                 HubEventListenerArgs.builder()
- *                     .systemEventNameFilters(&#34;connected&#34;)
- *                     .userEventNameFilters(&#34;event1&#34;)
- *                     .eventhubNamespaceName(test.name())
- *                     .eventhubName(test1.name())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .anonymousConnectionsEnabled(true)
  *             .build());
  * 

@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.storage.Share;
  * import com.pulumi.azure.storage.ShareArgs;
- * import com.pulumi.azure.storage.inputs.ShareAclArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,14 +66,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;sharename&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .quota(50)
- *             .acls(ShareAclArgs.builder()
- *                 .id(&#34;MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI&#34;)
- *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
- *                     .permissions(&#34;rwdl&#34;)
- *                     .start(&#34;2019-07-02T09:38:21.0000000Z&#34;)
- *                     .expiry(&#34;2019-07-02T10:38:21.0000000Z&#34;)
- *                     .build())
- *                 .build())
+ *             .acls(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

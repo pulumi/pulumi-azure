@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "virtualnetwork",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Monitoring
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "subnet",
     ///         ResourceGroupName = example.Name,
@@ -50,23 +50,23 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("example", new()
     ///     {
     ///         Name = "nic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "internal",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "internal" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine.LinuxVirtualMachine("example", new()
     ///     {
     ///         Name = "machine",
     ///         ResourceGroupName = example.Name,
@@ -79,49 +79,49 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///         AdminPassword = "example-Password@7890",
     ///         DisablePasswordAuthentication = false,
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "Standard_LRS",
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "Standard_LRS" },
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 
-    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("example", new()
+    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule.DataCollectionRule("example", new()
     ///     {
     ///         Name = "example-dcr",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
+    ///         Destinations = 
     ///         {
-    ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
+    ///             { "azureMonitorMetrics", 
     ///             {
-    ///                 Name = "example-destination-metrics",
-    ///             },
+    ///                 { "name", "example-destination-metrics" },
+    ///             } },
     ///         },
     ///         DataFlows = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             
     ///             {
-    ///                 Streams = new[]
+    ///                 { "streams", new[]
     ///                 {
     ///                     "Microsoft-InsightsMetrics",
-    ///                 },
-    ///                 Destinations = new[]
+    ///                 } },
+    ///                 { "destinations", new[]
     ///                 {
     ///                     "example-destination-metrics",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("example", new()
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint.DataCollectionEndpoint("example", new()
     ///     {
     ///         Name = "example-dce",
     ///         ResourceGroupName = example.Name,
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Monitoring
     ///     });
     /// 
     ///     // associate to a Data Collection Rule
-    ///     var example1 = new Azure.Monitoring.DataCollectionRuleAssociation("example1", new()
+    ///     var example1 = new Azure.Monitoring.DataCollectionRuleAssociation.DataCollectionRuleAssociation("example1", new()
     ///     {
     ///         Name = "example1-dcra",
     ///         TargetResourceId = exampleLinuxVirtualMachine.Id,
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Monitoring
     ///     });
     /// 
     ///     // associate to a Data Collection Endpoint
-    ///     var example2 = new Azure.Monitoring.DataCollectionRuleAssociation("example2", new()
+    ///     var example2 = new Azure.Monitoring.DataCollectionRuleAssociation.DataCollectionRuleAssociation("example2", new()
     ///     {
     ///         TargetResourceId = exampleLinuxVirtualMachine.Id,
     ///         DataCollectionEndpointId = exampleDataCollectionEndpoint.Id,

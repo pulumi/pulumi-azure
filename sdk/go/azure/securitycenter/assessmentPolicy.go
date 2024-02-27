@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	securitycenter/assessmentPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/securitycenter/assessmentPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewAssessmentPolicy(ctx, "example", &securitycenter.AssessmentPolicyArgs{
-//				DisplayName: pulumi.String("Test Display Name"),
-//				Severity:    pulumi.String("Medium"),
-//				Description: pulumi.String("Test Description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitycenter/assessmentPolicy.NewAssessmentPolicy(ctx, "example", &securitycenter/assessmentPolicy.AssessmentPolicyArgs{
+// DisplayName: "Test Display Name",
+// Severity: "Medium",
+// Description: "Test Description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

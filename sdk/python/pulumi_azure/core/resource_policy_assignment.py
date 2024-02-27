@@ -514,37 +514,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         """
         Manages a Policy Assignment to a Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.network.get_virtual_network(name="production",
-            resource_group_name="networking")
-        example_definition = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
-            name="example-policy-assignment",
-            resource_id=example.id,
-            policy_definition_id=example_definition.id)
-        ```
-
         ## Import
 
         Resource Policy Assignments can be imported using the `resource id`, e.g.
@@ -584,37 +553,6 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Policy Assignment to a Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.network.get_virtual_network(name="production",
-            resource_group_name="networking")
-        example_definition = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="my-policy-definition",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
-            name="example-policy-assignment",
-            resource_id=example.id,
-            policy_definition_id=example_definition.id)
-        ```
 
         ## Import
 

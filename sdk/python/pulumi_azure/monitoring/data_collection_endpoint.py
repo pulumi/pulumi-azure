@@ -304,18 +304,18 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
-            name="example-mdce",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_data_collection_endpoint = azure.monitoring.data_collection_endpoint.DataCollectionEndpoint("example",
+            name=example-mdce,
             resource_group_name=example.name,
             location=example.location,
-            kind="Windows",
+            kind=Windows,
             public_network_access_enabled=True,
-            description="monitor_data_collection_endpoint example",
+            description=monitor_data_collection_endpoint example,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -352,18 +352,18 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
-            name="example-mdce",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_data_collection_endpoint = azure.monitoring.data_collection_endpoint.DataCollectionEndpoint("example",
+            name=example-mdce,
             resource_group_name=example.name,
             location=example.location,
-            kind="Windows",
+            kind=Windows,
             public_network_access_enabled=True,
-            description="monitor_data_collection_endpoint example",
+            description=monitor_data_collection_endpoint example,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

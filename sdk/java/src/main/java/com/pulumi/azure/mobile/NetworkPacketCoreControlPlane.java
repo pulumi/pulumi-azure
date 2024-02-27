@@ -40,8 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.databoxedge.DeviceArgs;
  * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlane;
  * import com.pulumi.azure.mobile.NetworkPacketCoreControlPlaneArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlanePlatformArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -92,18 +90,13 @@ import javax.annotation.Nullable;
  *             .controlPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
  *             .controlPlaneAccessIpv4Subnet(&#34;192.168.1.0/25&#34;)
  *             .siteIds(exampleNetworkSite.id())
- *             .localDiagnosticsAccess(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs.builder()
- *                 .authenticationType(&#34;AAD&#34;)
- *                 .build())
- *             .platform(NetworkPacketCoreControlPlanePlatformArgs.builder()
- *                 .type(&#34;AKS-HCI&#34;)
- *                 .edgeDeviceId(exampleDevice.id())
- *                 .build())
+ *             .localDiagnosticsAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .platform(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .interoperabilitySettingsJson(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;key&#34;, &#34;value&#34;)
  *                 )))
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

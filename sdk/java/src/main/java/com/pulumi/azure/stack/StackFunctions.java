@@ -17,80 +17,12 @@ public final class StackFunctions {
     /**
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.stack.StackFunctions;
-     * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args) {
         return getHciCluster(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.stack.StackFunctions;
-     * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args) {
@@ -99,80 +31,12 @@ public final class StackFunctions {
     /**
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.stack.StackFunctions;
-     * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:stack/getHciCluster:getHciCluster", TypeShape.of(GetHciClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.stack.StackFunctions;
-     * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.id()));
-     *         ctx.export(&#34;location&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.location()));
-     *         ctx.export(&#34;clientId&#34;, example.applyValue(getHciClusterResult -&gt; getHciClusterResult.clientId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args, InvokeOptions options) {

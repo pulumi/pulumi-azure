@@ -27,16 +27,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualWan;
- * import com.pulumi.azure.network.VirtualWanArgs;
- * import com.pulumi.azure.network.VirtualHub;
- * import com.pulumi.azure.network.VirtualHubArgs;
+ * import com.pulumi.azure.network_virtualWan.VirtualWan;
+ * import com.pulumi.azure.network_virtualWan.VirtualWanArgs;
+ * import com.pulumi.azure.network_virtualHub.VirtualHub;
+ * import com.pulumi.azure.network_virtualHub.VirtualHubArgs;
  * import com.pulumi.azure.network.Firewall;
  * import com.pulumi.azure.network.FirewallArgs;
- * import com.pulumi.azure.network.inputs.FirewallVirtualHubArgs;
  * import com.pulumi.azure.network.RoutingIntent;
  * import com.pulumi.azure.network.RoutingIntentArgs;
- * import com.pulumi.azure.network.inputs.RoutingIntentRoutingPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,20 +73,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;AZFW_Hub&#34;)
  *             .skuTier(&#34;Standard&#34;)
- *             .virtualHub(FirewallVirtualHubArgs.builder()
- *                 .virtualHubId(exampleVirtualHub.id())
- *                 .publicIpCount(1)
- *                 .build())
+ *             .virtualHub(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRoutingIntent = new RoutingIntent(&#34;exampleRoutingIntent&#34;, RoutingIntentArgs.builder()        
  *             .name(&#34;example-routingintent&#34;)
  *             .virtualHubId(exampleVirtualHub.id())
- *             .routingPolicies(RoutingIntentRoutingPolicyArgs.builder()
- *                 .name(&#34;InternetTrafficPolicy&#34;)
- *                 .destinations(&#34;Internet&#34;)
- *                 .nextHop(exampleFirewall.id())
- *                 .build())
+ *             .routingPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

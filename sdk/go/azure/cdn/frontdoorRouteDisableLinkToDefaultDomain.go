@@ -23,27 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	cdn/frontdoorRouteDisableLinkToDefaultDomain "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/frontdoorRouteDisableLinkToDefaultDomain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.NewFrontdoorRouteDisableLinkToDefaultDomain(ctx, "example", &cdn.FrontdoorRouteDisableLinkToDefaultDomainArgs{
-//				CdnFrontdoorRouteId: pulumi.Any(exampleAzurermCdnFrontdoorRoute.Id),
-//				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
-//					contoso.Id,
-//					fabrikam.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cdn/frontdoorRouteDisableLinkToDefaultDomain.NewFrontdoorRouteDisableLinkToDefaultDomain(ctx, "example", &cdn/frontdoorRouteDisableLinkToDefaultDomain.FrontdoorRouteDisableLinkToDefaultDomainArgs{
+// CdnFrontdoorRouteId: exampleAzurermCdnFrontdoorRoute.Id,
+// CdnFrontdoorCustomDomainIds: []interface{}{
+// contoso.Id,
+// fabrikam.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

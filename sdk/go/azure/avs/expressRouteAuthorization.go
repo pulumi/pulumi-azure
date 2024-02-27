@@ -21,48 +21,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/avs"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	avs/expressRouteAuthorization "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/avs/expressRouteAuthorization"
+//	avs/privateCloud "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/avs/privateCloud"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "example", &avs.PrivateCloudArgs{
-//				Name:              pulumi.String("example-vmware-private-cloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("av36"),
-//				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
-//					Size: pulumi.Int(3),
-//				},
-//				NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
-//				InternetConnectionEnabled: pulumi.Bool(false),
-//				NsxtPassword:              pulumi.String("QazWsx13$Edc"),
-//				VcenterPassword:           pulumi.String("WsxEdc23$Rfv"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = avs.NewExpressRouteAuthorization(ctx, "example", &avs.ExpressRouteAuthorizationArgs{
-//				Name:           pulumi.String("example-authorization"),
-//				PrivateCloudId: examplePrivateCloud.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePrivateCloud, err := avs/privateCloud.NewPrivateCloud(ctx, "example", &avs/privateCloud.PrivateCloudArgs{
+// Name: "example-vmware-private-cloud",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "av36",
+// ManagementCluster: map[string]interface{}{
+// "size": 3,
+// },
+// NetworkSubnetCidr: "192.168.48.0/22",
+// InternetConnectionEnabled: false,
+// NsxtPassword: "QazWsx13$Edc",
+// VcenterPassword: "WsxEdc23$Rfv",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = avs/expressRouteAuthorization.NewExpressRouteAuthorization(ctx, "example", &avs/expressRouteAuthorization.ExpressRouteAuthorizationArgs{
+// Name: "example-authorization",
+// PrivateCloudId: examplePrivateCloud.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

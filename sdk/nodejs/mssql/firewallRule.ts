@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "mysqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleFirewallRule = new azure.mssql.FirewallRule("example", {
+ * const exampleFirewallRule = new azure.mssql/firewallRule.FirewallRule("example", {
  *     name: "FirewallRule1",
  *     serverId: exampleServer.id,
  *     startIpAddress: "10.0.17.62",

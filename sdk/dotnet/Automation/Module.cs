@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "account1",
     ///         Location = example.Location,
@@ -36,14 +36,14 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleModule = new Azure.Automation.Module("example", new()
+    ///     var exampleModule = new Azure.Automation.Module.Module("example", new()
     ///     {
     ///         Name = "xActiveDirectory",
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
-    ///         ModuleLink = new Azure.Automation.Inputs.ModuleModuleLinkArgs
+    ///         ModuleLink = 
     ///         {
-    ///             Uri = "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
+    ///             { "uri", "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg" },
     ///         },
     ///     });
     /// 

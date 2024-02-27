@@ -22,13 +22,13 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDomain = new Azure.EventGrid.Domain("example", new()
+    ///     var exampleDomain = new Azure.Eventgrid.Domain.Domain("example", new()
     ///     {
     ///         Name = "my-eventgrid-domain",
     ///         Location = example.Location,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.EventGrid
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainTopic = new Azure.EventGrid.DomainTopic("example", new()
+    ///     var exampleDomainTopic = new Azure.Eventgrid.DomainTopic.DomainTopic("example", new()
     ///     {
     ///         Name = "my-eventgrid-domain-topic",
     ///         DomainName = exampleDomain.Name,

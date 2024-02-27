@@ -21,47 +21,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/postgresqlCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/postgresqlCluster"
+//	cosmosdb/postgresqlCoordinatorConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/postgresqlCoordinatorConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cosmosdb.NewPostgresqlCluster(ctx, "example", &cosmosdb.PostgresqlClusterArgs{
-//				Name:                        pulumi.String("examplecluster"),
-//				ResourceGroupName:           pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Location:                    pulumi.Any(exampleAzurermResourceGroup.Location),
-//				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
-//				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
-//				CoordinatorVcoreCount:       pulumi.Int(2),
-//				NodeCount:                   pulumi.Int(2),
-//				NodeStorageQuotaInMb:        pulumi.Int(131072),
-//				NodeVcores:                  pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewPostgresqlCoordinatorConfiguration(ctx, "example", &cosmosdb.PostgresqlCoordinatorConfigurationArgs{
-//				Name:      pulumi.String("array_nulls"),
-//				ClusterId: example.ID(),
-//				Value:     pulumi.String("on"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceGroup.NewResourceGroup(ctx, "test", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// example, err := cosmosdb/postgresqlCluster.NewPostgresqlCluster(ctx, "example", &cosmosdb/postgresqlCluster.PostgresqlClusterArgs{
+// Name: "examplecluster",
+// ResourceGroupName: exampleAzurermResourceGroup.Name,
+// Location: exampleAzurermResourceGroup.Location,
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// CoordinatorStorageQuotaInMb: 131072,
+// CoordinatorVcoreCount: 2,
+// NodeCount: 2,
+// NodeStorageQuotaInMb: 131072,
+// NodeVcores: 2,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/postgresqlCoordinatorConfiguration.NewPostgresqlCoordinatorConfiguration(ctx, "example", &cosmosdb/postgresqlCoordinatorConfiguration.PostgresqlCoordinatorConfigurationArgs{
+// Name: "array_nulls",
+// ClusterId: example.Id,
+// Value: "on",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

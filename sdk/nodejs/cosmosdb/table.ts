@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Table within a Cosmos DB Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleTable = new azure.cosmosdb.Table("example", {
- *     name: "tfex-cosmos-table",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     accountName: example.then(example => example.name),
- *     throughput: 400,
- * });
- * ```
- *
  * ## Import
  *
  * CosmosDB Tables can be imported using the `resource id`, e.g.

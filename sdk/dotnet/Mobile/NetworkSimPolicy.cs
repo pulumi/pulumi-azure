@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network.Network("example", new()
     ///     {
     ///         Name = "example-mn",
     ///         Location = example.Location,
@@ -37,14 +37,14 @@ namespace Pulumi.Azure.Mobile
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("example", new()
+    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork.NetworkDataNetwork("example", new()
     ///     {
     ///         Name = "example-mndn",
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleNetworkService = new Azure.Mobile.NetworkService("example", new()
+    ///     var exampleNetworkService = new Azure.Mobile.NetworkService.NetworkService("example", new()
     ///     {
     ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,
@@ -52,44 +52,44 @@ namespace Pulumi.Azure.Mobile
     ///         ServicePrecedence = 0,
     ///         PccRules = new[]
     ///         {
-    ///             new Azure.Mobile.Inputs.NetworkServicePccRuleArgs
+    ///             
     ///             {
-    ///                 Name = "default-rule",
-    ///                 Precedence = 1,
-    ///                 TrafficControlEnabled = true,
-    ///                 ServiceDataFlowTemplates = new[]
+    ///                 { "name", "default-rule" },
+    ///                 { "precedence", 1 },
+    ///                 { "trafficControlEnabled", true },
+    ///                 { "serviceDataFlowTemplates", new[]
     ///                 {
-    ///                     new Azure.Mobile.Inputs.NetworkServicePccRuleServiceDataFlowTemplateArgs
+    ///                     
     ///                     {
-    ///                         Direction = "Uplink",
-    ///                         Name = "IP-to-server",
-    ///                         Ports = new() { },
-    ///                         Protocols = new[]
+    ///                         { "direction", "Uplink" },
+    ///                         { "name", "IP-to-server" },
+    ///                         { "ports", new[] {} },
+    ///                         { "protocols", new[]
     ///                         {
     ///                             "ip",
-    ///                         },
-    ///                         RemoteIpLists = new[]
+    ///                         } },
+    ///                         { "remoteIpLists", new[]
     ///                         {
     ///                             "10.3.4.0/24",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("example", new()
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice.NetworkSlice("example", new()
     ///     {
     ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
-    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
+    ///         SingleNetworkSliceSelectionAssistanceInformation = 
     ///         {
-    ///             SliceServiceType = 1,
+    ///             { "sliceServiceType", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSimPolicy = new Azure.Mobile.NetworkSimPolicy("example", new()
+    ///     var exampleNetworkSimPolicy = new Azure.Mobile.NetworkSimPolicy.NetworkSimPolicy("example", new()
     ///     {
     ///         Name = "example-mnsp",
     ///         MobileNetworkId = exampleNetwork.Id,
@@ -98,37 +98,37 @@ namespace Pulumi.Azure.Mobile
     ///         DefaultSliceId = exampleNetworkSlice.Id,
     ///         Slices = new[]
     ///         {
-    ///             new Azure.Mobile.Inputs.NetworkSimPolicySliceArgs
+    ///             
     ///             {
-    ///                 DefaultDataNetworkId = exampleNetworkDataNetwork.Id,
-    ///                 SliceId = exampleNetworkSlice.Id,
-    ///                 DataNetworks = new[]
+    ///                 { "defaultDataNetworkId", exampleNetworkDataNetwork.Id },
+    ///                 { "sliceId", exampleNetworkSlice.Id },
+    ///                 { "dataNetworks", new[]
     ///                 {
-    ///                     new Azure.Mobile.Inputs.NetworkSimPolicySliceDataNetworkArgs
+    ///                     
     ///                     {
-    ///                         DataNetworkId = exampleNetworkDataNetwork.Id,
-    ///                         AllocationAndRetentionPriorityLevel = 9,
-    ///                         DefaultSessionType = "IPv4",
-    ///                         QosIndicator = 9,
-    ///                         PreemptionCapability = "NotPreempt",
-    ///                         PreemptionVulnerability = "Preemptable",
-    ///                         AllowedServicesIds = new[]
+    ///                         { "dataNetworkId", exampleNetworkDataNetwork.Id },
+    ///                         { "allocationAndRetentionPriorityLevel", 9 },
+    ///                         { "defaultSessionType", "IPv4" },
+    ///                         { "qosIndicator", 9 },
+    ///                         { "preemptionCapability", "NotPreempt" },
+    ///                         { "preemptionVulnerability", "Preemptable" },
+    ///                         { "allowedServicesIds", new[]
     ///                         {
     ///                             exampleNetworkService.Id,
-    ///                         },
-    ///                         SessionAggregateMaximumBitRate = new Azure.Mobile.Inputs.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs
+    ///                         } },
+    ///                         { "sessionAggregateMaximumBitRate", 
     ///                         {
-    ///                             Downlink = "1 Gbps",
-    ///                             Uplink = "500 Mbps",
-    ///                         },
+    ///                             { "downlink", "1 Gbps" },
+    ///                             { "uplink", "500 Mbps" },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         UserEquipmentAggregateMaximumBitRate = new Azure.Mobile.Inputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs
+    ///         UserEquipmentAggregateMaximumBitRate = 
     ///         {
-    ///             Downlink = "1 Gbps",
-    ///             Uplink = "500 Mbps",
+    ///             { "downlink", "1 Gbps" },
+    ///             { "uplink", "500 Mbps" },
     ///         },
     ///         Tags = 
     ///         {

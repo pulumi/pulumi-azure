@@ -30,13 +30,13 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     var firstPublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com";
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         ResourceGroupName = example.Name,
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     var @internal = new Azure.Network.Subnet.Subnet("internal", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "example-vmss",
     ///         ResourceGroupName = example.Name,
@@ -68,39 +68,39 @@ namespace Pulumi.Azure.Compute
     ///         AdminUsername = "adminuser",
     ///         AdminSshKeys = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///             
     ///             {
-    ///                 Username = "adminuser",
-    ///                 PublicKey = firstPublicKey,
+    ///                 { "username", "adminuser" },
+    ///                 { "publicKey", firstPublicKey },
     ///             },
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
+    ///             { "storageAccountType", "Standard_LRS" },
+    ///             { "caching", "ReadWrite" },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "example" },
+    ///                 { "primary", true },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "internal",
-    ///                         Primary = true,
-    ///                         SubnetId = @internal.Id,
+    ///                         { "name", "internal" },
+    ///                         { "primary", true },
+    ///                         { "subnetId", @internal.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

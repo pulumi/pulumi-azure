@@ -321,15 +321,15 @@ class AvailabilitySet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_availability_set = azure.compute.AvailabilitySet("example",
-            name="example-aset",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_availability_set = azure.compute.availability_set.AvailabilitySet("example",
+            name=example-aset,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -371,15 +371,15 @@ class AvailabilitySet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_availability_set = azure.compute.AvailabilitySet("example",
-            name="example-aset",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_availability_set = azure.compute.availability_set.AvailabilitySet("example",
+            name=example-aset,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

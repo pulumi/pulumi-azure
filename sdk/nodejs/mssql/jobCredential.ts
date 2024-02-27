@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "northeurope",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "example-server",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,18 +25,18 @@ import * as utilities from "../utilities";
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleDatabase = new azure.mssql.Database("example", {
+ * const exampleDatabase = new azure.mssql/database.Database("example", {
  *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     skuName: "S1",
  * });
- * const exampleJobAgent = new azure.mssql.JobAgent("example", {
+ * const exampleJobAgent = new azure.mssql/jobAgent.JobAgent("example", {
  *     name: "example-job-agent",
  *     location: example.location,
  *     databaseId: exampleDatabase.id,
  * });
- * const exampleJobCredential = new azure.mssql.JobCredential("example", {
+ * const exampleJobCredential = new azure.mssql/jobCredential.JobCredential("example", {
  *     name: "example-credential",
  *     jobAgentId: exampleJobAgent.id,
  *     username: "my-username",

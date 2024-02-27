@@ -101,17 +101,6 @@ def get_account(identity: Optional[pulumi.InputType['GetAccountIdentityArgs']] =
     """
     Uses this data source to access information about an existing NetApp Account.
 
-    ## NetApp Account Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_account(resource_group_name="acctestRG",
-        name="acctestnetappaccount")
-    pulumi.export("netappAccountId", example.id)
-    ```
-
 
     :param str name: The name of the NetApp Account.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Account exists.
@@ -139,17 +128,6 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Uses this data source to access information about an existing NetApp Account.
-
-    ## NetApp Account Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.netapp.get_account(resource_group_name="acctestRG",
-        name="acctestnetappaccount")
-    pulumi.export("netappAccountId", example.id)
-    ```
 
 
     :param str name: The name of the NetApp Account.

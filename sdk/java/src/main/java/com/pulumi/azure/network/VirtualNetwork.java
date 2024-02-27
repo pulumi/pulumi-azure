@@ -41,9 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkSubnetArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,16 +76,9 @@ import javax.annotation.Nullable;
  *                 &#34;10.0.0.4&#34;,
  *                 &#34;10.0.0.5&#34;)
  *             .subnets(            
- *                 VirtualNetworkSubnetArgs.builder()
- *                     .name(&#34;subnet1&#34;)
- *                     .addressPrefix(&#34;10.0.1.0/24&#34;)
- *                     .build(),
- *                 VirtualNetworkSubnetArgs.builder()
- *                     .name(&#34;subnet2&#34;)
- *                     .addressPrefix(&#34;10.0.2.0/24&#34;)
- *                     .securityGroup(exampleNetworkSecurityGroup.id())
- *                     .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

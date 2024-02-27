@@ -304,17 +304,17 @@ class LinkedServicePostgresql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_postgresql = azure.datafactory.LinkedServicePostgresql("example",
-            name="example",
+        example_linked_service_postgresql = azure.datafactory.linked_service_postgresql.LinkedServicePostgresql("example",
+            name=example,
             data_factory_id=example_factory.id,
-            connection_string="Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")
+            connection_string=Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example)
         ```
 
         ## Import
@@ -351,17 +351,17 @@ class LinkedServicePostgresql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_postgresql = azure.datafactory.LinkedServicePostgresql("example",
-            name="example",
+        example_linked_service_postgresql = azure.datafactory.linked_service_postgresql.LinkedServicePostgresql("example",
+            name=example,
             data_factory_id=example_factory.id,
-            connection_string="Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")
+            connection_string=Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example)
         ```
 
         ## Import

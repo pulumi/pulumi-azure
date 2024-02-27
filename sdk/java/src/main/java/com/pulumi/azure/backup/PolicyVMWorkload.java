@@ -28,15 +28,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.recoveryservices.Vault;
- * import com.pulumi.azure.recoveryservices.VaultArgs;
+ * import com.pulumi.azure.recoveryservices_vault.Vault;
+ * import com.pulumi.azure.recoveryservices_vault.VaultArgs;
  * import com.pulumi.azure.backup.PolicyVMWorkload;
  * import com.pulumi.azure.backup.PolicyVMWorkloadArgs;
- * import com.pulumi.azure.backup.inputs.PolicyVMWorkloadSettingsArgs;
- * import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicyArgs;
- * import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicyBackupArgs;
- * import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs;
- * import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,30 +63,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .workloadType(&#34;SQLDataBase&#34;)
- *             .settings(PolicyVMWorkloadSettingsArgs.builder()
- *                 .timeZone(&#34;UTC&#34;)
- *                 .compressionEnabled(false)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .protectionPolicies(            
- *                 PolicyVMWorkloadProtectionPolicyArgs.builder()
- *                     .policyType(&#34;Full&#34;)
- *                     .backup(PolicyVMWorkloadProtectionPolicyBackupArgs.builder()
- *                         .frequency(&#34;Daily&#34;)
- *                         .time(&#34;15:00&#34;)
- *                         .build())
- *                     .retentionDaily(PolicyVMWorkloadProtectionPolicyRetentionDailyArgs.builder()
- *                         .count(8)
- *                         .build())
- *                     .build(),
- *                 PolicyVMWorkloadProtectionPolicyArgs.builder()
- *                     .policyType(&#34;Log&#34;)
- *                     .backup(PolicyVMWorkloadProtectionPolicyBackupArgs.builder()
- *                         .frequencyInMinutes(15)
- *                         .build())
- *                     .simpleRetention(PolicyVMWorkloadProtectionPolicySimpleRetentionArgs.builder()
- *                         .count(8)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

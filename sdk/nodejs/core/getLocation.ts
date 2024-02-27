@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information of a specific physical location.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getLocation({
- *     location: "West Europe",
- * });
- * ```
  */
 export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
 
@@ -58,17 +47,6 @@ export interface GetLocationResult {
 }
 /**
  * Use this data source to access information of a specific physical location.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getLocation({
- *     location: "West Europe",
- * });
- * ```
  */
 export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
     return pulumi.output(args).apply((a: any) => getLocation(a, opts))

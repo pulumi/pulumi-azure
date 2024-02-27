@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing NetApp Account Encryption Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := netapp.LookupAccountEncryption(ctx, &netapp.LookupAccountEncryptionArgs{
-//				NetappAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccountEncryption(ctx *pulumi.Context, args *LookupAccountEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupAccountEncryptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountEncryptionResult

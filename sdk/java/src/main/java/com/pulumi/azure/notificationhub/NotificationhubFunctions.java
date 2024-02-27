@@ -20,78 +20,12 @@ public final class NotificationhubFunctions {
     /**
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args) {
         return getHub(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args) {
@@ -100,78 +34,12 @@ public final class NotificationhubFunctions {
     /**
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHubResult> getHub(GetHubArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:notificationhub/getHub:getHub", TypeShape.of(GetHubResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetHubArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getHub(GetHubArgs.builder()
-     *             .name(&#34;notification-hub&#34;)
-     *             .namespaceName(&#34;namespace-name&#34;)
-     *             .resourceGroupName(&#34;resource-group-name&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getHubResult -&gt; getHubResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHubResult> getHubPlain(GetHubPlainArgs args, InvokeOptions options) {
@@ -180,76 +48,12 @@ public final class NotificationhubFunctions {
     /**
      * Use this data source to access information about an existing Notification Hub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
         return getNamespace(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Notification Hub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -258,76 +62,12 @@ public final class NotificationhubFunctions {
     /**
      * Use this data source to access information about an existing Notification Hub Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:notificationhub/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Notification Hub Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NotificationhubFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .name(&#34;my-namespace&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;servicebusEndpoint&#34;, example.applyValue(getNamespaceResult -&gt; getNamespaceResult.servicebusEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {

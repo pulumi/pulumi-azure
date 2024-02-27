@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "terraform-webpubsub",
  *     location: "east us",
  * });
- * const exampleService = new azure.webpubsub.Service("example", {
+ * const exampleService = new azure.webpubsub/service.Service("example", {
  *     name: "tfex-webpubsub",
  *     location: example.location,
  *     resourceGroupName: example.name,

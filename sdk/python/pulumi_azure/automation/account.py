@@ -415,16 +415,16 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic",
+            sku_name=Basic,
             tags={
-                "environment": "development",
+                environment: development,
             })
         ```
 
@@ -463,16 +463,16 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="example-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=example-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic",
+            sku_name=Basic,
             tags={
-                "environment": "development",
+                environment: development,
             })
         ```
 

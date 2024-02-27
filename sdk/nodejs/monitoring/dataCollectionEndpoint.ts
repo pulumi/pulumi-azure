@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("example", {
+ * const exampleDataCollectionEndpoint = new azure.monitoring/dataCollectionEndpoint.DataCollectionEndpoint("example", {
  *     name: "example-mdce",
  *     resourceGroupName: example.name,
  *     location: example.location,

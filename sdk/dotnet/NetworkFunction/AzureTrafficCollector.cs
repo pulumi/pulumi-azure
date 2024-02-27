@@ -22,13 +22,13 @@ namespace Pulumi.Azure.NetworkFunction
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleAzureTrafficCollector = new Azure.NetworkFunction.AzureTrafficCollector("example", new()
+    ///     var exampleAzureTrafficCollector = new Azure.Networkfunction.AzureTrafficCollector.AzureTrafficCollector("example", new()
     ///     {
     ///         Name = "example-nfatc",
     ///         ResourceGroupName = example.Name,

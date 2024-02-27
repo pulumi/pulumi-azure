@@ -23,67 +23,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Policy Assignment to a Resource.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.network.NetworkFunctions;
- * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
- * import com.pulumi.azure.policy.Definition;
- * import com.pulumi.azure.policy.DefinitionArgs;
- * import com.pulumi.azure.core.ResourcePolicyAssignment;
- * import com.pulumi.azure.core.ResourcePolicyAssignmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
- *             .name(&#34;production&#34;)
- *             .resourceGroupName(&#34;networking&#34;)
- *             .build());
- * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .name(&#34;only-deploy-in-westeurope&#34;)
- *             .policyType(&#34;Custom&#34;)
- *             .mode(&#34;All&#34;)
- *             .displayName(&#34;my-policy-definition&#34;)
- *             .policyRule(&#34;&#34;&#34;
- *  {
- *     &#34;if&#34;: {
- *       &#34;not&#34;: {
- *         &#34;field&#34;: &#34;location&#34;,
- *         &#34;equals&#34;: &#34;westeurope&#34;
- *       }
- *     },
- *     &#34;then&#34;: {
- *       &#34;effect&#34;: &#34;Deny&#34;
- *     }
- *   }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
- *             .name(&#34;example-policy-assignment&#34;)
- *             .resourceId(example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
- *             .policyDefinitionId(exampleDefinition.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Resource Policy Assignments can be imported using the `resource id`, e.g.

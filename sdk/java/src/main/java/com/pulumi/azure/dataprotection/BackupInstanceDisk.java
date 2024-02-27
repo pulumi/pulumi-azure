@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.ManagedDiskArgs;
  * import com.pulumi.azure.dataprotection.BackupVault;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyDisk;
@@ -69,21 +68,19 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .datastoreType(&#34;VaultStore&#34;)
  *             .redundancy(&#34;LocallyRedundant&#34;)
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example1 = new Assignment(&#34;example1&#34;, AssignmentArgs.builder()        
  *             .scope(example.id())
  *             .roleDefinitionName(&#34;Disk Snapshot Contributor&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().principalId())
  *             .build());
  * 
  *         var example2 = new Assignment(&#34;example2&#34;, AssignmentArgs.builder()        
  *             .scope(exampleManagedDisk.id())
  *             .roleDefinitionName(&#34;Disk Backup Reader&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().principalId())
  *             .build());
  * 
  *         var exampleBackupPolicyDisk = new BackupPolicyDisk(&#34;exampleBackupPolicyDisk&#34;, BackupPolicyDiskArgs.builder()        

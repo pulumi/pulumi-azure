@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "examplevn",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Hpc
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "examplesubnet",
     ///         ResourceGroupName = example.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Hpc
     ///         },
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Hpc.Cache("example", new()
+    ///     var exampleCache = new Azure.Hpc.Cache.Cache("example", new()
     ///     {
     ///         Name = "examplehpccache",
     ///         ResourceGroupName = example.Name,

@@ -20,17 +20,17 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/subscriptionTemplateDeployment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/subscriptionTemplateDeployment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/subscriptionTemplateDeployment.NewSubscriptionTemplateDeployment(ctx, "example", &core/subscriptionTemplateDeployment.SubscriptionTemplateDeploymentArgs{
+// Name: "example-deployment",
+// Location: "West Europe",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewSubscriptionTemplateDeployment(ctx, "example", &core.SubscriptionTemplateDeploymentArgs{
-//				Name:     pulumi.String("example-deployment"),
-//				Location: pulumi.String("West Europe"),
-//				TemplateContent: pulumi.String(` {
+//	TemplateContent: ` {
 //	   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 //	   "contentVersion": "1.0.0.0",
 //	   "parameters": {},
@@ -46,16 +46,14 @@ import (
 //	   ]
 //	 }
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

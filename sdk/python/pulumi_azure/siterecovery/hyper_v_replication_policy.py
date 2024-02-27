@@ -203,16 +203,16 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=East US)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.siterecovery.HyperVReplicationPolicy("policy",
-            name="policy",
+            sku=Standard)
+        policy = azure.siterecovery.hyper_v_replication_policy.HyperVReplicationPolicy("policy",
+            name=policy,
             recovery_vault_id=vault.id,
             recovery_point_retention_in_hours=2,
             application_consistent_snapshot_frequency_in_hours=1,
@@ -250,16 +250,16 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=East US)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.siterecovery.HyperVReplicationPolicy("policy",
-            name="policy",
+            sku=Standard)
+        policy = azure.siterecovery.hyper_v_replication_policy.HyperVReplicationPolicy("policy",
+            name=policy,
             recovery_vault_id=vault.id,
             recovery_point_retention_in_hours=2,
             application_consistent_snapshot_frequency_in_hours=1,

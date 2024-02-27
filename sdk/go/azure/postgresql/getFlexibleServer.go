@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing PostgreSQL Flexible Server.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := postgresql.LookupFlexibleServer(ctx, &postgresql.LookupFlexibleServerArgs{
-//				Name:              "existing-postgresql-fs",
-//				ResourceGroupName: "existing-postgresql-resgroup",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFlexibleServer(ctx *pulumi.Context, args *LookupFlexibleServerArgs, opts ...pulumi.InvokeOption) (*LookupFlexibleServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlexibleServerResult

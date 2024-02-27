@@ -46,7 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
  * import java.util.List;
@@ -79,10 +78,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;azure-functions-test-service-plan&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Standard&#34;)
- *                 .size(&#34;S1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
@@ -110,7 +106,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
  * import java.util.List;
@@ -144,10 +139,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind(&#34;FunctionApp&#34;)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
@@ -175,7 +167,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
  * import java.util.List;
@@ -210,10 +201,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;Linux&#34;)
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
@@ -233,7 +221,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  * ### Python In A Consumption Plan)
- * 
  * ```java
  * package generated_program;
  * 
@@ -246,10 +233,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
- * import com.pulumi.azure.appservice.inputs.FunctionAppSiteConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -282,10 +267,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;Linux&#34;)
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
@@ -297,10 +279,8 @@ import javax.annotation.Nullable;
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .osType(&#34;linux&#34;)
  *             .version(&#34;~4&#34;)
- *             .appSettings(Map.of(&#34;FUNCTIONS_WORKER_RUNTIME&#34;, &#34;python&#34;))
- *             .siteConfig(FunctionAppSiteConfigArgs.builder()
- *                 .linuxFxVersion(&#34;python|3.9&#34;)
- *                 .build())
+ *             .appSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .siteConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -444,48 +444,48 @@ class TriggerBlobEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_pipeline = azure.datafactory.Pipeline("example",
-            name="example",
+        example_pipeline = azure.datafactory.pipeline.Pipeline("example",
+            name=example,
             data_factory_id=example_factory.id)
-        example_account = azure.storage.Account("example",
-            name="example",
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_trigger_blob_event = azure.datafactory.TriggerBlobEvent("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_trigger_blob_event = azure.datafactory.trigger_blob_event.TriggerBlobEvent("example",
+            name=example,
             data_factory_id=example_factory.id,
             storage_account_id=example_account.id,
             events=[
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobDeleted",
+                Microsoft.Storage.BlobCreated,
+                Microsoft.Storage.BlobDeleted,
             ],
-            blob_path_ends_with=".txt",
+            blob_path_ends_with=.txt,
             ignore_empty_blobs=True,
             activated=True,
             annotations=[
-                "test1",
-                "test2",
-                "test3",
+                test1,
+                test2,
+                test3,
             ],
-            description="example description",
-            pipelines=[azure.datafactory.TriggerBlobEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
+            description=example description,
+            pipelines=[{
+                name: example_pipeline.name,
+                parameters: {
+                    Env: Prod,
                 },
-            )],
+            }],
             additional_properties={
-                "foo": "foo1",
-                "bar": "bar2",
+                foo: foo1,
+                bar: bar2,
             })
         ```
 
@@ -529,48 +529,48 @@ class TriggerBlobEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_pipeline = azure.datafactory.Pipeline("example",
-            name="example",
+        example_pipeline = azure.datafactory.pipeline.Pipeline("example",
+            name=example,
             data_factory_id=example_factory.id)
-        example_account = azure.storage.Account("example",
-            name="example",
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_trigger_blob_event = azure.datafactory.TriggerBlobEvent("example",
-            name="example",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_trigger_blob_event = azure.datafactory.trigger_blob_event.TriggerBlobEvent("example",
+            name=example,
             data_factory_id=example_factory.id,
             storage_account_id=example_account.id,
             events=[
-                "Microsoft.Storage.BlobCreated",
-                "Microsoft.Storage.BlobDeleted",
+                Microsoft.Storage.BlobCreated,
+                Microsoft.Storage.BlobDeleted,
             ],
-            blob_path_ends_with=".txt",
+            blob_path_ends_with=.txt,
             ignore_empty_blobs=True,
             activated=True,
             annotations=[
-                "test1",
-                "test2",
-                "test3",
+                test1,
+                test2,
+                test3,
             ],
-            description="example description",
-            pipelines=[azure.datafactory.TriggerBlobEventPipelineArgs(
-                name=example_pipeline.name,
-                parameters={
-                    "Env": "Prod",
+            description=example description,
+            pipelines=[{
+                name: example_pipeline.name,
+                parameters: {
+                    Env: Prod,
                 },
-            )],
+            }],
             additional_properties={
-                "foo": "foo1",
-                "bar": "bar2",
+                foo: foo1,
+                bar: bar2,
             })
         ```
 

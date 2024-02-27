@@ -26,14 +26,14 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     // NOTE: the Name used for Redis needs to be globally unique
-    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     var exampleCache = new Azure.Redis.Cache.Cache("example", new()
     ///     {
     ///         Name = "example-cache",
     ///         Location = example.Location,

@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/communication"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	communication/emailService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/communication/emailService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = communication.NewEmailService(ctx, "example", &communication.EmailServiceArgs{
-//				Name:              pulumi.String("example-emailcommunicationservice"),
-//				ResourceGroupName: example.Name,
-//				DataLocation:      pulumi.String("United States"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = communication/emailService.NewEmailService(ctx, "example", &communication/emailService.EmailServiceArgs{
+// Name: "example-emailcommunicationservice",
+// ResourceGroupName: example.Name,
+// DataLocation: "United States",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

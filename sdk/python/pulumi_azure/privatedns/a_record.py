@@ -252,18 +252,18 @@ class ARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_a_record = azure.privatedns.ARecord("example",
-            name="test",
+        example_a_record = azure.privatedns.a_record.ARecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["10.0.180.17"])
+            records=[10.0.180.17])
         ```
 
         ## Import
@@ -298,18 +298,18 @@ class ARecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_a_record = azure.privatedns.ARecord("example",
-            name="test",
+        example_a_record = azure.privatedns.a_record.ARecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["10.0.180.17"])
+            records=[10.0.180.17])
         ```
 
         ## Import

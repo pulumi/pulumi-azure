@@ -29,31 +29,26 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
- * import com.pulumi.azure.network.VirtualNetworkGateway;
- * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGateway;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGatewayArgs;
  * import com.pulumi.azure.netapp.Account;
  * import com.pulumi.azure.netapp.AccountArgs;
  * import com.pulumi.azure.netapp.Pool;
  * import com.pulumi.azure.netapp.PoolArgs;
- * import com.pulumi.azure.netapp.Volume;
- * import com.pulumi.azure.netapp.VolumeArgs;
- * import com.pulumi.azure.netapp.inputs.VolumeExportPolicyRuleArgs;
+ * import com.pulumi.azure.netapp_volume.Volume;
+ * import com.pulumi.azure.netapp_volume.VolumeArgs;
  * import com.pulumi.azure.avs.PrivateCloud;
  * import com.pulumi.azure.avs.PrivateCloudArgs;
- * import com.pulumi.azure.avs.inputs.PrivateCloudManagementClusterArgs;
  * import com.pulumi.azure.avs.Cluster;
  * import com.pulumi.azure.avs.ClusterArgs;
  * import com.pulumi.azure.avs.ExpressRouteAuthorization;
  * import com.pulumi.azure.avs.ExpressRouteAuthorizationArgs;
- * import com.pulumi.azure.network.VirtualNetworkGatewayConnection;
- * import com.pulumi.azure.network.VirtualNetworkGatewayConnectionArgs;
+ * import com.pulumi.azure.network_virtualNetworkGatewayConnection.VirtualNetworkGatewayConnection;
+ * import com.pulumi.azure.network_virtualNetworkGatewayConnection.VirtualNetworkGatewayConnectionArgs;
  * import com.pulumi.azure.avs.NetappVolumeAttachment;
  * import com.pulumi.azure.avs.NetappVolumeAttachmentArgs;
  * import java.util.List;
@@ -94,15 +89,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .virtualNetworkName(testVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.6.2.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;testdelegation&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Netapp/volumes&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var gatewaySubnet = new Subnet(&#34;gatewaySubnet&#34;, SubnetArgs.builder()        
@@ -118,11 +105,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .type(&#34;ExpressRoute&#34;)
  *             .sku(&#34;Standard&#34;)
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .name(&#34;vnetGatewayConfig&#34;)
- *                 .publicIpAddressId(test.id())
- *                 .subnetId(gatewaySubnet.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
@@ -152,14 +135,7 @@ import javax.annotation.Nullable;
  *             .protocols(&#34;NFSv3&#34;)
  *             .storageQuotaInGb(100)
  *             .azureVmwareDataStoreEnabled(true)
- *             .exportPolicyRules(VolumeExportPolicyRuleArgs.builder()
- *                 .ruleIndex(1)
- *                 .allowedClients(&#34;0.0.0.0/0&#34;)
- *                 .protocolsEnabled(&#34;NFSv3&#34;)
- *                 .unixReadOnly(false)
- *                 .unixReadWrite(true)
- *                 .rootAccessEnabled(true)
- *                 .build())
+ *             .exportPolicyRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testPrivateCloud = new PrivateCloud(&#34;testPrivateCloud&#34;, PrivateCloudArgs.builder()        
@@ -167,9 +143,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .location(testAzurermResourceGroup.location())
  *             .skuName(&#34;av36&#34;)
- *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
- *                 .size(3)
- *                 .build())
+ *             .managementCluster(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .networkSubnetCidr(&#34;192.168.48.0/22&#34;)
  *             .build());
  * 
@@ -191,7 +165,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .type(&#34;ExpressRoute&#34;)
  *             .virtualNetworkGatewayId(testVirtualNetworkGateway.id())
- *             .expressRouteCircuitId(testPrivateCloud.circuits().applyValue(circuits -&gt; circuits[0].expressRouteId()))
+ *             .expressRouteCircuitId(testPrivateCloud.circuits()[0].expressRouteId())
  *             .authorizationKey(testExpressRouteAuthorization.expressRouteAuthorizationKey())
  *             .build());
  * 

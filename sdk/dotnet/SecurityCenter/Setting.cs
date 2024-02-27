@@ -26,7 +26,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.SecurityCenter.Setting("example", new()
+    ///     var example = new Azure.Securitycenter.Setting.Setting("example", new()
     ///     {
     ///         SettingName = "MCAS",
     ///         Enabled = true,

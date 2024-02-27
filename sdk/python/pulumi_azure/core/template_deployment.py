@@ -268,13 +268,13 @@ class TemplateDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_template_deployment = azure.core.TemplateDeployment("example",
-            name="acctesttemplate-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_template_deployment = azure.core.template_deployment.TemplateDeployment("example",
+            name=acctesttemplate-01,
             resource_group_name=example.name,
-            template_body=\"\"\"{
+            template_body={
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
@@ -329,12 +329,12 @@ class TemplateDeployment(pulumi.CustomResource):
             }
           }
         }
-        \"\"\",
+        ,
             parameters={
-                "storageAccountType": "Standard_GRS",
+                storageAccountType: Standard_GRS,
             },
-            deployment_mode="Incremental")
-        pulumi.export("storageAccountName", example_template_deployment.outputs["storageAccountName"])
+            deployment_mode=Incremental)
+        pulumi.export("storageAccountName", example_template_deployment["outputs"]["storageAccountName"])
         ```
         ## Note
 
@@ -372,13 +372,13 @@ class TemplateDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_template_deployment = azure.core.TemplateDeployment("example",
-            name="acctesttemplate-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_template_deployment = azure.core.template_deployment.TemplateDeployment("example",
+            name=acctesttemplate-01,
             resource_group_name=example.name,
-            template_body=\"\"\"{
+            template_body={
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
@@ -433,12 +433,12 @@ class TemplateDeployment(pulumi.CustomResource):
             }
           }
         }
-        \"\"\",
+        ,
             parameters={
-                "storageAccountType": "Standard_GRS",
+                storageAccountType: Standard_GRS,
             },
-            deployment_mode="Incremental")
-        pulumi.export("storageAccountName", example_template_deployment.outputs["storageAccountName"])
+            deployment_mode=Incremental)
+        pulumi.export("storageAccountName", example_template_deployment["outputs"]["storageAccountName"])
         ```
         ## Note
 

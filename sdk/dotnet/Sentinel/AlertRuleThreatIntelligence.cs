@@ -12,60 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel Threat Intelligence Alert Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
-    ///     {
-    ///         Name = "example-workspace",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = "pergb2018",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
-    ///     {
-    ///         SolutionName = "SecurityInsights",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/SecurityInsights",
-    ///         },
-    ///     });
-    /// 
-    ///     var example = Azure.Sentinel.GetAlertRuleTemplate.Invoke(new()
-    ///     {
-    ///         DisplayName = "(Preview) Microsoft Defender Threat Intelligence Analytics",
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///     });
-    /// 
-    ///     var exampleAlertRuleThreatIntelligence = new Azure.Sentinel.AlertRuleThreatIntelligence("example", new()
-    ///     {
-    ///         Name = "example-rule",
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         AlertRuleTemplateGuid = example.Apply(getAlertRuleTemplateResult =&gt; getAlertRuleTemplateResult.Name),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Sentinel Threat Intelligence Alert Rules can be imported using the `resource id`, e.g.

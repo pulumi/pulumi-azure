@@ -641,17 +641,17 @@ class EventHubNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=example-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=2,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -698,17 +698,17 @@ class EventHubNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=example-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             capacity=2,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

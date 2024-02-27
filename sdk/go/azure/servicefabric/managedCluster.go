@@ -21,51 +21,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicefabric"
+//	servicefabric/managedCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/servicefabric/managedCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicefabric.NewManagedCluster(ctx, "example", &servicefabric.ManagedClusterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("West Europe"),
-//				HttpGatewayPort:   pulumi.Int(4567),
-//				LbRules: servicefabric.ManagedClusterLbRuleArray{
-//					&servicefabric.ManagedClusterLbRuleArgs{
-//						BackendPort:      pulumi.Int(38080),
-//						FrontendPort:     pulumi.Int(80),
-//						ProbeProtocol:    pulumi.String("http"),
-//						ProbeRequestPath: pulumi.String("/test"),
-//						Protocol:         pulumi.String("tcp"),
-//					},
-//				},
-//				ClientConnectionPort: pulumi.Int(12345),
-//				NodeTypes: servicefabric.ManagedClusterNodeTypeArray{
-//					&servicefabric.ManagedClusterNodeTypeArgs{
-//						DataDiskSizeGb:       pulumi.Int(130),
-//						Name:                 pulumi.String("test1"),
-//						Primary:              pulumi.Bool(true),
-//						ApplicationPortRange: pulumi.String("30000-49000"),
-//						EphemeralPortRange:   pulumi.String("10000-20000"),
-//						VmSize:               pulumi.String("Standard_DS1_v2"),
-//						VmImagePublisher:     pulumi.String("MicrosoftWindowsServer"),
-//						VmImageSku:           pulumi.String("2019-Datacenter-with-Containers"),
-//						VmImageOffer:         pulumi.String("WindowsServer"),
-//						VmImageVersion:       pulumi.String("latest"),
-//						VmInstanceCount:      pulumi.Int(5),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicefabric/managedCluster.NewManagedCluster(ctx, "example", &servicefabric/managedCluster.ManagedClusterArgs{
+// Name: "example",
+// ResourceGroupName: "example",
+// Location: "West Europe",
+// HttpGatewayPort: 4567,
+// LbRules: []map[string]interface{}{
+// map[string]interface{}{
+// "backendPort": 38080,
+// "frontendPort": 80,
+// "probeProtocol": "http",
+// "probeRequestPath": "/test",
+// "protocol": "tcp",
+// },
+// },
+// ClientConnectionPort: 12345,
+// NodeTypes: []map[string]interface{}{
+// map[string]interface{}{
+// "dataDiskSizeGb": 130,
+// "name": "test1",
+// "primary": true,
+// "applicationPortRange": "30000-49000",
+// "ephemeralPortRange": "10000-20000",
+// "vmSize": "Standard_DS1_v2",
+// "vmImagePublisher": "MicrosoftWindowsServer",
+// "vmImageSku": "2019-Datacenter-with-Containers",
+// "vmImageOffer": "WindowsServer",
+// "vmImageVersion": "latest",
+// "vmInstanceCount": 5,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -26,76 +26,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid Domain
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
         return getDomain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventGrid Domain
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -104,76 +40,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid Domain
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventGrid Domain
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
-     *             .name(&#34;my-eventgrid-domain&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;eventgridDomainMappingTopic&#34;, example.applyValue(getDomainResult -&gt; getDomainResult.inputMappingFields()[0].topic()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
@@ -182,74 +54,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid Domain Topic
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args) {
         return getDomainTopic(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventGrid Domain Topic
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args) {
@@ -258,74 +68,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid Domain Topic
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getDomainTopic:getDomainTopic", TypeShape.of(GetDomainTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventGrid Domain Topic
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetDomainTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-domain-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args, InvokeOptions options) {
@@ -334,74 +82,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid System Topic
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetSystemTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args) {
         return getSystemTopic(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventGrid System Topic
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetSystemTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args) {
@@ -410,74 +96,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid System Topic
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetSystemTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getSystemTopic:getSystemTopic", TypeShape.of(GetSystemTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventGrid System Topic
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetSystemTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
-     *             .name(&#34;eventgrid-system-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args, InvokeOptions options) {
@@ -486,74 +110,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid Topic
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
         return getTopic(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing EventGrid Topic
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -562,74 +124,12 @@ public final class EventgridFunctions {
     /**
      * Use this data source to access information about an existing EventGrid Topic
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing EventGrid Topic
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.eventgrid.EventgridFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
-     *             .name(&#34;my-eventgrid-topic&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {

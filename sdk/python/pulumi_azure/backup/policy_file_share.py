@@ -345,52 +345,52 @@ class PolicyFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="tfex-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-recovery_vault,
+            location=West Europe)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=tfex-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.backup.PolicyFileShare("policy",
-            name="tfex-recovery-vault-policy",
+            sku=Standard)
+        policy = azure.backup.policy_file_share.PolicyFileShare("policy",
+            name=tfex-recovery-vault-policy,
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
-            timezone="UTC",
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                    "Friday",
-                    "Saturday",
+            timezone=UTC,
+            backup={
+                frequency: Daily,
+                time: 23:00,
+            },
+            retention_daily={
+                count: 10,
+            },
+            retention_weekly={
+                count: 7,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
+                    Friday,
+                    Saturday,
                 ],
-            ),
-            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
+            },
+            retention_monthly={
+                count: 7,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
                 ],
-                weeks=[
-                    "First",
-                    "Last",
+                weeks: [
+                    First,
+                    Last,
                 ],
-            ),
-            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
-                count=7,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
+            },
+            retention_yearly={
+                count: 7,
+                weekdays: [Sunday],
+                weeks: [Last],
+                months: [January],
+            })
         ```
 
         ## Import
@@ -430,52 +430,52 @@ class PolicyFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-recovery_vault",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="tfex-recovery-vault",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-recovery_vault,
+            location=West Europe)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=tfex-recovery-vault,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        policy = azure.backup.PolicyFileShare("policy",
-            name="tfex-recovery-vault-policy",
+            sku=Standard)
+        policy = azure.backup.policy_file_share.PolicyFileShare("policy",
+            name=tfex-recovery-vault-policy,
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
-            timezone="UTC",
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
-                    "Friday",
-                    "Saturday",
+            timezone=UTC,
+            backup={
+                frequency: Daily,
+                time: 23:00,
+            },
+            retention_daily={
+                count: 10,
+            },
+            retention_weekly={
+                count: 7,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
+                    Friday,
+                    Saturday,
                 ],
-            ),
-            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
-                    "Sunday",
-                    "Wednesday",
+            },
+            retention_monthly={
+                count: 7,
+                weekdays: [
+                    Sunday,
+                    Wednesday,
                 ],
-                weeks=[
-                    "First",
-                    "Last",
+                weeks: [
+                    First,
+                    Last,
                 ],
-            ),
-            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
-                count=7,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
+            },
+            retention_yearly={
+                count: 7,
+                weekdays: [Sunday],
+                weeks: [Last],
+                months: [January],
+            })
         ```
 
         ## Import

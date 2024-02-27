@@ -22,38 +22,38 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     var example = new Azure.Containerservice.KubernetesCluster.KubernetesCluster("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         DnsPrefix = "acctestaksexample",
-    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         DefaultNodePool = 
     ///         {
-    ///             Name = "example-value",
-    ///             NodeCount = "example-value",
-    ///             VmSize = "example-value",
+    ///             { "name", "example-value" },
+    ///             { "nodeCount", "example-value" },
+    ///             { "vmSize", "example-value" },
     ///         },
-    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "example-value",
+    ///             { "type", "example-value" },
     ///         },
     ///     });
     /// 
-    ///     var exampleTarget = new Azure.ChaosStudio.Target("example", new()
+    ///     var exampleTarget = new Azure.Chaosstudio.Target.Target("example", new()
     ///     {
     ///         Location = exampleResourceGroup.Location,
     ///         TargetResourceId = example.Id,
     ///         TargetType = "example-value",
     ///     });
     /// 
-    ///     var exampleCapability = new Azure.ChaosStudio.Capability("example", new()
+    ///     var exampleCapability = new Azure.Chaosstudio.Capability.Capability("example", new()
     ///     {
     ///         CapabilityType = "example-value",
     ///         ChaosStudioTargetId = exampleTarget.Id,

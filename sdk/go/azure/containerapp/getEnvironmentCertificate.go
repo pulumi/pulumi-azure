@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Container App Environment Certificate.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerapp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := containerapp.LookupEnvironment(ctx, &containerapp.LookupEnvironmentArgs{
-//				Name:              "example-environment",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerapp.LookupEnvironmentCertificate(ctx, &containerapp.LookupEnvironmentCertificateArgs{
-//				Name:                      "mycertificate",
-//				ContainerAppEnvironmentId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEnvironmentCertificate(ctx *pulumi.Context, args *LookupEnvironmentCertificateArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentCertificateResult

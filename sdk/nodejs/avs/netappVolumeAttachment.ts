@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const test = new azure.network.PublicIp("test", {
+ * const test = new azure.network/publicIp.PublicIp("test", {
  *     name: "example-public-ip",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("test", {
  *     name: "example-VirtualNetwork",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     addressSpaces: ["10.6.0.0/16"],
  * });
- * const netappSubnet = new azure.network.Subnet("netappSubnet", {
+ * const netappSubnet = new azure.network/subnet.Subnet("netappSubnet", {
  *     name: "example-Subnet",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
@@ -48,13 +48,13 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const gatewaySubnet = new azure.network.Subnet("gatewaySubnet", {
+ * const gatewaySubnet = new azure.network/subnet.Subnet("gatewaySubnet", {
  *     name: "GatewaySubnet",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  *     addressPrefixes: ["10.6.1.0/24"],
  * });
- * const testVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("test", {
+ * const testVirtualNetworkGateway = new azure.network/virtualNetworkGateway.VirtualNetworkGateway("test", {
  *     name: "example-vnet-gateway",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
@@ -66,12 +66,12 @@ import * as utilities from "../utilities";
  *         subnetId: gatewaySubnet.id,
  *     }],
  * });
- * const testAccount = new azure.netapp.Account("test", {
+ * const testAccount = new azure.netapp/account.Account("test", {
  *     name: "example-NetAppAccount",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
- * const testPool = new azure.netapp.Pool("test", {
+ * const testPool = new azure.netapp/pool.Pool("test", {
  *     name: "example-NetAppPool",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *     serviceLevel: "Standard",
  *     sizeInTb: 4,
  * });
- * const testVolume = new azure.netapp.Volume("test", {
+ * const testVolume = new azure.netapp/volume.Volume("test", {
  *     name: "example-NetAppVolume",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *         rootAccessEnabled: true,
  *     }],
  * });
- * const testPrivateCloud = new azure.avs.PrivateCloud("test", {
+ * const testPrivateCloud = new azure.avs/privateCloud.PrivateCloud("test", {
  *     name: "example-PC",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     location: testAzurermResourceGroup.location,
@@ -110,26 +110,26 @@ import * as utilities from "../utilities";
  *     },
  *     networkSubnetCidr: "192.168.48.0/22",
  * });
- * const testCluster = new azure.avs.Cluster("test", {
+ * const testCluster = new azure.avs/cluster.Cluster("test", {
  *     name: "example-vm-cluster",
  *     vmwareCloudId: testPrivateCloud.id,
  *     clusterNodeCount: 3,
  *     skuName: "av36",
  * });
- * const testExpressRouteAuthorization = new azure.avs.ExpressRouteAuthorization("test", {
+ * const testExpressRouteAuthorization = new azure.avs/expressRouteAuthorization.ExpressRouteAuthorization("test", {
  *     name: "example-VmwareAuthorization",
  *     privateCloudId: testPrivateCloud.id,
  * });
- * const testVirtualNetworkGatewayConnection = new azure.network.VirtualNetworkGatewayConnection("test", {
+ * const testVirtualNetworkGatewayConnection = new azure.network/virtualNetworkGatewayConnection.VirtualNetworkGatewayConnection("test", {
  *     name: "example-vnetgwconn",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     type: "ExpressRoute",
  *     virtualNetworkGatewayId: testVirtualNetworkGateway.id,
- *     expressRouteCircuitId: testPrivateCloud.circuits.apply(circuits => circuits[0].expressRouteId),
+ *     expressRouteCircuitId: testPrivateCloud.circuits[0].expressRouteId,
  *     authorizationKey: testExpressRouteAuthorization.expressRouteAuthorizationKey,
  * });
- * const testNetappVolumeAttachment = new azure.avs.NetappVolumeAttachment("test", {
+ * const testNetappVolumeAttachment = new azure.avs/netappVolumeAttachment.NetappVolumeAttachment("test", {
  *     name: "example-vmwareattachment",
  *     netappVolumeId: testVolume.id,
  *     vmwareClusterId: testCluster.id,

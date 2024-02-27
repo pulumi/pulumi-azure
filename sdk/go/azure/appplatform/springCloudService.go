@@ -21,59 +21,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("tf-test-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example-springcloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("S0"),
-//				ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
-//					Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
-//					Label: pulumi.String("config"),
-//					SearchPaths: pulumi.StringArray{
-//						pulumi.String("dir1"),
-//						pulumi.String("dir2"),
-//					},
-//				},
-//				Trace: &appplatform.SpringCloudServiceTraceArgs{
-//					ConnectionString: exampleInsights.ConnectionString,
-//					SampleRate:       pulumi.Float64(10),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "tf-test-appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example-springcloud",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "S0",
+// ConfigServerGitSetting: map[string]interface{}{
+// "uri": "https://github.com/Azure-Samples/piggymetrics",
+// "label": "config",
+// "searchPaths": []string{
+// "dir1",
+// "dir2",
+// },
+// },
+// Trace: map[string]interface{}{
+// "connectionString": exampleInsights.ConnectionString,
+// "sampleRate": 10,
+// },
+// Tags: map[string]interface{}{
+// "Env": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

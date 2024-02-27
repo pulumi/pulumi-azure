@@ -404,30 +404,6 @@ class GroupPolicyRemediation(pulumi.CustomResource):
         """
         Manages an Azure Management Group Policy Remediation.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("example", display_name="Example Management Group")
-        example = azure.policy.get_policy_defintion(display_name="Allowed locations")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
-            name="exampleAssignment",
-            management_group_id=example_group.id,
-            policy_definition_id=example.id,
-            parameters=json.dumps({
-                "listOfAllowedLocations": {
-                    "value": ["East US"],
-                },
-            }))
-        example_group_policy_remediation = azure.management.GroupPolicyRemediation("example",
-            name="example",
-            management_group_id=example_group.id,
-            policy_assignment_id=example_group_policy_assignment.id)
-        ```
-
         ## Import
 
         Policy Remediations can be imported using the `resource id`, e.g.
@@ -461,30 +437,6 @@ class GroupPolicyRemediation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Management Group Policy Remediation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_azure as azure
-
-        example_group = azure.management.Group("example", display_name="Example Management Group")
-        example = azure.policy.get_policy_defintion(display_name="Allowed locations")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
-            name="exampleAssignment",
-            management_group_id=example_group.id,
-            policy_definition_id=example.id,
-            parameters=json.dumps({
-                "listOfAllowedLocations": {
-                    "value": ["East US"],
-                },
-            }))
-        example_group_policy_remediation = azure.management.GroupPolicyRemediation("example",
-            name="example",
-            management_group_id=example_group.id,
-            policy_assignment_id=example_group_policy_assignment.id)
-        ```
 
         ## Import
 

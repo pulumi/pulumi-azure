@@ -22,20 +22,20 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("example", new()
+    ///     var exampleLicationLoadBalancer = new Azure.Appconfiguration.LicationLoadBalancer.LicationLoadBalancer("example", new()
     ///     {
     ///         Name = "example-alb",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppConfiguration
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -57,22 +57,22 @@ namespace Pulumi.Azure.AppConfiguration
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "delegation",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "delegation" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.ServiceNetworking/trafficControllers",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.ServiceNetworking/trafficControllers" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLicationLoadBalancerSubnetAssociation = new Azure.AppConfiguration.LicationLoadBalancerSubnetAssociation("example", new()
+    ///     var exampleLicationLoadBalancerSubnetAssociation = new Azure.Appconfiguration.LicationLoadBalancerSubnetAssociation.LicationLoadBalancerSubnetAssociation("example", new()
     ///     {
     ///         Name = "example",
     ///         ApplicationLoadBalancerId = exampleLicationLoadBalancer.Id,

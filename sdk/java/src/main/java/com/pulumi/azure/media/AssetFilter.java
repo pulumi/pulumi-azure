@@ -34,13 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.Asset;
  * import com.pulumi.azure.media.AssetArgs;
  * import com.pulumi.azure.media.AssetFilter;
  * import com.pulumi.azure.media.AssetFilterArgs;
- * import com.pulumi.azure.media.inputs.AssetFilterPresentationTimeRangeArgs;
- * import com.pulumi.azure.media.inputs.AssetFilterTrackSelectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,10 +68,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
@@ -88,46 +82,10 @@ import javax.annotation.Nullable;
  *             .name(&#34;Filter1&#34;)
  *             .assetId(exampleAsset.id())
  *             .firstQualityBitrate(128000)
- *             .presentationTimeRange(AssetFilterPresentationTimeRangeArgs.builder()
- *                 .startInUnits(0)
- *                 .endInUnits(15)
- *                 .presentationWindowInUnits(90)
- *                 .liveBackoffInUnits(0)
- *                 .unitTimescaleInMiliseconds(1000)
- *                 .forceEnd(false)
- *                 .build())
+ *             .presentationTimeRange(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .trackSelections(            
- *                 AssetFilterTrackSelectionArgs.builder()
- *                     .conditions(                    
- *                         AssetFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Type&#34;)
- *                             .operation(&#34;Equal&#34;)
- *                             .value(&#34;Audio&#34;)
- *                             .build(),
- *                         AssetFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Language&#34;)
- *                             .operation(&#34;NotEqual&#34;)
- *                             .value(&#34;en&#34;)
- *                             .build(),
- *                         AssetFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;FourCC&#34;)
- *                             .operation(&#34;NotEqual&#34;)
- *                             .value(&#34;EC-3&#34;)
- *                             .build())
- *                     .build(),
- *                 AssetFilterTrackSelectionArgs.builder()
- *                     .conditions(                    
- *                         AssetFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Type&#34;)
- *                             .operation(&#34;Equal&#34;)
- *                             .value(&#34;Video&#34;)
- *                             .build(),
- *                         AssetFilterTrackSelectionConditionArgs.builder()
- *                             .property(&#34;Bitrate&#34;)
- *                             .operation(&#34;Equal&#34;)
- *                             .value(&#34;3000000-5000000&#34;)
- *                             .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

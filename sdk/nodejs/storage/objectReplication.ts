@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const src = new azure.core.ResourceGroup("src", {
+ * const src = new azure.core/resourceGroup.ResourceGroup("src", {
  *     name: "srcResourceGroupName",
  *     location: "West Europe",
  * });
- * const srcAccount = new azure.storage.Account("src", {
+ * const srcAccount = new azure.storage/account.Account("src", {
  *     name: "srcstorageaccount",
  *     resourceGroupName: src.name,
  *     location: src.location,
@@ -30,16 +30,16 @@ import * as utilities from "../utilities";
  *         changeFeedEnabled: true,
  *     },
  * });
- * const srcContainer = new azure.storage.Container("src", {
+ * const srcContainer = new azure.storage/container.Container("src", {
  *     name: "srcstrcontainer",
  *     storageAccountName: srcAccount.name,
  *     containerAccessType: "private",
  * });
- * const dst = new azure.core.ResourceGroup("dst", {
+ * const dst = new azure.core/resourceGroup.ResourceGroup("dst", {
  *     name: "dstResourceGroupName",
  *     location: "East US",
  * });
- * const dstAccount = new azure.storage.Account("dst", {
+ * const dstAccount = new azure.storage/account.Account("dst", {
  *     name: "dststorageaccount",
  *     resourceGroupName: dst.name,
  *     location: dst.location,
@@ -50,12 +50,12 @@ import * as utilities from "../utilities";
  *         changeFeedEnabled: true,
  *     },
  * });
- * const dstContainer = new azure.storage.Container("dst", {
+ * const dstContainer = new azure.storage/container.Container("dst", {
  *     name: "dststrcontainer",
  *     storageAccountName: dstAccount.name,
  *     containerAccessType: "private",
  * });
- * const example = new azure.storage.ObjectReplication("example", {
+ * const example = new azure.storage/objectReplication.ObjectReplication("example", {
  *     sourceStorageAccountId: srcAccount.id,
  *     destinationStorageAccountId: dstAccount.id,
  *     rules: [{

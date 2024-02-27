@@ -180,32 +180,32 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="westeurope")
-        example_lication_load_balancer = azure.appconfiguration.LicationLoadBalancer("example",
-            name="example-alb",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=westeurope)
+        example_lication_load_balancer = azure.appconfiguration.lication_load_balancer.LicationLoadBalancer("example",
+            name=example-alb,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ServiceNetworking/trafficControllers",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_lication_load_balancer_subnet_association = azure.appconfiguration.LicationLoadBalancerSubnetAssociation("example",
-            name="example",
+            address_prefixes=[10.0.1.0/24],
+            delegations=[{
+                name: delegation,
+                serviceDelegation: {
+                    name: Microsoft.ServiceNetworking/trafficControllers,
+                    actions: [Microsoft.Network/virtualNetworks/subnets/join/action],
+                },
+            }])
+        example_lication_load_balancer_subnet_association = azure.appconfiguration.lication_load_balancer_subnet_association.LicationLoadBalancerSubnetAssociation("example",
+            name=example,
             application_load_balancer_id=example_lication_load_balancer.id,
             subnet_id=example_subnet.id)
         ```
@@ -242,32 +242,32 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="westeurope")
-        example_lication_load_balancer = azure.appconfiguration.LicationLoadBalancer("example",
-            name="example-alb",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=westeurope)
+        example_lication_load_balancer = azure.appconfiguration.lication_load_balancer.LicationLoadBalancer("example",
+            name=example-alb,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.ServiceNetworking/trafficControllers",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
-        example_lication_load_balancer_subnet_association = azure.appconfiguration.LicationLoadBalancerSubnetAssociation("example",
-            name="example",
+            address_prefixes=[10.0.1.0/24],
+            delegations=[{
+                name: delegation,
+                serviceDelegation: {
+                    name: Microsoft.ServiceNetworking/trafficControllers,
+                    actions: [Microsoft.Network/virtualNetworks/subnets/join/action],
+                },
+            }])
+        example_lication_load_balancer_subnet_association = azure.appconfiguration.lication_load_balancer_subnet_association.LicationLoadBalancerSubnetAssociation("example",
+            name=example,
             application_load_balancer_id=example_lication_load_balancer.id,
             subnet_id=example_subnet.id)
         ```

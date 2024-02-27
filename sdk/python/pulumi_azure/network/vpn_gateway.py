@@ -339,26 +339,26 @@ class VpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+            address_spaces=[10.0.0.0/16])
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-hub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-hub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("example",
-            name="example-vpng",
+            address_prefix=10.0.1.0/24)
+        example_vpn_gateway = azure.network.vpn_gateway.VpnGateway("example",
+            name=example-vpng,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
@@ -399,26 +399,26 @@ class VpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_virtual_wan = azure.network.VirtualWan("example",
-            name="example-vwan",
+            address_spaces=[10.0.0.0/16])
+        example_virtual_wan = azure.network.virtual_wan.VirtualWan("example",
+            name=example-vwan,
             resource_group_name=example.name,
             location=example.location)
-        example_virtual_hub = azure.network.VirtualHub("example",
-            name="example-hub",
+        example_virtual_hub = azure.network.virtual_hub.VirtualHub("example",
+            name=example-hub,
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_prefix="10.0.1.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("example",
-            name="example-vpng",
+            address_prefix=10.0.1.0/24)
+        example_vpn_gateway = azure.network.vpn_gateway.VpnGateway("example",
+            name=example-vpng,
             location=example.location,
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)

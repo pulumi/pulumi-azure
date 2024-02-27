@@ -9,55 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example",
- *     location: "West Europe",
- * });
- * const current = azure.core.getClientConfig({});
- * const exampleWorkspace = new azure.healthcare.Workspace("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const exampleFhirService = new azure.healthcare.FhirService("example", {
- *     name: "tfexfhir",
- *     location: "east us",
- *     resourceGroupName: "tfex-resource_group",
- *     workspaceId: exampleWorkspace.id,
- *     kind: "fhir-R4",
- *     authentication: {
- *         authority: "https://login.microsoftonline.com/tenantId",
- *         audience: "https://tfexfhir.fhir.azurehealthcareapis.com",
- *     },
- *     accessPolicyObjectIds: [current.then(current => current.objectId)],
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     containerRegistryLoginServerUrls: ["tfex-container_registry_login_server"],
- *     cors: {
- *         allowedOrigins: [
- *             "https://tfex.com:123",
- *             "https://tfex1.com:3389",
- *         ],
- *         allowedHeaders: ["*"],
- *         allowedMethods: [
- *             "GET",
- *             "DELETE",
- *             "PUT",
- *         ],
- *         maxAgeInSeconds: 3600,
- *         credentialsAllowed: true,
- *     },
- *     configurationExportStorageAccountName: "storage_account_name",
- * });
- * ```
- *
  * ## Import
  *
  * Healthcare FHIR Service can be imported using the resource`id`, e.g.

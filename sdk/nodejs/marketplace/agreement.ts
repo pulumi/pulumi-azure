@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const barracuda = new azure.marketplace.Agreement("barracuda", {
+ * const barracuda = new azure.marketplace/agreement.Agreement("barracuda", {
  *     publisher: "barracudanetworks",
  *     offer: "waf",
  *     plan: "hourly",

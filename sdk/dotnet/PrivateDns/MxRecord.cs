@@ -22,19 +22,19 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+    ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
     ///     {
     ///         Name = "contoso.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleMxRecord = new Azure.PrivateDns.MxRecord("example", new()
+    ///     var exampleMxRecord = new Azure.Privatedns.MxRecord.MxRecord("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -42,15 +42,15 @@ namespace Pulumi.Azure.PrivateDns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.PrivateDns.Inputs.MxRecordRecordArgs
+    ///             
     ///             {
-    ///                 Preference = 10,
-    ///                 Exchange = "mx1.contoso.com",
+    ///                 { "preference", 10 },
+    ///                 { "exchange", "mx1.contoso.com" },
     ///             },
-    ///             new Azure.PrivateDns.Inputs.MxRecordRecordArgs
+    ///             
     ///             {
-    ///                 Preference = 20,
-    ///                 Exchange = "backupmx.contoso.com",
+    ///                 { "preference", 20 },
+    ///                 { "exchange", "backupmx.contoso.com" },
     ///             },
     ///         },
     ///         Tags = 

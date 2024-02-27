@@ -23,49 +23,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	cdn/endpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/endpoint"
+//	cdn/profile "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cdn/profile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleProfile, err := cdn.NewProfile(ctx, "example", &cdn.ProfileArgs{
-//				Name:              pulumi.String("example-cdn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard_Verizon"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewEndpoint(ctx, "example", &cdn.EndpointArgs{
-//				Name:              pulumi.String("example"),
-//				ProfileName:       exampleProfile.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Origins: cdn.EndpointOriginArray{
-//					&cdn.EndpointOriginArgs{
-//						Name:     pulumi.String("example"),
-//						HostName: pulumi.String("www.contoso.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleProfile, err := cdn/profile.NewProfile(ctx, "example", &cdn/profile.ProfileArgs{
+// Name: "example-cdn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard_Verizon",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cdn/endpoint.NewEndpoint(ctx, "example", &cdn/endpoint.EndpointArgs{
+// Name: "example",
+// ProfileName: exampleProfile.Name,
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Origins: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "hostName": "www.contoso.com",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

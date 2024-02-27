@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Machine.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getVirtualMachine({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * export const virtualMachineId = example.then(example => example.id);
- * ```
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -83,19 +70,6 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Use this data source to access information about an existing Virtual Machine.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.compute.getVirtualMachine({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * export const virtualMachineId = example.then(example => example.id);
- * ```
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

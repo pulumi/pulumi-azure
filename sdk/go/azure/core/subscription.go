@@ -13,109 +13,6 @@ import (
 )
 
 // ## Example Usage
-// ### Creating A New Alias And Subscription For An Enrollment Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
-//				BillingAccountName:    "1234567890",
-//				EnrollmentAccountName: "0123456",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
-//				SubscriptionName: pulumi.String("My Example EA Subscription"),
-//				BillingScopeId:   *pulumi.String(example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Creating A New Alias And Subscription For A Microsoft Customer Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
-//				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-//				BillingProfileName: "PE2Q-NOIT-BG7-TGB",
-//				InvoiceSectionName: "MTT4-OBS7-PJA-TGB",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
-//				SubscriptionName: pulumi.String("My Example MCA Subscription"),
-//				BillingScopeId:   *pulumi.String(example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Creating A New Alias And Subscription For A Microsoft Partner Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
-//				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-//				CustomerName:       "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
-//				SubscriptionName: pulumi.String("My Example MPA Subscription"),
-//				BillingScopeId:   *pulumi.String(example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Adding An Alias To An Existing Subscription
 //
 // ```go
@@ -123,25 +20,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	core/subscription "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/subscription"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
-//				Alias:            pulumi.String("examplesub"),
-//				SubscriptionName: pulumi.String("My Example Subscription"),
-//				SubscriptionId:   pulumi.String("12345678-12234-5678-9012-123456789012"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/subscription.NewSubscription(ctx, "example", &core/subscription.SubscriptionArgs{
+// Alias: "examplesub",
+// SubscriptionName: "My Example Subscription",
+// SubscriptionId: "12345678-12234-5678-9012-123456789012",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

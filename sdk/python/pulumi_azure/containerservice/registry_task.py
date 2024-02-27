@@ -653,26 +653,26 @@ class RegistryTask(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
+            sku=Basic)
+        example_registry_task = azure.containerservice.registry_task.RegistryTask("example",
+            name=example-task,
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
+            platform={
+                os: Linux,
+            },
+            docker_step={
+                dockerfilePath: Dockerfile,
+                contextPath: https://github.com/<username>/<repository>#<branch>:<folder>,
+                contextAccessToken: <github personal access token>,
+                imageNames: [helloworld:{{.Run.ID}}],
+            })
         ```
 
         ## Import
@@ -723,26 +723,26 @@ class RegistryTask(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
+            sku=Basic)
+        example_registry_task = azure.containerservice.registry_task.RegistryTask("example",
+            name=example-task,
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<username>/<repository>#<branch>:<folder>",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
+            platform={
+                os: Linux,
+            },
+            docker_step={
+                dockerfilePath: Dockerfile,
+                contextPath: https://github.com/<username>/<repository>#<branch>:<folder>,
+                contextAccessToken: <github personal access token>,
+                imageNames: [helloworld:{{.Run.ID}}],
+            })
         ```
 
         ## Import

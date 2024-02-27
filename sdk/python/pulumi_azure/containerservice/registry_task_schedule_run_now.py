@@ -74,27 +74,27 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="example-acr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example-acr,
             resource_group_name=example.name,
             location=example.location,
-            sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
+            sku=Basic)
+        example_registry_task = azure.containerservice.registry_task.RegistryTask("example",
+            name=example-task,
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
-        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
+            platform={
+                os: Linux,
+            },
+            docker_step={
+                dockerfilePath: Dockerfile,
+                contextPath: https://github.com/<user name>/acr-build-helloworld-node#main,
+                contextAccessToken: <github personal access token>,
+                imageNames: [helloworld:{{.Run.ID}}],
+            })
+        example_registry_task_schedule_run_now = azure.containerservice.registry_task_schedule_run_now.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -116,27 +116,27 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="example-acr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example-acr,
             resource_group_name=example.name,
             location=example.location,
-            sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
+            sku=Basic)
+        example_registry_task = azure.containerservice.registry_task.RegistryTask("example",
+            name=example-task,
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
-        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
+            platform={
+                os: Linux,
+            },
+            docker_step={
+                dockerfilePath: Dockerfile,
+                contextPath: https://github.com/<user name>/acr-build-helloworld-node#main,
+                contextAccessToken: <github personal access token>,
+                imageNames: [helloworld:{{.Run.ID}}],
+            })
+        example_registry_task_schedule_run_now = azure.containerservice.registry_task_schedule_run_now.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
         :param str resource_name: The name of the resource.

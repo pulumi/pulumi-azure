@@ -21,39 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	healthcare/dicomService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/healthcare/dicomService"
+//	healthcare/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/healthcare/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := healthcare.NewWorkspace(ctx, "test", &healthcare.WorkspaceArgs{
-//				Name:              pulumi.String("tfexworkspace"),
-//				ResourceGroupName: pulumi.String("tfex-resource_group"),
-//				Location:          pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = healthcare.NewDicomService(ctx, "test", &healthcare.DicomServiceArgs{
-//				Name:        pulumi.String("tfexDicom"),
-//				WorkspaceId: test.ID(),
-//				Location:    pulumi.String("east us"),
-//				Identity: &healthcare.DicomServiceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("None"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := healthcare/workspace.NewWorkspace(ctx, "test", &healthcare/workspace.WorkspaceArgs{
+// Name: "tfexworkspace",
+// ResourceGroupName: "tfex-resource_group",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = healthcare/dicomService.NewDicomService(ctx, "test", &healthcare/dicomService.DicomServiceArgs{
+// Name: "tfexDicom",
+// WorkspaceId: test.Id,
+// Location: "east us",
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Tags: map[string]interface{}{
+// "environment": "None",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

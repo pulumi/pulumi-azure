@@ -493,23 +493,23 @@ class StandardWebTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_standard_web_test = azure.appinsights.StandardWebTest("example",
-            name="example-test",
+            application_type=web)
+        example_standard_web_test = azure.appinsights.standard_web_test.StandardWebTest("example",
+            name=example-test,
             resource_group_name=example.name,
-            location="West Europe",
+            location=West Europe,
             application_insights_id=example_insights.id,
-            geo_locations=["example"],
-            request=azure.appinsights.StandardWebTestRequestArgs(
-                url="http://www.example.com",
-            ))
+            geo_locations=[example],
+            request={
+                url: http://www.example.com,
+            })
         ```
 
         ## Import
@@ -553,23 +553,23 @@ class StandardWebTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_standard_web_test = azure.appinsights.StandardWebTest("example",
-            name="example-test",
+            application_type=web)
+        example_standard_web_test = azure.appinsights.standard_web_test.StandardWebTest("example",
+            name=example-test,
             resource_group_name=example.name,
-            location="West Europe",
+            location=West Europe,
             application_insights_id=example_insights.id,
-            geo_locations=["example"],
-            request=azure.appinsights.StandardWebTestRequestArgs(
-                url="http://www.example.com",
-            ))
+            geo_locations=[example],
+            request={
+                url: http://www.example.com,
+            })
         ```
 
         ## Import

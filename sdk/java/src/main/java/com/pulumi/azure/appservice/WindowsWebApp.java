@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.WindowsWebApp;
  * import com.pulumi.azure.appservice.WindowsWebAppArgs;
- * import com.pulumi.azure.appservice.inputs.WindowsWebAppSiteConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

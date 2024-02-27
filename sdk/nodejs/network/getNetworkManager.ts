@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a Network Manager.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     scope: {
- *         subscriptionIds: [current.then(current => current.id)],
- *     },
- *     scopeAccesses: [
- *         "Connectivity",
- *         "SecurityAdmin",
- *     ],
- *     description: "example network manager",
- * });
- * const example = azure.network.getNetworkManagerOutput({
- *     name: exampleNetworkManager.name,
- *     resourceGroupName: exampleNetworkManager.resourceGroupName,
- * });
- * ```
  */
 export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerResult> {
 
@@ -99,36 +69,6 @@ export interface GetNetworkManagerResult {
 }
 /**
  * Use this data source to access information about a Network Manager.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     scope: {
- *         subscriptionIds: [current.then(current => current.id)],
- *     },
- *     scopeAccesses: [
- *         "Connectivity",
- *         "SecurityAdmin",
- *     ],
- *     description: "example network manager",
- * });
- * const example = azure.network.getNetworkManagerOutput({
- *     name: exampleNetworkManager.name,
- *     resourceGroupName: exampleNetworkManager.resourceGroupName,
- * });
- * ```
  */
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
     return pulumi.output(args).apply((a: any) => getNetworkManager(a, opts))

@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-sql-server-vnet-rule",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var vnet = new Azure.Network.VirtualNetwork("vnet", new()
+    ///     var vnet = new Azure.Network.VirtualNetwork.VirtualNetwork("vnet", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Sql
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var subnet = new Azure.Network.Subnet("subnet", new()
+    ///     var subnet = new Azure.Network.Subnet.Subnet("subnet", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Sql
     ///         },
     ///     });
     /// 
-    ///     var sqlserver = new Azure.Sql.SqlServer("sqlserver", new()
+    ///     var sqlserver = new Azure.Sql.SqlServer.SqlServer("sqlserver", new()
     ///     {
     ///         Name = "uniqueazuresqlserver",
     ///         ResourceGroupName = example.Name,
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Sql
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new()
+    ///     var sqlvnetrule = new Azure.Sql.VirtualNetworkRule.VirtualNetworkRule("sqlvnetrule", new()
     ///     {
     ///         Name = "sql-vnet-rule",
     ///         ResourceGroupName = example.Name,

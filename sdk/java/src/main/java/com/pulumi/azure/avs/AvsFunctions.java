@@ -17,80 +17,12 @@ public final class AvsFunctions {
     /**
      * Use this data source to access information about an existing VMware Private Cloud.
      * 
-     * ## Example Usage
-     * 
-     * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.avs.AvsFunctions;
-     * import com.pulumi.azure.avs.inputs.GetPrivateCloudArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPrivateCloudResult> getPrivateCloud(GetPrivateCloudArgs args) {
         return getPrivateCloud(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing VMware Private Cloud.
-     * 
-     * ## Example Usage
-     * 
-     * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.avs.AvsFunctions;
-     * import com.pulumi.azure.avs.inputs.GetPrivateCloudArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPrivateCloudResult> getPrivateCloudPlain(GetPrivateCloudPlainArgs args) {
@@ -99,80 +31,12 @@ public final class AvsFunctions {
     /**
      * Use this data source to access information about an existing VMware Private Cloud.
      * 
-     * ## Example Usage
-     * 
-     * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.avs.AvsFunctions;
-     * import com.pulumi.azure.avs.inputs.GetPrivateCloudArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPrivateCloudResult> getPrivateCloud(GetPrivateCloudArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:avs/getPrivateCloud:getPrivateCloud", TypeShape.of(GetPrivateCloudResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing VMware Private Cloud.
-     * 
-     * ## Example Usage
-     * 
-     * &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.avs.AvsFunctions;
-     * import com.pulumi.azure.avs.inputs.GetPrivateCloudArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AvsFunctions.getPrivateCloud(GetPrivateCloudArgs.builder()
-     *             .name(&#34;existing-vmware-private-cloud&#34;)
-     *             .resourceGroupName(&#34;existing-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getPrivateCloudResult -&gt; getPrivateCloudResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPrivateCloudResult> getPrivateCloudPlain(GetPrivateCloudPlainArgs args, InvokeOptions options) {

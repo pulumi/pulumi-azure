@@ -22,23 +22,23 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleMover = new Azure.Storage.Mover("example", new()
+    ///     var exampleMover = new Azure.Storage.Mover.Mover("example", new()
     ///     {
     ///         Name = "example-ssm",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent("example", new()
+    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent.MoverAgent("example", new()
     ///     {
     ///         Name = "example-sa",
     ///         StorageMoverId = exampleMover.Id,
-    ///         ArcVirtualMachineId = example.Id.Apply(id =&gt; $"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
+    ///         ArcVirtualMachineId = $"{example.Id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
     ///         ArcVirtualMachineUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
     ///         Description = "Example Agent Description",
     ///     });

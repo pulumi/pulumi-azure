@@ -206,22 +206,22 @@ class NetworkDataNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East Us")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East Us)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("example",
-            name="example-mndn",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_data_network = azure.mobile.network_data_network.NetworkDataNetwork("example",
+            name=example-mndn,
             mobile_network_id=example_network.id,
             location=example.location,
-            description="example description",
+            description=example description,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -256,22 +256,22 @@ class NetworkDataNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East Us")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East Us)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("example",
-            name="example-mndn",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_data_network = azure.mobile.network_data_network.NetworkDataNetwork("example",
+            name=example-mndn,
             mobile_network_id=example_network.id,
             location=example.location,
-            description="example description",
+            description=example description,
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

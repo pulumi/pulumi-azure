@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "WestEurope",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example-account",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     isHnsEnabled: true,
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "example-container",
  *     storageAccountName: exampleAccount.name,
  * });
- * const exampleLocalUser = new azure.storage.LocalUser("example", {
+ * const exampleLocalUser = new azure.storage/localUser.LocalUser("example", {
  *     name: "user1",
  *     storageAccountId: exampleAccount.id,
  *     sshKeyEnabled: true,

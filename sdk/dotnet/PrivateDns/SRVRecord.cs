@@ -22,19 +22,19 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+    ///     var exampleZone = new Azure.Privatedns.Zone.Zone("example", new()
     ///     {
     ///         Name = "contoso.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSRVRecord = new Azure.PrivateDns.SRVRecord("example", new()
+    ///     var exampleSRVRecord = new Azure.Privatedns.SRVRecord.SRVRecord("example", new()
     ///     {
     ///         Name = "test",
     ///         ResourceGroupName = example.Name,
@@ -42,19 +42,19 @@ namespace Pulumi.Azure.PrivateDns
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
-    ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///             
     ///             {
-    ///                 Priority = 1,
-    ///                 Weight = 5,
-    ///                 Port = 8080,
-    ///                 Target = "target1.contoso.com",
+    ///                 { "priority", 1 },
+    ///                 { "weight", 5 },
+    ///                 { "port", 8080 },
+    ///                 { "target", "target1.contoso.com" },
     ///             },
-    ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///             
     ///             {
-    ///                 Priority = 10,
-    ///                 Weight = 10,
-    ///                 Port = 8080,
-    ///                 Target = "target2.contoso.com",
+    ///                 { "priority", 10 },
+    ///                 { "weight", 10 },
+    ///                 { "port", 8080 },
+    ///                 { "target", "target2.contoso.com" },
     ///             },
     ///         },
     ///         Tags = 

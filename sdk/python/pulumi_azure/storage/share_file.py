@@ -362,23 +362,23 @@ class ShareFile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureteststorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="sharename",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=sharename,
             storage_account_name=example_account.name,
             quota=50)
-        example_share_file = azure.storage.ShareFile("example",
-            name="my-awesome-content.zip",
+        example_share_file = azure.storage.share_file.ShareFile("example",
+            name=my-awesome-content.zip,
             storage_share_id=example_share.id,
-            source="some-local-file.zip")
+            source=some-local-file.zip)
         ```
 
         ## Import
@@ -418,23 +418,23 @@ class ShareFile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="azureteststorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=azureteststorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_share = azure.storage.Share("example",
-            name="sharename",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_share = azure.storage.share.Share("example",
+            name=sharename,
             storage_account_name=example_account.name,
             quota=50)
-        example_share_file = azure.storage.ShareFile("example",
-            name="my-awesome-content.zip",
+        example_share_file = azure.storage.share_file.ShareFile("example",
+            name=my-awesome-content.zip,
             storage_share_id=example_share.id,
-            source="some-local-file.zip")
+            source=some-local-file.zip)
         ```
 
         ## Import

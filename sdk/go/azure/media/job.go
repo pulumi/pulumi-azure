@@ -21,105 +21,106 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/asset "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/asset"
+//	media/job "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/job"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	media/transform "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/transform"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransform, err := media.NewTransform(ctx, "example", &media.TransformArgs{
-//				Name:                     pulumi.String("transform1"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("My transform description"),
-//				Outputs: media.TransformOutputTypeArray{
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Normal"),
-//						OnErrorAction:    pulumi.String("ContinueJob"),
-//						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
-//							PresetName: pulumi.String("AACGoodQualityAudio"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			input, err := media.NewAsset(ctx, "input", &media.AssetArgs{
-//				Name:                     pulumi.String("input"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("Input Asset description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			output, err := media.NewAsset(ctx, "output", &media.AssetArgs{
-//				Name:                     pulumi.String("output"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("Output Asset description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewJob(ctx, "example", &media.JobArgs{
-//				Name:                     pulumi.String("job1"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				TransformName:            exampleTransform.Name,
-//				Description:              pulumi.String("My Job description"),
-//				Priority:                 pulumi.String("Normal"),
-//				InputAsset: &media.JobInputAssetArgs{
-//					Name: input.Name,
-//				},
-//				OutputAssets: media.JobOutputAssetArray{
-//					&media.JobOutputAssetArgs{
-//						Name: output.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleTransform, err := media/transform.NewTransform(ctx, "example", &media/transform.TransformArgs{
+// Name: "transform1",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "My transform description",
+// Outputs: []map[string]interface{}{
+// map[string]interface{}{
+// "relativePriority": "Normal",
+// "onErrorAction": "ContinueJob",
+// "builtinPreset": map[string]interface{}{
+// "presetName": "AACGoodQualityAudio",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// input, err := media/asset.NewAsset(ctx, "input", &media/asset.AssetArgs{
+// Name: "input",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "Input Asset description",
+// })
+// if err != nil {
+// return err
+// }
+// output, err := media/asset.NewAsset(ctx, "output", &media/asset.AssetArgs{
+// Name: "output",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "Output Asset description",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/job.NewJob(ctx, "example", &media/job.JobArgs{
+// Name: "job1",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// TransformName: exampleTransform.Name,
+// Description: "My Job description",
+// Priority: "Normal",
+// InputAsset: map[string]interface{}{
+// "name": input.Name,
+// },
+// OutputAssets: []map[string]interface{}{
+// map[string]interface{}{
+// "name": output.Name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

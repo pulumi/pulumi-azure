@@ -23,53 +23,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServiceOdbc "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServiceOdbc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceOdbc(ctx, "anonymous", &datafactory.LinkedServiceOdbcArgs{
-//				Name:             pulumi.String("anonymous"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceOdbc(ctx, "basic_auth", &datafactory.LinkedServiceOdbcArgs{
-//				Name:             pulumi.String("basic_auth"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
-//				BasicAuthentication: &datafactory.LinkedServiceOdbcBasicAuthenticationArgs{
-//					Username: pulumi.String("onrylmz"),
-//					Password: pulumi.String("Ch4ngeM3!"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedServiceOdbc.NewLinkedServiceOdbc(ctx, "anonymous", &datafactory/linkedServiceOdbc.LinkedServiceOdbcArgs{
+// Name: "anonymous",
+// DataFactoryId: exampleFactory.Id,
+// ConnectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedServiceOdbc.NewLinkedServiceOdbc(ctx, "basic_auth", &datafactory/linkedServiceOdbc.LinkedServiceOdbcArgs{
+// Name: "basic_auth",
+// DataFactoryId: exampleFactory.Id,
+// ConnectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
+// BasicAuthentication: map[string]interface{}{
+// "username": "onrylmz",
+// "password": "Ch4ngeM3!",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

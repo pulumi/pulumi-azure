@@ -306,46 +306,46 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("example",
-            name="example",
-            resource_group_name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_alert_processing_rule_suppression = azure.monitoring.alert_processing_rule_suppression.AlertProcessingRuleSuppression("example",
+            name=example,
+            resource_group_name=example,
             scopes=[example.id],
-            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
+            condition={
+                targetResourceType: {
+                    operator: Equals,
+                    values: [Microsoft.Compute/VirtualMachines],
+                },
+                severity: {
+                    operator: Equals,
+                    values: [
+                        Sev0,
+                        Sev1,
+                        Sev2,
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
+                },
+            },
+            schedule={
+                effectiveFrom: 2022-01-01T01:02:03,
+                effectiveUntil: 2022-02-02T01:02:03,
+                timeZone: Pacific Standard Time,
+                recurrence: {
+                    dailies: [{
+                        startTime: 17:00:00,
+                        endTime: 09:00:00,
+                    }],
+                    weeklies: [{
+                        daysOfWeeks: [
+                            Saturday,
+                            Sunday,
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -383,46 +383,46 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("example",
-            name="example",
-            resource_group_name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_alert_processing_rule_suppression = azure.monitoring.alert_processing_rule_suppression.AlertProcessingRuleSuppression("example",
+            name=example,
+            resource_group_name=example,
             scopes=[example.id],
-            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
+            condition={
+                targetResourceType: {
+                    operator: Equals,
+                    values: [Microsoft.Compute/VirtualMachines],
+                },
+                severity: {
+                    operator: Equals,
+                    values: [
+                        Sev0,
+                        Sev1,
+                        Sev2,
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
+                },
+            },
+            schedule={
+                effectiveFrom: 2022-01-01T01:02:03,
+                effectiveUntil: 2022-02-02T01:02:03,
+                timeZone: Pacific Standard Time,
+                recurrence: {
+                    dailies: [{
+                        startTime: 17:00:00,
+                        endTime: 09:00:00,
+                    }],
+                    weeklies: [{
+                        daysOfWeeks: [
+                            Saturday,
+                            Sunday,
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

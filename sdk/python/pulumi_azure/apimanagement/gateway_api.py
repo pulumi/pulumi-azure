@@ -100,25 +100,6 @@ class GatewayApi(pulumi.CustomResource):
         """
         Manages a API Management Gateway API.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_get_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name,
-            revision="2")
-        example_get_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-            api_management_id=example.id)
-        example_gateway_api = azure.apimanagement.GatewayApi("example",
-            gateway_id=example_get_gateway.id,
-            api_id=example_get_api.id)
-        ```
-
         ## Import
 
         API Management Gateway APIs can be imported using the `resource id`, e.g.
@@ -140,25 +121,6 @@ class GatewayApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Gateway API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_get_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name,
-            revision="2")
-        example_get_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-            api_management_id=example.id)
-        example_gateway_api = azure.apimanagement.GatewayApi("example",
-            gateway_id=example_get_gateway.id,
-            api_id=example_get_api.id)
-        ```
 
         ## Import
 

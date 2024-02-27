@@ -232,18 +232,18 @@ class WorkspaceTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_workspace_table = azure.loganalytics.WorkspaceTable("example",
+        example_workspace_table = azure.loganalytics.workspace_table.WorkspaceTable("example",
             workspace_id=example_analytics_workspace.id,
-            name="AppMetrics",
+            name=AppMetrics,
             retention_in_days=60,
             total_retention_in_days=180)
         ```
@@ -279,18 +279,18 @@ class WorkspaceTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_workspace_table = azure.loganalytics.WorkspaceTable("example",
+        example_workspace_table = azure.loganalytics.workspace_table.WorkspaceTable("example",
             workspace_id=example_analytics_workspace.id,
-            name="AppMetrics",
+            name=AppMetrics,
             retention_in_days=60,
             total_retention_in_days=180)
         ```

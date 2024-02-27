@@ -264,7 +264,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
     /**
      * The ID of the Subscription containing the Storage Account.
-     * 
      * ```java
      * package generated_program;
      * 
@@ -300,7 +299,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
     /**
      * @return The ID of the Subscription containing the Storage Account.
-     * 
      * ```java
      * package generated_program;
      * 
@@ -711,7 +709,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
-         * 
          * ```java
          * package generated_program;
          * 
@@ -751,7 +748,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
-         * 
          * ```java
          * package generated_program;
          * 

@@ -22,48 +22,48 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-logz",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("example", new()
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor.LogzMonitor("example", new()
     ///     {
     ///         Name = "example-monitor",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
+    ///         Plan = 
     ///         {
-    ///             BillingCycle = "MONTHLY",
-    ///             EffectiveDate = "2022-06-06T00:00:00Z",
-    ///             UsageType = "COMMITTED",
+    ///             { "billingCycle", "MONTHLY" },
+    ///             { "effectiveDate", "2022-06-06T00:00:00Z" },
+    ///             { "usageType", "COMMITTED" },
     ///         },
-    ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs
+    ///         User = 
     ///         {
-    ///             Email = "user@example.com",
-    ///             FirstName = "Example",
-    ///             LastName = "User",
-    ///             PhoneNumber = "+12313803556",
+    ///             { "email", "user@example.com" },
+    ///             { "firstName", "Example" },
+    ///             { "lastName", "User" },
+    ///             { "phoneNumber", "+12313803556" },
     ///         },
     ///     });
     /// 
-    ///     var exampleLogzTagRule = new Azure.Monitoring.LogzTagRule("example", new()
+    ///     var exampleLogzTagRule = new Azure.Monitoring.LogzTagRule.LogzTagRule("example", new()
     ///     {
     ///         LogzMonitorId = exampleLogzMonitor.Id,
     ///         TagFilters = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
+    ///             
     ///             {
-    ///                 Name = "name1",
-    ///                 Action = "Include",
-    ///                 Value = "value1",
+    ///                 { "name", "name1" },
+    ///                 { "action", "Include" },
+    ///                 { "value", "value1" },
     ///             },
-    ///             new Azure.Monitoring.Inputs.LogzTagRuleTagFilterArgs
+    ///             
     ///             {
-    ///                 Name = "name2",
-    ///                 Action = "Exclude",
-    ///                 Value = "value2",
+    ///                 { "name", "name2" },
+    ///                 { "action", "Exclude" },
+    ///                 { "value", "value2" },
     ///             },
     ///         },
     ///         SendAadLogs = true,

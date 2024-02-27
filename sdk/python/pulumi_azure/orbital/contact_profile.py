@@ -369,53 +369,53 @@ class ContactProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="testvnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=testvnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="testsubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=testsubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
-                        "Microsoft.Network/publicIPAddresses/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/read",
-                        "Microsoft.Network/publicIPAddresses/read",
+            address_prefixes=[10.0.1.0/24],
+            delegations=[{
+                name: orbitalgateway,
+                serviceDelegation: {
+                    name: Microsoft.Orbital/orbitalGateways,
+                    actions: [
+                        Microsoft.Network/publicIPAddresses/join/action,
+                        Microsoft.Network/virtualNetworks/subnets/join/action,
+                        Microsoft.Network/virtualNetworks/read,
+                        Microsoft.Network/publicIPAddresses/read,
                     ],
-                ),
-            )])
-        example_contact_profile = azure.orbital.ContactProfile("example",
-            name="example-contact-profile",
+                },
+            }])
+        example_contact_profile = azure.orbital.contact_profile.ContactProfile("example",
+            name=example-contact-profile,
             resource_group_name=example.name,
             location=example.location,
-            minimum_variable_contact_duration="PT1M",
-            auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49513",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
+            minimum_variable_contact_duration=PT1M,
+            auto_tracking=disabled,
+            links=[{
+                channels: [{
+                    name: channelname,
+                    bandwidthMhz: 100,
+                    centerFrequencyMhz: 101,
+                    endPoints: [{
+                        endPointName: AQUA_command,
+                        ipAddress: 10.0.1.0,
+                        port: 49513,
+                        protocol: TCP,
+                    }],
+                }],
+                direction: Uplink,
+                name: RHCP_UL,
+                polarization: RHCP,
+            }],
             network_configuration_subnet_id=example_subnet.id)
         ```
 
@@ -455,53 +455,53 @@ class ContactProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="testvnet",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=testvnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="testsubnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=testsubnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
-                        "Microsoft.Network/publicIPAddresses/join/action",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                        "Microsoft.Network/virtualNetworks/read",
-                        "Microsoft.Network/publicIPAddresses/read",
+            address_prefixes=[10.0.1.0/24],
+            delegations=[{
+                name: orbitalgateway,
+                serviceDelegation: {
+                    name: Microsoft.Orbital/orbitalGateways,
+                    actions: [
+                        Microsoft.Network/publicIPAddresses/join/action,
+                        Microsoft.Network/virtualNetworks/subnets/join/action,
+                        Microsoft.Network/virtualNetworks/read,
+                        Microsoft.Network/publicIPAddresses/read,
                     ],
-                ),
-            )])
-        example_contact_profile = azure.orbital.ContactProfile("example",
-            name="example-contact-profile",
+                },
+            }])
+        example_contact_profile = azure.orbital.contact_profile.ContactProfile("example",
+            name=example-contact-profile,
             resource_group_name=example.name,
             location=example.location,
-            minimum_variable_contact_duration="PT1M",
-            auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49513",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
+            minimum_variable_contact_duration=PT1M,
+            auto_tracking=disabled,
+            links=[{
+                channels: [{
+                    name: channelname,
+                    bandwidthMhz: 100,
+                    centerFrequencyMhz: 101,
+                    endPoints: [{
+                        endPointName: AQUA_command,
+                        ipAddress: 10.0.1.0,
+                        port: 49513,
+                        protocol: TCP,
+                    }],
+                }],
+                direction: Uplink,
+                name: RHCP_UL,
+                polarization: RHCP,
+            }],
             network_configuration_subnet_id=example_subnet.id)
         ```
 

@@ -202,30 +202,30 @@ class RegistryScopeMap(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource-group",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="exampleregistry",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource-group,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=exampleregistry,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    location: East US,
+                },
+                {
+                    location: West Europe,
+                },
             ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
-            name="example-scope-map",
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=example-scope-map,
             container_registry_name=example_registry.name,
             resource_group_name=example.name,
             actions=[
-                "repositories/repo1/content/read",
-                "repositories/repo1/content/write",
+                repositories/repo1/content/read,
+                repositories/repo1/content/write,
             ])
         ```
 
@@ -258,30 +258,30 @@ class RegistryScopeMap(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resource-group",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="exampleregistry",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource-group,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=exampleregistry,
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku=Premium,
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    location: East US,
+                },
+                {
+                    location: West Europe,
+                },
             ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
-            name="example-scope-map",
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=example-scope-map,
             container_registry_name=example_registry.name,
             resource_group_name=example.name,
             actions=[
-                "repositories/repo1/content/read",
-                "repositories/repo1/content/write",
+                repositories/repo1/content/read,
+                repositories/repo1/content/write,
             ])
         ```
 

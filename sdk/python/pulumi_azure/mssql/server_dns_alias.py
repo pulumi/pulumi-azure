@@ -123,18 +123,18 @@ class ServerDnsAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.mssql.Server("example",
-            name="example-sqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_server = azure.mssql.server.Server("example",
+            name=example-sqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_server_dns_alias = azure.mssql.ServerDnsAlias("example",
-            name="example-dns-alias",
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=AdminPassword123!)
+        example_server_dns_alias = azure.mssql.server_dns_alias.ServerDnsAlias("example",
+            name=example-dns-alias,
             mssql_server_id=example_server.id)
         ```
 
@@ -166,18 +166,18 @@ class ServerDnsAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.mssql.Server("example",
-            name="example-sqlserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_server = azure.mssql.server.Server("example",
+            name=example-sqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_server_dns_alias = azure.mssql.ServerDnsAlias("example",
-            name="example-dns-alias",
+            version=12.0,
+            administrator_login=missadministrator,
+            administrator_login_password=AdminPassword123!)
+        example_server_dns_alias = azure.mssql.server_dns_alias.ServerDnsAlias("example",
+            name=example-dns-alias,
             mssql_server_id=example_server.id)
         ```
 

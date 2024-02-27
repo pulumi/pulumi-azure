@@ -27,15 +27,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.hpc.Cache;
  * import com.pulumi.azure.hpc.CacheArgs;
  * import com.pulumi.azure.hpc.CacheAccessPolicy;
  * import com.pulumi.azure.hpc.CacheAccessPolicyArgs;
- * import com.pulumi.azure.hpc.inputs.CacheAccessPolicyAccessRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,10 +79,7 @@ import javax.annotation.Nullable;
  *         var exampleCacheAccessPolicy = new CacheAccessPolicy(&#34;exampleCacheAccessPolicy&#34;, CacheAccessPolicyArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .hpcCacheId(exampleCache.id())
- *             .accessRules(CacheAccessPolicyAccessRuleArgs.builder()
- *                 .scope(&#34;default&#34;)
- *                 .access(&#34;rw&#34;)
- *                 .build())
+ *             .accessRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

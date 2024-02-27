@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleIntegrationRuntimeManaged = new azure.datafactory.IntegrationRuntimeManaged("example", {
+ * const exampleIntegrationRuntimeManaged = new azure.datafactory/integrationRuntimeManaged.IntegrationRuntimeManaged("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     location: example.location,

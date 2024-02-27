@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
+    ///     var exampleBackupVault = new Azure.Dataprotection.BackupVault.BackupVault("example", new()
     ///     {
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,

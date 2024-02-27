@@ -23,48 +23,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGateway"
+//	appplatform/springCloudGatewayCustomDomain "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudGatewayCustomDomain"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
-//				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudGatewayCustomDomain(ctx, "example", &appplatform.SpringCloudGatewayCustomDomainArgs{
-//				Name:                 pulumi.String("example.com"),
-//				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudGateway, err := appplatform/springCloudGateway.NewSpringCloudGateway(ctx, "example", &appplatform/springCloudGateway.SpringCloudGatewayArgs{
+// Name: "default",
+// SpringCloudServiceId: exampleSpringCloudService.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudGatewayCustomDomain.NewSpringCloudGatewayCustomDomain(ctx, "example", &appplatform/springCloudGatewayCustomDomain.SpringCloudGatewayCustomDomainArgs{
+// Name: "example.com",
+// SpringCloudGatewayId: exampleSpringCloudGateway.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

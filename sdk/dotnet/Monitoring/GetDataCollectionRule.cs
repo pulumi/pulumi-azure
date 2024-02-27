@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// Use this data source to access information about an existing Data Collection Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Monitoring.GetDataCollectionRule.Invoke(new()
-        ///     {
-        ///         Name = "example-rule",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["ruleId"] = example.Apply(getDataCollectionRuleResult =&gt; getDataCollectionRuleResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Collection Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Monitoring.GetDataCollectionRule.Invoke(new()
-        ///     {
-        ///         Name = "example-rule",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["ruleId"] = example.Apply(getDataCollectionRuleResult =&gt; getDataCollectionRuleResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());

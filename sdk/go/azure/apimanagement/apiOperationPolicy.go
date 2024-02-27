@@ -21,74 +21,75 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/api "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/api"
+//	apimanagement/apiOperation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/apiOperation"
+//	apimanagement/apiOperationPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/apiOperationPolicy"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@terraform.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApi, err := apimanagement/api.NewApi(ctx, "example", &apimanagement/api.ApiArgs{
+// Name: "example-api",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// Revision: "1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApiOperation, err := apimanagement/apiOperation.NewApiOperation(ctx, "example", &apimanagement/apiOperation.ApiOperationArgs{
+// OperationId: "acctest-operation",
+// ApiName: exampleApi.Name,
+// ApiManagementName: exampleService.Name,
+// ResourceGroupName: example.Name,
+// DisplayName: "DELETE Resource",
+// Method: "DELETE",
+// UrlTemplate: "/resource",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/apiOperationPolicy.NewApiOperationPolicy(ctx, "example", &apimanagement/apiOperationPolicy.ApiOperationPolicyArgs{
+// ApiName: exampleApiOperation.ApiName,
+// ApiManagementName: exampleApiOperation.ApiManagementName,
+// ResourceGroupName: exampleApiOperation.ResourceGroupName,
+// OperationId: exampleApiOperation.OperationId,
+// XmlContent: `<policies>
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@terraform.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
-//				Name:              pulumi.String("example-api"),
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				Revision:          pulumi.String("1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "example", &apimanagement.ApiOperationArgs{
-//				OperationId:       pulumi.String("acctest-operation"),
-//				ApiName:           exampleApi.Name,
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: example.Name,
-//				DisplayName:       pulumi.String("DELETE Resource"),
-//				Method:            pulumi.String("DELETE"),
-//				UrlTemplate:       pulumi.String("/resource"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewApiOperationPolicy(ctx, "example", &apimanagement.ApiOperationPolicyArgs{
-//				ApiName:           exampleApiOperation.ApiName,
-//				ApiManagementName: exampleApiOperation.ApiManagementName,
-//				ResourceGroupName: exampleApiOperation.ResourceGroupName,
-//				OperationId:       exampleApiOperation.OperationId,
-//				XmlContent: pulumi.String(`<policies>
-//	  <inbound>
-//	    <find-and-replace from="xyz" to="abc" />
-//	  </inbound>
+//	<inbound>
+//	  <find-and-replace from="xyz" to="abc" />
+//	</inbound>
 //
 // </policies>
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

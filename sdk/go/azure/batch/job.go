@@ -21,59 +21,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	batch/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/batch/account"
+//	batch/job "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/batch/job"
+//	batch/pool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/batch/pool"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("west europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := batch.NewAccount(ctx, "example", &batch.AccountArgs{
-//				Name:              pulumi.String("exampleaccount"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePool, err := batch.NewPool(ctx, "example", &batch.PoolArgs{
-//				Name:              pulumi.String("examplepool"),
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount.Name,
-//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
-//				VmSize:            pulumi.String("Standard_A1"),
-//				FixedScale: &batch.PoolFixedScaleArgs{
-//					TargetDedicatedNodes: pulumi.Int(1),
-//				},
-//				StorageImageReference: &batch.PoolStorageImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = batch.NewJob(ctx, "example", &batch.JobArgs{
-//				Name:        pulumi.String("examplejob"),
-//				BatchPoolId: examplePool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "west europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := batch/account.NewAccount(ctx, "example", &batch/account.AccountArgs{
+// Name: "exampleaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// examplePool, err := batch/pool.NewPool(ctx, "example", &batch/pool.PoolArgs{
+// Name: "examplepool",
+// ResourceGroupName: example.Name,
+// AccountName: exampleAccount.Name,
+// NodeAgentSkuId: "batch.node.ubuntu 16.04",
+// VmSize: "Standard_A1",
+// FixedScale: map[string]interface{}{
+// "targetDedicatedNodes": 1,
+// },
+// StorageImageReference: map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = batch/job.NewJob(ctx, "example", &batch/job.JobArgs{
+// Name: "examplejob",
+// BatchPoolId: examplePool.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         ResourceGroupName = example.Name,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "outbounddns",
     ///         ResourceGroupName = example.Name,
@@ -50,22 +50,22 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "Microsoft.Network.dnsResolvers",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "Microsoft.Network.dnsResolvers" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Actions = new[]
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                     Name = "Microsoft.Network/dnsResolvers",
-    ///                 },
+    ///                     } },
+    ///                     { "name", "Microsoft.Network/dnsResolvers" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleResolver = new Azure.PrivateDns.Resolver("example", new()
+    ///     var exampleResolver = new Azure.Privatedns.Resolver.Resolver("example", new()
     ///     {
     ///         Name = "example-resolver",
     ///         ResourceGroupName = example.Name,
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
-    ///     var exampleResolverOutboundEndpoint = new Azure.PrivateDns.ResolverOutboundEndpoint("example", new()
+    ///     var exampleResolverOutboundEndpoint = new Azure.Privatedns.ResolverOutboundEndpoint.ResolverOutboundEndpoint("example", new()
     ///     {
     ///         Name = "example-endpoint",
     ///         PrivateDnsResolverId = exampleResolver.Id,

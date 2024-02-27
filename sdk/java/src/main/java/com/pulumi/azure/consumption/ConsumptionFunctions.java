@@ -20,76 +20,12 @@ public final class ConsumptionFunctions {
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args) {
         return getBudgetResourceGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args) {
@@ -98,76 +34,12 @@ public final class ConsumptionFunctions {
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBudgetResourceGroupResult> getBudgetResourceGroup(GetBudgetResourceGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", TypeShape.of(GetBudgetResourceGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific resource group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBudgetResourceGroupResult> getBudgetResourceGroupPlain(GetBudgetResourceGroupPlainArgs args, InvokeOptions options) {
@@ -176,76 +48,12 @@ public final class ConsumptionFunctions {
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args) {
         return getBudgetSubscription(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args) {
@@ -254,76 +62,12 @@ public final class ConsumptionFunctions {
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBudgetSubscriptionResult> getBudgetSubscription(GetBudgetSubscriptionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:consumption/getBudgetSubscription:getBudgetSubscription", TypeShape.of(GetBudgetSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Consumption Budget for a specific subscription.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.consumption.ConsumptionFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConsumptionFunctions.getBudgetSubscription(GetBudgetSubscriptionArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermConsumptionBudget.id());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBudgetSubscriptionResult> getBudgetSubscriptionPlain(GetBudgetSubscriptionPlainArgs args, InvokeOptions options) {

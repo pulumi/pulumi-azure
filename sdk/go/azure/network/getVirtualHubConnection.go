@@ -12,35 +12,6 @@ import (
 )
 
 // Uses this data source to access information about an existing Virtual Hub Connection.
-//
-// ## Virtual Hub Connection Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := network.LookupVirtualHubConnection(ctx, &network.LookupVirtualHubConnectionArgs{
-//				Name:              "example-connection",
-//				ResourceGroupName: "example-resources",
-//				VirtualHubName:    "example-hub-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("virtualHubConnectionId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualHubConnection(ctx *pulumi.Context, args *LookupVirtualHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualHubConnectionResult

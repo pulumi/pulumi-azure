@@ -31,13 +31,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
  * import com.pulumi.azure.iot.SecuritySolution;
  * import com.pulumi.azure.iot.SecuritySolutionArgs;
  * import com.pulumi.azure.iot.SecurityDeviceGroup;
  * import com.pulumi.azure.iot.SecurityDeviceGroupArgs;
- * import com.pulumi.azure.iot.inputs.SecurityDeviceGroupAllowRuleArgs;
- * import com.pulumi.azure.iot.inputs.SecurityDeviceGroupRangeRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,10 +57,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-IoTHub&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSecuritySolution = new SecuritySolution(&#34;exampleSecuritySolution&#34;, SecuritySolutionArgs.builder()        
@@ -77,15 +71,8 @@ import javax.annotation.Nullable;
  *         var exampleSecurityDeviceGroup = new SecurityDeviceGroup(&#34;exampleSecurityDeviceGroup&#34;, SecurityDeviceGroupArgs.builder()        
  *             .name(&#34;example-device-security-group&#34;)
  *             .iothubId(exampleIoTHub.id())
- *             .allowRule(SecurityDeviceGroupAllowRuleArgs.builder()
- *                 .connectionToIpsNotAlloweds(&#34;10.0.0.0/24&#34;)
- *                 .build())
- *             .rangeRules(SecurityDeviceGroupRangeRuleArgs.builder()
- *                 .type(&#34;ActiveConnectionsNotInAllowedRange&#34;)
- *                 .min(0)
- *                 .max(30)
- *                 .duration(&#34;PT5M&#34;)
- *                 .build())
+ *             .allowRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rangeRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

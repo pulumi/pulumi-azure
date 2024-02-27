@@ -23,90 +23,90 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/videoanalyzer"
+//	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	videoanalyzer/analyzer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/videoanalyzer/analyzer"
+//	videoanalyzer/edgeModule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/videoanalyzer/edgeModule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("video-analyzer-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("exampleidentity"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID(),
-//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID(),
-//				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyzer, err := videoanalyzer.NewAnalyzer(ctx, "example", &videoanalyzer.AnalyzerArgs{
-//				Name:              pulumi.String("exampleanalyzer"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccount: &videoanalyzer.AnalyzerStorageAccountArgs{
-//					Id:                     exampleAccount.ID(),
-//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
-//				},
-//				Identity: &videoanalyzer.AnalyzerIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = videoanalyzer.NewEdgeModule(ctx, "example", &videoanalyzer.EdgeModuleArgs{
-//				Name:              pulumi.String("example-edge-module"),
-//				ResourceGroupName: example.Name,
-//				VideoAnalyzerName: exampleAnalyzer.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "video-analyzer-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "exampleidentity",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/assignment.NewAssignment(ctx, "contributor", &authorization/assignment.AssignmentArgs{
+// Scope: exampleAccount.Id,
+// RoleDefinitionName: "Storage Blob Data Contributor",
+// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/assignment.NewAssignment(ctx, "reader", &authorization/assignment.AssignmentArgs{
+// Scope: exampleAccount.Id,
+// RoleDefinitionName: "Reader",
+// PrincipalId: exampleUserAssignedIdentity.PrincipalId,
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyzer, err := videoanalyzer/analyzer.NewAnalyzer(ctx, "example", &videoanalyzer/analyzer.AnalyzerArgs{
+// Name: "exampleanalyzer",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccount: map[string]interface{}{
+// "id": exampleAccount.Id,
+// "userAssignedIdentityId": exampleUserAssignedIdentity.Id,
+// },
+// Identity: map[string]interface{}{
+// "type": "UserAssigned",
+// "identityIds": []interface{}{
+// exampleUserAssignedIdentity.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = videoanalyzer/edgeModule.NewEdgeModule(ctx, "example", &videoanalyzer/edgeModule.EdgeModuleArgs{
+// Name: "example-edge-module",
+// ResourceGroupName: example.Name,
+// VideoAnalyzerName: exampleAnalyzer.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

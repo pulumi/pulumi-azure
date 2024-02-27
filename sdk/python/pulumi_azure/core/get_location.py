@@ -83,15 +83,6 @@ def get_location(location: Optional[str] = None,
     """
     Use this data source to access information of a specific physical location.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.core.get_location(location="West Europe")
-    ```
-
 
     :param str location: Specifies the supported Azure location where the resource exists.
     """
@@ -112,15 +103,6 @@ def get_location_output(location: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
     """
     Use this data source to access information of a specific physical location.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.core.get_location(location="West Europe")
-    ```
 
 
     :param str location: Specifies the supported Azure location where the resource exists.

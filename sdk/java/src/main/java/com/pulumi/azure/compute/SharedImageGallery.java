@@ -53,10 +53,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .description(&#34;Shared images and things.&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Hello&#34;, &#34;There&#34;),
- *                 Map.entry(&#34;World&#34;, &#34;Example&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

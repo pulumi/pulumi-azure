@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "resourceGroupName",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "storageaccountname",
     ///         ResourceGroupName = example.Name,
@@ -38,86 +38,86 @@ namespace Pulumi.Azure.Storage
     ///         AccountKind = "BlobStorage",
     ///     });
     /// 
-    ///     var exampleManagementPolicy = new Azure.Storage.ManagementPolicy("example", new()
+    ///     var exampleManagementPolicy = new Azure.Storage.ManagementPolicy.ManagementPolicy("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Azure.Storage.Inputs.ManagementPolicyRuleArgs
+    ///             
     ///             {
-    ///                 Name = "rule1",
-    ///                 Enabled = true,
-    ///                 Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
+    ///                 { "name", "rule1" },
+    ///                 { "enabled", true },
+    ///                 { "filters", 
     ///                 {
-    ///                     PrefixMatches = new[]
+    ///                     { "prefixMatches", new[]
     ///                     {
     ///                         "container1/prefix1",
-    ///                     },
-    ///                     BlobTypes = new[]
+    ///                     } },
+    ///                     { "blobTypes", new[]
     ///                     {
     ///                         "blockBlob",
-    ///                     },
-    ///                     MatchBlobIndexTags = new[]
+    ///                     } },
+    ///                     { "matchBlobIndexTags", new[]
     ///                     {
-    ///                         new Azure.Storage.Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs
+    ///                         
     ///                         {
-    ///                             Name = "tag1",
-    ///                             Operation = "==",
-    ///                             Value = "val1",
+    ///                             { "name", "tag1" },
+    ///                             { "operation", "==" },
+    ///                             { "value", "val1" },
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
+    ///                     } },
+    ///                 } },
+    ///                 { "actions", 
     ///                 {
-    ///                     BaseBlob = new Azure.Storage.Inputs.ManagementPolicyRuleActionsBaseBlobArgs
+    ///                     { "baseBlob", 
     ///                     {
-    ///                         TierToCoolAfterDaysSinceModificationGreaterThan = 10,
-    ///                         TierToArchiveAfterDaysSinceModificationGreaterThan = 50,
-    ///                         DeleteAfterDaysSinceModificationGreaterThan = 100,
-    ///                     },
-    ///                     Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
+    ///                         { "tierToCoolAfterDaysSinceModificationGreaterThan", 10 },
+    ///                         { "tierToArchiveAfterDaysSinceModificationGreaterThan", 50 },
+    ///                         { "deleteAfterDaysSinceModificationGreaterThan", 100 },
+    ///                     } },
+    ///                     { "snapshot", 
     ///                     {
-    ///                         DeleteAfterDaysSinceCreationGreaterThan = 30,
-    ///                     },
-    ///                 },
+    ///                         { "deleteAfterDaysSinceCreationGreaterThan", 30 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Azure.Storage.Inputs.ManagementPolicyRuleArgs
+    ///             
     ///             {
-    ///                 Name = "rule2",
-    ///                 Enabled = false,
-    ///                 Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
+    ///                 { "name", "rule2" },
+    ///                 { "enabled", false },
+    ///                 { "filters", 
     ///                 {
-    ///                     PrefixMatches = new[]
+    ///                     { "prefixMatches", new[]
     ///                     {
     ///                         "container2/prefix1",
     ///                         "container2/prefix2",
-    ///                     },
-    ///                     BlobTypes = new[]
+    ///                     } },
+    ///                     { "blobTypes", new[]
     ///                     {
     ///                         "blockBlob",
-    ///                     },
-    ///                 },
-    ///                 Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
+    ///                     } },
+    ///                 } },
+    ///                 { "actions", 
     ///                 {
-    ///                     BaseBlob = new Azure.Storage.Inputs.ManagementPolicyRuleActionsBaseBlobArgs
+    ///                     { "baseBlob", 
     ///                     {
-    ///                         TierToCoolAfterDaysSinceModificationGreaterThan = 11,
-    ///                         TierToArchiveAfterDaysSinceModificationGreaterThan = 51,
-    ///                         DeleteAfterDaysSinceModificationGreaterThan = 101,
-    ///                     },
-    ///                     Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
+    ///                         { "tierToCoolAfterDaysSinceModificationGreaterThan", 11 },
+    ///                         { "tierToArchiveAfterDaysSinceModificationGreaterThan", 51 },
+    ///                         { "deleteAfterDaysSinceModificationGreaterThan", 101 },
+    ///                     } },
+    ///                     { "snapshot", 
     ///                     {
-    ///                         ChangeTierToArchiveAfterDaysSinceCreation = 90,
-    ///                         ChangeTierToCoolAfterDaysSinceCreation = 23,
-    ///                         DeleteAfterDaysSinceCreationGreaterThan = 31,
-    ///                     },
-    ///                     Version = new Azure.Storage.Inputs.ManagementPolicyRuleActionsVersionArgs
+    ///                         { "changeTierToArchiveAfterDaysSinceCreation", 90 },
+    ///                         { "changeTierToCoolAfterDaysSinceCreation", 23 },
+    ///                         { "deleteAfterDaysSinceCreationGreaterThan", 31 },
+    ///                     } },
+    ///                     { "version", 
     ///                     {
-    ///                         ChangeTierToArchiveAfterDaysSinceCreation = 9,
-    ///                         ChangeTierToCoolAfterDaysSinceCreation = 90,
-    ///                         DeleteAfterDaysSinceCreation = 3,
-    ///                     },
-    ///                 },
+    ///                         { "changeTierToArchiveAfterDaysSinceCreation", 9 },
+    ///                         { "changeTierToCoolAfterDaysSinceCreation", 90 },
+    ///                         { "deleteAfterDaysSinceCreation", 3 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });

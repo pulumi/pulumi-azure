@@ -21,70 +21,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	backup/policyVMWorkload "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/backup/policyVMWorkload"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-bpvmw"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-rsv"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//				SoftDeleteEnabled: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = backup.NewPolicyVMWorkload(ctx, "example", &backup.PolicyVMWorkloadArgs{
-//				Name:              pulumi.String("example-bpvmw"),
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: exampleVault.Name,
-//				WorkloadType:      pulumi.String("SQLDataBase"),
-//				Settings: &backup.PolicyVMWorkloadSettingsArgs{
-//					TimeZone:           pulumi.String("UTC"),
-//					CompressionEnabled: pulumi.Bool(false),
-//				},
-//				ProtectionPolicies: backup.PolicyVMWorkloadProtectionPolicyArray{
-//					&backup.PolicyVMWorkloadProtectionPolicyArgs{
-//						PolicyType: pulumi.String("Full"),
-//						Backup: &backup.PolicyVMWorkloadProtectionPolicyBackupArgs{
-//							Frequency: pulumi.String("Daily"),
-//							Time:      pulumi.String("15:00"),
-//						},
-//						RetentionDaily: &backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs{
-//							Count: pulumi.Int(8),
-//						},
-//					},
-//					&backup.PolicyVMWorkloadProtectionPolicyArgs{
-//						PolicyType: pulumi.String("Log"),
-//						Backup: &backup.PolicyVMWorkloadProtectionPolicyBackupArgs{
-//							FrequencyInMinutes: pulumi.Int(15),
-//						},
-//						SimpleRetention: &backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs{
-//							Count: pulumi.Int(8),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-bpvmw",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVault, err := recoveryservices/vault.NewVault(ctx, "example", &recoveryservices/vault.VaultArgs{
+// Name: "example-rsv",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// SoftDeleteEnabled: false,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = backup/policyVMWorkload.NewPolicyVMWorkload(ctx, "example", &backup/policyVMWorkload.PolicyVMWorkloadArgs{
+// Name: "example-bpvmw",
+// ResourceGroupName: example.Name,
+// RecoveryVaultName: exampleVault.Name,
+// WorkloadType: "SQLDataBase",
+// Settings: map[string]interface{}{
+// "timeZone": "UTC",
+// "compressionEnabled": false,
+// },
+// ProtectionPolicies: []interface{}{
+// map[string]interface{}{
+// "policyType": "Full",
+// "backup": map[string]interface{}{
+// "frequency": "Daily",
+// "time": "15:00",
+// },
+// "retentionDaily": map[string]interface{}{
+// "count": 8,
+// },
+// },
+// map[string]interface{}{
+// "policyType": "Log",
+// "backup": map[string]interface{}{
+// "frequencyInMinutes": 15,
+// },
+// "simpleRetention": map[string]interface{}{
+// "count": 8,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

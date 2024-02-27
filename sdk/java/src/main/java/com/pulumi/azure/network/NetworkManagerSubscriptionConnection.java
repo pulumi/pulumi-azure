@@ -17,63 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Network Manager Subscription Connection which may cross tenants.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.network.NetworkManager;
- * import com.pulumi.azure.network.NetworkManagerArgs;
- * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
- * import com.pulumi.azure.network.NetworkManagerSubscriptionConnection;
- * import com.pulumi.azure.network.NetworkManagerSubscriptionConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         final var current = CoreFunctions.getSubscription();
- * 
- *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .name(&#34;example-networkmanager&#34;)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *                 .build())
- *             .scopeAccesses(&#34;SecurityAdmin&#34;)
- *             .build());
- * 
- *         var exampleNetworkManagerSubscriptionConnection = new NetworkManagerSubscriptionConnection(&#34;exampleNetworkManagerSubscriptionConnection&#34;, NetworkManagerSubscriptionConnectionArgs.builder()        
- *             .name(&#34;example-nsnmc&#34;)
- *             .subscriptionId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .networkManagerId(exampleNetworkManager.id())
- *             .description(&#34;example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Network Subscription Network Manager Connection can be imported using the `resource id`, e.g.

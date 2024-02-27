@@ -21,57 +21,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	eventgrid/eventSubscription "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventgrid/eventSubscription"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/queue "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("exampleasa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleQueue, err := storage.NewQueue(ctx, "example", &storage.QueueArgs{
-//				Name:               pulumi.String("example-astq"),
-//				StorageAccountName: exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
-//				Name:  pulumi.String("example-aees"),
-//				Scope: example.ID(),
-//				StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
-//					StorageAccountId: exampleAccount.ID(),
-//					QueueName:        exampleQueue.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "exampleasa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleQueue, err := storage/queue.NewQueue(ctx, "example", &storage/queue.QueueArgs{
+// Name: "example-astq",
+// StorageAccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eventgrid/eventSubscription.NewEventSubscription(ctx, "example", &eventgrid/eventSubscription.EventSubscriptionArgs{
+// Name: "example-aees",
+// Scope: example.Id,
+// StorageQueueEndpoint: map[string]interface{}{
+// "storageAccountId": exampleAccount.Id,
+// "queueName": exampleQueue.Name,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

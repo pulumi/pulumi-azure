@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "examplevn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "examplesubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const exampleCache = new azure.hpc.Cache("example", {
+ * const exampleCache = new azure.hpc/cache.Cache("example", {
  *     name: "examplehpccache",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  *     skuName: "Standard_2G",
  * });
- * const exampleCacheAccessPolicy = new azure.hpc.CacheAccessPolicy("example", {
+ * const exampleCacheAccessPolicy = new azure.hpc/cacheAccessPolicy.CacheAccessPolicy("example", {
  *     name: "example",
  *     hpcCacheId: exampleCache.id,
  *     accessRules: [{

@@ -58,38 +58,6 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppServiceResult> getAppService(GetAppServiceArgs args) {
         return getAppService(args, InvokeOptions.Empty);
@@ -98,38 +66,6 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service.
      * 
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAppServiceResult> getAppServicePlain(GetAppServicePlainArgs args) {
@@ -140,38 +76,6 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppServiceResult> getAppService(GetAppServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getAppService:getAppService", TypeShape.of(GetAppServiceResult.class), args, Utilities.withVersion(options));
@@ -181,76 +85,12 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppService(GetAppServiceArgs.builder()
-     *             .name(&#34;search-app-service&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceId&#34;, example.applyValue(getAppServiceResult -&gt; getAppServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetAppServiceResult> getAppServicePlain(GetAppServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getAppService:getAppService", TypeShape.of(GetAppServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing App Service Environment.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetAppServiceEnvironmentResult> getAppServiceEnvironment(GetAppServiceEnvironmentArgs args) {
@@ -259,38 +99,6 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Environment.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetAppServiceEnvironmentResult> getAppServiceEnvironmentPlain(GetAppServiceEnvironmentPlainArgs args) {
         return getAppServiceEnvironmentPlain(args, InvokeOptions.Empty);
@@ -298,76 +106,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Environment.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppServiceEnvironmentResult> getAppServiceEnvironment(GetAppServiceEnvironmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", TypeShape.of(GetAppServiceEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing App Service Environment.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name(&#34;existing-ase&#34;)
-     *             .resourceGroupName(&#34;existing-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAppServiceEnvironmentResult -&gt; getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAppServiceEnvironmentResult> getAppServiceEnvironmentPlain(GetAppServiceEnvironmentPlainArgs args, InvokeOptions options) {
@@ -378,38 +122,6 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppServicePlanResult> getAppServicePlan(GetAppServicePlanArgs args) {
         return getAppServicePlan(args, InvokeOptions.Empty);
@@ -418,38 +130,6 @@ public final class AppserviceFunctions {
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
      * 
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAppServicePlanResult> getAppServicePlanPlain(GetAppServicePlanPlainArgs args) {
@@ -460,38 +140,6 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAppServicePlanResult> getAppServicePlan(GetAppServicePlanArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getAppServicePlan:getAppServicePlan", TypeShape.of(GetAppServicePlanResult.class), args, Utilities.withVersion(options));
@@ -501,76 +149,12 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServicePlan(GetAppServicePlanArgs.builder()
-     *             .name(&#34;search-app-service-plan&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServicePlanId&#34;, example.applyValue(getAppServicePlanResult -&gt; getAppServicePlanResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetAppServicePlanResult> getAppServicePlanPlain(GetAppServicePlanPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getAppServicePlan:getAppServicePlan", TypeShape.of(GetAppServicePlanResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an App Service Certificate.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -579,76 +163,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an App Service Certificate.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
         return getCertificatePlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an App Service Certificate.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -657,76 +177,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an App Service Certificate.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;example-app-service-certificate&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;appServiceCertificateId&#34;, example.applyValue(getCertificateResult -&gt; getCertificateResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing App Service Certificate Order.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args) {
@@ -735,76 +191,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Certificate Order.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCertificateOrderResult> getCertificateOrderPlain(GetCertificateOrderPlainArgs args) {
         return getCertificateOrderPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing App Service Certificate Order.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args, InvokeOptions options) {
@@ -813,76 +205,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Certificate Order.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getCertificateOrder(GetCertificateOrderArgs.builder()
-     *             .name(&#34;example-cert-order&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;certificateOrderId&#34;, example.applyValue(getCertificateOrderResult -&gt; getCertificateOrderResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCertificateOrderResult> getCertificateOrderPlain(GetCertificateOrderPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getCertificateOrder:getCertificateOrder", TypeShape.of(GetCertificateOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args) {
@@ -891,38 +219,6 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args) {
         return getEnvironmentV3Plain(args, InvokeOptions.Empty);
@@ -930,76 +226,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", TypeShape.of(GetEnvironmentV3Result.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetEnvironmentV3Args;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getEnvironmentV3(GetEnvironmentV3Args.builder()
-     *             .name(&#34;example-ASE&#34;)
-     *             .resourceGroupName(&#34;example-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getEnvironmentV3Result -&gt; getEnvironmentV3Result.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args, InvokeOptions options) {
@@ -1010,37 +242,6 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFunctionAppResult> getFunctionApp(GetFunctionAppArgs args) {
         return getFunctionApp(args, InvokeOptions.Empty);
@@ -1049,37 +250,6 @@ public final class AppserviceFunctions {
      * Use this data source to access information about a Function App.
      * 
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFunctionAppResult> getFunctionAppPlain(GetFunctionAppPlainArgs args) {
@@ -1090,37 +260,6 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFunctionAppResult> getFunctionApp(GetFunctionAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getFunctionApp:getFunctionApp", TypeShape.of(GetFunctionAppResult.class), args, Utilities.withVersion(options));
@@ -1130,74 +269,12 @@ public final class AppserviceFunctions {
      * 
      * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
-     *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetFunctionAppResult> getFunctionAppPlain(GetFunctionAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getFunctionApp:getFunctionApp", TypeShape.of(GetFunctionAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to fetch the Host Keys of an existing Function App
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args) {
@@ -1206,74 +283,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to fetch the Host Keys of an existing Function App
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args) {
         return getFunctionAppHostKeysPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to fetch the Host Keys of an existing Function App
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args, InvokeOptions options) {
@@ -1282,75 +297,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to fetch the Host Keys of an existing Function App
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetFunctionAppHostKeysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
-     *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", TypeShape.of(GetFunctionAppHostKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Linux Function App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args) {
@@ -1359,76 +311,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Linux Function App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args) {
         return getLinuxFunctionAppPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Linux Function App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args, InvokeOptions options) {
@@ -1437,76 +325,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Linux Function App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxFunctionApp(GetLinuxFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", TypeShape.of(GetLinuxFunctionAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Linux Web App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args) {
@@ -1515,76 +339,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Linux Web App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args) {
         return getLinuxWebAppPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Linux Web App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args, InvokeOptions options) {
@@ -1593,76 +353,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Linux Web App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetLinuxWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getLinuxWebApp(GetLinuxWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxWebAppResult -&gt; getLinuxWebAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getLinuxWebApp:getLinuxWebApp", TypeShape.of(GetLinuxWebAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Service Plan.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args) {
@@ -1671,76 +367,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Service Plan.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args) {
         return getServicePlanPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Service Plan.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args, InvokeOptions options) {
@@ -1749,220 +381,24 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Service Plan.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetServicePlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getServicePlan(GetServicePlanArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getServicePlanResult -&gt; getServicePlanResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getServicePlan:getServicePlan", TypeShape.of(GetServicePlanResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args) {
         return getSourceControlToken(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args) {
         return getSourceControlTokenPlain(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getSourceControlToken:getSourceControlToken", TypeShape.of(GetSourceControlTokenResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetSourceControlTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getSourceControlToken(GetSourceControlTokenArgs.builder()
-     *             .type(&#34;GitHub&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getSourceControlToken:getSourceControlToken", TypeShape.of(GetSourceControlTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Windows Function App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args) {
@@ -1971,76 +407,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Windows Function App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args) {
         return getWindowsFunctionAppPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Windows Function App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args, InvokeOptions options) {
@@ -2049,76 +421,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Windows Function App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsFunctionApp(GetWindowsFunctionAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsFunctionAppResult -&gt; getWindowsFunctionAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", TypeShape.of(GetWindowsFunctionAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Windows Web App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args) {
@@ -2127,38 +435,6 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Windows Web App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args) {
         return getWindowsWebAppPlain(args, InvokeOptions.Empty);
@@ -2166,76 +442,12 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing Windows Web App.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getWindowsWebApp:getWindowsWebApp", TypeShape.of(GetWindowsWebAppResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Windows Web App.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getWindowsWebApp(GetWindowsWebAppArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .resourceGroupName(&#34;existing&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getWindowsWebAppResult -&gt; getWindowsWebAppResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args, InvokeOptions options) {

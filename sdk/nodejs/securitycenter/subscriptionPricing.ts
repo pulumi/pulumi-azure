@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.securitycenter.SubscriptionPricing("example", {
+ * const example = new azure.securitycenter/subscriptionPricing.SubscriptionPricing("example", {
  *     tier: "Standard",
  *     resourceType: "VirtualMachines",
  * });
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example1 = new azure.securitycenter.SubscriptionPricing("example1", {
+ * const example1 = new azure.securitycenter/subscriptionPricing.SubscriptionPricing("example1", {
  *     tier: "Standard",
  *     resourceType: "CloudPosture",
  *     extensions: [

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Nginx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Nginx
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -63,22 +63,22 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "delegation",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "delegation" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
-    ///                     Actions = new[]
+    ///                     { "name", "NGINX.NGINXPLUS/nginxDeployments" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleDeployment = new Azure.Nginx.Deployment("example", new()
+    ///     var exampleDeployment = new Azure.Nginx.Deployment.Deployment("example", new()
     ///     {
     ///         Name = "example-nginx",
     ///         ResourceGroupName = example.Name,
@@ -86,18 +86,18 @@ namespace Pulumi.Azure.Nginx
     ///         Location = example.Location,
     ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,
-    ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
+    ///         FrontendPublic = 
     ///         {
-    ///             IpAddresses = new[]
+    ///             { "ipAddresses", new[]
     ///             {
     ///                 examplePublicIp.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Nginx.Inputs.DeploymentNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 SubnetId = exampleSubnet.Id,
+    ///                 { "subnetId", exampleSubnet.Id },
     ///             },
     ///         },
     ///         Capacity = 20,

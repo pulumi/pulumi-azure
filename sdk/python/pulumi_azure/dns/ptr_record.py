@@ -250,18 +250,18 @@ class PtrRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_ptr_record = azure.dns.PtrRecord("example",
-            name="test",
+        example_ptr_record = azure.dns.ptr_record.PtrRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["yourdomain.com"])
+            records=[yourdomain.com])
         ```
 
         ## Import
@@ -294,18 +294,18 @@ class PtrRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.dns.Zone("example",
-            name="mydomain.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.dns.zone.Zone("example",
+            name=mydomain.com,
             resource_group_name=example.name)
-        example_ptr_record = azure.dns.PtrRecord("example",
-            name="test",
+        example_ptr_record = azure.dns.ptr_record.PtrRecord("example",
+            name=test,
             zone_name=example_zone.name,
             resource_group_name=example.name,
             ttl=300,
-            records=["yourdomain.com"])
+            records=[yourdomain.com])
         ```
 
         ## Import

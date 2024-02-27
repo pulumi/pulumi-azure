@@ -388,23 +388,23 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="analysis-services-server-test",
-            location="West Europe")
-        server = azure.analysisservices.Server("server",
-            name="analysisservicesserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=analysis-services-server-test,
+            location=West Europe)
+        server = azure.analysisservices.server.Server("server",
+            name=analysisservicesserver,
             location=example.location,
             resource_group_name=example.name,
-            sku="S0",
-            admin_users=["myuser@domain.tld"],
+            sku=S0,
+            admin_users=[myuser@domain.tld],
             enable_power_bi_service=True,
-            ipv4_firewall_rules=[azure.analysisservices.ServerIpv4FirewallRuleArgs(
-                name="myRule1",
-                range_start="210.117.252.0",
-                range_end="210.117.252.255",
-            )],
+            ipv4_firewall_rules=[{
+                name: myRule1,
+                rangeStart: 210.117.252.0,
+                rangeEnd: 210.117.252.255,
+            }],
             tags={
-                "abc": "123",
+                abc: 123,
             })
         ```
 
@@ -446,23 +446,23 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="analysis-services-server-test",
-            location="West Europe")
-        server = azure.analysisservices.Server("server",
-            name="analysisservicesserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=analysis-services-server-test,
+            location=West Europe)
+        server = azure.analysisservices.server.Server("server",
+            name=analysisservicesserver,
             location=example.location,
             resource_group_name=example.name,
-            sku="S0",
-            admin_users=["myuser@domain.tld"],
+            sku=S0,
+            admin_users=[myuser@domain.tld],
             enable_power_bi_service=True,
-            ipv4_firewall_rules=[azure.analysisservices.ServerIpv4FirewallRuleArgs(
-                name="myRule1",
-                range_start="210.117.252.0",
-                range_end="210.117.252.255",
-            )],
+            ipv4_firewall_rules=[{
+                name: myRule1,
+                rangeStart: 210.117.252.0,
+                rangeEnd: 210.117.252.255,
+            }],
             tags={
-                "abc": "123",
+                abc: 123,
             })
         ```
 

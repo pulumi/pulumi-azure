@@ -21,61 +21,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	apimanagement/api "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/api"
+//	apimanagement/apiRelease "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/apiRelease"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@terraform.io"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
-//				Name:              pulumi.String("example-api"),
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				Revision:          pulumi.String("1"),
-//				DisplayName:       pulumi.String("Example API"),
-//				Path:              pulumi.String("example"),
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("https"),
-//				},
-//				Import: &apimanagement.ApiImportArgs{
-//					ContentFormat: pulumi.String("swagger-link-json"),
-//					ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewApiRelease(ctx, "example", &apimanagement.ApiReleaseArgs{
-//				Name:  pulumi.String("example-Api-Release"),
-//				ApiId: exampleApi.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@terraform.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApi, err := apimanagement/api.NewApi(ctx, "example", &apimanagement/api.ApiArgs{
+// Name: "example-api",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// Revision: "1",
+// DisplayName: "Example API",
+// Path: "example",
+// Protocols: []string{
+// "https",
+// },
+// Import: map[string]interface{}{
+// "contentFormat": "swagger-link-json",
+// "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/apiRelease.NewApiRelease(ctx, "example", &apimanagement/apiRelease.ApiReleaseArgs{
+// Name: "example-Api-Release",
+// ApiId: exampleApi.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

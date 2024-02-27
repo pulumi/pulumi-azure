@@ -19,61 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an IotHub Device Provisioning Service Certificate.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.iot.IotHubDps;
- * import com.pulumi.azure.iot.IotHubDpsArgs;
- * import com.pulumi.azure.iot.inputs.IotHubDpsSkuArgs;
- * import com.pulumi.azure.iot.IotHubCertificate;
- * import com.pulumi.azure.iot.IotHubCertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleIotHubDps = new IotHubDps(&#34;exampleIotHubDps&#34;, IotHubDpsArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku(IotHubDpsSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleIotHubCertificate = new IotHubCertificate(&#34;exampleIotHubCertificate&#34;, IotHubCertificateArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(example.name())
- *             .iotDpsName(exampleIotHubDps.name())
- *             .certificateContent(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;example.cer&#34;)
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.

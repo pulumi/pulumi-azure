@@ -30,9 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.devtest.Lab;
  * import com.pulumi.azure.devtest.LabArgs;
- * import com.pulumi.azure.devtest.VirtualNetwork;
- * import com.pulumi.azure.devtest.VirtualNetworkArgs;
- * import com.pulumi.azure.devtest.inputs.VirtualNetworkSubnetArgs;
+ * import com.pulumi.azure.devtest_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.devtest_virtualNetwork.VirtualNetworkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,17 +54,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-devtestlab&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;Sydney&#34;, &#34;Australia&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
  *             .name(&#34;example-network&#34;)
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())
- *             .subnet(VirtualNetworkSubnetArgs.builder()
- *                 .usePublicIpAddress(&#34;Allow&#34;)
- *                 .useInVirtualMachineCreation(&#34;Allow&#34;)
- *                 .build())
+ *             .subnet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -310,19 +310,19 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.netapp.Account("example",
-            name="example-netappaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.netapp.account.Account("example",
+            name=example-netappaccount,
             location=example.location,
             resource_group_name=example.name)
-        example_pool = azure.netapp.Pool("example",
-            name="example-netapppool",
+        example_pool = azure.netapp.pool.Pool("example",
+            name=example-netapppool,
             account_name=example_account.name,
             location=example.location,
             resource_group_name=example.name,
-            service_level="Premium",
+            service_level=Premium,
             size_in_tb=4)
         ```
 
@@ -362,19 +362,19 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.netapp.Account("example",
-            name="example-netappaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.netapp.account.Account("example",
+            name=example-netappaccount,
             location=example.location,
             resource_group_name=example.name)
-        example_pool = azure.netapp.Pool("example",
-            name="example-netapppool",
+        example_pool = azure.netapp.pool.Pool("example",
+            name=example-netapppool,
             account_name=example_account.name,
             location=example.location,
             resource_group_name=example.name,
-            service_level="Premium",
+            service_level=Premium,
             size_in_tb=4)
         ```
 

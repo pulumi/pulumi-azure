@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSpatialAnchorsAccount = new azure.mixedreality.SpatialAnchorsAccount("example", {
+ * const exampleSpatialAnchorsAccount = new azure.mixedreality/spatialAnchorsAccount.SpatialAnchorsAccount("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,

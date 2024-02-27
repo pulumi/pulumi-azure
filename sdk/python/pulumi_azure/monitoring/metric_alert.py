@@ -610,43 +610,43 @@ class MetricAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        to_monitor = azure.storage.Account("to_monitor",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        to_monitor = azure.storage.account.Account("to_monitor",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        main = azure.monitoring.ActionGroup("main",
-            name="example-actiongroup",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        main = azure.monitoring.action_group.ActionGroup("main",
+            name=example-actiongroup,
             resource_group_name=example.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        example_metric_alert = azure.monitoring.MetricAlert("example",
-            name="example-metricalert",
+            short_name=exampleact,
+            webhook_receivers=[{
+                name: callmyapi,
+                serviceUri: http://example.com/alert,
+            }])
+        example_metric_alert = azure.monitoring.metric_alert.MetricAlert("example",
+            name=example-metricalert,
             resource_group_name=example.name,
             scopes=[to_monitor.id],
-            description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.Storage/storageAccounts",
-                metric_name="Transactions",
-                aggregation="Total",
-                operator="GreaterThan",
-                threshold=50,
-                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
-                    name="ApiName",
-                    operator="Include",
-                    values=["*"],
-                )],
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=main.id,
-            )])
+            description=Action will be triggered when Transactions count is greater than 50.,
+            criterias=[{
+                metricNamespace: Microsoft.Storage/storageAccounts,
+                metricName: Transactions,
+                aggregation: Total,
+                operator: GreaterThan,
+                threshold: 50,
+                dimensions: [{
+                    name: ApiName,
+                    operator: Include,
+                    values: [*],
+                }],
+            }],
+            actions=[{
+                actionGroupId: main.id,
+            }])
         ```
 
         ## Import
@@ -701,43 +701,43 @@ class MetricAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        to_monitor = azure.storage.Account("to_monitor",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        to_monitor = azure.storage.account.Account("to_monitor",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        main = azure.monitoring.ActionGroup("main",
-            name="example-actiongroup",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        main = azure.monitoring.action_group.ActionGroup("main",
+            name=example-actiongroup,
             resource_group_name=example.name,
-            short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
-                name="callmyapi",
-                service_uri="http://example.com/alert",
-            )])
-        example_metric_alert = azure.monitoring.MetricAlert("example",
-            name="example-metricalert",
+            short_name=exampleact,
+            webhook_receivers=[{
+                name: callmyapi,
+                serviceUri: http://example.com/alert,
+            }])
+        example_metric_alert = azure.monitoring.metric_alert.MetricAlert("example",
+            name=example-metricalert,
             resource_group_name=example.name,
             scopes=[to_monitor.id],
-            description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
-                metric_namespace="Microsoft.Storage/storageAccounts",
-                metric_name="Transactions",
-                aggregation="Total",
-                operator="GreaterThan",
-                threshold=50,
-                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
-                    name="ApiName",
-                    operator="Include",
-                    values=["*"],
-                )],
-            )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
-                action_group_id=main.id,
-            )])
+            description=Action will be triggered when Transactions count is greater than 50.,
+            criterias=[{
+                metricNamespace: Microsoft.Storage/storageAccounts,
+                metricName: Transactions,
+                aggregation: Total,
+                operator: GreaterThan,
+                threshold: 50,
+                dimensions: [{
+                    name: ApiName,
+                    operator: Include,
+                    values: [*],
+                }],
+            }],
+            actions=[{
+                actionGroupId: main.id,
+            }])
         ```
 
         ## Import

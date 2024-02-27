@@ -25,40 +25,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/iPGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/iPGroup"
+//	network/iPGroupCIDR "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/iPGroupCIDR"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("test-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIPGroup, err := network.NewIPGroup(ctx, "example", &network.IPGroupArgs{
-//				Name:              pulumi.String("test-ipgroup"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewIPGroupCIDR(ctx, "example", &network.IPGroupCIDRArgs{
-//				IpGroupId: exampleIPGroup.ID(),
-//				Cidr:      pulumi.String("10.10.10.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "test-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIPGroup, err := network/iPGroup.NewIPGroup(ctx, "example", &network/iPGroup.IPGroupArgs{
+// Name: "test-ipgroup",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/iPGroupCIDR.NewIPGroupCIDR(ctx, "example", &network/iPGroupCIDR.IPGroupCIDRArgs{
+// IpGroupId: exampleIPGroup.Id,
+// Cidr: "10.10.10.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

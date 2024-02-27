@@ -22,26 +22,26 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePipeline = new Azure.DataFactory.Pipeline("example", new()
+    ///     var examplePipeline = new Azure.Datafactory.Pipeline.Pipeline("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///     });
     /// 
-    ///     var exampleTriggerSchedule = new Azure.DataFactory.TriggerSchedule("example", new()
+    ///     var exampleTriggerSchedule = new Azure.Datafactory.TriggerSchedule.TriggerSchedule("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,

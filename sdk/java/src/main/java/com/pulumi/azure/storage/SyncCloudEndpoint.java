@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.storage.Share;
  * import com.pulumi.azure.storage.ShareArgs;
- * import com.pulumi.azure.storage.inputs.ShareAclArgs;
  * import com.pulumi.azure.storage.SyncCloudEndpoint;
  * import com.pulumi.azure.storage.SyncCloudEndpointArgs;
  * import java.util.List;
@@ -79,12 +78,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-share&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .quota(50)
- *             .acls(ShareAclArgs.builder()
- *                 .id(&#34;GhostedRecall&#34;)
- *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
- *                     .permissions(&#34;r&#34;)
- *                     .build())
- *                 .build())
+ *             .acls(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSyncCloudEndpoint = new SyncCloudEndpoint(&#34;exampleSyncCloudEndpoint&#34;, SyncCloudEndpointArgs.builder()        

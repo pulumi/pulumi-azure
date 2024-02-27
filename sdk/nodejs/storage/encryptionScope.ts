@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleEncryptionScope = new azure.storage.EncryptionScope("example", {
+ * const exampleEncryptionScope = new azure.storage/encryptionScope.EncryptionScope("example", {
  *     name: "microsoftmanaged",
  *     storageAccountId: exampleAccount.id,
  *     source: "Microsoft.Storage",

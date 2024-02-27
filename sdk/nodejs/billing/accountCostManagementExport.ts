@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "examplecontainer",
  *     storageAccountName: exampleAccount.name,
  * });
- * const exampleAccountCostManagementExport = new azure.billing.AccountCostManagementExport("example", {
+ * const exampleAccountCostManagementExport = new azure.billing/accountCostManagementExport.AccountCostManagementExport("example", {
  *     name: "example",
  *     billingAccountId: "example",
  *     recurrenceType: "Monthly",

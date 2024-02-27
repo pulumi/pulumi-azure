@@ -21,57 +21,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/elasticPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/elasticPool"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("my-resource-group"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                       pulumi.String("my-sql-server"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewElasticPool(ctx, "example", &mssql.ElasticPoolArgs{
-//				Name:              pulumi.String("test-epool"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ServerName:        exampleServer.Name,
-//				LicenseType:       pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:         pulumi.Float64(756),
-//				Sku: &mssql.ElasticPoolSkuArgs{
-//					Name:     pulumi.String("BasicPool"),
-//					Tier:     pulumi.String("Basic"),
-//					Family:   pulumi.String("Gen4"),
-//					Capacity: pulumi.Int(4),
-//				},
-//				PerDatabaseSettings: &mssql.ElasticPoolPerDatabaseSettingsArgs{
-//					MinCapacity: pulumi.Float64(0.25),
-//					MaxCapacity: pulumi.Float64(4),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "my-resource-group",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mssql/server.NewServer(ctx, "example", &mssql/server.ServerArgs{
+// Name: "my-sql-server",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/elasticPool.NewElasticPool(ctx, "example", &mssql/elasticPool.ElasticPoolArgs{
+// Name: "test-epool",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ServerName: exampleServer.Name,
+// LicenseType: "LicenseIncluded",
+// MaxSizeGb: 756,
+// Sku: map[string]interface{}{
+// "name": "BasicPool",
+// "tier": "Basic",
+// "family": "Gen4",
+// "capacity": 4,
+// },
+// PerDatabaseSettings: map[string]interface{}{
+// "minCapacity": 0.25,
+// "maxCapacity": 4,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -36,18 +36,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
  * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama;
  * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualNetworkPanoramaArgs;
- * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs;
- * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,7 +81,7 @@ import javax.annotation.Nullable;
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var trust = new Subnet(&#34;trust&#34;, SubnetArgs.builder()        
@@ -93,13 +89,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;trusted&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;trustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
@@ -112,13 +102,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;untrusted&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;untrustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
@@ -131,14 +115,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .panoramaBase64Config(&#34;e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==&#34;)
- *             .networkProfile(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs.builder()
- *                 .publicIpAddressIds(examplePublicIp.id())
- *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs.builder()
- *                     .virtualNetworkId(exampleVirtualNetwork.id())
- *                     .trustedSubnetId(trust.id())
- *                     .untrustedSubnetId(untrust.id())
- *                     .build())
- *                 .build())
+ *             .networkProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

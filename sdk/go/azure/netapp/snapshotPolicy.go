@@ -21,72 +21,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	netapp/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/account"
+//	netapp/snapshotPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/netapp/snapshotPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("resource-group-01"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String("netappaccount-01"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = netapp.NewSnapshotPolicy(ctx, "example", &netapp.SnapshotPolicyArgs{
-//				Name:              pulumi.String("snapshotpolicy-01"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount.Name,
-//				Enabled:           pulumi.Bool(true),
-//				HourlySchedule: &netapp.SnapshotPolicyHourlyScheduleArgs{
-//					SnapshotsToKeep: pulumi.Int(4),
-//					Minute:          pulumi.Int(15),
-//				},
-//				DailySchedule: &netapp.SnapshotPolicyDailyScheduleArgs{
-//					SnapshotsToKeep: pulumi.Int(2),
-//					Hour:            pulumi.Int(20),
-//					Minute:          pulumi.Int(15),
-//				},
-//				WeeklySchedule: &netapp.SnapshotPolicyWeeklyScheduleArgs{
-//					SnapshotsToKeep: pulumi.Int(1),
-//					DaysOfWeeks: pulumi.StringArray{
-//						pulumi.String("Monday"),
-//						pulumi.String("Friday"),
-//					},
-//					Hour:   pulumi.Int(23),
-//					Minute: pulumi.Int(0),
-//				},
-//				MonthlySchedule: &netapp.SnapshotPolicyMonthlyScheduleArgs{
-//					SnapshotsToKeep: pulumi.Int(1),
-//					DaysOfMonths: pulumi.IntArray{
-//						pulumi.Int(1),
-//						pulumi.Int(15),
-//						pulumi.Int(20),
-//						pulumi.Int(30),
-//					},
-//					Hour:   pulumi.Int(5),
-//					Minute: pulumi.Int(45),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "resource-group-01",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := netapp/account.NewAccount(ctx, "example", &netapp/account.AccountArgs{
+// Name: "netappaccount-01",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = netapp/snapshotPolicy.NewSnapshotPolicy(ctx, "example", &netapp/snapshotPolicy.SnapshotPolicyArgs{
+// Name: "snapshotpolicy-01",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AccountName: exampleAccount.Name,
+// Enabled: true,
+// HourlySchedule: map[string]interface{}{
+// "snapshotsToKeep": 4,
+// "minute": 15,
+// },
+// DailySchedule: map[string]interface{}{
+// "snapshotsToKeep": 2,
+// "hour": 20,
+// "minute": 15,
+// },
+// WeeklySchedule: map[string]interface{}{
+// "snapshotsToKeep": 1,
+// "daysOfWeeks": []string{
+// "Monday",
+// "Friday",
+// },
+// "hour": 23,
+// "minute": 0,
+// },
+// MonthlySchedule: map[string]interface{}{
+// "snapshotsToKeep": 1,
+// "daysOfMonths": []float64{
+// 1,
+// 15,
+// 20,
+// 30,
+// },
+// "hour": 5,
+// "minute": 45,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

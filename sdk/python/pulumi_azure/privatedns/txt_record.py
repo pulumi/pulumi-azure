@@ -254,20 +254,20 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="contoso.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=contoso.com,
             resource_group_name=example.name)
-        example_txt_record = azure.privatedns.TxtRecord("example",
-            name="test",
+        example_txt_record = azure.privatedns.txt_record.TxtRecord("example",
+            name=test,
             resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
-            records=[azure.privatedns.TxtRecordRecordArgs(
-                value="v=spf1 mx ~all",
-            )])
+            records=[{
+                value: v=spf1 mx ~all,
+            }])
         ```
 
         ## Import
@@ -302,20 +302,20 @@ class TxtRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_zone = azure.privatedns.Zone("example",
-            name="contoso.com",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_zone = azure.privatedns.zone.Zone("example",
+            name=contoso.com,
             resource_group_name=example.name)
-        example_txt_record = azure.privatedns.TxtRecord("example",
-            name="test",
+        example_txt_record = azure.privatedns.txt_record.TxtRecord("example",
+            name=test,
             resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
-            records=[azure.privatedns.TxtRecordRecordArgs(
-                value="v=spf1 mx ~all",
-            )])
+            records=[{
+                value: v=spf1 mx ~all,
+            }])
         ```
 
         ## Import

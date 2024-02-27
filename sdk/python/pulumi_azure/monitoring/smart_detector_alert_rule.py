@@ -401,28 +401,28 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-action-group",
+            application_type=web)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-action-group,
             resource_group_name=example.name,
-            short_name="example")
-        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("example",
-            name="example-smart-detector-alert-rule",
+            short_name=example)
+        example_smart_detector_alert_rule = azure.monitoring.smart_detector_alert_rule.SmartDetectorAlertRule("example",
+            name=example-smart-detector-alert-rule,
             resource_group_name=example.name,
-            severity="Sev0",
+            severity=Sev0,
             scope_resource_ids=[example_insights.id],
-            frequency="PT1M",
-            detector_type="FailureAnomaliesDetector",
-            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
-                ids=[example_action_group.id],
-            ))
+            frequency=PT1M,
+            detector_type=FailureAnomaliesDetector,
+            action_group={
+                ids: [example_action_group.id],
+            })
         ```
 
         ## Import
@@ -462,28 +462,28 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=example-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-action-group",
+            application_type=web)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-action-group,
             resource_group_name=example.name,
-            short_name="example")
-        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("example",
-            name="example-smart-detector-alert-rule",
+            short_name=example)
+        example_smart_detector_alert_rule = azure.monitoring.smart_detector_alert_rule.SmartDetectorAlertRule("example",
+            name=example-smart-detector-alert-rule,
             resource_group_name=example.name,
-            severity="Sev0",
+            severity=Sev0,
             scope_resource_ids=[example_insights.id],
-            frequency="PT1M",
-            detector_type="FailureAnomaliesDetector",
-            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
-                ids=[example_action_group.id],
-            ))
+            frequency=PT1M,
+            detector_type=FailureAnomaliesDetector,
+            action_group={
+                ids: [example_action_group.id],
+            })
         ```
 
         ## Import

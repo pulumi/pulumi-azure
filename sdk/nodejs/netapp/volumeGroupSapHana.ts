@@ -14,23 +14,23 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const example = new random.RandomString("example", {
+ * const example = new random.index/randomString.RandomString("example", {
  *     length: 12,
  *     special: true,
  * });
  * const adminUsername = "exampleadmin";
  * const adminPassword = example.result;
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: `${prefix}-resources`,
  *     location: location,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: `${prefix}-vnet`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     addressSpaces: ["10.6.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: `${prefix}-delegated-subnet`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -46,24 +46,24 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const example1 = new azure.network.Subnet("example1", {
+ * const example1 = new azure.network/subnet.Subnet("example1", {
  *     name: `${prefix}-hosts-subnet`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.6.1.0/24"],
  * });
- * const examplePlacementGroup = new azure.proximity.PlacementGroup("example", {
+ * const examplePlacementGroup = new azure.proximity/placementGroup.PlacementGroup("example", {
  *     name: `${prefix}-ppg`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleAvailabilitySet = new azure.compute.AvailabilitySet("example", {
+ * const exampleAvailabilitySet = new azure.compute/availabilitySet.AvailabilitySet("example", {
  *     name: `${prefix}-avset`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     proximityPlacementGroupId: examplePlacementGroup.id,
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: `${prefix}-nic`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ * const exampleLinuxVirtualMachine = new azure.compute/linuxVirtualMachine.LinuxVirtualMachine("example", {
  *     name: `${prefix}-vm`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -95,12 +95,12 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *     },
  * });
- * const exampleAccount = new azure.netapp.Account("example", {
+ * const exampleAccount = new azure.netapp/account.Account("example", {
  *     name: `${prefix}-netapp-account`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const examplePool = new azure.netapp.Pool("example", {
+ * const examplePool = new azure.netapp/pool.Pool("example", {
  *     name: `${prefix}-netapp-pool`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -109,7 +109,7 @@ import * as utilities from "../utilities";
  *     sizeInTb: 8,
  *     qosType: "Manual",
  * });
- * const exampleVolumeGroupSapHana = new azure.netapp.VolumeGroupSapHana("example", {
+ * const exampleVolumeGroupSapHana = new azure.netapp/volumeGroupSapHana.VolumeGroupSapHana("example", {
  *     name: `${prefix}-netapp-volumegroup`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,

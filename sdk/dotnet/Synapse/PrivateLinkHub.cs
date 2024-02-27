@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Synapse.PrivateLinkHub("example", new()
+    ///     var example = new Azure.Synapse.PrivateLinkHub.PrivateLinkHub("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example-rg",

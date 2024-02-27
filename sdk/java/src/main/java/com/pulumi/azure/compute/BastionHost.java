@@ -32,15 +32,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.compute.BastionHost;
  * import com.pulumi.azure.compute.BastionHostArgs;
- * import com.pulumi.azure.compute.inputs.BastionHostIpConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,11 +84,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplebastion&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .ipConfiguration(BastionHostIpConfigurationArgs.builder()
- *                 .name(&#34;configuration&#34;)
- *                 .subnetId(exampleSubnet.id())
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .build())
+ *             .ipConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -22,26 +22,26 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePipeline = new Azure.DataFactory.Pipeline("example", new()
+    ///     var examplePipeline = new Azure.Datafactory.Pipeline.Pipeline("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleTriggerBlobEvent = new Azure.DataFactory.TriggerBlobEvent("example", new()
+    ///     var exampleTriggerBlobEvent = new Azure.Datafactory.TriggerBlobEvent.TriggerBlobEvent("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
@@ -72,13 +72,13 @@ namespace Pulumi.Azure.DataFactory
     ///         Description = "example description",
     ///         Pipelines = new[]
     ///         {
-    ///             new Azure.DataFactory.Inputs.TriggerBlobEventPipelineArgs
+    ///             
     ///             {
-    ///                 Name = examplePipeline.Name,
-    ///                 Parameters = 
+    ///                 { "name", examplePipeline.Name },
+    ///                 { "parameters", 
     ///                 {
     ///                     { "Env", "Prod" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         AdditionalProperties = 

@@ -369,17 +369,17 @@ class QueryPackQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_query_pack = azure.loganalytics.QueryPack("example",
-            name="example-laqp",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_query_pack = azure.loganalytics.query_pack.QueryPack("example",
+            name=example-laqp,
             resource_group_name=example.name,
             location=example.location)
-        example_query_pack_query = azure.operationalinsights.QueryPackQuery("example",
-            name="19952bc3-0bf9-49eb-b713-6b80e7a41847",
+        example_query_pack_query = azure.operationalinsights.query_pack_query.QueryPackQuery("example",
+            name=19952bc3-0bf9-49eb-b713-6b80e7a41847,
             query_pack_id=example_query_pack.id,
-            body=\"\"\"let newExceptionsTimeRange = 1d;
+            body=let newExceptionsTimeRange = 1d;
         let timeRangeToCheckBefore = 7d;
         exceptions
         | where timestamp < ago(timeRangeToCheckBefore)
@@ -391,8 +391,8 @@ class QueryPackQuery(pulumi.CustomResource):
         | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
         ) on problemId 
         | order by  count_ desc
-        \"\"\",
-            display_name="Exceptions - New in the last 24 hours")
+        ,
+            display_name=Exceptions - New in the last 24 hours)
         ```
 
         ## Import
@@ -431,17 +431,17 @@ class QueryPackQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_query_pack = azure.loganalytics.QueryPack("example",
-            name="example-laqp",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_query_pack = azure.loganalytics.query_pack.QueryPack("example",
+            name=example-laqp,
             resource_group_name=example.name,
             location=example.location)
-        example_query_pack_query = azure.operationalinsights.QueryPackQuery("example",
-            name="19952bc3-0bf9-49eb-b713-6b80e7a41847",
+        example_query_pack_query = azure.operationalinsights.query_pack_query.QueryPackQuery("example",
+            name=19952bc3-0bf9-49eb-b713-6b80e7a41847,
             query_pack_id=example_query_pack.id,
-            body=\"\"\"let newExceptionsTimeRange = 1d;
+            body=let newExceptionsTimeRange = 1d;
         let timeRangeToCheckBefore = 7d;
         exceptions
         | where timestamp < ago(timeRangeToCheckBefore)
@@ -453,8 +453,8 @@ class QueryPackQuery(pulumi.CustomResource):
         | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
         ) on problemId 
         | order by  count_ desc
-        \"\"\",
-            display_name="Exceptions - New in the last 24 hours")
+        ,
+            display_name=Exceptions - New in the last 24 hours)
         ```
 
         ## Import

@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	logicapps/integrationAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/integrationAccount"
+//	logicapps/integrationAccountSession "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/logicapps/integrationAccountSession"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
-//				Name:              pulumi.String("example-ia"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewIntegrationAccountSession(ctx, "example", &logicapps.IntegrationAccountSessionArgs{
-//				Name:                   pulumi.String("example-ias"),
-//				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				Content:                pulumi.String(" {\n       \"controlNumber\": \"1234\"\n    }\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIntegrationAccount, err := logicapps/integrationAccount.NewIntegrationAccount(ctx, "example", &logicapps/integrationAccount.IntegrationAccountArgs{
+// Name: "example-ia",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Basic",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = logicapps/integrationAccountSession.NewIntegrationAccountSession(ctx, "example", &logicapps/integrationAccountSession.IntegrationAccountSessionArgs{
+// Name: "example-ias",
+// ResourceGroupName: example.Name,
+// IntegrationAccountName: exampleIntegrationAccount.Name,
+// Content: " {\n       \"controlNumber\": \"1234\"\n    }\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

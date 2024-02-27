@@ -9,41 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Policy Assignment to a Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.network.getVirtualNetwork({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * const exampleDefinition = new azure.policy.Definition("example", {
- *     name: "only-deploy-in-westeurope",
- *     policyType: "Custom",
- *     mode: "All",
- *     displayName: "my-policy-definition",
- *     policyRule: ` {
- *     "if": {
- *       "not": {
- *         "field": "location",
- *         "equals": "westeurope"
- *       }
- *     },
- *     "then": {
- *       "effect": "Deny"
- *     }
- *   }
- * `,
- * });
- * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("example", {
- *     name: "example-policy-assignment",
- *     resourceId: example.then(example => example.id),
- *     policyDefinitionId: exampleDefinition.id,
- * });
- * ```
- *
  * ## Import
  *
  * Resource Policy Assignments can be imported using the `resource id`, e.g.

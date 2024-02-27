@@ -237,44 +237,44 @@ class PolicyVMWorkload(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-bpvmw",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-rsv",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-bpvmw,
+            location=West Europe)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-rsv,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             soft_delete_enabled=False)
-        example_policy_vm_workload = azure.backup.PolicyVMWorkload("example",
-            name="example-bpvmw",
+        example_policy_vm_workload = azure.backup.policy_vm_workload.PolicyVMWorkload("example",
+            name=example-bpvmw,
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
-            workload_type="SQLDataBase",
-            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
-                time_zone="UTC",
-                compression_enabled=False,
-            ),
+            workload_type=SQLDataBase,
+            settings={
+                timeZone: UTC,
+                compressionEnabled: False,
+            },
             protection_policies=[
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Full",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency="Daily",
-                        time="15:00",
-                    ),
-                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
-                        count=8,
-                    ),
-                ),
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Log",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency_in_minutes=15,
-                    ),
-                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
-                        count=8,
-                    ),
-                ),
+                {
+                    policyType: Full,
+                    backup: {
+                        frequency: Daily,
+                        time: 15:00,
+                    },
+                    retentionDaily: {
+                        count: 8,
+                    },
+                },
+                {
+                    policyType: Log,
+                    backup: {
+                        frequencyInMinutes: 15,
+                    },
+                    simpleRetention: {
+                        count: 8,
+                    },
+                },
             ])
         ```
 
@@ -310,44 +310,44 @@ class PolicyVMWorkload(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-bpvmw",
-            location="West Europe")
-        example_vault = azure.recoveryservices.Vault("example",
-            name="example-rsv",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-bpvmw,
+            location=West Europe)
+        example_vault = azure.recoveryservices.vault.Vault("example",
+            name=example-rsv,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             soft_delete_enabled=False)
-        example_policy_vm_workload = azure.backup.PolicyVMWorkload("example",
-            name="example-bpvmw",
+        example_policy_vm_workload = azure.backup.policy_vm_workload.PolicyVMWorkload("example",
+            name=example-bpvmw,
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
-            workload_type="SQLDataBase",
-            settings=azure.backup.PolicyVMWorkloadSettingsArgs(
-                time_zone="UTC",
-                compression_enabled=False,
-            ),
+            workload_type=SQLDataBase,
+            settings={
+                timeZone: UTC,
+                compressionEnabled: False,
+            },
             protection_policies=[
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Full",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency="Daily",
-                        time="15:00",
-                    ),
-                    retention_daily=azure.backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs(
-                        count=8,
-                    ),
-                ),
-                azure.backup.PolicyVMWorkloadProtectionPolicyArgs(
-                    policy_type="Log",
-                    backup=azure.backup.PolicyVMWorkloadProtectionPolicyBackupArgs(
-                        frequency_in_minutes=15,
-                    ),
-                    simple_retention=azure.backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs(
-                        count=8,
-                    ),
-                ),
+                {
+                    policyType: Full,
+                    backup: {
+                        frequency: Daily,
+                        time: 15:00,
+                    },
+                    retentionDaily: {
+                        count: 8,
+                    },
+                },
+                {
+                    policyType: Log,
+                    backup: {
+                        frequencyInMinutes: 15,
+                    },
+                    simpleRetention: {
+                        count: 8,
+                    },
+                },
             ])
         ```
 

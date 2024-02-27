@@ -23,101 +23,104 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
+//	storage/mover "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/mover"
+//	storage/moverAgent "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverAgent"
+//	storage/moverJobDefinition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverJobDefinition"
+//	storage/moverProject "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverProject"
+//	storage/moverSourceEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverSourceEndpoint"
+//	storage/moverTargetEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/moverTargetEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMover, err := storage.NewMover(ctx, "example", &storage.MoverArgs{
-//				Name:              pulumi.String("example-ssm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMoverAgent, err := storage.NewMoverAgent(ctx, "example", &storage.MoverAgentArgs{
-//				Name:           pulumi.String("example-agent"),
-//				StorageMoverId: exampleMover.ID(),
-//				ArcVirtualMachineId: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
-//				}).(pulumi.StringOutput),
-//				ArcVirtualMachineUuid: pulumi.String("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                       pulumi.String("examplesa"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				AccountTier:                pulumi.String("Standard"),
-//				AccountReplicationType:     pulumi.String("LRS"),
-//				AllowNestedItemsToBePublic: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("acccontainer"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("blob"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMoverTargetEndpoint, err := storage.NewMoverTargetEndpoint(ctx, "example", &storage.MoverTargetEndpointArgs{
-//				Name:                 pulumi.String("example-smte"),
-//				StorageMoverId:       exampleMover.ID(),
-//				StorageAccountId:     exampleAccount.ID(),
-//				StorageContainerName: exampleContainer.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMoverSourceEndpoint, err := storage.NewMoverSourceEndpoint(ctx, "example", &storage.MoverSourceEndpointArgs{
-//				Name:           pulumi.String("example-smse"),
-//				StorageMoverId: exampleMover.ID(),
-//				Host:           pulumi.String("192.168.0.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMoverProject, err := storage.NewMoverProject(ctx, "example", &storage.MoverProjectArgs{
-//				Name:           pulumi.String("example-sp"),
-//				StorageMoverId: exampleMover.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewMoverJobDefinition(ctx, "example", &storage.MoverJobDefinitionArgs{
-//				Name:                  pulumi.String("example-sjd"),
-//				StorageMoverProjectId: exampleMoverProject.ID(),
-//				AgentName:             exampleMoverAgent.Name,
-//				CopyMode:              pulumi.String("Additive"),
-//				SourceName:            exampleMoverSourceEndpoint.Name,
-//				SourceSubPath:         pulumi.String("/"),
-//				TargetName:            exampleMoverTargetEndpoint.Name,
-//				TargetSubPath:         pulumi.String("/"),
-//				Description:           pulumi.String("Example Job Definition Description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMover, err := storage/mover.NewMover(ctx, "example", &storage/mover.MoverArgs{
+// Name: "example-ssm",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleMoverAgent, err := storage/moverAgent.NewMoverAgent(ctx, "example", &storage/moverAgent.MoverAgentArgs{
+// Name: "example-agent",
+// StorageMoverId: exampleMover.Id,
+// ArcVirtualMachineId: fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", example.Id),
+// ArcVirtualMachineUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// AllowNestedItemsToBePublic: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "acccontainer",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "blob",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMoverTargetEndpoint, err := storage/moverTargetEndpoint.NewMoverTargetEndpoint(ctx, "example", &storage/moverTargetEndpoint.MoverTargetEndpointArgs{
+// Name: "example-smte",
+// StorageMoverId: exampleMover.Id,
+// StorageAccountId: exampleAccount.Id,
+// StorageContainerName: exampleContainer.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleMoverSourceEndpoint, err := storage/moverSourceEndpoint.NewMoverSourceEndpoint(ctx, "example", &storage/moverSourceEndpoint.MoverSourceEndpointArgs{
+// Name: "example-smse",
+// StorageMoverId: exampleMover.Id,
+// Host: "192.168.0.1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMoverProject, err := storage/moverProject.NewMoverProject(ctx, "example", &storage/moverProject.MoverProjectArgs{
+// Name: "example-sp",
+// StorageMoverId: exampleMover.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/moverJobDefinition.NewMoverJobDefinition(ctx, "example", &storage/moverJobDefinition.MoverJobDefinitionArgs{
+// Name: "example-sjd",
+// StorageMoverProjectId: exampleMoverProject.Id,
+// AgentName: exampleMoverAgent.Name,
+// CopyMode: "Additive",
+// SourceName: exampleMoverSourceEndpoint.Name,
+// SourceSubPath: "/",
+// TargetName: exampleMoverTargetEndpoint.Name,
+// TargetSubPath: "/",
+// Description: "Example Job Definition Description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West US",
  * });
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ * const exampleExpressRoutePort = new azure.network/expressRoutePort.ExpressRoutePort("example", {
  *     name: "port1",
  *     resourceGroupName: example.name,
  *     location: example.location,

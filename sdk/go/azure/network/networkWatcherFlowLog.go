@@ -23,86 +23,86 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/networkWatcher "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkWatcher"
+//	network/networkWatcherFlowLog "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkWatcherFlowLog"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := network.NewNetworkSecurityGroup(ctx, "test", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("acctestnsg"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testNetworkWatcher, err := network.NewNetworkWatcher(ctx, "test", &network.NetworkWatcherArgs{
-//				Name:              pulumi.String("acctestnw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAccount, err := storage.NewAccount(ctx, "test", &storage.AccountArgs{
-//				Name:                   pulumi.String("acctestsa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				EnableHttpsTrafficOnly: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "test", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("acctestlaw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkWatcherFlowLog(ctx, "test", &network.NetworkWatcherFlowLogArgs{
-//				NetworkWatcherName:     testNetworkWatcher.Name,
-//				ResourceGroupName:      example.Name,
-//				Name:                   pulumi.String("example-log"),
-//				NetworkSecurityGroupId: test.ID(),
-//				StorageAccountId:       testAccount.ID(),
-//				Enabled:                pulumi.Bool(true),
-//				RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
-//					Enabled: pulumi.Bool(true),
-//					Days:    pulumi.Int(7),
-//				},
-//				TrafficAnalytics: &network.NetworkWatcherFlowLogTrafficAnalyticsArgs{
-//					Enabled:             pulumi.Bool(true),
-//					WorkspaceId:         testAnalyticsWorkspace.WorkspaceId,
-//					WorkspaceRegion:     testAnalyticsWorkspace.Location,
-//					WorkspaceResourceId: testAnalyticsWorkspace.ID(),
-//					IntervalInMinutes:   pulumi.Int(10),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// test, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "test", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "acctestnsg",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// testNetworkWatcher, err := network/networkWatcher.NewNetworkWatcher(ctx, "test", &network/networkWatcher.NetworkWatcherArgs{
+// Name: "acctestnw",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// testAccount, err := storage/account.NewAccount(ctx, "test", &storage/account.AccountArgs{
+// Name: "acctestsa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountKind: "StorageV2",
+// AccountReplicationType: "LRS",
+// EnableHttpsTrafficOnly: true,
+// })
+// if err != nil {
+// return err
+// }
+// testAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "test", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "acctestlaw",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/networkWatcherFlowLog.NewNetworkWatcherFlowLog(ctx, "test", &network/networkWatcherFlowLog.NetworkWatcherFlowLogArgs{
+// NetworkWatcherName: testNetworkWatcher.Name,
+// ResourceGroupName: example.Name,
+// Name: "example-log",
+// NetworkSecurityGroupId: test.Id,
+// StorageAccountId: testAccount.Id,
+// Enabled: true,
+// RetentionPolicy: map[string]interface{}{
+// "enabled": true,
+// "days": 7,
+// },
+// TrafficAnalytics: map[string]interface{}{
+// "enabled": true,
+// "workspaceId": testAnalyticsWorkspace.WorkspaceId,
+// "workspaceRegion": testAnalyticsWorkspace.Location,
+// "workspaceResourceId": testAnalyticsWorkspace.Id,
+// "intervalInMinutes": 10,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

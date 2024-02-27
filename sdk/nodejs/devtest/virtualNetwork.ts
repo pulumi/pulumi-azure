@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleLab = new azure.devtest.Lab("example", {
+ * const exampleLab = new azure.devtest/lab.Lab("example", {
  *     name: "example-devtestlab",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         Sydney: "Australia",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.devtest/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     labName: exampleLab.name,
  *     resourceGroupName: example.name,

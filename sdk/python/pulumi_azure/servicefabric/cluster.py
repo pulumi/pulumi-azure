@@ -829,25 +829,25 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.servicefabric.Cluster("example",
-            name="example-servicefabric",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.servicefabric.cluster.Cluster("example",
+            name=example-servicefabric,
             resource_group_name=example.name,
             location=example.location,
-            reliability_level="Bronze",
-            upgrade_mode="Manual",
-            cluster_code_version="7.1.456.959",
-            vm_image="Windows",
-            management_endpoint="https://example:80",
-            node_types=[azure.servicefabric.ClusterNodeTypeArgs(
-                name="first",
-                instance_count=3,
-                is_primary=True,
-                client_endpoint_port=2020,
-                http_endpoint_port=80,
-            )])
+            reliability_level=Bronze,
+            upgrade_mode=Manual,
+            cluster_code_version=7.1.456.959,
+            vm_image=Windows,
+            management_endpoint=https://example:80,
+            node_types=[{
+                name: first,
+                instanceCount: 3,
+                isPrimary: True,
+                clientEndpointPort: 2020,
+                httpEndpointPort: 80,
+            }])
         ```
 
         ## Import
@@ -903,25 +903,25 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.servicefabric.Cluster("example",
-            name="example-servicefabric",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.servicefabric.cluster.Cluster("example",
+            name=example-servicefabric,
             resource_group_name=example.name,
             location=example.location,
-            reliability_level="Bronze",
-            upgrade_mode="Manual",
-            cluster_code_version="7.1.456.959",
-            vm_image="Windows",
-            management_endpoint="https://example:80",
-            node_types=[azure.servicefabric.ClusterNodeTypeArgs(
-                name="first",
-                instance_count=3,
-                is_primary=True,
-                client_endpoint_port=2020,
-                http_endpoint_port=80,
-            )])
+            reliability_level=Bronze,
+            upgrade_mode=Manual,
+            cluster_code_version=7.1.456.959,
+            vm_image=Windows,
+            management_endpoint=https://example:80,
+            node_types=[{
+                name: first,
+                instanceCount: 3,
+                isPrimary: True,
+                clientEndpointPort: 2020,
+                httpEndpointPort: 80,
+            }])
         ```
 
         ## Import

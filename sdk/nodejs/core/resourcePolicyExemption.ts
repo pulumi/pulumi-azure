@@ -7,42 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Policy Exemption.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "group1",
- *     location: "westus",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "network1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const example = azure.policy.getPolicySetDefinition({
- *     displayName: "Audit machines with insecure password security settings",
- * });
- * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("example", {
- *     name: "assignment1",
- *     resourceId: exampleVirtualNetwork.id,
- *     policyDefinitionId: example.then(example => example.id),
- *     location: exampleResourceGroup.location,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleResourcePolicyExemption = new azure.core.ResourcePolicyExemption("example", {
- *     name: "exemption1",
- *     resourceId: exampleResourcePolicyAssignment.resourceId,
- *     policyAssignmentId: exampleResourcePolicyAssignment.id,
- *     exemptionCategory: "Mitigated",
- * });
- * ```
- *
  * ## Import
  *
  * Policy Exemptions can be imported using the `resource id`, e.g.

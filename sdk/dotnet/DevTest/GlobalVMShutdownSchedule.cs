@@ -24,13 +24,13 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "sample-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "sample-vnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DevTest
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "sample-subnet",
     ///         ResourceGroupName = example.Name,
@@ -52,23 +52,23 @@ namespace Pulumi.Azure.DevTest
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface.NetworkInterface("example", new()
     ///     {
     ///         Name = "sample-nic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "testconfiguration1",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 { "name", "testconfiguration1" },
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "privateIpAddressAllocation", "Dynamic" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine.LinuxVirtualMachine("example", new()
     ///     {
     ///         Name = "SampleVM",
     ///         Location = example.Location,
@@ -78,36 +78,36 @@ namespace Pulumi.Azure.DevTest
     ///             exampleNetworkInterface.Id,
     ///         },
     ///         Size = "Standard_B2s",
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Name = "myosdisk-example",
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "Standard_LRS",
+    ///             { "name", "myosdisk-example" },
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "Standard_LRS" },
     ///         },
     ///         AdminUsername = "testadmin",
     ///         AdminPassword = "Password1234!",
     ///         DisablePasswordAuthentication = false,
     ///     });
     /// 
-    ///     var exampleGlobalVMShutdownSchedule = new Azure.DevTest.GlobalVMShutdownSchedule("example", new()
+    ///     var exampleGlobalVMShutdownSchedule = new Azure.Devtest.GlobalVMShutdownSchedule.GlobalVMShutdownSchedule("example", new()
     ///     {
     ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
     ///         Location = example.Location,
     ///         Enabled = true,
     ///         DailyRecurrenceTime = "1100",
     ///         Timezone = "Pacific Standard Time",
-    ///         NotificationSettings = new Azure.DevTest.Inputs.GlobalVMShutdownScheduleNotificationSettingsArgs
+    ///         NotificationSettings = 
     ///         {
-    ///             Enabled = true,
-    ///             TimeInMinutes = 60,
-    ///             WebhookUrl = "https://sample-webhook-url.example.com",
+    ///             { "enabled", true },
+    ///             { "timeInMinutes", "60" },
+    ///             { "webhookUrl", "https://sample-webhook-url.example.com" },
     ///         },
     ///     });
     /// 

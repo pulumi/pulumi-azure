@@ -23,13 +23,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azure-functions-test-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "functionsapptestsa",
     ///         ResourceGroupName = example.Name,
@@ -38,20 +38,20 @@ namespace Pulumi.Azure.LogicApps
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "azure-functions-test-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "elastic",
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "WorkflowStandard",
-    ///             Size = "WS1",
+    ///             { "tier", "WorkflowStandard" },
+    ///             { "size", "WS1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleStandard = new Azure.LogicApps.Standard("example", new()
+    ///     var exampleStandard = new Azure.Logicapps.Standard.Standard("example", new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         Location = example.Location,
@@ -80,13 +80,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azure-functions-test-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "functionsapptestsa",
     ///         ResourceGroupName = example.Name,
@@ -95,21 +95,21 @@ namespace Pulumi.Azure.LogicApps
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "azure-functions-test-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "Linux",
     ///         Reserved = true,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "WorkflowStandard",
-    ///             Size = "WS1",
+    ///             { "tier", "WorkflowStandard" },
+    ///             { "size", "WS1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleStandard = new Azure.LogicApps.Standard("example", new()
+    ///     var exampleStandard = new Azure.Logicapps.Standard.Standard("example", new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         Location = example.Location,
@@ -117,9 +117,9 @@ namespace Pulumi.Azure.LogicApps
     ///         AppServicePlanId = examplePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         SiteConfig = new Azure.LogicApps.Inputs.StandardSiteConfigArgs
+    ///         SiteConfig = 
     ///         {
-    ///             LinuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+    ///             { "linuxFxVersion", "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice" },
     ///         },
     ///         AppSettings = 
     ///         {

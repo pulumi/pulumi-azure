@@ -12,35 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Backup Vault.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := dataprotection.LookupBackupVault(ctx, &dataprotection.LookupBackupVaultArgs{
-//				Name:              "existing-backup-vault",
-//				ResourceGroupName: "existing-resource-group",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.Id)
-//			ctx.Export("azurermDataProtectionBackupVaultPrincipalId", example.Identities[0].PrincipalId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ...pulumi.InvokeOption) (*LookupBackupVaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBackupVaultResult

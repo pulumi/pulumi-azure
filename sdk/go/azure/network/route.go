@@ -25,43 +25,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/route "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/route"
+//	network/routeTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/routeTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
-//				Name:              pulumi.String("acceptanceTestRouteTable1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewRoute(ctx, "example", &network.RouteArgs{
-//				Name:              pulumi.String("acceptanceTestRoute1"),
-//				ResourceGroupName: example.Name,
-//				RouteTableName:    exampleRouteTable.Name,
-//				AddressPrefix:     pulumi.String("10.1.0.0/16"),
-//				NextHopType:       pulumi.String("VnetLocal"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRouteTable, err := network/routeTable.NewRouteTable(ctx, "example", &network/routeTable.RouteTableArgs{
+// Name: "acceptanceTestRouteTable1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/route.NewRoute(ctx, "example", &network/route.RouteArgs{
+// Name: "acceptanceTestRoute1",
+// ResourceGroupName: example.Name,
+// RouteTableName: exampleRouteTable.Name,
+// AddressPrefix: "10.1.0.0/16",
+// NextHopType: "VnetLocal",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

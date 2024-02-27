@@ -24,84 +24,81 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databricks/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databricks/workspace"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServiceAzureDatabricks "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServiceAzureDatabricks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Create a Linked Service using managed identity and new cluster config
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("TestDtaFactory92783401247"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Identity: &datafactory.FactoryIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Create a databricks instance
-//			exampleWorkspace, err := databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
-//				Name:              pulumi.String("databricks-test"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "msi_linked", &datafactory.LinkedServiceAzureDatabricksArgs{
-//				Name:          pulumi.String("ADBLinkedServiceViaMSI"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Description:   pulumi.String("ADB Linked Service via MSI"),
-//				AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
-//					return fmt.Sprintf("https://%v", workspaceUrl), nil
-//				}).(pulumi.StringOutput),
-//				MsiWorkSpaceResourceId: exampleWorkspace.ID(),
-//				NewClusterConfig: &datafactory.LinkedServiceAzureDatabricksNewClusterConfigArgs{
-//					NodeType:           pulumi.String("Standard_NC12"),
-//					ClusterVersion:     pulumi.String("5.5.x-gpu-scala2.11"),
-//					MinNumberOfWorkers: pulumi.Int(1),
-//					MaxNumberOfWorkers: pulumi.Int(5),
-//					DriverNodeType:     pulumi.String("Standard_NC12"),
-//					LogDestination:     pulumi.String("dbfs:/logs"),
-//					CustomTags: pulumi.StringMap{
-//						"custom_tag1": pulumi.String("sct_value_1"),
-//						"custom_tag2": pulumi.String("sct_value_2"),
-//					},
-//					SparkConfig: pulumi.StringMap{
-//						"config1": pulumi.String("value1"),
-//						"config2": pulumi.String("value2"),
-//					},
-//					SparkEnvironmentVariables: pulumi.StringMap{
-//						"envVar1": pulumi.String("value1"),
-//						"envVar2": pulumi.String("value2"),
-//					},
-//					InitScripts: pulumi.StringArray{
-//						pulumi.String("init.sh"),
-//						pulumi.String("init2.sh"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// //Create a Linked Service using managed identity and new cluster config
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "TestDtaFactory92783401247",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// //Create a databricks instance
+// exampleWorkspace, err := databricks/workspace.NewWorkspace(ctx, "example", &databricks/workspace.WorkspaceArgs{
+// Name: "databricks-test",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedServiceAzureDatabricks.NewLinkedServiceAzureDatabricks(ctx, "msi_linked", &datafactory/linkedServiceAzureDatabricks.LinkedServiceAzureDatabricksArgs{
+// Name: "ADBLinkedServiceViaMSI",
+// DataFactoryId: exampleFactory.Id,
+// Description: "ADB Linked Service via MSI",
+// AdbDomain: fmt.Sprintf("https://%v", exampleWorkspace.WorkspaceUrl),
+// MsiWorkSpaceResourceId: exampleWorkspace.Id,
+// NewClusterConfig: map[string]interface{}{
+// "nodeType": "Standard_NC12",
+// "clusterVersion": "5.5.x-gpu-scala2.11",
+// "minNumberOfWorkers": 1,
+// "maxNumberOfWorkers": 5,
+// "driverNodeType": "Standard_NC12",
+// "logDestination": "dbfs:/logs",
+// "customTags": map[string]interface{}{
+// "custom_tag1": "sct_value_1",
+// "custom_tag2": "sct_value_2",
+// },
+// "sparkConfig": map[string]interface{}{
+// "config1": "value1",
+// "config2": "value2",
+// },
+// "sparkEnvironmentVariables": map[string]interface{}{
+// "envVar1": "value1",
+// "envVar2": "value2",
+// },
+// "initScripts": []string{
+// "init.sh",
+// "init2.sh",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Access Token & Existing Cluster
 //
@@ -112,58 +109,55 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databricks/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databricks/workspace"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/linkedServiceAzureDatabricks "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/linkedServiceAzureDatabricks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Link to an existing cluster via access token
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("TestDtaFactory92783401247"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Create a databricks instance
-//			exampleWorkspace, err := databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
-//				Name:              pulumi.String("databricks-test"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "at_linked", &datafactory.LinkedServiceAzureDatabricksArgs{
-//				Name:              pulumi.String("ADBLinkedServiceViaAccessToken"),
-//				DataFactoryId:     exampleFactory.ID(),
-//				Description:       pulumi.String("ADB Linked Service via Access Token"),
-//				ExistingClusterId: pulumi.String("0308-201146-sly615"),
-//				AccessToken:       pulumi.String("SomeDatabricksAccessToken"),
-//				AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
-//					return fmt.Sprintf("https://%v", workspaceUrl), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// //Link to an existing cluster via access token
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "TestDtaFactory92783401247",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// //Create a databricks instance
+// exampleWorkspace, err := databricks/workspace.NewWorkspace(ctx, "example", &databricks/workspace.WorkspaceArgs{
+// Name: "databricks-test",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/linkedServiceAzureDatabricks.NewLinkedServiceAzureDatabricks(ctx, "at_linked", &datafactory/linkedServiceAzureDatabricks.LinkedServiceAzureDatabricksArgs{
+// Name: "ADBLinkedServiceViaAccessToken",
+// DataFactoryId: exampleFactory.Id,
+// Description: "ADB Linked Service via Access Token",
+// ExistingClusterId: "0308-201146-sly615",
+// AccessToken: "SomeDatabricksAccessToken",
+// AdbDomain: fmt.Sprintf("https://%v", exampleWorkspace.WorkspaceUrl),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

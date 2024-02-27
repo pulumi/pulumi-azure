@@ -18,17 +18,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "EastUs",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "acctest-vnet1-mssql",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: test.location,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "subnet1-mssql",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ * const exampleManagedInstance = new azure.mssql/managedInstance.ManagedInstance("example", {
  *     name: "mssqlinstance",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -60,107 +60,7 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql.ManagedInstanceTransparentDataEncryption("example", {managedInstanceId: exampleManagedInstance.id});
- * ```
- * ### With Customer Managed Key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "EastUs",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "acctest-vnet1-mssql",
- *     resourceGroupName: example.name,
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: test.location,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "subnet1-mssql",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.0/24"],
- *     delegations: [{
- *         name: "managedinstancedelegation",
- *         serviceDelegation: {
- *             name: "Microsoft.Sql/managedInstances",
- *             actions: [
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
- *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
- *             ],
- *         },
- *     }],
- * });
- * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
- *     name: "mssqlinstance",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     licenseType: "BasePrice",
- *     skuName: "GP_Gen5",
- *     storageSizeInGb: 32,
- *     subnetId: exampleSubnet.id,
- *     vcores: 4,
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "NCC-1701-D",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * // Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     enabledForDiskEncryption: true,
- *     tenantId: current.then(current => current.tenantId),
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: false,
- *     skuName: "standard",
- *     accessPolicies: [
- *         {
- *             tenantId: current.then(current => current.tenantId),
- *             objectId: current.then(current => current.objectId),
- *             keyPermissions: [
- *                 "Get",
- *                 "List",
- *                 "Create",
- *                 "Delete",
- *                 "Update",
- *                 "Recover",
- *                 "Purge",
- *                 "GetRotationPolicy",
- *             ],
- *         },
- *         {
- *             tenantId: exampleManagedInstance.identity.apply(identity => identity?.tenantId),
- *             objectId: exampleManagedInstance.identity.apply(identity => identity?.principalId),
- *             keyPermissions: [
- *                 "Get",
- *                 "WrapKey",
- *                 "UnwrapKey",
- *             ],
- *         },
- *     ],
- * });
- * const exampleKey = new azure.keyvault.Key("example", {
- *     name: "byok",
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "unwrapKey",
- *         "wrapKey",
- *     ],
- * });
- * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql.ManagedInstanceTransparentDataEncryption("example", {
- *     managedInstanceId: exampleManagedInstance.id,
- *     keyVaultKeyId: exampleKey.id,
- * });
+ * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql/managedInstanceTransparentDataEncryption.ManagedInstanceTransparentDataEncryption("example", {managedInstanceId: exampleManagedInstance.id});
  * ```
  *
  * ## Import

@@ -498,37 +498,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         """
         Manages a Duplicated Anomaly Alert Rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-law",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
-            workspace_id=example_analytics_workspace.id,
-            customer_managed_key_enabled=False)
-        example = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="UEBA Anomalous Sign In")
-        example_alert_rule_anomaly_duplicate = azure.sentinel.AlertRuleAnomalyDuplicate("example",
-            display_name="example duplicated UEBA Anomalous Sign In",
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            built_in_rule_id=example.id,
-            enabled=True,
-            mode="Flighting",
-            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs(
-                name="Anomaly score threshold",
-                value="0.6",
-            )])
-        ```
-
         ## Import
 
         Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -559,37 +528,6 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Duplicated Anomaly Alert Rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-law",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
-            workspace_id=example_analytics_workspace.id,
-            customer_managed_key_enabled=False)
-        example = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="UEBA Anomalous Sign In")
-        example_alert_rule_anomaly_duplicate = azure.sentinel.AlertRuleAnomalyDuplicate("example",
-            display_name="example duplicated UEBA Anomalous Sign In",
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            built_in_rule_id=example.id,
-            enabled=True,
-            mode="Flighting",
-            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs(
-                name="Anomaly score threshold",
-                value="0.6",
-            )])
-        ```
 
         ## Import
 

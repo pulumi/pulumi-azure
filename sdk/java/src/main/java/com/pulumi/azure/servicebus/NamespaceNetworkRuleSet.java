@@ -35,13 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.servicebus.Namespace;
  * import com.pulumi.azure.servicebus.NamespaceArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.servicebus.NamespaceNetworkRuleSet;
  * import com.pulumi.azure.servicebus.NamespaceNetworkRuleSetArgs;
- * import com.pulumi.azure.servicebus.inputs.NamespaceNetworkRuleSetNetworkRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,10 +89,7 @@ import javax.annotation.Nullable;
  *             .namespaceId(exampleNamespace.id())
  *             .defaultAction(&#34;Deny&#34;)
  *             .publicNetworkAccessEnabled(true)
- *             .networkRules(NamespaceNetworkRuleSetNetworkRuleArgs.builder()
- *                 .subnetId(exampleSubnet.id())
- *                 .ignoreMissingVnetServiceEndpoint(false)
- *                 .build())
+ *             .networkRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .ipRules(&#34;1.1.1.1&#34;)
  *             .build());
  * 

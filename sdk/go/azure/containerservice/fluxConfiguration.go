@@ -21,68 +21,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	containerservice/fluxConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/fluxConfiguration"
+//	containerservice/kubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesCluster"
+//	containerservice/kubernetesClusterExtension "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/kubernetesClusterExtension"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-aks"),
-//				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("example-aks"),
-//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("default"),
-//					NodeCount: pulumi.Int(1),
-//					VmSize:    pulumi.String("Standard_DS2_v2"),
-//				},
-//				Identity: &containerservice.KubernetesClusterIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewKubernetesClusterExtension(ctx, "example", &containerservice.KubernetesClusterExtensionArgs{
-//				Name:          pulumi.String("example-ext"),
-//				ClusterId:     pulumi.Any(test.Id),
-//				ExtensionType: pulumi.String("microsoft.flux"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewFluxConfiguration(ctx, "example", &containerservice.FluxConfigurationArgs{
-//				Name:      pulumi.String("example-fc"),
-//				ClusterId: pulumi.Any(test.Id),
-//				Namespace: pulumi.String("flux"),
-//				GitRepository: &containerservice.FluxConfigurationGitRepositoryArgs{
-//					Url:            pulumi.String("https://github.com/Azure/arc-k8s-demo"),
-//					ReferenceType:  pulumi.String("branch"),
-//					ReferenceValue: pulumi.String("main"),
-//				},
-//				Kustomizations: containerservice.FluxConfigurationKustomizationArray{
-//					&containerservice.FluxConfigurationKustomizationArgs{
-//						Name: pulumi.String("kustomization-1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/kubernetesCluster.NewKubernetesCluster(ctx, "example", &containerservice/kubernetesCluster.KubernetesClusterArgs{
+// Name: "example-aks",
+// Location: "West Europe",
+// ResourceGroupName: example.Name,
+// DnsPrefix: "example-aks",
+// DefaultNodePool: map[string]interface{}{
+// "name": "default",
+// "nodeCount": 1,
+// "vmSize": "Standard_DS2_v2",
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/kubernetesClusterExtension.NewKubernetesClusterExtension(ctx, "example", &containerservice/kubernetesClusterExtension.KubernetesClusterExtensionArgs{
+// Name: "example-ext",
+// ClusterId: test.Id,
+// ExtensionType: "microsoft.flux",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/fluxConfiguration.NewFluxConfiguration(ctx, "example", &containerservice/fluxConfiguration.FluxConfigurationArgs{
+// Name: "example-fc",
+// ClusterId: test.Id,
+// Namespace: "flux",
+// GitRepository: map[string]interface{}{
+// "url": "https://github.com/Azure/arc-k8s-demo",
+// "referenceType": "branch",
+// "referenceValue": "main",
+// },
+// Kustomizations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "kustomization-1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

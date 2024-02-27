@@ -20,42 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
  * 
  * ## Example Usage
- * ### Subscription Level Lock)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.management.Lock;
- * import com.pulumi.azure.management.LockArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
- * 
- *         var subscription_level = new Lock(&#34;subscription-level&#34;, LockArgs.builder()        
- *             .name(&#34;subscription-level&#34;)
- *             .scope(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .lockLevel(&#34;CanNotDelete&#34;)
- *             .notes(&#34;Items can&#39;t be deleted in this subscription!&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Resource Group Level Lock)
  * ```java
  * package generated_program;

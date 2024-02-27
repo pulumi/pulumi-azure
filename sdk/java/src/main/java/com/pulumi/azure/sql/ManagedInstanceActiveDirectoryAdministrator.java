@@ -20,65 +20,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** The `azure.sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.sql.ManagedInstance;
- * import com.pulumi.azure.sql.ManagedInstanceArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministrator;
- * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministratorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;rg-example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .name(&#34;managedsqlinstance&#34;)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .administratorLogin(&#34;mradministrator&#34;)
- *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .licenseType(&#34;BasePrice&#34;)
- *             .subnetId(exampleAzurermSubnet.id())
- *             .skuName(&#34;GP_Gen5&#34;)
- *             .vcores(4)
- *             .storageSizeInGb(32)
- *             .build());
- * 
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator(&#34;exampleManagedInstanceActiveDirectoryAdministrator&#34;, ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
- *             .managedInstanceName(exampleManagedInstance.name())
- *             .resourceGroupName(example.name())
- *             .login(&#34;sqladmin&#34;)
- *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * A SQL Active Directory Administrator can be imported using the `resource id`, e.g.

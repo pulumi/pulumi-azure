@@ -22,13 +22,13 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "terraform-webpubsub",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
+    ///     var exampleService = new Azure.Webpubsub.Service.Service("example", new()
     ///     {
     ///         Name = "tfex-webpubsub",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.WebPubSub
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         ResourceGroupName = example.Name,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.WebPubSub
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
@@ -60,45 +60,45 @@ namespace Pulumi.Azure.WebPubSub
     ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
     ///     });
     /// 
-    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     var exampleEndpoint = new Azure.Privatelink.Endpoint.Endpoint("example", new()
     ///     {
     ///         Name = "example-privateendpoint",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         SubnetId = exampleSubnet.Id,
-    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         PrivateServiceConnection = 
     ///         {
-    ///             Name = "psc-sig-test",
-    ///             IsManualConnection = false,
-    ///             PrivateConnectionResourceId = exampleService.Id,
-    ///             SubresourceNames = new[]
+    ///             { "name", "psc-sig-test" },
+    ///             { "isManualConnection", false },
+    ///             { "privateConnectionResourceId", exampleService.Id },
+    ///             { "subresourceNames", new[]
     ///             {
     ///                 "webpubsub",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkAcl = new Azure.WebPubSub.NetworkAcl("example", new()
+    ///     var exampleNetworkAcl = new Azure.Webpubsub.NetworkAcl.NetworkAcl("example", new()
     ///     {
     ///         WebPubsubId = exampleService.Id,
     ///         DefaultAction = "Allow",
-    ///         PublicNetwork = new Azure.WebPubSub.Inputs.NetworkAclPublicNetworkArgs
+    ///         PublicNetwork = 
     ///         {
-    ///             DeniedRequestTypes = new[]
+    ///             { "deniedRequestTypes", new[]
     ///             {
     ///                 "ClientConnection",
-    ///             },
+    ///             } },
     ///         },
     ///         PrivateEndpoints = new[]
     ///         {
-    ///             new Azure.WebPubSub.Inputs.NetworkAclPrivateEndpointArgs
+    ///             
     ///             {
-    ///                 Id = exampleEndpoint.Id,
-    ///                 DeniedRequestTypes = new[]
+    ///                 { "id", exampleEndpoint.Id },
+    ///                 { "deniedRequestTypes", new[]
     ///                 {
     ///                     "RESTAPI",
     ///                     "ClientConnection",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

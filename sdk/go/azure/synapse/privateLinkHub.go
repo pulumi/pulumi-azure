@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	synapse/privateLinkHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/privateLinkHub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synapse.NewPrivateLinkHub(ctx, "example", &synapse.PrivateLinkHubArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example-rg"),
-//				Location:          pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := synapse/privateLinkHub.NewPrivateLinkHub(ctx, "example", &synapse/privateLinkHub.PrivateLinkHubArgs{
+// Name: "example",
+// ResourceGroupName: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

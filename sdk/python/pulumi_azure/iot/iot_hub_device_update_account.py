@@ -290,18 +290,18 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_iot_hub_device_update_account = azure.iot.iot_hub_device_update_account.IotHubDeviceUpdateAccount("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.iot.IotHubDeviceUpdateAccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -338,18 +338,18 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_iot_hub_device_update_account = azure.iot.iot_hub_device_update_account.IotHubDeviceUpdateAccount("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.iot.IotHubDeviceUpdateAccountIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

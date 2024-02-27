@@ -21,53 +21,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datadog"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datadog/monitor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datadog/monitor"
+//	datadog/monitorSsoConfiguration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datadog/monitorSsoConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-datadog"),
-//				Location: pulumi.String("West US 2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMonitor, err := datadog.NewMonitor(ctx, "example", &datadog.MonitorArgs{
-//				Name:              pulumi.String("example-monitor"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
-//					ApiKey:         pulumi.String("XXXX"),
-//					ApplicationKey: pulumi.String("XXXX"),
-//				},
-//				User: &datadog.MonitorUserArgs{
-//					Name:  pulumi.String("Example"),
-//					Email: pulumi.String("abc@xyz.com"),
-//				},
-//				SkuName: pulumi.String("Linked"),
-//				Identity: &datadog.MonitorIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewMonitorSsoConfiguration(ctx, "example", &datadog.MonitorSsoConfigurationArgs{
-//				DatadogMonitorId:        exampleMonitor.ID(),
-//				SingleSignOnEnabled:     pulumi.String("Enable"),
-//				EnterpriseApplicationId: pulumi.String("XXXX"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-datadog",
+// Location: "West US 2",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMonitor, err := datadog/monitor.NewMonitor(ctx, "example", &datadog/monitor.MonitorArgs{
+// Name: "example-monitor",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DatadogOrganization: map[string]interface{}{
+// "apiKey": "XXXX",
+// "applicationKey": "XXXX",
+// },
+// User: map[string]interface{}{
+// "name": "Example",
+// "email": "abc@xyz.com",
+// },
+// SkuName: "Linked",
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datadog/monitorSsoConfiguration.NewMonitorSsoConfiguration(ctx, "example", &datadog/monitorSsoConfiguration.MonitorSsoConfigurationArgs{
+// DatadogMonitorId: exampleMonitor.Id,
+// SingleSignOnEnabled: "Enable",
+// EnterpriseApplicationId: "XXXX",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

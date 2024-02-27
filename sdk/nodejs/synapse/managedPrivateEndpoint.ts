@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorageacc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
- *     isHnsEnabled: true,
+ *     isHnsEnabled: "true",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage/dataLakeGen2Filesystem.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ * const exampleWorkspace = new azure.synapse/workspace.Workspace("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
+ * const exampleFirewallRule = new azure.synapse/firewallRule.FirewallRule("example", {
  *     name: "AllowAll",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "255.255.255.255",
  * });
- * const exampleConnect = new azure.storage.Account("example_connect", {
+ * const exampleConnect = new azure.storage/account.Account("example_connect", {
  *     name: "examplestorage2",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountKind: "BlobStorage",
  * });
- * const exampleManagedPrivateEndpoint = new azure.synapse.ManagedPrivateEndpoint("example", {
+ * const exampleManagedPrivateEndpoint = new azure.synapse/managedPrivateEndpoint.ManagedPrivateEndpoint("example", {
  *     name: "example-endpoint",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     targetResourceId: exampleConnect.id,

@@ -550,23 +550,23 @@ class Subscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-subscription",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-subscription,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("example",
-            name="tfex_servicebus_subscription",
+        example_subscription = azure.servicebus.subscription.Subscription("example",
+            name=tfex_servicebus_subscription,
             topic_id=example_topic.id,
             max_delivery_count=1)
         ```
@@ -614,23 +614,23 @@ class Subscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-servicebus-subscription",
-            location="West Europe")
-        example_namespace = azure.servicebus.Namespace("example",
-            name="tfex-servicebus-namespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-servicebus-subscription,
+            location=West Europe)
+        example_namespace = azure.servicebus.namespace.Namespace("example",
+            name=tfex-servicebus-namespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
+            sku=Standard,
             tags={
-                "source": "example",
+                source: example,
             })
-        example_topic = azure.servicebus.Topic("example",
-            name="tfex_servicebus_topic",
+        example_topic = azure.servicebus.topic.Topic("example",
+            name=tfex_servicebus_topic,
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_subscription = azure.servicebus.Subscription("example",
-            name="tfex_servicebus_subscription",
+        example_subscription = azure.servicebus.subscription.Subscription("example",
+            name=tfex_servicebus_subscription,
             topic_id=example_topic.id,
             max_delivery_count=1)
         ```

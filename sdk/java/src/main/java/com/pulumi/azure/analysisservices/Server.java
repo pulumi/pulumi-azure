@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.analysisservices.Server;
  * import com.pulumi.azure.analysisservices.ServerArgs;
- * import com.pulumi.azure.analysisservices.inputs.ServerIpv4FirewallRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,12 +57,8 @@ import javax.annotation.Nullable;
  *             .sku(&#34;S0&#34;)
  *             .adminUsers(&#34;myuser@domain.tld&#34;)
  *             .enablePowerBiService(true)
- *             .ipv4FirewallRules(ServerIpv4FirewallRuleArgs.builder()
- *                 .name(&#34;myRule1&#34;)
- *                 .rangeStart(&#34;210.117.252.0&#34;)
- *                 .rangeEnd(&#34;210.117.252.255&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;abc&#34;, 123))
+ *             .ipv4FirewallRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

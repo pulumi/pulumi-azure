@@ -214,17 +214,6 @@ def get_firewall(dns_proxy_enabled: Optional[bool] = None,
     """
     Use this data source to access information about an existing Azure Firewall.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_firewall(name="firewall1",
-        resource_group_name="firewall-RG")
-    pulumi.export("firewallPrivateIp", example.ip_configurations[0].private_ip_address)
-    ```
-
 
     :param bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
     :param str name: The name of the Azure Firewall.
@@ -262,17 +251,6 @@ def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[bool]]
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Use this data source to access information about an existing Azure Firewall.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.network.get_firewall(name="firewall1",
-        resource_group_name="firewall-RG")
-    pulumi.export("firewallPrivateIp", example.ip_configurations[0].private_ip_address)
-    ```
 
 
     :param bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.

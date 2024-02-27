@@ -21,51 +21,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	devtest/lab "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/lab"
+//	devtest/policy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/devtest/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
-//				Name:              pulumi.String("example-devtestlab"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Tags: pulumi.StringMap{
-//					"Sydney": pulumi.String("Australia"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devtest.NewPolicy(ctx, "example", &devtest.PolicyArgs{
-//				Name:              pulumi.String("LabVmCount"),
-//				PolicySetName:     pulumi.String("default"),
-//				LabName:           exampleLab.Name,
-//				ResourceGroupName: example.Name,
-//				FactData:          pulumi.String(""),
-//				Threshold:         pulumi.String("999"),
-//				EvaluatorType:     pulumi.String("MaxValuePolicy"),
-//				Tags: pulumi.StringMap{
-//					"Acceptance": pulumi.String("Test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLab, err := devtest/lab.NewLab(ctx, "example", &devtest/lab.LabArgs{
+// Name: "example-devtestlab",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Tags: map[string]interface{}{
+// "Sydney": "Australia",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = devtest/policy.NewPolicy(ctx, "example", &devtest/policy.PolicyArgs{
+// Name: "LabVmCount",
+// PolicySetName: "default",
+// LabName: exampleLab.Name,
+// ResourceGroupName: example.Name,
+// FactData: "",
+// Threshold: "999",
+// EvaluatorType: "MaxValuePolicy",
+// Tags: map[string]interface{}{
+// "Acceptance": "Test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

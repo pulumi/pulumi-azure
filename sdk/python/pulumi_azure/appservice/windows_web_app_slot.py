@@ -1019,25 +1019,25 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Windows",
-            sku_name="P1v2")
-        example_windows_web_app = azure.appservice.WindowsWebApp("example",
-            name="example-windows-web-app",
+            os_type=Windows,
+            sku_name=P1v2)
+        example_windows_web_app = azure.appservice.windows_web_app.WindowsWebApp("example",
+            name=example-windows-web-app,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
-            name="example-slot",
+            site_config={})
+        example_windows_web_app_slot = azure.appservice.windows_web_app_slot.WindowsWebAppSlot("example",
+            name=example-slot,
             app_service_id=example_windows_web_app.id,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1095,25 +1095,25 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Windows",
-            sku_name="P1v2")
-        example_windows_web_app = azure.appservice.WindowsWebApp("example",
-            name="example-windows-web-app",
+            os_type=Windows,
+            sku_name=P1v2)
+        example_windows_web_app = azure.appservice.windows_web_app.WindowsWebApp("example",
+            name=example-windows-web-app,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
-            name="example-slot",
+            site_config={})
+        example_windows_web_app_slot = azure.appservice.windows_web_app_slot.WindowsWebAppSlot("example",
+            name=example-slot,
             app_service_id=example_windows_web_app.id,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import

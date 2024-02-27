@@ -66,11 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain(&#34;exampleStaticSiteCustomDomain&#34;, StaticSiteCustomDomainArgs.builder()        
  *             .staticSiteId(exampleStaticSite.id())
- *             .domainName(Output.tuple(exampleCNameRecord.name(), exampleCNameRecord.zoneName()).applyValue(values -&gt; {
- *                 var name = values.t1;
- *                 var zoneName = values.t2;
- *                 return String.format(&#34;%s.%s&#34;, name,zoneName);
- *             }))
+ *             .domainName(String.format(&#34;%s.%s&#34;, exampleCNameRecord.name(),exampleCNameRecord.zoneName()))
  *             .validationType(&#34;cname-delegation&#34;)
  *             .build());
  * 
@@ -92,7 +88,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.StaticSiteCustomDomainArgs;
  * import com.pulumi.azure.dns.TxtRecord;
  * import com.pulumi.azure.dns.TxtRecordArgs;
- * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -128,9 +123,7 @@ import javax.annotation.Nullable;
  *             .zoneName(&#34;contoso.com&#34;)
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleStaticSiteCustomDomain.validationToken())
- *                 .build())
+ *             .records(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

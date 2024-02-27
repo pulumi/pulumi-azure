@@ -22,19 +22,19 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
+    ///     var primary = new Azure.Core.ResourceGroup.ResourceGroup("primary", new()
     ///     {
     ///         Name = "tfex-network-mapping-primary",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
+    ///     var secondary = new Azure.Core.ResourceGroup.ResourceGroup("secondary", new()
     ///     {
     ///         Name = "tfex-network-mapping-secondary",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     var vault = new Azure.Recoveryservices.Vault.Vault("vault", new()
     ///     {
     ///         Name = "example-recovery-vault",
     ///         Location = secondary.Location,
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primary", new()
+    ///     var primaryFabric = new Azure.Siterecovery.Fabric.Fabric("primary", new()
     ///     {
     ///         Name = "primary-fabric",
     ///         ResourceGroupName = secondary.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Location = primary.Location,
     ///     });
     /// 
-    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondary", new()
+    ///     var secondaryFabric = new Azure.Siterecovery.Fabric.Fabric("secondary", new()
     ///     {
     ///         Name = "secondary-fabric",
     ///         ResourceGroupName = secondary.Name,
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Location = secondary.Location,
     ///     });
     /// 
-    ///     var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primary", new()
+    ///     var primaryProtectionContainer = new Azure.Siterecovery.ProtectionContainer.ProtectionContainer("primary", new()
     ///     {
     ///         Name = "primary-protection-container",
     ///         ResourceGroupName = secondary.Name,
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         RecoveryFabricName = primaryFabric.Name,
     ///     });
     /// 
-    ///     var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondary", new()
+    ///     var secondaryProtectionContainer = new Azure.Siterecovery.ProtectionContainer.ProtectionContainer("secondary", new()
     ///     {
     ///         Name = "secondary-protection-container",
     ///         ResourceGroupName = secondary.Name,
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         RecoveryFabricName = secondaryFabric.Name,
     ///     });
     /// 
-    ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
+    ///     var policy = new Azure.Siterecovery.ReplicationPolicy.ReplicationPolicy("policy", new()
     ///     {
     ///         Name = "policy",
     ///         ResourceGroupName = secondary.Name,
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
     ///     });
     /// 
-    ///     var container_mapping = new Azure.SiteRecovery.ProtectionContainerMapping("container-mapping", new()
+    ///     var container_mapping = new Azure.Siterecovery.ProtectionContainerMapping.ProtectionContainerMapping("container-mapping", new()
     ///     {
     ///         Name = "container-mapping",
     ///         ResourceGroupName = secondary.Name,

@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-virtualnetwork",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -39,12 +39,12 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleAccount = new azure.netapp.Account("example", {
+ * const exampleAccount = new azure.netapp/account.Account("example", {
  *     name: "example-netappaccount",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const examplePool = new azure.netapp.Pool("example", {
+ * const examplePool = new azure.netapp/pool.Pool("example", {
  *     name: "example-netapppool",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     serviceLevel: "Premium",
  *     sizeInTb: 4,
  * });
- * const exampleVolume = new azure.netapp.Volume("example", {
+ * const exampleVolume = new azure.netapp/volume.Volume("example", {
  *     name: "example-netappvolume",
  *     location: example.location,
  *     zone: "1",
@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  *     storageQuotaInGb: 100,
  *     snapshotDirectoryVisible: false,
  * });
- * const quota1 = new azure.netapp.VolumeQuotaRule("quota1", {
+ * const quota1 = new azure.netapp/volumeQuotaRule.VolumeQuotaRule("quota1", {
  *     name: "example-quota-rule-1",
  *     location: example.location,
  *     volumeId: exampleVolume.id,
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     quotaSizeInKib: 1024,
  *     quotaType: "IndividualGroupQuota",
  * });
- * const quota2 = new azure.netapp.VolumeQuotaRule("quota2", {
+ * const quota2 = new azure.netapp/volumeQuotaRule.VolumeQuotaRule("quota2", {
  *     name: "example-quota-rule-2",
  *     location: example.location,
  *     volumeId: exampleVolume.id,
@@ -84,14 +84,14 @@ import * as utilities from "../utilities";
  *     quotaSizeInKib: 1024,
  *     quotaType: "IndividualUserQuota",
  * });
- * const quota3 = new azure.netapp.VolumeQuotaRule("quota3", {
+ * const quota3 = new azure.netapp/volumeQuotaRule.VolumeQuotaRule("quota3", {
  *     name: "example-quota-rule-3",
  *     location: example.location,
  *     volumeId: exampleVolume.id,
  *     quotaSizeInKib: 1024,
  *     quotaType: "DefaultUserQuota",
  * });
- * const quota4 = new azure.netapp.VolumeQuotaRule("quota4", {
+ * const quota4 = new azure.netapp/volumeQuotaRule.VolumeQuotaRule("quota4", {
  *     name: "example-quota-rule-4",
  *     location: example.location,
  *     volumeId: exampleVolume.id,

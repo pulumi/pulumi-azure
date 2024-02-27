@@ -205,16 +205,16 @@ class Resolver(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.0.0.0/16"])
-        test = azure.privatedns.Resolver("test",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        test = azure.privatedns.resolver.Resolver("test",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             virtual_network_id=example_virtual_network.id)
@@ -251,16 +251,16 @@ class Resolver(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.0.0.0/16"])
-        test = azure.privatedns.Resolver("test",
-            name="example",
+            address_spaces=[10.0.0.0/16])
+        test = azure.privatedns.resolver.Resolver("test",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
             virtual_network_id=example_virtual_network.id)

@@ -34,21 +34,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.network.VirtualNetworkGateway;
- * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGateway;
+ * import com.pulumi.azure.network_virtualNetworkGateway.VirtualNetworkGatewayArgs;
  * import com.pulumi.azure.hsm.Module;
  * import com.pulumi.azure.hsm.ModuleArgs;
- * import com.pulumi.azure.hsm.inputs.ModuleManagementNetworkProfileArgs;
- * import com.pulumi.azure.hsm.inputs.ModuleNetworkProfileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,15 +81,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.2.1.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;first&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.HardwareSecurityModules/dedicatedHSMs&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example3 = new Subnet(&#34;example3&#34;, SubnetArgs.builder()        
@@ -118,11 +105,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;ExpressRoute&#34;)
  *             .vpnType(&#34;PolicyBased&#34;)
  *             .sku(&#34;Standard&#34;)
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .subnetId(example3.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleModule = new Module(&#34;exampleModule&#34;, ModuleArgs.builder()        
@@ -130,16 +113,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;payShield10K_LMK1_CPS60&#34;)
- *             .managementNetworkProfile(ModuleManagementNetworkProfileArgs.builder()
- *                 .networkInterfacePrivateIpAddresses(&#34;10.2.1.7&#34;)
- *                 .subnetId(example2.id())
- *                 .build())
- *             .networkProfile(ModuleNetworkProfileArgs.builder()
- *                 .networkInterfacePrivateIpAddresses(&#34;10.2.1.8&#34;)
- *                 .subnetId(example2.id())
- *                 .build())
+ *             .managementNetworkProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .stampId(&#34;stamp2&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;Test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

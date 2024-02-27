@@ -17,32 +17,6 @@ namespace Pulumi.Azure.Core
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Reference An Existing)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
-        ///     {
-        ///         Name = "name_of_user_assigned_identity",
-        ///         ResourceGroupName = "name_of_resource_group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["uaiClientId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.ClientId),
-        ///         ["uaiPrincipalId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.PrincipalId),
-        ///         ["uaiTenantId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.TenantId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
@@ -53,32 +27,6 @@ namespace Pulumi.Azure.Core
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Reference An Existing)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
-        ///     {
-        ///         Name = "name_of_user_assigned_identity",
-        ///         ResourceGroupName = "name_of_resource_group",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["uaiClientId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.ClientId),
-        ///         ["uaiPrincipalId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.PrincipalId),
-        ///         ["uaiTenantId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.TenantId),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("example", new()
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery.SharedImageGallery("example", new()
     ///     {
     ///         Name = "example_image_gallery",
     ///         ResourceGroupName = example.Name,

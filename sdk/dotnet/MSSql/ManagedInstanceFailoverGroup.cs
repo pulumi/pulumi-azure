@@ -24,13 +24,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -52,33 +52,33 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
+    ///     var exampleRouteTable = new Azure.Network.RouteTable.RouteTable("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation.SubnetRouteTableAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         RouteTableId = exampleRouteTable.Id,
     ///     });
     /// 
-    ///     var primary = new Azure.MSSql.ManagedInstance("primary", new()
+    ///     var primary = new Azure.Mssql.ManagedInstance.ManagedInstance("primary", new()
     ///     {
     ///         Name = "example-primary",
     ///         ResourceGroupName = example.Name,
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var secondary = new Azure.MSSql.ManagedInstance("secondary", new()
+    ///     var secondary = new Azure.Mssql.ManagedInstance.ManagedInstance("secondary", new()
     ///     {
     ///         Name = "example-secondary",
     ///         ResourceGroupName = example.Name,
@@ -114,16 +114,16 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceFailoverGroup = new Azure.MSSql.ManagedInstanceFailoverGroup("example", new()
+    ///     var exampleManagedInstanceFailoverGroup = new Azure.Mssql.ManagedInstanceFailoverGroup.ManagedInstanceFailoverGroup("example", new()
     ///     {
     ///         Name = "example-failover-group",
     ///         Location = primary.Location,
     ///         ManagedInstanceId = primary.Id,
     ///         PartnerManagedInstanceId = secondary.Id,
-    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         ReadWriteEndpointFailoverPolicy = 
     ///         {
-    ///             Mode = "Automatic",
-    ///             GraceMinutes = 60,
+    ///             { "mode", "Automatic" },
+    ///             { "graceMinutes", 60 },
     ///         },
     ///     });
     /// 

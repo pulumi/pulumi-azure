@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .scope(&#34;SQLDB&#34;)
- *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

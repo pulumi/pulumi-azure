@@ -104,17 +104,6 @@ def get_certificate(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Nginx Certificate.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.nginx.get_certificate(name="existing",
-        nginx_deployment_id=example_azurerm_nginx_deployment["id"])
-    pulumi.export("id", example.id)
-    ```
-
 
     :param str name: The name of this Nginx Certificate.
     :param str nginx_deployment_id: The ID of the Nginx Deployment that this certificate is associated with.
@@ -140,17 +129,6 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing Nginx Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.nginx.get_certificate(name="existing",
-        nginx_deployment_id=example_azurerm_nginx_deployment["id"])
-    pulumi.export("id", example.id)
-    ```
 
 
     :param str name: The name of this Nginx Certificate.

@@ -25,40 +25,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	redis/cache "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/cache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// NOTE: the Name used for Redis needs to be globally unique
-//			_, err = redis.NewCache(ctx, "example", &redis.CacheArgs{
-//				Name:               pulumi.String("example-cache"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				Capacity:           pulumi.Int(2),
-//				Family:             pulumi.String("C"),
-//				SkuName:            pulumi.String("Standard"),
-//				EnableNonSslPort:   pulumi.Bool(false),
-//				MinimumTlsVersion:  pulumi.String("1.2"),
-//				RedisConfiguration: nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// // NOTE: the Name used for Redis needs to be globally unique
+// _, err = redis/cache.NewCache(ctx, "example", &redis/cache.CacheArgs{
+// Name: "example-cache",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Capacity: 2,
+// Family: "C",
+// SkuName: "Standard",
+// EnableNonSslPort: false,
+// MinimumTlsVersion: "1.2",
+// RedisConfiguration: nil,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Relevant Links
 //

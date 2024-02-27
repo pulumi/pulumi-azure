@@ -20,13 +20,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.MSSql
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "example-sqlserver",
     ///         ResourceGroupName = example.Name,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mssql.Database.Database("example", new()
     ///     {
     ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
@@ -73,20 +73,20 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "example-admin",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.MSSql
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "example-sqlserver",
     ///         ResourceGroupName = example.Name,
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.MSSql
     ///     });
     /// 
     ///     // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     var exampleKeyVault = new Azure.Keyvault.KeyVault.KeyVault("example", new()
     ///     {
     ///         Name = "mssqltdeexample",
     ///         Location = example.Location,
@@ -118,11 +118,11 @@ namespace Pulumi.Azure.MSSql
     ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             
     ///             {
-    ///                 TenantId = current.TenantId,
-    ///                 ObjectId = current.ObjectId,
-    ///                 KeyPermissions = new[]
+    ///                 { "tenantId", current.TenantId },
+    ///                 { "objectId", current.ObjectId },
+    ///                 { "keyPermissions", new[]
     ///                 {
     ///                     "Get",
     ///                     "List",
@@ -132,23 +132,23 @@ namespace Pulumi.Azure.MSSql
     ///                     "Recover",
     ///                     "Purge",
     ///                     "GetRotationPolicy",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             
     ///             {
-    ///                 TenantId = exampleUserAssignedIdentity.TenantId,
-    ///                 ObjectId = exampleUserAssignedIdentity.PrincipalId,
-    ///                 KeyPermissions = new[]
+    ///                 { "tenantId", exampleUserAssignedIdentity.TenantId },
+    ///                 { "objectId", exampleUserAssignedIdentity.PrincipalId },
+    ///                 { "keyPermissions", new[]
     ///                 {
     ///                     "Get",
     ///                     "WrapKey",
     ///                     "UnwrapKey",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
+    ///     var exampleKey = new Azure.Keyvault.Key.Key("example", new()
     ///     {
     ///         Name = "example-key",
     ///         KeyVaultId = exampleKeyVault.Id,
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mssql.Database.Database("example", new()
     ///     {
     ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
@@ -176,13 +176,13 @@ namespace Pulumi.Azure.MSSql
     ///         {
     ///             { "foo", "bar" },
     ///         },
-    ///         Identity = new Azure.MSSql.Inputs.DatabaseIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             { "type", "UserAssigned" },
+    ///             { "identityIds", new[]
     ///             {
     ///                 exampleUserAssignedIdentity.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         TransparentDataEncryptionKeyVaultKeyId = exampleKey.Id,
     ///     });

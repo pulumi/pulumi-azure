@@ -465,44 +465,44 @@ class IotHubDataConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="examplekustocluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.kusto.cluster.Cluster("example",
+            name=examplekustocluster,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="example-kusto-database",
+            sku={
+                name: Standard_D13_v2,
+                capacity: 2,
+            })
+        example_database = azure.kusto.database.Database("example",
+            name=example-kusto-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=example_cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIoTHub",
+            hot_cache_period=P7D,
+            soft_delete_period=P31D)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=exampleIoTHub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
-        example_shared_access_policy = azure.iot.SharedAccessPolicy("example",
-            name="example-shared-access-policy",
+            sku={
+                name: B1,
+                capacity: 1,
+            })
+        example_shared_access_policy = azure.iot.shared_access_policy.SharedAccessPolicy("example",
+            name=example-shared-access-policy,
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             registry_read=True)
-        example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="example-consumer-group",
+        example_consumer_group = azure.iot.consumer_group.ConsumerGroup("example",
+            name=example-consumer-group,
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
-            eventhub_endpoint_name="events")
-        example_iot_hub_data_connection = azure.kusto.IotHubDataConnection("example",
-            name="my-kusto-iothub-data-connection",
+            eventhub_endpoint_name=events)
+        example_iot_hub_data_connection = azure.kusto.iot_hub_data_connection.IotHubDataConnection("example",
+            name=my-kusto-iothub-data-connection,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=example_cluster.name,
@@ -511,13 +511,13 @@ class IotHubDataConnection(pulumi.CustomResource):
             consumer_group=example_consumer_group.name,
             shared_access_policy_name=example_shared_access_policy.name,
             event_system_properties=[
-                "message-id",
-                "sequence-number",
-                "to",
+                message-id,
+                sequence-number,
+                to,
             ],
-            table_name="my-table",
-            mapping_rule_name="my-table-mapping",
-            data_format="JSON")
+            table_name=my-table,
+            mapping_rule_name=my-table-mapping,
+            data_format=JSON)
         ```
 
         ## Import
@@ -559,44 +559,44 @@ class IotHubDataConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="examplekustocluster",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_cluster = azure.kusto.cluster.Cluster("example",
+            name=examplekustocluster,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="example-kusto-database",
+            sku={
+                name: Standard_D13_v2,
+                capacity: 2,
+            })
+        example_database = azure.kusto.database.Database("example",
+            name=example-kusto-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=example_cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIoTHub",
+            hot_cache_period=P7D,
+            soft_delete_period=P31D)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=exampleIoTHub,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
-        example_shared_access_policy = azure.iot.SharedAccessPolicy("example",
-            name="example-shared-access-policy",
+            sku={
+                name: B1,
+                capacity: 1,
+            })
+        example_shared_access_policy = azure.iot.shared_access_policy.SharedAccessPolicy("example",
+            name=example-shared-access-policy,
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             registry_read=True)
-        example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="example-consumer-group",
+        example_consumer_group = azure.iot.consumer_group.ConsumerGroup("example",
+            name=example-consumer-group,
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
-            eventhub_endpoint_name="events")
-        example_iot_hub_data_connection = azure.kusto.IotHubDataConnection("example",
-            name="my-kusto-iothub-data-connection",
+            eventhub_endpoint_name=events)
+        example_iot_hub_data_connection = azure.kusto.iot_hub_data_connection.IotHubDataConnection("example",
+            name=my-kusto-iothub-data-connection,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=example_cluster.name,
@@ -605,13 +605,13 @@ class IotHubDataConnection(pulumi.CustomResource):
             consumer_group=example_consumer_group.name,
             shared_access_policy_name=example_shared_access_policy.name,
             event_system_properties=[
-                "message-id",
-                "sequence-number",
-                "to",
+                message-id,
+                sequence-number,
+                to,
             ],
-            table_name="my-table",
-            mapping_rule_name="my-table-mapping",
-            data_format="JSON")
+            table_name=my-table,
+            mapping_rule_name=my-table-mapping,
+            data_format=JSON)
         ```
 
         ## Import

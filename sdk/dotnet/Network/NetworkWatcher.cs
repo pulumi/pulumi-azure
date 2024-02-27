@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "production-nwwatcher",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("example", new()
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher.NetworkWatcher("example", new()
     ///     {
     ///         Name = "production-nwwatcher",
     ///         Location = example.Location,

@@ -506,36 +506,6 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Subscription Policy Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="Allowed resource types",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
-            name="example",
-            policy_definition_id=example.id,
-            subscription_id=current.id)
-        ```
-
         ## Import
 
         Subscription Policy Assignments can be imported using the `resource id`, e.g.
@@ -571,36 +541,6 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Policy Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_subscription()
-        example = azure.policy.Definition("example",
-            name="only-deploy-in-westeurope",
-            policy_type="Custom",
-            mode="All",
-            display_name="Allowed resource types",
-            policy_rule=\"\"\" {
-            "if": {
-              "not": {
-                "field": "location",
-                "equals": "westeurope"
-              }
-            },
-            "then": {
-              "effect": "Deny"
-            }
-          }
-        \"\"\")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
-            name="example",
-            policy_definition_id=example.id,
-            subscription_id=current.id)
-        ```
 
         ## Import
 

@@ -22,26 +22,26 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePipeline = new Azure.DataFactory.Pipeline("example", new()
+    ///     var examplePipeline = new Azure.Datafactory.Pipeline.Pipeline("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///     });
     /// 
-    ///     var exampleTriggerTumblingWindow = new Azure.DataFactory.TriggerTumblingWindow("example", new()
+    ///     var exampleTriggerTumblingWindow = new Azure.Datafactory.TriggerTumblingWindow.TriggerTumblingWindow("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
@@ -57,25 +57,25 @@ namespace Pulumi.Azure.DataFactory
     ///             "example3",
     ///         },
     ///         Description = "example description",
-    ///         Retry = new Azure.DataFactory.Inputs.TriggerTumblingWindowRetryArgs
+    ///         Retry = 
     ///         {
-    ///             Count = 1,
-    ///             Interval = 30,
+    ///             { "count", 1 },
+    ///             { "interval", 30 },
     ///         },
-    ///         Pipeline = new Azure.DataFactory.Inputs.TriggerTumblingWindowPipelineArgs
+    ///         Pipeline = 
     ///         {
-    ///             Name = examplePipeline.Name,
-    ///             Parameters = 
+    ///             { "name", examplePipeline.Name },
+    ///             { "parameters", 
     ///             {
     ///                 { "Env", "Prod" },
-    ///             },
+    ///             } },
     ///         },
     ///         TriggerDependencies = new[]
     ///         {
-    ///             new Azure.DataFactory.Inputs.TriggerTumblingWindowTriggerDependencyArgs
+    ///             
     ///             {
-    ///                 Size = "24:00:00",
-    ///                 Offset = "-24:00:00",
+    ///                 { "size", "24:00:00" },
+    ///                 { "offset", "-24:00:00" },
     ///             },
     ///         },
     ///         AdditionalProperties = 

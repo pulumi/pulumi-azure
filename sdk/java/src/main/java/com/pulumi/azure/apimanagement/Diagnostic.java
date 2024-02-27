@@ -38,13 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.apimanagement.Logger;
  * import com.pulumi.azure.apimanagement.LoggerArgs;
- * import com.pulumi.azure.apimanagement.inputs.LoggerApplicationInsightsArgs;
  * import com.pulumi.azure.apimanagement.Diagnostic;
  * import com.pulumi.azure.apimanagement.DiagnosticArgs;
- * import com.pulumi.azure.apimanagement.inputs.DiagnosticFrontendRequestArgs;
- * import com.pulumi.azure.apimanagement.inputs.DiagnosticFrontendResponseArgs;
- * import com.pulumi.azure.apimanagement.inputs.DiagnosticBackendRequestArgs;
- * import com.pulumi.azure.apimanagement.inputs.DiagnosticBackendResponseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,9 +78,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-apimlogger&#34;)
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
- *                 .instrumentationKey(exampleInsights.instrumentationKey())
- *                 .build())
+ *             .applicationInsights(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDiagnostic = new Diagnostic(&#34;exampleDiagnostic&#34;, DiagnosticArgs.builder()        
@@ -98,34 +91,10 @@ import javax.annotation.Nullable;
  *             .logClientIp(true)
  *             .verbosity(&#34;verbose&#34;)
  *             .httpCorrelationProtocol(&#34;W3C&#34;)
- *             .frontendRequest(DiagnosticFrontendRequestArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;accept&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
- *             .frontendResponse(DiagnosticFrontendResponseArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;content-length&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
- *             .backendRequest(DiagnosticBackendRequestArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;accept&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
- *             .backendResponse(DiagnosticBackendResponseArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;content-length&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
+ *             .frontendRequest(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .frontendResponse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendRequest(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendResponse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

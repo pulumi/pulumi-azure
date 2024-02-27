@@ -141,26 +141,26 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.containerservice.KubernetesCluster("example",
-            name="example",
+        example_resource_group = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example,
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
-        example_target = azure.chaosstudio.Target("example",
+            dns_prefix=acctestaksexample,
+            default_node_pool={
+                name: example-value,
+                nodeCount: example-value,
+                vmSize: example-value,
+            },
+            identity={
+                type: example-value,
+            })
+        example_target = azure.chaosstudio.target.Target("example",
             location=example_resource_group.location,
             target_resource_id=example.id,
-            target_type="example-value")
+            target_type=example-value)
         ```
 
         ## Import
@@ -198,26 +198,26 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.containerservice.KubernetesCluster("example",
-            name="example",
+        example_resource_group = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example = azure.containerservice.kubernetes_cluster.KubernetesCluster("example",
+            name=example,
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
-        example_target = azure.chaosstudio.Target("example",
+            dns_prefix=acctestaksexample,
+            default_node_pool={
+                name: example-value,
+                nodeCount: example-value,
+                vmSize: example-value,
+            },
+            identity={
+                type: example-value,
+            })
+        example_target = azure.chaosstudio.target.Target("example",
             location=example_resource_group.location,
             target_resource_id=example.id,
-            target_type="example-value")
+            target_type=example-value)
         ```
 
         ## Import

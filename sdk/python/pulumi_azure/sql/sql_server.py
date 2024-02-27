@@ -386,24 +386,24 @@ class SqlServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="database-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=database-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mssqlserver",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_sql_server = azure.sql.sql_server.SqlServer("example",
+            name=mssqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
+            version=12.0,
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
             tags={
-                "environment": "production",
+                environment: production,
             })
         ```
 
@@ -443,24 +443,24 @@ class SqlServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="database-rg",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=database-rg,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplesa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mssqlserver",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_sql_server = azure.sql.sql_server.SqlServer("example",
+            name=mssqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
+            version=12.0,
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
             tags={
-                "environment": "production",
+                environment: production,
             })
         ```
 

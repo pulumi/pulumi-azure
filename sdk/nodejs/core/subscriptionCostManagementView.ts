@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.SubscriptionCostManagementView("example", {
+ * const example = new azure.core/subscriptionCostManagementView.SubscriptionCostManagementView("example", {
  *     name: "example",
  *     displayName: "Cost View per Month",
  *     chartType: "StackedColumn",

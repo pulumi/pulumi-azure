@@ -21,59 +21,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	relay/hybridConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/relay/hybridConnection"
+//	relay/hybridConnectionAuthorizationRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/relay/hybridConnectionAuthorizationRule"
+//	relay/namespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/relay/namespace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNamespace, err := relay.NewNamespace(ctx, "example", &relay.NamespaceArgs{
-//				Name:              pulumi.String("example-relay"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard"),
-//				Tags: pulumi.StringMap{
-//					"source": pulumi.String("terraform"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "example", &relay.HybridConnectionArgs{
-//				Name:                        pulumi.String("acctestrnhc-%d"),
-//				ResourceGroupName:           example.Name,
-//				RelayNamespaceName:          exampleNamespace.Name,
-//				RequiresClientAuthorization: pulumi.Bool(false),
-//				UserMetadata:                pulumi.String("testmetadata"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = relay.NewHybridConnectionAuthorizationRule(ctx, "example", &relay.HybridConnectionAuthorizationRuleArgs{
-//				Name:                 pulumi.String("example"),
-//				ResourceGroupName:    example.Name,
-//				HybridConnectionName: exampleHybridConnection.Name,
-//				NamespaceName:        exampleNamespace.Name,
-//				Listen:               pulumi.Bool(true),
-//				Send:                 pulumi.Bool(true),
-//				Manage:               pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNamespace, err := relay/namespace.NewNamespace(ctx, "example", &relay/namespace.NamespaceArgs{
+// Name: "example-relay",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Standard",
+// Tags: map[string]interface{}{
+// "source": "terraform",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleHybridConnection, err := relay/hybridConnection.NewHybridConnection(ctx, "example", &relay/hybridConnection.HybridConnectionArgs{
+// Name: "acctestrnhc-%d",
+// ResourceGroupName: example.Name,
+// RelayNamespaceName: exampleNamespace.Name,
+// RequiresClientAuthorization: false,
+// UserMetadata: "testmetadata",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = relay/hybridConnectionAuthorizationRule.NewHybridConnectionAuthorizationRule(ctx, "example", &relay/hybridConnectionAuthorizationRule.HybridConnectionAuthorizationRuleArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// HybridConnectionName: exampleHybridConnection.Name,
+// NamespaceName: exampleNamespace.Name,
+// Listen: true,
+// Send: true,
+// Manage: false,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

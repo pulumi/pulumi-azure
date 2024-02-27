@@ -12,58 +12,6 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Public Certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
-    ///     {
-    ///         Name = "example-app-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
-    ///     {
-    ///         Name = "example-app-service",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
-    ///     });
-    /// 
-    ///     var examplePublicCertificate = new Azure.AppService.PublicCertificate("example", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         AppServiceName = exampleAppService.Name,
-    ///         CertificateName = "example-public-certificate",
-    ///         CertificateLocation = "Unknown",
-    ///         Blob = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "app_service_public_certificate.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Service Public Certificates can be imported using the `resource id`, e.g.

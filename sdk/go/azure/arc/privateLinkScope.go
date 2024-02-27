@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/arc"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	arc/privateLinkScope "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/arc/privateLinkScope"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("west europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = arc.NewPrivateLinkScope(ctx, "example", &arc.PrivateLinkScopeArgs{
-//				Name:              pulumi.String("plsexample"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "west europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = arc/privateLinkScope.NewPrivateLinkScope(ctx, "example", &arc/privateLinkScope.PrivateLinkScopeArgs{
+// Name: "plsexample",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

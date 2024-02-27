@@ -22,13 +22,13 @@ namespace Pulumi.Azure.HDInsight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "hdinsightstor",
     ///         ResourceGroupName = example.Name,
@@ -37,59 +37,59 @@ namespace Pulumi.Azure.HDInsight
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "hdinsight",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("example", new()
+    ///     var exampleInteractiveQueryCluster = new Azure.Hdinsight.InteractiveQueryCluster.InteractiveQueryCluster("example", new()
     ///     {
     ///         Name = "example-hdicluster",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ClusterVersion = "3.6",
     ///         Tier = "Standard",
-    ///         ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs
+    ///         ComponentVersion = 
     ///         {
-    ///             InteractiveHive = "2.1",
+    ///             { "interactiveHive", "2.1" },
     ///         },
-    ///         Gateway = new Azure.HDInsight.Inputs.InteractiveQueryClusterGatewayArgs
+    ///         Gateway = 
     ///         {
-    ///             Username = "acctestusrgw",
-    ///             Password = "Password!",
+    ///             { "username", "acctestusrgw" },
+    ///             { "password", "Password!" },
     ///         },
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
+    ///             
     ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
-    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                 IsDefault = true,
+    ///                 { "storageContainerId", exampleContainer.Id },
+    ///                 { "storageAccountKey", exampleAccount.PrimaryAccessKey },
+    ///                 { "isDefault", true },
     ///             },
     ///         },
-    ///         Roles = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesArgs
+    ///         Roles = 
     ///         {
-    ///             HeadNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesHeadNodeArgs
+    ///             { "headNode", 
     ///             {
-    ///                 VmSize = "Standard_D13_V2",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///             },
-    ///             WorkerNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesWorkerNodeArgs
+    ///                 { "vmSize", "Standard_D13_V2" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///             } },
+    ///             { "workerNode", 
     ///             {
-    ///                 VmSize = "Standard_D14_V2",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///                 TargetInstanceCount = 3,
-    ///             },
-    ///             ZookeeperNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesZookeeperNodeArgs
+    ///                 { "vmSize", "Standard_D14_V2" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///                 { "targetInstanceCount", 3 },
+    ///             } },
+    ///             { "zookeeperNode", 
     ///             {
-    ///                 VmSize = "Standard_A4_V2",
-    ///                 Username = "acctestusrvm",
-    ///                 Password = "AccTestvdSC4daf986!",
-    ///             },
+    ///                 { "vmSize", "Standard_A4_V2" },
+    ///                 { "username", "acctestusrvm" },
+    ///                 { "password", "AccTestvdSC4daf986!" },
+    ///             } },
     ///         },
     ///     });
     /// 

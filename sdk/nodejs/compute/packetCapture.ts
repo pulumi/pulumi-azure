@@ -15,28 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNetworkWatcher = new azure.network.NetworkWatcher("example", {
+ * const exampleNetworkWatcher = new azure.network/networkWatcher.NetworkWatcher("example", {
  *     name: "example-nw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "internal",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: "example-nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
+ * const exampleVirtualMachine = new azure.compute/virtualMachine.VirtualMachine("example", {
  *     name: "example-vm",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: false,
  *     },
  * });
- * const exampleExtension = new azure.compute.Extension("example", {
+ * const exampleExtension = new azure.compute/extension.Extension("example", {
  *     name: "network-watcher",
  *     virtualMachineId: exampleVirtualMachine.id,
  *     publisher: "Microsoft.Azure.NetworkWatcher",
@@ -81,14 +81,14 @@ import * as utilities from "../utilities";
  *     typeHandlerVersion: "1.4",
  *     autoUpgradeMinorVersion: true,
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePacketCapture = new azure.compute.PacketCapture("example", {
+ * const examplePacketCapture = new azure.compute/packetCapture.PacketCapture("example", {
  *     name: "example-pc",
  *     networkWatcherId: exampleNetworkWatcher.id,
  *     virtualMachineId: exampleVirtualMachine.id,

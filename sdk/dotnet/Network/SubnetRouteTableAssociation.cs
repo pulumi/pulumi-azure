@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-network",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "frontend",
     ///         ResourceGroupName = example.Name,
@@ -50,24 +50,24 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
+    ///     var exampleRouteTable = new Azure.Network.RouteTable.RouteTable("example", new()
     ///     {
     ///         Name = "example-routetable",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Routes = new[]
     ///         {
-    ///             new Azure.Network.Inputs.RouteTableRouteArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 AddressPrefix = "10.100.0.0/14",
-    ///                 NextHopType = "VirtualAppliance",
-    ///                 NextHopInIpAddress = "10.10.1.1",
+    ///                 { "name", "example" },
+    ///                 { "addressPrefix", "10.100.0.0/14" },
+    ///                 { "nextHopType", "VirtualAppliance" },
+    ///                 { "nextHopInIpAddress", "10.10.1.1" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation.SubnetRouteTableAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         RouteTableId = exampleRouteTable.Id,

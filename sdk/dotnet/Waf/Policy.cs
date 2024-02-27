@@ -22,145 +22,145 @@ namespace Pulumi.Azure.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePolicy = new Azure.Waf.Policy("example", new()
+    ///     var examplePolicy = new Azure.Waf.Policy.Policy("example", new()
     ///     {
     ///         Name = "example-wafpolicy",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         CustomRules = new[]
     ///         {
-    ///             new Azure.Waf.Inputs.PolicyCustomRuleArgs
+    ///             
     ///             {
-    ///                 Name = "Rule1",
-    ///                 Priority = 1,
-    ///                 RuleType = "MatchRule",
-    ///                 MatchConditions = new[]
+    ///                 { "name", "Rule1" },
+    ///                 { "priority", 1 },
+    ///                 { "ruleType", "MatchRule" },
+    ///                 { "matchConditions", new[]
     ///                 {
-    ///                     new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionArgs
+    ///                     
     ///                     {
-    ///                         MatchVariables = new[]
+    ///                         { "matchVariables", new[]
     ///                         {
-    ///                             new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionMatchVariableArgs
+    ///                             
     ///                             {
-    ///                                 VariableName = "RemoteAddr",
+    ///                                 { "variableName", "RemoteAddr" },
     ///                             },
-    ///                         },
-    ///                         Operator = "IPMatch",
-    ///                         NegationCondition = false,
-    ///                         MatchValues = new[]
+    ///                         } },
+    ///                         { "operator", "IPMatch" },
+    ///                         { "negationCondition", false },
+    ///                         { "matchValues", new[]
     ///                         {
     ///                             "192.168.1.0/24",
     ///                             "10.0.0.0/24",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 Action = "Block",
+    ///                 } },
+    ///                 { "action", "Block" },
     ///             },
-    ///             new Azure.Waf.Inputs.PolicyCustomRuleArgs
+    ///             
     ///             {
-    ///                 Name = "Rule2",
-    ///                 Priority = 2,
-    ///                 RuleType = "MatchRule",
-    ///                 MatchConditions = new[]
+    ///                 { "name", "Rule2" },
+    ///                 { "priority", 2 },
+    ///                 { "ruleType", "MatchRule" },
+    ///                 { "matchConditions", new[]
     ///                 {
-    ///                     new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionArgs
+    ///                     
     ///                     {
-    ///                         MatchVariables = new[]
+    ///                         { "matchVariables", new[]
     ///                         {
-    ///                             new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionMatchVariableArgs
+    ///                             
     ///                             {
-    ///                                 VariableName = "RemoteAddr",
+    ///                                 { "variableName", "RemoteAddr" },
     ///                             },
-    ///                         },
-    ///                         Operator = "IPMatch",
-    ///                         NegationCondition = false,
-    ///                         MatchValues = new[]
+    ///                         } },
+    ///                         { "operator", "IPMatch" },
+    ///                         { "negationCondition", false },
+    ///                         { "matchValues", new[]
     ///                         {
     ///                             "192.168.1.0/24",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                     new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionArgs
+    ///                     
     ///                     {
-    ///                         MatchVariables = new[]
+    ///                         { "matchVariables", new[]
     ///                         {
-    ///                             new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionMatchVariableArgs
+    ///                             
     ///                             {
-    ///                                 VariableName = "RequestHeaders",
-    ///                                 Selector = "UserAgent",
+    ///                                 { "variableName", "RequestHeaders" },
+    ///                                 { "selector", "UserAgent" },
     ///                             },
-    ///                         },
-    ///                         Operator = "Contains",
-    ///                         NegationCondition = false,
-    ///                         MatchValues = new[]
+    ///                         } },
+    ///                         { "operator", "Contains" },
+    ///                         { "negationCondition", false },
+    ///                         { "matchValues", new[]
     ///                         {
     ///                             "Windows",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 Action = "Block",
+    ///                 } },
+    ///                 { "action", "Block" },
     ///             },
     ///         },
-    ///         PolicySettings = new Azure.Waf.Inputs.PolicyPolicySettingsArgs
+    ///         PolicySettings = 
     ///         {
-    ///             Enabled = true,
-    ///             Mode = "Prevention",
-    ///             RequestBodyCheck = true,
-    ///             FileUploadLimitInMb = 100,
-    ///             MaxRequestBodySizeInKb = 128,
+    ///             { "enabled", true },
+    ///             { "mode", "Prevention" },
+    ///             { "requestBodyCheck", true },
+    ///             { "fileUploadLimitInMb", 100 },
+    ///             { "maxRequestBodySizeInKb", 128 },
     ///         },
-    ///         ManagedRules = new Azure.Waf.Inputs.PolicyManagedRulesArgs
+    ///         ManagedRules = 
     ///         {
-    ///             Exclusions = new[]
+    ///             { "exclusions", new[]
     ///             {
-    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs
+    ///                 
     ///                 {
-    ///                     MatchVariable = "RequestHeaderNames",
-    ///                     Selector = "x-company-secret-header",
-    ///                     SelectorMatchOperator = "Equals",
+    ///                     { "matchVariable", "RequestHeaderNames" },
+    ///                     { "selector", "x-company-secret-header" },
+    ///                     { "selectorMatchOperator", "Equals" },
     ///                 },
-    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs
+    ///                 
     ///                 {
-    ///                     MatchVariable = "RequestCookieNames",
-    ///                     Selector = "too-tasty",
-    ///                     SelectorMatchOperator = "EndsWith",
+    ///                     { "matchVariable", "RequestCookieNames" },
+    ///                     { "selector", "too-tasty" },
+    ///                     { "selectorMatchOperator", "EndsWith" },
     ///                 },
-    ///             },
-    ///             ManagedRuleSets = new[]
+    ///             } },
+    ///             { "managedRuleSets", new[]
     ///             {
-    ///                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetArgs
+    ///                 
     ///                 {
-    ///                     Type = "OWASP",
-    ///                     Version = "3.2",
-    ///                     RuleGroupOverrides = new[]
+    ///                     { "type", "OWASP" },
+    ///                     { "version", "3.2" },
+    ///                     { "ruleGroupOverrides", new[]
     ///                     {
-    ///                         new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs
+    ///                         
     ///                         {
-    ///                             RuleGroupName = "REQUEST-920-PROTOCOL-ENFORCEMENT",
-    ///                             Rules = new[]
+    ///                             { "ruleGroupName", "REQUEST-920-PROTOCOL-ENFORCEMENT" },
+    ///                             { "rules", new[]
     ///                             {
-    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
+    ///                                 
     ///                                 {
-    ///                                     Id = "920300",
-    ///                                     Enabled = true,
-    ///                                     Action = "Log",
+    ///                                     { "id", "920300" },
+    ///                                     { "enabled", true },
+    ///                                     { "action", "Log" },
     ///                                 },
-    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
+    ///                                 
     ///                                 {
-    ///                                     Id = "920440",
-    ///                                     Enabled = true,
-    ///                                     Action = "Block",
+    ///                                     { "id", "920440" },
+    ///                                     { "enabled", true },
+    ///                                     { "action", "Block" },
     ///                                 },
-    ///                             },
+    ///                             } },
     ///                         },
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

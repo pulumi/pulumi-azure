@@ -17,76 +17,12 @@ public final class ProximityFunctions {
     /**
      * Use this data source to access information about an existing Proximity Placement Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.proximity.ProximityFunctions;
-     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args) {
         return getPlacementGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Proximity Placement Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.proximity.ProximityFunctions;
-     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args) {
@@ -95,76 +31,12 @@ public final class ProximityFunctions {
     /**
      * Use this data source to access information about an existing Proximity Placement Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.proximity.ProximityFunctions;
-     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPlacementGroupResult> getPlacementGroup(GetPlacementGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:proximity/getPlacementGroup:getPlacementGroup", TypeShape.of(GetPlacementGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Proximity Placement Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.proximity.ProximityFunctions;
-     * import com.pulumi.azure.proximity.inputs.GetPlacementGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ProximityFunctions.getPlacementGroup(GetPlacementGroupArgs.builder()
-     *             .name(&#34;tf-appsecuritygroup&#34;)
-     *             .resourceGroupName(&#34;my-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;proximityPlacementGroupId&#34;, example.applyValue(getPlacementGroupResult -&gt; getPlacementGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlacementGroupResult> getPlacementGroupPlain(GetPlacementGroupPlainArgs args, InvokeOptions options) {

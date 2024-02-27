@@ -2101,47 +2101,47 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.0.0.0/16"])
-        internal = azure.network.Subnet("internal",
-            name="internal",
+            address_spaces=[10.0.0.0/16])
+        internal = azure.network.subnet.Subnet("internal",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_windows_virtual_machine_scale_set = azure.compute.WindowsVirtualMachineScaleSet("example",
-            name="example-vmss",
+            address_prefixes=[10.0.2.0/24])
+        example_windows_virtual_machine_scale_set = azure.compute.windows_virtual_machine_scale_set.WindowsVirtualMachineScaleSet("example",
+            name=example-vmss,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku=Standard_F2,
             instances=1,
-            admin_password="P@55w0rd1234!",
-            admin_username="adminuser",
-            computer_name_prefix="vm-",
-            source_image_reference=azure.compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="MicrosoftWindowsServer",
-                offer="WindowsServer",
-                sku="2016-Datacenter-Server-Core",
-                version="latest",
-            ),
-            os_disk=azure.compute.WindowsVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.WindowsVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=internal.id,
-                )],
-            )])
+            admin_password=P@55w0rd1234!,
+            admin_username=adminuser,
+            computer_name_prefix=vm-,
+            source_image_reference={
+                publisher: MicrosoftWindowsServer,
+                offer: WindowsServer,
+                sku: 2016-Datacenter-Server-Core,
+                version: latest,
+            },
+            os_disk={
+                storageAccountType: Standard_LRS,
+                caching: ReadWrite,
+            },
+            network_interfaces=[{
+                name: example,
+                primary: True,
+                ipConfigurations: [{
+                    name: internal,
+                    primary: True,
+                    subnetId: internal.id,
+                }],
+            }])
         ```
 
         ## Import
@@ -2263,47 +2263,47 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-network,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.0.0.0/16"])
-        internal = azure.network.Subnet("internal",
-            name="internal",
+            address_spaces=[10.0.0.0/16])
+        internal = azure.network.subnet.Subnet("internal",
+            name=internal,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_windows_virtual_machine_scale_set = azure.compute.WindowsVirtualMachineScaleSet("example",
-            name="example-vmss",
+            address_prefixes=[10.0.2.0/24])
+        example_windows_virtual_machine_scale_set = azure.compute.windows_virtual_machine_scale_set.WindowsVirtualMachineScaleSet("example",
+            name=example-vmss,
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku=Standard_F2,
             instances=1,
-            admin_password="P@55w0rd1234!",
-            admin_username="adminuser",
-            computer_name_prefix="vm-",
-            source_image_reference=azure.compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="MicrosoftWindowsServer",
-                offer="WindowsServer",
-                sku="2016-Datacenter-Server-Core",
-                version="latest",
-            ),
-            os_disk=azure.compute.WindowsVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.WindowsVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=internal.id,
-                )],
-            )])
+            admin_password=P@55w0rd1234!,
+            admin_username=adminuser,
+            computer_name_prefix=vm-,
+            source_image_reference={
+                publisher: MicrosoftWindowsServer,
+                offer: WindowsServer,
+                sku: 2016-Datacenter-Server-Core,
+                version: latest,
+            },
+            os_disk={
+                storageAccountType: Standard_LRS,
+                caching: ReadWrite,
+            },
+            network_interfaces=[{
+                name: example,
+                primary: True,
+                ipConfigurations: [{
+                    name: internal,
+                    primary: True,
+                    subnetId: internal.id,
+                }],
+            }])
         ```
 
         ## Import

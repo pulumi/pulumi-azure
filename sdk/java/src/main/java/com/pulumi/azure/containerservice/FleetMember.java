@@ -30,11 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.containerservice.KubernetesFleetManager;
  * import com.pulumi.azure.containerservice.KubernetesFleetManagerArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesFleetManagerHubProfileArgs;
  * import com.pulumi.azure.containerservice.FleetMember;
  * import com.pulumi.azure.containerservice.FleetMemberArgs;
  * import java.util.List;
@@ -60,23 +57,15 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .dnsPrefix(&#34;acctestaksexample&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;example-value&#34;)
- *                 .nodeCount(&#34;example-value&#34;)
- *                 .vmSize(&#34;example-value&#34;)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;example-value&#34;)
- *                 .build())
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleKubernetesFleetManager = new KubernetesFleetManager(&#34;exampleKubernetesFleetManager&#34;, KubernetesFleetManagerArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .hubProfile(KubernetesFleetManagerHubProfileArgs.builder()
- *                 .dnsPrefix(&#34;val-example&#34;)
- *                 .build())
+ *             .hubProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFleetMember = new FleetMember(&#34;exampleFleetMember&#34;, FleetMemberArgs.builder()        

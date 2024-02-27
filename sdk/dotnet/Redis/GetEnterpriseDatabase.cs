@@ -13,70 +13,12 @@ namespace Pulumi.Azure.Redis
     {
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
-        ///     {
-        ///         Name = "default",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
-        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnterpriseDatabaseResult> InvokeAsync(GetEnterpriseDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
-        ///     {
-        ///         Name = "default",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
-        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnterpriseDatabaseResult> Invoke(GetEnterpriseDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithDefaults());

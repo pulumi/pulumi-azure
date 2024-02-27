@@ -19,64 +19,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mssql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/database"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                       pulumi.String("example-sqlserver"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
-//				Name:          pulumi.String("example-db"),
-//				ServerId:      exampleServer.ID(),
-//				Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				LicenseType:   pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:     pulumi.Int(4),
-//				ReadScale:     pulumi.Bool(true),
-//				SkuName:       pulumi.String("S0"),
-//				ZoneRedundant: pulumi.Bool(true),
-//				EnclaveType:   pulumi.String("VBS"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mssql/server.NewServer(ctx, "example", &mssql/server.ServerArgs{
+// Name: "example-sqlserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/database.NewDatabase(ctx, "example", &mssql/database.DatabaseArgs{
+// Name: "example-db",
+// ServerId: exampleServer.Id,
+// Collation: "SQL_Latin1_General_CP1_CI_AS",
+// LicenseType: "LicenseIncluded",
+// MaxSizeGb: 4,
+// ReadScale: true,
+// SkuName: "S0",
+// ZoneRedundant: true,
+// EnclaveType: "VBS",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
 // ```go
@@ -84,133 +83,133 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	keyvault/key "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/keyvault/key"
+//	keyvault/keyVault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/keyvault/keyVault"
+//	mssql/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/database"
+//	mssql/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mssql/server"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("example-admin"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                       pulumi.String("example-sqlserver"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("mssqltdeexample"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 exampleUserAssignedIdentity.TenantId,
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(true),
-//				SkuName:                  pulumi.String("standard"),
-//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-//					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.Any(current.TenantId),
-//						ObjectId: pulumi.Any(current.ObjectId),
-//						KeyPermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//							pulumi.String("List"),
-//							pulumi.String("Create"),
-//							pulumi.String("Delete"),
-//							pulumi.String("Update"),
-//							pulumi.String("Recover"),
-//							pulumi.String("Purge"),
-//							pulumi.String("GetRotationPolicy"),
-//						},
-//					},
-//					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleUserAssignedIdentity.TenantId,
-//						ObjectId: exampleUserAssignedIdentity.PrincipalId,
-//						KeyPermissions: pulumi.StringArray{
-//							pulumi.String("Get"),
-//							pulumi.String("WrapKey"),
-//							pulumi.String("UnwrapKey"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
-//				Name:       pulumi.String("example-key"),
-//				KeyVaultId: exampleKeyVault.ID(),
-//				KeyType:    pulumi.String("RSA"),
-//				KeySize:    pulumi.Int(2048),
-//				KeyOpts: pulumi.StringArray{
-//					pulumi.String("unwrapKey"),
-//					pulumi.String("wrapKey"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
-//				Name:          pulumi.String("example-db"),
-//				ServerId:      exampleServer.ID(),
-//				Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				LicenseType:   pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:     pulumi.Int(4),
-//				ReadScale:     pulumi.Bool(true),
-//				SkuName:       pulumi.String("S0"),
-//				ZoneRedundant: pulumi.Bool(true),
-//				EnclaveType:   pulumi.String("VBS"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//				Identity: &mssql.DatabaseIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
-//					},
-//				},
-//				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "example-admin",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mssql/server.NewServer(ctx, "example", &mssql/server.ServerArgs{
+// Name: "example-sqlserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12.0",
+// AdministratorLogin: "4dm1n157r470r",
+// AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+// })
+// if err != nil {
+// return err
+// }
+// // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+// exampleKeyVault, err := keyvault/keyVault.NewKeyVault(ctx, "example", &keyvault/keyVault.KeyVaultArgs{
+// Name: "mssqltdeexample",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// EnabledForDiskEncryption: true,
+// TenantId: exampleUserAssignedIdentity.TenantId,
+// SoftDeleteRetentionDays: 7,
+// PurgeProtectionEnabled: true,
+// SkuName: "standard",
+// AccessPolicies: []interface{}{
+// map[string]interface{}{
+// "tenantId": current.TenantId,
+// "objectId": current.ObjectId,
+// "keyPermissions": []string{
+// "Get",
+// "List",
+// "Create",
+// "Delete",
+// "Update",
+// "Recover",
+// "Purge",
+// "GetRotationPolicy",
+// },
+// },
+// map[string]interface{}{
+// "tenantId": exampleUserAssignedIdentity.TenantId,
+// "objectId": exampleUserAssignedIdentity.PrincipalId,
+// "keyPermissions": []string{
+// "Get",
+// "WrapKey",
+// "UnwrapKey",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleKey, err := keyvault/key.NewKey(ctx, "example", &keyvault/key.KeyArgs{
+// Name: "example-key",
+// KeyVaultId: exampleKeyVault.Id,
+// KeyType: "RSA",
+// KeySize: 2048,
+// KeyOpts: []string{
+// "unwrapKey",
+// "wrapKey",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mssql/database.NewDatabase(ctx, "example", &mssql/database.DatabaseArgs{
+// Name: "example-db",
+// ServerId: exampleServer.Id,
+// Collation: "SQL_Latin1_General_CP1_CI_AS",
+// LicenseType: "LicenseIncluded",
+// MaxSizeGb: 4,
+// ReadScale: true,
+// SkuName: "S0",
+// ZoneRedundant: true,
+// EnclaveType: "VBS",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// Identity: map[string]interface{}{
+// "type": "UserAssigned",
+// "identityIds": []interface{}{
+// exampleUserAssignedIdentity.Id,
+// },
+// },
+// TransparentDataEncryptionKeyVaultKeyId: exampleKey.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleKubernetesFleetManager = new azure.containerservice.KubernetesFleetManager("example", {
+ * const exampleKubernetesFleetManager = new azure.containerservice/kubernetesFleetManager.KubernetesFleetManager("example", {
  *     location: example.location,
  *     name: "example",
  *     resourceGroupName: example.name,

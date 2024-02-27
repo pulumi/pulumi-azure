@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint(&#34;exampleFrontdoorEndpoint&#34;, FrontdoorEndpointArgs.builder()        
  *             .name(&#34;example-endpoint&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .tags(Map.of(&#34;ENV&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

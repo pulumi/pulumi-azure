@@ -23,27 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	securitycenter/contact "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/securitycenter/contact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitycenter.NewContact(ctx, "example", &securitycenter.ContactArgs{
-//				Name:               pulumi.String("contact"),
-//				Email:              pulumi.String("contact@example.com"),
-//				Phone:              pulumi.String("+1-555-555-5555"),
-//				AlertNotifications: pulumi.Bool(true),
-//				AlertsToAdmins:     pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitycenter/contact.NewContact(ctx, "example", &securitycenter/contact.ContactArgs{
+// Name: "contact",
+// Email: "contact@example.com",
+// Phone: "+1-555-555-5555",
+// AlertNotifications: true,
+// AlertsToAdmins: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

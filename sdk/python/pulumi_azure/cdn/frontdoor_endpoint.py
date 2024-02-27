@@ -189,18 +189,18 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("example",
-            name="example-endpoint",
+            sku_name=Standard_AzureFrontDoor)
+        example_frontdoor_endpoint = azure.cdn.frontdoor_endpoint.FrontdoorEndpoint("example",
+            name=example-endpoint,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             tags={
-                "ENV": "example",
+                ENV: example,
             })
         ```
 
@@ -234,18 +234,18 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-cdn-frontdoor",
-            location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-profile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-cdn-frontdoor,
+            location=West Europe)
+        example_frontdoor_profile = azure.cdn.frontdoor_profile.FrontdoorProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_endpoint = azure.cdn.FrontdoorEndpoint("example",
-            name="example-endpoint",
+            sku_name=Standard_AzureFrontDoor)
+        example_frontdoor_endpoint = azure.cdn.frontdoor_endpoint.FrontdoorEndpoint("example",
+            name=example-endpoint,
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             tags={
-                "ENV": "example",
+                ENV: example,
             })
         ```
 

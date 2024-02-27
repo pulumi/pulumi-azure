@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Directline integration for a Bot Channel
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
- *     name: "example",
- *     location: "global",
- *     resourceGroupName: example.name,
- *     sku: "F0",
- *     microsoftAppId: current.then(current => current.clientId),
- * });
- * const exampleChannelDirectLine = new azure.bot.ChannelDirectLine("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: example.name,
- *     sites: [{
- *         name: "default",
- *         enabled: true,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * The Directline Channel for a Bot can be imported using the `resource id`, e.g.

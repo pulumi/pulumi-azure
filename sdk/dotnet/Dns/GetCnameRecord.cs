@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Dns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Dns.CNameRecord("example", new()
+        ///     var example = new Azure.Dns.CNameRecord.CNameRecord("example", new()
         ///     {
         ///         Name = "test",
         ///         ZoneName = "test-zone",
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Dns
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Azure.Dns.CNameRecord("example", new()
+        ///     var example = new Azure.Dns.CNameRecord.CNameRecord("example", new()
         ///     {
         ///         Name = "test",
         ///         ZoneName = "test-zone",

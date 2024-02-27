@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "examplevnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "AzureBastionSubnet",
     ///         ResourceGroupName = example.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "examplepip",
     ///         Location = example.Location,
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.Compute
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleBastionHost = new Azure.Compute.BastionHost("example", new()
+    ///     var exampleBastionHost = new Azure.Compute.BastionHost.BastionHost("example", new()
     ///     {
     ///         Name = "examplebastion",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         IpConfiguration = new Azure.Compute.Inputs.BastionHostIpConfigurationArgs
+    ///         IpConfiguration = 
     ///         {
-    ///             Name = "configuration",
-    ///             SubnetId = exampleSubnet.Id,
-    ///             PublicIpAddressId = examplePublicIp.Id,
+    ///             { "name", "configuration" },
+    ///             { "subnetId", exampleSubnet.Id },
+    ///             { "publicIpAddressId", examplePublicIp.Id },
     ///         },
     ///     });
     /// 

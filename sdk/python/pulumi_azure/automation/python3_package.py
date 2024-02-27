@@ -303,24 +303,24 @@ class Python3Package(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="%[2]s")
-        example_account = azure.automation.Account("example",
-            name="accexample",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=%[2]s)
+        example_account = azure.automation.account.Account("example",
+            name=accexample,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_python3_package = azure.automation.Python3Package("example",
-            name="example",
+            sku_name=Basic)
+        example_python3_package = azure.automation.python3_package.Python3Package("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
-            content_version="2.31.0",
-            hash_algorithm="sha256",
-            hash_value="942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+            content_uri=https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz,
+            content_version=2.31.0,
+            hash_algorithm=sha256,
+            hash_value=942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1,
             tags={
-                "key": "foo",
+                key: foo,
             })
         ```
 
@@ -358,24 +358,24 @@ class Python3Package(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="%[2]s")
-        example_account = azure.automation.Account("example",
-            name="accexample",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=%[2]s)
+        example_account = azure.automation.account.Account("example",
+            name=accexample,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_python3_package = azure.automation.Python3Package("example",
-            name="example",
+            sku_name=Basic)
+        example_python3_package = azure.automation.python3_package.Python3Package("example",
+            name=example,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
-            content_version="2.31.0",
-            hash_algorithm="sha256",
-            hash_value="942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+            content_uri=https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz,
+            content_version=2.31.0,
+            hash_algorithm=sha256,
+            hash_value=942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1,
             tags={
-                "key": "foo",
+                key: foo,
             })
         ```
 

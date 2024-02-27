@@ -1192,33 +1192,33 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="linuxfunctionappsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=linuxfunctionappsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-app-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-app-service-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            sku_name="Y1")
-        example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
-            name="example-linux-function-app",
+            os_type=Linux,
+            sku_name=Y1)
+        example_linux_function_app = azure.appservice.linux_function_app.LinuxFunctionApp("example",
+            name=example-linux-function-app,
             resource_group_name=example.name,
             location=example.location,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
-        example_linux_function_app_slot = azure.appservice.LinuxFunctionAppSlot("example",
-            name="example-linux-function-app-slot",
+            site_config={})
+        example_linux_function_app_slot = azure.appservice.linux_function_app_slot.LinuxFunctionAppSlot("example",
+            name=example-linux-function-app-slot,
             function_app_id=example_linux_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1282,33 +1282,33 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="linuxfunctionappsa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=linuxfunctionappsa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-app-service-plan",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-app-service-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            sku_name="Y1")
-        example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
-            name="example-linux-function-app",
+            os_type=Linux,
+            sku_name=Y1)
+        example_linux_function_app = azure.appservice.linux_function_app.LinuxFunctionApp("example",
+            name=example-linux-function-app,
             resource_group_name=example.name,
             location=example.location,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
-        example_linux_function_app_slot = azure.appservice.LinuxFunctionAppSlot("example",
-            name="example-linux-function-app-slot",
+            site_config={})
+        example_linux_function_app_slot = azure.appservice.linux_function_app_slot.LinuxFunctionAppSlot("example",
+            name=example-linux-function-app-slot,
             function_app_id=example_linux_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import

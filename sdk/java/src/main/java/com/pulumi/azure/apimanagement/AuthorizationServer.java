@@ -20,51 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Authorization Server within an API Management Service.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
- * import com.pulumi.azure.apimanagement.AuthorizationServer;
- * import com.pulumi.azure.apimanagement.AuthorizationServerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;search-api&#34;)
- *             .resourceGroupName(&#34;search-service&#34;)
- *             .build());
- * 
- *         var exampleAuthorizationServer = new AuthorizationServer(&#34;exampleAuthorizationServer&#34;, AuthorizationServerArgs.builder()        
- *             .name(&#34;test-server&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .displayName(&#34;Test Server&#34;)
- *             .authorizationEndpoint(&#34;https://example.mydomain.com/client/authorize&#34;)
- *             .clientId(&#34;42424242-4242-4242-4242-424242424242&#34;)
- *             .clientRegistrationEndpoint(&#34;https://example.mydomain.com/client/register&#34;)
- *             .grantTypes(&#34;authorizationCode&#34;)
- *             .authorizationMethods(&#34;GET&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management Authorization Servers can be imported using the `resource id`, e.g.

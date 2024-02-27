@@ -208,32 +208,32 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_subnet_service_endpoint_storage_policy = azure.network.SubnetServiceEndpointStoragePolicy("example",
-            name="example-policy",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_subnet_service_endpoint_storage_policy = azure.network.subnet_service_endpoint_storage_policy.SubnetServiceEndpointStoragePolicy("example",
+            name=example-policy,
             resource_group_name=example.name,
             location=example.location,
-            definition=azure.network.SubnetServiceEndpointStoragePolicyDefinitionArgs(
-                name="name2",
-                description="definition2",
-                service="Global",
-                service_resources=[
-                    "/services/Azure",
-                    "/services/Azure/Batch",
-                    "/services/Azure/DataFactory",
-                    "/services/Azure/MachineLearning",
-                    "/services/Azure/ManagedInstance",
-                    "/services/Azure/WebPI",
+            definition={
+                name: name2,
+                description: definition2,
+                service: Global,
+                serviceResources: [
+                    /services/Azure,
+                    /services/Azure/Batch,
+                    /services/Azure/DataFactory,
+                    /services/Azure/MachineLearning,
+                    /services/Azure/ManagedInstance,
+                    /services/Azure/WebPI,
                 ],
-            ))
-        example_account = azure.storage.Account("example",
-            name="examplestorageacct",
+            })
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacct,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
+            account_tier=Standard,
+            account_replication_type=GRS)
         ```
 
         ## Import
@@ -267,32 +267,32 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_subnet_service_endpoint_storage_policy = azure.network.SubnetServiceEndpointStoragePolicy("example",
-            name="example-policy",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_subnet_service_endpoint_storage_policy = azure.network.subnet_service_endpoint_storage_policy.SubnetServiceEndpointStoragePolicy("example",
+            name=example-policy,
             resource_group_name=example.name,
             location=example.location,
-            definition=azure.network.SubnetServiceEndpointStoragePolicyDefinitionArgs(
-                name="name2",
-                description="definition2",
-                service="Global",
-                service_resources=[
-                    "/services/Azure",
-                    "/services/Azure/Batch",
-                    "/services/Azure/DataFactory",
-                    "/services/Azure/MachineLearning",
-                    "/services/Azure/ManagedInstance",
-                    "/services/Azure/WebPI",
+            definition={
+                name: name2,
+                description: definition2,
+                service: Global,
+                serviceResources: [
+                    /services/Azure,
+                    /services/Azure/Batch,
+                    /services/Azure/DataFactory,
+                    /services/Azure/MachineLearning,
+                    /services/Azure/ManagedInstance,
+                    /services/Azure/WebPI,
                 ],
-            ))
-        example_account = azure.storage.Account("example",
-            name="examplestorageacct",
+            })
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageacct,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
+            account_tier=Standard,
+            account_replication_type=GRS)
         ```
 
         ## Import

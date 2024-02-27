@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * Manages an Azure Managed Lustre File System.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -34,13 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.managedlustre.FileSystem;
  * import com.pulumi.azure.managedlustre.FileSystemArgs;
- * import com.pulumi.azure.managedlustre.inputs.FileSystemMaintenanceWindowArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,10 +79,7 @@ import javax.annotation.Nullable;
  *             .subnetId(exampleSubnet.id())
  *             .storageCapacityInTb(8)
  *             .zones(&#34;2&#34;)
- *             .maintenanceWindow(FileSystemMaintenanceWindowArgs.builder()
- *                 .dayOfWeek(&#34;Friday&#34;)
- *                 .timeOfDayUtc(&#34;22:00&#34;)
- *                 .build())
+ *             .maintenanceWindow(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

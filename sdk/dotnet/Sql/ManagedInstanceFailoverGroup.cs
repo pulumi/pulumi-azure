@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var primary = new Azure.Sql.ManagedInstance("primary", new()
+    ///     var primary = new Azure.Sql.ManagedInstance.ManagedInstance("primary", new()
     ///     {
     ///         Name = "example-primary",
     ///         ResourceGroupName = primaryAzurermResourceGroup.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Sql
     ///         },
     ///     });
     /// 
-    ///     var secondary = new Azure.Sql.ManagedInstance("secondary", new()
+    ///     var secondary = new Azure.Sql.ManagedInstance.ManagedInstance("secondary", new()
     ///     {
     ///         Name = "example-secondary",
     ///         ResourceGroupName = secondaryAzurermResourceGroup.Name,
@@ -68,17 +68,17 @@ namespace Pulumi.Azure.Sql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceFailoverGroup = new Azure.Sql.ManagedInstanceFailoverGroup("example", new()
+    ///     var exampleManagedInstanceFailoverGroup = new Azure.Sql.ManagedInstanceFailoverGroup.ManagedInstanceFailoverGroup("example", new()
     ///     {
     ///         Name = "example-failover-group",
     ///         ResourceGroupName = primaryAzurermResourceGroup.Name,
     ///         Location = primary.Location,
     ///         ManagedInstanceName = primary.Name,
     ///         PartnerManagedInstanceId = secondary.Id,
-    ///         ReadWriteEndpointFailoverPolicy = new Azure.Sql.Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         ReadWriteEndpointFailoverPolicy = 
     ///         {
-    ///             Mode = "Automatic",
-    ///             GraceMinutes = 60,
+    ///             { "mode", "Automatic" },
+    ///             { "graceMinutes", 60 },
     ///         },
     ///     });
     /// 

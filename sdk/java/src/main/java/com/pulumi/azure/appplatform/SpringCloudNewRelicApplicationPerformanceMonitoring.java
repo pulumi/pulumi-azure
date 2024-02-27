@@ -67,10 +67,7 @@ import javax.annotation.Nullable;
  *             .appName(&#34;example-app-name&#34;)
  *             .licenseKey(&#34;example-license-key&#34;)
  *             .appServerPort(8080)
- *             .labels(Map.ofEntries(
- *                 Map.entry(&#34;tagName1&#34;, &#34;tagValue1&#34;),
- *                 Map.entry(&#34;tagName2&#34;, &#34;tagValue2&#34;)
- *             ))
+ *             .labels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .globallyEnabled(true)
  *             .build());
  * 

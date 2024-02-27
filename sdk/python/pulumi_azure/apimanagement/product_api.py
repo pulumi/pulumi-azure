@@ -164,28 +164,6 @@ class ProductApi(pulumi.CustomResource):
         """
         Manages an API Management API Assignment to a Product.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_get_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name,
-            revision="2")
-        example_get_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        example_product_api = azure.apimanagement.ProductApi("example",
-            api_name=example_get_api.name,
-            product_id=example_get_product.product_id,
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        ```
-
         ## Import
 
         API Management Product API's can be imported using the `resource id`, e.g.
@@ -209,28 +187,6 @@ class ProductApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Assignment to a Product.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.apimanagement.get_service(name="example-api",
-            resource_group_name="example-resources")
-        example_get_api = azure.apimanagement.get_api(name="search-api",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name,
-            revision="2")
-        example_get_product = azure.apimanagement.get_product(product_id="my-product",
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        example_product_api = azure.apimanagement.ProductApi("example",
-            api_name=example_get_api.name,
-            product_id=example_get_product.product_id,
-            api_management_name=example.name,
-            resource_group_name=example.resource_group_name)
-        ```
 
         ## Import
 

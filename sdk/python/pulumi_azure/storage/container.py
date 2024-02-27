@@ -221,22 +221,22 @@ class Container(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoraccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoraccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_container = azure.storage.Container("example",
-            name="vhds",
+        example_container = azure.storage.container.Container("example",
+            name=vhds,
             storage_account_name=example_account.name,
-            container_access_type="private")
+            container_access_type=private)
         ```
 
         ## Import
@@ -269,22 +269,22 @@ class Container(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoraccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestoraccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_container = azure.storage.Container("example",
-            name="vhds",
+        example_container = azure.storage.container.Container("example",
+            name=vhds,
             storage_account_name=example_account.name,
-            container_access_type="private")
+            container_access_type=private)
         ```
 
         ## Import

@@ -21,74 +21,74 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
+//	storage/localUser "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/localUser"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("WestEurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example-account"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountKind:            pulumi.String("StorageV2"),
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				IsHnsEnabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:               pulumi.String("example-container"),
-//				StorageAccountName: exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewLocalUser(ctx, "example", &storage.LocalUserArgs{
-//				Name:               pulumi.String("user1"),
-//				StorageAccountId:   exampleAccount.ID(),
-//				SshKeyEnabled:      pulumi.Bool(true),
-//				SshPasswordEnabled: pulumi.Bool(true),
-//				HomeDirectory:      pulumi.String("example_path"),
-//				SshAuthorizedKeys: storage.LocalUserSshAuthorizedKeyArray{
-//					&storage.LocalUserSshAuthorizedKeyArgs{
-//						Description: pulumi.String("key1"),
-//						Key:         pulumi.Any(firstPublicKey),
-//					},
-//					&storage.LocalUserSshAuthorizedKeyArgs{
-//						Description: pulumi.String("key2"),
-//						Key:         pulumi.Any(secondPublicKey),
-//					},
-//				},
-//				PermissionScopes: storage.LocalUserPermissionScopeArray{
-//					&storage.LocalUserPermissionScopeArgs{
-//						Permissions: &storage.LocalUserPermissionScopePermissionsArgs{
-//							Read:   pulumi.Bool(true),
-//							Create: pulumi.Bool(true),
-//						},
-//						Service:      pulumi.String("blob"),
-//						ResourceName: exampleContainer.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "WestEurope",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example-account",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountKind: "StorageV2",
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// IsHnsEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "example-container",
+// StorageAccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/localUser.NewLocalUser(ctx, "example", &storage/localUser.LocalUserArgs{
+// Name: "user1",
+// StorageAccountId: exampleAccount.Id,
+// SshKeyEnabled: true,
+// SshPasswordEnabled: true,
+// HomeDirectory: "example_path",
+// SshAuthorizedKeys: []map[string]interface{}{
+// map[string]interface{}{
+// "description": "key1",
+// "key": firstPublicKey,
+// },
+// map[string]interface{}{
+// "description": "key2",
+// "key": secondPublicKey,
+// },
+// },
+// PermissionScopes: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": map[string]interface{}{
+// "read": true,
+// "create": true,
+// },
+// "service": "blob",
+// "resourceName": exampleContainer.Name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

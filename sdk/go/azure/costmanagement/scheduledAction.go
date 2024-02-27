@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/costmanagement"
+//	costmanagement/scheduledAction "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/costmanagement/scheduledAction"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costmanagement.NewScheduledAction(ctx, "example", &costmanagement.ScheduledActionArgs{
-//				Name:               pulumi.String("examplescheduledaction"),
-//				DisplayName:        pulumi.String("Report Last 6 Months"),
-//				ViewId:             pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService"),
-//				EmailAddressSender: pulumi.String("platformteam@test.com"),
-//				EmailSubject:       pulumi.String("Cost Management Report"),
-//				EmailAddresses: pulumi.StringArray{
-//					pulumi.String("example@example.com"),
-//				},
-//				Message:   pulumi.String("Hi all, take a look at last 6 months spending!"),
-//				Frequency: pulumi.String("Daily"),
-//				StartDate: pulumi.String("2023-01-02T00:00:00Z"),
-//				EndDate:   pulumi.String("2023-02-02T00:00:00Z"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := costmanagement/scheduledAction.NewScheduledAction(ctx, "example", &costmanagement/scheduledAction.ScheduledActionArgs{
+// Name: "examplescheduledaction",
+// DisplayName: "Report Last 6 Months",
+// ViewId: "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService",
+// EmailAddressSender: "platformteam@test.com",
+// EmailSubject: "Cost Management Report",
+// EmailAddresses: []string{
+// "example@example.com",
+// },
+// Message: "Hi all, take a look at last 6 months spending!",
+// Frequency: "Daily",
+// StartDate: "2023-01-02T00:00:00Z",
+// EndDate: "2023-02-02T00:00:00Z",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -14,6 +14,79 @@ import (
 
 // Manages a Container Registry Token Password.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	containerservice/registry "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registry"
+//	containerservice/registryScopeMap "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryScopeMap"
+//	containerservice/registryToken "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/registryToken"
+//	containerservice/tokenPassword "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/containerservice/tokenPassword"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resource-group",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistry, err := containerservice/registry.NewRegistry(ctx, "example", &containerservice/registry.RegistryArgs{
+// Name: "example-registry",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Premium",
+// AdminEnabled: false,
+// GeoreplicationLocations: []string{
+// "East US",
+// "West Europe",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistryScopeMap, err := containerservice/registryScopeMap.NewRegistryScopeMap(ctx, "example", &containerservice/registryScopeMap.RegistryScopeMapArgs{
+// Name: "example-scope-map",
+// ContainerRegistryName: exampleRegistry.Name,
+// ResourceGroupName: example.Name,
+// Actions: []string{
+// "repositories/repo1/content/read",
+// "repositories/repo1/content/write",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleRegistryToken, err := containerservice/registryToken.NewRegistryToken(ctx, "example", &containerservice/registryToken.RegistryTokenArgs{
+// Name: "exampletoken",
+// ContainerRegistryName: exampleRegistry.Name,
+// ResourceGroupName: example.Name,
+// ScopeMapId: exampleRegistryScopeMap.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = containerservice/tokenPassword.NewTokenPassword(ctx, "example", &containerservice/tokenPassword.TokenPasswordArgs{
+// ContainerRegistryTokenId: exampleRegistryToken.Id,
+// Password1: map[string]interface{}{
+// "expiry": "2023-03-22T17:57:36+08:00",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Container Registry Token Passwords can be imported using the `resource id`, e.g.

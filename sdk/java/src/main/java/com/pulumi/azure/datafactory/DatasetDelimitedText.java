@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.LinkedServiceWebArgs;
  * import com.pulumi.azure.datafactory.DatasetDelimitedText;
  * import com.pulumi.azure.datafactory.DatasetDelimitedTextArgs;
- * import com.pulumi.azure.datafactory.inputs.DatasetDelimitedTextHttpServerLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,11 +74,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceWeb.name())
- *             .httpServerLocation(DatasetDelimitedTextHttpServerLocationArgs.builder()
- *                 .relativeUrl(&#34;http://www.bing.com&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;fizz.txt&#34;)
- *                 .build())
+ *             .httpServerLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .columnDelimiter(&#34;,&#34;)
  *             .rowDelimiter(&#34;NEW&#34;)
  *             .encoding(&#34;UTF-8&#34;)

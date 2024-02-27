@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-logz",
  *     location: "West Europe",
  * });
- * const exampleLogzMonitor = new azure.monitoring.LogzMonitor("example", {
+ * const exampleLogzMonitor = new azure.monitoring/logzMonitor.LogzMonitor("example", {
  *     name: "example-monitor",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         phoneNumber: "+12313803556",
  *     },
  * });
- * const exampleLogzTagRule = new azure.monitoring.LogzTagRule("example", {
+ * const exampleLogzTagRule = new azure.monitoring/logzTagRule.LogzTagRule("example", {
  *     logzMonitorId: exampleLogzMonitor.id,
  *     tagFilters: [
  *         {

@@ -8,24 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Load Balancer's Backend Address Pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.lb.getLB({
- *     name: "example-lb",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetBackendAddressPool = example.then(example => azure.lb.getBackendAddressPool({
- *     name: "first",
- *     loadbalancerId: example.id,
- * }));
- * export const backendAddressPoolId = exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id);
- * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
- * ```
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
 
@@ -86,24 +68,6 @@ export interface GetBackendAddressPoolResult {
 }
 /**
  * Use this data source to access information about an existing Load Balancer's Backend Address Pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.lb.getLB({
- *     name: "example-lb",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleGetBackendAddressPool = example.then(example => azure.lb.getBackendAddressPool({
- *     name: "first",
- *     loadbalancerId: example.id,
- * }));
- * export const backendAddressPoolId = exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id);
- * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
- * ```
  */
 export function getBackendAddressPoolOutput(args: GetBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendAddressPoolResult> {
     return pulumi.output(args).apply((a: any) => getBackendAddressPool(a, opts))

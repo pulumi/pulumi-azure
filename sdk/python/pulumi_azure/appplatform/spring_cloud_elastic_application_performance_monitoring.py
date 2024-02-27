@@ -238,24 +238,24 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_elastic_application_performance_monitoring = azure.appplatform.SpringCloudElasticApplicationPerformanceMonitoring("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_elastic_application_performance_monitoring = azure.appplatform.spring_cloud_elastic_application_performance_monitoring.SpringCloudElasticApplicationPerformanceMonitoring("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
             globally_enabled=True,
             application_packages=[
-                "org.example",
-                "org.another.example",
+                org.example,
+                org.another.example,
             ],
-            service_name="example-service-name",
-            server_url="http://127.0.0.1:8200")
+            service_name=example-service-name,
+            server_url=http://127.0.0.1:8200)
         ```
 
         ## Import
@@ -292,24 +292,24 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="E0")
-        example_spring_cloud_elastic_application_performance_monitoring = azure.appplatform.SpringCloudElasticApplicationPerformanceMonitoring("example",
-            name="example",
+            sku_name=E0)
+        example_spring_cloud_elastic_application_performance_monitoring = azure.appplatform.spring_cloud_elastic_application_performance_monitoring.SpringCloudElasticApplicationPerformanceMonitoring("example",
+            name=example,
             spring_cloud_service_id=example_spring_cloud_service.id,
             globally_enabled=True,
             application_packages=[
-                "org.example",
-                "org.another.example",
+                org.example,
+                org.another.example,
             ],
-            service_name="example-service-name",
-            server_url="http://127.0.0.1:8200")
+            service_name=example-service-name,
+            server_url=http://127.0.0.1:8200)
         ```
 
         ## Import

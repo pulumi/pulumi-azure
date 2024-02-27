@@ -13,30 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("example", {
+ * const exampleContainer = new azure.storage/container.Container("example", {
  *     name: "example",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleBlob = new azure.storage.Blob("example", {
+ * const exampleBlob = new azure.storage/blob.Blob("example", {
  *     name: "example",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
  *     type: "Block",
  *     source: new pulumi.asset.FileAsset("example.csv"),
  * });
- * const exampleJob = new azure.streamanalytics.Job("example", {
+ * const exampleJob = new azure.streamanalytics/job.Job("example", {
  *     name: "example-job",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     FROM [exampleinput]
  * `,
  * });
- * const exampleStreamInputBlob = new azure.streamanalytics.StreamInputBlob("example", {
+ * const exampleStreamInputBlob = new azure.streamanalytics/streamInputBlob.StreamInputBlob("example", {
  *     name: "exampleinput",
  *     streamAnalyticsJobName: exampleJob.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  *         fieldDelimiter: ",",
  *     },
  * });
- * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
+ * const exampleOutputBlob = new azure.streamanalytics/outputBlob.OutputBlob("example", {
  *     name: "exampleoutput",
  *     streamAnalyticsJobName: exampleJob.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *         type: "Avro",
  *     },
  * });
- * const exampleJobSchedule = new azure.streamanalytics.JobSchedule("example", {
+ * const exampleJobSchedule = new azure.streamanalytics/jobSchedule.JobSchedule("example", {
  *     streamAnalyticsJobId: exampleJob.id,
  *     startMode: "CustomTime",
  *     startTime: "2022-09-21T00:00:00Z",

@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "West Europe",
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute/linuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *     },
  * });
- * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("example", {
+ * const exampleVirtualMachineScaleSetExtension = new azure.compute/virtualMachineScaleSetExtension.VirtualMachineScaleSetExtension("example", {
  *     name: "example",
  *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
  *     publisher: "Microsoft.Azure.Extensions",

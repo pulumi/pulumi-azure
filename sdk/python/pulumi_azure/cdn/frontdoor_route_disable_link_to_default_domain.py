@@ -132,11 +132,11 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain("example",
-            cdn_frontdoor_route_id=example_azurerm_cdn_frontdoor_route["id"],
+        example = azure.cdn.frontdoor_route_disable_link_to_default_domain.FrontdoorRouteDisableLinkToDefaultDomain("example",
+            cdn_frontdoor_route_id=example_azurerm_cdn_frontdoor_route.id,
             cdn_frontdoor_custom_domain_ids=[
-                contoso["id"],
-                fabrikam["id"],
+                contoso.id,
+                fabrikam.id,
             ])
         ```
 
@@ -170,11 +170,11 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain("example",
-            cdn_frontdoor_route_id=example_azurerm_cdn_frontdoor_route["id"],
+        example = azure.cdn.frontdoor_route_disable_link_to_default_domain.FrontdoorRouteDisableLinkToDefaultDomain("example",
+            cdn_frontdoor_route_id=example_azurerm_cdn_frontdoor_route.id,
             cdn_frontdoor_custom_domain_ids=[
-                contoso["id"],
-                fabrikam["id"],
+                contoso.id,
+                fabrikam.id,
             ])
         ```
 

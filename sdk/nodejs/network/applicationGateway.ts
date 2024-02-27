@@ -13,36 +13,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-network",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.254.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.254.0.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-pip",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     allocationMethod: "Dynamic",
  * });
- * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
- * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;
- * const frontendIpConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-feip`;
- * const httpSettingName = pulumi.interpolate`${exampleVirtualNetwork.name}-be-htst`;
- * const listenerName = pulumi.interpolate`${exampleVirtualNetwork.name}-httplstn`;
- * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
- * const redirectConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-rdrcfg`;
- * const network = new azure.network.ApplicationGateway("network", {
+ * const backendAddressPoolName = `${exampleVirtualNetwork.name}-beap`;
+ * const frontendPortName = `${exampleVirtualNetwork.name}-feport`;
+ * const frontendIpConfigurationName = `${exampleVirtualNetwork.name}-feip`;
+ * const httpSettingName = `${exampleVirtualNetwork.name}-be-htst`;
+ * const listenerName = `${exampleVirtualNetwork.name}-httplstn`;
+ * const requestRoutingRuleName = `${exampleVirtualNetwork.name}-rqrt`;
+ * const redirectConfigurationName = `${exampleVirtualNetwork.name}-rdrcfg`;
+ * const network = new azure.network/applicationGateway.ApplicationGateway("network", {
  *     name: "example-appgateway",
  *     resourceGroupName: example.name,
  *     location: example.location,

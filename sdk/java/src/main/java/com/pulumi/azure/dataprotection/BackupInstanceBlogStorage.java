@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.dataprotection.BackupVault;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorage;
@@ -68,15 +67,13 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .datastoreType(&#34;VaultStore&#34;)
  *             .redundancy(&#34;LocallyRedundant&#34;)
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName(&#34;Storage Account Backup Contributor&#34;)
- *             .principalId(exampleBackupVault.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().principalId())
  *             .build());
  * 
  *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage(&#34;exampleBackupPolicyBlobStorage&#34;, BackupPolicyBlobStorageArgs.builder()        

@@ -14,59 +14,6 @@ import (
 
 // Manages an API Management API Assignment to a Product.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-//				Name:              "example-api",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-//				Name:              "search-api",
-//				ApiManagementName: example.Name,
-//				ResourceGroupName: example.ResourceGroupName,
-//				Revision:          "2",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
-//				ProductId:         "my-product",
-//				ApiManagementName: example.Name,
-//				ResourceGroupName: example.ResourceGroupName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewProductApi(ctx, "example", &apimanagement.ProductApiArgs{
-//				ApiName:           *pulumi.String(exampleGetApi.Name),
-//				ProductId:         *pulumi.String(exampleGetProduct.ProductId),
-//				ApiManagementName: *pulumi.String(example.Name),
-//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management Product API's can be imported using the `resource id`, e.g.

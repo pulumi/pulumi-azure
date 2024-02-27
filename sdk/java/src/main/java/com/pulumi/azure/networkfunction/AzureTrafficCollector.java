@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-nfatc&#34;)
  *             .resourceGroupName(example.name())
  *             .location(&#34;West US&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,62 +21,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lab"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	lab/lab "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lab/lab"
+//	lab/schedule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lab/schedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLab, err := lab.NewLab(ctx, "example", &lab.LabArgs{
-//				Name:              pulumi.String("example-lab"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Title:             pulumi.String("Test Title"),
-//				Security: &lab.LabSecurityArgs{
-//					OpenAccessEnabled: pulumi.Bool(false),
-//				},
-//				VirtualMachine: &lab.LabVirtualMachineArgs{
-//					AdminUser: &lab.LabVirtualMachineAdminUserArgs{
-//						Username: pulumi.String("testadmin"),
-//						Password: pulumi.String("Password1234!"),
-//					},
-//					ImageReference: &lab.LabVirtualMachineImageReferenceArgs{
-//						Publisher: pulumi.String("Canonical"),
-//						Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//						Sku:       pulumi.String("22_04-lts"),
-//						Version:   pulumi.String("latest"),
-//					},
-//					Sku: &lab.LabVirtualMachineSkuArgs{
-//						Name:     pulumi.String("Classic_Fsv2_2_4GB_128_S_SSD"),
-//						Capacity: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lab.NewSchedule(ctx, "example", &lab.ScheduleArgs{
-//				Name:     pulumi.String("example-labschedule"),
-//				LabId:    exampleLab.ID(),
-//				StopTime: pulumi.String("2022-11-28T00:00:00Z"),
-//				TimeZone: pulumi.String("America/Los_Angeles"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLab, err := lab/lab.NewLab(ctx, "example", &lab/lab.LabArgs{
+// Name: "example-lab",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Title: "Test Title",
+// Security: map[string]interface{}{
+// "openAccessEnabled": false,
+// },
+// VirtualMachine: map[string]interface{}{
+// "adminUser": map[string]interface{}{
+// "username": "testadmin",
+// "password": "Password1234!",
+// },
+// "imageReference": map[string]interface{}{
+// "publisher": "Canonical",
+// "offer": "0001-com-ubuntu-server-jammy",
+// "sku": "22_04-lts",
+// "version": "latest",
+// },
+// "sku": map[string]interface{}{
+// "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+// "capacity": 1,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lab/schedule.NewSchedule(ctx, "example", &lab/schedule.ScheduleArgs{
+// Name: "example-labschedule",
+// LabId: exampleLab.Id,
+// StopTime: "2022-11-28T00:00:00Z",
+// TimeZone: "America/Los_Angeles",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

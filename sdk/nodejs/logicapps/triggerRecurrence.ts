@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "workflow-resources",
  *     location: "West Europe",
  * });
- * const exampleWorkflow = new azure.logicapps.Workflow("example", {
+ * const exampleWorkflow = new azure.logicapps/workflow.Workflow("example", {
  *     name: "workflow1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleTriggerRecurrence = new azure.logicapps.TriggerRecurrence("example", {
+ * const exampleTriggerRecurrence = new azure.logicapps/triggerRecurrence.TriggerRecurrence("example", {
  *     name: "run-every-day",
  *     logicAppId: exampleWorkflow.id,
  *     frequency: "Day",

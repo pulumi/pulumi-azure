@@ -25,18 +25,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.netapp.Account;
  * import com.pulumi.azure.netapp.AccountArgs;
  * import com.pulumi.azure.netapp.Pool;
  * import com.pulumi.azure.netapp.PoolArgs;
- * import com.pulumi.azure.netapp.Volume;
- * import com.pulumi.azure.netapp.VolumeArgs;
+ * import com.pulumi.azure.netapp_volume.Volume;
+ * import com.pulumi.azure.netapp_volume.VolumeArgs;
  * import com.pulumi.azure.netapp.Snapshot;
  * import com.pulumi.azure.netapp.SnapshotArgs;
  * import java.util.List;
@@ -69,15 +67,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;netapp&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Netapp/volumes&#34;)
- *                     .actions(                    
- *                         &#34;Microsoft.Network/networkinterfaces/*&#34;,
- *                         &#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        

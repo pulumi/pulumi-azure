@@ -9,50 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Sim Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleNetwork = new azure.mobile.Network("example", {
- *     name: "example-mn",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     mobileCountryCode: "001",
- *     mobileNetworkCode: "01",
- * });
- * const example = azure.authorization.getUserAssignedIdentity({
- *     name: "name_of_user_assigned_identity",
- *     resourceGroupName: "name_of_resource_group",
- * });
- * const exampleGetKeyVault = azure.keyvault.getKeyVault({
- *     name: "example-kv",
- *     resourceGroupName: "some-resource-group",
- * });
- * const exampleGetKey = exampleGetKeyVault.then(exampleGetKeyVault => azure.keyvault.getKey({
- *     name: "example-key",
- *     keyVaultId: exampleGetKeyVault.id,
- * }));
- * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("example", {
- *     name: "example-mnsg",
- *     location: exampleResourceGroup.location,
- *     mobileNetworkId: exampleNetwork.id,
- *     encryptionKeyUrl: exampleGetKey.then(exampleGetKey => exampleGetKey.id),
- *     identity: {
- *         type: "SystemAssigned, UserAssigned",
- *         identityIds: [example.then(example => example.id)],
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Mobile Network Sim Groups can be imported using the `resource id`, e.g.

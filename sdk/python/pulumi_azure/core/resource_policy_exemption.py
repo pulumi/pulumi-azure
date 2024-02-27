@@ -330,36 +330,6 @@ class ResourcePolicyExemption(pulumi.CustomResource):
         """
         Manages a Resource Policy Exemption.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="group1",
-            location="westus")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="network1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
-            name="assignment1",
-            resource_id=example_virtual_network.id,
-            policy_definition_id=example.id,
-            location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
-            name="exemption1",
-            resource_id=example_resource_policy_assignment.resource_id,
-            policy_assignment_id=example_resource_policy_assignment.id,
-            exemption_category="Mitigated")
-        ```
-
         ## Import
 
         Policy Exemptions can be imported using the `resource id`, e.g.
@@ -388,36 +358,6 @@ class ResourcePolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Policy Exemption.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="group1",
-            location="westus")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="network1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            address_spaces=["10.0.0.0/16"])
-        example = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
-            name="assignment1",
-            resource_id=example_virtual_network.id,
-            policy_definition_id=example.id,
-            location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
-            name="exemption1",
-            resource_id=example_resource_policy_assignment.resource_id,
-            policy_assignment_id=example_resource_policy_assignment.id,
-            exemption_category="Mitigated")
-        ```
 
         ## Import
 

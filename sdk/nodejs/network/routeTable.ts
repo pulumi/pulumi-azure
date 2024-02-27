@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
+ * const exampleRouteTable = new azure.network/routeTable.RouteTable("example", {
  *     name: "example-route-table",
  *     location: example.location,
  *     resourceGroupName: example.name,

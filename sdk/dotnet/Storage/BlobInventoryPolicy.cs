@@ -22,49 +22,49 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
-    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///         BlobProperties = 
     ///         {
-    ///             VersioningEnabled = true,
+    ///             { "versioningEnabled", true },
     ///         },
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("example", new()
+    ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy.BlobInventoryPolicy("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Azure.Storage.Inputs.BlobInventoryPolicyRuleArgs
+    ///             
     ///             {
-    ///                 Name = "rule1",
-    ///                 StorageContainerName = exampleContainer.Name,
-    ///                 Format = "Csv",
-    ///                 Schedule = "Daily",
-    ///                 Scope = "Container",
-    ///                 SchemaFields = new[]
+    ///                 { "name", "rule1" },
+    ///                 { "storageContainerName", exampleContainer.Name },
+    ///                 { "format", "Csv" },
+    ///                 { "schedule", "Daily" },
+    ///                 { "scope", "Container" },
+    ///                 { "schemaFields", new[]
     ///                 {
     ///                     "Name",
     ///                     "Last-Modified",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

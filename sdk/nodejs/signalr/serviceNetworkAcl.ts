@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleService = new azure.signalr.Service("example", {
+ * const exampleService = new azure.signalr/service.Service("example", {
  *     name: "example-signalr",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -28,20 +28,20 @@ import * as utilities from "../utilities";
  *         capacity: 1,
  *     },
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.5.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.2.0/24"],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
- * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ * const exampleEndpoint = new azure.privatelink/endpoint.Endpoint("example", {
  *     name: "example-privateendpoint",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *         subresourceNames: ["signalr"],
  *     },
  * });
- * const exampleServiceNetworkAcl = new azure.signalr.ServiceNetworkAcl("example", {
+ * const exampleServiceNetworkAcl = new azure.signalr/serviceNetworkAcl.ServiceNetworkAcl("example", {
  *     signalrServiceId: exampleService.id,
  *     defaultAction: "Deny",
  *     publicNetwork: {

@@ -20,13 +20,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
+    ///     var exampleManagedInstance = new Azure.Mssql.ManagedInstance.ManagedInstance("example", new()
     ///     {
     ///         Name = "managedsqlinstance",
     ///         ResourceGroupName = example.Name,
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///     });
     /// 
-    ///     var exampleManagedDatabase = new Azure.MSSql.ManagedDatabase("example", new()
+    ///     var exampleManagedDatabase = new Azure.Mssql.ManagedDatabase.ManagedDatabase("example", new()
     ///     {
     ///         Name = "example",
     ///         ManagedInstanceId = exampleManagedInstance.Id,

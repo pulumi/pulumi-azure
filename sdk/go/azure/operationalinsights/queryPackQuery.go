@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	loganalytics/queryPack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/loganalytics/queryPack"
+//	operationalinsights/queryPackQuery "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/queryPackQuery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleQueryPack, err := loganalytics.NewQueryPack(ctx, "example", &loganalytics.QueryPackArgs{
-//				Name:              pulumi.String("example-laqp"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = operationalinsights.NewQueryPackQuery(ctx, "example", &operationalinsights.QueryPackQueryArgs{
-//				Name:        pulumi.String("19952bc3-0bf9-49eb-b713-6b80e7a41847"),
-//				QueryPackId: exampleQueryPack.ID(),
-//				Body: pulumi.String(`let newExceptionsTimeRange = 1d;
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleQueryPack, err := loganalytics/queryPack.NewQueryPack(ctx, "example", &loganalytics/queryPack.QueryPackArgs{
+// Name: "example-laqp",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = operationalinsights/queryPackQuery.NewQueryPackQuery(ctx, "example", &operationalinsights/queryPackQuery.QueryPackQueryArgs{
+// Name: "19952bc3-0bf9-49eb-b713-6b80e7a41847",
+// QueryPackId: exampleQueryPack.Id,
+// Body: `let newExceptionsTimeRange = 1d;
 // let timeRangeToCheckBefore = 7d;
 // exceptions
 // | where timestamp < ago(timeRangeToCheckBefore)
@@ -61,17 +59,15 @@ import (
 // | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId
 // ) on problemId
 // | order by  count_ desc
-// `),
-//
-//				DisplayName: pulumi.String("Exceptions - New in the last 24 hours"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// DisplayName: "Exceptions - New in the last 24 hours",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

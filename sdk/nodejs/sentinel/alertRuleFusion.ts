@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights/analyticsWorkspace.AnalyticsWorkspace("example", {
  *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights/analyticsSolution.AnalyticsSolution("example", {
  *     solutionName: "SecurityInsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/SecurityInsights",
  *     },
  * });
- * const exampleAlertRuleFusion = new azure.sentinel.AlertRuleFusion("example", {
+ * const exampleAlertRuleFusion = new azure.sentinel/alertRuleFusion.AlertRuleFusion("example", {
  *     name: "example-fusion-alert-rule",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     alertRuleTemplateGuid: "f71aba3d-28fb-450b-b192-4e76a83015c8",

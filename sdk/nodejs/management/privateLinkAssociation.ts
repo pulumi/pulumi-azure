@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Management Private Link Association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- *
- * const example = azure.core.getClientConfig({});
- * const exampleGetGroup = example.then(example => azure.management.getGroup({
- *     name: example.tenantId,
- * }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example",
- *     location: "West Europe",
- * });
- * const examplePrivateLink = new azure.management.PrivateLink("example", {
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleRandomUuid = new random.RandomUuid("example", {});
- * const examplePrivateLinkAssociation = new azure.management.PrivateLinkAssociation("example", {
- *     name: exampleRandomUuid.result,
- *     managementGroupId: exampleAzurermManagementGroup.id,
- *     resourceManagementPrivateLinkId: examplePrivateLink.id,
- *     publicNetworkAccessEnabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.
@@ -85,7 +56,7 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
      *
-     * const example = new azure.management.PrivateLinkAssociation("example", {
+     * const example = new azure.management/privateLinkAssociation.PrivateLinkAssociation("example", {
      *     managementGroupId: exampleAzurermManagementGroup.id,
      *     resourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.id,
      *     publicNetworkAccessEnabled: true,
@@ -163,7 +134,7 @@ export interface PrivateLinkAssociationState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
      *
-     * const example = new azure.management.PrivateLinkAssociation("example", {
+     * const example = new azure.management/privateLinkAssociation.PrivateLinkAssociation("example", {
      *     managementGroupId: exampleAzurermManagementGroup.id,
      *     resourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.id,
      *     publicNetworkAccessEnabled: true,
@@ -202,7 +173,7 @@ export interface PrivateLinkAssociationArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as azure from "@pulumi/azure";
      *
-     * const example = new azure.management.PrivateLinkAssociation("example", {
+     * const example = new azure.management/privateLinkAssociation.PrivateLinkAssociation("example", {
      *     managementGroupId: exampleAzurermManagementGroup.id,
      *     resourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.id,
      *     publicNetworkAccessEnabled: true,

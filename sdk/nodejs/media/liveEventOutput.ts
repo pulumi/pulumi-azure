@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "media-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ * const exampleServiceAccount = new azure.media/serviceAccount.ServiceAccount("example", {
  *     name: "examplemediaacc",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  *         isPrimary: true,
  *     }],
  * });
- * const exampleAsset = new azure.media.Asset("example", {
+ * const exampleAsset = new azure.media/asset.Asset("example", {
  *     name: "inputAsset",
  *     resourceGroupName: example.name,
  *     mediaServicesAccountName: exampleServiceAccount.name,
  * });
- * const exampleLiveEvent = new azure.media.LiveEvent("example", {
+ * const exampleLiveEvent = new azure.media/liveEvent.LiveEvent("example", {
  *     name: "exampleevent",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  * });
- * const exampleLiveEventOutput = new azure.media.LiveEventOutput("example", {
+ * const exampleLiveEventOutput = new azure.media/liveEventOutput.LiveEventOutput("example", {
  *     name: "exampleoutput",
  *     liveEventId: exampleLiveEvent.id,
  *     archiveWindowDuration: "PT5M",

@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Subscription Policy Remediation.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getSubscription({});
- * const exampleGetPolicyDefintion = azure.policy.getPolicyDefintion({
- *     displayName: "Allowed resource types",
- * });
- * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("example", {
- *     name: "exampleAssignment",
- *     subscriptionId: example.then(example => example.id),
- *     policyDefinitionId: exampleGetPolicyDefintion.then(exampleGetPolicyDefintion => exampleGetPolicyDefintion.id),
- *     parameters: JSON.stringify({
- *         listOfAllowedLocations: {
- *             value: [
- *                 "West Europe",
- *                 "East US",
- *             ],
- *         },
- *     }),
- * });
- * const exampleSubscriptionPolicyRemediation = new azure.core.SubscriptionPolicyRemediation("example", {
- *     name: "example",
- *     subscriptionId: example.then(example => example.id),
- *     policyAssignmentId: exampleSubscriptionPolicyAssignment.id,
- * });
- * ```
- *
  * ## Import
  *
  * Policy Remediations can be imported using the `resource id`, e.g.

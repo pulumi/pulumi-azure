@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
+    ///     var exampleAccount = new Azure.Automation.Account.Account("example", new()
     ///     {
     ///         Name = "account1",
     ///         Location = example.Location,
@@ -36,23 +36,23 @@ namespace Pulumi.Azure.Automation
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook.RunBook("example", new()
     ///     {
     ///         Name = "Get-AzureVMTutorial",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
-    ///         LogVerbose = true,
-    ///         LogProgress = true,
+    ///         LogVerbose = "true",
+    ///         LogProgress = "true",
     ///         Description = "This is an example runbook",
     ///         RunbookType = "PowerShellWorkflow",
-    ///         PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
+    ///         PublishContentLink = 
     ///         {
-    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///             { "uri", "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleWebhook = new Azure.Automation.Webhook("example", new()
+    ///     var exampleWebhook = new Azure.Automation.Webhook.Webhook("example", new()
     ///     {
     ///         Name = "TestRunbook_webhook",
     ///         ResourceGroupName = example.Name,

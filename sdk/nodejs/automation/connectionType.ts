@@ -9,34 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages anAutomation Connection Type.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "resourceGroup-example",
- *     location: "West Europe",
- * });
- * const example = azure.core.getClientConfig({});
- * const exampleAccount = new azure.automation.Account("example", {
- *     name: "account-example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleConnectionType = new azure.automation.ConnectionType("example", {
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
- *     fields: [{
- *         name: "example",
- *         type: "string",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Automations can be imported using the `resource id`, e.g.

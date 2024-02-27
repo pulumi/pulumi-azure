@@ -21,84 +21,83 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/actionGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/actionGroup"
+//	monitoring/metricAlert "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/metricAlert"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			toMonitor, err := storage.NewAccount(ctx, "to_monitor", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageaccount"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-actiongroup"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("exampleact"),
-//				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
-//					&monitoring.ActionGroupWebhookReceiverArgs{
-//						Name:       pulumi.String("callmyapi"),
-//						ServiceUri: pulumi.String("http://example.com/alert"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
-//				Name:              pulumi.String("example-metricalert"),
-//				ResourceGroupName: example.Name,
-//				Scopes: pulumi.StringArray{
-//					toMonitor.ID(),
-//				},
-//				Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
-//				Criterias: monitoring.MetricAlertCriteriaArray{
-//					&monitoring.MetricAlertCriteriaArgs{
-//						MetricNamespace: pulumi.String("Microsoft.Storage/storageAccounts"),
-//						MetricName:      pulumi.String("Transactions"),
-//						Aggregation:     pulumi.String("Total"),
-//						Operator:        pulumi.String("GreaterThan"),
-//						Threshold:       pulumi.Float64(50),
-//						Dimensions: monitoring.MetricAlertCriteriaDimensionArray{
-//							&monitoring.MetricAlertCriteriaDimensionArgs{
-//								Name:     pulumi.String("ApiName"),
-//								Operator: pulumi.String("Include"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				Actions: monitoring.MetricAlertActionArray{
-//					&monitoring.MetricAlertActionArgs{
-//						ActionGroupId: main.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// toMonitor, err := storage/account.NewAccount(ctx, "to_monitor", &storage/account.AccountArgs{
+// Name: "examplestorageaccount",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// main, err := monitoring/actionGroup.NewActionGroup(ctx, "main", &monitoring/actionGroup.ActionGroupArgs{
+// Name: "example-actiongroup",
+// ResourceGroupName: example.Name,
+// ShortName: "exampleact",
+// WebhookReceivers: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "callmyapi",
+// "serviceUri": "http://example.com/alert",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/metricAlert.NewMetricAlert(ctx, "example", &monitoring/metricAlert.MetricAlertArgs{
+// Name: "example-metricalert",
+// ResourceGroupName: example.Name,
+// Scopes: []interface{}{
+// toMonitor.Id,
+// },
+// Description: "Action will be triggered when Transactions count is greater than 50.",
+// Criterias: []map[string]interface{}{
+// map[string]interface{}{
+// "metricNamespace": "Microsoft.Storage/storageAccounts",
+// "metricName": "Transactions",
+// "aggregation": "Total",
+// "operator": "GreaterThan",
+// "threshold": 50,
+// "dimensions": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "ApiName",
+// "operator": "Include",
+// "values": []string{
+// "*",
+// },
+// },
+// },
+// },
+// },
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "actionGroupId": main.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

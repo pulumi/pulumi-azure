@@ -23,59 +23,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appplatform/springCloudApp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudApp"
+//	appplatform/springCloudBuildDeployment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudBuildDeployment"
+//	appplatform/springCloudService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appplatform/springCloudService"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("E0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
-//				ServiceName:       exampleSpringCloudService.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudBuildDeployment(ctx, "example", &appplatform.SpringCloudBuildDeploymentArgs{
-//				Name:             pulumi.String("example"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				BuildResultId:    pulumi.String("<default>"),
-//				InstanceCount:    pulumi.Int(2),
-//				EnvironmentVariables: pulumi.StringMap{
-//					"Foo": pulumi.String("Bar"),
-//					"Env": pulumi.String("Staging"),
-//				},
-//				Quota: &appplatform.SpringCloudBuildDeploymentQuotaArgs{
-//					Cpu:    pulumi.String("2"),
-//					Memory: pulumi.String("4Gi"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudService, err := appplatform/springCloudService.NewSpringCloudService(ctx, "example", &appplatform/springCloudService.SpringCloudServiceArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "E0",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSpringCloudApp, err := appplatform/springCloudApp.NewSpringCloudApp(ctx, "example", &appplatform/springCloudApp.SpringCloudAppArgs{
+// Name: "example",
+// ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
+// ServiceName: exampleSpringCloudService.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appplatform/springCloudBuildDeployment.NewSpringCloudBuildDeployment(ctx, "example", &appplatform/springCloudBuildDeployment.SpringCloudBuildDeploymentArgs{
+// Name: "example",
+// SpringCloudAppId: exampleSpringCloudApp.Id,
+// BuildResultId: "<default>",
+// InstanceCount: 2,
+// EnvironmentVariables: map[string]interface{}{
+// "Foo": "Bar",
+// "Env": "Staging",
+// },
+// Quota: map[string]interface{}{
+// "cpu": "2",
+// "memory": "4Gi",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,57 +21,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iotcentral"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iotcentral/application "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iotcentral/application"
+//	iotcentral/organization "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iotcentral/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resource"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApplication, err := iotcentral.NewApplication(ctx, "example", &iotcentral.ApplicationArgs{
-//				Name:              pulumi.String("example-iotcentral-app"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SubDomain:         pulumi.String("example-iotcentral-app-subdomain"),
-//				DisplayName:       pulumi.String("example-iotcentral-app-display-name"),
-//				Sku:               pulumi.String("ST1"),
-//				Template:          pulumi.String("iotc-default@1.0.0"),
-//				Tags: pulumi.StringMap{
-//					"Foo": pulumi.String("Bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleParent, err := iotcentral.NewOrganization(ctx, "example_parent", &iotcentral.OrganizationArgs{
-//				IotcentralApplicationId: exampleApplication.ID(),
-//				OrganizationId:          pulumi.String("example-parent-organization-id"),
-//				DisplayName:             pulumi.String("Org example parent"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iotcentral.NewOrganization(ctx, "example", &iotcentral.OrganizationArgs{
-//				IotcentralApplicationId: exampleApplication.ID(),
-//				OrganizationId:          pulumi.String("example-child-organization-id"),
-//				DisplayName:             pulumi.String("Org example"),
-//				ParentOrganizationId:    exampleParent.OrganizationId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resource",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleApplication, err := iotcentral/application.NewApplication(ctx, "example", &iotcentral/application.ApplicationArgs{
+// Name: "example-iotcentral-app",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SubDomain: "example-iotcentral-app-subdomain",
+// DisplayName: "example-iotcentral-app-display-name",
+// Sku: "ST1",
+// Template: "iotc-default@1.0.0",
+// Tags: map[string]interface{}{
+// "Foo": "Bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleParent, err := iotcentral/organization.NewOrganization(ctx, "example_parent", &iotcentral/organization.OrganizationArgs{
+// IotcentralApplicationId: exampleApplication.Id,
+// OrganizationId: "example-parent-organization-id",
+// DisplayName: "Org example parent",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iotcentral/organization.NewOrganization(ctx, "example", &iotcentral/organization.OrganizationArgs{
+// IotcentralApplicationId: exampleApplication.Id,
+// OrganizationId: "example-child-organization-id",
+// DisplayName: "Org example",
+// ParentOrganizationId: exampleParent.OrganizationId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

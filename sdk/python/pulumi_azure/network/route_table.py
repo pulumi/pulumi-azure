@@ -268,21 +268,21 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_route_table = azure.network.RouteTable("example",
-            name="example-route-table",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_route_table = azure.network.route_table.RouteTable("example",
+            name=example-route-table,
             location=example.location,
             resource_group_name=example.name,
             disable_bgp_route_propagation=False,
-            routes=[azure.network.RouteTableRouteArgs(
-                name="route1",
-                address_prefix="10.1.0.0/16",
-                next_hop_type="VnetLocal",
-            )],
+            routes=[{
+                name: route1,
+                addressPrefix: 10.1.0.0/16,
+                nextHopType: VnetLocal,
+            }],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -323,21 +323,21 @@ class RouteTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_route_table = azure.network.RouteTable("example",
-            name="example-route-table",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_route_table = azure.network.route_table.RouteTable("example",
+            name=example-route-table,
             location=example.location,
             resource_group_name=example.name,
             disable_bgp_route_propagation=False,
-            routes=[azure.network.RouteTableRouteArgs(
-                name="route1",
-                address_prefix="10.1.0.0/16",
-                next_hop_type="VnetLocal",
-            )],
+            routes=[{
+                name: route1,
+                addressPrefix: 10.1.0.0/16,
+                nextHopType: VnetLocal,
+            }],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

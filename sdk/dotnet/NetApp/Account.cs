@@ -14,61 +14,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// &gt; **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
     /// 
-    /// ## NetApp Account Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
-    ///     {
-    ///         Name = "anf-user-assigned-identity",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
-    ///     {
-    ///         Name = "netappaccount",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
-    ///         {
-    ///             Username = "aduser",
-    ///             Password = "aduserpwd",
-    ///             SmbServerName = "SMBSERVER",
-    ///             DnsServers = new[]
-    ///             {
-    ///                 "1.2.3.4",
-    ///             },
-    ///             Domain = "westcentralus.com",
-    ///             OrganizationalUnit = "OU=FirstLevel",
-    ///         },
-    ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// NetApp Accounts can be imported using the `resource id`, e.g.

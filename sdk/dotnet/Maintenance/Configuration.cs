@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Maintenance
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("example", new()
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration.Configuration("example", new()
     ///     {
     ///         Name = "example-mc",
     ///         ResourceGroupName = example.Name,

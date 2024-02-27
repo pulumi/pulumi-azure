@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -40,47 +40,47 @@ namespace Pulumi.Azure.Monitoring
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("example", new()
+    ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting.AadDiagnosticSetting("example", new()
     ///     {
     ///         Name = "setting1",
     ///         StorageAccountId = exampleAccount.Id,
     ///         EnabledLogs = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             
     ///             {
-    ///                 Category = "SignInLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 { "category", "SignInLogs" },
+    ///                 { "retentionPolicy", 
     ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
+    ///                     { "enabled", true },
+    ///                     { "days", 1 },
+    ///                 } },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             
     ///             {
-    ///                 Category = "AuditLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 { "category", "AuditLogs" },
+    ///                 { "retentionPolicy", 
     ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
+    ///                     { "enabled", true },
+    ///                     { "days", 1 },
+    ///                 } },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             
     ///             {
-    ///                 Category = "NonInteractiveUserSignInLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 { "category", "NonInteractiveUserSignInLogs" },
+    ///                 { "retentionPolicy", 
     ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
+    ///                     { "enabled", true },
+    ///                     { "days", 1 },
+    ///                 } },
     ///             },
-    ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
+    ///             
     ///             {
-    ///                 Category = "ServicePrincipalSignInLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
+    ///                 { "category", "ServicePrincipalSignInLogs" },
+    ///                 { "retentionPolicy", 
     ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
+    ///                     { "enabled", true },
+    ///                     { "days", 1 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

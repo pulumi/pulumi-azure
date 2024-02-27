@@ -24,20 +24,20 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "database-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("example", new()
     ///     {
     ///         Name = "mi-security-group",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var allowManagementInbound = new Azure.Network.NetworkSecurityRule("allow_management_inbound", new()
+    ///     var allowManagementInbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("allow_management_inbound", new()
     ///     {
     ///         Name = "allow_management_inbound",
     ///         Priority = 106,
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var allowMisubnetInbound = new Azure.Network.NetworkSecurityRule("allow_misubnet_inbound", new()
+    ///     var allowMisubnetInbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("allow_misubnet_inbound", new()
     ///     {
     ///         Name = "allow_misubnet_inbound",
     ///         Priority = 200,
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var allowHealthProbeInbound = new Azure.Network.NetworkSecurityRule("allow_health_probe_inbound", new()
+    ///     var allowHealthProbeInbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("allow_health_probe_inbound", new()
     ///     {
     ///         Name = "allow_health_probe_inbound",
     ///         Priority = 300,
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var allowTdsInbound = new Azure.Network.NetworkSecurityRule("allow_tds_inbound", new()
+    ///     var allowTdsInbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("allow_tds_inbound", new()
     ///     {
     ///         Name = "allow_tds_inbound",
     ///         Priority = 1000,
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var denyAllInbound = new Azure.Network.NetworkSecurityRule("deny_all_inbound", new()
+    ///     var denyAllInbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("deny_all_inbound", new()
     ///     {
     ///         Name = "deny_all_inbound",
     ///         Priority = 4096,
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var allowManagementOutbound = new Azure.Network.NetworkSecurityRule("allow_management_outbound", new()
+    ///     var allowManagementOutbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("allow_management_outbound", new()
     ///     {
     ///         Name = "allow_management_outbound",
     ///         Priority = 102,
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var allowMisubnetOutbound = new Azure.Network.NetworkSecurityRule("allow_misubnet_outbound", new()
+    ///     var allowMisubnetOutbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("allow_misubnet_outbound", new()
     ///     {
     ///         Name = "allow_misubnet_outbound",
     ///         Priority = 200,
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var denyAllOutbound = new Azure.Network.NetworkSecurityRule("deny_all_outbound", new()
+    ///     var denyAllOutbound = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("deny_all_outbound", new()
     ///     {
     ///         Name = "deny_all_outbound",
     ///         Priority = 4096,
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.MSSql
     ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "vnet-mi",
     ///         ResourceGroupName = example.Name,
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.MSSql
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "subnet-mi",
     ///         ResourceGroupName = example.Name,
@@ -191,30 +191,30 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///         Delegations = new[]
     ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             
     ///             {
-    ///                 Name = "managedinstancedelegation",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 { "name", "managedinstancedelegation" },
+    ///                 { "serviceDelegation", 
     ///                 {
-    ///                     Name = "Microsoft.Sql/managedInstances",
-    ///                     Actions = new[]
+    ///                     { "name", "Microsoft.Sql/managedInstances" },
+    ///                     { "actions", new[]
     ///                     {
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
     ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
+    ///     var exampleRouteTable = new Azure.Network.RouteTable.RouteTable("example", new()
     ///     {
     ///         Name = "routetable-mi",
     ///         Location = example.Location,
@@ -222,13 +222,13 @@ namespace Pulumi.Azure.MSSql
     ///         DisableBgpRoutePropagation = false,
     ///     });
     /// 
-    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation.SubnetRouteTableAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         RouteTableId = exampleRouteTable.Id,
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
+    ///     var exampleManagedInstance = new Azure.Mssql.ManagedInstance.ManagedInstance("example", new()
     ///     {
     ///         Name = "managedsqlinstance",
     ///         ResourceGroupName = example.Name,

@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleLoadTest = new azure.loadtest.LoadTest("example", {
+ * const exampleLoadTest = new azure.loadtest/loadTest.LoadTest("example", {
  *     location: example.location,
  *     name: "example",
  *     resourceGroupName: example.name,

@@ -14,6 +14,80 @@ import (
 
 // Manages an API Tag Description within an API Management Service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	apimanagement/api "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/api"
+//	apimanagement/apiTagDescription "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/apiTagDescription"
+//	apimanagement/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/service"
+//	apimanagement/tag "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/apimanagement/tag"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := apimanagement/service.NewService(ctx, "example", &apimanagement/service.ServiceArgs{
+// Name: "example-apim",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PublisherName: "My Company",
+// PublisherEmail: "company@terraform.io",
+// SkuName: "Developer_1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/api.NewApi(ctx, "example", &apimanagement/api.ApiArgs{
+// Name: "example-api",
+// ResourceGroupName: example.Name,
+// ApiManagementName: exampleService.Name,
+// Revision: "1",
+// DisplayName: "Example API",
+// Path: "example",
+// Protocols: []string{
+// "https",
+// },
+// Import: map[string]interface{}{
+// "contentFormat": "swagger-link-json",
+// "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleTag, err := apimanagement/tag.NewTag(ctx, "example", &apimanagement/tag.TagArgs{
+// ApiManagementId: exampleService.Id,
+// Name: "example-Tag",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apimanagement/apiTagDescription.NewApiTagDescription(ctx, "example", &apimanagement/apiTagDescription.ApiTagDescriptionArgs{
+// ApiTagId: exampleTag.Id,
+// Description: "This is an example description",
+// ExternalDocsUrl: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+// ExternalDocsDescription: "This is an example external docs description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // API Management API Schema's can be imported using the `resource id`, e.g.

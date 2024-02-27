@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,79 +37,79 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("example", new()
+    ///     var exampleAccountFilter = new Azure.Media.AccountFilter.AccountFilter("example", new()
     ///     {
     ///         Name = "Filter1",
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         MediaServicesAccountName = test.Name,
     ///         FirstQualityBitrate = 128000,
-    ///         PresentationTimeRange = new Azure.Media.Inputs.AccountFilterPresentationTimeRangeArgs
+    ///         PresentationTimeRange = 
     ///         {
-    ///             StartInUnits = 0,
-    ///             EndInUnits = 15,
-    ///             PresentationWindowInUnits = 90,
-    ///             LiveBackoffInUnits = 0,
-    ///             UnitTimescaleInMilliseconds = 1000,
-    ///             ForceEnd = false,
+    ///             { "startInUnits", 0 },
+    ///             { "endInUnits", 15 },
+    ///             { "presentationWindowInUnits", 90 },
+    ///             { "liveBackoffInUnits", 0 },
+    ///             { "unitTimescaleInMilliseconds", 1000 },
+    ///             { "forceEnd", false },
     ///         },
     ///         TrackSelections = new[]
     ///         {
-    ///             new Azure.Media.Inputs.AccountFilterTrackSelectionArgs
+    ///             
     ///             {
-    ///                 Conditions = new[]
+    ///                 { "conditions", new[]
     ///                 {
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     
     ///                     {
-    ///                         Property = "Type",
-    ///                         Operation = "Equal",
-    ///                         Value = "Audio",
+    ///                         { "property", "Type" },
+    ///                         { "operation", "Equal" },
+    ///                         { "value", "Audio" },
     ///                     },
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     
     ///                     {
-    ///                         Property = "Language",
-    ///                         Operation = "NotEqual",
-    ///                         Value = "en",
+    ///                         { "property", "Language" },
+    ///                         { "operation", "NotEqual" },
+    ///                         { "value", "en" },
     ///                     },
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     
     ///                     {
-    ///                         Property = "FourCC",
-    ///                         Operation = "NotEqual",
-    ///                         Value = "EC-3",
+    ///                         { "property", "FourCC" },
+    ///                         { "operation", "NotEqual" },
+    ///                         { "value", "EC-3" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.Media.Inputs.AccountFilterTrackSelectionArgs
+    ///             
     ///             {
-    ///                 Conditions = new[]
+    ///                 { "conditions", new[]
     ///                 {
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     
     ///                     {
-    ///                         Property = "Type",
-    ///                         Operation = "Equal",
-    ///                         Value = "Video",
+    ///                         { "property", "Type" },
+    ///                         { "operation", "Equal" },
+    ///                         { "value", "Video" },
     ///                     },
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
+    ///                     
     ///                     {
-    ///                         Property = "Bitrate",
-    ///                         Operation = "Equal",
-    ///                         Value = "3000000-5000000",
+    ///                         { "property", "Bitrate" },
+    ///                         { "operation", "Equal" },
+    ///                         { "value", "3000000-5000000" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

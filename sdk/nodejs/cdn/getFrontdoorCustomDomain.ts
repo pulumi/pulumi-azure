@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: exampleAzurermCdnFrontdoorCustomDomain.name,
- *     profileName: exampleAzurermCdnFrontdoorProfile.name,
- *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
- * });
- * ```
  */
 export function getFrontdoorCustomDomain(args: GetFrontdoorCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorCustomDomainResult> {
 
@@ -85,19 +72,6 @@ export interface GetFrontdoorCustomDomainResult {
 }
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: exampleAzurermCdnFrontdoorCustomDomain.name,
- *     profileName: exampleAzurermCdnFrontdoorProfile.name,
- *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
- * });
- * ```
  */
 export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getFrontdoorCustomDomain(a, opts))

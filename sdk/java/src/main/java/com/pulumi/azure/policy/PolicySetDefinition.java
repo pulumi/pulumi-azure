@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.policy.PolicySetDefinition;
  * import com.pulumi.azure.policy.PolicySetDefinitionArgs;
- * import com.pulumi.azure.policy.inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,14 +60,7 @@ import javax.annotation.Nullable;
  *         }
  *     }
  *             &#34;&#34;&#34;)
- *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
- *                 .policyDefinitionId(&#34;/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988&#34;)
- *                 .parameterValues(&#34;&#34;&#34;
- *     {
- *       &#34;listOfAllowedLocations&#34;: {&#34;value&#34;: &#34;[parameters(&#39;allowedLocations&#39;)]&#34;}
- *     }
- *                 &#34;&#34;&#34;)
- *                 .build())
+ *             .policyDefinitionReferences(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

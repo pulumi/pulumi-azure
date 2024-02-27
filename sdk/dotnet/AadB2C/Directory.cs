@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AadB2C
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.AadB2C.Directory("example", new()
+    ///     var example = new Azure.Aadb2c.Directory.Directory("example", new()
     ///     {
     ///         CountryCode = "US",
     ///         DataResidencyLocation = "United States",

@@ -17,17 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "exampleRG1",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("example", {
+ * const exampleEnvironmentV3 = new azure.appservice/environmentV3.EnvironmentV3("example", {
  *     name: "example-asev3",
  *     resourceGroupName: example.name,
  *     subnetId: exampleSubnet.id,
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         terraformed: "true",
  *     },
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ * const exampleServicePlan = new azure.appservice/servicePlan.ServicePlan("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,

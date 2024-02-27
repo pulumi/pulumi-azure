@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.automation.Account("example", {
+ * const exampleAccount = new azure.automation/account.Account("example", {
  *     name: "account1",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleDscConfiguration = new azure.automation.DscConfiguration("example", {
+ * const exampleDscConfiguration = new azure.automation/dscConfiguration.DscConfiguration("example", {
  *     name: "test",
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     location: example.location,
  *     contentEmbedded: "configuration test {}",
  * });
- * const exampleDscNodeConfiguration = new azure.automation.DscNodeConfiguration("example", {
+ * const exampleDscNodeConfiguration = new azure.automation/dscNodeConfiguration.DscNodeConfiguration("example", {
  *     name: "test.localhost",
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,

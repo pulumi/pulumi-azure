@@ -17,74 +17,12 @@ public final class RecoveryservicesFunctions {
     /**
      * Use this data source to access information about an existing Recovery Services Vault.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
-     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args) {
         return getVault(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Recovery Services Vault.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
-     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args) {
@@ -93,74 +31,12 @@ public final class RecoveryservicesFunctions {
     /**
      * Use this data source to access information about an existing Recovery Services Vault.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
-     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:recoveryservices/getVault:getVault", TypeShape.of(GetVaultResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Recovery Services Vault.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
-     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;tfex-recovery_vault&#34;)
-     *             .resourceGroupName(&#34;tfex-resource_group&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args, InvokeOptions options) {

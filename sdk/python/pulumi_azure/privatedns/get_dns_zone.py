@@ -129,17 +129,6 @@ def get_dns_zone(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Private DNS Zone.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.get_dns_zone(name="contoso.internal",
-        resource_group_name="contoso-dns")
-    pulumi.export("privateDnsZoneId", example.id)
-    ```
-
 
     :param str name: The name of the Private DNS Zone.
     :param str resource_group_name: The Name of the Resource Group where the Private DNS Zone exists.
@@ -172,17 +161,6 @@ def get_dns_zone_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsZoneResult]:
     """
     Use this data source to access information about an existing Private DNS Zone.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.privatedns.get_dns_zone(name="contoso.internal",
-        resource_group_name="contoso-dns")
-    pulumi.export("privateDnsZoneId", example.id)
-    ```
 
 
     :param str name: The name of the Private DNS Zone.

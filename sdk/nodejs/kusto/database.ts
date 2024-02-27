@@ -11,11 +11,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "my-kusto-rg",
  *     location: "West Europe",
  * });
- * const cluster = new azure.kusto.Cluster("cluster", {
+ * const cluster = new azure.kusto/cluster.Cluster("cluster", {
  *     name: "kustocluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *         capacity: 2,
  *     },
  * });
- * const database = new azure.kusto.Database("database", {
+ * const database = new azure.kusto/database.Database("database", {
  *     name: "my-kusto-database",
  *     resourceGroupName: example.name,
  *     location: example.location,

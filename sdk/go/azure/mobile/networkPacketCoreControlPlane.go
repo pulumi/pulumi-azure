@@ -23,87 +23,80 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databoxedge"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mobile"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databoxedge/device "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databoxedge/device"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkPacketCoreControlPlane "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkPacketCoreControlPlane"
+//	mobile/networkSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkSite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
-//				Name:              pulumi.String("example-mn"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				MobileCountryCode: pulumi.String("001"),
-//				MobileNetworkCode: pulumi.String("01"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSite, err := mobile.NewNetworkSite(ctx, "example", &mobile.NetworkSiteArgs{
-//				Name:            pulumi.String("example-mns"),
-//				MobileNetworkId: pulumi.Any(test.Id),
-//				Location:        example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDevice, err := databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
-//				Name:              pulumi.String("example-device"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("EdgeP_Base-Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"key": "value",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = mobile.NewNetworkPacketCoreControlPlane(ctx, "example", &mobile.NetworkPacketCoreControlPlaneArgs{
-//				Name:                          pulumi.String("example-mnpccp"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Sku:                           pulumi.String("G0"),
-//				ControlPlaneAccessName:        pulumi.String("default-interface"),
-//				ControlPlaneAccessIpv4Address: pulumi.String("192.168.1.199"),
-//				ControlPlaneAccessIpv4Gateway: pulumi.String("192.168.1.1"),
-//				ControlPlaneAccessIpv4Subnet:  pulumi.String("192.168.1.0/25"),
-//				SiteIds: pulumi.StringArray{
-//					exampleNetworkSite.ID(),
-//				},
-//				LocalDiagnosticsAccess: &mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs{
-//					AuthenticationType: pulumi.String("AAD"),
-//				},
-//				Platform: &mobile.NetworkPacketCoreControlPlanePlatformArgs{
-//					Type:         pulumi.String("AKS-HCI"),
-//					EdgeDeviceId: exampleDevice.ID(),
-//				},
-//				InteroperabilitySettingsJson: pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSite, err := mobile/networkSite.NewNetworkSite(ctx, "example", &mobile/networkSite.NetworkSiteArgs{
+// Name: "example-mns",
+// MobileNetworkId: test.Id,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleDevice, err := databoxedge/device.NewDevice(ctx, "example", &databoxedge/device.DeviceArgs{
+// Name: "example-device",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "EdgeP_Base-Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkPacketCoreControlPlane.NewNetworkPacketCoreControlPlane(ctx, "example", &mobile/networkPacketCoreControlPlane.NetworkPacketCoreControlPlaneArgs{
+// Name: "example-mnpccp",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "G0",
+// ControlPlaneAccessName: "default-interface",
+// ControlPlaneAccessIpv4Address: "192.168.1.199",
+// ControlPlaneAccessIpv4Gateway: "192.168.1.1",
+// ControlPlaneAccessIpv4Subnet: "192.168.1.0/25",
+// SiteIds: []interface{}{
+// exampleNetworkSite.Id,
+// },
+// LocalDiagnosticsAccess: map[string]interface{}{
+// "authenticationType": "AAD",
+// },
+// Platform: map[string]interface{}{
+// "type": "AKS-HCI",
+// "edgeDeviceId": exampleDevice.Id,
+// },
+// InteroperabilitySettingsJson: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

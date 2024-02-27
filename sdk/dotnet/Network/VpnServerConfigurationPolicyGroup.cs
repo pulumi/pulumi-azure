@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("example", new()
+    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration.VpnServerConfiguration("example", new()
     ///     {
     ///         Name = "example-VPNSC",
     ///         ResourceGroupName = example.Name,
@@ -37,31 +37,31 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             "Radius",
     ///         },
-    ///         Radius = new Azure.Network.Inputs.VpnServerConfigurationRadiusArgs
+    ///         Radius = 
     ///         {
-    ///             Servers = new[]
+    ///             { "servers", new[]
     ///             {
-    ///                 new Azure.Network.Inputs.VpnServerConfigurationRadiusServerArgs
+    ///                 
     ///                 {
-    ///                     Address = "10.105.1.1",
-    ///                     Secret = "vindicators-the-return-of-worldender",
-    ///                     Score = 15,
+    ///                     { "address", "10.105.1.1" },
+    ///                     { "secret", "vindicators-the-return-of-worldender" },
+    ///                     { "score", 15 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("example", new()
+    ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup.VpnServerConfigurationPolicyGroup("example", new()
     ///     {
     ///         Name = "example-VPNSCPG",
     ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
     ///         Policies = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VpnServerConfigurationPolicyGroupPolicyArgs
+    ///             
     ///             {
-    ///                 Name = "policy1",
-    ///                 Type = "RadiusAzureGroupId",
-    ///                 Value = "6ad1bd08",
+    ///                 { "name", "policy1" },
+    ///                 { "type", "RadiusAzureGroupId" },
+    ///                 { "value", "6ad1bd08" },
     ///             },
     ///         },
     ///     });

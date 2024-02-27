@@ -524,33 +524,33 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=acctest-01,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="Example-Environment",
+        example_environment = azure.containerapp.environment.Environment("example",
+            name=Example-Environment,
             location=example.location,
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
-        example_app = azure.containerapp.App("example",
-            name="example-app",
+        example_app = azure.containerapp.app.App("example",
+            name=example-app,
             container_app_environment_id=example_environment.id,
             resource_group_name=example.name,
-            revision_mode="Single",
-            template=azure.containerapp.AppTemplateArgs(
-                containers=[azure.containerapp.AppTemplateContainerArgs(
-                    name="examplecontainerapp",
-                    image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
-                    cpu=0.25,
-                    memory="0.5Gi",
-                )],
-            ))
+            revision_mode=Single,
+            template={
+                containers: [{
+                    name: examplecontainerapp,
+                    image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest,
+                    cpu: 0.25,
+                    memory: 0.5Gi,
+                }],
+            })
         ```
 
         ## Import
@@ -593,33 +593,33 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=acctest-01,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="Example-Environment",
+        example_environment = azure.containerapp.environment.Environment("example",
+            name=Example-Environment,
             location=example.location,
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
-        example_app = azure.containerapp.App("example",
-            name="example-app",
+        example_app = azure.containerapp.app.App("example",
+            name=example-app,
             container_app_environment_id=example_environment.id,
             resource_group_name=example.name,
-            revision_mode="Single",
-            template=azure.containerapp.AppTemplateArgs(
-                containers=[azure.containerapp.AppTemplateContainerArgs(
-                    name="examplecontainerapp",
-                    image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
-                    cpu=0.25,
-                    memory="0.5Gi",
-                )],
-            ))
+            revision_mode=Single,
+            template={
+                containers: [{
+                    name: examplecontainerapp,
+                    image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest,
+                    cpu: 0.25,
+                    memory: 0.5Gi,
+                }],
+            })
         ```
 
         ## Import

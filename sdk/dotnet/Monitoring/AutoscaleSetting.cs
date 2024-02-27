@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "autoscalingTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "acctvn",
     ///         AddressSpaces = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Monitoring
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "acctsub",
     ///         ResourceGroupName = example.Name,
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "exampleset",
     ///         Location = example.Location,
@@ -61,44 +61,44 @@ namespace Pulumi.Azure.Monitoring
     ///         AdminUsername = "myadmin",
     ///         AdminSshKeys = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///             
     ///             {
-    ///                 Username = "myadmin",
-    ///                 PublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+    ///                 { "username", "myadmin" },
+    ///                 { "publicKey", "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com" },
     ///             },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "TestNetworkProfile",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "TestNetworkProfile" },
+    ///                 { "primary", true },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "TestIPConfiguration",
-    ///                         Primary = true,
-    ///                         SubnetId = exampleSubnet.Id,
+    ///                         { "name", "TestIPConfiguration" },
+    ///                         { "primary", true },
+    ///                         { "subnetId", exampleSubnet.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "StandardSSD_LRS",
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "StandardSSD_LRS" },
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("example", new()
+    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting.AutoscaleSetting("example", new()
     ///     {
     ///         Name = "myAutoscaleSetting",
     ///         ResourceGroupName = example.Name,
@@ -106,91 +106,91 @@ namespace Pulumi.Azure.Monitoring
     ///         TargetResourceId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         Profiles = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///             
     ///             {
-    ///                 Name = "defaultProfile",
-    ///                 Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                 { "name", "defaultProfile" },
+    ///                 { "capacity", 
     ///                 {
-    ///                     Default = 1,
-    ///                     Minimum = 1,
-    ///                     Maximum = 10,
-    ///                 },
-    ///                 Rules = new[]
+    ///                     { "default", 1 },
+    ///                     { "minimum", 1 },
+    ///                     { "maximum", 10 },
+    ///                 } },
+    ///                 { "rules", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     
     ///                     {
-    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         { "metricTrigger", 
     ///                         {
-    ///                             MetricName = "Percentage CPU",
-    ///                             MetricResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///                             TimeGrain = "PT1M",
-    ///                             Statistic = "Average",
-    ///                             TimeWindow = "PT5M",
-    ///                             TimeAggregation = "Average",
-    ///                             Operator = "GreaterThan",
-    ///                             Threshold = 75,
-    ///                             MetricNamespace = "microsoft.compute/virtualmachinescalesets",
-    ///                             Dimensions = new[]
+    ///                             { "metricName", "Percentage CPU" },
+    ///                             { "metricResourceId", exampleLinuxVirtualMachineScaleSet.Id },
+    ///                             { "timeGrain", "PT1M" },
+    ///                             { "statistic", "Average" },
+    ///                             { "timeWindow", "PT5M" },
+    ///                             { "timeAggregation", "Average" },
+    ///                             { "operator", "GreaterThan" },
+    ///                             { "threshold", 75 },
+    ///                             { "metricNamespace", "microsoft.compute/virtualmachinescalesets" },
+    ///                             { "dimensions", new[]
     ///                             {
-    ///                                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs
+    ///                                 
     ///                                 {
-    ///                                     Name = "AppName",
-    ///                                     Operator = "Equals",
-    ///                                     Values = new[]
+    ///                                     { "name", "AppName" },
+    ///                                     { "operator", "Equals" },
+    ///                                     { "values", new[]
     ///                                     {
     ///                                         "App1",
-    ///                                     },
+    ///                                     } },
     ///                                 },
-    ///                             },
-    ///                         },
-    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             } },
+    ///                         } },
+    ///                         { "scaleAction", 
     ///                         {
-    ///                             Direction = "Increase",
-    ///                             Type = "ChangeCount",
-    ///                             Value = 1,
-    ///                             Cooldown = "PT1M",
-    ///                         },
+    ///                             { "direction", "Increase" },
+    ///                             { "type", "ChangeCount" },
+    ///                             { "value", "1" },
+    ///                             { "cooldown", "PT1M" },
+    ///                         } },
     ///                     },
-    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     
     ///                     {
-    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         { "metricTrigger", 
     ///                         {
-    ///                             MetricName = "Percentage CPU",
-    ///                             MetricResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///                             TimeGrain = "PT1M",
-    ///                             Statistic = "Average",
-    ///                             TimeWindow = "PT5M",
-    ///                             TimeAggregation = "Average",
-    ///                             Operator = "LessThan",
-    ///                             Threshold = 25,
-    ///                         },
-    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             { "metricName", "Percentage CPU" },
+    ///                             { "metricResourceId", exampleLinuxVirtualMachineScaleSet.Id },
+    ///                             { "timeGrain", "PT1M" },
+    ///                             { "statistic", "Average" },
+    ///                             { "timeWindow", "PT5M" },
+    ///                             { "timeAggregation", "Average" },
+    ///                             { "operator", "LessThan" },
+    ///                             { "threshold", 25 },
+    ///                         } },
+    ///                         { "scaleAction", 
     ///                         {
-    ///                             Direction = "Decrease",
-    ///                             Type = "ChangeCount",
-    ///                             Value = 1,
-    ///                             Cooldown = "PT1M",
-    ///                         },
+    ///                             { "direction", "Decrease" },
+    ///                             { "type", "ChangeCount" },
+    ///                             { "value", "1" },
+    ///                             { "cooldown", "PT1M" },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         Predictive = new Azure.Monitoring.Inputs.AutoscaleSettingPredictiveArgs
+    ///         Predictive = 
     ///         {
-    ///             ScaleMode = "Enabled",
-    ///             LookAheadTime = "PT5M",
+    ///             { "scaleMode", "Enabled" },
+    ///             { "lookAheadTime", "PT5M" },
     ///         },
-    ///         Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///         Notification = 
     ///         {
-    ///             Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///             { "email", 
     ///             {
-    ///                 SendToSubscriptionAdministrator = true,
-    ///                 SendToSubscriptionCoAdministrator = true,
-    ///                 CustomEmails = new[]
+    ///                 { "sendToSubscriptionAdministrator", true },
+    ///                 { "sendToSubscriptionCoAdministrator", true },
+    ///                 { "customEmails", new[]
     ///                 {
     ///                     "admin@contoso.com",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -206,13 +206,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "autoscalingTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "acctvn",
     ///         AddressSpaces = new[]
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Monitoring
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "acctsub",
     ///         ResourceGroupName = example.Name,
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "exampleset",
     ///         Location = example.Location,
@@ -245,44 +245,44 @@ namespace Pulumi.Azure.Monitoring
     ///         AdminUsername = "myadmin",
     ///         AdminSshKeys = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///             
     ///             {
-    ///                 Username = "myadmin",
-    ///                 PublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+    ///                 { "username", "myadmin" },
+    ///                 { "publicKey", "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com" },
     ///             },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "TestNetworkProfile",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "TestNetworkProfile" },
+    ///                 { "primary", true },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "TestIPConfiguration",
-    ///                         Primary = true,
-    ///                         SubnetId = exampleSubnet.Id,
+    ///                         { "name", "TestIPConfiguration" },
+    ///                         { "primary", true },
+    ///                         { "subnetId", exampleSubnet.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "StandardSSD_LRS",
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "StandardSSD_LRS" },
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("example", new()
+    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting.AutoscaleSetting("example", new()
     ///     {
     ///         Name = "myAutoscaleSetting",
     ///         ResourceGroupName = example.Name,
@@ -290,84 +290,84 @@ namespace Pulumi.Azure.Monitoring
     ///         TargetResourceId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         Profiles = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///             
     ///             {
-    ///                 Name = "Weekends",
-    ///                 Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                 { "name", "Weekends" },
+    ///                 { "capacity", 
     ///                 {
-    ///                     Default = 1,
-    ///                     Minimum = 1,
-    ///                     Maximum = 10,
-    ///                 },
-    ///                 Rules = new[]
+    ///                     { "default", 1 },
+    ///                     { "minimum", 1 },
+    ///                     { "maximum", 10 },
+    ///                 } },
+    ///                 { "rules", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     
     ///                     {
-    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         { "metricTrigger", 
     ///                         {
-    ///                             MetricName = "Percentage CPU",
-    ///                             MetricResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///                             TimeGrain = "PT1M",
-    ///                             Statistic = "Average",
-    ///                             TimeWindow = "PT5M",
-    ///                             TimeAggregation = "Average",
-    ///                             Operator = "GreaterThan",
-    ///                             Threshold = 90,
-    ///                         },
-    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             { "metricName", "Percentage CPU" },
+    ///                             { "metricResourceId", exampleLinuxVirtualMachineScaleSet.Id },
+    ///                             { "timeGrain", "PT1M" },
+    ///                             { "statistic", "Average" },
+    ///                             { "timeWindow", "PT5M" },
+    ///                             { "timeAggregation", "Average" },
+    ///                             { "operator", "GreaterThan" },
+    ///                             { "threshold", 90 },
+    ///                         } },
+    ///                         { "scaleAction", 
     ///                         {
-    ///                             Direction = "Increase",
-    ///                             Type = "ChangeCount",
-    ///                             Value = 2,
-    ///                             Cooldown = "PT1M",
-    ///                         },
+    ///                             { "direction", "Increase" },
+    ///                             { "type", "ChangeCount" },
+    ///                             { "value", "2" },
+    ///                             { "cooldown", "PT1M" },
+    ///                         } },
     ///                     },
-    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     
     ///                     {
-    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         { "metricTrigger", 
     ///                         {
-    ///                             MetricName = "Percentage CPU",
-    ///                             MetricResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///                             TimeGrain = "PT1M",
-    ///                             Statistic = "Average",
-    ///                             TimeWindow = "PT5M",
-    ///                             TimeAggregation = "Average",
-    ///                             Operator = "LessThan",
-    ///                             Threshold = 10,
-    ///                         },
-    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             { "metricName", "Percentage CPU" },
+    ///                             { "metricResourceId", exampleLinuxVirtualMachineScaleSet.Id },
+    ///                             { "timeGrain", "PT1M" },
+    ///                             { "statistic", "Average" },
+    ///                             { "timeWindow", "PT5M" },
+    ///                             { "timeAggregation", "Average" },
+    ///                             { "operator", "LessThan" },
+    ///                             { "threshold", 10 },
+    ///                         } },
+    ///                         { "scaleAction", 
     ///                         {
-    ///                             Direction = "Decrease",
-    ///                             Type = "ChangeCount",
-    ///                             Value = 2,
-    ///                             Cooldown = "PT1M",
-    ///                         },
+    ///                             { "direction", "Decrease" },
+    ///                             { "type", "ChangeCount" },
+    ///                             { "value", "2" },
+    ///                             { "cooldown", "PT1M" },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 Recurrence = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRecurrenceArgs
+    ///                 } },
+    ///                 { "recurrence", 
     ///                 {
-    ///                     Timezone = "Pacific Standard Time",
-    ///                     Days = new[]
+    ///                     { "timezone", "Pacific Standard Time" },
+    ///                     { "days", new[]
     ///                     {
     ///                         "Saturday",
     ///                         "Sunday",
-    ///                     },
-    ///                     Hours = 12,
-    ///                     Minutes = 0,
-    ///                 },
+    ///                     } },
+    ///                     { "hours", 12 },
+    ///                     { "minutes", 0 },
+    ///                 } },
     ///             },
     ///         },
-    ///         Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///         Notification = 
     ///         {
-    ///             Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///             { "email", 
     ///             {
-    ///                 SendToSubscriptionAdministrator = true,
-    ///                 SendToSubscriptionCoAdministrator = true,
-    ///                 CustomEmails = new[]
+    ///                 { "sendToSubscriptionAdministrator", true },
+    ///                 { "sendToSubscriptionCoAdministrator", true },
+    ///                 { "customEmails", new[]
     ///                 {
     ///                     "admin@contoso.com",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -383,13 +383,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "autoscalingTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "acctvn",
     ///         AddressSpaces = new[]
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.Monitoring
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "acctsub",
     ///         ResourceGroupName = example.Name,
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet.LinuxVirtualMachineScaleSet("example", new()
     ///     {
     ///         Name = "exampleset",
     ///         Location = example.Location,
@@ -422,44 +422,44 @@ namespace Pulumi.Azure.Monitoring
     ///         AdminUsername = "myadmin",
     ///         AdminSshKeys = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///             
     ///             {
-    ///                 Username = "myadmin",
-    ///                 PublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+    ///                 { "username", "myadmin" },
+    ///                 { "publicKey", "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com" },
     ///             },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 Name = "TestNetworkProfile",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
+    ///                 { "name", "TestNetworkProfile" },
+    ///                 { "primary", true },
+    ///                 { "ipConfigurations", new[]
     ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     
     ///                     {
-    ///                         Name = "TestIPConfiguration",
-    ///                         Primary = true,
-    ///                         SubnetId = exampleSubnet.Id,
+    ///                         { "name", "TestIPConfiguration" },
+    ///                         { "primary", true },
+    ///                         { "subnetId", exampleSubnet.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         OsDisk = 
     ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "StandardSSD_LRS",
+    ///             { "caching", "ReadWrite" },
+    ///             { "storageAccountType", "StandardSSD_LRS" },
     ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
+    ///         SourceImageReference = 
     ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
+    ///             { "publisher", "Canonical" },
+    ///             { "offer", "0001-com-ubuntu-server-jammy" },
+    ///             { "sku", "22_04-lts" },
+    ///             { "version", "latest" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("example", new()
+    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting.AutoscaleSetting("example", new()
     ///     {
     ///         Name = "myAutoscaleSetting",
     ///         Enabled = true,
@@ -468,79 +468,79 @@ namespace Pulumi.Azure.Monitoring
     ///         TargetResourceId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         Profiles = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///             
     ///             {
-    ///                 Name = "forJuly",
-    ///                 Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                 { "name", "forJuly" },
+    ///                 { "capacity", 
     ///                 {
-    ///                     Default = 1,
-    ///                     Minimum = 1,
-    ///                     Maximum = 10,
-    ///                 },
-    ///                 Rules = new[]
+    ///                     { "default", 1 },
+    ///                     { "minimum", 1 },
+    ///                     { "maximum", 10 },
+    ///                 } },
+    ///                 { "rules", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     
     ///                     {
-    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         { "metricTrigger", 
     ///                         {
-    ///                             MetricName = "Percentage CPU",
-    ///                             MetricResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///                             TimeGrain = "PT1M",
-    ///                             Statistic = "Average",
-    ///                             TimeWindow = "PT5M",
-    ///                             TimeAggregation = "Average",
-    ///                             Operator = "GreaterThan",
-    ///                             Threshold = 90,
-    ///                         },
-    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             { "metricName", "Percentage CPU" },
+    ///                             { "metricResourceId", exampleLinuxVirtualMachineScaleSet.Id },
+    ///                             { "timeGrain", "PT1M" },
+    ///                             { "statistic", "Average" },
+    ///                             { "timeWindow", "PT5M" },
+    ///                             { "timeAggregation", "Average" },
+    ///                             { "operator", "GreaterThan" },
+    ///                             { "threshold", 90 },
+    ///                         } },
+    ///                         { "scaleAction", 
     ///                         {
-    ///                             Direction = "Increase",
-    ///                             Type = "ChangeCount",
-    ///                             Value = 2,
-    ///                             Cooldown = "PT1M",
-    ///                         },
+    ///                             { "direction", "Increase" },
+    ///                             { "type", "ChangeCount" },
+    ///                             { "value", "2" },
+    ///                             { "cooldown", "PT1M" },
+    ///                         } },
     ///                     },
-    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     
     ///                     {
-    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         { "metricTrigger", 
     ///                         {
-    ///                             MetricName = "Percentage CPU",
-    ///                             MetricResourceId = exampleLinuxVirtualMachineScaleSet.Id,
-    ///                             TimeGrain = "PT1M",
-    ///                             Statistic = "Average",
-    ///                             TimeWindow = "PT5M",
-    ///                             TimeAggregation = "Average",
-    ///                             Operator = "LessThan",
-    ///                             Threshold = 10,
-    ///                         },
-    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             { "metricName", "Percentage CPU" },
+    ///                             { "metricResourceId", exampleLinuxVirtualMachineScaleSet.Id },
+    ///                             { "timeGrain", "PT1M" },
+    ///                             { "statistic", "Average" },
+    ///                             { "timeWindow", "PT5M" },
+    ///                             { "timeAggregation", "Average" },
+    ///                             { "operator", "LessThan" },
+    ///                             { "threshold", 10 },
+    ///                         } },
+    ///                         { "scaleAction", 
     ///                         {
-    ///                             Direction = "Decrease",
-    ///                             Type = "ChangeCount",
-    ///                             Value = 2,
-    ///                             Cooldown = "PT1M",
-    ///                         },
+    ///                             { "direction", "Decrease" },
+    ///                             { "type", "ChangeCount" },
+    ///                             { "value", "2" },
+    ///                             { "cooldown", "PT1M" },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 FixedDate = new Azure.Monitoring.Inputs.AutoscaleSettingProfileFixedDateArgs
+    ///                 } },
+    ///                 { "fixedDate", 
     ///                 {
-    ///                     Timezone = "Pacific Standard Time",
-    ///                     Start = "2020-07-01T00:00:00Z",
-    ///                     End = "2020-07-31T23:59:59Z",
-    ///                 },
+    ///                     { "timezone", "Pacific Standard Time" },
+    ///                     { "start", "2020-07-01T00:00:00Z" },
+    ///                     { "end", "2020-07-31T23:59:59Z" },
+    ///                 } },
     ///             },
     ///         },
-    ///         Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///         Notification = 
     ///         {
-    ///             Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///             { "email", 
     ///             {
-    ///                 SendToSubscriptionAdministrator = true,
-    ///                 SendToSubscriptionCoAdministrator = true,
-    ///                 CustomEmails = new[]
+    ///                 { "sendToSubscriptionAdministrator", true },
+    ///                 { "sendToSubscriptionCoAdministrator", true },
+    ///                 { "customEmails", new[]
     ///                 {
     ///                     "admin@contoso.com",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

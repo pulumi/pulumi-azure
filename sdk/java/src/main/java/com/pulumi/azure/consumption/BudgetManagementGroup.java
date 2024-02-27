@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.consumption.BudgetManagementGroup;
  * import com.pulumi.azure.consumption.BudgetManagementGroupArgs;
- * import com.pulumi.azure.consumption.inputs.BudgetManagementGroupTimePeriodArgs;
- * import com.pulumi.azure.consumption.inputs.BudgetManagementGroupFilterArgs;
- * import com.pulumi.azure.consumption.inputs.BudgetManagementGroupNotificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,40 +62,11 @@ import javax.annotation.Nullable;
  *             .managementGroupId(example.id())
  *             .amount(1000)
  *             .timeGrain(&#34;Monthly&#34;)
- *             .timePeriod(BudgetManagementGroupTimePeriodArgs.builder()
- *                 .startDate(&#34;2022-06-01T00:00:00Z&#34;)
- *                 .endDate(&#34;2022-07-01T00:00:00Z&#34;)
- *                 .build())
- *             .filter(BudgetManagementGroupFilterArgs.builder()
- *                 .dimensions(BudgetManagementGroupFilterDimensionArgs.builder()
- *                     .name(&#34;ResourceGroupName&#34;)
- *                     .values(exampleResourceGroup.name())
- *                     .build())
- *                 .tags(BudgetManagementGroupFilterTagArgs.builder()
- *                     .name(&#34;foo&#34;)
- *                     .values(                    
- *                         &#34;bar&#34;,
- *                         &#34;baz&#34;)
- *                     .build())
- *                 .build())
+ *             .timePeriod(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .filter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .notifications(            
- *                 BudgetManagementGroupNotificationArgs.builder()
- *                     .enabled(true)
- *                     .threshold(90)
- *                     .operator(&#34;EqualTo&#34;)
- *                     .contactEmails(                    
- *                         &#34;foo@example.com&#34;,
- *                         &#34;bar@example.com&#34;)
- *                     .build(),
- *                 BudgetManagementGroupNotificationArgs.builder()
- *                     .enabled(false)
- *                     .threshold(100)
- *                     .operator(&#34;GreaterThan&#34;)
- *                     .thresholdType(&#34;Forecasted&#34;)
- *                     .contactEmails(                    
- *                         &#34;foo@example.com&#34;,
- *                         &#34;bar@example.com&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

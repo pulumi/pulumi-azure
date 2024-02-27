@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleResourceGroupCostManagementView = new Azure.Core.ResourceGroupCostManagementView("example", new()
+    ///     var exampleResourceGroupCostManagementView = new Azure.Core.ResourceGroupCostManagementView.ResourceGroupCostManagementView("example", new()
     ///     {
     ///         Name = "example",
     ///         DisplayName = "Cost View per Month",
@@ -37,17 +37,17 @@ namespace Pulumi.Azure.Core
     ///         ResourceGroupId = example.Id,
     ///         ReportType = "Usage",
     ///         Timeframe = "MonthToDate",
-    ///         Dataset = new Azure.Core.Inputs.ResourceGroupCostManagementViewDatasetArgs
+    ///         Dataset = 
     ///         {
-    ///             Granularity = "Monthly",
-    ///             Aggregations = new[]
+    ///             { "granularity", "Monthly" },
+    ///             { "aggregations", new[]
     ///             {
-    ///                 new Azure.Core.Inputs.ResourceGroupCostManagementViewDatasetAggregationArgs
+    ///                 
     ///                 {
-    ///                     Name = "totalCost",
-    ///                     ColumnName = "Cost",
+    ///                     { "name", "totalCost" },
+    ///                     { "columnName", "Cost" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

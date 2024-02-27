@@ -21,44 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mariadb/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mariadb.NewServer(ctx, "example", &mariadb.ServerArgs{
-//				Name:                         pulumi.String("example-mariadb-server"),
-//				Location:                     example.Location,
-//				ResourceGroupName:            example.Name,
-//				AdministratorLogin:           pulumi.String("mariadbadmin"),
-//				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				SkuName:                      pulumi.String("B_Gen5_2"),
-//				StorageMb:                    pulumi.Int(5120),
-//				Version:                      pulumi.String("10.2"),
-//				AutoGrowEnabled:              pulumi.Bool(true),
-//				BackupRetentionDays:          pulumi.Int(7),
-//				GeoRedundantBackupEnabled:    pulumi.Bool(false),
-//				PublicNetworkAccessEnabled:   pulumi.Bool(false),
-//				SslEnforcementEnabled:        pulumi.Bool(true),
-//				SslMinimalTlsVersionEnforced: pulumi.String("TLS1_2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mariadb/server.NewServer(ctx, "example", &mariadb/server.ServerArgs{
+// Name: "example-mariadb-server",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AdministratorLogin: "mariadbadmin",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// SkuName: "B_Gen5_2",
+// StorageMb: 5120,
+// Version: "10.2",
+// AutoGrowEnabled: true,
+// BackupRetentionDays: 7,
+// GeoRedundantBackupEnabled: false,
+// PublicNetworkAccessEnabled: false,
+// SslEnforcementEnabled: true,
+// SslMinimalTlsVersionEnforced: "TLS1_2",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

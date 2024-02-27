@@ -22,13 +22,13 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePostgresqlCluster = new Azure.CosmosDB.PostgresqlCluster("example", new()
+    ///     var examplePostgresqlCluster = new Azure.Cosmosdb.PostgresqlCluster.PostgresqlCluster("example", new()
     ///     {
     ///         Name = "examplecluster",
     ///         ResourceGroupName = example.Name,
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         NodeCount = 0,
     ///     });
     /// 
-    ///     var examplePostgresqlRole = new Azure.CosmosDB.PostgresqlRole("example", new()
+    ///     var examplePostgresqlRole = new Azure.Cosmosdb.PostgresqlRole.PostgresqlRole("example", new()
     ///     {
     ///         Name = "examplerole",
     ///         ClusterId = examplePostgresqlCluster.Id,

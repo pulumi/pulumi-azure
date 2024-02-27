@@ -231,48 +231,6 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Manages a Synapse Role Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
-            storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("example",
-            name="AllowAll",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        current = azure.core.get_client_config()
-        example_role_assignment = azure.synapse.RoleAssignment("example",
-            synapse_workspace_id=example_workspace.id,
-            role_name="Synapse SQL Administrator",
-            principal_id=current.object_id)
-        ```
-
         ## Import
 
         Synapse Role Assignment can be imported using the `resource id`, e.g.
@@ -305,48 +263,6 @@ class RoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Role Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageacc",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
-            storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("example",
-            name="AllowAll",
-            synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        current = azure.core.get_client_config()
-        example_role_assignment = azure.synapse.RoleAssignment("example",
-            synapse_workspace_id=example_workspace.id,
-            role_name="Synapse SQL Administrator",
-            principal_id=current.object_id)
-        ```
 
         ## Import
 

@@ -12,56 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Group Policy Exemption.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "resourceGroup1",
-    ///         Location = "westus",
-    ///     });
-    /// 
-    ///     var example = Azure.Policy.GetPolicyDefintion.Invoke(new()
-    ///     {
-    ///         DisplayName = "Allowed locations",
-    ///     });
-    /// 
-    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("example", new()
-    ///     {
-    ///         Name = "exampleAssignment",
-    ///         ResourceGroupId = exampleResourceGroup.Id,
-    ///         PolicyDefinitionId = example.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
-    ///         Parameters = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["value"] = new[]
-    ///                 {
-    ///                     exampleResourceGroup.Location,
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    ///     var exampleResourceGroupPolicyExemption = new Azure.Core.ResourceGroupPolicyExemption("example", new()
-    ///     {
-    ///         Name = "exampleExemption",
-    ///         ResourceGroupId = exampleResourceGroup.Id,
-    ///         PolicyAssignmentId = exampleResourceGroupPolicyAssignment.Id,
-    ///         ExemptionCategory = "Mitigated",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Policy Exemptions can be imported using the `resource id`, e.g.

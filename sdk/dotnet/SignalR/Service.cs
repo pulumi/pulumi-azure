@@ -22,30 +22,30 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "my-signalr",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleService = new Azure.SignalR.Service("example", new()
+    ///     var exampleService = new Azure.Signalr.Service.Service("example", new()
     ///     {
     ///         Name = "tfex-signalr",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "Free_F1",
-    ///             Capacity = 1,
+    ///             { "name", "Free_F1" },
+    ///             { "capacity", 1 },
     ///         },
     ///         Cors = new[]
     ///         {
-    ///             new Azure.SignalR.Inputs.ServiceCorArgs
+    ///             
     ///             {
-    ///                 AllowedOrigins = new[]
+    ///                 { "allowedOrigins", new[]
     ///                 {
     ///                     "http://www.example.com",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         PublicNetworkAccessEnabled = false,
@@ -54,22 +54,22 @@ namespace Pulumi.Azure.SignalR
     ///         ServiceMode = "Default",
     ///         UpstreamEndpoints = new[]
     ///         {
-    ///             new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
+    ///             
     ///             {
-    ///                 CategoryPatterns = new[]
+    ///                 { "categoryPatterns", new[]
     ///                 {
     ///                     "connections",
     ///                     "messages",
-    ///                 },
-    ///                 EventPatterns = new[]
+    ///                 } },
+    ///                 { "eventPatterns", new[]
     ///                 {
     ///                     "*",
-    ///                 },
-    ///                 HubPatterns = new[]
+    ///                 } },
+    ///                 { "hubPatterns", new[]
     ///                 {
     ///                     "hub1",
-    ///                 },
-    ///                 UrlTemplate = "http://foo.com",
+    ///                 } },
+    ///                 { "urlTemplate", "http://foo.com" },
     ///             },
     ///         },
     ///     });

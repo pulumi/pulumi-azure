@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Site.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkSite = example.then(example => azure.mobile.getNetworkSite({
- *     name: "example-mns",
- *     mobileNetworkId: example.id,
- * }));
- * ```
  */
 export function getNetworkSite(args: GetNetworkSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSiteResult> {
 
@@ -71,22 +55,6 @@ export interface GetNetworkSiteResult {
 }
 /**
  * Get information about a Mobile Network Site.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: "example-rg",
- * });
- * const exampleGetNetworkSite = example.then(example => azure.mobile.getNetworkSite({
- *     name: "example-mns",
- *     mobileNetworkId: example.id,
- * }));
- * ```
  */
 export function getNetworkSiteOutput(args: GetNetworkSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSiteResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSite(a, opts))

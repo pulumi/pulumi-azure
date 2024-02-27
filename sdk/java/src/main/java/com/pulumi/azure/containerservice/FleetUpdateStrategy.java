@@ -29,10 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.KubernetesFleetManager;
  * import com.pulumi.azure.containerservice.KubernetesFleetManagerArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesFleetManagerHubProfileArgs;
  * import com.pulumi.azure.containerservice.FleetUpdateStrategy;
  * import com.pulumi.azure.containerservice.FleetUpdateStrategyArgs;
- * import com.pulumi.azure.containerservice.inputs.FleetUpdateStrategyStageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,21 +53,13 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
- *             .hubProfile(KubernetesFleetManagerHubProfileArgs.builder()
- *                 .dnsPrefix(&#34;example-dns-prefix&#34;)
- *                 .build())
+ *             .hubProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy(&#34;exampleFleetUpdateStrategy&#34;, FleetUpdateStrategyArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
- *             .stages(FleetUpdateStrategyStageArgs.builder()
- *                 .name(&#34;example-stage-1&#34;)
- *                 .groups(FleetUpdateStrategyStageGroupArgs.builder()
- *                     .name(&#34;example-group-1&#34;)
- *                     .build())
- *                 .afterStageWaitInSeconds(21)
- *                 .build())
+ *             .stages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

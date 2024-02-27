@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan.VirtualWan("example", new()
     ///     {
     ///         Name = "example-vwan",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVpnSite = new Azure.Network.VpnSite("example", new()
+    ///     var exampleVpnSite = new Azure.Network.VpnSite.VpnSite("example", new()
     ///     {
     ///         Name = "site1",
     ///         ResourceGroupName = example.Name,
@@ -47,10 +47,10 @@ namespace Pulumi.Azure.Network
     ///         },
     ///         Links = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             
     ///             {
-    ///                 Name = "link1",
-    ///                 IpAddress = "10.0.0.1",
+    ///                 { "name", "link1" },
+    ///                 { "ipAddress", "10.0.0.1" },
     ///             },
     ///         },
     ///     });

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.appservice.SourceCodeToken("example", {
+ * const example = new azure.appservice/sourceCodeToken.SourceCodeToken("example", {
  *     type: "GitHub",
  *     token: "7e57735e77e577e57",
  * });

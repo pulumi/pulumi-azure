@@ -21,61 +21,60 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	appinsights/webTest "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/webTest"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "tf-test",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "tf-test-appinsights",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// exampleWebTest, err := appinsights/webTest.NewWebTest(ctx, "example", &appinsights/webTest.WebTestArgs{
+// Name: "tf-test-appinsights-webtest",
+// Location: exampleInsights.Location,
+// ResourceGroupName: example.Name,
+// ApplicationInsightsId: exampleInsights.Id,
+// Kind: "ping",
+// Frequency: 300,
+// Timeout: 60,
+// Enabled: true,
+// GeoLocations: []string{
+// "us-tx-sn1-azr",
+// "us-il-ch1-azr",
+// },
+// Configuration: `<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tf-test"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("tf-test-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWebTest, err := appinsights.NewWebTest(ctx, "example", &appinsights.WebTestArgs{
-//				Name:                  pulumi.String("tf-test-appinsights-webtest"),
-//				Location:              exampleInsights.Location,
-//				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				Kind:                  pulumi.String("ping"),
-//				Frequency:             pulumi.Int(300),
-//				Timeout:               pulumi.Int(60),
-//				Enabled:               pulumi.Bool(true),
-//				GeoLocations: pulumi.StringArray{
-//					pulumi.String("us-tx-sn1-azr"),
-//					pulumi.String("us-il-ch1-azr"),
-//				},
-//				Configuration: pulumi.String(`<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
-//	  <Items>
-//	    <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
-//	  </Items>
+//	<Items>
+//	  <Request Method="GET" Guid="a5f10126-e4cd-570d-961c-cea43999a200" Version="1.1" Url="http://microsoft.com" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+//	</Items>
 //
 // </WebTest>
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("webtestId", exampleWebTest.ID())
-//			ctx.Export("webtestsSyntheticId", exampleWebTest.SyntheticMonitorId)
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("webtestId", exampleWebTest.Id)
+// ctx.Export("webtestsSyntheticId", exampleWebTest.SyntheticMonitorId)
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

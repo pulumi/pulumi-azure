@@ -24,13 +24,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer.SqlServer("example", new()
     ///     {
     ///         Name = "mysqlserver",
     ///         ResourceGroupName = example.Name,
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "accteststorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.MSSql
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServerSecurityAlertPolicy = new Azure.MSSql.ServerSecurityAlertPolicy("example", new()
+    ///     var exampleServerSecurityAlertPolicy = new Azure.Mssql.ServerSecurityAlertPolicy.ServerSecurityAlertPolicy("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleSqlServer.Name,

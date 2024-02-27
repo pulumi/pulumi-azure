@@ -20,66 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Subscription Policy Remediation.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
- * import com.pulumi.azure.policy.PolicyFunctions;
- * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
- * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
- * import com.pulumi.azure.core.SubscriptionPolicyAssignmentArgs;
- * import com.pulumi.azure.core.SubscriptionPolicyRemediation;
- * import com.pulumi.azure.core.SubscriptionPolicyRemediationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getSubscription();
- * 
- *         final var exampleGetPolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
- *             .displayName(&#34;Allowed resource types&#34;)
- *             .build());
- * 
- *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyDefinitionId(exampleGetPolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
- *             .parameters(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(
- *                             &#34;West Europe&#34;, 
- *                             &#34;East US&#34;
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation(&#34;exampleSubscriptionPolicyRemediation&#34;, SubscriptionPolicyRemediationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Policy Remediations can be imported using the `resource id`, e.g.

@@ -23,69 +23,69 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databasemigration"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databasemigration/project "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databasemigration/project"
+//	databasemigration/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databasemigration/service"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := databasemigration.NewService(ctx, "example", &databasemigration.ServiceArgs{
-//				Name:              pulumi.String("example-dbms"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SubnetId:          exampleSubnet.ID(),
-//				SkuName:           pulumi.String("Standard_1vCores"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = databasemigration.NewProject(ctx, "example", &databasemigration.ProjectArgs{
-//				Name:              pulumi.String("example-dbms-project"),
-//				ServiceName:       exampleService.Name,
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SourcePlatform:    pulumi.String("SQL"),
-//				TargetPlatform:    pulumi.String("SQLDB"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-subnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := databasemigration/service.NewService(ctx, "example", &databasemigration/service.ServiceArgs{
+// Name: "example-dbms",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SubnetId: exampleSubnet.Id,
+// SkuName: "Standard_1vCores",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = databasemigration/project.NewProject(ctx, "example", &databasemigration/project.ProjectArgs{
+// Name: "example-dbms-project",
+// ServiceName: exampleService.Name,
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SourcePlatform: "SQL",
+// TargetPlatform: "SQLDB",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

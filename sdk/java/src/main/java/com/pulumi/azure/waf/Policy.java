@@ -33,9 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.waf.Policy;
  * import com.pulumi.azure.waf.PolicyArgs;
- * import com.pulumi.azure.waf.inputs.PolicyCustomRuleArgs;
- * import com.pulumi.azure.waf.inputs.PolicyPolicySettingsArgs;
- * import com.pulumi.azure.waf.inputs.PolicyManagedRulesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,84 +56,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .customRules(            
- *                 PolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule1&#34;)
- *                     .priority(1)
- *                     .ruleType(&#34;MatchRule&#34;)
- *                     .matchConditions(PolicyCustomRuleMatchConditionArgs.builder()
- *                         .matchVariables(PolicyCustomRuleMatchConditionMatchVariableArgs.builder()
- *                             .variableName(&#34;RemoteAddr&#34;)
- *                             .build())
- *                         .operator(&#34;IPMatch&#34;)
- *                         .negationCondition(false)
- *                         .matchValues(                        
- *                             &#34;192.168.1.0/24&#34;,
- *                             &#34;10.0.0.0/24&#34;)
- *                         .build())
- *                     .action(&#34;Block&#34;)
- *                     .build(),
- *                 PolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule2&#34;)
- *                     .priority(2)
- *                     .ruleType(&#34;MatchRule&#34;)
- *                     .matchConditions(                    
- *                         PolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariables(PolicyCustomRuleMatchConditionMatchVariableArgs.builder()
- *                                 .variableName(&#34;RemoteAddr&#34;)
- *                                 .build())
- *                             .operator(&#34;IPMatch&#34;)
- *                             .negationCondition(false)
- *                             .matchValues(&#34;192.168.1.0/24&#34;)
- *                             .build(),
- *                         PolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariables(PolicyCustomRuleMatchConditionMatchVariableArgs.builder()
- *                                 .variableName(&#34;RequestHeaders&#34;)
- *                                 .selector(&#34;UserAgent&#34;)
- *                                 .build())
- *                             .operator(&#34;Contains&#34;)
- *                             .negationCondition(false)
- *                             .matchValues(&#34;Windows&#34;)
- *                             .build())
- *                     .action(&#34;Block&#34;)
- *                     .build())
- *             .policySettings(PolicyPolicySettingsArgs.builder()
- *                 .enabled(true)
- *                 .mode(&#34;Prevention&#34;)
- *                 .requestBodyCheck(true)
- *                 .fileUploadLimitInMb(100)
- *                 .maxRequestBodySizeInKb(128)
- *                 .build())
- *             .managedRules(PolicyManagedRulesArgs.builder()
- *                 .exclusions(                
- *                     PolicyManagedRulesExclusionArgs.builder()
- *                         .matchVariable(&#34;RequestHeaderNames&#34;)
- *                         .selector(&#34;x-company-secret-header&#34;)
- *                         .selectorMatchOperator(&#34;Equals&#34;)
- *                         .build(),
- *                     PolicyManagedRulesExclusionArgs.builder()
- *                         .matchVariable(&#34;RequestCookieNames&#34;)
- *                         .selector(&#34;too-tasty&#34;)
- *                         .selectorMatchOperator(&#34;EndsWith&#34;)
- *                         .build())
- *                 .managedRuleSets(PolicyManagedRulesManagedRuleSetArgs.builder()
- *                     .type(&#34;OWASP&#34;)
- *                     .version(&#34;3.2&#34;)
- *                     .ruleGroupOverrides(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs.builder()
- *                         .ruleGroupName(&#34;REQUEST-920-PROTOCOL-ENFORCEMENT&#34;)
- *                         .rules(                        
- *                             PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs.builder()
- *                                 .id(&#34;920300&#34;)
- *                                 .enabled(true)
- *                                 .action(&#34;Log&#34;)
- *                                 .build(),
- *                             PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs.builder()
- *                                 .id(&#34;920440&#34;)
- *                                 .enabled(true)
- *                                 .action(&#34;Block&#34;)
- *                                 .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .policySettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .managedRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

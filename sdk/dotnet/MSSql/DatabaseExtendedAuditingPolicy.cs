@@ -22,13 +22,13 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("example", new()
+    ///     var exampleServer = new Azure.Mssql.Server.Server("example", new()
     ///     {
     ///         Name = "example-sqlserver",
     ///         ResourceGroupName = example.Name,
@@ -38,13 +38,13 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLoginPassword = "AdminPassword123!",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
+    ///     var exampleDatabase = new Azure.Mssql.Database.Database("example", new()
     ///     {
     ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.MSSql
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("example", new()
+    ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.Mssql.DatabaseExtendedAuditingPolicy.DatabaseExtendedAuditingPolicy("example", new()
     ///     {
     ///         DatabaseId = exampleDatabase.Id,
     ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,

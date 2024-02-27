@@ -345,16 +345,16 @@ class PublicIpPrefix(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip_prefix = azure.network.PublicIpPrefix("example",
-            name="acceptanceTestPublicIpPrefix1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip_prefix = azure.network.public_ip_prefix.PublicIpPrefix("example",
+            name=acceptanceTestPublicIpPrefix1,
             location=example.location,
             resource_group_name=example.name,
             prefix_length=31,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -398,16 +398,16 @@ class PublicIpPrefix(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip_prefix = azure.network.PublicIpPrefix("example",
-            name="acceptanceTestPublicIpPrefix1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip_prefix = azure.network.public_ip_prefix.PublicIpPrefix("example",
+            name=acceptanceTestPublicIpPrefix1,
             location=example.location,
             resource_group_name=example.name,
             prefix_length=31,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

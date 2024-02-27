@@ -128,16 +128,6 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_firewall_policy(name="examplecdnfdwafpolicy",
-        resource_group_name=example_azurerm_resource_group["name"])
-    ```
-
 
     :param str name: The name of the Front Door Firewall Policy.
     :param str resource_group_name: The name of the resource group.
@@ -165,16 +155,6 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorFirewallPolicyResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.cdn.get_frontdoor_firewall_policy(name="examplecdnfdwafpolicy",
-        resource_group_name=example_azurerm_resource_group["name"])
-    ```
 
 
     :param str name: The name of the Front Door Firewall Policy.

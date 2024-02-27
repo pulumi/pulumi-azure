@@ -313,18 +313,18 @@ class ActionHttp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="workflow-resources",
-            location="West Europe")
-        example_workflow = azure.logicapps.Workflow("example",
-            name="workflow1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=workflow-resources,
+            location=West Europe)
+        example_workflow = azure.logicapps.workflow.Workflow("example",
+            name=workflow1,
             location=example.location,
             resource_group_name=example.name)
-        example_action_http = azure.logicapps.ActionHttp("example",
-            name="webhook",
+        example_action_http = azure.logicapps.action_http.ActionHttp("example",
+            name=webhook,
             logic_app_id=example_workflow.id,
-            method="GET",
-            uri="http://example.com/some-webhook")
+            method=GET,
+            uri=http://example.com/some-webhook)
         ```
 
         ## Import
@@ -363,18 +363,18 @@ class ActionHttp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="workflow-resources",
-            location="West Europe")
-        example_workflow = azure.logicapps.Workflow("example",
-            name="workflow1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=workflow-resources,
+            location=West Europe)
+        example_workflow = azure.logicapps.workflow.Workflow("example",
+            name=workflow1,
             location=example.location,
             resource_group_name=example.name)
-        example_action_http = azure.logicapps.ActionHttp("example",
-            name="webhook",
+        example_action_http = azure.logicapps.action_http.ActionHttp("example",
+            name=webhook,
             logic_app_id=example_workflow.id,
-            method="GET",
-            uri="http://example.com/some-webhook")
+            method=GET,
+            uri=http://example.com/some-webhook)
         ```
 
         ## Import

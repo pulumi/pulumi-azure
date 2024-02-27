@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.redis.Cache;
  * import com.pulumi.azure.redis.CacheArgs;
- * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
  * import com.pulumi.azure.redis.LinkedServer;
  * import com.pulumi.azure.redis.LinkedServerArgs;
  * import java.util.List;
@@ -56,11 +55,7 @@ import javax.annotation.Nullable;
  *             .family(&#34;P&#34;)
  *             .skuName(&#34;Premium&#34;)
  *             .enableNonSslPort(false)
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .maxmemoryReserved(2)
- *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
- *                 .build())
+ *             .redisConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example_secondary = new ResourceGroup(&#34;example-secondary&#34;, ResourceGroupArgs.builder()        
@@ -76,11 +71,7 @@ import javax.annotation.Nullable;
  *             .family(&#34;P&#34;)
  *             .skuName(&#34;Premium&#34;)
  *             .enableNonSslPort(false)
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .maxmemoryReserved(2)
- *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
- *                 .build())
+ *             .redisConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example_link = new LinkedServer(&#34;example-link&#34;, LinkedServerArgs.builder()        

@@ -642,14 +642,14 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.search.Service("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.search.service.Service("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            sku="standard")
+            sku=standard)
         ```
         ### Using Both AzureAD And API Keys)
 
@@ -657,16 +657,16 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.search.Service("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.search.service.Service("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            sku="standard",
+            sku=standard,
             local_authentication_enabled=True,
-            authentication_failure_mode="http403")
+            authentication_failure_mode=http403)
         ```
         ### Supporting Only AzureAD Authentication)
 
@@ -674,14 +674,14 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.search.Service("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.search.service.Service("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            sku="standard",
+            sku=standard,
             local_authentication_enabled=False)
         ```
 
@@ -741,14 +741,14 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.search.Service("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.search.service.Service("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            sku="standard")
+            sku=standard)
         ```
         ### Using Both AzureAD And API Keys)
 
@@ -756,16 +756,16 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.search.Service("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.search.service.Service("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            sku="standard",
+            sku=standard,
             local_authentication_enabled=True,
-            authentication_failure_mode="http403")
+            authentication_failure_mode=http403)
         ```
         ### Supporting Only AzureAD Authentication)
 
@@ -773,14 +773,14 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.search.Service("example",
-            name="example-resource",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.search.service.Service("example",
+            name=example-resource,
             resource_group_name=example.name,
             location=example.location,
-            sku="standard",
+            sku=standard,
             local_authentication_enabled=False)
         ```
 

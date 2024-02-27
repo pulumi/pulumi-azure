@@ -21,27 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	core/resourceGroupPolicyAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroupPolicyAssignment"
+//	policy/definition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/policy/definition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDefinition, err := policy/definition.NewDefinition(ctx, "example", &policy/definition.DefinitionArgs{
+// Name: "only-deploy-in-westeurope",
+// PolicyType: "Custom",
+// Mode: "All",
+// DisplayName: "my-policy-definition",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
-//				Name:        pulumi.String("only-deploy-in-westeurope"),
-//				PolicyType:  pulumi.String("Custom"),
-//				Mode:        pulumi.String("All"),
-//				DisplayName: pulumi.String("my-policy-definition"),
-//				PolicyRule: pulumi.String(` {
+//	PolicyRule: ` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",
@@ -53,17 +54,17 @@ import (
 //	    }
 //	  }
 //
-// `),
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/resourceGroupPolicyAssignment.NewResourceGroupPolicyAssignment(ctx, "example", &core/resourceGroupPolicyAssignment.ResourceGroupPolicyAssignmentArgs{
+// Name: "example",
+// ResourceGroupId: example.Id,
+// PolicyDefinitionId: exampleDefinition.Id,
 //
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
-//				Name:               pulumi.String("example"),
-//				ResourceGroupId:    example.ID(),
-//				PolicyDefinitionId: exampleDefinition.ID(),
-//				Parameters: pulumi.String(`    {
+//	Parameters: `    {
 //	      "tagName": {
 //	        "value": "Business Unit"
 //	      },
@@ -72,16 +73,14 @@ import (
 //	      }
 //	    }
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

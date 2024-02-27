@@ -17,21 +17,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const anonymous = new azure.datafactory.LinkedServiceOdbc("anonymous", {
+ * const anonymous = new azure.datafactory/linkedServiceOdbc.LinkedServiceOdbc("anonymous", {
  *     name: "anonymous",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
  * });
- * const basicAuth = new azure.datafactory.LinkedServiceOdbc("basic_auth", {
+ * const basicAuth = new azure.datafactory/linkedServiceOdbc.LinkedServiceOdbc("basic_auth", {
  *     name: "basic_auth",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",

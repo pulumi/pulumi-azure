@@ -12,49 +12,6 @@ namespace Pulumi.Azure.MySql
     /// <summary>
     /// Allows you to set a user or group as the AD administrator for an MySQL server in Azure
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleServer = new Azure.MySql.Server("example", new()
-    ///     {
-    ///         Name = "example-mysqlserver",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AdministratorLogin = "mysqladminun",
-    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         SslEnforcementEnabled = true,
-    ///         SkuName = "B_Gen5_2",
-    ///         StorageMb = 5120,
-    ///         Version = "5.7",
-    ///     });
-    /// 
-    ///     var exampleActiveDirectoryAdministrator = new Azure.MySql.ActiveDirectoryAdministrator("example", new()
-    ///     {
-    ///         ServerName = exampleServer.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Login = "sqladmin",
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.

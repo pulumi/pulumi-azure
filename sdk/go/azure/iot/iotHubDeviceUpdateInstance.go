@@ -21,72 +21,72 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iot/ioTHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/ioTHub"
+//	iot/iotHubDeviceUpdateAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/iotHubDeviceUpdateAccount"
+//	iot/iotHubDeviceUpdateInstance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/iotHubDeviceUpdateInstance"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIotHubDeviceUpdateAccount, err := iot.NewIotHubDeviceUpdateAccount(ctx, "example", &iot.IotHubDeviceUpdateAccountArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("S1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewIotHubDeviceUpdateInstance(ctx, "example", &iot.IotHubDeviceUpdateInstanceArgs{
-//				Name:                  pulumi.String("example"),
-//				DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.ID(),
-//				IothubId:              exampleIoTHub.ID(),
-//				DiagnosticEnabled:     pulumi.Bool(true),
-//				DiagnosticStorageAccount: &iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{
-//					ConnectionString: exampleAccount.PrimaryConnectionString,
-//					Id:               exampleAccount.ID(),
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIotHubDeviceUpdateAccount, err := iot/iotHubDeviceUpdateAccount.NewIotHubDeviceUpdateAccount(ctx, "example", &iot/iotHubDeviceUpdateAccount.IotHubDeviceUpdateAccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleIoTHub, err := iot/ioTHub.NewIoTHub(ctx, "example", &iot/ioTHub.IoTHubArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "S1",
+// "capacity": "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/iotHubDeviceUpdateInstance.NewIotHubDeviceUpdateInstance(ctx, "example", &iot/iotHubDeviceUpdateInstance.IotHubDeviceUpdateInstanceArgs{
+// Name: "example",
+// DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.Id,
+// IothubId: exampleIoTHub.Id,
+// DiagnosticEnabled: true,
+// DiagnosticStorageAccount: map[string]interface{}{
+// "connectionString": exampleAccount.PrimaryConnectionString,
+// "id": exampleAccount.Id,
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "azuretest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "azureteststorage",
     ///         ResourceGroupName = example.Name,
@@ -39,25 +39,25 @@ namespace Pulumi.Azure.Storage
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("example", new()
+    ///     var exampleShare = new Azure.Storage.Share.Share("example", new()
     ///     {
     ///         Name = "sharename",
     ///         StorageAccountName = exampleAccount.Name,
     ///         Quota = 50,
     ///         Acls = new[]
     ///         {
-    ///             new Azure.Storage.Inputs.ShareAclArgs
+    ///             
     ///             {
-    ///                 Id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-    ///                 AccessPolicies = new[]
+    ///                 { "id", "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI" },
+    ///                 { "accessPolicies", new[]
     ///                 {
-    ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
+    ///                     
     ///                     {
-    ///                         Permissions = "rwdl",
-    ///                         Start = "2019-07-02T09:38:21.0000000Z",
-    ///                         Expiry = "2019-07-02T10:38:21.0000000Z",
+    ///                         { "permissions", "rwdl" },
+    ///                         { "start", "2019-07-02T09:38:21.0000000Z" },
+    ///                         { "expiry", "2019-07-02T10:38:21.0000000Z" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

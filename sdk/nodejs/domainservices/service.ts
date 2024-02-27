@@ -14,23 +14,23 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const deploy = new azure.core.ResourceGroup("deploy", {
+ * const deploy = new azure.core/resourceGroup.ResourceGroup("deploy", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const deployVirtualNetwork = new azure.network.VirtualNetwork("deploy", {
+ * const deployVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("deploy", {
  *     name: "deploy-vnet",
  *     location: deploy.location,
  *     resourceGroupName: deploy.name,
  *     addressSpaces: ["10.0.1.0/16"],
  * });
- * const deploySubnet = new azure.network.Subnet("deploy", {
+ * const deploySubnet = new azure.network/subnet.Subnet("deploy", {
  *     name: "deploy-subnet",
  *     resourceGroupName: deploy.name,
  *     virtualNetworkName: deployVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const deployNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("deploy", {
+ * const deployNetworkSecurityGroup = new azure.network/networkSecurityGroup.NetworkSecurityGroup("deploy", {
  *     name: "deploy-nsg",
  *     location: deploy.location,
  *     resourceGroupName: deploy.name,
@@ -81,29 +81,29 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const deploySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("deploy", {
+ * const deploySubnetNetworkSecurityGroupAssociation = new azure.network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociation("deploy", {
  *     subnetId: deploySubnet.id,
  *     networkSecurityGroupId: deployNetworkSecurityGroup.id,
  * });
- * const dcAdmins = new azuread.Group("dc_admins", {
+ * const dcAdmins = new azuread.index/group.Group("dc_admins", {
  *     displayName: "AAD DC Administrators",
  *     securityEnabled: true,
  * });
- * const admin = new azuread.User("admin", {
+ * const admin = new azuread.index/user.User("admin", {
  *     userPrincipalName: "dc-admin@hashicorp-example.com",
  *     displayName: "DC Administrator",
  *     password: "Pa55w0Rd!!1",
  * });
- * const adminGroupMember = new azuread.GroupMember("admin", {
+ * const adminGroupMember = new azuread.index/groupMember.GroupMember("admin", {
  *     groupObjectId: dcAdmins.objectId,
  *     memberObjectId: admin.objectId,
  * });
- * const example = new azuread.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
- * const aadds = new azure.core.ResourceGroup("aadds", {
+ * const example = new azuread.index/servicePrincipal.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * const aadds = new azure.core/resourceGroup.ResourceGroup("aadds", {
  *     name: "aadds-rg",
  *     location: "westeurope",
  * });
- * const exampleService = new azure.domainservices.Service("example", {
+ * const exampleService = new azure.domainservices/service.Service("example", {
  *     name: "example-aadds",
  *     location: aadds.location,
  *     resourceGroupName: aadds.name,

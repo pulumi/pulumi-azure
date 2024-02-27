@@ -315,15 +315,15 @@ class LocalNetworkGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="localNetworkGWTest",
-            location="West Europe")
-        home = azure.network.LocalNetworkGateway("home",
-            name="backHome",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=localNetworkGWTest,
+            location=West Europe)
+        home = azure.network.local_network_gateway.LocalNetworkGateway("home",
+            name=backHome,
             resource_group_name=example.name,
             location=example.location,
-            gateway_address="12.13.14.15",
-            address_spaces=["10.0.0.0/16"])
+            gateway_address=12.13.14.15,
+            address_spaces=[10.0.0.0/16])
         ```
 
         ## Import
@@ -362,15 +362,15 @@ class LocalNetworkGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="localNetworkGWTest",
-            location="West Europe")
-        home = azure.network.LocalNetworkGateway("home",
-            name="backHome",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=localNetworkGWTest,
+            location=West Europe)
+        home = azure.network.local_network_gateway.LocalNetworkGateway("home",
+            name=backHome,
             resource_group_name=example.name,
             location=example.location,
-            gateway_address="12.13.14.15",
-            address_spaces=["10.0.0.0/16"])
+            gateway_address=12.13.14.15,
+            address_spaces=[10.0.0.0/16])
         ```
 
         ## Import

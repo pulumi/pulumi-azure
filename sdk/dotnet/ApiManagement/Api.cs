@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
     ///     {
     ///         Name = "example-apim",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
+    ///     var exampleApi = new Azure.Apimanagement.Api.Api("example", new()
     ///     {
     ///         Name = "example-api",
     ///         ResourceGroupName = example.Name,
@@ -50,10 +50,10 @@ namespace Pulumi.Azure.ApiManagement
     ///         {
     ///             "https",
     ///         },
-    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
+    ///         Import = 
     ///         {
-    ///             ContentFormat = "swagger-link-json",
-    ///             ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
+    ///             { "contentFormat", "swagger-link-json" },
+    ///             { "contentValue", "http://conferenceapi.azurewebsites.net/?format=json" },
     ///         },
     ///     });
     /// 

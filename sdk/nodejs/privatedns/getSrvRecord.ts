@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.SRVRecord("example", {
+ * const example = new azure.privatedns/sRVRecord.SRVRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
@@ -84,7 +84,7 @@ export interface GetSrvRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.SRVRecord("example", {
+ * const example = new azure.privatedns/sRVRecord.SRVRecord("example", {
  *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",

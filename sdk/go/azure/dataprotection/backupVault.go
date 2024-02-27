@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dataprotection/backupVault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupVault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
-//				Name:              pulumi.String("example-backup-vault"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				DatastoreType:     pulumi.String("VaultStore"),
-//				Redundancy:        pulumi.String("LocallyRedundant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dataprotection/backupVault.NewBackupVault(ctx, "example", &dataprotection/backupVault.BackupVaultArgs{
+// Name: "example-backup-vault",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DatastoreType: "VaultStore",
+// Redundancy: "LocallyRedundant",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

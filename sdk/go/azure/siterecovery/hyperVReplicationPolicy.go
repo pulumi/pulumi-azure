@@ -21,45 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	recoveryservices/vault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/recoveryservices/vault"
+//	siterecovery/hyperVReplicationPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/siterecovery/hyperVReplicationPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Name:              pulumi.String("example-recovery-vault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = siterecovery.NewHyperVReplicationPolicy(ctx, "policy", &siterecovery.HyperVReplicationPolicyArgs{
-//				Name:                          pulumi.String("policy"),
-//				RecoveryVaultId:               vault.ID(),
-//				RecoveryPointRetentionInHours: pulumi.Int(2),
-//				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
-//				ReplicationIntervalInSeconds:                  pulumi.Int(300),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "East US",
+// })
+// if err != nil {
+// return err
+// }
+// vault, err := recoveryservices/vault.NewVault(ctx, "vault", &recoveryservices/vault.VaultArgs{
+// Name: "example-recovery-vault",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = siterecovery/hyperVReplicationPolicy.NewHyperVReplicationPolicy(ctx, "policy", &siterecovery/hyperVReplicationPolicy.HyperVReplicationPolicyArgs{
+// Name: "policy",
+// RecoveryVaultId: vault.Id,
+// RecoveryPointRetentionInHours: 2,
+// ApplicationConsistentSnapshotFrequencyInHours: 1,
+// ReplicationIntervalInSeconds: 300,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

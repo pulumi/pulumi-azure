@@ -23,129 +23,128 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/frontdoor"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	frontdoor/frontdoor "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/frontdoor/frontdoor"
+//	frontdoor/rulesEngine "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/frontdoor/rulesEngine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
-//					&frontdoor.FrontdoorBackendPoolArgs{
-//						Name:              pulumi.String("exampleBackendBing"),
-//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
-//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
-//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
-//							&frontdoor.FrontdoorBackendPoolBackendArgs{
-//								HostHeader: pulumi.String("www.bing.com"),
-//								Address:    pulumi.String("www.bing.com"),
-//								HttpPort:   pulumi.Int(80),
-//								HttpsPort:  pulumi.Int(443),
-//							},
-//						},
-//					},
-//				},
-//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
-//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
-//						Name: pulumi.String("exampleHealthProbeSetting1"),
-//					},
-//				},
-//				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
-//					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
-//						Name: pulumi.String("exampleLoadBalancingSettings1"),
-//					},
-//				},
-//				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
-//					&frontdoor.FrontdoorFrontendEndpointArgs{
-//						Name:     pulumi.String("exampleFrontendEndpoint1"),
-//						HostName: pulumi.String("example-FrontDoor.azurefd.net"),
-//					},
-//				},
-//				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
-//					&frontdoor.FrontdoorRoutingRuleArgs{
-//						Name: pulumi.String("exampleRoutingRule1"),
-//						AcceptedProtocols: pulumi.StringArray{
-//							pulumi.String("Http"),
-//							pulumi.String("Https"),
-//						},
-//						PatternsToMatches: pulumi.StringArray{
-//							pulumi.String("/*"),
-//						},
-//						FrontendEndpoints: pulumi.StringArray{
-//							pulumi.String("exampleFrontendEndpoint1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = frontdoor.NewRulesEngine(ctx, "example_rules_engine", &frontdoor.RulesEngineArgs{
-//				Name:              pulumi.String("exampleRulesEngineConfig1"),
-//				FrontdoorName:     exampleFrontdoor.Name,
-//				ResourceGroupName: exampleFrontdoor.ResourceGroupName,
-//				Rules: frontdoor.RulesEngineRuleArray{
-//					&frontdoor.RulesEngineRuleArgs{
-//						Name:     pulumi.String("debuggingoutput"),
-//						Priority: pulumi.Int(1),
-//						Action: &frontdoor.RulesEngineRuleActionArgs{
-//							ResponseHeaders: frontdoor.RulesEngineRuleActionResponseHeaderArray{
-//								&frontdoor.RulesEngineRuleActionResponseHeaderArgs{
-//									HeaderActionType: pulumi.String("Append"),
-//									HeaderName:       pulumi.String("X-TEST-HEADER"),
-//									Value:            pulumi.String("Append Header Rule"),
-//								},
-//							},
-//						},
-//					},
-//					&frontdoor.RulesEngineRuleArgs{
-//						Name:     pulumi.String("overwriteorigin"),
-//						Priority: pulumi.Int(2),
-//						MatchConditions: frontdoor.RulesEngineRuleMatchConditionArray{
-//							&frontdoor.RulesEngineRuleMatchConditionArgs{
-//								Variable: pulumi.String("RequestMethod"),
-//								Operator: pulumi.String("Equal"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("GET"),
-//									pulumi.String("POST"),
-//								},
-//							},
-//						},
-//						Action: &frontdoor.RulesEngineRuleActionArgs{
-//							ResponseHeaders: frontdoor.RulesEngineRuleActionResponseHeaderArray{
-//								&frontdoor.RulesEngineRuleActionResponseHeaderArgs{
-//									HeaderActionType: pulumi.String("Overwrite"),
-//									HeaderName:       pulumi.String("Access-Control-Allow-Origin"),
-//									Value:            pulumi.String("*"),
-//								},
-//								&frontdoor.RulesEngineRuleActionResponseHeaderArgs{
-//									HeaderActionType: pulumi.String("Overwrite"),
-//									HeaderName:       pulumi.String("Access-Control-Allow-Credentials"),
-//									Value:            pulumi.String("true"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFrontdoor, err := frontdoor/frontdoor.NewFrontdoor(ctx, "example", &frontdoor/frontdoor.FrontdoorArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// BackendPools: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleBackendBing",
+// "loadBalancingName": "exampleLoadBalancingSettings1",
+// "healthProbeName": "exampleHealthProbeSetting1",
+// "backends": []map[string]interface{}{
+// map[string]interface{}{
+// "hostHeader": "www.bing.com",
+// "address": "www.bing.com",
+// "httpPort": 80,
+// "httpsPort": 443,
+// },
+// },
+// },
+// },
+// BackendPoolHealthProbes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleHealthProbeSetting1",
+// },
+// },
+// BackendPoolLoadBalancings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleLoadBalancingSettings1",
+// },
+// },
+// FrontendEndpoints: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleFrontendEndpoint1",
+// "hostName": "example-FrontDoor.azurefd.net",
+// },
+// },
+// RoutingRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleRoutingRule1",
+// "acceptedProtocols": []string{
+// "Http",
+// "Https",
+// },
+// "patternsToMatches": []string{
+// "/*",
+// },
+// "frontendEndpoints": []string{
+// "exampleFrontendEndpoint1",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = frontdoor/rulesEngine.NewRulesEngine(ctx, "example_rules_engine", &frontdoor/rulesEngine.RulesEngineArgs{
+// Name: "exampleRulesEngineConfig1",
+// FrontdoorName: exampleFrontdoor.Name,
+// ResourceGroupName: exampleFrontdoor.ResourceGroupName,
+// Rules: []interface{}{
+// map[string]interface{}{
+// "name": "debuggingoutput",
+// "priority": 1,
+// "action": map[string]interface{}{
+// "responseHeaders": []map[string]interface{}{
+// map[string]interface{}{
+// "headerActionType": "Append",
+// "headerName": "X-TEST-HEADER",
+// "value": "Append Header Rule",
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "overwriteorigin",
+// "priority": 2,
+// "matchConditions": []map[string]interface{}{
+// map[string]interface{}{
+// "variable": "RequestMethod",
+// "operator": "Equal",
+// "values": []string{
+// "GET",
+// "POST",
+// },
+// },
+// },
+// "action": map[string]interface{}{
+// "responseHeaders": []map[string]interface{}{
+// map[string]interface{}{
+// "headerActionType": "Overwrite",
+// "headerName": "Access-Control-Allow-Origin",
+// "value": "*",
+// },
+// map[string]interface{}{
+// "headerActionType": "Overwrite",
+// "headerName": "Access-Control-Allow-Credentials",
+// "value": "true",
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

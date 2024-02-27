@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.ZoneArgs;
  * import com.pulumi.azure.dns.CaaRecord;
  * import com.pulumi.azure.dns.CaaRecordArgs;
- * import com.pulumi.azure.dns.inputs.CaaRecordRecordArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,27 +61,11 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .records(            
- *                 CaaRecordRecordArgs.builder()
- *                     .flags(0)
- *                     .tag(&#34;issue&#34;)
- *                     .value(&#34;example.com&#34;)
- *                     .build(),
- *                 CaaRecordRecordArgs.builder()
- *                     .flags(0)
- *                     .tag(&#34;issue&#34;)
- *                     .value(&#34;example.net&#34;)
- *                     .build(),
- *                 CaaRecordRecordArgs.builder()
- *                     .flags(0)
- *                     .tag(&#34;issuewild&#34;)
- *                     .value(&#34;;&#34;)
- *                     .build(),
- *                 CaaRecordRecordArgs.builder()
- *                     .flags(0)
- *                     .tag(&#34;iodef&#34;)
- *                     .value(&#34;mailto:user@nonexisting.tld&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

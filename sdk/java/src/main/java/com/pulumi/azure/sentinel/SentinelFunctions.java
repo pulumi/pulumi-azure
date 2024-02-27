@@ -23,90 +23,12 @@ public final class SentinelFunctions {
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args) {
         return getAlertRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args) {
@@ -115,90 +37,12 @@ public final class SentinelFunctions {
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRule:getAlertRule", TypeShape.of(GetAlertRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.operationalinsights.OperationalinsightsFunctions;
-     * import com.pulumi.azure.operationalinsights.inputs.GetAnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
-     *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args, InvokeOptions options) {
@@ -207,122 +51,12 @@ public final class SentinelFunctions {
     /**
      * Use this data source to access information about an existing Anomaly Alert Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
-     *             .build());
-     * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
-     *             .workspaceId(exampleAnalyticsWorkspace.id())
-     *             .customerManagedKeyEnabled(false)
-     *             .build());
-     * 
-     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
-     *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args) {
         return getAlertRuleAnomaly(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Anomaly Alert Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
-     *             .build());
-     * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
-     *             .workspaceId(exampleAnalyticsWorkspace.id())
-     *             .customerManagedKeyEnabled(false)
-     *             .build());
-     * 
-     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
-     *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args) {
@@ -331,122 +65,12 @@ public final class SentinelFunctions {
     /**
      * Use this data source to access information about an existing Anomaly Alert Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
-     *             .build());
-     * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
-     *             .workspaceId(exampleAnalyticsWorkspace.id())
-     *             .customerManagedKeyEnabled(false)
-     *             .build());
-     * 
-     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
-     *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", TypeShape.of(GetAlertRuleAnomalyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Anomaly Alert Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.core.ResourceGroup;
-     * import com.pulumi.azure.core.ResourceGroupArgs;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
-     * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
-     * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
-     *             .name(&#34;example-resources&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
-     *             .name(&#34;example-law&#34;)
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .sku(&#34;PerGB2018&#34;)
-     *             .build());
-     * 
-     *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
-     *             .workspaceId(exampleAnalyticsWorkspace.id())
-     *             .customerManagedKeyEnabled(false)
-     *             .build());
-     * 
-     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
-     *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
-     *             .displayName(&#34;Potential data staging&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args, InvokeOptions options) {
@@ -455,76 +79,12 @@ public final class SentinelFunctions {
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args) {
         return getAlertRuleTemplate(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAlertRuleTemplateResult> getAlertRuleTemplatePlain(GetAlertRuleTemplatePlainArgs args) {
@@ -533,76 +93,12 @@ public final class SentinelFunctions {
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", TypeShape.of(GetAlertRuleTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Sentinel Alert Rule Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.sentinel.SentinelFunctions;
-     * import com.pulumi.azure.sentinel.inputs.GetAlertRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
-     *             .logAnalyticsWorkspaceId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1&#34;)
-     *             .displayName(&#34;Create incidents based on Azure Security Center for IoT alerts&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAlertRuleTemplateResult> getAlertRuleTemplatePlain(GetAlertRuleTemplatePlainArgs args, InvokeOptions options) {

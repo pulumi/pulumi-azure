@@ -366,48 +366,6 @@ class StreamInputEventHubV2(pulumi.CustomResource):
 
         Manages a Stream Analytics Stream Input EventHub V2.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="example-eventhub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="example-consumergroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_stream_input_event_hub_v2 = azure.streamanalytics.StreamInputEventHubV2("example",
-            name="eventhub-stream-input",
-            stream_analytics_job_id=example.id,
-            eventhub_consumer_group_name=example_consumer_group.name,
-            eventhub_name=example_event_hub.name,
-            servicebus_namespace=example_event_hub_namespace.name,
-            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.
@@ -439,48 +397,6 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         > **Note:** This resource creates a Stream Input of type `Microsoft.EventHub/EventHub`, to create a Stream Input of type `Microsoft.ServiceBus/EventHub` please use the resource azurerm_stream_analytics_stream_input_eventhub.
 
         Manages a Stream Analytics Stream Input EventHub V2.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard",
-            capacity=1)
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="example-eventhub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="example-consumergroup",
-            namespace_name=example_event_hub_namespace.name,
-            eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_stream_input_event_hub_v2 = azure.streamanalytics.StreamInputEventHubV2("example",
-            name="eventhub-stream-input",
-            stream_analytics_job_id=example.id,
-            eventhub_consumer_group_name=example_consumer_group.name,
-            eventhub_name=example_event_hub.name,
-            servicebus_namespace=example_event_hub_namespace.name,
-            shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
 
         ## Import
 

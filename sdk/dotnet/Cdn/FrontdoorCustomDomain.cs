@@ -20,79 +20,40 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-cdn-frontdoor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     var exampleZone = new Azure.Dns.Zone.Zone("example", new()
     ///     {
     ///         Name = "sub-domain.domain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
+    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain.FrontdoorCustomDomain("example", new()
     ///     {
     ///         Name = "example-customDomain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
     ///         HostName = "contoso.fabrikam.com",
-    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         Tls = 
     ///         {
-    ///             CertificateType = "ManagedCertificate",
-    ///             MinimumTlsVersion = "TLS12",
+    ///             { "certificateType", "ManagedCertificate" },
+    ///             { "minimumTlsVersion", "TLS12" },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// ## Example DNS Auth TXT Record Usage
-    /// 
-    /// The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Dns.TxtRecord("example", new()
-    ///     {
-    ///         Name = Std.Join.Invoke(new()
-    ///         {
-    ///             Separator = ".",
-    ///             Input = new[]
-    ///             {
-    ///                 "_dnsauth",
-    ///                 "contoso",
-    ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         ZoneName = exampleAzurermDnsZone.Name,
-    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         Ttl = 3600,
-    ///         Records = new[]
-    ///         {
-    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
-    ///             {
-    ///                 Value = exampleAzurermCdnFrontdoorCustomDomain.ValidationToken,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Example CNAME Record Usage
     /// 
     /// !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
@@ -105,7 +66,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Dns.CNameRecord("example", new()
+    ///     var example = new Azure.Dns.CNameRecord.CNameRecord("example", new()
     ///     {
     ///         Name = "contoso",
     ///         ZoneName = exampleAzurermDnsZone.Name,

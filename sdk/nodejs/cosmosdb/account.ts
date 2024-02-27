@@ -16,16 +16,16 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const rg = new azure.core.ResourceGroup("rg", {
+ * const rg = new azure.core/resourceGroup.ResourceGroup("rg", {
  *     name: "sample-rg",
  *     location: "westus",
  * });
- * const ri = new random.RandomInteger("ri", {
+ * const ri = new random.index/randomInteger.RandomInteger("ri", {
  *     min: 10000,
  *     max: 99999,
  * });
- * const db = new azure.cosmosdb.Account("db", {
- *     name: pulumi.interpolate`tfex-cosmos-db-${ri.result}`,
+ * const db = new azure.cosmosdb/account.Account("db", {
+ *     name: `tfex-cosmos-db-${ri.result}`,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     offerType: "Standard",
@@ -60,47 +60,6 @@ import * as utilities from "../utilities";
  *             failoverPriority: 0,
  *         },
  *     ],
- * });
- * ```
- * ## User Assigned Identity Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.authorization.UserAssignedIdentity("example", {
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     location: exampleAzurermResourceGroup.location,
- *     name: "example-resource",
- * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-resource",
- *     location: exampleAzurermResourceGroup.location,
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     defaultIdentityType: std.joinOutput({
- *         separator: "=",
- *         input: [
- *             "UserAssignedIdentity",
- *             example.id,
- *         ],
- *     }).apply(invoke => invoke.result),
- *     offerType: "Standard",
- *     kind: "MongoDB",
- *     capabilities: [{
- *         name: "EnableMongo",
- *     }],
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
- *     geoLocations: [{
- *         location: "westus",
- *         failoverPriority: 0,
- *     }],
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [example.id],
- *     },
  * });
  * ```
  *

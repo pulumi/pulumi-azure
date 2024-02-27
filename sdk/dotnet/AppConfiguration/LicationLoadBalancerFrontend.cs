@@ -22,14 +22,14 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.AppConfiguration.LicationLoadBalancer("example", new()
+    ///     var example = new Azure.Appconfiguration.LicationLoadBalancer.LicationLoadBalancer("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLicationLoadBalancerFrontend = new Azure.AppConfiguration.LicationLoadBalancerFrontend("example", new()
+    ///     var exampleLicationLoadBalancerFrontend = new Azure.Appconfiguration.LicationLoadBalancerFrontend.LicationLoadBalancerFrontend("example", new()
     ///     {
     ///         Name = "example",
     ///         ApplicationLoadBalancerId = example.Id,

@@ -31,17 +31,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.webpubsub.Service;
  * import com.pulumi.azure.webpubsub.ServiceArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.privatelink.Endpoint;
  * import com.pulumi.azure.privatelink.EndpointArgs;
- * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
  * import com.pulumi.azure.webpubsub.NetworkAcl;
  * import com.pulumi.azure.webpubsub.NetworkAclArgs;
- * import com.pulumi.azure.webpubsub.inputs.NetworkAclPublicNetworkArgs;
- * import com.pulumi.azure.webpubsub.inputs.NetworkAclPrivateEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,26 +85,14 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .subnetId(exampleSubnet.id())
- *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
- *                 .name(&#34;psc-sig-test&#34;)
- *                 .isManualConnection(false)
- *                 .privateConnectionResourceId(exampleService.id())
- *                 .subresourceNames(&#34;webpubsub&#34;)
- *                 .build())
+ *             .privateServiceConnection(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkAcl = new NetworkAcl(&#34;exampleNetworkAcl&#34;, NetworkAclArgs.builder()        
  *             .webPubsubId(exampleService.id())
  *             .defaultAction(&#34;Allow&#34;)
- *             .publicNetwork(NetworkAclPublicNetworkArgs.builder()
- *                 .deniedRequestTypes(&#34;ClientConnection&#34;)
- *                 .build())
- *             .privateEndpoints(NetworkAclPrivateEndpointArgs.builder()
- *                 .id(exampleEndpoint.id())
- *                 .deniedRequestTypes(                
- *                     &#34;RESTAPI&#34;,
- *                     &#34;ClientConnection&#34;)
- *                 .build())
+ *             .publicNetwork(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .privateEndpoints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

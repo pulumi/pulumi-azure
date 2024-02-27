@@ -21,54 +21,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	operationalinsights/analyticsWorkspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/operationalinsights/analyticsWorkspace"
+//	sentinel/logAnalyticsWorkspaceOnboarding "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/logAnalyticsWorkspaceOnboarding"
+//	sentinel/threatIntelligenceIndicator "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sentinel/threatIntelligenceIndicator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-law"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//				RetentionInDays:   pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				ResourceGroupName: example.Name,
-//				WorkspaceName:     exampleAnalyticsWorkspace.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sentinel.NewThreatIntelligenceIndicator(ctx, "example", &sentinel.ThreatIntelligenceIndicatorArgs{
-//				WorkspaceId:     exampleAnalyticsWorkspace.ID(),
-//				PatternType:     pulumi.String("domain-name"),
-//				Pattern:         pulumi.String("http://example.com"),
-//				Source:          pulumi.String("Microsoft Sentinel"),
-//				ValidateFromUtc: pulumi.String("2022-12-14T16:00:00Z"),
-//				DisplayName:     pulumi.String("example-indicator"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-rg",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAnalyticsWorkspace, err := operationalinsights/analyticsWorkspace.NewAnalyticsWorkspace(ctx, "example", &operationalinsights/analyticsWorkspace.AnalyticsWorkspaceArgs{
+// Name: "example-law",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "PerGB2018",
+// RetentionInDays: 30,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sentinel/logAnalyticsWorkspaceOnboarding.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel/logAnalyticsWorkspaceOnboarding.LogAnalyticsWorkspaceOnboardingArgs{
+// ResourceGroupName: example.Name,
+// WorkspaceName: exampleAnalyticsWorkspace.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sentinel/threatIntelligenceIndicator.NewThreatIntelligenceIndicator(ctx, "example", &sentinel/threatIntelligenceIndicator.ThreatIntelligenceIndicatorArgs{
+// WorkspaceId: exampleAnalyticsWorkspace.Id,
+// PatternType: "domain-name",
+// Pattern: "http://example.com",
+// Source: "Microsoft Sentinel",
+// ValidateFromUtc: "2022-12-14T16:00:00Z",
+// DisplayName: "example-indicator",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -26,20 +26,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup.NetworkSecurityGroup("example", new()
     ///     {
     ///         Name = "acceptanceTestSecurityGroup1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleNetworkSecurityRule = new Azure.Network.NetworkSecurityRule("example", new()
+    ///     var exampleNetworkSecurityRule = new Azure.Network.NetworkSecurityRule.NetworkSecurityRule("example", new()
     ///     {
     ///         Name = "test123",
     ///         Priority = 100,

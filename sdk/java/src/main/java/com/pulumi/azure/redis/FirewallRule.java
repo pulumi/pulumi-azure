@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.redis.Cache;
  * import com.pulumi.azure.redis.CacheArgs;
- * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
  * import com.pulumi.azure.redis.FirewallRule;
  * import com.pulumi.azure.redis.FirewallRuleArgs;
  * import java.util.List;
@@ -46,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var server = new RandomId(&#34;server&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;azi_id&#34;, 1))
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 
@@ -56,18 +55,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .name(server.hex().applyValue(hex -&gt; String.format(&#34;redis%s&#34;, hex)))
+ *             .name(String.format(&#34;redis%s&#34;, server.hex()))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)
  *             .family(&#34;P&#34;)
  *             .skuName(&#34;Premium&#34;)
  *             .enableNonSslPort(false)
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .maxmemoryReserved(2)
- *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy(&#34;allkeys-lru&#34;)
- *                 .build())
+ *             .redisConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        

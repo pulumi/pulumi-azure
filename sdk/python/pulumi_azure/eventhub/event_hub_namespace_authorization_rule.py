@@ -342,20 +342,20 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="resourcegroup",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="acceptanceTestEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=resourcegroup,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=acceptanceTestEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Basic",
+            sku=Basic,
             capacity=2,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_event_hub_namespace_authorization_rule = azure.eventhub.EventHubNamespaceAuthorizationRule("example",
-            name="navi",
+        example_event_hub_namespace_authorization_rule = azure.eventhub.event_hub_namespace_authorization_rule.EventHubNamespaceAuthorizationRule("example",
+            name=navi,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             listen=True,
@@ -397,20 +397,20 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="resourcegroup",
-            location="West Europe")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="acceptanceTestEventHubNamespace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=resourcegroup,
+            location=West Europe)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=acceptanceTestEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Basic",
+            sku=Basic,
             capacity=2,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_event_hub_namespace_authorization_rule = azure.eventhub.EventHubNamespaceAuthorizationRule("example",
-            name="navi",
+        example_event_hub_namespace_authorization_rule = azure.eventhub.event_hub_namespace_authorization_rule.EventHubNamespaceAuthorizationRule("example",
+            name=navi,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             listen=True,

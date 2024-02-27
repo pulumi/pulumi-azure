@@ -38,76 +38,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access the properties of an Action Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args) {
         return getActionGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access the properties of an Action Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args) {
@@ -116,76 +52,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access the properties of an Action Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetActionGroupResult> getActionGroup(GetActionGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getActionGroup:getActionGroup", TypeShape.of(GetActionGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access the properties of an Action Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getActionGroup(GetActionGroupArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-actiongroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;actionGroupId&#34;, example.applyValue(getActionGroupResult -&gt; getActionGroupResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args, InvokeOptions options) {
@@ -194,76 +66,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args) {
         return getDataCollectionEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args) {
@@ -272,76 +80,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", TypeShape.of(GetDataCollectionEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
-     *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args, InvokeOptions options) {
@@ -350,76 +94,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args) {
         return getDataCollectionRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Collection Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args) {
@@ -428,76 +108,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getDataCollectionRule:getDataCollectionRule", TypeShape.of(GetDataCollectionRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Data Collection Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
-     *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args, InvokeOptions options) {
@@ -506,86 +122,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(exampleAzurermKeyVault.name())
-     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
-     *             .build());
-     * 
-     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args) {
         return getDiagnosticCategories(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(exampleAzurermKeyVault.name())
-     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
-     *             .build());
-     * 
-     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args) {
@@ -594,86 +136,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(exampleAzurermKeyVault.name())
-     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
-     *             .build());
-     * 
-     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDiagnosticCategoriesResult> getDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", TypeShape.of(GetDiagnosticCategoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
-     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(exampleAzurermKeyVault.name())
-     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
-     *             .build());
-     * 
-     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args, InvokeOptions options) {
@@ -684,37 +152,6 @@ public final class MonitoringFunctions {
      * 
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLogProfileResult> getLogProfile(GetLogProfileArgs args) {
         return getLogProfile(args, InvokeOptions.Empty);
@@ -723,37 +160,6 @@ public final class MonitoringFunctions {
      * Use this data source to access the properties of a Log Profile.
      * 
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLogProfileResult> getLogProfilePlain(GetLogProfilePlainArgs args) {
@@ -764,37 +170,6 @@ public final class MonitoringFunctions {
      * 
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLogProfileResult> getLogProfile(GetLogProfileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getLogProfile:getLogProfile", TypeShape.of(GetLogProfileResult.class), args, Utilities.withVersion(options));
@@ -804,75 +179,12 @@ public final class MonitoringFunctions {
      * 
      * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name(&#34;test-logprofile&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;logProfileStorageAccountId&#34;, example.applyValue(getLogProfileResult -&gt; getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLogProfileResult> getLogProfilePlain(GetLogProfilePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getLogProfile:getLogProfile", TypeShape.of(GetLogProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args) {
@@ -881,76 +193,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args) {
         return getScheduledQueryRulesAlertPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOptions options) {
@@ -959,76 +207,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access the properties of an AlertingAction scheduled query rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesAlertResult -&gt; getScheduledQueryRulesAlertResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetScheduledQueryRulesAlertResult> getScheduledQueryRulesAlertPlain(GetScheduledQueryRulesAlertPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", TypeShape.of(GetScheduledQueryRulesAlertResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args) {
@@ -1037,76 +221,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args) {
         return getScheduledQueryRulesLogPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOptions options) {
@@ -1115,76 +235,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs.builder()
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .name(&#34;tfex-queryrule&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryRuleId&#34;, example.applyValue(getScheduledQueryRulesLogResult -&gt; getScheduledQueryRulesLogResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetScheduledQueryRulesLogResult> getScheduledQueryRulesLogPlain(GetScheduledQueryRulesLogPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", TypeShape.of(GetScheduledQueryRulesLogResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Workspace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -1193,38 +249,6 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Workspace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
         return getWorkspacePlain(args, InvokeOptions.Empty);
@@ -1232,76 +256,12 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Workspace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Workspace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

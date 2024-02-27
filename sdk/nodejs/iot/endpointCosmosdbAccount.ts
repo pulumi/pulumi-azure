@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "exampleIothub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "B1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  *     tags: {
  *         purpose: "example",
  *     },
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "cosmosdb-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -45,19 +45,19 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ * const exampleSqlDatabase = new azure.cosmosdb/sqlDatabase.SqlDatabase("example", {
  *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ * const exampleSqlContainer = new azure.cosmosdb/sqlContainer.SqlContainer("example", {
  *     name: "example-container",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/definition/id",
  * });
- * const exampleEndpointCosmosdbAccount = new azure.iot.EndpointCosmosdbAccount("example", {
+ * const exampleEndpointCosmosdbAccount = new azure.iot/endpointCosmosdbAccount.EndpointCosmosdbAccount("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,

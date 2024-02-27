@@ -139,18 +139,18 @@ class DomainTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_domain = azure.eventgrid.Domain("example",
-            name="my-eventgrid-domain",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_domain = azure.eventgrid.domain.Domain("example",
+            name=my-eventgrid-domain,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_domain_topic = azure.eventgrid.DomainTopic("example",
-            name="my-eventgrid-domain-topic",
+        example_domain_topic = azure.eventgrid.domain_topic.DomainTopic("example",
+            name=my-eventgrid-domain-topic,
             domain_name=example_domain.name,
             resource_group_name=example.name)
         ```
@@ -184,18 +184,18 @@ class DomainTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_domain = azure.eventgrid.Domain("example",
-            name="my-eventgrid-domain",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_domain = azure.eventgrid.domain.Domain("example",
+            name=my-eventgrid-domain,
             location=example.location,
             resource_group_name=example.name,
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_domain_topic = azure.eventgrid.DomainTopic("example",
-            name="my-eventgrid-domain-topic",
+        example_domain_topic = azure.eventgrid.domain_topic.DomainTopic("example",
+            name=my-eventgrid-domain-topic,
             domain_name=example_domain.name,
             resource_group_name=example.name)
         ```

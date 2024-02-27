@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.SubscriptionTemplateDeployment("example", new()
+    ///     var example = new Azure.Core.SubscriptionTemplateDeployment.SubscriptionTemplateDeployment("example", new()
     ///     {
     ///         Name = "example-deployment",
     ///         Location = "West Europe",

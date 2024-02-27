@@ -24,13 +24,13 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     var @internal = new Azure.Network.Subnet.Subnet("internal", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
+    ///     var exampleServer = new Azure.Postgresql.Server.Server("example", new()
     ///     {
     ///         Name = "postgresql-server-1",
     ///         Location = example.Location,
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleVirtualNetworkRule = new Azure.PostgreSql.VirtualNetworkRule("example", new()
+    ///     var exampleVirtualNetworkRule = new Azure.Postgresql.VirtualNetworkRule.VirtualNetworkRule("example", new()
     ///     {
     ///         Name = "postgresql-vnet-rule",
     ///         ResourceGroupName = example.Name,

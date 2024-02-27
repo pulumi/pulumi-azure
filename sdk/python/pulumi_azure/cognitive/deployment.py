@@ -239,26 +239,26 @@ class Deployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cognitive.Account("example",
-            name="example-ca",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cognitive.account.Account("example",
+            name=example-ca,
             location=example.location,
             resource_group_name=example.name,
-            kind="OpenAI",
-            sku_name="S0")
-        example_deployment = azure.cognitive.Deployment("example",
-            name="example-cd",
+            kind=OpenAI,
+            sku_name=S0)
+        example_deployment = azure.cognitive.deployment.Deployment("example",
+            name=example-cd,
             cognitive_account_id=example_account.id,
-            model=azure.cognitive.DeploymentModelArgs(
-                format="OpenAI",
-                name="text-curie-001",
-                version="1",
-            ),
-            scale=azure.cognitive.DeploymentScaleArgs(
-                type="Standard",
-            ))
+            model={
+                format: OpenAI,
+                name: text-curie-001,
+                version: 1,
+            },
+            scale={
+                type: Standard,
+            })
         ```
 
         ## Import
@@ -293,26 +293,26 @@ class Deployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.cognitive.Account("example",
-            name="example-ca",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.cognitive.account.Account("example",
+            name=example-ca,
             location=example.location,
             resource_group_name=example.name,
-            kind="OpenAI",
-            sku_name="S0")
-        example_deployment = azure.cognitive.Deployment("example",
-            name="example-cd",
+            kind=OpenAI,
+            sku_name=S0)
+        example_deployment = azure.cognitive.deployment.Deployment("example",
+            name=example-cd,
             cognitive_account_id=example_account.id,
-            model=azure.cognitive.DeploymentModelArgs(
-                format="OpenAI",
-                name="text-curie-001",
-                version="1",
-            ),
-            scale=azure.cognitive.DeploymentScaleArgs(
-                type="Standard",
-            ))
+            model={
+                format: OpenAI,
+                name: text-curie-001,
+                version: 1,
+            },
+            scale={
+                type: Standard,
+            })
         ```
 
         ## Import

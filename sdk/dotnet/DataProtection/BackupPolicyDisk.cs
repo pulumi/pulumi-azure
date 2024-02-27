@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
+    ///     var exampleBackupVault = new Azure.Dataprotection.BackupVault.BackupVault("example", new()
     ///     {
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataProtection
     ///         Redundancy = "LocallyRedundant",
     ///     });
     /// 
-    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("example", new()
+    ///     var exampleBackupPolicyDisk = new Azure.Dataprotection.BackupPolicyDisk.BackupPolicyDisk("example", new()
     ///     {
     ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
@@ -49,25 +49,25 @@ namespace Pulumi.Azure.DataProtection
     ///         TimeZone = "W. Europe Standard Time",
     ///         RetentionRules = new[]
     ///         {
-    ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
+    ///             
     ///             {
-    ///                 Name = "Daily",
-    ///                 Duration = "P7D",
-    ///                 Priority = 25,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
+    ///                 { "name", "Daily" },
+    ///                 { "duration", "P7D" },
+    ///                 { "priority", 25 },
+    ///                 { "criteria", 
     ///                 {
-    ///                     AbsoluteCriteria = "FirstOfDay",
-    ///                 },
+    ///                     { "absoluteCriteria", "FirstOfDay" },
+    ///                 } },
     ///             },
-    ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
+    ///             
     ///             {
-    ///                 Name = "Weekly",
-    ///                 Duration = "P7D",
-    ///                 Priority = 20,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
+    ///                 { "name", "Weekly" },
+    ///                 { "duration", "P7D" },
+    ///                 { "priority", 20 },
+    ///                 { "criteria", 
     ///                 {
-    ///                     AbsoluteCriteria = "FirstOfWeek",
-    ///                 },
+    ///                     { "absoluteCriteria", "FirstOfWeek" },
+    ///                 } },
     ///             },
     ///         },
     ///     });

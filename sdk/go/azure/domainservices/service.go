@@ -19,175 +19,179 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/domainservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	domainservices/service "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/domainservices/service"
+//	network/networkSecurityGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/networkSecurityGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/subnetNetworkSecurityGroupAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnetNetworkSecurityGroupAssociation"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	index/group "github.com/pulumi/pulumi-azuread/sdk/v1/go/azuread/index/group"
+//	index/groupMember "github.com/pulumi/pulumi-azuread/sdk/v1/go/azuread/index/groupMember"
+//	index/servicePrincipal "github.com/pulumi/pulumi-azuread/sdk/v1/go/azuread/index/servicePrincipal"
+//	index/user "github.com/pulumi/pulumi-azuread/sdk/v1/go/azuread/index/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			deploy, err := core.NewResourceGroup(ctx, "deploy", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			deployVirtualNetwork, err := network.NewVirtualNetwork(ctx, "deploy", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("deploy-vnet"),
-//				Location:          deploy.Location,
-//				ResourceGroupName: deploy.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			deploySubnet, err := network.NewSubnet(ctx, "deploy", &network.SubnetArgs{
-//				Name:               pulumi.String("deploy-subnet"),
-//				ResourceGroupName:  deploy.Name,
-//				VirtualNetworkName: deployVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			deployNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "deploy", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("deploy-nsg"),
-//				Location:          deploy.Location,
-//				ResourceGroupName: deploy.Name,
-//				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
-//					&network.NetworkSecurityGroupSecurityRuleArgs{
-//						Name:                     pulumi.String("AllowSyncWithAzureAD"),
-//						Priority:                 pulumi.Int(101),
-//						Direction:                pulumi.String("Inbound"),
-//						Access:                   pulumi.String("Allow"),
-//						Protocol:                 pulumi.String("Tcp"),
-//						SourcePortRange:          pulumi.String("*"),
-//						DestinationPortRange:     pulumi.String("443"),
-//						SourceAddressPrefix:      pulumi.String("AzureActiveDirectoryDomainServices"),
-//						DestinationAddressPrefix: pulumi.String("*"),
-//					},
-//					&network.NetworkSecurityGroupSecurityRuleArgs{
-//						Name:                     pulumi.String("AllowRD"),
-//						Priority:                 pulumi.Int(201),
-//						Direction:                pulumi.String("Inbound"),
-//						Access:                   pulumi.String("Allow"),
-//						Protocol:                 pulumi.String("Tcp"),
-//						SourcePortRange:          pulumi.String("*"),
-//						DestinationPortRange:     pulumi.String("3389"),
-//						SourceAddressPrefix:      pulumi.String("CorpNetSaw"),
-//						DestinationAddressPrefix: pulumi.String("*"),
-//					},
-//					&network.NetworkSecurityGroupSecurityRuleArgs{
-//						Name:                     pulumi.String("AllowPSRemoting"),
-//						Priority:                 pulumi.Int(301),
-//						Direction:                pulumi.String("Inbound"),
-//						Access:                   pulumi.String("Allow"),
-//						Protocol:                 pulumi.String("Tcp"),
-//						SourcePortRange:          pulumi.String("*"),
-//						DestinationPortRange:     pulumi.String("5986"),
-//						SourceAddressPrefix:      pulumi.String("AzureActiveDirectoryDomainServices"),
-//						DestinationAddressPrefix: pulumi.String("*"),
-//					},
-//					&network.NetworkSecurityGroupSecurityRuleArgs{
-//						Name:                     pulumi.String("AllowLDAPS"),
-//						Priority:                 pulumi.Int(401),
-//						Direction:                pulumi.String("Inbound"),
-//						Access:                   pulumi.String("Allow"),
-//						Protocol:                 pulumi.String("Tcp"),
-//						SourcePortRange:          pulumi.String("*"),
-//						DestinationPortRange:     pulumi.String("636"),
-//						SourceAddressPrefix:      pulumi.String("*"),
-//						DestinationAddressPrefix: pulumi.String("*"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploy", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               deploySubnet.ID(),
-//				NetworkSecurityGroupId: deployNetworkSecurityGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
-//				DisplayName:     pulumi.String("AAD DC Administrators"),
-//				SecurityEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.com"),
-//				DisplayName:       pulumi.String("DC Administrator"),
-//				Password:          pulumi.String("Pa55w0Rd!!1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
-//				GroupObjectId:  dcAdmins.ObjectId,
-//				MemberObjectId: admin.ObjectId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
-//				ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			aadds, err := core.NewResourceGroup(ctx, "aadds", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("aadds-rg"),
-//				Location: pulumi.String("westeurope"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = domainservices.NewService(ctx, "example", &domainservices.ServiceArgs{
-//				Name:                pulumi.String("example-aadds"),
-//				Location:            aadds.Location,
-//				ResourceGroupName:   aadds.Name,
-//				DomainName:          pulumi.String("widgetslogin.net"),
-//				Sku:                 pulumi.String("Enterprise"),
-//				FilteredSyncEnabled: pulumi.Bool(false),
-//				InitialReplicaSet: &domainservices.ServiceInitialReplicaSetArgs{
-//					SubnetId: deploySubnet.ID(),
-//				},
-//				Notifications: &domainservices.ServiceNotificationsArgs{
-//					AdditionalRecipients: pulumi.StringArray{
-//						pulumi.String("notifyA@example.net"),
-//						pulumi.String("notifyB@example.org"),
-//					},
-//					NotifyDcAdmins:     pulumi.Bool(true),
-//					NotifyGlobalAdmins: pulumi.Bool(true),
-//				},
-//				Security: &domainservices.ServiceSecurityArgs{
-//					SyncKerberosPasswords: pulumi.Bool(true),
-//					SyncNtlmPasswords:     pulumi.Bool(true),
-//					SyncOnPremPasswords:   pulumi.Bool(true),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// deploy, err := core/resourceGroup.NewResourceGroup(ctx, "deploy", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// deployVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "deploy", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "deploy-vnet",
+// Location: deploy.Location,
+// ResourceGroupName: deploy.Name,
+// AddressSpaces: []string{
+// "10.0.1.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// deploySubnet, err := network/subnet.NewSubnet(ctx, "deploy", &network/subnet.SubnetArgs{
+// Name: "deploy-subnet",
+// ResourceGroupName: deploy.Name,
+// VirtualNetworkName: deployVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// deployNetworkSecurityGroup, err := network/networkSecurityGroup.NewNetworkSecurityGroup(ctx, "deploy", &network/networkSecurityGroup.NetworkSecurityGroupArgs{
+// Name: "deploy-nsg",
+// Location: deploy.Location,
+// ResourceGroupName: deploy.Name,
+// SecurityRules: []interface{}{
+// map[string]interface{}{
+// "name": "AllowSyncWithAzureAD",
+// "priority": 101,
+// "direction": "Inbound",
+// "access": "Allow",
+// "protocol": "Tcp",
+// "sourcePortRange": "*",
+// "destinationPortRange": "443",
+// "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+// "destinationAddressPrefix": "*",
+// },
+// map[string]interface{}{
+// "name": "AllowRD",
+// "priority": 201,
+// "direction": "Inbound",
+// "access": "Allow",
+// "protocol": "Tcp",
+// "sourcePortRange": "*",
+// "destinationPortRange": "3389",
+// "sourceAddressPrefix": "CorpNetSaw",
+// "destinationAddressPrefix": "*",
+// },
+// map[string]interface{}{
+// "name": "AllowPSRemoting",
+// "priority": 301,
+// "direction": "Inbound",
+// "access": "Allow",
+// "protocol": "Tcp",
+// "sourcePortRange": "*",
+// "destinationPortRange": "5986",
+// "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+// "destinationAddressPrefix": "*",
+// },
+// map[string]interface{}{
+// "name": "AllowLDAPS",
+// "priority": 401,
+// "direction": "Inbound",
+// "access": "Allow",
+// "protocol": "Tcp",
+// "sourcePortRange": "*",
+// "destinationPortRange": "636",
+// "sourceAddressPrefix": "*",
+// "destinationAddressPrefix": "*",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnetNetworkSecurityGroupAssociation.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploy", &network/subnetNetworkSecurityGroupAssociation.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: deploySubnet.Id,
+// NetworkSecurityGroupId: deployNetworkSecurityGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
+// DisplayName: "AAD DC Administrators",
+// SecurityEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
+// UserPrincipalName: "dc-admin@hashicorp-example.com",
+// DisplayName: "DC Administrator",
+// Password: "Pa55w0Rd!!1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
+// GroupObjectId: dcAdmins.ObjectId,
+// MemberObjectId: admin.ObjectId,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
+// ApplicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36",
+// })
+// if err != nil {
+// return err
+// }
+// aadds, err := core/resourceGroup.NewResourceGroup(ctx, "aadds", &core/resourceGroup.ResourceGroupArgs{
+// Name: "aadds-rg",
+// Location: "westeurope",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = domainservices/service.NewService(ctx, "example", &domainservices/service.ServiceArgs{
+// Name: "example-aadds",
+// Location: aadds.Location,
+// ResourceGroupName: aadds.Name,
+// DomainName: "widgetslogin.net",
+// Sku: "Enterprise",
+// FilteredSyncEnabled: false,
+// InitialReplicaSet: map[string]interface{}{
+// "subnetId": deploySubnet.Id,
+// },
+// Notifications: map[string]interface{}{
+// "additionalRecipients": []string{
+// "notifyA@example.net",
+// "notifyB@example.org",
+// },
+// "notifyDcAdmins": true,
+// "notifyGlobalAdmins": true,
+// },
+// Security: map[string]interface{}{
+// "syncKerberosPasswords": true,
+// "syncNtlmPasswords": true,
+// "syncOnPremPasswords": true,
+// },
+// Tags: map[string]interface{}{
+// "Environment": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

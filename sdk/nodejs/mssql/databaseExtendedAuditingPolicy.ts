@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "example-sqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -25,18 +25,18 @@ import * as utilities from "../utilities";
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "AdminPassword123!",
  * });
- * const exampleDatabase = new azure.mssql.Database("example", {
+ * const exampleDatabase = new azure.mssql/database.Database("example", {
  *     name: "example-db",
  *     serverId: exampleServer.id,
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleDatabaseExtendedAuditingPolicy = new azure.mssql.DatabaseExtendedAuditingPolicy("example", {
+ * const exampleDatabaseExtendedAuditingPolicy = new azure.mssql/databaseExtendedAuditingPolicy.DatabaseExtendedAuditingPolicy("example", {
  *     databaseId: exampleDatabase.id,
  *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,

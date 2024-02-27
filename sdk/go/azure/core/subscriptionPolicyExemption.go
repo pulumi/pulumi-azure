@@ -14,58 +14,6 @@ import (
 
 // Manages a Subscription Policy Exemption.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.LookupSubscription(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetPolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
-//				DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
-//				Name:               pulumi.String("exampleAssignment"),
-//				SubscriptionId:     *pulumi.String(example.Id),
-//				PolicyDefinitionId: *pulumi.String(exampleGetPolicySetDefinition.Id),
-//				Location:           pulumi.String("westus"),
-//				Identity: &core.SubscriptionPolicyAssignmentIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewSubscriptionPolicyExemption(ctx, "example", &core.SubscriptionPolicyExemptionArgs{
-//				Name:               pulumi.String("exampleExemption"),
-//				SubscriptionId:     *pulumi.String(example.Id),
-//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
-//				ExemptionCategory:  pulumi.String("Mitigated"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Policy Exemptions can be imported using the `resource id`, e.g.

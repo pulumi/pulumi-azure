@@ -30,23 +30,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.PublicIp;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
- * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.VirtualMachine;
- * import com.pulumi.azure.compute.VirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
- * import com.pulumi.azure.recoveryservices.Vault;
- * import com.pulumi.azure.recoveryservices.VaultArgs;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachine;
+ * import com.pulumi.azure.compute_virtualMachine.VirtualMachineArgs;
+ * import com.pulumi.azure.recoveryservices_vault.Vault;
+ * import com.pulumi.azure.recoveryservices_vault.VaultArgs;
  * import com.pulumi.azure.siterecovery.Fabric;
  * import com.pulumi.azure.siterecovery.FabricArgs;
  * import com.pulumi.azure.siterecovery.ProtectionContainer;
@@ -61,8 +56,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.siterecovery.ReplicatedVM;
  * import com.pulumi.azure.siterecovery.ReplicatedVMArgs;
- * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskArgs;
- * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,12 +105,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;vm-nic&#34;)
  *             .location(primary.location())
  *             .resourceGroupName(primary.name())
- *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
- *                 .name(&#34;vm&#34;)
- *                 .subnetId(primarySubnet.id())
- *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
- *                 .publicIpAddressId(primaryPublicIp.id())
- *                 .build())
+ *             .ipConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var vm = new VirtualMachine(&#34;vm&#34;, VirtualMachineArgs.builder()        
@@ -126,27 +114,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(primary.name())
  *             .vmSize(&#34;Standard_B1s&#34;)
  *             .networkInterfaceIds(vmNetworkInterface.id())
- *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
- *                 .publisher(&#34;Canonical&#34;)
- *                 .offer(&#34;0001-com-ubuntu-server-jammy&#34;)
- *                 .sku(&#34;22_04-lts&#34;)
- *                 .version(&#34;latest&#34;)
- *                 .build())
- *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;vm-os-disk&#34;)
- *                 .osType(&#34;Linux&#34;)
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .managedDiskType(&#34;Premium_LRS&#34;)
- *                 .build())
- *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .adminUsername(&#34;test-admin-123&#34;)
- *                 .adminPassword(&#34;test-pwd-123&#34;)
- *                 .computerName(&#34;vm&#34;)
- *                 .build())
- *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(false)
- *                 .build())
+ *             .storageImageReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageOsDisk(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .osProfileLinuxConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
@@ -253,18 +224,8 @@ import javax.annotation.Nullable;
  *             .targetResourceGroupId(secondary.id())
  *             .targetRecoveryFabricId(secondaryFabric.id())
  *             .targetRecoveryProtectionContainerId(secondaryProtectionContainer.id())
- *             .managedDisks(ReplicatedVMManagedDiskArgs.builder()
- *                 .diskId(vm.storageOsDisk().applyValue(storageOsDisk -&gt; storageOsDisk.managedDiskId()))
- *                 .stagingStorageAccountId(primaryAccount.id())
- *                 .targetResourceGroupId(secondary.id())
- *                 .targetDiskType(&#34;Premium_LRS&#34;)
- *                 .targetReplicaDiskType(&#34;Premium_LRS&#34;)
- *                 .build())
- *             .networkInterfaces(ReplicatedVMNetworkInterfaceArgs.builder()
- *                 .sourceNetworkInterfaceId(vmNetworkInterface.id())
- *                 .targetSubnetName(secondarySubnet.name())
- *                 .recoveryPublicIpAddressId(secondaryPublicIp.id())
- *                 .build())
+ *             .managedDisks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

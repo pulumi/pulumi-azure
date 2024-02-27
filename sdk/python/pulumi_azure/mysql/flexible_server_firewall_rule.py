@@ -212,19 +212,19 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("example",
-            name="office",
+        example_flexible_server_firewall_rule = azure.mysql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=office,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            start_ip_address="40.112.8.12",
-            end_ip_address="40.112.8.12")
+            start_ip_address=40.112.8.12,
+            end_ip_address=40.112.8.12)
         ```
         ### IP Range)
 
@@ -232,19 +232,19 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("example",
-            name="office",
+        example_flexible_server_firewall_rule = azure.mysql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=office,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            start_ip_address="40.112.0.0",
-            end_ip_address="40.112.255.255")
+            start_ip_address=40.112.0.0,
+            end_ip_address=40.112.255.255)
         ```
         ### Allow Access To Azure Services)
 
@@ -252,19 +252,19 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("example",
-            name="office",
+        example_flexible_server_firewall_rule = azure.mysql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=office,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            start_ip_address="0.0.0.0",
-            end_ip_address="0.0.0.0")
+            start_ip_address=0.0.0.0,
+            end_ip_address=0.0.0.0)
         ```
 
         ## Import
@@ -301,19 +301,19 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("example",
-            name="office",
+        example_flexible_server_firewall_rule = azure.mysql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=office,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            start_ip_address="40.112.8.12",
-            end_ip_address="40.112.8.12")
+            start_ip_address=40.112.8.12,
+            end_ip_address=40.112.8.12)
         ```
         ### IP Range)
 
@@ -321,19 +321,19 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("example",
-            name="office",
+        example_flexible_server_firewall_rule = azure.mysql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=office,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            start_ip_address="40.112.0.0",
-            end_ip_address="40.112.255.255")
+            start_ip_address=40.112.0.0,
+            end_ip_address=40.112.255.255)
         ```
         ### Allow Access To Azure Services)
 
@@ -341,19 +341,19 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="api-rg-pro",
-            location="West Europe")
-        example_flexible_server = azure.mysql.FlexibleServer("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=api-rg-pro,
+            location=West Europe)
+        example_flexible_server = azure.mysql.flexible_server.FlexibleServer("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
-        example_flexible_server_firewall_rule = azure.mysql.FlexibleServerFirewallRule("example",
-            name="office",
+        example_flexible_server_firewall_rule = azure.mysql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=office,
             resource_group_name=example.name,
             server_name=example_flexible_server.name,
-            start_ip_address="0.0.0.0",
-            end_ip_address="0.0.0.0")
+            start_ip_address=0.0.0.0,
+            end_ip_address=0.0.0.0)
         ```
 
         ## Import

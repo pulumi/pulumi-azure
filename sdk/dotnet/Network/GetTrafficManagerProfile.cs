@@ -13,66 +13,12 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Traffic Manager Profile.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetTrafficManagerProfile.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///         ResourceGroupName = "test",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["trafficRoutingMethod"] = example.Apply(getTrafficManagerProfileResult =&gt; getTrafficManagerProfileResult.TrafficRoutingMethod),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrafficManagerProfileResult> InvokeAsync(GetTrafficManagerProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Traffic Manager Profile.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Network.GetTrafficManagerProfile.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///         ResourceGroupName = "test",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["trafficRoutingMethod"] = example.Apply(getTrafficManagerProfileResult =&gt; getTrafficManagerProfileResult.TrafficRoutingMethod),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrafficManagerProfileResult> Invoke(GetTrafficManagerProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileInvokeArgs(), options.WithDefaults());

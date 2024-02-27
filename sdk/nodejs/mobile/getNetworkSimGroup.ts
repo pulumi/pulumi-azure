@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Sim Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- * });
- * const exampleGetNetworkSimGroup = example.then(example => azure.mobile.getNetworkSimGroup({
- *     name: "example-mnsg",
- *     mobileNetworkId: example.id,
- * }));
- * ```
  */
 export function getNetworkSimGroup(args: GetNetworkSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimGroupResult> {
 
@@ -77,22 +61,6 @@ export interface GetNetworkSimGroupResult {
 }
 /**
  * Get information about a Mobile Network Sim Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.mobile.getNetwork({
- *     name: "example-mn",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- * });
- * const exampleGetNetworkSimGroup = example.then(example => azure.mobile.getNetworkSimGroup({
- *     name: "example-mnsg",
- *     mobileNetworkId: example.id,
- * }));
- * ```
  */
 export function getNetworkSimGroupOutput(args: GetNetworkSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSimGroup(a, opts))

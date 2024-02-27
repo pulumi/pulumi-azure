@@ -217,21 +217,6 @@ class Table(pulumi.CustomResource):
         """
         Manages a Table within a Cosmos DB Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_table = azure.cosmosdb.Table("example",
-            name="tfex-cosmos-table",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            throughput=400)
-        ```
-
         ## Import
 
         CosmosDB Tables can be imported using the `resource id`, e.g.
@@ -260,21 +245,6 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Table within a Cosmos DB Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
-            resource_group_name="tfex-cosmosdb-account-rg")
-        example_table = azure.cosmosdb.Table("example",
-            name="tfex-cosmos-table",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            throughput=400)
-        ```
 
         ## Import
 

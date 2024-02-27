@@ -172,19 +172,19 @@ class Fabric(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        primary = azure.core.ResourceGroup("primary",
-            name="tfex-network-mapping-primary",
-            location="West US")
-        secondary = azure.core.ResourceGroup("secondary",
-            name="tfex-network-mapping-secondary",
-            location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        primary = azure.core.resource_group.ResourceGroup("primary",
+            name=tfex-network-mapping-primary,
+            location=West US)
+        secondary = azure.core.resource_group.ResourceGroup("secondary",
+            name=tfex-network-mapping-secondary,
+            location=East US)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=secondary.location,
             resource_group_name=secondary.name,
-            sku="Standard")
-        fabric = azure.siterecovery.Fabric("fabric",
-            name="primary-fabric",
+            sku=Standard)
+        fabric = azure.siterecovery.fabric.Fabric("fabric",
+            name=primary-fabric,
             resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             location=primary.location)
@@ -220,19 +220,19 @@ class Fabric(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        primary = azure.core.ResourceGroup("primary",
-            name="tfex-network-mapping-primary",
-            location="West US")
-        secondary = azure.core.ResourceGroup("secondary",
-            name="tfex-network-mapping-secondary",
-            location="East US")
-        vault = azure.recoveryservices.Vault("vault",
-            name="example-recovery-vault",
+        primary = azure.core.resource_group.ResourceGroup("primary",
+            name=tfex-network-mapping-primary,
+            location=West US)
+        secondary = azure.core.resource_group.ResourceGroup("secondary",
+            name=tfex-network-mapping-secondary,
+            location=East US)
+        vault = azure.recoveryservices.vault.Vault("vault",
+            name=example-recovery-vault,
             location=secondary.location,
             resource_group_name=secondary.name,
-            sku="Standard")
-        fabric = azure.siterecovery.Fabric("fabric",
-            name="primary-fabric",
+            sku=Standard)
+        fabric = azure.siterecovery.fabric.Fabric("fabric",
+            name=primary-fabric,
             resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             location=primary.location)

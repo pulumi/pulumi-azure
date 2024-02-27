@@ -23,29 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/costmanagement"
+//	costmanagement/anomalyAlert "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/costmanagement/anomalyAlert"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costmanagement.NewAnomalyAlert(ctx, "example", &costmanagement.AnomalyAlertArgs{
-//				Name:           pulumi.String("alertname"),
-//				DisplayName:    pulumi.String("Alert DisplayName"),
-//				SubscriptionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
-//				EmailSubject:   pulumi.String("My Test Anomaly Alert"),
-//				EmailAddresses: pulumi.StringArray{
-//					pulumi.String("example@test.net"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := costmanagement/anomalyAlert.NewAnomalyAlert(ctx, "example", &costmanagement/anomalyAlert.AnomalyAlertArgs{
+// Name: "alertname",
+// DisplayName: "Alert DisplayName",
+// SubscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000",
+// EmailSubject: "My Test Anomaly Alert",
+// EmailAddresses: []string{
+// "example@test.net",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -14,60 +14,6 @@ import (
 
 // Manages a Management Group Policy Exemption.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.NewGroup(ctx, "example", &management.GroupArgs{
-//				DisplayName: pulumi.String("Example MgmtGroup"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
-//				DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
-//				Name:               pulumi.String("assignment1"),
-//				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyDefinitionId: *pulumi.String(example.Id),
-//				Location:           pulumi.String("westus"),
-//				Identity: &management.GroupPolicyAssignmentIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = management.NewGroupPolicyExemption(ctx, "example", &management.GroupPolicyExemptionArgs{
-//				Name:               pulumi.String("exemption1"),
-//				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
-//				ExemptionCategory:  pulumi.String("Mitigated"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Policy Exemptions can be imported using the `resource id`, e.g.

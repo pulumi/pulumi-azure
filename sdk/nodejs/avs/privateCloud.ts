@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const examplePrivateCloud = new azure.avs.PrivateCloud("example", {
+ * const examplePrivateCloud = new azure.avs/privateCloud.PrivateCloud("example", {
  *     name: "example-vmware-private-cloud",
  *     resourceGroupName: example.name,
  *     location: example.location,

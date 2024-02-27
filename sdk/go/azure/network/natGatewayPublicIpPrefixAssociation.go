@@ -21,53 +21,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/natGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/natGateway"
+//	network/natGatewayPublicIpPrefixAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/natGatewayPublicIpPrefixAssociation"
+//	network/publicIpPrefix "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIpPrefix"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIpPrefix, err := network.NewPublicIpPrefix(ctx, "example", &network.PublicIpPrefixArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PrefixLength:      pulumi.Int(30),
-//				Zones: pulumi.StringArray{
-//					pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNatGateway, err := network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
-//				Name:              pulumi.String("example-NatGateway"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNatGatewayPublicIpPrefixAssociation(ctx, "example", &network.NatGatewayPublicIpPrefixAssociationArgs{
-//				NatGatewayId:     exampleNatGateway.ID(),
-//				PublicIpPrefixId: examplePublicIpPrefix.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIpPrefix, err := network/publicIpPrefix.NewPublicIpPrefix(ctx, "example", &network/publicIpPrefix.PublicIpPrefixArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// PrefixLength: 30,
+// Zones: []string{
+// "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNatGateway, err := network/natGateway.NewNatGateway(ctx, "example", &network/natGateway.NatGatewayArgs{
+// Name: "example-NatGateway",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/natGatewayPublicIpPrefixAssociation.NewNatGatewayPublicIpPrefixAssociation(ctx, "example", &network/natGatewayPublicIpPrefixAssociation.NatGatewayPublicIpPrefixAssociationArgs{
+// NatGatewayId: exampleNatGateway.Id,
+// PublicIpPrefixId: examplePublicIpPrefix.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

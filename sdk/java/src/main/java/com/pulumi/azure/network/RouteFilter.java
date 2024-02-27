@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.network.RouteFilter;
  * import com.pulumi.azure.network.RouteFilterArgs;
- * import com.pulumi.azure.network.inputs.RouteFilterRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,12 +45,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(&#34;example&#34;)
  *             .location(&#34;East US&#34;)
- *             .rule(RouteFilterRuleArgs.builder()
- *                 .name(&#34;rule&#34;)
- *                 .access(&#34;Allow&#34;)
- *                 .ruleType(&#34;Community&#34;)
- *                 .communities(&#34;12076:52004&#34;)
- *                 .build())
+ *             .rule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

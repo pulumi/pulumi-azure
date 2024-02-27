@@ -22,39 +22,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/managedDisk "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/managedDisk"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String("acctestmd"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Empty"),
-//				DiskSizeGb:         pulumi.Int(1),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/managedDisk.NewManagedDisk(ctx, "example", &compute/managedDisk.ManagedDiskArgs{
+// Name: "acctestmd",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccountType: "Standard_LRS",
+// CreateOption: "Empty",
+// DiskSizeGb: "1",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Create Copy
 //
@@ -63,54 +61,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/managedDisk "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/managedDisk"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			source, err := compute.NewManagedDisk(ctx, "source", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String("acctestmd1"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Empty"),
-//				DiskSizeGb:         pulumi.Int(1),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewManagedDisk(ctx, "copy", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String("acctestmd2"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				StorageAccountType: pulumi.String("Standard_LRS"),
-//				CreateOption:       pulumi.String("Copy"),
-//				SourceResourceId:   source.ID(),
-//				DiskSizeGb:         pulumi.Int(1),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// source, err := compute/managedDisk.NewManagedDisk(ctx, "source", &compute/managedDisk.ManagedDiskArgs{
+// Name: "acctestmd1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccountType: "Standard_LRS",
+// CreateOption: "Empty",
+// DiskSizeGb: "1",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/managedDisk.NewManagedDisk(ctx, "copy", &compute/managedDisk.ManagedDiskArgs{
+// Name: "acctestmd2",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccountType: "Standard_LRS",
+// CreateOption: "Copy",
+// SourceResourceId: source.Id,
+// DiskSizeGb: "1",
+// Tags: map[string]interface{}{
+// "environment": "staging",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

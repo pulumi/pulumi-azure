@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.relay.Namespace("example", {
+ * const exampleNamespace = new azure.relay/namespace.Namespace("example", {
  *     name: "example-relay",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         source: "terraform",
  *     },
  * });
- * const exampleNamespaceAuthorizationRule = new azure.relay.NamespaceAuthorizationRule("example", {
+ * const exampleNamespaceAuthorizationRule = new azure.relay/namespaceAuthorizationRule.NamespaceAuthorizationRule("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     namespaceName: exampleNamespace.name,

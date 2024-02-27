@@ -9,61 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Application.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const current = azure.core.getClientConfig({});
- * const builtin = azure.authorization.getRoleDefinition({
- *     name: "Contributor",
- * });
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleDefinition = new azure.managedapplication.Definition("example", {
- *     name: "examplemanagedapplicationdefinition",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     lockLevel: "ReadOnly",
- *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
- *     displayName: "TestManagedAppDefinition",
- *     description: "Test Managed App Definition",
- *     authorizations: [{
- *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: Promise.all([builtin.then(builtin => std.split({
- *             separator: "/",
- *             text: builtin.id,
- *         })), builtin.then(builtin => std.split({
- *             separator: "/",
- *             text: builtin.id,
- *         })).then(invoke => invoke.result).length]).then(([invoke, length]) => invoke.result[length - 1]),
- *     }],
- * });
- * const exampleApplication = new azure.managedapplication.Application("example", {
- *     name: "example-managedapplication",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     kind: "ServiceCatalog",
- *     managedResourceGroupName: "infrastructureGroup",
- *     applicationDefinitionId: exampleDefinition.id,
- *     parameterValues: pulumi.jsonStringify({
- *         location: {
- *             value: example.location,
- *         },
- *         storageAccountNamePrefix: {
- *             value: "storeNamePrefix",
- *         },
- *         storageAccountType: {
- *             value: "Standard_LRS",
- *         },
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Managed Application can be imported using the `resource id`, e.g.

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.datafactory.Factory;
  * import com.pulumi.azure.datafactory.FactoryArgs;
- * import com.pulumi.azure.datafactory.inputs.FactoryIdentityArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.datafactory.LinkedCustomService;
@@ -40,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.datafactory.CustomDataset;
  * import com.pulumi.azure.datafactory.CustomDatasetArgs;
- * import com.pulumi.azure.datafactory.inputs.CustomDatasetLinkedServiceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,9 +61,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .identity(FactoryIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
@@ -81,11 +77,11 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .type(&#34;AzureBlobStorage&#34;)
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
+ *             .typePropertiesJson(&#34;&#34;&#34;
  * {
  *   &#34;connectionString&#34;:&#34;%s&#34;
  * }
- * &#34;, primaryConnectionString)))
+ * &#34;, exampleAccount.primaryConnectionString()))
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
@@ -98,11 +94,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .type(&#34;Json&#34;)
- *             .linkedService(CustomDatasetLinkedServiceArgs.builder()
- *                 .name(exampleLinkedCustomService.name())
- *                 .parameters(Map.of(&#34;key1&#34;, &#34;value1&#34;))
- *                 .build())
- *             .typePropertiesJson(exampleContainer.name().applyValue(name -&gt; &#34;&#34;&#34;
+ *             .linkedService(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .typePropertiesJson(&#34;&#34;&#34;
  * {
  *   &#34;location&#34;: {
  *     &#34;container&#34;:&#34;%s&#34;,
@@ -112,21 +105,15 @@ import javax.annotation.Nullable;
  *   },
  *   &#34;encodingName&#34;:&#34;UTF-8&#34;
  * }
- * &#34;, name)))
+ * &#34;, exampleContainer.name()))
  *             .description(&#34;test description&#34;)
  *             .annotations(            
  *                 &#34;test1&#34;,
  *                 &#34;test2&#34;,
  *                 &#34;test3&#34;)
  *             .folder(&#34;testFolder&#34;)
- *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;test1&#34;),
- *                 Map.entry(&#34;Bar&#34;, &#34;Test2&#34;)
- *             ))
- *             .additionalProperties(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;test1&#34;),
- *                 Map.entry(&#34;bar&#34;, &#34;test2&#34;)
- *             ))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .additionalProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .schemaJson(&#34;&#34;&#34;
  * {
  *   &#34;type&#34;: &#34;object&#34;,

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-devtestlab&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tags(Map.of(&#34;Sydney&#34;, &#34;Australia&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .factData(&#34;&#34;)
  *             .threshold(&#34;999&#34;)
  *             .evaluatorType(&#34;MaxValuePolicy&#34;)
- *             .tags(Map.of(&#34;Acceptance&#34;, &#34;Test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

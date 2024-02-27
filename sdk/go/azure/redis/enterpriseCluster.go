@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	redis/enterpriseCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/redis/enterpriseCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-redisenterprise"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redis.NewEnterpriseCluster(ctx, "example", &redis.EnterpriseClusterArgs{
-//				Name:              pulumi.String("example-redisenterprise"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("EnterpriseFlash_F300-3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-redisenterprise",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redis/enterpriseCluster.NewEnterpriseCluster(ctx, "example", &redis/enterpriseCluster.EnterpriseClusterArgs{
+// Name: "example-redisenterprise",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "EnterpriseFlash_F300-3",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

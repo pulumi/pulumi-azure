@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleRegistry = new azure.containerservice.Registry("example", {
+ * const exampleRegistry = new azure.containerservice/registry.Registry("example", {
  *     name: "example-acr",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: "Basic",
  * });
- * const exampleRegistryTask = new azure.containerservice.RegistryTask("example", {
+ * const exampleRegistryTask = new azure.containerservice/registryTask.RegistryTask("example", {
  *     name: "example-task",
  *     containerRegistryId: exampleRegistry.id,
  *     platform: {
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         imageNames: ["helloworld:{{.Run.ID}}"],
  *     },
  * });
- * const exampleRegistryTaskScheduleRunNow = new azure.containerservice.RegistryTaskScheduleRunNow("example", {containerRegistryTaskId: exampleRegistryTask.id});
+ * const exampleRegistryTaskScheduleRunNow = new azure.containerservice/registryTaskScheduleRunNow.RegistryTaskScheduleRunNow("example", {containerRegistryTaskId: exampleRegistryTask.id});
  * ```
  */
 export class RegistryTaskScheduleRunNow extends pulumi.CustomResource {

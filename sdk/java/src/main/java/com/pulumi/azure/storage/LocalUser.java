@@ -36,9 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.storage.LocalUser;
  * import com.pulumi.azure.storage.LocalUserArgs;
- * import com.pulumi.azure.storage.inputs.LocalUserSshAuthorizedKeyArgs;
- * import com.pulumi.azure.storage.inputs.LocalUserPermissionScopeArgs;
- * import com.pulumi.azure.storage.inputs.LocalUserPermissionScopePermissionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,22 +76,9 @@ import javax.annotation.Nullable;
  *             .sshPasswordEnabled(true)
  *             .homeDirectory(&#34;example_path&#34;)
  *             .sshAuthorizedKeys(            
- *                 LocalUserSshAuthorizedKeyArgs.builder()
- *                     .description(&#34;key1&#34;)
- *                     .key(firstPublicKey)
- *                     .build(),
- *                 LocalUserSshAuthorizedKeyArgs.builder()
- *                     .description(&#34;key2&#34;)
- *                     .key(secondPublicKey)
- *                     .build())
- *             .permissionScopes(LocalUserPermissionScopeArgs.builder()
- *                 .permissions(LocalUserPermissionScopePermissionsArgs.builder()
- *                     .read(true)
- *                     .create(true)
- *                     .build())
- *                 .service(&#34;blob&#34;)
- *                 .resourceName(exampleContainer.name())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .permissionScopes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

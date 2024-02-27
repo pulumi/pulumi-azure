@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.iot.TimeSeriesInsightsGen2Environment;
  * import com.pulumi.azure.iot.TimeSeriesInsightsGen2EnvironmentArgs;
- * import com.pulumi.azure.iot.inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs;
  * import com.pulumi.azure.iot.TimeSeriesInsightsEventSourceEventhub;
  * import com.pulumi.azure.iot.TimeSeriesInsightsEventSourceEventhubArgs;
  * import java.util.List;
@@ -107,10 +106,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;L1&#34;)
  *             .idProperties(&#34;id&#34;)
- *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
- *                 .name(exampleAccount.name())
- *                 .key(exampleAccount.primaryAccessKey())
- *                 .build())
+ *             .storage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTimeSeriesInsightsEventSourceEventhub = new TimeSeriesInsightsEventSourceEventhub(&#34;exampleTimeSeriesInsightsEventSourceEventhub&#34;, TimeSeriesInsightsEventSourceEventhubArgs.builder()        

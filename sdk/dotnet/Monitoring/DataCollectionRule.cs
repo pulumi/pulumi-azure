@@ -23,41 +23,41 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity.UserAssignedIdentity("example", new()
     ///     {
     ///         Name = "example-uai",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.Operationalinsights.AnalyticsWorkspace.AnalyticsWorkspace("example", new()
     ///     {
     ///         Name = "example-workspace",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
+    ///     var exampleAnalyticsSolution = new Azure.Operationalinsights.AnalyticsSolution.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "WindowsEventForwarding",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         Plan = 
     ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/WindowsEventForwarding",
+    ///             { "publisher", "Microsoft" },
+    ///             { "product", "OMSGallery/WindowsEventForwarding" },
     ///         },
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "exeventns",
     ///         Location = example.Location,
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Monitoring
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+    ///     var exampleEventHub = new Azure.Eventhub.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "exevent2",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Monitoring
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examstorage",
     ///         ResourceGroupName = example.Name,
@@ -84,240 +84,240 @@ namespace Pulumi.Azure.Monitoring
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     var exampleContainer = new Azure.Storage.Container.Container("example", new()
     ///     {
     ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("example", new()
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint.DataCollectionEndpoint("example", new()
     ///     {
     ///         Name = "example-dcre",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("example", new()
+    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule.DataCollectionRule("example", new()
     ///     {
     ///         Name = "example-rule",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DataCollectionEndpointId = exampleDataCollectionEndpoint.Id,
-    ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
+    ///         Destinations = 
     ///         {
-    ///             LogAnalytics = new[]
+    ///             { "logAnalytics", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsLogAnalyticArgs
+    ///                 
     ///                 {
-    ///                     WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///                     Name = "example-destination-log",
+    ///                     { "workspaceResourceId", exampleAnalyticsWorkspace.Id },
+    ///                     { "name", "example-destination-log" },
     ///                 },
-    ///             },
-    ///             EventHub = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsEventHubArgs
+    ///             } },
+    ///             { "eventHub", 
     ///             {
-    ///                 EventHubId = exampleEventHub.Id,
-    ///                 Name = "example-destination-eventhub",
-    ///             },
-    ///             StorageBlobs = new[]
+    ///                 { "eventHubId", exampleEventHub.Id },
+    ///                 { "name", "example-destination-eventhub" },
+    ///             } },
+    ///             { "storageBlobs", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsStorageBlobArgs
+    ///                 
     ///                 {
-    ///                     StorageAccountId = exampleAccount.Id,
-    ///                     ContainerName = exampleContainer.Name,
-    ///                     Name = "example-destination-storage",
+    ///                     { "storageAccountId", exampleAccount.Id },
+    ///                     { "containerName", exampleContainer.Name },
+    ///                     { "name", "example-destination-storage" },
     ///                 },
-    ///             },
-    ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
+    ///             } },
+    ///             { "azureMonitorMetrics", 
     ///             {
-    ///                 Name = "example-destination-metrics",
-    ///             },
+    ///                 { "name", "example-destination-metrics" },
+    ///             } },
     ///         },
     ///         DataFlows = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             
     ///             {
-    ///                 Streams = new[]
+    ///                 { "streams", new[]
     ///                 {
     ///                     "Microsoft-InsightsMetrics",
-    ///                 },
-    ///                 Destinations = new[]
+    ///                 } },
+    ///                 { "destinations", new[]
     ///                 {
     ///                     "example-destination-metrics",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             
     ///             {
-    ///                 Streams = new[]
+    ///                 { "streams", new[]
     ///                 {
     ///                     "Microsoft-InsightsMetrics",
     ///                     "Microsoft-Syslog",
     ///                     "Microsoft-Perf",
-    ///                 },
-    ///                 Destinations = new[]
+    ///                 } },
+    ///                 { "destinations", new[]
     ///                 {
     ///                     "example-destination-log",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             
     ///             {
-    ///                 Streams = new[]
+    ///                 { "streams", new[]
     ///                 {
     ///                     "Custom-MyTableRawData",
-    ///                 },
-    ///                 Destinations = new[]
+    ///                 } },
+    ///                 { "destinations", new[]
     ///                 {
     ///                     "example-destination-log",
-    ///                 },
-    ///                 OutputStream = "Microsoft-Syslog",
-    ///                 TransformKql = "source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
+    ///                 } },
+    ///                 { "outputStream", "Microsoft-Syslog" },
+    ///                 { "transformKql", "source | project TimeGenerated = Time, Computer, Message = AdditionalContext" },
     ///             },
     ///         },
-    ///         DataSources = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesArgs
+    ///         DataSources = 
     ///         {
-    ///             Syslogs = new[]
+    ///             { "syslogs", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesSyslogArgs
+    ///                 
     ///                 {
-    ///                     FacilityNames = new[]
+    ///                     { "facilityNames", new[]
     ///                     {
     ///                         "*",
-    ///                     },
-    ///                     LogLevels = new[]
+    ///                     } },
+    ///                     { "logLevels", new[]
     ///                     {
     ///                         "*",
-    ///                     },
-    ///                     Name = "example-datasource-syslog",
-    ///                     Streams = new[]
+    ///                     } },
+    ///                     { "name", "example-datasource-syslog" },
+    ///                     { "streams", new[]
     ///                     {
     ///                         "Microsoft-Syslog",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             IisLogs = new[]
+    ///             } },
+    ///             { "iisLogs", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesIisLogArgs
+    ///                 
     ///                 {
-    ///                     Streams = new[]
+    ///                     { "streams", new[]
     ///                     {
     ///                         "Microsoft-W3CIISLog",
-    ///                     },
-    ///                     Name = "example-datasource-iis",
-    ///                     LogDirectories = new[]
+    ///                     } },
+    ///                     { "name", "example-datasource-iis" },
+    ///                     { "logDirectories", new[]
     ///                     {
     ///                         "C:\\Logs\\W3SVC1",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             LogFiles = new[]
+    ///             } },
+    ///             { "logFiles", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileArgs
+    ///                 
     ///                 {
-    ///                     Name = "example-datasource-logfile",
-    ///                     Format = "text",
-    ///                     Streams = new[]
+    ///                     { "name", "example-datasource-logfile" },
+    ///                     { "format", "text" },
+    ///                     { "streams", new[]
     ///                     {
     ///                         "Custom-MyTableRawData",
-    ///                     },
-    ///                     FilePatterns = new[]
+    ///                     } },
+    ///                     { "filePatterns", new[]
     ///                     {
     ///                         "C:\\JavaLogs\\*.log",
-    ///                     },
-    ///                     Settings = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileSettingsArgs
+    ///                     } },
+    ///                     { "settings", 
     ///                     {
-    ///                         Text = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileSettingsTextArgs
+    ///                         { "text", 
     ///                         {
-    ///                             RecordStartTimestampFormat = "ISO 8601",
-    ///                         },
-    ///                     },
+    ///                             { "recordStartTimestampFormat", "ISO 8601" },
+    ///                         } },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             PerformanceCounters = new[]
+    ///             } },
+    ///             { "performanceCounters", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs
+    ///                 
     ///                 {
-    ///                     Streams = new[]
+    ///                     { "streams", new[]
     ///                     {
     ///                         "Microsoft-Perf",
     ///                         "Microsoft-InsightsMetrics",
-    ///                     },
-    ///                     SamplingFrequencyInSeconds = 60,
-    ///                     CounterSpecifiers = new[]
+    ///                     } },
+    ///                     { "samplingFrequencyInSeconds", 60 },
+    ///                     { "counterSpecifiers", new[]
     ///                     {
     ///                         "Processor(*)\\% Processor Time",
-    ///                     },
-    ///                     Name = "example-datasource-perfcounter",
+    ///                     } },
+    ///                     { "name", "example-datasource-perfcounter" },
     ///                 },
-    ///             },
-    ///             WindowsEventLogs = new[]
+    ///             } },
+    ///             { "windowsEventLogs", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesWindowsEventLogArgs
+    ///                 
     ///                 {
-    ///                     Streams = new[]
+    ///                     { "streams", new[]
     ///                     {
     ///                         "Microsoft-WindowsEvent",
-    ///                     },
-    ///                     XPathQueries = new[]
+    ///                     } },
+    ///                     { "xPathQueries", new[]
     ///                     {
     ///                         "*![System/Level=1]",
-    ///                     },
-    ///                     Name = "example-datasource-wineventlog",
+    ///                     } },
+    ///                     { "name", "example-datasource-wineventlog" },
     ///                 },
-    ///             },
-    ///             Extensions = new[]
+    ///             } },
+    ///             { "extensions", new[]
     ///             {
-    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesExtensionArgs
+    ///                 
     ///                 {
-    ///                     Streams = new[]
+    ///                     { "streams", new[]
     ///                     {
     ///                         "Microsoft-WindowsEvent",
-    ///                     },
-    ///                     InputDataSources = new[]
+    ///                     } },
+    ///                     { "inputDataSources", new[]
     ///                     {
     ///                         "example-datasource-wineventlog",
-    ///                     },
-    ///                     ExtensionName = "example-extension-name",
-    ///                     ExtensionJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     } },
+    ///                     { "extensionName", "example-extension-name" },
+    ///                     { "extensionJson", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["a"] = 1,
     ///                         ["b"] = "hello",
-    ///                     }),
-    ///                     Name = "example-datasource-extension",
+    ///                     }) },
+    ///                     { "name", "example-datasource-extension" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         StreamDeclarations = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationArgs
+    ///             
     ///             {
-    ///                 StreamName = "Custom-MyTableRawData",
-    ///                 Columns = new[]
+    ///                 { "streamName", "Custom-MyTableRawData" },
+    ///                 { "columns", new[]
     ///                 {
-    ///                     new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationColumnArgs
+    ///                     
     ///                     {
-    ///                         Name = "Time",
-    ///                         Type = "datetime",
+    ///                         { "name", "Time" },
+    ///                         { "type", "datetime" },
     ///                     },
-    ///                     new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationColumnArgs
+    ///                     
     ///                     {
-    ///                         Name = "Computer",
-    ///                         Type = "string",
+    ///                         { "name", "Computer" },
+    ///                         { "type", "string" },
     ///                     },
-    ///                     new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationColumnArgs
+    ///                     
     ///                     {
-    ///                         Name = "AdditionalContext",
-    ///                         Type = "string",
+    ///                         { "name", "AdditionalContext" },
+    ///                         { "type", "string" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         Identity = new Azure.Monitoring.Inputs.DataCollectionRuleIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
+    ///             { "type", "UserAssigned" },
+    ///             { "identityIds", new[]
     ///             {
     ///                 exampleUserAssignedIdentity.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Description = "data collection rule example",
     ///         Tags = 

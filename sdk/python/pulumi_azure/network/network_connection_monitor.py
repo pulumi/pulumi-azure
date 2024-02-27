@@ -339,106 +339,106 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-Watcher-resources",
-            location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("example",
-            name="example-Watcher",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-Watcher-resources,
+            location=West Europe)
+        example_network_watcher = azure.network.network_watcher.NetworkWatcher("example",
+            name=example-Watcher,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-Vnet",
-            address_spaces=["10.0.0.0/16"],
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-Vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-Subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-Subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-Nic",
+            address_prefixes=[10.0.2.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-Nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
-            name="example-VM",
+            ip_configurations=[{
+                name: testconfiguration1,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_virtual_machine = azure.compute.virtual_machine.VirtualMachine("example",
+            name=example-VM,
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_D2s_v3",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk-example01",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostnametest01",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        example_extension = azure.compute.Extension("example",
-            name="example-VMExtension",
+            vm_size=Standard_D2s_v3,
+            storage_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            storage_os_disk={
+                name: osdisk-example01,
+                caching: ReadWrite,
+                createOption: FromImage,
+                managedDiskType: Standard_LRS,
+            },
+            os_profile={
+                computerName: hostnametest01,
+                adminUsername: testadmin,
+                adminPassword: Password1234!,
+            },
+            os_profile_linux_config={
+                disablePasswordAuthentication: False,
+            })
+        example_extension = azure.compute.extension.Extension("example",
+            name=example-VMExtension,
             virtual_machine_id=example_virtual_machine.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
+            publisher=Microsoft.Azure.NetworkWatcher,
+            type=NetworkWatcherAgentLinux,
+            type_handler_version=1.4,
             auto_upgrade_minor_version=True)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-Workspace",
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-Workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_network_connection_monitor = azure.network.NetworkConnectionMonitor("example",
-            name="example-Monitor",
+            sku=PerGB2018)
+        example_network_connection_monitor = azure.network.network_connection_monitor.NetworkConnectionMonitor("example",
+            name=example-Monitor,
             network_watcher_id=example_network_watcher.id,
             location=example_network_watcher.location,
             endpoints=[
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="source",
-                    target_resource_id=example_virtual_machine.id,
-                    filter=azure.network.NetworkConnectionMonitorEndpointFilterArgs(
-                        items=[azure.network.NetworkConnectionMonitorEndpointFilterItemArgs(
-                            address=example_virtual_machine.id,
-                            type="AgentAddress",
-                        )],
-                        type="Include",
-                    ),
-                ),
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="destination",
-                    address="mycompany.io",
-                ),
+                {
+                    name: source,
+                    targetResourceId: example_virtual_machine.id,
+                    filter: {
+                        items: [{
+                            address: example_virtual_machine.id,
+                            type: AgentAddress,
+                        }],
+                        type: Include,
+                    },
+                },
+                {
+                    name: destination,
+                    address: mycompany.io,
+                },
             ],
-            test_configurations=[azure.network.NetworkConnectionMonitorTestConfigurationArgs(
-                name="tcpName",
-                protocol="Tcp",
-                test_frequency_in_seconds=60,
-                tcp_configuration=azure.network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs(
-                    port=80,
-                ),
-            )],
-            test_groups=[azure.network.NetworkConnectionMonitorTestGroupArgs(
-                name="exampletg",
-                destination_endpoints=["destination"],
-                source_endpoints=["source"],
-                test_configuration_names=["tcpName"],
-            )],
-            notes="examplenote",
+            test_configurations=[{
+                name: tcpName,
+                protocol: Tcp,
+                testFrequencyInSeconds: 60,
+                tcpConfiguration: {
+                    port: 80,
+                },
+            }],
+            test_groups=[{
+                name: exampletg,
+                destinationEndpoints: [destination],
+                sourceEndpoints: [source],
+                testConfigurationNames: [tcpName],
+            }],
+            notes=examplenote,
             output_workspace_resource_ids=[example_analytics_workspace.id])
         ```
 
@@ -479,106 +479,106 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-Watcher-resources",
-            location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("example",
-            name="example-Watcher",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-Watcher-resources,
+            location=West Europe)
+        example_network_watcher = azure.network.network_watcher.NetworkWatcher("example",
+            name=example-Watcher,
             location=example.location,
             resource_group_name=example.name)
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-Vnet",
-            address_spaces=["10.0.0.0/16"],
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-Vnet,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-Subnet",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-Subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("example",
-            name="example-Nic",
+            address_prefixes=[10.0.2.0/24])
+        example_network_interface = azure.network.network_interface.NetworkInterface("example",
+            name=example-Nic,
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
-            name="example-VM",
+            ip_configurations=[{
+                name: testconfiguration1,
+                subnetId: example_subnet.id,
+                privateIpAddressAllocation: Dynamic,
+            }])
+        example_virtual_machine = azure.compute.virtual_machine.VirtualMachine("example",
+            name=example-VM,
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_D2s_v3",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk-example01",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostnametest01",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
-        example_extension = azure.compute.Extension("example",
-            name="example-VMExtension",
+            vm_size=Standard_D2s_v3,
+            storage_image_reference={
+                publisher: Canonical,
+                offer: 0001-com-ubuntu-server-jammy,
+                sku: 22_04-lts,
+                version: latest,
+            },
+            storage_os_disk={
+                name: osdisk-example01,
+                caching: ReadWrite,
+                createOption: FromImage,
+                managedDiskType: Standard_LRS,
+            },
+            os_profile={
+                computerName: hostnametest01,
+                adminUsername: testadmin,
+                adminPassword: Password1234!,
+            },
+            os_profile_linux_config={
+                disablePasswordAuthentication: False,
+            })
+        example_extension = azure.compute.extension.Extension("example",
+            name=example-VMExtension,
             virtual_machine_id=example_virtual_machine.id,
-            publisher="Microsoft.Azure.NetworkWatcher",
-            type="NetworkWatcherAgentLinux",
-            type_handler_version="1.4",
+            publisher=Microsoft.Azure.NetworkWatcher,
+            type=NetworkWatcherAgentLinux,
+            type_handler_version=1.4,
             auto_upgrade_minor_version=True)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-Workspace",
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-Workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_network_connection_monitor = azure.network.NetworkConnectionMonitor("example",
-            name="example-Monitor",
+            sku=PerGB2018)
+        example_network_connection_monitor = azure.network.network_connection_monitor.NetworkConnectionMonitor("example",
+            name=example-Monitor,
             network_watcher_id=example_network_watcher.id,
             location=example_network_watcher.location,
             endpoints=[
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="source",
-                    target_resource_id=example_virtual_machine.id,
-                    filter=azure.network.NetworkConnectionMonitorEndpointFilterArgs(
-                        items=[azure.network.NetworkConnectionMonitorEndpointFilterItemArgs(
-                            address=example_virtual_machine.id,
-                            type="AgentAddress",
-                        )],
-                        type="Include",
-                    ),
-                ),
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="destination",
-                    address="mycompany.io",
-                ),
+                {
+                    name: source,
+                    targetResourceId: example_virtual_machine.id,
+                    filter: {
+                        items: [{
+                            address: example_virtual_machine.id,
+                            type: AgentAddress,
+                        }],
+                        type: Include,
+                    },
+                },
+                {
+                    name: destination,
+                    address: mycompany.io,
+                },
             ],
-            test_configurations=[azure.network.NetworkConnectionMonitorTestConfigurationArgs(
-                name="tcpName",
-                protocol="Tcp",
-                test_frequency_in_seconds=60,
-                tcp_configuration=azure.network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs(
-                    port=80,
-                ),
-            )],
-            test_groups=[azure.network.NetworkConnectionMonitorTestGroupArgs(
-                name="exampletg",
-                destination_endpoints=["destination"],
-                source_endpoints=["source"],
-                test_configuration_names=["tcpName"],
-            )],
-            notes="examplenote",
+            test_configurations=[{
+                name: tcpName,
+                protocol: Tcp,
+                testFrequencyInSeconds: 60,
+                tcpConfiguration: {
+                    port: 80,
+                },
+            }],
+            test_groups=[{
+                name: exampletg,
+                destinationEndpoints: [destination],
+                sourceEndpoints: [source],
+                testConfigurationNames: [tcpName],
+            }],
+            notes=examplenote,
             output_workspace_resource_ids=[example_analytics_workspace.id])
         ```
 

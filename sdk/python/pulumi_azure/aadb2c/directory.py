@@ -317,13 +317,13 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.aadb2c.Directory("example",
-            country_code="US",
-            data_residency_location="United States",
-            display_name="example-b2c-tenant",
-            domain_name="exampleb2ctenant.onmicrosoft.com",
-            resource_group_name="example-rg",
-            sku_name="PremiumP1")
+        example = azure.aadb2c.directory.Directory("example",
+            country_code=US,
+            data_residency_location=United States,
+            display_name=example-b2c-tenant,
+            domain_name=exampleb2ctenant.onmicrosoft.com,
+            resource_group_name=example-rg,
+            sku_name=PremiumP1)
         ```
 
         ## Import
@@ -359,13 +359,13 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.aadb2c.Directory("example",
-            country_code="US",
-            data_residency_location="United States",
-            display_name="example-b2c-tenant",
-            domain_name="exampleb2ctenant.onmicrosoft.com",
-            resource_group_name="example-rg",
-            sku_name="PremiumP1")
+        example = azure.aadb2c.directory.Directory("example",
+            country_code=US,
+            data_residency_location=United States,
+            display_name=example-b2c-tenant,
+            domain_name=exampleb2ctenant.onmicrosoft.com,
+            resource_group_name=example-rg,
+            sku_name=PremiumP1)
         ```
 
         ## Import

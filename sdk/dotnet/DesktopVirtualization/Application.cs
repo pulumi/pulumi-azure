@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example-virtualdesktop",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
+    ///     var pooledbreadthfirst = new Azure.Desktopvirtualization.HostPool.HostPool("pooledbreadthfirst", new()
     ///     {
     ///         Name = "pooledbreadthfirst",
     ///         Location = example.Location,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         LoadBalancerType = "BreadthFirst",
     ///     });
     /// 
-    ///     var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new()
+    ///     var personalautomatic = new Azure.Desktopvirtualization.HostPool.HostPool("personalautomatic", new()
     ///     {
     ///         Name = "personalautomatic",
     ///         Location = example.Location,
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         LoadBalancerType = "BreadthFirst",
     ///     });
     /// 
-    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
+    ///     var remoteapp = new Azure.Desktopvirtualization.ApplicationGroup.ApplicationGroup("remoteapp", new()
     ///     {
     ///         Name = "acctag",
     ///         Location = example.Location,
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         Description = "Acceptance Test: An application group",
     ///     });
     /// 
-    ///     var chrome = new Azure.DesktopVirtualization.Application("chrome", new()
+    ///     var chrome = new Azure.Desktopvirtualization.Application.Application("chrome", new()
     ///     {
     ///         Name = "googlechrome",
     ///         ApplicationGroupId = remoteapp.Id,

@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/paloalto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	paloalto/localRulestack "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestack"
+//	paloalto/localRulestackPrefixList "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/paloalto/localRulestackPrefixList"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = paloalto.NewLocalRulestackPrefixList(ctx, "example", &paloalto.LocalRulestackPrefixListArgs{
-//				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID(),
-//				PrefixLists: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLocalRulestack, err := paloalto/localRulestack.NewLocalRulestack(ctx, "example", &paloalto/localRulestack.LocalRulestackArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = paloalto/localRulestackPrefixList.NewLocalRulestackPrefixList(ctx, "example", &paloalto/localRulestackPrefixList.LocalRulestackPrefixListArgs{
+// Name: "example",
+// RulestackId: exampleLocalRulestack.Id,
+// PrefixLists: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -12,34 +12,6 @@ import (
 )
 
 // Get information about an Azure Spatial Anchors Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mixedreality"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mixedreality.LookupSpatialAnchorsAccount(ctx, &mixedreality.LookupSpatialAnchorsAccountArgs{
-//				Name:              "example",
-//				ResourceGroupName: exampleAzurermResourceGroup.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("accountDomain", accountDomainAzurermSpatialAnchorsAccount)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupSpatialAnchorsAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpatialAnchorsAccountResult

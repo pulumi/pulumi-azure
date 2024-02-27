@@ -19,23 +19,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     addressSpaces: ["10.2.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-compute",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.2.0.0/24"],
  * });
- * const example2 = new azure.network.Subnet("example2", {
+ * const example2 = new azure.network/subnet.Subnet("example2", {
  *     name: "example-hsmsubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -51,19 +51,19 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const example3 = new azure.network.Subnet("example3", {
+ * const example3 = new azure.network/subnet.Subnet("example3", {
  *     name: "gatewaysubnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.2.255.0/26"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-pip",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Dynamic",
  * });
- * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
+ * const exampleVirtualNetworkGateway = new azure.network/virtualNetworkGateway.VirtualNetworkGateway("example", {
  *     name: "example-vnetgateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *         subnetId: example3.id,
  *     }],
  * });
- * const exampleModule = new azure.hsm.Module("example", {
+ * const exampleModule = new azure.hsm/module.Module("example", {
  *     name: "example-hsm",
  *     location: example.location,
  *     resourceGroupName: example.name,

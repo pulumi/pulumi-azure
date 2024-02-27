@@ -204,18 +204,18 @@ class MoverAgent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name)
-        example_mover_agent = azure.storage.MoverAgent("example",
-            name="example-sa",
+        example_mover_agent = azure.storage.mover_agent.MoverAgent("example",
+            name=example-sa,
             storage_mover_id=example_mover.id,
-            arc_virtual_machine_id=example.id.apply(lambda id: f"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
-            arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
-            description="Example Agent Description")
+            arc_virtual_machine_id=f{example.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName,
+            arc_virtual_machine_uuid=3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9,
+            description=Example Agent Description)
         ```
 
         ## Import
@@ -249,18 +249,18 @@ class MoverAgent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="East US")
-        example_mover = azure.storage.Mover("example",
-            name="example-ssm",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=East US)
+        example_mover = azure.storage.mover.Mover("example",
+            name=example-ssm,
             resource_group_name=example.name)
-        example_mover_agent = azure.storage.MoverAgent("example",
-            name="example-sa",
+        example_mover_agent = azure.storage.mover_agent.MoverAgent("example",
+            name=example-sa,
             storage_mover_id=example_mover.id,
-            arc_virtual_machine_id=example.id.apply(lambda id: f"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
-            arc_virtual_machine_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
-            description="Example Agent Description")
+            arc_virtual_machine_id=f{example.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName,
+            arc_virtual_machine_uuid=3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9,
+            description=Example Agent Description)
         ```
 
         ## Import

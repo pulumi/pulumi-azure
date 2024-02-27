@@ -33,15 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.frontdoor.Frontdoor;
  * import com.pulumi.azure.frontdoor.FrontdoorArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolHealthProbeArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
  * import com.pulumi.azure.frontdoor.RulesEngine;
  * import com.pulumi.azure.frontdoor.RulesEngineArgs;
- * import com.pulumi.azure.frontdoor.inputs.RulesEngineRuleArgs;
- * import com.pulumi.azure.frontdoor.inputs.RulesEngineRuleActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,35 +56,11 @@ import javax.annotation.Nullable;
  *         var exampleFrontdoor = new Frontdoor(&#34;exampleFrontdoor&#34;, FrontdoorArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
- *             .backendPools(FrontdoorBackendPoolArgs.builder()
- *                 .name(&#34;exampleBackendBing&#34;)
- *                 .loadBalancingName(&#34;exampleLoadBalancingSettings1&#34;)
- *                 .healthProbeName(&#34;exampleHealthProbeSetting1&#34;)
- *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
- *                     .hostHeader(&#34;www.bing.com&#34;)
- *                     .address(&#34;www.bing.com&#34;)
- *                     .httpPort(80)
- *                     .httpsPort(443)
- *                     .build())
- *                 .build())
- *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
- *                 .name(&#34;exampleHealthProbeSetting1&#34;)
- *                 .build())
- *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
- *                 .name(&#34;exampleLoadBalancingSettings1&#34;)
- *                 .build())
- *             .frontendEndpoints(FrontdoorFrontendEndpointArgs.builder()
- *                 .name(&#34;exampleFrontendEndpoint1&#34;)
- *                 .hostName(&#34;example-FrontDoor.azurefd.net&#34;)
- *                 .build())
- *             .routingRules(FrontdoorRoutingRuleArgs.builder()
- *                 .name(&#34;exampleRoutingRule1&#34;)
- *                 .acceptedProtocols(                
- *                     &#34;Http&#34;,
- *                     &#34;Https&#34;)
- *                 .patternsToMatches(&#34;/*&#34;)
- *                 .frontendEndpoints(&#34;exampleFrontendEndpoint1&#34;)
- *                 .build())
+ *             .backendPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendPoolHealthProbes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendPoolLoadBalancings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .frontendEndpoints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .routingRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRulesEngine = new RulesEngine(&#34;exampleRulesEngine&#34;, RulesEngineArgs.builder()        
@@ -99,41 +68,8 @@ import javax.annotation.Nullable;
  *             .frontdoorName(exampleFrontdoor.name())
  *             .resourceGroupName(exampleFrontdoor.resourceGroupName())
  *             .rules(            
- *                 RulesEngineRuleArgs.builder()
- *                     .name(&#34;debuggingoutput&#34;)
- *                     .priority(1)
- *                     .action(RulesEngineRuleActionArgs.builder()
- *                         .responseHeaders(RulesEngineRuleActionResponseHeaderArgs.builder()
- *                             .headerActionType(&#34;Append&#34;)
- *                             .headerName(&#34;X-TEST-HEADER&#34;)
- *                             .value(&#34;Append Header Rule&#34;)
- *                             .build())
- *                         .build())
- *                     .build(),
- *                 RulesEngineRuleArgs.builder()
- *                     .name(&#34;overwriteorigin&#34;)
- *                     .priority(2)
- *                     .matchConditions(RulesEngineRuleMatchConditionArgs.builder()
- *                         .variable(&#34;RequestMethod&#34;)
- *                         .operator(&#34;Equal&#34;)
- *                         .values(                        
- *                             &#34;GET&#34;,
- *                             &#34;POST&#34;)
- *                         .build())
- *                     .action(RulesEngineRuleActionArgs.builder()
- *                         .responseHeaders(                        
- *                             RulesEngineRuleActionResponseHeaderArgs.builder()
- *                                 .headerActionType(&#34;Overwrite&#34;)
- *                                 .headerName(&#34;Access-Control-Allow-Origin&#34;)
- *                                 .value(&#34;*&#34;)
- *                                 .build(),
- *                             RulesEngineRuleActionResponseHeaderArgs.builder()
- *                                 .headerActionType(&#34;Overwrite&#34;)
- *                                 .headerName(&#34;Access-Control-Allow-Credentials&#34;)
- *                                 .value(&#34;true&#34;)
- *                                 .build())
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

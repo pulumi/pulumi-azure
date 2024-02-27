@@ -39,8 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.RunBookArgs;
  * import com.pulumi.azure.automation.SoftwareUpdateConfiguration;
  * import com.pulumi.azure.automation.SoftwareUpdateConfigurationArgs;
- * import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationLinuxArgs;
- * import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationPreTaskArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,23 +77,15 @@ import javax.annotation.Nullable;
  * # Some example content
  * # for Terraform acceptance example
  *             &#34;&#34;&#34;)
- *             .tags(Map.of(&#34;ENV&#34;, &#34;runbook_test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration(&#34;exampleSoftwareUpdateConfiguration&#34;, SoftwareUpdateConfigurationArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .automationAccountId(exampleAccount.id())
  *             .operatingSystem(&#34;Linux&#34;)
- *             .linuxes(SoftwareUpdateConfigurationLinuxArgs.builder()
- *                 .classificationIncluded(&#34;Security&#34;)
- *                 .excludedPackages(&#34;apt&#34;)
- *                 .includedPackages(&#34;vim&#34;)
- *                 .reboot(&#34;IfRequired&#34;)
- *                 .build())
- *             .preTasks(SoftwareUpdateConfigurationPreTaskArgs.builder()
- *                 .source(exampleRunBook.name())
- *                 .parameters(Map.of(&#34;COMPUTER_NAME&#34;, &#34;Foo&#34;))
- *                 .build())
+ *             .linuxes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .preTasks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .duration(&#34;PT2H2M2S&#34;)
  *             .build());
  * 

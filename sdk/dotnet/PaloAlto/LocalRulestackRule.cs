@@ -22,20 +22,20 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
+    ///     var exampleLocalRulestack = new Azure.Paloalto.LocalRulestack.LocalRulestack("example", new()
     ///     {
     ///         Name = "lrs-example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("example", new()
+    ///     var exampleLocalRulestackRule = new Azure.Paloalto.LocalRulestackRule.LocalRulestackRule("example", new()
     ///     {
     ///         Name = "example-rule",
     ///         RulestackId = exampleLocalRulestack.Id,
@@ -45,19 +45,19 @@ namespace Pulumi.Azure.PaloAlto
     ///         {
     ///             "any",
     ///         },
-    ///         Source = new Azure.PaloAlto.Inputs.LocalRulestackRuleSourceArgs
+    ///         Source = 
     ///         {
-    ///             Cidrs = new[]
+    ///             { "cidrs", new[]
     ///             {
     ///                 "10.0.0.0/8",
-    ///             },
+    ///             } },
     ///         },
-    ///         Destination = new Azure.PaloAlto.Inputs.LocalRulestackRuleDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             Cidrs = new[]
+    ///             { "cidrs", new[]
     ///             {
     ///                 "192.168.16.0/24",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

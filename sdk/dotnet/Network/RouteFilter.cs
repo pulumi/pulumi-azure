@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Network.RouteFilter("example", new()
+    ///     var example = new Azure.Network.RouteFilter.RouteFilter("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = "example",
     ///         Location = "East US",
-    ///         Rule = new Azure.Network.Inputs.RouteFilterRuleArgs
+    ///         Rule = 
     ///         {
-    ///             Name = "rule",
-    ///             Access = "Allow",
-    ///             RuleType = "Community",
-    ///             Communities = new[]
+    ///             { "name", "rule" },
+    ///             { "access", "Allow" },
+    ///             { "ruleType", "Community" },
+    ///             { "communities", new[]
     ///             {
     ///                 "12076:52004",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

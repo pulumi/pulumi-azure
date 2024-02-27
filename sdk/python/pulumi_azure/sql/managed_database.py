@@ -138,33 +138,33 @@ class ManagedDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="test-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=test-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="acctsub",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=acctsub,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.sql.ManagedInstance("example",
-            name="example",
+            address_prefixes=[10.0.2.0/24])
+        example_managed_instance = azure.sql.managed_instance.ManagedInstance("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
             subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32)
-        example_managed_database = azure.sql.ManagedDatabase("example",
+        example_managed_database = azure.sql.managed_database.ManagedDatabase("example",
             sql_managed_instance_id=example_managed_instance.id,
-            name="exampledatabase",
+            name=exampledatabase,
             location=example.location)
         ```
 
@@ -195,33 +195,33 @@ class ManagedDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="test-network",
-            address_spaces=["10.0.0.0/16"],
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=test-network,
+            address_spaces=[10.0.0.0/16],
             location=example.location,
             resource_group_name=example.name)
-        example_subnet = azure.network.Subnet("example",
-            name="acctsub",
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=acctsub,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.sql.ManagedInstance("example",
-            name="example",
+            address_prefixes=[10.0.2.0/24])
+        example_managed_instance = azure.sql.managed_instance.ManagedInstance("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
+            administrator_login=mradministrator,
+            administrator_login_password=thisIsDog11,
+            license_type=BasePrice,
             subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
+            sku_name=GP_Gen5,
             vcores=4,
             storage_size_in_gb=32)
-        example_managed_database = azure.sql.ManagedDatabase("example",
+        example_managed_database = azure.sql.managed_database.ManagedDatabase("example",
             sql_managed_instance_id=example_managed_instance.id,
-            name="exampledatabase",
+            name=exampledatabase,
             location=example.location)
         ```
 

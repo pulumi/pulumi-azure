@@ -24,44 +24,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/routeTable "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/routeTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
-//				Name:                       pulumi.String("example-route-table"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				DisableBgpRoutePropagation: pulumi.Bool(false),
-//				Routes: network.RouteTableRouteArray{
-//					&network.RouteTableRouteArgs{
-//						Name:          pulumi.String("route1"),
-//						AddressPrefix: pulumi.String("10.1.0.0/16"),
-//						NextHopType:   pulumi.String("VnetLocal"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/routeTable.NewRouteTable(ctx, "example", &network/routeTable.RouteTableArgs{
+// Name: "example-route-table",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// DisableBgpRoutePropagation: false,
+// Routes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "route1",
+// "addressPrefix": "10.1.0.0/16",
+// "nextHopType": "VnetLocal",
+// },
+// },
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

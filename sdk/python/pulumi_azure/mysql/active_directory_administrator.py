@@ -196,34 +196,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         Allows you to set a user or group as the AD administrator for an MySQL server in Azure
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.mysql.Server("example",
-            name="example-mysqlserver",
-            location=example.location,
-            resource_group_name=example.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            ssl_enforcement_enabled=True,
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            version="5.7")
-        example_active_directory_administrator = azure.mysql.ActiveDirectoryAdministrator("example",
-            server_name=example_server.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
-
         ## Import
 
         A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
@@ -248,34 +220,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for an MySQL server in Azure
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_server = azure.mysql.Server("example",
-            name="example-mysqlserver",
-            location=example.location,
-            resource_group_name=example.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            ssl_enforcement_enabled=True,
-            sku_name="B_Gen5_2",
-            storage_mb=5120,
-            version="5.7")
-        example_active_directory_administrator = azure.mysql.ActiveDirectoryAdministrator("example",
-            server_name=example_server.name,
-            resource_group_name=example.name,
-            login="sqladmin",
-            tenant_id=current.tenant_id,
-            object_id=current.object_id)
-        ```
 
         ## Import
 

@@ -23,70 +23,70 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	lb/backendAddressPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/backendAddressPool"
+//	lb/loadBalancer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/loadBalancer"
+//	lb/outboundRule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/lb/outboundRule"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("LoadBalancerRG"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("PublicIPForLB"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              pulumi.String("TestLoadBalancer"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-//					&lb.LoadBalancerFrontendIpConfigurationArgs{
-//						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
-//				Name:           pulumi.String("example"),
-//				LoadbalancerId: exampleLoadBalancer.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewOutboundRule(ctx, "example", &lb.OutboundRuleArgs{
-//				Name:                 pulumi.String("OutboundRule"),
-//				LoadbalancerId:       exampleLoadBalancer.ID(),
-//				Protocol:             pulumi.String("Tcp"),
-//				BackendAddressPoolId: exampleBackendAddressPool.ID(),
-//				FrontendIpConfigurations: lb.OutboundRuleFrontendIpConfigurationArray{
-//					&lb.OutboundRuleFrontendIpConfigurationArgs{
-//						Name: pulumi.String("PublicIPAddress"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "LoadBalancerRG",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "PublicIPForLB",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLoadBalancer, err := lb/loadBalancer.NewLoadBalancer(ctx, "example", &lb/loadBalancer.LoadBalancerArgs{
+// Name: "TestLoadBalancer",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// FrontendIpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "PublicIPAddress",
+// "publicIpAddressId": examplePublicIp.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleBackendAddressPool, err := lb/backendAddressPool.NewBackendAddressPool(ctx, "example", &lb/backendAddressPool.BackendAddressPoolArgs{
+// Name: "example",
+// LoadbalancerId: exampleLoadBalancer.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/outboundRule.NewOutboundRule(ctx, "example", &lb/outboundRule.OutboundRuleArgs{
+// Name: "OutboundRule",
+// LoadbalancerId: exampleLoadBalancer.Id,
+// Protocol: "Tcp",
+// BackendAddressPoolId: exampleBackendAddressPool.Id,
+// FrontendIpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "PublicIPAddress",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

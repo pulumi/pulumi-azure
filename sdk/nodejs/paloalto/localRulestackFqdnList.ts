@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "rg-example",
  *     location: "West Europe",
  * });
- * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("example", {
+ * const exampleLocalRulestack = new azure.paloalto/localRulestack.LocalRulestack("example", {
  *     name: "example",
  *     resourceGroupName: exampleAzurermResrouceGroup.name,
  *     location: example.location,
  * });
- * const exampleLocalRulestackFqdnList = new azure.paloalto.LocalRulestackFqdnList("example", {
+ * const exampleLocalRulestackFqdnList = new azure.paloalto/localRulestackFqdnList.LocalRulestackFqdnList("example", {
  *     name: "example",
  *     rulestackId: exampleLocalRulestack.id,
  *     fullyQualifiedDomainNames: ["contoso.com"],

@@ -287,14 +287,14 @@ class EnterpriseCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-redisenterprise",
-            location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("example",
-            name="example-redisenterprise",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-redisenterprise,
+            location=West Europe)
+        example_enterprise_cluster = azure.redis.enterprise_cluster.EnterpriseCluster("example",
+            name=example-redisenterprise,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EnterpriseFlash_F300-3")
+            sku_name=EnterpriseFlash_F300-3)
         ```
 
         ## Import
@@ -330,14 +330,14 @@ class EnterpriseCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-redisenterprise",
-            location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("example",
-            name="example-redisenterprise",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-redisenterprise,
+            location=West Europe)
+        example_enterprise_cluster = azure.redis.enterprise_cluster.EnterpriseCluster("example",
+            name=example-redisenterprise,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="EnterpriseFlash_F300-3")
+            sku_name=EnterpriseFlash_F300-3)
         ```
 
         ## Import

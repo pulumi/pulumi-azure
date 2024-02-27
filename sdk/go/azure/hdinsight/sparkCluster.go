@@ -21,86 +21,85 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	hdinsight/sparkCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/hdinsight/sparkCluster"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("hdinsightstor"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("hdinsight"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = hdinsight.NewSparkCluster(ctx, "example", &hdinsight.SparkClusterArgs{
-//				Name:              pulumi.String("example-hdicluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("3.6"),
-//				Tier:              pulumi.String("Standard"),
-//				ComponentVersion: &hdinsight.SparkClusterComponentVersionArgs{
-//					Spark: pulumi.String("2.3"),
-//				},
-//				Gateway: &hdinsight.SparkClusterGatewayArgs{
-//					Username: pulumi.String("acctestusrgw"),
-//					Password: pulumi.String("Password123!"),
-//				},
-//				StorageAccounts: hdinsight.SparkClusterStorageAccountArray{
-//					&hdinsight.SparkClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
-//					},
-//				},
-//				Roles: &hdinsight.SparkClusterRolesArgs{
-//					HeadNode: &hdinsight.SparkClusterRolesHeadNodeArgs{
-//						VmSize:   pulumi.String("Standard_A3"),
-//						Username: pulumi.String("acctestusrvm"),
-//						Password: pulumi.String("AccTestvdSC4daf986!"),
-//					},
-//					WorkerNode: &hdinsight.SparkClusterRolesWorkerNodeArgs{
-//						VmSize:              pulumi.String("Standard_A3"),
-//						Username:            pulumi.String("acctestusrvm"),
-//						Password:            pulumi.String("AccTestvdSC4daf986!"),
-//						TargetInstanceCount: pulumi.Int(3),
-//					},
-//					ZookeeperNode: &hdinsight.SparkClusterRolesZookeeperNodeArgs{
-//						VmSize:   pulumi.String("Medium"),
-//						Username: pulumi.String("acctestusrvm"),
-//						Password: pulumi.String("AccTestvdSC4daf986!"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "hdinsightstor",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "hdinsight",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = hdinsight/sparkCluster.NewSparkCluster(ctx, "example", &hdinsight/sparkCluster.SparkClusterArgs{
+// Name: "example-hdicluster",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterVersion: "3.6",
+// Tier: "Standard",
+// ComponentVersion: map[string]interface{}{
+// "spark": "2.3",
+// },
+// Gateway: map[string]interface{}{
+// "username": "acctestusrgw",
+// "password": "Password123!",
+// },
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "storageContainerId": exampleContainer.Id,
+// "storageAccountKey": exampleAccount.PrimaryAccessKey,
+// "isDefault": true,
+// },
+// },
+// Roles: map[string]interface{}{
+// "headNode": map[string]interface{}{
+// "vmSize": "Standard_A3",
+// "username": "acctestusrvm",
+// "password": "AccTestvdSC4daf986!",
+// },
+// "workerNode": map[string]interface{}{
+// "vmSize": "Standard_A3",
+// "username": "acctestusrvm",
+// "password": "AccTestvdSC4daf986!",
+// "targetInstanceCount": 3,
+// },
+// "zookeeperNode": map[string]interface{}{
+// "vmSize": "Medium",
+// "username": "acctestusrvm",
+// "password": "AccTestvdSC4daf986!",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

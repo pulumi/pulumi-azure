@@ -62,11 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.eventhub.AuthorizationRuleArgs;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubEndpointArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubRouteArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubEnrichmentArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubCloudToDeviceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -127,58 +122,16 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .localAuthenticationEnabled(false)
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name(&#34;S1&#34;)
- *                 .capacity(&#34;1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .endpoints(            
- *                 IoTHubEndpointArgs.builder()
- *                     .type(&#34;AzureIotHub.StorageContainer&#34;)
- *                     .connectionString(exampleAccount.primaryBlobConnectionString())
- *                     .name(&#34;export&#34;)
- *                     .batchFrequencyInSeconds(60)
- *                     .maxChunkSizeInBytes(10485760)
- *                     .containerName(exampleContainer.name())
- *                     .encoding(&#34;Avro&#34;)
- *                     .fileNameFormat(&#34;{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}&#34;)
- *                     .build(),
- *                 IoTHubEndpointArgs.builder()
- *                     .type(&#34;AzureIotHub.EventHub&#34;)
- *                     .connectionString(exampleAuthorizationRule.primaryConnectionString())
- *                     .name(&#34;export2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .routes(            
- *                 IoTHubRouteArgs.builder()
- *                     .name(&#34;export&#34;)
- *                     .source(&#34;DeviceMessages&#34;)
- *                     .condition(&#34;true&#34;)
- *                     .endpointNames(&#34;export&#34;)
- *                     .enabled(true)
- *                     .build(),
- *                 IoTHubRouteArgs.builder()
- *                     .name(&#34;export2&#34;)
- *                     .source(&#34;DeviceMessages&#34;)
- *                     .condition(&#34;true&#34;)
- *                     .endpointNames(&#34;export2&#34;)
- *                     .enabled(true)
- *                     .build())
- *             .enrichments(IoTHubEnrichmentArgs.builder()
- *                 .key(&#34;tenant&#34;)
- *                 .value(&#34;$twin.tags.Tenant&#34;)
- *                 .endpointNames(                
- *                     &#34;export&#34;,
- *                     &#34;export2&#34;)
- *                 .build())
- *             .cloudToDevice(IoTHubCloudToDeviceArgs.builder()
- *                 .maxDeliveryCount(30)
- *                 .defaultTtl(&#34;PT1H&#34;)
- *                 .feedbacks(IoTHubCloudToDeviceFeedbackArgs.builder()
- *                     .timeToLive(&#34;PT1H10M&#34;)
- *                     .maxDeliveryCount(15)
- *                     .lockDuration(&#34;PT30S&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;purpose&#34;, &#34;testing&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .enrichments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .cloudToDevice(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

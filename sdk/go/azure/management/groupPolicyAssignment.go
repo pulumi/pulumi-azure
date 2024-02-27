@@ -21,27 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	management/group "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/group"
+//	management/groupPolicyAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/groupPolicyAssignment"
+//	policy/definition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/policy/definition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := management/group.NewGroup(ctx, "example", &management/group.GroupArgs{
+// DisplayName: "Some Management Group",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDefinition, err := policy/definition.NewDefinition(ctx, "example", &policy/definition.DefinitionArgs{
+// Name: "only-deploy-in-westeurope",
+// PolicyType: "Custom",
+// Mode: "All",
+// DisplayName: "my-policy-definition",
+// ManagementGroupId: example.Id,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := management.NewGroup(ctx, "example", &management.GroupArgs{
-//				DisplayName: pulumi.String("Some Management Group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
-//				Name:              pulumi.String("only-deploy-in-westeurope"),
-//				PolicyType:        pulumi.String("Custom"),
-//				Mode:              pulumi.String("All"),
-//				DisplayName:       pulumi.String("my-policy-definition"),
-//				ManagementGroupId: example.ID(),
-//				PolicyRule: pulumi.String(` {
+//	PolicyRule: ` {
 //	    "if": {
 //	      "not": {
 //	        "field": "location",
@@ -53,24 +54,22 @@ import (
 //	    }
 //	  }
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
-//				Name:               pulumi.String("example-policy"),
-//				PolicyDefinitionId: exampleDefinition.ID(),
-//				ManagementGroupId:  example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = management/groupPolicyAssignment.NewGroupPolicyAssignment(ctx, "example", &management/groupPolicyAssignment.GroupPolicyAssignmentArgs{
+// Name: "example-policy",
+// PolicyDefinitionId: exampleDefinition.Id,
+// ManagementGroupId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

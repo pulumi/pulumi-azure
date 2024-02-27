@@ -22,13 +22,13 @@ namespace Pulumi.Azure.PowerBI
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEmbedded = new Azure.PowerBI.Embedded("example", new()
+    ///     var exampleEmbedded = new Azure.Powerbi.Embedded.Embedded("example", new()
     ///     {
     ///         Name = "examplepowerbi",
     ///         Location = example.Location,

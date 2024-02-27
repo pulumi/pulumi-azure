@@ -14,17 +14,17 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * export = async () => {
- *     const example = new azure.core.ResourceGroup("example", {
+ *     const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *         name: "tf-test",
  *         location: "West Europe",
  *     });
- *     const exampleInsights = new azure.appinsights.Insights("example", {
+ *     const exampleInsights = new azure.appinsights/insights.Insights("example", {
  *         name: "tf-test-appinsights",
  *         location: example.location,
  *         resourceGroupName: example.name,
  *         applicationType: "web",
  *     });
- *     const readTelemetry = new azure.appinsights.ApiKey("read_telemetry", {
+ *     const readTelemetry = new azure.appinsights/apiKey.ApiKey("read_telemetry", {
  *         name: "tf-test-appinsights-read-telemetry-api-key",
  *         applicationInsightsId: exampleInsights.id,
  *         readPermissions: [
@@ -35,17 +35,17 @@ import * as utilities from "../utilities";
  *             "search",
  *         ],
  *     });
- *     const writeAnnotations = new azure.appinsights.ApiKey("write_annotations", {
+ *     const writeAnnotations = new azure.appinsights/apiKey.ApiKey("write_annotations", {
  *         name: "tf-test-appinsights-write-annotations-api-key",
  *         applicationInsightsId: exampleInsights.id,
  *         writePermissions: ["annotations"],
  *     });
- *     const authenticateSdkControlChannel = new azure.appinsights.ApiKey("authenticate_sdk_control_channel", {
+ *     const authenticateSdkControlChannel = new azure.appinsights/apiKey.ApiKey("authenticate_sdk_control_channel", {
  *         name: "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
  *         applicationInsightsId: exampleInsights.id,
  *         readPermissions: ["agentconfig"],
  *     });
- *     const fullPermissions = new azure.appinsights.ApiKey("full_permissions", {
+ *     const fullPermissions = new azure.appinsights/apiKey.ApiKey("full_permissions", {
  *         name: "tf-test-appinsights-full-permissions-api-key",
  *         applicationInsightsId: exampleInsights.id,
  *         readPermissions: [

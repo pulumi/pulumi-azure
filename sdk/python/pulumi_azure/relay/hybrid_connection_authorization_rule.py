@@ -334,25 +334,25 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.relay.Namespace("example",
-            name="example-relay",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=example-relay,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             tags={
-                "source": "terraform",
+                source: terraform,
             })
-        example_hybrid_connection = azure.relay.HybridConnection("example",
-            name="acctestrnhc-%d",
+        example_hybrid_connection = azure.relay.hybrid_connection.HybridConnection("example",
+            name=acctestrnhc-%d,
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name,
             requires_client_authorization=False,
-            user_metadata="testmetadata")
-        example_hybrid_connection_authorization_rule = azure.relay.HybridConnectionAuthorizationRule("example",
-            name="example",
+            user_metadata=testmetadata)
+        example_hybrid_connection_authorization_rule = azure.relay.hybrid_connection_authorization_rule.HybridConnectionAuthorizationRule("example",
+            name=example,
             resource_group_name=example.name,
             hybrid_connection_name=example_hybrid_connection.name,
             namespace_name=example_namespace.name,
@@ -394,25 +394,25 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_namespace = azure.relay.Namespace("example",
-            name="example-relay",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_namespace = azure.relay.namespace.Namespace("example",
+            name=example-relay,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Standard",
+            sku_name=Standard,
             tags={
-                "source": "terraform",
+                source: terraform,
             })
-        example_hybrid_connection = azure.relay.HybridConnection("example",
-            name="acctestrnhc-%d",
+        example_hybrid_connection = azure.relay.hybrid_connection.HybridConnection("example",
+            name=acctestrnhc-%d,
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name,
             requires_client_authorization=False,
-            user_metadata="testmetadata")
-        example_hybrid_connection_authorization_rule = azure.relay.HybridConnectionAuthorizationRule("example",
-            name="example",
+            user_metadata=testmetadata)
+        example_hybrid_connection_authorization_rule = azure.relay.hybrid_connection_authorization_rule.HybridConnectionAuthorizationRule("example",
+            name=example,
             resource_group_name=example.name,
             hybrid_connection_name=example_hybrid_connection.name,
             namespace_name=example_namespace.name,

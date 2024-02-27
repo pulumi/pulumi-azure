@@ -224,15 +224,15 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example_resources",
-            location="West Europe")
-        example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example_resources,
+            location=West Europe)
+        example_instance = azure.digitaltwins.instance.Instance("example",
+            name=example-DT,
             resource_group_name=example.name,
             location=example.location,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -267,15 +267,15 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example_resources",
-            location="West Europe")
-        example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example_resources,
+            location=West Europe)
+        example_instance = azure.digitaltwins.instance.Instance("example",
+            name=example-DT,
             resource_group_name=example.name,
             location=example.location,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

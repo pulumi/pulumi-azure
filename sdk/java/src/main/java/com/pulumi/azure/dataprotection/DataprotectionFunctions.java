@@ -17,78 +17,12 @@ public final class DataprotectionFunctions {
     /**
      * Use this data source to access information about an existing Backup Vault.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
-     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args) {
         return getBackupVault(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Backup Vault.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
-     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args) {
@@ -97,78 +31,12 @@ public final class DataprotectionFunctions {
     /**
      * Use this data source to access information about an existing Backup Vault.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
-     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dataprotection/getBackupVault:getBackupVault", TypeShape.of(GetBackupVaultResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Backup Vault.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.dataprotection.DataprotectionFunctions;
-     * import com.pulumi.azure.dataprotection.inputs.GetBackupVaultArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DataprotectionFunctions.getBackupVault(GetBackupVaultArgs.builder()
-     *             .name(&#34;existing-backup-vault&#34;)
-     *             .resourceGroupName(&#34;existing-resource-group&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {

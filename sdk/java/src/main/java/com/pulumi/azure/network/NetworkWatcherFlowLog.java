@@ -43,8 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.network.NetworkWatcherFlowLog;
  * import com.pulumi.azure.network.NetworkWatcherFlowLogArgs;
- * import com.pulumi.azure.network.inputs.NetworkWatcherFlowLogRetentionPolicyArgs;
- * import com.pulumi.azure.network.inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,17 +97,8 @@ import javax.annotation.Nullable;
  *             .networkSecurityGroupId(test.id())
  *             .storageAccountId(testAccount.id())
  *             .enabled(true)
- *             .retentionPolicy(NetworkWatcherFlowLogRetentionPolicyArgs.builder()
- *                 .enabled(true)
- *                 .days(7)
- *                 .build())
- *             .trafficAnalytics(NetworkWatcherFlowLogTrafficAnalyticsArgs.builder()
- *                 .enabled(true)
- *                 .workspaceId(testAnalyticsWorkspace.workspaceId())
- *                 .workspaceRegion(testAnalyticsWorkspace.location())
- *                 .workspaceResourceId(testAnalyticsWorkspace.id())
- *                 .intervalInMinutes(10)
- *                 .build())
+ *             .retentionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .trafficAnalytics(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

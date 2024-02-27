@@ -14,6 +14,87 @@ import (
 
 // Manages a Mobile Network Packet Core Data Plane.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	databoxedge/device "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/databoxedge/device"
+//	mobile/network "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/network"
+//	mobile/networkPacketCoreControlPlane "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkPacketCoreControlPlane"
+//	mobile/networkPacketCoreDataPlane "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mobile/networkPacketCoreDataPlane"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDevice, err := databoxedge/device.NewDevice(ctx, "example", &databoxedge/device.DeviceArgs{
+// Name: "example-device",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// SkuName: "EdgeP_Base-Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetwork, err := mobile/network.NewNetwork(ctx, "example", &mobile/network.NetworkArgs{
+// Name: "example-mn",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// MobileCountryCode: "001",
+// MobileNetworkCode: "01",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkPacketCoreControlPlane, err := mobile/networkPacketCoreControlPlane.NewNetworkPacketCoreControlPlane(ctx, "example", &mobile/networkPacketCoreControlPlane.NetworkPacketCoreControlPlaneArgs{
+// Name: "example-mnpccp",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "G0",
+// MobileNetworkId: exampleNetwork.Id,
+// ControlPlaneAccessName: "default-interface",
+// ControlPlaneAccessIpv4Address: "192.168.1.199",
+// ControlPlaneAccessIpv4Gateway: "192.168.1.1",
+// ControlPlaneAccessIpv4Subnet: "192.168.1.0/25",
+// Platform: map[string]interface{}{
+// "type": "AKS-HCI",
+// "edgeDeviceId": exampleDevice.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mobile/networkPacketCoreDataPlane.NewNetworkPacketCoreDataPlane(ctx, "example", &mobile/networkPacketCoreDataPlane.NetworkPacketCoreDataPlaneArgs{
+// Name: "example-mnpcdp",
+// MobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.Id,
+// Location: example.Location,
+// UserPlaneAccessName: "default-interface",
+// UserPlaneAccessIpv4Address: "192.168.1.199",
+// UserPlaneAccessIpv4Gateway: "192.168.1.1",
+// UserPlaneAccessIpv4Subnet: "192.168.1.0/25",
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Mobile Network Packet Core Data Plane can be imported using the `resource id`, e.g.

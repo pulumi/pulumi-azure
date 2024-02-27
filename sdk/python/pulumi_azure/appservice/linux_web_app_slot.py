@@ -1035,25 +1035,25 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("example",
-            name="example-linux-web-app",
+            os_type=Linux,
+            sku_name=P1v2)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
+            name=example-linux-web-app,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("example",
-            name="example-slot",
+            site_config={})
+        example_linux_web_app_slot = azure.appservice.linux_web_app_slot.LinuxWebAppSlot("example",
+            name=example-slot,
             app_service_id=example_linux_web_app.id,
-            site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1111,25 +1111,25 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("example",
-            name="example-plan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service_plan = azure.appservice.service_plan.ServicePlan("example",
+            name=example-plan,
             resource_group_name=example.name,
             location=example.location,
-            os_type="Linux",
-            sku_name="P1v2")
-        example_linux_web_app = azure.appservice.LinuxWebApp("example",
-            name="example-linux-web-app",
+            os_type=Linux,
+            sku_name=P1v2)
+        example_linux_web_app = azure.appservice.linux_web_app.LinuxWebApp("example",
+            name=example-linux-web-app,
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
-        example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("example",
-            name="example-slot",
+            site_config={})
+        example_linux_web_app_slot = azure.appservice.linux_web_app_slot.LinuxWebAppSlot("example",
+            name=example-slot,
             app_service_id=example_linux_web_app.id,
-            site_config=azure.appservice.LinuxWebAppSlotSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import

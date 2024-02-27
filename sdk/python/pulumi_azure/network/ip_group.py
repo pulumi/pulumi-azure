@@ -230,20 +230,20 @@ class IPGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_ip_group = azure.network.IPGroup("example",
-            name="example1-ipgroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_ip_group = azure.network.i_p_group.IPGroup("example",
+            name=example1-ipgroup,
             location=example.location,
             resource_group_name=example.name,
             cidrs=[
-                "192.168.0.1",
-                "172.16.240.0/20",
-                "10.48.0.0/12",
+                192.168.0.1,
+                172.16.240.0/20,
+                10.48.0.0/12,
             ],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -277,20 +277,20 @@ class IPGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_ip_group = azure.network.IPGroup("example",
-            name="example1-ipgroup",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=West Europe)
+        example_ip_group = azure.network.i_p_group.IPGroup("example",
+            name=example1-ipgroup,
             location=example.location,
             resource_group_name=example.name,
             cidrs=[
-                "192.168.0.1",
-                "172.16.240.0/20",
-                "10.48.0.0/12",
+                192.168.0.1,
+                172.16.240.0/20,
+                10.48.0.0/12,
             ],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

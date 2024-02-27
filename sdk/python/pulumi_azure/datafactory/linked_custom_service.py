@@ -338,40 +338,40 @@ class LinkedCustomService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("example",
-            name="example",
+            identity={
+                type: SystemAssigned,
+            })
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
-            name="example",
+            account_kind=BlobStorage,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_linked_custom_service = azure.datafactory.linked_custom_service.LinkedCustomService("example",
+            name=example,
             data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            description="test description",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+            type=AzureBlobStorage,
+            description=test description,
+            type_properties_json=f{{
+          "connectionString":"{example_account.primary_connection_string}"
         }}
-        \"\"\"),
+        ,
             parameters={
-                "foo": "bar",
-                "Env": "Test",
+                foo: bar,
+                Env: Test,
             },
             annotations=[
-                "test1",
-                "test2",
-                "test3",
+                test1,
+                test2,
+                test3,
             ])
         ```
 
@@ -410,40 +410,40 @@ class LinkedCustomService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_account = azure.storage.Account("example",
-            name="example",
+            identity={
+                type: SystemAssigned,
+            })
+        example_account = azure.storage.account.Account("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            account_kind="BlobStorage",
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
-            name="example",
+            account_kind=BlobStorage,
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_linked_custom_service = azure.datafactory.linked_custom_service.LinkedCustomService("example",
+            name=example,
             data_factory_id=example_factory.id,
-            type="AzureBlobStorage",
-            description="test description",
-            type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
-          "connectionString":"{primary_connection_string}"
+            type=AzureBlobStorage,
+            description=test description,
+            type_properties_json=f{{
+          "connectionString":"{example_account.primary_connection_string}"
         }}
-        \"\"\"),
+        ,
             parameters={
-                "foo": "bar",
-                "Env": "Test",
+                foo: bar,
+                Env: Test,
             },
             annotations=[
-                "test1",
-                "test2",
-                "test3",
+                test1,
+                test2,
+                test3,
             ])
         ```
 

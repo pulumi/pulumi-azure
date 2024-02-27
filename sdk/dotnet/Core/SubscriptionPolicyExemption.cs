@@ -12,46 +12,6 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Subscription Policy Exemption.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var exampleGetPolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
-    ///     {
-    ///         DisplayName = "Audit machines with insecure password security settings",
-    ///     });
-    /// 
-    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
-    ///     {
-    ///         Name = "exampleAssignment",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyDefinitionId = exampleGetPolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
-    ///         Location = "westus",
-    ///         Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("example", new()
-    ///     {
-    ///         Name = "exampleExemption",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
-    ///         ExemptionCategory = "Mitigated",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Policy Exemptions can be imported using the `resource id`, e.g.

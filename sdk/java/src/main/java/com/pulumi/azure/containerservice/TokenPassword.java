@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Container Registry Token Password.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -37,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.RegistryTokenArgs;
  * import com.pulumi.azure.containerservice.TokenPassword;
  * import com.pulumi.azure.containerservice.TokenPasswordArgs;
- * import com.pulumi.azure.containerservice.inputs.TokenPasswordPassword1Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,9 +83,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTokenPassword = new TokenPassword(&#34;exampleTokenPassword&#34;, TokenPasswordArgs.builder()        
  *             .containerRegistryTokenId(exampleRegistryToken.id())
- *             .password1(TokenPasswordPassword1Args.builder()
- *                 .expiry(&#34;2023-03-22T17:57:36+08:00&#34;)
- *                 .build())
+ *             .password1(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

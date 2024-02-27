@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := databricks.GetWorkspacePrivateEndpointConnection(ctx, &databricks.GetWorkspacePrivateEndpointConnectionArgs{
-//				WorkspaceId:       exampleAzurermDatabricksWorkspace.Id,
-//				PrivateEndpointId: exampleAzurermPrivateEndpoint.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("databricksWorkspacePrivateEndpointConnectionStatus", example.Connections[0].Status)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetWorkspacePrivateEndpointConnection(ctx *pulumi.Context, args *GetWorkspacePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*GetWorkspacePrivateEndpointConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacePrivateEndpointConnectionResult

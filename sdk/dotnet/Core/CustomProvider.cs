@@ -22,23 +22,23 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCustomProvider = new Azure.Core.CustomProvider("example", new()
+    ///     var exampleCustomProvider = new Azure.Core.CustomProvider.CustomProvider("example", new()
     ///     {
     ///         Name = "example_provider",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ResourceTypes = new[]
     ///         {
-    ///             new Azure.Core.Inputs.CustomProviderResourceTypeArgs
+    ///             
     ///             {
-    ///                 Name = "dEf1",
-    ///                 Endpoint = "https://testendpoint.com/",
+    ///                 { "name", "dEf1" },
+    ///                 { "endpoint", "https://testendpoint.com/" },
     ///             },
     ///         },
     ///     });

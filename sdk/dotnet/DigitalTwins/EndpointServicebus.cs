@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
+    ///     var exampleInstance = new Azure.Digitaltwins.Instance.Instance("example", new()
     ///     {
     ///         Name = "example-DT",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Servicebus.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "exampleservicebusnamespace",
     ///         Location = example.Location,
@@ -43,13 +43,13 @@ namespace Pulumi.Azure.DigitalTwins
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     var exampleTopic = new Azure.Servicebus.Topic.Topic("example", new()
     ///     {
     ///         Name = "exampleservicebustopic",
     ///         NamespaceId = exampleNamespace.Id,
     ///     });
     /// 
-    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("example", new()
+    ///     var exampleTopicAuthorizationRule = new Azure.Servicebus.TopicAuthorizationRule.TopicAuthorizationRule("example", new()
     ///     {
     ///         Name = "example-rule",
     ///         TopicId = exampleTopic.Id,
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleEndpointServicebus = new Azure.DigitalTwins.EndpointServicebus("example", new()
+    ///     var exampleEndpointServicebus = new Azure.Digitaltwins.EndpointServicebus.EndpointServicebus("example", new()
     ///     {
     ///         Name = "example-EndpointSB",
     ///         DigitalTwinsId = exampleInstance.Id,

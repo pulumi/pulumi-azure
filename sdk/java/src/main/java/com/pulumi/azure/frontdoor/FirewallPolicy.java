@@ -38,8 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.frontdoor.FirewallPolicy;
  * import com.pulumi.azure.frontdoor.FirewallPolicyArgs;
- * import com.pulumi.azure.frontdoor.inputs.FirewallPolicyCustomRuleArgs;
- * import com.pulumi.azure.frontdoor.inputs.FirewallPolicyManagedRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,89 +65,11 @@ import javax.annotation.Nullable;
  *             .customBlockResponseStatusCode(403)
  *             .customBlockResponseBody(&#34;PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==&#34;)
  *             .customRules(            
- *                 FirewallPolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule1&#34;)
- *                     .enabled(true)
- *                     .priority(1)
- *                     .rateLimitDurationInMinutes(1)
- *                     .rateLimitThreshold(10)
- *                     .type(&#34;MatchRule&#34;)
- *                     .action(&#34;Block&#34;)
- *                     .matchConditions(FirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                         .matchVariable(&#34;RemoteAddr&#34;)
- *                         .operator(&#34;IPMatch&#34;)
- *                         .negationCondition(false)
- *                         .matchValues(                        
- *                             &#34;192.168.1.0/24&#34;,
- *                             &#34;10.0.0.0/24&#34;)
- *                         .build())
- *                     .build(),
- *                 FirewallPolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule2&#34;)
- *                     .enabled(true)
- *                     .priority(2)
- *                     .rateLimitDurationInMinutes(1)
- *                     .rateLimitThreshold(10)
- *                     .type(&#34;MatchRule&#34;)
- *                     .action(&#34;Block&#34;)
- *                     .matchConditions(                    
- *                         FirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable(&#34;RemoteAddr&#34;)
- *                             .operator(&#34;IPMatch&#34;)
- *                             .negationCondition(false)
- *                             .matchValues(&#34;192.168.1.0/24&#34;)
- *                             .build(),
- *                         FirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable(&#34;RequestHeader&#34;)
- *                             .selector(&#34;UserAgent&#34;)
- *                             .operator(&#34;Contains&#34;)
- *                             .negationCondition(false)
- *                             .matchValues(&#34;windows&#34;)
- *                             .transforms(                            
- *                                 &#34;Lowercase&#34;,
- *                                 &#34;Trim&#34;)
- *                             .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .managedRules(            
- *                 FirewallPolicyManagedRuleArgs.builder()
- *                     .type(&#34;DefaultRuleSet&#34;)
- *                     .version(&#34;1.0&#34;)
- *                     .exclusions(FirewallPolicyManagedRuleExclusionArgs.builder()
- *                         .matchVariable(&#34;QueryStringArgNames&#34;)
- *                         .operator(&#34;Equals&#34;)
- *                         .selector(&#34;not_suspicious&#34;)
- *                         .build())
- *                     .overrides(                    
- *                         FirewallPolicyManagedRuleOverrideArgs.builder()
- *                             .ruleGroupName(&#34;PHP&#34;)
- *                             .rules(FirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                                 .ruleId(&#34;933100&#34;)
- *                                 .enabled(false)
- *                                 .action(&#34;Block&#34;)
- *                                 .build())
- *                             .build(),
- *                         FirewallPolicyManagedRuleOverrideArgs.builder()
- *                             .ruleGroupName(&#34;SQLI&#34;)
- *                             .exclusions(FirewallPolicyManagedRuleOverrideExclusionArgs.builder()
- *                                 .matchVariable(&#34;QueryStringArgNames&#34;)
- *                                 .operator(&#34;Equals&#34;)
- *                                 .selector(&#34;really_not_suspicious&#34;)
- *                                 .build())
- *                             .rules(FirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                                 .ruleId(&#34;942200&#34;)
- *                                 .action(&#34;Block&#34;)
- *                                 .exclusions(FirewallPolicyManagedRuleOverrideRuleExclusionArgs.builder()
- *                                     .matchVariable(&#34;QueryStringArgNames&#34;)
- *                                     .operator(&#34;Equals&#34;)
- *                                     .selector(&#34;innocent&#34;)
- *                                     .build())
- *                                 .build())
- *                             .build())
- *                     .build(),
- *                 FirewallPolicyManagedRuleArgs.builder()
- *                     .type(&#34;Microsoft_BotManagerRuleSet&#34;)
- *                     .version(&#34;1.0&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

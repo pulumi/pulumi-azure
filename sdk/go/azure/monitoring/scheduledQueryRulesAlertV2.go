@@ -21,98 +21,97 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	appinsights/insights "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appinsights/insights"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/actionGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/actionGroup"
+//	monitoring/scheduledQueryRulesAlertV2 "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/scheduledQueryRulesAlertV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example-ai"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-mag"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("test mag"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewScheduledQueryRulesAlertV2(ctx, "example", &monitoring.ScheduledQueryRulesAlertV2Args{
-//				Name:                pulumi.String("example-msqrv2"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				EvaluationFrequency: pulumi.String("PT10M"),
-//				WindowDuration:      pulumi.String("PT10M"),
-//				Scopes:              exampleInsights.ID(),
-//				Severity:            pulumi.Int(4),
-//				Criterias: monitoring.ScheduledQueryRulesAlertV2CriteriaArray{
-//					&monitoring.ScheduledQueryRulesAlertV2CriteriaArgs{
-//						Query:                 pulumi.String("requests\n  | summarize CountByCountry=count() by client_CountryOrRegion\n"),
-//						TimeAggregationMethod: pulumi.String("Maximum"),
-//						Threshold:             pulumi.Float64(17.5),
-//						Operator:              pulumi.String("LessThan"),
-//						ResourceIdColumn:      pulumi.String("client_CountryOrRegion"),
-//						MetricMeasureColumn:   pulumi.String("CountByCountry"),
-//						Dimensions: monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArray{
-//							&monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs{
-//								Name:     pulumi.String("client_CountryOrRegion"),
-//								Operator: pulumi.String("Exclude"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("123"),
-//								},
-//							},
-//						},
-//						FailingPeriods: &monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{
-//							MinimumFailingPeriodsToTriggerAlert: pulumi.Int(1),
-//							NumberOfEvaluationPeriods:           pulumi.Int(1),
-//						},
-//					},
-//				},
-//				AutoMitigationEnabled:         pulumi.Bool(true),
-//				WorkspaceAlertsStorageEnabled: pulumi.Bool(false),
-//				Description:                   pulumi.String("example sqr"),
-//				DisplayName:                   pulumi.String("example-sqr"),
-//				Enabled:                       pulumi.Bool(true),
-//				QueryTimeRangeOverride:        pulumi.String("PT1H"),
-//				SkipQueryValidation:           pulumi.Bool(true),
-//				Action: &monitoring.ScheduledQueryRulesAlertV2ActionArgs{
-//					ActionGroups: pulumi.StringArray{
-//						exampleActionGroup.ID(),
-//					},
-//					CustomProperties: pulumi.StringMap{
-//						"key":  pulumi.String("value"),
-//						"key2": pulumi.String("value2"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key":  pulumi.String("value"),
-//					"key2": pulumi.String("value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInsights, err := appinsights/insights.NewInsights(ctx, "example", &appinsights/insights.InsightsArgs{
+// Name: "example-ai",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// ApplicationType: "web",
+// })
+// if err != nil {
+// return err
+// }
+// exampleActionGroup, err := monitoring/actionGroup.NewActionGroup(ctx, "example", &monitoring/actionGroup.ActionGroupArgs{
+// Name: "example-mag",
+// ResourceGroupName: example.Name,
+// ShortName: "test mag",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/scheduledQueryRulesAlertV2.NewScheduledQueryRulesAlertV2(ctx, "example", &monitoring/scheduledQueryRulesAlertV2.ScheduledQueryRulesAlertV2Args{
+// Name: "example-msqrv2",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// EvaluationFrequency: "PT10M",
+// WindowDuration: "PT10M",
+// Scopes: exampleInsights.Id,
+// Severity: 4,
+// Criterias: []map[string]interface{}{
+// map[string]interface{}{
+// "query": "requests\n  | summarize CountByCountry=count() by client_CountryOrRegion\n",
+// "timeAggregationMethod": "Maximum",
+// "threshold": 17.5,
+// "operator": "LessThan",
+// "resourceIdColumn": "client_CountryOrRegion",
+// "metricMeasureColumn": "CountByCountry",
+// "dimensions": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "client_CountryOrRegion",
+// "operator": "Exclude",
+// "values": []string{
+// "123",
+// },
+// },
+// },
+// "failingPeriods": map[string]interface{}{
+// "minimumFailingPeriodsToTriggerAlert": 1,
+// "numberOfEvaluationPeriods": 1,
+// },
+// },
+// },
+// AutoMitigationEnabled: true,
+// WorkspaceAlertsStorageEnabled: false,
+// Description: "example sqr",
+// DisplayName: "example-sqr",
+// Enabled: true,
+// QueryTimeRangeOverride: "PT1H",
+// SkipQueryValidation: true,
+// Action: map[string]interface{}{
+// "actionGroups": []interface{}{
+// exampleActionGroup.Id,
+// },
+// "customProperties": map[string]interface{}{
+// "key": "value",
+// "key2": "value2",
+// },
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// "key2": "value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

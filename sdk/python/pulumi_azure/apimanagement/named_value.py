@@ -313,22 +313,22 @@ class NamedValue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("example",
-            name="example-apimg",
+            publisher_name=pub1,
+            publisher_email=pub1@email.com,
+            sku_name=Developer_1)
+        example_named_value = azure.apimanagement.named_value.NamedValue("example",
+            name=example-apimg,
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            display_name="ExampleProperty",
-            value="Example Value")
+            display_name=ExampleProperty,
+            value=Example Value)
         ```
 
         ## Import
@@ -367,22 +367,22 @@ class NamedValue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.apimanagement.service.Service("example",
+            name=example-apim,
             location=example.location,
             resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("example",
-            name="example-apimg",
+            publisher_name=pub1,
+            publisher_email=pub1@email.com,
+            sku_name=Developer_1)
+        example_named_value = azure.apimanagement.named_value.NamedValue("example",
+            name=example-apimg,
             resource_group_name=example.name,
             api_management_name=example_service.name,
-            display_name="ExampleProperty",
-            value="Example Value")
+            display_name=ExampleProperty,
+            value=Example Value)
         ```
 
         ## Import

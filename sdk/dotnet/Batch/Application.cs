@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Batch
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleAccount2 = new Azure.Batch.Account("example", new()
+    ///     var exampleAccount2 = new Azure.Batch.Account.Account("example", new()
     ///     {
     ///         Name = "exampleba",
     ///         ResourceGroupName = example.Name,
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Batch
     ///         StorageAccountAuthenticationMode = "StorageKeys",
     ///     });
     /// 
-    ///     var exampleApplication = new Azure.Batch.Application("example", new()
+    ///     var exampleApplication = new Azure.Batch.Application.Application("example", new()
     ///     {
     ///         Name = "example-batch-application",
     ///         ResourceGroupName = example.Name,

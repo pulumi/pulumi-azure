@@ -21,214 +21,66 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/dataLakeGen2Filesystem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/dataLakeGen2Filesystem"
+//	synapse/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/synapse/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageacc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				IsHnsEnabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
-//				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
-//				Name:                            pulumi.String("example"),
-//				ResourceGroupName:               example.Name,
-//				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				AadAdmin: &synapse.WorkspaceAadAdminTypeArgs{
-//					Login:    pulumi.String("AzureAD Admin"),
-//					ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Creating A Workspace With Customer Managed Key And Azure AD Admin
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageacc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				IsHnsEnabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
-//				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                   pulumi.String("example"),
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				TenantId:               *pulumi.String(current.TenantId),
-//				SkuName:                pulumi.String("standard"),
-//				PurgeProtectionEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(current.ObjectId),
-//				KeyPermissions: pulumi.StringArray{
-//					pulumi.String("Create"),
-//					pulumi.String("Get"),
-//					pulumi.String("Delete"),
-//					pulumi.String("Purge"),
-//					pulumi.String("GetRotationPolicy"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
-//				Name:       pulumi.String("workspaceencryptionkey"),
-//				KeyVaultId: exampleKeyVault.ID(),
-//				KeyType:    pulumi.String("RSA"),
-//				KeySize:    pulumi.Int(2048),
-//				KeyOpts: pulumi.StringArray{
-//					pulumi.String("unwrapKey"),
-//					pulumi.String("wrapKey"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
-//				Name:                            pulumi.String("example"),
-//				ResourceGroupName:               example.Name,
-//				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				CustomerManagedKey: &synapse.WorkspaceCustomerManagedKeyArgs{
-//					KeyVersionlessId: exampleKey.VersionlessId,
-//					KeyName:          pulumi.String("enckey"),
-//				},
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "workspace_policy", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
-//					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				ObjectId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
-//				KeyPermissions: pulumi.StringArray{
-//					pulumi.String("Get"),
-//					pulumi.String("WrapKey"),
-//					pulumi.String("UnwrapKey"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewWorkspaceKey(ctx, "example", &synapse.WorkspaceKeyArgs{
-//				CustomerManagedKeyVersionlessId: exampleKey.VersionlessId,
-//				SynapseWorkspaceId:              exampleWorkspace.ID(),
-//				Active:                          pulumi.Bool(true),
-//				CustomerManagedKeyName:          pulumi.String("enckey"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewWorkspaceAadAdmin(ctx, "example", &synapse.WorkspaceAadAdminArgs{
-//				SynapseWorkspaceId: exampleWorkspace.ID(),
-//				Login:              pulumi.String("AzureAD Admin"),
-//				ObjectId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				TenantId:           pulumi.String("00000000-0000-0000-0000-000000000000"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageacc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// AccountKind: "StorageV2",
+// IsHnsEnabled: "true",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataLakeGen2Filesystem, err := storage/dataLakeGen2Filesystem.NewDataLakeGen2Filesystem(ctx, "example", &storage/dataLakeGen2Filesystem.DataLakeGen2FilesystemArgs{
+// Name: "example",
+// StorageAccountId: exampleAccount.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = synapse/workspace.NewWorkspace(ctx, "example", &synapse/workspace.WorkspaceArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.Id,
+// SqlAdministratorLogin: "sqladminuser",
+// SqlAdministratorLoginPassword: "H@Sh1CoR3!",
+// AadAdmin: map[string]interface{}{
+// "login": "AzureAD Admin",
+// "objectId": "00000000-0000-0000-0000-000000000000",
+// "tenantId": "00000000-0000-0000-0000-000000000000",
+// },
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// Tags: map[string]interface{}{
+// "Env": "production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

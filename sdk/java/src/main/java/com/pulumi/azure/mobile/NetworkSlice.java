@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkArgs;
  * import com.pulumi.azure.mobile.NetworkSlice;
  * import com.pulumi.azure.mobile.NetworkSliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,10 +63,8 @@ import javax.annotation.Nullable;
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .description(&#34;an example slice&#34;)
- *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
- *                 .sliceServiceType(1)
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .singleNetworkSliceSelectionAssistanceInformation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

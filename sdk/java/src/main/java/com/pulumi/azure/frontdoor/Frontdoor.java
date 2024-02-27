@@ -48,12 +48,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.frontdoor.Frontdoor;
  * import com.pulumi.azure.frontdoor.FrontdoorArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleForwardingConfigurationArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolHealthProbeArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,39 +69,11 @@ import javax.annotation.Nullable;
  *         var exampleFrontdoor = new Frontdoor(&#34;exampleFrontdoor&#34;, FrontdoorArgs.builder()        
  *             .name(&#34;example-FrontDoor&#34;)
  *             .resourceGroupName(example.name())
- *             .routingRules(FrontdoorRoutingRuleArgs.builder()
- *                 .name(&#34;exampleRoutingRule1&#34;)
- *                 .acceptedProtocols(                
- *                     &#34;Http&#34;,
- *                     &#34;Https&#34;)
- *                 .patternsToMatches(&#34;/*&#34;)
- *                 .frontendEndpoints(&#34;exampleFrontendEndpoint1&#34;)
- *                 .forwardingConfiguration(FrontdoorRoutingRuleForwardingConfigurationArgs.builder()
- *                     .forwardingProtocol(&#34;MatchRequest&#34;)
- *                     .backendPoolName(&#34;exampleBackendBing&#34;)
- *                     .build())
- *                 .build())
- *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
- *                 .name(&#34;exampleLoadBalancingSettings1&#34;)
- *                 .build())
- *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
- *                 .name(&#34;exampleHealthProbeSetting1&#34;)
- *                 .build())
- *             .backendPools(FrontdoorBackendPoolArgs.builder()
- *                 .name(&#34;exampleBackendBing&#34;)
- *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
- *                     .hostHeader(&#34;www.bing.com&#34;)
- *                     .address(&#34;www.bing.com&#34;)
- *                     .httpPort(80)
- *                     .httpsPort(443)
- *                     .build())
- *                 .loadBalancingName(&#34;exampleLoadBalancingSettings1&#34;)
- *                 .healthProbeName(&#34;exampleHealthProbeSetting1&#34;)
- *                 .build())
- *             .frontendEndpoints(FrontdoorFrontendEndpointArgs.builder()
- *                 .name(&#34;exampleFrontendEndpoint1&#34;)
- *                 .hostName(&#34;example-FrontDoor.azurefd.net&#34;)
- *                 .build())
+ *             .routingRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendPoolLoadBalancings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendPoolHealthProbes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendPools(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .frontendEndpoints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

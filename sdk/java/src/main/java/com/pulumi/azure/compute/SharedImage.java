@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.SharedImageGalleryArgs;
  * import com.pulumi.azure.compute.SharedImage;
  * import com.pulumi.azure.compute.SharedImageArgs;
- * import com.pulumi.azure.compute.inputs.SharedImageIdentifierArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,10 +59,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .description(&#34;Shared images and things.&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Hello&#34;, &#34;There&#34;),
- *                 Map.entry(&#34;World&#34;, &#34;Example&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSharedImage = new SharedImage(&#34;exampleSharedImage&#34;, SharedImageArgs.builder()        
@@ -72,11 +68,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .osType(&#34;Linux&#34;)
- *             .identifier(SharedImageIdentifierArgs.builder()
- *                 .publisher(&#34;PublisherName&#34;)
- *                 .offer(&#34;OfferName&#34;)
- *                 .sku(&#34;ExampleSku&#34;)
- *                 .build())
+ *             .identifier(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

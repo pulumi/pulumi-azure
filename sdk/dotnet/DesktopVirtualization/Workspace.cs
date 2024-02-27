@@ -22,13 +22,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "rg-example-virtualdesktop",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
+    ///     var workspace = new Azure.Desktopvirtualization.Workspace.Workspace("workspace", new()
     ///     {
     ///         Name = "workspace",
     ///         Location = example.Location,

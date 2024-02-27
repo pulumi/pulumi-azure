@@ -21,68 +21,67 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	media/transform "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/transform"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewTransform(ctx, "example", &media.TransformArgs{
-//				Name:                     pulumi.String("transform1"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("My transform description"),
-//				Outputs: media.TransformOutputTypeArray{
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Normal"),
-//						OnErrorAction:    pulumi.String("ContinueJob"),
-//						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
-//							PresetName: pulumi.String("AACGoodQualityAudio"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/transform.NewTransform(ctx, "example", &media/transform.TransformArgs{
+// Name: "transform1",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "My transform description",
+// Outputs: []map[string]interface{}{
+// map[string]interface{}{
+// "relativePriority": "Normal",
+// "onErrorAction": "ContinueJob",
+// "builtinPreset": map[string]interface{}{
+// "presetName": "AACGoodQualityAudio",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Multiple Outputs
 //
@@ -91,338 +90,337 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	media/serviceAccount "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/serviceAccount"
+//	media/transform "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/media/transform"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewTransform(ctx, "example", &media.TransformArgs{
-//				Name:                     pulumi.String("transform1"),
-//				ResourceGroupName:        example.Name,
-//				MediaServicesAccountName: exampleServiceAccount.Name,
-//				Description:              pulumi.String("My transform description"),
-//				Outputs: media.TransformOutputTypeArray{
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Normal"),
-//						OnErrorAction:    pulumi.String("ContinueJob"),
-//						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
-//							PresetName: pulumi.String("AACGoodQualityAudio"),
-//							PresetConfiguration: &media.TransformOutputBuiltinPresetPresetConfigurationArgs{
-//								Complexity:                pulumi.String("Balanced"),
-//								InterleaveOutput:          pulumi.String("NonInterleavedOutput"),
-//								KeyFrameIntervalInSeconds: pulumi.Float64(123122.5),
-//								MaxBitrateBps:             pulumi.Int(300000),
-//								MaxHeight:                 pulumi.Int(480),
-//								MaxLayers:                 pulumi.Int(14),
-//								MinBitrateBps:             pulumi.Int(200000),
-//								MinHeight:                 pulumi.Int(360),
-//							},
-//						},
-//					},
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Low"),
-//						OnErrorAction:    pulumi.String("ContinueJob"),
-//						AudioAnalyzerPreset: &media.TransformOutputAudioAnalyzerPresetArgs{
-//							AudioLanguage:     pulumi.String("en-US"),
-//							AudioAnalysisMode: pulumi.String("Basic"),
-//							ExperimentalOptions: pulumi.StringMap{
-//								"env": pulumi.String("test"),
-//							},
-//						},
-//					},
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Low"),
-//						OnErrorAction:    pulumi.String("StopProcessingJob"),
-//						FaceDetectorPreset: &media.TransformOutputFaceDetectorPresetArgs{
-//							AnalysisResolution: pulumi.String("StandardDefinition"),
-//							BlurType:           pulumi.String("Med"),
-//							FaceRedactorMode:   pulumi.String("Combined"),
-//							ExperimentalOptions: pulumi.StringMap{
-//								"env": pulumi.String("test"),
-//							},
-//						},
-//					},
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Normal"),
-//						OnErrorAction:    pulumi.String("StopProcessingJob"),
-//						VideoAnalyzerPreset: &media.TransformOutputVideoAnalyzerPresetArgs{
-//							AudioLanguage:     pulumi.String("en-US"),
-//							AudioAnalysisMode: pulumi.String("Basic"),
-//							InsightsType:      pulumi.String("AllInsights"),
-//							ExperimentalOptions: pulumi.StringMap{
-//								"env": pulumi.String("test"),
-//							},
-//						},
-//					},
-//					&media.TransformOutputTypeArgs{
-//						RelativePriority: pulumi.String("Low"),
-//						OnErrorAction:    pulumi.String("ContinueJob"),
-//						CustomPreset: &media.TransformOutputCustomPresetArgs{
-//							Codecs: media.TransformOutputCustomPresetCodecArray{
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									AacAudio: &media.TransformOutputCustomPresetCodecAacAudioArgs{
-//										Bitrate:      pulumi.Int(128000),
-//										Channels:     pulumi.Int(2),
-//										SamplingRate: pulumi.Int(48000),
-//										Profile:      pulumi.String("AacLc"),
-//									},
-//								},
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									CopyAudio: &media.TransformOutputCustomPresetCodecCopyAudioArgs{
-//										Label: pulumi.String("test"),
-//									},
-//								},
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									CopyVideo: &media.TransformOutputCustomPresetCodecCopyVideoArgs{
-//										Label: pulumi.String("test"),
-//									},
-//								},
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									H264Video: &media.TransformOutputCustomPresetCodecH264VideoArgs{
-//										KeyFrameInterval:            pulumi.String("PT1S"),
-//										StretchMode:                 pulumi.String("AutoSize"),
-//										SyncMode:                    pulumi.String("Auto"),
-//										SceneChangeDetectionEnabled: pulumi.Bool(false),
-//										RateControlMode:             pulumi.String("ABR"),
-//										Complexity:                  pulumi.String("Quality"),
-//										Layers: media.TransformOutputCustomPresetCodecH264VideoLayerArray{
-//											&media.TransformOutputCustomPresetCodecH264VideoLayerArgs{
-//												Width:                 pulumi.String("64"),
-//												Height:                pulumi.String("64"),
-//												Bitrate:               pulumi.Int(1045000),
-//												MaxBitrate:            pulumi.Int(1045000),
-//												BFrames:               pulumi.Int(3),
-//												Slices:                pulumi.Int(0),
-//												AdaptiveBFrameEnabled: pulumi.Bool(true),
-//												Profile:               pulumi.String("Auto"),
-//												Level:                 pulumi.String("auto"),
-//												BufferWindow:          pulumi.String("PT5S"),
-//												ReferenceFrames:       pulumi.Int(4),
-//												Crf:                   pulumi.Float64(23),
-//												EntropyMode:           pulumi.String("Cabac"),
-//											},
-//											&media.TransformOutputCustomPresetCodecH264VideoLayerArgs{
-//												Width:                 pulumi.String("64"),
-//												Height:                pulumi.String("64"),
-//												Bitrate:               pulumi.Int(1000),
-//												MaxBitrate:            pulumi.Int(1000),
-//												BFrames:               pulumi.Int(3),
-//												FrameRate:             pulumi.String("32"),
-//												Slices:                pulumi.Int(1),
-//												AdaptiveBFrameEnabled: pulumi.Bool(true),
-//												Profile:               pulumi.String("High444"),
-//												Level:                 pulumi.String("auto"),
-//												BufferWindow:          pulumi.String("PT5S"),
-//												ReferenceFrames:       pulumi.Int(4),
-//												Crf:                   pulumi.Float64(23),
-//												EntropyMode:           pulumi.String("Cavlc"),
-//											},
-//										},
-//									},
-//								},
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									H265Video: &media.TransformOutputCustomPresetCodecH265VideoArgs{
-//										KeyFrameInterval:            pulumi.String("PT2S"),
-//										StretchMode:                 pulumi.String("AutoSize"),
-//										SyncMode:                    pulumi.String("Auto"),
-//										SceneChangeDetectionEnabled: pulumi.Bool(false),
-//										Complexity:                  pulumi.String("Speed"),
-//										Layers: media.TransformOutputCustomPresetCodecH265VideoLayerArray{
-//											&media.TransformOutputCustomPresetCodecH265VideoLayerArgs{
-//												Width:                 pulumi.String("64"),
-//												Height:                pulumi.String("64"),
-//												Bitrate:               pulumi.Int(1045000),
-//												MaxBitrate:            pulumi.Int(1045000),
-//												BFrames:               pulumi.Int(3),
-//												Slices:                pulumi.Int(5),
-//												AdaptiveBFrameEnabled: pulumi.Bool(true),
-//												Profile:               pulumi.String("Auto"),
-//												Label:                 pulumi.String("test"),
-//												Level:                 pulumi.String("auto"),
-//												BufferWindow:          pulumi.String("PT5S"),
-//												FrameRate:             pulumi.String("32"),
-//												ReferenceFrames:       pulumi.Int(4),
-//												Crf:                   pulumi.Float64(23),
-//											},
-//										},
-//									},
-//								},
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									JpgImage: &media.TransformOutputCustomPresetCodecJpgImageArgs{
-//										StretchMode:  pulumi.String("AutoSize"),
-//										SyncMode:     pulumi.String("Auto"),
-//										Start:        pulumi.String("10"),
-//										Range:        pulumi.String("100%%"),
-//										SpriteColumn: pulumi.Int(1),
-//										Step:         pulumi.String("10"),
-//										Layers: media.TransformOutputCustomPresetCodecJpgImageLayerArray{
-//											&media.TransformOutputCustomPresetCodecJpgImageLayerArgs{
-//												Quality: pulumi.Int(70),
-//												Height:  pulumi.String("180"),
-//												Label:   pulumi.String("test"),
-//												Width:   pulumi.String("120"),
-//											},
-//										},
-//									},
-//								},
-//								&media.TransformOutputCustomPresetCodecArgs{
-//									PngImage: &media.TransformOutputCustomPresetCodecPngImageArgs{
-//										StretchMode: pulumi.String("AutoSize"),
-//										SyncMode:    pulumi.String("Auto"),
-//										Start:       pulumi.String("{Best}"),
-//										Range:       pulumi.String("80"),
-//										Step:        pulumi.String("10"),
-//										Layers: media.TransformOutputCustomPresetCodecPngImageLayerArray{
-//											&media.TransformOutputCustomPresetCodecPngImageLayerArgs{
-//												Height: pulumi.String("180"),
-//												Label:  pulumi.String("test"),
-//												Width:  pulumi.String("120"),
-//											},
-//										},
-//									},
-//								},
-//							},
-//							Formats: media.TransformOutputCustomPresetFormatArray{
-//								&media.TransformOutputCustomPresetFormatArgs{
-//									Jpg: &media.TransformOutputCustomPresetFormatJpgArgs{
-//										FilenamePattern: pulumi.String("test{Basename}"),
-//									},
-//								},
-//								&media.TransformOutputCustomPresetFormatArgs{
-//									Mp4: &media.TransformOutputCustomPresetFormatMp4Args{
-//										FilenamePattern: pulumi.String("test{Bitrate}"),
-//										OutputFiles: media.TransformOutputCustomPresetFormatMp4OutputFileArray{
-//											&media.TransformOutputCustomPresetFormatMp4OutputFileArgs{
-//												Labels: pulumi.StringArray{
-//													pulumi.String("test"),
-//													pulumi.String("ppe"),
-//												},
-//											},
-//										},
-//									},
-//								},
-//								&media.TransformOutputCustomPresetFormatArgs{
-//									Png: &media.TransformOutputCustomPresetFormatPngArgs{
-//										FilenamePattern: pulumi.String("test{Basename}"),
-//									},
-//								},
-//								&media.TransformOutputCustomPresetFormatArgs{
-//									TransportStream: &media.TransformOutputCustomPresetFormatTransportStreamArgs{
-//										FilenamePattern: pulumi.String("test{Bitrate}"),
-//										OutputFiles: media.TransformOutputCustomPresetFormatTransportStreamOutputFileArray{
-//											&media.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs{
-//												Labels: pulumi.StringArray{
-//													pulumi.String("prod"),
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//							Filter: &media.TransformOutputCustomPresetFilterArgs{
-//								CropRectangle: &media.TransformOutputCustomPresetFilterCropRectangleArgs{
-//									Height: pulumi.String("240"),
-//									Left:   pulumi.String("30"),
-//									Top:    pulumi.String("360"),
-//									Width:  pulumi.String("70"),
-//								},
-//								Deinterlace: &media.TransformOutputCustomPresetFilterDeinterlaceArgs{
-//									Parity: pulumi.String("TopFieldFirst"),
-//									Mode:   pulumi.String("AutoPixelAdaptive"),
-//								},
-//								FadeIn: &media.TransformOutputCustomPresetFilterFadeInArgs{
-//									Duration:  pulumi.String("PT5S"),
-//									FadeColor: pulumi.String("0xFF0000"),
-//									Start:     pulumi.String("10"),
-//								},
-//								FadeOut: &media.TransformOutputCustomPresetFilterFadeOutArgs{
-//									Duration:  pulumi.String("90%%"),
-//									FadeColor: pulumi.String("#FF0C7B"),
-//									Start:     pulumi.String("10%%"),
-//								},
-//								Rotation: pulumi.String("Auto"),
-//								Overlays: media.TransformOutputCustomPresetFilterOverlayArray{
-//									&media.TransformOutputCustomPresetFilterOverlayArgs{
-//										Audio: &media.TransformOutputCustomPresetFilterOverlayAudioArgs{
-//											InputLabel:      pulumi.String("label.jpg"),
-//											Start:           pulumi.String("PT5S"),
-//											End:             pulumi.String("PT30S"),
-//											FadeInDuration:  pulumi.String("PT1S"),
-//											FadeOutDuration: pulumi.String("PT2S"),
-//											AudioGainLevel:  pulumi.Float64(1),
-//										},
-//									},
-//									&media.TransformOutputCustomPresetFilterOverlayArgs{
-//										Video: &media.TransformOutputCustomPresetFilterOverlayVideoArgs{
-//											InputLabel:      pulumi.String("label.jpg"),
-//											Start:           pulumi.String("PT5S"),
-//											End:             pulumi.String("PT30S"),
-//											FadeInDuration:  pulumi.String("PT1S"),
-//											FadeOutDuration: pulumi.String("PT2S"),
-//											AudioGainLevel:  pulumi.Float64(1),
-//											Opacity:         pulumi.Float64(1),
-//											Position: &media.TransformOutputCustomPresetFilterOverlayVideoPositionArgs{
-//												Height: pulumi.String("180"),
-//												Left:   pulumi.String("20"),
-//												Top:    pulumi.String("240"),
-//												Width:  pulumi.String("140"),
-//											},
-//											CropRectangle: &media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs{
-//												Height: pulumi.String("240"),
-//												Left:   pulumi.String("30"),
-//												Top:    pulumi.String("360"),
-//												Width:  pulumi.String("70"),
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "media-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestoracc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceAccount, err := media/serviceAccount.NewServiceAccount(ctx, "example", &media/serviceAccount.ServiceAccountArgs{
+// Name: "examplemediaacc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// StorageAccounts: []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleAccount.Id,
+// "isPrimary": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = media/transform.NewTransform(ctx, "example", &media/transform.TransformArgs{
+// Name: "transform1",
+// ResourceGroupName: example.Name,
+// MediaServicesAccountName: exampleServiceAccount.Name,
+// Description: "My transform description",
+// Outputs: []interface{}{
+// map[string]interface{}{
+// "relativePriority": "Normal",
+// "onErrorAction": "ContinueJob",
+// "builtinPreset": map[string]interface{}{
+// "presetName": "AACGoodQualityAudio",
+// "presetConfiguration": map[string]interface{}{
+// "complexity": "Balanced",
+// "interleaveOutput": "NonInterleavedOutput",
+// "keyFrameIntervalInSeconds": 123122.5,
+// "maxBitrateBps": 300000,
+// "maxHeight": 480,
+// "maxLayers": 14,
+// "minBitrateBps": 200000,
+// "minHeight": 360,
+// },
+// },
+// },
+// map[string]interface{}{
+// "relativePriority": "Low",
+// "onErrorAction": "ContinueJob",
+// "audioAnalyzerPreset": map[string]interface{}{
+// "audioLanguage": "en-US",
+// "audioAnalysisMode": "Basic",
+// "experimentalOptions": map[string]interface{}{
+// "env": "test",
+// },
+// },
+// },
+// map[string]interface{}{
+// "relativePriority": "Low",
+// "onErrorAction": "StopProcessingJob",
+// "faceDetectorPreset": map[string]interface{}{
+// "analysisResolution": "StandardDefinition",
+// "blurType": "Med",
+// "faceRedactorMode": "Combined",
+// "experimentalOptions": map[string]interface{}{
+// "env": "test",
+// },
+// },
+// },
+// map[string]interface{}{
+// "relativePriority": "Normal",
+// "onErrorAction": "StopProcessingJob",
+// "videoAnalyzerPreset": map[string]interface{}{
+// "audioLanguage": "en-US",
+// "audioAnalysisMode": "Basic",
+// "insightsType": "AllInsights",
+// "experimentalOptions": map[string]interface{}{
+// "env": "test",
+// },
+// },
+// },
+// map[string]interface{}{
+// "relativePriority": "Low",
+// "onErrorAction": "ContinueJob",
+// "customPreset": map[string]interface{}{
+// "codecs": []interface{}{
+// map[string]interface{}{
+// "aacAudio": map[string]interface{}{
+// "bitrate": 128000,
+// "channels": 2,
+// "samplingRate": 48000,
+// "profile": "AacLc",
+// },
+// },
+// map[string]interface{}{
+// "copyAudio": map[string]interface{}{
+// "label": "test",
+// },
+// },
+// map[string]interface{}{
+// "copyVideo": map[string]interface{}{
+// "label": "test",
+// },
+// },
+// map[string]interface{}{
+// "h264Video": map[string]interface{}{
+// "keyFrameInterval": "PT1S",
+// "stretchMode": "AutoSize",
+// "syncMode": "Auto",
+// "sceneChangeDetectionEnabled": false,
+// "rateControlMode": "ABR",
+// "complexity": "Quality",
+// "layers": []interface{}{
+// map[string]interface{}{
+// "width": "64",
+// "height": "64",
+// "bitrate": 1045000,
+// "maxBitrate": 1045000,
+// "bFrames": 3,
+// "slices": 0,
+// "adaptiveBFrameEnabled": true,
+// "profile": "Auto",
+// "level": "auto",
+// "bufferWindow": "PT5S",
+// "referenceFrames": 4,
+// "crf": 23,
+// "entropyMode": "Cabac",
+// },
+// map[string]interface{}{
+// "width": "64",
+// "height": "64",
+// "bitrate": 1000,
+// "maxBitrate": 1000,
+// "bFrames": 3,
+// "frameRate": "32",
+// "slices": 1,
+// "adaptiveBFrameEnabled": true,
+// "profile": "High444",
+// "level": "auto",
+// "bufferWindow": "PT5S",
+// "referenceFrames": 4,
+// "crf": 23,
+// "entropyMode": "Cavlc",
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "h265Video": map[string]interface{}{
+// "keyFrameInterval": "PT2S",
+// "stretchMode": "AutoSize",
+// "syncMode": "Auto",
+// "sceneChangeDetectionEnabled": false,
+// "complexity": "Speed",
+// "layers": []map[string]interface{}{
+// map[string]interface{}{
+// "width": "64",
+// "height": "64",
+// "bitrate": 1045000,
+// "maxBitrate": 1045000,
+// "bFrames": 3,
+// "slices": 5,
+// "adaptiveBFrameEnabled": true,
+// "profile": "Auto",
+// "label": "test",
+// "level": "auto",
+// "bufferWindow": "PT5S",
+// "frameRate": "32",
+// "referenceFrames": 4,
+// "crf": 23,
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "jpgImage": map[string]interface{}{
+// "stretchMode": "AutoSize",
+// "syncMode": "Auto",
+// "start": "10",
+// "range": "100%%",
+// "spriteColumn": 1,
+// "step": "10",
+// "layers": []map[string]interface{}{
+// map[string]interface{}{
+// "quality": 70,
+// "height": "180",
+// "label": "test",
+// "width": "120",
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "pngImage": map[string]interface{}{
+// "stretchMode": "AutoSize",
+// "syncMode": "Auto",
+// "start": "{Best}",
+// "range": "80",
+// "step": "10",
+// "layers": []map[string]interface{}{
+// map[string]interface{}{
+// "height": "180",
+// "label": "test",
+// "width": "120",
+// },
+// },
+// },
+// },
+// },
+// "formats": []interface{}{
+// map[string]interface{}{
+// "jpg": map[string]interface{}{
+// "filenamePattern": "test{Basename}",
+// },
+// },
+// map[string]interface{}{
+// "mp4": map[string]interface{}{
+// "filenamePattern": "test{Bitrate}",
+// "outputFiles": []map[string]interface{}{
+// map[string]interface{}{
+// "labels": []string{
+// "test",
+// "ppe",
+// },
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "png": map[string]interface{}{
+// "filenamePattern": "test{Basename}",
+// },
+// },
+// map[string]interface{}{
+// "transportStream": map[string]interface{}{
+// "filenamePattern": "test{Bitrate}",
+// "outputFiles": []map[string]interface{}{
+// map[string]interface{}{
+// "labels": []string{
+// "prod",
+// },
+// },
+// },
+// },
+// },
+// },
+// "filter": map[string]interface{}{
+// "cropRectangle": map[string]interface{}{
+// "height": "240",
+// "left": "30",
+// "top": "360",
+// "width": "70",
+// },
+// "deinterlace": map[string]interface{}{
+// "parity": "TopFieldFirst",
+// "mode": "AutoPixelAdaptive",
+// },
+// "fadeIn": map[string]interface{}{
+// "duration": "PT5S",
+// "fadeColor": "0xFF0000",
+// "start": "10",
+// },
+// "fadeOut": map[string]interface{}{
+// "duration": "90%%",
+// "fadeColor": "#FF0C7B",
+// "start": "10%%",
+// },
+// "rotation": "Auto",
+// "overlays": []interface{}{
+// map[string]interface{}{
+// "audio": map[string]interface{}{
+// "inputLabel": "label.jpg",
+// "start": "PT5S",
+// "end": "PT30S",
+// "fadeInDuration": "PT1S",
+// "fadeOutDuration": "PT2S",
+// "audioGainLevel": 1,
+// },
+// },
+// map[string]interface{}{
+// "video": map[string]interface{}{
+// "inputLabel": "label.jpg",
+// "start": "PT5S",
+// "end": "PT30S",
+// "fadeInDuration": "PT1S",
+// "fadeOutDuration": "PT2S",
+// "audioGainLevel": 1,
+// "opacity": 1,
+// "position": map[string]interface{}{
+// "height": "180",
+// "left": "20",
+// "top": "240",
+// "width": "140",
+// },
+// "cropRectangle": map[string]interface{}{
+// "height": "240",
+// "left": "30",
+// "top": "360",
+// "width": "70",
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

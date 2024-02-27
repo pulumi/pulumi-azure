@@ -21,47 +21,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mariadb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	mariadb/configuration "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/configuration"
+//	mariadb/server "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/mariadb/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("api-rg-pro"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServer, err := mariadb.NewServer(ctx, "example", &mariadb.ServerArgs{
-//				Name:                       pulumi.String("mariadb-server-1"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				SkuName:                    pulumi.String("B_Gen5_2"),
-//				SslEnforcementEnabled:      pulumi.Bool(true),
-//				AdministratorLogin:         pulumi.String("mariadbadmin"),
-//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-//				Version:                    pulumi.String("10.2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mariadb.NewConfiguration(ctx, "example", &mariadb.ConfigurationArgs{
-//				Name:              pulumi.String("interactive_timeout"),
-//				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				Value:             pulumi.String("600"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "api-rg-pro",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleServer, err := mariadb/server.NewServer(ctx, "example", &mariadb/server.ServerArgs{
+// Name: "mariadb-server-1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "B_Gen5_2",
+// SslEnforcementEnabled: true,
+// AdministratorLogin: "mariadbadmin",
+// AdministratorLoginPassword: "H@Sh1CoR3!",
+// Version: "10.2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = mariadb/configuration.NewConfiguration(ctx, "example", &mariadb/configuration.ConfigurationArgs{
+// Name: "interactive_timeout",
+// ResourceGroupName: example.Name,
+// ServerName: exampleServer.Name,
+// Value: "600",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

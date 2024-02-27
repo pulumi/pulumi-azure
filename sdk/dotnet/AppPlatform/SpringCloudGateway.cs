@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -38,61 +38,61 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("example", new()
+    ///     var exampleSpringCloudGateway = new Azure.Appplatform.SpringCloudGateway.SpringCloudGateway("example", new()
     ///     {
     ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///         HttpsOnly = false,
     ///         PublicNetworkAccessEnabled = true,
     ///         InstanceCount = 2,
-    ///         ApiMetadata = new Azure.AppPlatform.Inputs.SpringCloudGatewayApiMetadataArgs
+    ///         ApiMetadata = 
     ///         {
-    ///             Description = "example description",
-    ///             DocumentationUrl = "https://www.example.com/docs",
-    ///             ServerUrl = "https://wwww.example.com",
-    ///             Title = "example title",
-    ///             Version = "1.0",
+    ///             { "description", "example description" },
+    ///             { "documentationUrl", "https://www.example.com/docs" },
+    ///             { "serverUrl", "https://wwww.example.com" },
+    ///             { "title", "example title" },
+    ///             { "version", "1.0" },
     ///         },
-    ///         Cors = new Azure.AppPlatform.Inputs.SpringCloudGatewayCorsArgs
+    ///         Cors = 
     ///         {
-    ///             CredentialsAllowed = false,
-    ///             AllowedHeaders = new[]
+    ///             { "credentialsAllowed", false },
+    ///             { "allowedHeaders", new[]
     ///             {
     ///                 "*",
-    ///             },
-    ///             AllowedMethods = new[]
+    ///             } },
+    ///             { "allowedMethods", new[]
     ///             {
     ///                 "PUT",
-    ///             },
-    ///             AllowedOrigins = new[]
+    ///             } },
+    ///             { "allowedOrigins", new[]
     ///             {
     ///                 "example.com",
-    ///             },
-    ///             ExposedHeaders = new[]
+    ///             } },
+    ///             { "exposedHeaders", new[]
     ///             {
     ///                 "x-example-header",
-    ///             },
-    ///             MaxAgeSeconds = 86400,
+    ///             } },
+    ///             { "maxAgeSeconds", 86400 },
     ///         },
-    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudGatewayQuotaArgs
+    ///         Quota = 
     ///         {
-    ///             Cpu = "1",
-    ///             Memory = "2Gi",
+    ///             { "cpu", "1" },
+    ///             { "memory", "2Gi" },
     ///         },
-    ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudGatewaySsoArgs
+    ///         Sso = 
     ///         {
-    ///             ClientId = "example id",
-    ///             ClientSecret = "example secret",
-    ///             IssuerUri = "https://www.test.com/issueToken",
-    ///             Scopes = new[]
+    ///             { "clientId", "example id" },
+    ///             { "clientSecret", "example secret" },
+    ///             { "issuerUri", "https://www.test.com/issueToken" },
+    ///             { "scopes", new[]
     ///             {
     ///                 "read",
-    ///             },
+    ///             } },
     ///         },
-    ///         LocalResponseCachePerInstance = new Azure.AppPlatform.Inputs.SpringCloudGatewayLocalResponseCachePerInstanceArgs
+    ///         LocalResponseCachePerInstance = 
     ///         {
-    ///             Size = "100MB",
-    ///             TimeToLive = "30s",
+    ///             { "size", "100MB" },
+    ///             { "timeToLive", "30s" },
     ///         },
     ///     });
     /// 

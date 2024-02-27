@@ -22,20 +22,20 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("example", new()
+    ///     var exampleLinkedServiceWeb = new Azure.Datafactory.LinkedServiceWeb.LinkedServiceWeb("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.DataFactory
     ///         Url = "https://www.bing.com",
     ///     });
     /// 
-    ///     var exampleDatasetHttp = new Azure.DataFactory.DatasetHttp("example", new()
+    ///     var exampleDatasetHttp = new Azure.Datafactory.DatasetHttp.DatasetHttp("example", new()
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,

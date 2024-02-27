@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "west europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "outbounddns",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleResolver = new azure.privatedns.Resolver("example", {
+ * const exampleResolver = new azure.privatedns/resolver.Resolver("example", {
  *     name: "example-resolver",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
- * const exampleResolverOutboundEndpoint = new azure.privatedns.ResolverOutboundEndpoint("example", {
+ * const exampleResolverOutboundEndpoint = new azure.privatedns/resolverOutboundEndpoint.ResolverOutboundEndpoint("example", {
  *     name: "example-endpoint",
  *     privateDnsResolverId: exampleResolver.id,
  *     location: exampleResolver.location,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *         key: "value",
  *     },
  * });
- * const exampleResolverDnsForwardingRuleset = new azure.privatedns.ResolverDnsForwardingRuleset("example", {
+ * const exampleResolverDnsForwardingRuleset = new azure.privatedns/resolverDnsForwardingRuleset.ResolverDnsForwardingRuleset("example", {
  *     name: "example-ruleset",
  *     resourceGroupName: example.name,
  *     location: example.location,

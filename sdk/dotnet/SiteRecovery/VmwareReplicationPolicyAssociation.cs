@@ -22,13 +22,13 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
+    ///     var exampleVault = new Azure.Recoveryservices.Vault.Vault("example", new()
     ///     {
     ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleVMWareReplicationPolicy = new Azure.SiteRecovery.VMWareReplicationPolicy("example", new()
+    ///     var exampleVMWareReplicationPolicy = new Azure.Siterecovery.VMWareReplicationPolicy.VMWareReplicationPolicy("example", new()
     ///     {
     ///         Name = "example-policy",
     ///         RecoveryVaultId = exampleVault.Id,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///         ApplicationConsistentSnapshotFrequencyInMinutes = 240,
     ///     });
     /// 
-    ///     var exampleVmwareReplicationPolicyAssociation = new Azure.SiteRecovery.VmwareReplicationPolicyAssociation("example", new()
+    ///     var exampleVmwareReplicationPolicyAssociation = new Azure.Siterecovery.VmwareReplicationPolicyAssociation.VmwareReplicationPolicyAssociation("example", new()
     ///     {
     ///         Name = "example-association",
     ///         RecoveryVaultId = exampleVault.Id,

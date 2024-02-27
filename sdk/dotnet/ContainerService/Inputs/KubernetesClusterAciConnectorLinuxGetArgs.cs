@@ -39,21 +39,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @virtual = new Azure.Network.Subnet("virtual", new()
+        ///     var @virtual = new Azure.Network.Subnet.Subnet("virtual", new()
         ///     {
         ///         Delegations = new[]
         ///         {
-        ///             new Azure.Network.Inputs.SubnetDelegationArgs
+        ///             
         ///             {
-        ///                 Name = "aciDelegation",
-        ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+        ///                 { "name", "aciDelegation" },
+        ///                 { "serviceDelegation", 
         ///                 {
-        ///                     Name = "Microsoft.ContainerInstance/containerGroups",
-        ///                     Actions = new[]
+        ///                     { "name", "Microsoft.ContainerInstance/containerGroups" },
+        ///                     { "actions", new[]
         ///                     {
         ///                         "Microsoft.Network/virtualNetworks/subnets/action",
-        ///                     },
-        ///                 },
+        ///                     } },
+        ///                 } },
         ///             },
         ///         },
         ///     });

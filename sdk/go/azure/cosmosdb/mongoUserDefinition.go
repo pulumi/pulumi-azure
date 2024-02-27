@@ -21,68 +21,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	cosmosdb/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/account"
+//	cosmosdb/mongoDatabase "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/mongoDatabase"
+//	cosmosdb/mongoUserDefinition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cosmosdb/mongoUserDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-ca"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("MongoDB"),
-//				Capabilities: cosmosdb.AccountCapabilityArray{
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("EnableMongo"),
-//					},
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("EnableMongoRoleBasedAccessControl"),
-//					},
-//				},
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel: pulumi.String("Strong"),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         example.Location,
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "example", &cosmosdb.MongoDatabaseArgs{
-//				Name:              pulumi.String("example-mongodb"),
-//				ResourceGroupName: exampleAccount.ResourceGroupName,
-//				AccountName:       exampleAccount.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewMongoUserDefinition(ctx, "example", &cosmosdb.MongoUserDefinitionArgs{
-//				CosmosMongoDatabaseId: exampleMongoDatabase.ID(),
-//				Username:              pulumi.String("myUserName"),
-//				Password:              pulumi.String("myPassword"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cosmosdb/account.NewAccount(ctx, "example", &cosmosdb/account.AccountArgs{
+// Name: "example-ca",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// OfferType: "Standard",
+// Kind: "MongoDB",
+// Capabilities: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "EnableMongo",
+// },
+// map[string]interface{}{
+// "name": "EnableMongoRoleBasedAccessControl",
+// },
+// },
+// ConsistencyPolicy: map[string]interface{}{
+// "consistencyLevel": "Strong",
+// },
+// GeoLocations: []map[string]interface{}{
+// map[string]interface{}{
+// "location": example.Location,
+// "failoverPriority": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleMongoDatabase, err := cosmosdb/mongoDatabase.NewMongoDatabase(ctx, "example", &cosmosdb/mongoDatabase.MongoDatabaseArgs{
+// Name: "example-mongodb",
+// ResourceGroupName: exampleAccount.ResourceGroupName,
+// AccountName: exampleAccount.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cosmosdb/mongoUserDefinition.NewMongoUserDefinition(ctx, "example", &cosmosdb/mongoUserDefinition.MongoUserDefinitionArgs{
+// CosmosMongoDatabaseId: exampleMongoDatabase.Id,
+// Username: "myUserName",
+// Password: "myPassword",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

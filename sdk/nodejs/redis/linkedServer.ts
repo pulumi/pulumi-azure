@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example_primary = new azure.core.ResourceGroup("example-primary", {
+ * const example_primary = new azure.core/resourceGroup.ResourceGroup("example-primary", {
  *     name: "example-resources-primary",
  *     location: "East US",
  * });
- * const example_primaryCache = new azure.redis.Cache("example-primary", {
+ * const example_primaryCache = new azure.redis/cache.Cache("example-primary", {
  *     name: "example-cache1",
  *     location: example_primary.location,
  *     resourceGroupName: example_primary.name,
@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *         maxmemoryPolicy: "allkeys-lru",
  *     },
  * });
- * const example_secondary = new azure.core.ResourceGroup("example-secondary", {
+ * const example_secondary = new azure.core/resourceGroup.ResourceGroup("example-secondary", {
  *     name: "example-resources-secondary",
  *     location: "West US",
  * });
- * const example_secondaryCache = new azure.redis.Cache("example-secondary", {
+ * const example_secondaryCache = new azure.redis/cache.Cache("example-secondary", {
  *     name: "example-cache2",
  *     location: example_secondary.location,
  *     resourceGroupName: example_secondary.name,
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *         maxmemoryPolicy: "allkeys-lru",
  *     },
  * });
- * const example_link = new azure.redis.LinkedServer("example-link", {
+ * const example_link = new azure.redis/linkedServer.LinkedServer("example-link", {
  *     targetRedisCacheName: example_primaryCache.name,
  *     resourceGroupName: example_primaryCache.resourceGroupName,
  *     linkedRedisCacheId: example_secondaryCache.id,

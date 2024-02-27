@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Share.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datashare.getAccount({
- *     name: "example-account",
- *     resourceGroupName: "example-resource-group",
- * });
- * const exampleGetShare = example.then(example => azure.datashare.getShare({
- *     name: "existing",
- *     accountId: example.id,
- * }));
- * export const id = exampleGetShare.then(exampleGetShare => exampleGetShare.id);
- * ```
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
 
@@ -81,23 +64,6 @@ export interface GetShareResult {
 }
 /**
  * Use this data source to access information about an existing Data Share.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.datashare.getAccount({
- *     name: "example-account",
- *     resourceGroupName: "example-resource-group",
- * });
- * const exampleGetShare = example.then(example => azure.datashare.getShare({
- *     name: "existing",
- *     accountId: example.id,
- * }));
- * export const id = exampleGetShare.then(exampleGetShare => exampleGetShare.id);
- * ```
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
     return pulumi.output(args).apply((a: any) => getShare(a, opts))

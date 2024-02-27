@@ -36,8 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyManagedRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,90 +70,11 @@ import javax.annotation.Nullable;
  *             .customBlockResponseStatusCode(403)
  *             .customBlockResponseBody(&#34;PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==&#34;)
  *             .customRules(            
- *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule1&#34;)
- *                     .enabled(true)
- *                     .priority(1)
- *                     .rateLimitDurationInMinutes(1)
- *                     .rateLimitThreshold(10)
- *                     .type(&#34;MatchRule&#34;)
- *                     .action(&#34;Block&#34;)
- *                     .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                         .matchVariable(&#34;RemoteAddr&#34;)
- *                         .operator(&#34;IPMatch&#34;)
- *                         .negationCondition(false)
- *                         .matchValues(                        
- *                             &#34;10.0.1.0/24&#34;,
- *                             &#34;10.0.0.0/24&#34;)
- *                         .build())
- *                     .build(),
- *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                     .name(&#34;Rule2&#34;)
- *                     .enabled(true)
- *                     .priority(2)
- *                     .rateLimitDurationInMinutes(1)
- *                     .rateLimitThreshold(10)
- *                     .type(&#34;MatchRule&#34;)
- *                     .action(&#34;Block&#34;)
- *                     .matchConditions(                    
- *                         FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable(&#34;RemoteAddr&#34;)
- *                             .operator(&#34;IPMatch&#34;)
- *                             .negationCondition(false)
- *                             .matchValues(&#34;192.168.1.0/24&#34;)
- *                             .build(),
- *                         FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable(&#34;RequestHeader&#34;)
- *                             .selector(&#34;UserAgent&#34;)
- *                             .operator(&#34;Contains&#34;)
- *                             .negationCondition(false)
- *                             .matchValues(&#34;windows&#34;)
- *                             .transforms(                            
- *                                 &#34;Lowercase&#34;,
- *                                 &#34;Trim&#34;)
- *                             .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .managedRules(            
- *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
- *                     .type(&#34;DefaultRuleSet&#34;)
- *                     .version(&#34;1.0&#34;)
- *                     .exclusions(FrontdoorFirewallPolicyManagedRuleExclusionArgs.builder()
- *                         .matchVariable(&#34;QueryStringArgNames&#34;)
- *                         .operator(&#34;Equals&#34;)
- *                         .selector(&#34;not_suspicious&#34;)
- *                         .build())
- *                     .overrides(                    
- *                         FrontdoorFirewallPolicyManagedRuleOverrideArgs.builder()
- *                             .ruleGroupName(&#34;PHP&#34;)
- *                             .rules(FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                                 .ruleId(&#34;933100&#34;)
- *                                 .enabled(false)
- *                                 .action(&#34;Block&#34;)
- *                                 .build())
- *                             .build(),
- *                         FrontdoorFirewallPolicyManagedRuleOverrideArgs.builder()
- *                             .ruleGroupName(&#34;SQLI&#34;)
- *                             .exclusions(FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs.builder()
- *                                 .matchVariable(&#34;QueryStringArgNames&#34;)
- *                                 .operator(&#34;Equals&#34;)
- *                                 .selector(&#34;really_not_suspicious&#34;)
- *                                 .build())
- *                             .rules(FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                                 .ruleId(&#34;942200&#34;)
- *                                 .action(&#34;Block&#34;)
- *                                 .exclusions(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs.builder()
- *                                     .matchVariable(&#34;QueryStringArgNames&#34;)
- *                                     .operator(&#34;Equals&#34;)
- *                                     .selector(&#34;innocent&#34;)
- *                                     .build())
- *                                 .build())
- *                             .build())
- *                     .build(),
- *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
- *                     .type(&#34;Microsoft_BotManagerRuleSet&#34;)
- *                     .version(&#34;1.0&#34;)
- *                     .action(&#34;Log&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

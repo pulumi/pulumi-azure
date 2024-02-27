@@ -131,10 +131,10 @@ def get_srv_record(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.SrvRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
+    example = azure.dns.srv_record.SrvRecord("example",
+        name=test,
+        zone_name=test-zone,
+        resource_group_name=test-rg)
     pulumi.export("dnsSrvRecordId", example_azurerm_dns_srv_record["id"])
     ```
 
@@ -173,10 +173,10 @@ def get_srv_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.dns.SrvRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
+    example = azure.dns.srv_record.SrvRecord("example",
+        name=test,
+        zone_name=test-zone,
+        resource_group_name=test-rg)
     pulumi.export("dnsSrvRecordId", example_azurerm_dns_srv_record["id"])
     ```
 

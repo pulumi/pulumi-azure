@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.apimanagement.Logger;
  * import com.pulumi.azure.apimanagement.LoggerArgs;
- * import com.pulumi.azure.apimanagement.inputs.LoggerApplicationInsightsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,9 +74,7 @@ import javax.annotation.Nullable;
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
  *             .resourceId(exampleInsights.id())
- *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
- *                 .instrumentationKey(exampleInsights.instrumentationKey())
- *                 .build())
+ *             .applicationInsights(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

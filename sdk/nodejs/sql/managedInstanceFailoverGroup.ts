@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "rg-example",
  *     location: "West Europe",
  * });
- * const primary = new azure.sql.ManagedInstance("primary", {
+ * const primary = new azure.sql/managedInstance.ManagedInstance("primary", {
  *     name: "example-primary",
  *     resourceGroupName: primaryAzurermResourceGroup.name,
  *     location: primaryAzurermResourceGroup.location,
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         environment: "prod",
  *     },
  * });
- * const secondary = new azure.sql.ManagedInstance("secondary", {
+ * const secondary = new azure.sql/managedInstance.ManagedInstance("secondary", {
  *     name: "example-secondary",
  *     resourceGroupName: secondaryAzurermResourceGroup.name,
  *     location: secondaryAzurermResourceGroup.location,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *         environment: "prod",
  *     },
  * });
- * const exampleManagedInstanceFailoverGroup = new azure.sql.ManagedInstanceFailoverGroup("example", {
+ * const exampleManagedInstanceFailoverGroup = new azure.sql/managedInstanceFailoverGroup.ManagedInstanceFailoverGroup("example", {
  *     name: "example-failover-group",
  *     resourceGroupName: primaryAzurermResourceGroup.name,
  *     location: primary.location,

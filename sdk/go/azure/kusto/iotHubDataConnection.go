@@ -21,100 +21,102 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	iot/consumerGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/consumerGroup"
+//	iot/ioTHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/ioTHub"
+//	iot/sharedAccessPolicy "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/iot/sharedAccessPolicy"
+//	kusto/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/cluster"
+//	kusto/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/database"
+//	kusto/iotHubDataConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/iotHubDataConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("examplekustocluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Standard_D13_v2"),
-//					Capacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
-//				Name:              pulumi.String("example-kusto-database"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       exampleCluster.Name,
-//				HotCachePeriod:    pulumi.String("P7D"),
-//				SoftDeletePeriod:  pulumi.String("P31D"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("exampleIoTHub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku: &iot.IoTHubSkuArgs{
-//					Name:     pulumi.String("B1"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSharedAccessPolicy, err := iot.NewSharedAccessPolicy(ctx, "example", &iot.SharedAccessPolicyArgs{
-//				Name:              pulumi.String("example-shared-access-policy"),
-//				ResourceGroupName: example.Name,
-//				IothubName:        exampleIoTHub.Name,
-//				RegistryRead:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "example", &iot.ConsumerGroupArgs{
-//				Name:                 pulumi.String("example-consumer-group"),
-//				ResourceGroupName:    example.Name,
-//				IothubName:           exampleIoTHub.Name,
-//				EventhubEndpointName: pulumi.String("events"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewIotHubDataConnection(ctx, "example", &kusto.IotHubDataConnectionArgs{
-//				Name:                   pulumi.String("my-kusto-iothub-data-connection"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				ClusterName:            exampleCluster.Name,
-//				DatabaseName:           exampleDatabase.Name,
-//				IothubId:               exampleIoTHub.ID(),
-//				ConsumerGroup:          exampleConsumerGroup.Name,
-//				SharedAccessPolicyName: exampleSharedAccessPolicy.Name,
-//				EventSystemProperties: pulumi.StringArray{
-//					pulumi.String("message-id"),
-//					pulumi.String("sequence-number"),
-//					pulumi.String("to"),
-//				},
-//				TableName:       pulumi.String("my-table"),
-//				MappingRuleName: pulumi.String("my-table-mapping"),
-//				DataFormat:      pulumi.String("JSON"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCluster, err := kusto/cluster.NewCluster(ctx, "example", &kusto/cluster.ClusterArgs{
+// Name: "examplekustocluster",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Standard_D13_v2",
+// "capacity": 2,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := kusto/database.NewDatabase(ctx, "example", &kusto/database.DatabaseArgs{
+// Name: "example-kusto-database",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: exampleCluster.Name,
+// HotCachePeriod: "P7D",
+// SoftDeletePeriod: "P31D",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIoTHub, err := iot/ioTHub.NewIoTHub(ctx, "example", &iot/ioTHub.IoTHubArgs{
+// Name: "exampleIoTHub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: map[string]interface{}{
+// "name": "B1",
+// "capacity": "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSharedAccessPolicy, err := iot/sharedAccessPolicy.NewSharedAccessPolicy(ctx, "example", &iot/sharedAccessPolicy.SharedAccessPolicyArgs{
+// Name: "example-shared-access-policy",
+// ResourceGroupName: example.Name,
+// IothubName: exampleIoTHub.Name,
+// RegistryRead: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleConsumerGroup, err := iot/consumerGroup.NewConsumerGroup(ctx, "example", &iot/consumerGroup.ConsumerGroupArgs{
+// Name: "example-consumer-group",
+// ResourceGroupName: example.Name,
+// IothubName: exampleIoTHub.Name,
+// EventhubEndpointName: "events",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kusto/iotHubDataConnection.NewIotHubDataConnection(ctx, "example", &kusto/iotHubDataConnection.IotHubDataConnectionArgs{
+// Name: "my-kusto-iothub-data-connection",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: exampleCluster.Name,
+// DatabaseName: exampleDatabase.Name,
+// IothubId: exampleIoTHub.Id,
+// ConsumerGroup: exampleConsumerGroup.Name,
+// SharedAccessPolicyName: exampleSharedAccessPolicy.Name,
+// EventSystemProperties: []string{
+// "message-id",
+// "sequence-number",
+// "to",
+// },
+// TableName: "my-table",
+// MappingRuleName: "my-table-mapping",
+// DataFormat: "JSON",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

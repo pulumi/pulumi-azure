@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Search Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const example = azure.search.getServiceOutput({
- *     name: "example-search-service",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -92,22 +76,6 @@ export interface GetServiceResult {
 }
 /**
  * Manages a Search Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const example = azure.search.getServiceOutput({
- *     name: "example-search-service",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

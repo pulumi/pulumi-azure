@@ -14,62 +14,6 @@ import (
 
 // Manages an Automation Connection.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("resourceGroup-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
-//				Name:              pulumi.String("account-example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("Basic"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = automation.NewConnection(ctx, "example", &automation.ConnectionArgs{
-//				Name:                  pulumi.String("connection-example"),
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				AutomationAccountName: exampleAccount.Name,
-//				Type:                  pulumi.String("AzureServicePrincipal"),
-//				Values: pulumi.StringMap{
-//					"ApplicationId":         pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					"TenantId":              *pulumi.String(example.TenantId),
-//					"SubscriptionId":        *pulumi.String(example.SubscriptionId),
-//					"CertificateThumbprint": pulumi.String("sample-certificate-thumbprint"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Automation Connection can be imported using the `resource id`, e.g.

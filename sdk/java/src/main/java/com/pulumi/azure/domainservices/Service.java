@@ -31,13 +31,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
- * import com.pulumi.azure.network.inputs.NetworkSecurityGroupSecurityRuleArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
  * import com.pulumi.azuread.Group;
@@ -50,9 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuread.ServicePrincipalArgs;
  * import com.pulumi.azure.domainservices.Service;
  * import com.pulumi.azure.domainservices.ServiceArgs;
- * import com.pulumi.azure.domainservices.inputs.ServiceInitialReplicaSetArgs;
- * import com.pulumi.azure.domainservices.inputs.ServiceNotificationsArgs;
- * import com.pulumi.azure.domainservices.inputs.ServiceSecurityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,50 +86,10 @@ import javax.annotation.Nullable;
  *             .location(deploy.location())
  *             .resourceGroupName(deploy.name())
  *             .securityRules(            
- *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowSyncWithAzureAD&#34;)
- *                     .priority(101)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;443&#34;)
- *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
- *                     .build(),
- *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowRD&#34;)
- *                     .priority(201)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;3389&#34;)
- *                     .sourceAddressPrefix(&#34;CorpNetSaw&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
- *                     .build(),
- *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowPSRemoting&#34;)
- *                     .priority(301)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;5986&#34;)
- *                     .sourceAddressPrefix(&#34;AzureActiveDirectoryDomainServices&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
- *                     .build(),
- *                 NetworkSecurityGroupSecurityRuleArgs.builder()
- *                     .name(&#34;AllowLDAPS&#34;)
- *                     .priority(401)
- *                     .direction(&#34;Inbound&#34;)
- *                     .access(&#34;Allow&#34;)
- *                     .protocol(&#34;Tcp&#34;)
- *                     .sourcePortRange(&#34;*&#34;)
- *                     .destinationPortRange(&#34;636&#34;)
- *                     .sourceAddressPrefix(&#34;*&#34;)
- *                     .destinationAddressPrefix(&#34;*&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var deploySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;deploySubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
@@ -173,22 +129,10 @@ import javax.annotation.Nullable;
  *             .domainName(&#34;widgetslogin.net&#34;)
  *             .sku(&#34;Enterprise&#34;)
  *             .filteredSyncEnabled(false)
- *             .initialReplicaSet(ServiceInitialReplicaSetArgs.builder()
- *                 .subnetId(deploySubnet.id())
- *                 .build())
- *             .notifications(ServiceNotificationsArgs.builder()
- *                 .additionalRecipients(                
- *                     &#34;notifyA@example.net&#34;,
- *                     &#34;notifyB@example.org&#34;)
- *                 .notifyDcAdmins(true)
- *                 .notifyGlobalAdmins(true)
- *                 .build())
- *             .security(ServiceSecurityArgs.builder()
- *                 .syncKerberosPasswords(true)
- *                 .syncNtlmPasswords(true)
- *                 .syncOnPremPasswords(true)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;prod&#34;))
+ *             .initialReplicaSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .notifications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .security(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

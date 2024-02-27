@@ -15,32 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleFactory = new azure.datafactory.Factory("example", {
+ * const exampleFactory = new azure.datafactory/factory.Factory("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleLinkedCustomService = new azure.datafactory.LinkedCustomService("example", {
+ * const exampleLinkedCustomService = new azure.datafactory/linkedCustomService.LinkedCustomService("example", {
  *     name: "linked_service",
  *     dataFactoryId: exampleFactory.id,
  *     type: "AzureBlobStorage",
- *     typePropertiesJson: pulumi.interpolate`{
+ *     typePropertiesJson: `{
  *   "connectionString": "${exampleAccount.primaryConnectionString}"
  * }
  * `,
  * });
- * const example1 = new azure.datafactory.DatasetJson("example1", {
+ * const example1 = new azure.datafactory/datasetJson.DatasetJson("example1", {
  *     name: "dataset1",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedCustomService.name,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     },
  *     encoding: "UTF-8",
  * });
- * const example2 = new azure.datafactory.DatasetJson("example2", {
+ * const example2 = new azure.datafactory/datasetJson.DatasetJson("example2", {
  *     name: "dataset2",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedCustomService.name,
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *     },
  *     encoding: "UTF-8",
  * });
- * const example1FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example1", {
+ * const example1FlowletDataFlow = new azure.datafactory/flowletDataFlow.FlowletDataFlow("example1", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     sources: [{
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  *   skipDuplicateMapOutputs: true) ~> sink1
  * `,
  * });
- * const example2FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example2", {
+ * const example2FlowletDataFlow = new azure.datafactory/flowletDataFlow.FlowletDataFlow("example2", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     sources: [{
@@ -118,7 +118,7 @@ import * as utilities from "../utilities";
  *   skipDuplicateMapOutputs: true) ~> sink1
  * `,
  * });
- * const exampleFlowletDataFlow = new azure.datafactory.FlowletDataFlow("example", {
+ * const exampleFlowletDataFlow = new azure.datafactory/flowletDataFlow.FlowletDataFlow("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     sources: [{

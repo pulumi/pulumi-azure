@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudAcceleratorArgs;
  * import com.pulumi.azure.appplatform.SpringCloudCustomizedAccelerator;
  * import com.pulumi.azure.appplatform.SpringCloudCustomizedAcceleratorArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,11 +67,7 @@ import javax.annotation.Nullable;
  *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator(&#34;exampleSpringCloudCustomizedAccelerator&#34;, SpringCloudCustomizedAcceleratorArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .springCloudAcceleratorId(exampleSpringCloudAccelerator.id())
- *             .gitRepository(SpringCloudCustomizedAcceleratorGitRepositoryArgs.builder()
- *                 .url(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)
- *                 .gitTag(&#34;spring.version.2.0.3&#34;)
- *                 .intervalInSeconds(100)
- *                 .build())
+ *             .gitRepository(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .acceleratorTags(            
  *                 &#34;tag-a&#34;,
  *                 &#34;tag-b&#34;)

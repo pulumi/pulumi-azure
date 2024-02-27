@@ -12,51 +12,6 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Managers.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var current = Azure.Core.GetSubscription.Invoke();
-    /// 
-    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
-    ///     {
-    ///         Name = "example-network-manager",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
-    ///         {
-    ///             SubscriptionIds = new[]
-    ///             {
-    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///             },
-    ///         },
-    ///         ScopeAccesses = new[]
-    ///         {
-    ///             "Connectivity",
-    ///             "SecurityAdmin",
-    ///         },
-    ///         Description = "example network manager",
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Network Managers can be imported using the `resource id`, e.g.

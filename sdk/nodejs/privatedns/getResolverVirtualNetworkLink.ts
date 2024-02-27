@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about an existing Private DNS Resolver Virtual Network Link.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.privatedns.getResolverVirtualNetworkLink({
- *     name: "example-link",
- *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
- * });
- * ```
  */
 export function getResolverVirtualNetworkLink(args: GetResolverVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverVirtualNetworkLinkResult> {
 
@@ -63,18 +51,6 @@ export interface GetResolverVirtualNetworkLinkResult {
 }
 /**
  * Gets information about an existing Private DNS Resolver Virtual Network Link.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.privatedns.getResolverVirtualNetworkLink({
- *     name: "example-link",
- *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
- * });
- * ```
  */
 export function getResolverVirtualNetworkLinkOutput(args: GetResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getResolverVirtualNetworkLink(a, opts))

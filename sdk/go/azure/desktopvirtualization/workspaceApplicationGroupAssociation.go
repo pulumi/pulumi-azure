@@ -21,60 +21,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	desktopvirtualization/applicationGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/applicationGroup"
+//	desktopvirtualization/hostPool "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/hostPool"
+//	desktopvirtualization/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/workspace"
+//	desktopvirtualization/workspaceApplicationGroupAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/desktopvirtualization/workspaceApplicationGroupAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example-virtualdesktop"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
-//				Name:              pulumi.String("pooledbreadthfirst"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("Pooled"),
-//				LoadBalancerType:  pulumi.String("BreadthFirst"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			remoteapp, err := desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
-//				Name:              pulumi.String("remoteapp"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("RemoteApp"),
-//				HostPoolId:        pooledbreadthfirst.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			workspace, err := desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
-//				Name:              pulumi.String("workspace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = desktopvirtualization.NewWorkspaceApplicationGroupAssociation(ctx, "workspaceremoteapp", &desktopvirtualization.WorkspaceApplicationGroupAssociationArgs{
-//				WorkspaceId:        workspace.ID(),
-//				ApplicationGroupId: remoteapp.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example-virtualdesktop",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// pooledbreadthfirst, err := desktopvirtualization/hostPool.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization/hostPool.HostPoolArgs{
+// Name: "pooledbreadthfirst",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Type: "Pooled",
+// LoadBalancerType: "BreadthFirst",
+// })
+// if err != nil {
+// return err
+// }
+// remoteapp, err := desktopvirtualization/applicationGroup.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization/applicationGroup.ApplicationGroupArgs{
+// Name: "remoteapp",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Type: "RemoteApp",
+// HostPoolId: pooledbreadthfirst.Id,
+// })
+// if err != nil {
+// return err
+// }
+// workspace, err := desktopvirtualization/workspace.NewWorkspace(ctx, "workspace", &desktopvirtualization/workspace.WorkspaceArgs{
+// Name: "workspace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = desktopvirtualization/workspaceApplicationGroupAssociation.NewWorkspaceApplicationGroupAssociation(ctx, "workspaceremoteapp", &desktopvirtualization/workspaceApplicationGroupAssociation.WorkspaceApplicationGroupAssociationArgs{
+// WorkspaceId: workspace.Id,
+// ApplicationGroupId: remoteapp.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

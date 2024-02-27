@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example",
  *     location: "West Europe",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     location: example.location,
  *     name: "example",
  *     resourceGroupName: example.name,
  * });
- * const exampleFederatedIdentityCredential = new azure.armmsi.FederatedIdentityCredential("example", {
+ * const exampleFederatedIdentityCredential = new azure.armmsi/federatedIdentityCredential.FederatedIdentityCredential("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     audience: "foo",

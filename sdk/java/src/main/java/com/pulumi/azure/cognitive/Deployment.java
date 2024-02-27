@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cognitive.AccountArgs;
  * import com.pulumi.azure.cognitive.Deployment;
  * import com.pulumi.azure.cognitive.DeploymentArgs;
- * import com.pulumi.azure.cognitive.inputs.DeploymentModelArgs;
- * import com.pulumi.azure.cognitive.inputs.DeploymentScaleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,14 +61,8 @@ import javax.annotation.Nullable;
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .name(&#34;example-cd&#34;)
  *             .cognitiveAccountId(exampleAccount.id())
- *             .model(DeploymentModelArgs.builder()
- *                 .format(&#34;OpenAI&#34;)
- *                 .name(&#34;text-curie-001&#34;)
- *                 .version(&#34;1&#34;)
- *                 .build())
- *             .scale(DeploymentScaleArgs.builder()
- *                 .type(&#34;Standard&#34;)
- *                 .build())
+ *             .model(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scale(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

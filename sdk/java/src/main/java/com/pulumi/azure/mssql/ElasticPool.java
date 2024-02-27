@@ -36,8 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.ElasticPool;
  * import com.pulumi.azure.mssql.ElasticPoolArgs;
- * import com.pulumi.azure.mssql.inputs.ElasticPoolSkuArgs;
- * import com.pulumi.azure.mssql.inputs.ElasticPoolPerDatabaseSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,16 +70,8 @@ import javax.annotation.Nullable;
  *             .serverName(exampleServer.name())
  *             .licenseType(&#34;LicenseIncluded&#34;)
  *             .maxSizeGb(756)
- *             .sku(ElasticPoolSkuArgs.builder()
- *                 .name(&#34;BasicPool&#34;)
- *                 .tier(&#34;Basic&#34;)
- *                 .family(&#34;Gen4&#34;)
- *                 .capacity(4)
- *                 .build())
- *             .perDatabaseSettings(ElasticPoolPerDatabaseSettingsArgs.builder()
- *                 .minCapacity(0.25)
- *                 .maxCapacity(4)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .perDatabaseSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

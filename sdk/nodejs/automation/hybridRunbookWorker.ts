@@ -13,34 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.automation.Account("example", {
+ * const exampleAccount = new azure.automation/account.Account("example", {
  *     name: "example-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleHybridRunbookWorkerGroup = new azure.automation.HybridRunbookWorkerGroup("example", {
+ * const exampleHybridRunbookWorkerGroup = new azure.automation/hybridRunbookWorkerGroup.HybridRunbookWorkerGroup("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: example.location,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["192.168.1.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: "example-nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ * const exampleLinuxVirtualMachine = new azure.compute/linuxVirtualMachine.LinuxVirtualMachine("example", {
  *     name: "example-vm",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     },
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
- * const exampleHybridRunbookWorker = new azure.automation.HybridRunbookWorker("example", {
+ * const exampleHybridRunbookWorker = new azure.automation/hybridRunbookWorker.HybridRunbookWorker("example", {
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     workerGroupName: exampleHybridRunbookWorkerGroup.name,

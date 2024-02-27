@@ -180,57 +180,6 @@ class CertificateBinding(pulumi.CustomResource):
         """
         Manages an App Service Certificate Binding.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="webapp",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="appserviceplan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Premium",
-                size="P1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="mywebapp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example = azure.dns.get_zone_output(name="example.com",
-            resource_group_name=example_resource_group.name)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="www",
-            zone_name=example.name,
-            resource_group_name=example.resource_group_name,
-            ttl=300,
-            record=example_app_service.default_site_hostname)
-        example_txt_record = azure.dns.TxtRecord("example",
-            name=example_c_name_record.name.apply(lambda name: f"asuid.{name}"),
-            zone_name=example.name,
-            resource_group_name=example.resource_group_name,
-            ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_app_service.custom_domain_verification_id,
-            )])
-        example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
-            hostname=std.trim_output(input=example_c_name_record.fqdn,
-                cutset=".").apply(lambda invoke: invoke.result),
-            app_service_name=example_app_service.name,
-            resource_group_name=example_resource_group.name)
-        example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
-        example_certificate_binding = azure.appservice.CertificateBinding("example",
-            hostname_binding_id=example_custom_hostname_binding.id,
-            certificate_id=example_managed_certificate.id,
-            ssl_state="SniEnabled")
-        ```
-
         ## Import
 
         App Service Certificate Bindings can be imported using the `hostname_binding_id` and the `app_service_certificate_id` , e.g.
@@ -253,57 +202,6 @@ class CertificateBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Certificate Binding.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="webapp",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="appserviceplan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Premium",
-                size="P1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="mywebapp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            app_service_plan_id=example_plan.id)
-        example = azure.dns.get_zone_output(name="example.com",
-            resource_group_name=example_resource_group.name)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="www",
-            zone_name=example.name,
-            resource_group_name=example.resource_group_name,
-            ttl=300,
-            record=example_app_service.default_site_hostname)
-        example_txt_record = azure.dns.TxtRecord("example",
-            name=example_c_name_record.name.apply(lambda name: f"asuid.{name}"),
-            zone_name=example.name,
-            resource_group_name=example.resource_group_name,
-            ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_app_service.custom_domain_verification_id,
-            )])
-        example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
-            hostname=std.trim_output(input=example_c_name_record.fqdn,
-                cutset=".").apply(lambda invoke: invoke.result),
-            app_service_name=example_app_service.name,
-            resource_group_name=example_resource_group.name)
-        example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
-        example_certificate_binding = azure.appservice.CertificateBinding("example",
-            hostname_binding_id=example_custom_hostname_binding.id,
-            certificate_id=example_managed_certificate.id,
-            ssl_state="SniEnabled")
-        ```
 
         ## Import
 

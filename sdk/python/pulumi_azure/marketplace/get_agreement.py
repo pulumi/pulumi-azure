@@ -96,18 +96,6 @@ def get_agreement(offer: Optional[str] = None,
     """
     Uses this data source to access information about an existing Marketplace Agreement.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    barracuda = azure.marketplace.get_agreement(publisher="barracudanetworks",
-        offer="waf",
-        plan="hourly")
-    pulumi.export("azurermMarketplaceAgreementId", id)
-    ```
-
 
     :param str offer: The Offer of the Marketplace Image.
     :param str plan: The Plan of the Marketplace Image.
@@ -136,18 +124,6 @@ def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgreementResult]:
     """
     Uses this data source to access information about an existing Marketplace Agreement.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    barracuda = azure.marketplace.get_agreement(publisher="barracudanetworks",
-        offer="waf",
-        plan="hourly")
-    pulumi.export("azurermMarketplaceAgreementId", id)
-    ```
 
 
     :param str offer: The Offer of the Marketplace Image.

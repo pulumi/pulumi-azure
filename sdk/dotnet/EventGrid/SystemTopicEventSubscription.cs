@@ -22,13 +22,13 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestorageaccount",
     ///         ResourceGroupName = example.Name,
@@ -41,13 +41,13 @@ namespace Pulumi.Azure.EventGrid
     ///         },
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.Storage.Queue("example", new()
+    ///     var exampleQueue = new Azure.Storage.Queue.Queue("example", new()
     ///     {
     ///         Name = "examplestoragequeue",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("example", new()
+    ///     var exampleSystemTopic = new Azure.Eventgrid.SystemTopic.SystemTopic("example", new()
     ///     {
     ///         Name = "example-system-topic",
     ///         Location = "Global",
@@ -56,15 +56,15 @@ namespace Pulumi.Azure.EventGrid
     ///         TopicType = "Microsoft.Resources.ResourceGroups",
     ///     });
     /// 
-    ///     var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("example", new()
+    ///     var exampleSystemTopicEventSubscription = new Azure.Eventgrid.SystemTopicEventSubscription.SystemTopicEventSubscription("example", new()
     ///     {
     ///         Name = "example-event-subscription",
     ///         SystemTopic = exampleSystemTopic.Name,
     ///         ResourceGroupName = example.Name,
-    ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
+    ///         StorageQueueEndpoint = 
     ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             QueueName = exampleQueue.Name,
+    ///             { "storageAccountId", exampleAccount.Id },
+    ///             { "queueName", exampleQueue.Name },
     ///         },
     ///     });
     /// 

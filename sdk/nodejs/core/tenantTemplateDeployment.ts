@@ -5,24 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.core.getTemplateSpecVersion({
- *     name: "myTemplateForTenant",
- *     resourceGroupName: "myResourceGroup",
- *     version: "v0.1",
- * });
- * const exampleTenantTemplateDeployment = new azure.core.TenantTemplateDeployment("example", {
- *     name: "example",
- *     location: "West Europe",
- *     templateSpecVersionId: example.then(example => example.id),
- * });
- * ```
- *
  * ## Import
  *
  * Tenant Template Deployments can be imported using the `resource id`, e.g.

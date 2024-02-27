@@ -173,10 +173,10 @@ class DiskAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.compute.DiskAccess("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe")
+        example = azure.compute.disk_access.DiskAccess("example",
+            name=example,
+            resource_group_name=example,
+            location=West Europe)
         ```
 
         ## Import
@@ -209,10 +209,10 @@ class DiskAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.compute.DiskAccess("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe")
+        example = azure.compute.disk_access.DiskAccess("example",
+            name=example,
+            resource_group_name=example,
+            location=West Europe)
         ```
 
         ## Import

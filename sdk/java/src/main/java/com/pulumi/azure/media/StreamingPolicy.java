@@ -34,20 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.media.ServiceAccount;
  * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
  * import com.pulumi.azure.media.ContentKeyPolicy;
  * import com.pulumi.azure.media.ContentKeyPolicyArgs;
- * import com.pulumi.azure.media.inputs.ContentKeyPolicyPolicyOptionArgs;
- * import com.pulumi.azure.media.inputs.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs;
  * import com.pulumi.azure.media.StreamingPolicy;
  * import com.pulumi.azure.media.StreamingPolicyArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs;
- * import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,69 +68,22 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplemediaacc&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleContentKeyPolicy = new ContentKeyPolicy(&#34;exampleContentKeyPolicy&#34;, ContentKeyPolicyArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
- *             .policyOptions(ContentKeyPolicyPolicyOptionArgs.builder()
- *                 .name(&#34;fairPlay&#34;)
- *                 .fairplayConfiguration(ContentKeyPolicyPolicyOptionFairplayConfigurationArgs.builder()
- *                     .ask(&#34;bb566284cc124a21c435a92cd3c108c4&#34;)
- *                     .pfx(&#34;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&#34;)
- *                     .pfxPassword(&#34;password&#34;)
- *                     .rentalDurationSeconds(2249)
- *                     .rentalAndLeaseKeyType(&#34;PersistentUnlimited&#34;)
- *                     .build())
- *                 .openRestrictionEnabled(true)
- *                 .build())
+ *             .policyOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStreamingPolicy = new StreamingPolicy(&#34;exampleStreamingPolicy&#34;, StreamingPolicyArgs.builder()        
  *             .name(&#34;Policy-1&#34;)
  *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
- *             .commonEncryptionCenc(StreamingPolicyCommonEncryptionCencArgs.builder()
- *                 .clearTracks(StreamingPolicyCommonEncryptionCencClearTrackArgs.builder()
- *                     .conditions(StreamingPolicyCommonEncryptionCencClearTrackConditionArgs.builder()
- *                         .property(&#34;FourCC&#34;)
- *                         .operation(&#34;Equal&#34;)
- *                         .value(&#34;hev2&#34;)
- *                         .build())
- *                     .build())
- *                 .enabledProtocols(StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs.builder()
- *                     .download(false)
- *                     .dash(true)
- *                     .hls(false)
- *                     .smoothStreaming(false)
- *                     .build())
- *                 .defaultContentKey(StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs.builder()
- *                     .label(&#34;aesDefaultKey&#34;)
- *                     .policyName(exampleContentKeyPolicy.name())
- *                     .build())
- *                 .drmPlayready(StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs.builder()
- *                     .customLicenseAcquisitionUrlTemplate(&#34;https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}&#34;)
- *                     .customAttributes(&#34;PlayReady CustomAttributes&#34;)
- *                     .build())
- *                 .drmWidevineCustomLicenseAcquisitionUrlTemplate(&#34;https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId}&#34;)
- *                 .build())
- *             .commonEncryptionCbcs(StreamingPolicyCommonEncryptionCbcsArgs.builder()
- *                 .enabledProtocols(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs.builder()
- *                     .download(false)
- *                     .dash(true)
- *                     .hls(false)
- *                     .smoothStreaming(false)
- *                     .build())
- *                 .drmFairplay(StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs.builder()
- *                     .customLicenseAcquisitionUrlTemplate(&#34;https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}&#34;)
- *                     .allowPersistentLicense(true)
- *                     .build())
- *                 .build())
+ *             .commonEncryptionCenc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .commonEncryptionCbcs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

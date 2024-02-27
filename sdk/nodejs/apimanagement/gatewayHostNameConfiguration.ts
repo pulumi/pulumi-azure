@@ -7,57 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Gateway Host Name Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     name: "example-apim",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     publisherName: "pub1",
- *     publisherEmail: "pub1@email.com",
- *     skuName: "Consumption_0",
- * });
- * const exampleGateway = new azure.apimanagement.Gateway("example", {
- *     name: "example-gateway",
- *     apiManagementId: exampleService.id,
- *     description: "Example API Management gateway",
- *     locationData: {
- *         name: "example name",
- *         city: "example city",
- *         district: "example district",
- *         region: "example region",
- *     },
- * });
- * const exampleCertificate = new azure.apimanagement.Certificate("example", {
- *     name: "example-cert",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: example.name,
- *     data: std.filebase64({
- *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
- * });
- * const exampleGatewayHostNameConfiguration = new azure.apimanagement.GatewayHostNameConfiguration("example", {
- *     name: "example-host-name-configuration",
- *     apiManagementId: exampleService.id,
- *     gatewayName: exampleGateway.name,
- *     certificateId: exampleCertificate.id,
- *     hostName: "example-host-name",
- *     requestClientCertificateEnabled: true,
- *     http2Enabled: true,
- *     tls10Enabled: true,
- *     tls11Enabled: false,
- * });
- * ```
- *
  * ## Import
  *
  * API Management Gateway Host Name Configuration can be imported using the `resource id`, e.g.

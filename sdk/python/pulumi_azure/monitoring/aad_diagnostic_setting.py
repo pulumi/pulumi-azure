@@ -321,48 +321,48 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="west europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=west europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS")
-        example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("example",
-            name="setting1",
+            account_tier=Standard,
+            account_kind=StorageV2,
+            account_replication_type=LRS)
+        example_aad_diagnostic_setting = azure.monitoring.aad_diagnostic_setting.AadDiagnosticSetting("example",
+            name=setting1,
             storage_account_id=example_account.id,
             enabled_logs=[
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="SignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="AuditLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="NonInteractiveUserSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="ServicePrincipalSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
+                {
+                    category: SignInLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
+                {
+                    category: AuditLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
+                {
+                    category: NonInteractiveUserSignInLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
+                {
+                    category: ServicePrincipalSignInLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
             ])
         ```
 
@@ -409,48 +409,48 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="west europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorageaccount",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-rg,
+            location=west europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorageaccount,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS")
-        example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("example",
-            name="setting1",
+            account_tier=Standard,
+            account_kind=StorageV2,
+            account_replication_type=LRS)
+        example_aad_diagnostic_setting = azure.monitoring.aad_diagnostic_setting.AadDiagnosticSetting("example",
+            name=setting1,
             storage_account_id=example_account.id,
             enabled_logs=[
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="SignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="AuditLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="NonInteractiveUserSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="ServicePrincipalSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
+                {
+                    category: SignInLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
+                {
+                    category: AuditLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
+                {
+                    category: NonInteractiveUserSignInLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
+                {
+                    category: ServicePrincipalSignInLogs,
+                    retentionPolicy: {
+                        enabled: True,
+                        days: 1,
+                    },
+                },
             ])
         ```
 

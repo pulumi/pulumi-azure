@@ -22,13 +22,13 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.StreamAnalytics.Cluster("example", new()
+    ///     var exampleCluster = new Azure.Streamanalytics.Cluster.Cluster("example", new()
     ///     {
     ///         Name = "examplestreamanalyticscluster",
     ///         ResourceGroupName = example.Name,

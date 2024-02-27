@@ -820,34 +820,34 @@ class AppService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="example-appserviceplan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=example-appserviceplan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_app_service = azure.appservice.app_service.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-                scm_type="LocalGit",
-            ),
-            app_settings={
-                "SOME_KEY": "some-value",
+            site_config={
+                dotnetFrameworkVersion: v4.0,
+                scmType: LocalGit,
             },
-            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
+            app_settings={
+                SOME_KEY: some-value,
+            },
+            connection_strings=[{
+                name: Database,
+                type: SQLServer,
+                value: Server=some-server.mydomain.com;Integrated Security=SSPI,
+            }])
         ```
 
         ## Import
@@ -902,34 +902,34 @@ class AppService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="example-appserviceplan",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_plan = azure.appservice.plan.Plan("example",
+            name=example-appserviceplan,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku={
+                tier: Standard,
+                size: S1,
+            })
+        example_app_service = azure.appservice.app_service.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-                scm_type="LocalGit",
-            ),
-            app_settings={
-                "SOME_KEY": "some-value",
+            site_config={
+                dotnetFrameworkVersion: v4.0,
+                scmType: LocalGit,
             },
-            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
+            app_settings={
+                SOME_KEY: some-value,
+            },
+            connection_strings=[{
+                name: Database,
+                type: SQLServer,
+                value: Server=some-server.mydomain.com;Integrated Security=SSPI,
+            }])
         ```
 
         ## Import

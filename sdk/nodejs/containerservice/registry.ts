@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const acr = new azure.containerservice.Registry("acr", {
+ * const acr = new azure.containerservice/registry.Registry("acr", {
  *     name: "containerRegistry1",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -39,58 +39,23 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ### Encryption)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     name: "registry-uai",
- * });
- * const example = azure.keyvault.getKey({
- *     name: "super-secret",
- *     keyVaultId: existing.id,
- * });
- * const acr = new azure.containerservice.Registry("acr", {
- *     name: "containerRegistry1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Premium",
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
- *     encryption: {
- *         enabled: true,
- *         keyVaultKeyId: example.then(example => example.id),
- *         identityClientId: exampleUserAssignedIdentity.clientId,
- *     },
- * });
- * ```
  * ### Attaching A Container Registry To A Kubernetes Cluster)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleRegistry = new azure.containerservice.Registry("example", {
+ * const exampleRegistry = new azure.containerservice/registry.Registry("example", {
  *     name: "containerRegistry1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: "Premium",
  * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ * const exampleKubernetesCluster = new azure.containerservice/kubernetesCluster.KubernetesCluster("example", {
  *     name: "example-aks1",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -107,8 +72,8 @@ import * as utilities from "../utilities";
  *         Environment: "Production",
  *     },
  * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     principalId: exampleKubernetesCluster.kubeletIdentity.apply(kubeletIdentity => kubeletIdentity.objectId),
+ * const exampleAssignment = new azure.authorization/assignment.Assignment("example", {
+ *     principalId: exampleKubernetesCluster.kubeletIdentity.objectId,
  *     roleDefinitionName: "AcrPull",
  *     scope: exampleRegistry.id,
  *     skipServicePrincipalAadCheck: true,

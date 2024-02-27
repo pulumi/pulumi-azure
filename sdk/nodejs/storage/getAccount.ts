@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getAccount({
- *     name: "packerimages",
- *     resourceGroupName: "packer-storage",
- * });
- * export const storageAccountTier = example.then(example => example.accountTier);
- * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -424,19 +411,6 @@ export interface GetAccountResult {
 }
 /**
  * Use this data source to access information about an existing Storage Account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.storage.getAccount({
- *     name: "packerimages",
- *     resourceGroupName: "packer-storage",
- * });
- * export const storageAccountTier = example.then(example => example.accountTier);
- * ```
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

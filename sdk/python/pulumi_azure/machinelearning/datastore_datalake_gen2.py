@@ -380,53 +380,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         """
         Manages a Machine Learning Data Lake Gen2 DataStore.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="workspace-example-ai",
-            location=example.location,
-            resource_group_name=example.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="workspaceexamplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("example",
-            name="workspacestorageaccount",
-            location=example.location,
-            resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("example",
-            name="example-workspace",
-            location=example.location,
-            resource_group_name=example.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_container = azure.storage.Container("example",
-            name="example-container",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_datastore_datalake_gen2 = azure.machinelearning.DatastoreDatalakeGen2("example",
-            name="example-datastore",
-            workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id)
-        ```
-
         ## Import
 
         Machine Learning DataStores can be imported using the `resource id`, e.g.
@@ -456,53 +409,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning Data Lake Gen2 DataStore.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="workspace-example-ai",
-            location=example.location,
-            resource_group_name=example.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="workspaceexamplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("example",
-            name="workspacestorageaccount",
-            location=example.location,
-            resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("example",
-            name="example-workspace",
-            location=example.location,
-            resource_group_name=example.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_container = azure.storage.Container("example",
-            name="example-container",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_datastore_datalake_gen2 = azure.machinelearning.DatastoreDatalakeGen2("example",
-            name="example-datastore",
-            workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id)
-        ```
 
         ## Import
 

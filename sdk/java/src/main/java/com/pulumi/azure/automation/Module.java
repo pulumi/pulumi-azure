@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.Module;
  * import com.pulumi.azure.automation.ModuleArgs;
- * import com.pulumi.azure.automation.inputs.ModuleModuleLinkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,9 +59,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;xActiveDirectory&#34;)
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .moduleLink(ModuleModuleLinkArgs.builder()
- *                 .uri(&#34;https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg&#34;)
- *                 .build())
+ *             .moduleLink(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -207,17 +207,17 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_profile = azure.cdn.Profile("example",
-            name="exampleCdnProfile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_profile = azure.cdn.profile.Profile("example",
+            name=exampleCdnProfile,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_Verizon",
+            sku=Standard_Verizon,
             tags={
-                "environment": "Production",
-                "cost_center": "MSFT",
+                environment: Production,
+                cost_center: MSFT,
             })
         ```
 
@@ -254,17 +254,17 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_profile = azure.cdn.Profile("example",
-            name="exampleCdnProfile",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_profile = azure.cdn.profile.Profile("example",
+            name=exampleCdnProfile,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard_Verizon",
+            sku=Standard_Verizon,
             tags={
-                "environment": "Production",
-                "cost_center": "MSFT",
+                environment: Production,
+                cost_center: MSFT,
             })
         ```
 

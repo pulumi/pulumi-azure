@@ -23,142 +23,135 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	authorization/assignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/assignment"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	digitaltwins/instance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/instance"
+//	digitaltwins/timeSeriesDatabaseConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/digitaltwins/timeSeriesDatabaseConnection"
+//	eventhub/consumerGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/consumerGroup"
+//	eventhub/eventHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHub"
+//	eventhub/eventHubNamespace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/eventhub/eventHubNamespace"
+//	kusto/cluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/cluster"
+//	kusto/database "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/database"
+//	kusto/databasePrincipalAssignment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/kusto/databasePrincipalAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "example", &digitaltwins.InstanceArgs{
-//				Name:              pulumi.String("example-DT"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Identity: &digitaltwins.InstanceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
-//				Name:              pulumi.String("exampleEventHubNamespace"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("exampleEventHub"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(2),
-//				MessageRetention:  pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "example", &eventhub.ConsumerGroupArgs{
-//				Name:              pulumi.String("example-consumergroup"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				EventhubName:      exampleEventHub.Name,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("examplekc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
-//					Capacity: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
-//				Name:              pulumi.String("example-kusto-database"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       exampleCluster.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "database_contributor", &authorization.AssignmentArgs{
-//				Scope: exampleDatabase.ID(),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
-//				RoleDefinitionName: pulumi.String("Contributor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = authorization.NewAssignment(ctx, "eventhub_data_owner", &authorization.AssignmentArgs{
-//				Scope: exampleEventHub.ID(),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
-//				RoleDefinitionName: pulumi.String("Azure Event Hubs Data Owner"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "example", &kusto.DatabasePrincipalAssignmentArgs{
-//				Name:              pulumi.String("dataadmin"),
-//				ResourceGroupName: example.Name,
-//				ClusterName:       exampleCluster.Name,
-//				DatabaseName:      exampleDatabase.Name,
-//				TenantId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalType: pulumi.String("App"),
-//				Role:          pulumi.String("Admin"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = digitaltwins.NewTimeSeriesDatabaseConnection(ctx, "example", &digitaltwins.TimeSeriesDatabaseConnectionArgs{
-//				Name:                pulumi.String("example-connection"),
-//				DigitalTwinsId:      exampleInstance.ID(),
-//				EventhubName:        exampleEventHub.Name,
-//				EventhubNamespaceId: exampleEventHubNamespace.ID(),
-//				EventhubNamespaceEndpointUri: exampleEventHubNamespace.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("sb://%v.servicebus.windows.net", name), nil
-//				}).(pulumi.StringOutput),
-//				EventhubConsumerGroupName: exampleConsumerGroup.Name,
-//				KustoClusterId:            exampleCluster.ID(),
-//				KustoClusterUri:           exampleCluster.Uri,
-//				KustoDatabaseName:         exampleDatabase.Name,
-//				KustoTableName:            pulumi.String("exampleTable"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInstance, err := digitaltwins/instance.NewInstance(ctx, "example", &digitaltwins/instance.InstanceArgs{
+// Name: "example-DT",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Identity: map[string]interface{}{
+// "type": "SystemAssigned",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHubNamespace, err := eventhub/eventHubNamespace.NewEventHubNamespace(ctx, "example", &eventhub/eventHubNamespace.EventHubNamespaceArgs{
+// Name: "exampleEventHubNamespace",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleEventHub, err := eventhub/eventHub.NewEventHub(ctx, "example", &eventhub/eventHub.EventHubArgs{
+// Name: "exampleEventHub",
+// NamespaceName: exampleEventHubNamespace.Name,
+// ResourceGroupName: example.Name,
+// PartitionCount: 2,
+// MessageRetention: 7,
+// })
+// if err != nil {
+// return err
+// }
+// exampleConsumerGroup, err := eventhub/consumerGroup.NewConsumerGroup(ctx, "example", &eventhub/consumerGroup.ConsumerGroupArgs{
+// Name: "example-consumergroup",
+// NamespaceName: exampleEventHubNamespace.Name,
+// EventhubName: exampleEventHub.Name,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleCluster, err := kusto/cluster.NewCluster(ctx, "example", &kusto/cluster.ClusterArgs{
+// Name: "examplekc",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Sku: map[string]interface{}{
+// "name": "Dev(No SLA)_Standard_D11_v2",
+// "capacity": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleDatabase, err := kusto/database.NewDatabase(ctx, "example", &kusto/database.DatabaseArgs{
+// Name: "example-kusto-database",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ClusterName: exampleCluster.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/assignment.NewAssignment(ctx, "database_contributor", &authorization/assignment.AssignmentArgs{
+// Scope: exampleDatabase.Id,
+// PrincipalId: exampleInstance.Identity.PrincipalId,
+// RoleDefinitionName: "Contributor",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = authorization/assignment.NewAssignment(ctx, "eventhub_data_owner", &authorization/assignment.AssignmentArgs{
+// Scope: exampleEventHub.Id,
+// PrincipalId: exampleInstance.Identity.PrincipalId,
+// RoleDefinitionName: "Azure Event Hubs Data Owner",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kusto/databasePrincipalAssignment.NewDatabasePrincipalAssignment(ctx, "example", &kusto/databasePrincipalAssignment.DatabasePrincipalAssignmentArgs{
+// Name: "dataadmin",
+// ResourceGroupName: example.Name,
+// ClusterName: exampleCluster.Name,
+// DatabaseName: exampleDatabase.Name,
+// TenantId: exampleInstance.Identity.TenantId,
+// PrincipalId: exampleInstance.Identity.PrincipalId,
+// PrincipalType: "App",
+// Role: "Admin",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = digitaltwins/timeSeriesDatabaseConnection.NewTimeSeriesDatabaseConnection(ctx, "example", &digitaltwins/timeSeriesDatabaseConnection.TimeSeriesDatabaseConnectionArgs{
+// Name: "example-connection",
+// DigitalTwinsId: exampleInstance.Id,
+// EventhubName: exampleEventHub.Name,
+// EventhubNamespaceId: exampleEventHubNamespace.Id,
+// EventhubNamespaceEndpointUri: fmt.Sprintf("sb://%v.servicebus.windows.net", exampleEventHubNamespace.Name),
+// EventhubConsumerGroupName: exampleConsumerGroup.Name,
+// KustoClusterId: exampleCluster.Id,
+// KustoClusterUri: exampleCluster.Uri,
+// KustoDatabaseName: exampleDatabase.Name,
+// KustoTableName: "exampleTable",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

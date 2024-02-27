@@ -21,95 +21,95 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	postgresql/flexibleServer "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/postgresql/flexibleServer"
+//	privatedns/zone "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zone"
+//	privatedns/zoneVirtualNetworkLink "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/zoneVirtualNetworkLink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vn"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-sn"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Storage"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("fs"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Name: pulumi.String("Microsoft.DBforPostgreSQL/flexibleServers"),
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
-//				Name:              pulumi.String("example.postgres.database.azure.com"),
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("exampleVnetZone.com"),
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
-//				ResourceGroupName:  example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = postgresql.NewFlexibleServer(ctx, "example", &postgresql.FlexibleServerArgs{
-//				Name:                  pulumi.String("example-psqlflexibleserver"),
-//				ResourceGroupName:     example.Name,
-//				Location:              example.Location,
-//				Version:               pulumi.String("12"),
-//				DelegatedSubnetId:     exampleSubnet.ID(),
-//				PrivateDnsZoneId:      exampleZone.ID(),
-//				AdministratorLogin:    pulumi.String("psqladmin"),
-//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-//				Zone:                  pulumi.String("1"),
-//				StorageMb:             pulumi.Int(32768),
-//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vn",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "example-sn",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// ServiceEndpoints: []string{
+// "Microsoft.Storage",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "fs",
+// "serviceDelegation": map[string]interface{}{
+// "name": "Microsoft.DBforPostgreSQL/flexibleServers",
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := privatedns/zone.NewZone(ctx, "example", &privatedns/zone.ZoneArgs{
+// Name: "example.postgres.database.azure.com",
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/zoneVirtualNetworkLink.NewZoneVirtualNetworkLink(ctx, "example", &privatedns/zoneVirtualNetworkLink.ZoneVirtualNetworkLinkArgs{
+// Name: "exampleVnetZone.com",
+// PrivateDnsZoneName: exampleZone.Name,
+// VirtualNetworkId: exampleVirtualNetwork.Id,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = postgresql/flexibleServer.NewFlexibleServer(ctx, "example", &postgresql/flexibleServer.FlexibleServerArgs{
+// Name: "example-psqlflexibleserver",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Version: "12",
+// DelegatedSubnetId: exampleSubnet.Id,
+// PrivateDnsZoneId: exampleZone.Id,
+// AdministratorLogin: "psqladmin",
+// AdministratorPassword: "H@Sh1CoR3!",
+// Zone: "1",
+// StorageMb: 32768,
+// SkuName: "GP_Standard_D4s_v3",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

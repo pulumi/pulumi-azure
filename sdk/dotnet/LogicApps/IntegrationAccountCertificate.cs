@@ -22,13 +22,13 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
+    ///     var exampleIntegrationAccount = new Azure.Logicapps.IntegrationAccount.IntegrationAccount("example", new()
     ///     {
     ///         Name = "example-ia",
     ///         Location = example.Location,
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.LogicApps
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleIntegrationAccountCertificate = new Azure.LogicApps.IntegrationAccountCertificate("example", new()
+    ///     var exampleIntegrationAccountCertificate = new Azure.Logicapps.IntegrationAccountCertificate.IntegrationAccountCertificate("example", new()
     ///     {
     ///         Name = "example-iac",
     ///         ResourceGroupName = example.Name,

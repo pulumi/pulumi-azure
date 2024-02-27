@@ -25,75 +25,74 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	sql/managedInstance "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/managedInstance"
+//	sql/managedInstanceFailoverGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/sql/managedInstanceFailoverGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("rg-example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primary, err := sql.NewManagedInstance(ctx, "primary", &sql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("example-primary"),
-//				ResourceGroupName:          pulumi.Any(primaryAzurermResourceGroup.Name),
-//				Location:                   pulumi.Any(primaryAzurermResourceGroup.Location),
-//				AdministratorLogin:         pulumi.String("mradministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SubnetId:                   pulumi.Any(primaryAzurermSubnet.Id),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				Vcores:                     pulumi.Int(4),
-//				StorageSizeInGb:            pulumi.Int(32),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondary, err := sql.NewManagedInstance(ctx, "secondary", &sql.ManagedInstanceArgs{
-//				Name:                       pulumi.String("example-secondary"),
-//				ResourceGroupName:          pulumi.Any(secondaryAzurermResourceGroup.Name),
-//				Location:                   pulumi.Any(secondaryAzurermResourceGroup.Location),
-//				AdministratorLogin:         pulumi.String("mradministrator"),
-//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-//				LicenseType:                pulumi.String("BasePrice"),
-//				SubnetId:                   pulumi.Any(secondaryAzurermSubnet.Id),
-//				SkuName:                    pulumi.String("GP_Gen5"),
-//				Vcores:                     pulumi.Int(4),
-//				StorageSizeInGb:            pulumi.Int(32),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sql.NewManagedInstanceFailoverGroup(ctx, "example", &sql.ManagedInstanceFailoverGroupArgs{
-//				Name:                     pulumi.String("example-failover-group"),
-//				ResourceGroupName:        pulumi.Any(primaryAzurermResourceGroup.Name),
-//				Location:                 primary.Location,
-//				ManagedInstanceName:      primary.Name,
-//				PartnerManagedInstanceId: secondary.ID(),
-//				ReadWriteEndpointFailoverPolicy: &sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{
-//					Mode:         pulumi.String("Automatic"),
-//					GraceMinutes: pulumi.Int(60),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "rg-example",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// primary, err := sql/managedInstance.NewManagedInstance(ctx, "primary", &sql/managedInstance.ManagedInstanceArgs{
+// Name: "example-primary",
+// ResourceGroupName: primaryAzurermResourceGroup.Name,
+// Location: primaryAzurermResourceGroup.Location,
+// AdministratorLogin: "mradministrator",
+// AdministratorLoginPassword: "thisIsDog11",
+// LicenseType: "BasePrice",
+// SubnetId: primaryAzurermSubnet.Id,
+// SkuName: "GP_Gen5",
+// Vcores: 4,
+// StorageSizeInGb: 32,
+// Tags: map[string]interface{}{
+// "environment": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// secondary, err := sql/managedInstance.NewManagedInstance(ctx, "secondary", &sql/managedInstance.ManagedInstanceArgs{
+// Name: "example-secondary",
+// ResourceGroupName: secondaryAzurermResourceGroup.Name,
+// Location: secondaryAzurermResourceGroup.Location,
+// AdministratorLogin: "mradministrator",
+// AdministratorLoginPassword: "thisIsDog11",
+// LicenseType: "BasePrice",
+// SubnetId: secondaryAzurermSubnet.Id,
+// SkuName: "GP_Gen5",
+// Vcores: 4,
+// StorageSizeInGb: 32,
+// Tags: map[string]interface{}{
+// "environment": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sql/managedInstanceFailoverGroup.NewManagedInstanceFailoverGroup(ctx, "example", &sql/managedInstanceFailoverGroup.ManagedInstanceFailoverGroupArgs{
+// Name: "example-failover-group",
+// ResourceGroupName: primaryAzurermResourceGroup.Name,
+// Location: primary.Location,
+// ManagedInstanceName: primary.Name,
+// PartnerManagedInstanceId: secondary.Id,
+// ReadWriteEndpointFailoverPolicy: map[string]interface{}{
+// "mode": "Automatic",
+// "graceMinutes": 60,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

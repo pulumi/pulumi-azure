@@ -18,41 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a SSH Public Key.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.compute.SshPublicKey;
- * import com.pulumi.azure.compute.SshPublicKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SshPublicKey(&#34;example&#34;, SshPublicKeyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceGroupName(&#34;example&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * SSH Public Keys can be imported using the `resource id`, e.g.

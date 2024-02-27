@@ -14,49 +14,6 @@ import (
 
 // Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lighthouse"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			contributor, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//				RoleDefinitionId: pulumi.StringRef("b24988ac-6180-42a0-ab88-20f7382dd24c"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
-//				Name:             pulumi.String("Sample definition"),
-//				Description:      pulumi.String("This is a lighthouse definition created IaC"),
-//				ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Scope:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
-//				Authorizations: lighthouse.DefinitionAuthorizationArray{
-//					&lighthouse.DefinitionAuthorizationArgs{
-//						PrincipalId:          pulumi.String("00000000-0000-0000-0000-000000000000"),
-//						RoleDefinitionId:     *pulumi.String(contributor.RoleDefinitionId),
-//						PrincipalDisplayName: pulumi.String("Tier 1 Support"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Lighthouse Definitions can be imported using the `resource id`, e.g.

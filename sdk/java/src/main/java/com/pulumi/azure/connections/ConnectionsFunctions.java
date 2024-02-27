@@ -17,76 +17,12 @@ public final class ConnectionsFunctions {
     /**
      * Uses this data source to access information about an existing Managed API.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.connections.ConnectionsFunctions;
-     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args) {
         return getManagedApi(args, InvokeOptions.Empty);
     }
     /**
      * Uses this data source to access information about an existing Managed API.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.connections.ConnectionsFunctions;
-     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args) {
@@ -95,76 +31,12 @@ public final class ConnectionsFunctions {
     /**
      * Uses this data source to access information about an existing Managed API.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.connections.ConnectionsFunctions;
-     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:connections/getManagedApi:getManagedApi", TypeShape.of(GetManagedApiResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an existing Managed API.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.connections.ConnectionsFunctions;
-     * import com.pulumi.azure.connections.inputs.GetManagedApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
-     *             .name(&#34;servicebus&#34;)
-     *             .location(&#34;West Europe&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args, InvokeOptions options) {

@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.MongoDatabase;
  * import com.pulumi.azure.cosmosdb.MongoDatabaseArgs;
  * import com.pulumi.azure.cosmosdb.MongoUserDefinition;
@@ -61,19 +58,10 @@ import javax.annotation.Nullable;
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;MongoDB&#34;)
  *             .capabilities(            
- *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;EnableMongo&#34;)
- *                     .build(),
- *                 AccountCapabilityArgs.builder()
- *                     .name(&#34;EnableMongoRoleBasedAccessControl&#34;)
- *                     .build())
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel(&#34;Strong&#34;)
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(example.location())
- *                 .failoverPriority(0)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .consistencyPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .geoLocations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleMongoDatabase = new MongoDatabase(&#34;exampleMongoDatabase&#34;, MongoDatabaseArgs.builder()        

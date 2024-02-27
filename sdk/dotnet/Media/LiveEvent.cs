@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account.Account("example", new()
     ///     {
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
@@ -37,59 +37,59 @@ namespace Pulumi.Azure.Media
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount.ServiceAccount("example", new()
     ///     {
     ///         Name = "examplemediaacc",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
-    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             
     ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 IsPrimary = true,
+    ///                 { "id", exampleAccount.Id },
+    ///                 { "isPrimary", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleLiveEvent = new Azure.Media.LiveEvent("example", new()
+    ///     var exampleLiveEvent = new Azure.Media.LiveEvent.LiveEvent("example", new()
     ///     {
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "My Event Description",
-    ///         Input = new Azure.Media.Inputs.LiveEventInputArgs
+    ///         Input = 
     ///         {
-    ///             StreamingProtocol = "RTMP",
-    ///             IpAccessControlAllows = new[]
+    ///             { "streamingProtocol", "RTMP" },
+    ///             { "ipAccessControlAllows", new[]
     ///             {
-    ///                 new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
+    ///                 
     ///                 {
-    ///                     Name = "AllowAll",
-    ///                     Address = "0.0.0.0",
-    ///                     SubnetPrefixLength = 0,
+    ///                     { "name", "AllowAll" },
+    ///                     { "address", "0.0.0.0" },
+    ///                     { "subnetPrefixLength", 0 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
-    ///         Encoding = new Azure.Media.Inputs.LiveEventEncodingArgs
+    ///         Encoding = 
     ///         {
-    ///             Type = "Standard",
-    ///             PresetName = "Default720p",
-    ///             StretchMode = "AutoFit",
-    ///             KeyFrameInterval = "PT2S",
+    ///             { "type", "Standard" },
+    ///             { "presetName", "Default720p" },
+    ///             { "stretchMode", "AutoFit" },
+    ///             { "keyFrameInterval", "PT2S" },
     ///         },
-    ///         Preview = new Azure.Media.Inputs.LiveEventPreviewArgs
+    ///         Preview = 
     ///         {
-    ///             IpAccessControlAllows = new[]
+    ///             { "ipAccessControlAllows", new[]
     ///             {
-    ///                 new Azure.Media.Inputs.LiveEventPreviewIpAccessControlAllowArgs
+    ///                 
     ///                 {
-    ///                     Name = "AllowAll",
-    ///                     Address = "0.0.0.0",
-    ///                     SubnetPrefixLength = 0,
+    ///                     { "name", "AllowAll" },
+    ///                     { "address", "0.0.0.0" },
+    ///                     { "subnetPrefixLength", 0 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         StreamOptions = new[]
     ///         {

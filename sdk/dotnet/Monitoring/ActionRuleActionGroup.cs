@@ -24,31 +24,31 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup.ActionGroup("example", new()
     ///     {
     ///         Name = "example-action-group",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "example",
     ///     });
     /// 
-    ///     var exampleActionRuleActionGroup = new Azure.Monitoring.ActionRuleActionGroup("example", new()
+    ///     var exampleActionRuleActionGroup = new Azure.Monitoring.ActionRuleActionGroup.ActionRuleActionGroup("example", new()
     ///     {
     ///         Name = "example-amar",
     ///         ResourceGroupName = example.Name,
     ///         ActionGroupId = exampleActionGroup.Id,
-    ///         Scope = new Azure.Monitoring.Inputs.ActionRuleActionGroupScopeArgs
+    ///         Scope = 
     ///         {
-    ///             Type = "ResourceGroup",
-    ///             ResourceIds = new[]
+    ///             { "type", "ResourceGroup" },
+    ///             { "resourceIds", new[]
     ///             {
     ///                 example.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

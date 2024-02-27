@@ -37,8 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.paloalto.LocalRulestackArgs;
  * import com.pulumi.azure.paloalto.LocalRulestackRule;
  * import com.pulumi.azure.paloalto.LocalRulestackRuleArgs;
- * import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleSourceArgs;
- * import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,12 +67,8 @@ import javax.annotation.Nullable;
  *             .priority(1000)
  *             .action(&#34;Allow&#34;)
  *             .applications(&#34;any&#34;)
- *             .source(LocalRulestackRuleSourceArgs.builder()
- *                 .cidrs(&#34;10.0.0.0/8&#34;)
- *                 .build())
- *             .destination(LocalRulestackRuleDestinationArgs.builder()
- *                 .cidrs(&#34;192.168.16.0/24&#34;)
- *                 .build())
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

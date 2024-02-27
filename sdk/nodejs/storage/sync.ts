@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSync = new azure.storage.Sync("example", {
+ * const exampleSync = new azure.storage/sync.Sync("example", {
  *     name: "example-storage-sync",
  *     resourceGroupName: example.name,
  *     location: example.location,

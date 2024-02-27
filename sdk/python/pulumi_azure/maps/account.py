@@ -261,16 +261,16 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.maps.Account("example",
-            name="example-maps-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.maps.account.Account("example",
+            name=example-maps-account,
             resource_group_name=example.name,
-            sku_name="S1",
+            sku_name=S1,
             local_authentication_enabled=True,
             tags={
-                "environment": "Test",
+                environment: Test,
             })
         ```
 
@@ -307,16 +307,16 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.maps.Account("example",
-            name="example-maps-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.maps.account.Account("example",
+            name=example-maps-account,
             resource_group_name=example.name,
-            sku_name="S1",
+            sku_name=S1,
             local_authentication_enabled=True,
             tags={
-                "environment": "Test",
+                environment: Test,
             })
         ```
 

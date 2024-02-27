@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.containerservice.Registry;
  * import com.pulumi.azure.containerservice.RegistryArgs;
- * import com.pulumi.azure.containerservice.inputs.RegistryGeoreplicationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,81 +62,8 @@ import javax.annotation.Nullable;
  *             .sku(&#34;Premium&#34;)
  *             .adminEnabled(false)
  *             .georeplications(            
- *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;East US&#34;)
- *                     .zoneRedundancyEnabled(true)
- *                     .tags()
- *                     .build(),
- *                 RegistryGeoreplicationArgs.builder()
- *                     .location(&#34;North Europe&#34;)
- *                     .zoneRedundancyEnabled(true)
- *                     .tags()
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Encryption)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.authorization.UserAssignedIdentity;
- * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
- * import com.pulumi.azure.keyvault.KeyvaultFunctions;
- * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
- * import com.pulumi.azure.containerservice.Registry;
- * import com.pulumi.azure.containerservice.RegistryArgs;
- * import com.pulumi.azure.containerservice.inputs.RegistryIdentityArgs;
- * import com.pulumi.azure.containerservice.inputs.RegistryEncryptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .name(&#34;registry-uai&#34;)
- *             .build());
- * 
- *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
- *             .name(&#34;super-secret&#34;)
- *             .keyVaultId(existing.id())
- *             .build());
- * 
- *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
- *             .name(&#34;containerRegistry1&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .sku(&#34;Premium&#34;)
- *             .identity(RegistryIdentityArgs.builder()
- *                 .type(&#34;UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
- *             .encryption(RegistryEncryptionArgs.builder()
- *                 .enabled(true)
- *                 .keyVaultKeyId(example.applyValue(getKeyResult -&gt; getKeyResult.id()))
- *                 .identityClientId(exampleUserAssignedIdentity.clientId())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -156,8 +82,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.RegistryArgs;
  * import com.pulumi.azure.containerservice.KubernetesCluster;
  * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
- * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import java.util.List;
@@ -190,19 +114,13 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;exampleaks1&#34;)
- *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name(&#34;default&#34;)
- *                 .nodeCount(1)
- *                 .vmSize(&#34;Standard_D2_v2&#34;)
- *                 .build())
- *             .identity(KubernetesClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .defaultNodePool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(kubeletIdentity -&gt; kubeletIdentity.objectId()))
+ *             .principalId(exampleKubernetesCluster.kubeletIdentity().objectId())
  *             .roleDefinitionName(&#34;AcrPull&#34;)
  *             .scope(exampleRegistry.id())
  *             .skipServicePrincipalAadCheck(true)

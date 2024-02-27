@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
+ * const exampleInsights = new azure.appinsights/insights.Insights("example", {
  *     name: "example-appinsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ * const exampleActionGroup = new azure.monitoring/actionGroup.ActionGroup("example", {
  *     name: "example-action-group",
  *     resourceGroupName: example.name,
  *     shortName: "example",
  * });
- * const exampleSmartDetectorAlertRule = new azure.monitoring.SmartDetectorAlertRule("example", {
+ * const exampleSmartDetectorAlertRule = new azure.monitoring/smartDetectorAlertRule.SmartDetectorAlertRule("example", {
  *     name: "example-smart-detector-alert-rule",
  *     resourceGroupName: example.name,
  *     severity: "Sev0",

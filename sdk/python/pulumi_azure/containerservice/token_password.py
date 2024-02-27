@@ -135,6 +135,45 @@ class TokenPassword(pulumi.CustomResource):
         """
         Manages a Container Registry Token Password.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource-group,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example-registry,
+            resource_group_name=example.name,
+            location=example.location,
+            sku=Premium,
+            admin_enabled=False,
+            georeplication_locations=[
+                East US,
+                West Europe,
+            ])
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=example-scope-map,
+            container_registry_name=example_registry.name,
+            resource_group_name=example.name,
+            actions=[
+                repositories/repo1/content/read,
+                repositories/repo1/content/write,
+            ])
+        example_registry_token = azure.containerservice.registry_token.RegistryToken("example",
+            name=exampletoken,
+            container_registry_name=example_registry.name,
+            resource_group_name=example.name,
+            scope_map_id=example_registry_scope_map.id)
+        example_token_password = azure.containerservice.token_password.TokenPassword("example",
+            container_registry_token_id=example_registry_token.id,
+            password1={
+                expiry: 2023-03-22T17:57:36+08:00,
+            })
+        ```
+
         ## Import
 
         Container Registry Token Passwords can be imported using the `resource id`, e.g.
@@ -157,6 +196,45 @@ class TokenPassword(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container Registry Token Password.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resource-group,
+            location=West Europe)
+        example_registry = azure.containerservice.registry.Registry("example",
+            name=example-registry,
+            resource_group_name=example.name,
+            location=example.location,
+            sku=Premium,
+            admin_enabled=False,
+            georeplication_locations=[
+                East US,
+                West Europe,
+            ])
+        example_registry_scope_map = azure.containerservice.registry_scope_map.RegistryScopeMap("example",
+            name=example-scope-map,
+            container_registry_name=example_registry.name,
+            resource_group_name=example.name,
+            actions=[
+                repositories/repo1/content/read,
+                repositories/repo1/content/write,
+            ])
+        example_registry_token = azure.containerservice.registry_token.RegistryToken("example",
+            name=exampletoken,
+            container_registry_name=example_registry.name,
+            resource_group_name=example.name,
+            scope_map_id=example_registry_scope_map.id)
+        example_token_password = azure.containerservice.token_password.TokenPassword("example",
+            container_registry_token_id=example_registry_token.id,
+            password1={
+                expiry: 2023-03-22T17:57:36+08:00,
+            })
+        ```
 
         ## Import
 

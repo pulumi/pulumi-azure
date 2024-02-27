@@ -13,66 +13,12 @@ namespace Pulumi.Azure.DesktopVirtualization
     {
         /// <summary>
         /// Use this data source to access information about an existing Application Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.DesktopVirtualization.GetApplicationGroup.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getApplicationGroupResult =&gt; getApplicationGroupResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Application Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.DesktopVirtualization.GetApplicationGroup.Invoke(new()
-        ///     {
-        ///         Name = "existing",
-        ///         ResourceGroupName = "existing",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["id"] = example.Apply(getApplicationGroupResult =&gt; getApplicationGroupResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());

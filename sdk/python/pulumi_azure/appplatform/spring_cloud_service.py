@@ -652,33 +652,33 @@ class SpringCloudService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+            application_type=web)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="S0",
-            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArgs(
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                label="config",
-                search_paths=[
-                    "dir1",
-                    "dir2",
+            sku_name=S0,
+            config_server_git_setting={
+                uri: https://github.com/Azure-Samples/piggymetrics,
+                label: config,
+                searchPaths: [
+                    dir1,
+                    dir2,
                 ],
-            ),
-            trace=azure.appplatform.SpringCloudServiceTraceArgs(
-                connection_string=example_insights.connection_string,
-                sample_rate=10,
-            ),
+            },
+            trace={
+                connectionString: example_insights.connection_string,
+                sampleRate: 10,
+            },
             tags={
-                "Env": "staging",
+                Env: staging,
             })
         ```
 
@@ -725,33 +725,33 @@ class SpringCloudService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="tf-test-appinsights",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_insights = azure.appinsights.insights.Insights("example",
+            name=tf-test-appinsights,
             location=example.location,
             resource_group_name=example.name,
-            application_type="web")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
+            application_type=web)
+        example_spring_cloud_service = azure.appplatform.spring_cloud_service.SpringCloudService("example",
+            name=example-springcloud,
             resource_group_name=example.name,
             location=example.location,
-            sku_name="S0",
-            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArgs(
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                label="config",
-                search_paths=[
-                    "dir1",
-                    "dir2",
+            sku_name=S0,
+            config_server_git_setting={
+                uri: https://github.com/Azure-Samples/piggymetrics,
+                label: config,
+                searchPaths: [
+                    dir1,
+                    dir2,
                 ],
-            ),
-            trace=azure.appplatform.SpringCloudServiceTraceArgs(
-                connection_string=example_insights.connection_string,
-                sample_rate=10,
-            ),
+            },
+            trace={
+                connectionString: example_insights.connection_string,
+                sampleRate: 10,
+            },
             tags={
-                "Env": "staging",
+                Env: staging,
             })
         ```
 

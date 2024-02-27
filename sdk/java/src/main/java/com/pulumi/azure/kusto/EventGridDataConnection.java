@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.kusto.Cluster;
  * import com.pulumi.azure.kusto.ClusterArgs;
- * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
  * import com.pulumi.azure.kusto.Database;
  * import com.pulumi.azure.kusto.DatabaseArgs;
  * import com.pulumi.azure.storage.Account;
@@ -42,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.eventhub.ConsumerGroupArgs;
  * import com.pulumi.azure.eventgrid.EventSubscription;
  * import com.pulumi.azure.eventgrid.EventSubscriptionArgs;
- * import com.pulumi.azure.eventgrid.inputs.EventSubscriptionRetryPolicyArgs;
  * import com.pulumi.azure.kusto.EventGridDataConnection;
  * import com.pulumi.azure.kusto.EventGridDataConnectionArgs;
  * import java.util.List;
@@ -67,10 +65,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;examplekustocluster&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name(&#34;Standard_D13_v2&#34;)
- *                 .capacity(2)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
@@ -120,10 +115,7 @@ import javax.annotation.Nullable;
  *             .includedEventTypes(            
  *                 &#34;Microsoft.Storage.BlobCreated&#34;,
  *                 &#34;Microsoft.Storage.BlobRenamed&#34;)
- *             .retryPolicy(EventSubscriptionRetryPolicyArgs.builder()
- *                 .eventTimeToLive(144)
- *                 .maxDeliveryAttempts(10)
- *                 .build())
+ *             .retryPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEventGridDataConnection = new EventGridDataConnection(&#34;exampleEventGridDataConnection&#34;, EventGridDataConnectionArgs.builder()        

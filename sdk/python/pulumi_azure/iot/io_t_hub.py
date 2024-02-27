@@ -782,97 +782,97 @@ class IoTHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
+            container_access_type=private)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=example-namespace,
             resource_group_name=example.name,
             location=example.location,
-            sku="Basic")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="example-eventhub",
+            sku=Basic)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=example-eventhub,
             resource_group_name=example.name,
             namespace_name=example_event_hub_namespace.name,
             partition_count=2,
             message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
+        example_authorization_rule = azure.eventhub.authorization_rule.AuthorizationRule("example",
             resource_group_name=example.name,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
-            name="acctest",
+            name=acctest,
             send=True)
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="Example-IoTHub",
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=Example-IoTHub,
             resource_group_name=example.name,
             location=example.location,
             local_authentication_enabled=False,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                name: S1,
+                capacity: 1,
+            },
             endpoints=[
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.StorageContainer",
-                    connection_string=example_account.primary_blob_connection_string,
-                    name="export",
-                    batch_frequency_in_seconds=60,
-                    max_chunk_size_in_bytes=10485760,
-                    container_name=example_container.name,
-                    encoding="Avro",
-                    file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-                ),
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.EventHub",
-                    connection_string=example_authorization_rule.primary_connection_string,
-                    name="export2",
-                ),
+                {
+                    type: AzureIotHub.StorageContainer,
+                    connectionString: example_account.primary_blob_connection_string,
+                    name: export,
+                    batchFrequencyInSeconds: 60,
+                    maxChunkSizeInBytes: 10485760,
+                    containerName: example_container.name,
+                    encoding: Avro,
+                    fileNameFormat: {iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm},
+                },
+                {
+                    type: AzureIotHub.EventHub,
+                    connectionString: example_authorization_rule.primary_connection_string,
+                    name: export2,
+                },
             ],
             routes=[
-                azure.iot.IoTHubRouteArgs(
-                    name="export",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export"],
-                    enabled=True,
-                ),
-                azure.iot.IoTHubRouteArgs(
-                    name="export2",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export2"],
-                    enabled=True,
-                ),
+                {
+                    name: export,
+                    source: DeviceMessages,
+                    condition: true,
+                    endpointNames: [export],
+                    enabled: True,
+                },
+                {
+                    name: export2,
+                    source: DeviceMessages,
+                    condition: true,
+                    endpointNames: [export2],
+                    enabled: True,
+                },
             ],
-            enrichments=[azure.iot.IoTHubEnrichmentArgs(
-                key="tenant",
-                value="$twin.tags.Tenant",
-                endpoint_names=[
-                    "export",
-                    "export2",
+            enrichments=[{
+                key: tenant,
+                value: $twin.tags.Tenant,
+                endpointNames: [
+                    export,
+                    export2,
                 ],
-            )],
-            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
-                max_delivery_count=30,
-                default_ttl="PT1H",
-                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
-                    time_to_live="PT1H10M",
-                    max_delivery_count=15,
-                    lock_duration="PT30S",
-                )],
-            ),
+            }],
+            cloud_to_device={
+                maxDeliveryCount: 30,
+                defaultTtl: PT1H,
+                feedbacks: [{
+                    timeToLive: PT1H10M,
+                    maxDeliveryCount: 15,
+                    lockDuration: PT30S,
+                }],
+            },
             tags={
-                "purpose": "testing",
+                purpose: testing,
             })
         ```
 
@@ -932,97 +932,97 @@ class IoTHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestorage",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=examplestorage,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="examplecontainer",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=examplecontainer,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="example-namespace",
+            container_access_type=private)
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=example-namespace,
             resource_group_name=example.name,
             location=example.location,
-            sku="Basic")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="example-eventhub",
+            sku=Basic)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=example-eventhub,
             resource_group_name=example.name,
             namespace_name=example_event_hub_namespace.name,
             partition_count=2,
             message_retention=1)
-        example_authorization_rule = azure.eventhub.AuthorizationRule("example",
+        example_authorization_rule = azure.eventhub.authorization_rule.AuthorizationRule("example",
             resource_group_name=example.name,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
-            name="acctest",
+            name=acctest,
             send=True)
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="Example-IoTHub",
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=Example-IoTHub,
             resource_group_name=example.name,
             location=example.location,
             local_authentication_enabled=False,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                name: S1,
+                capacity: 1,
+            },
             endpoints=[
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.StorageContainer",
-                    connection_string=example_account.primary_blob_connection_string,
-                    name="export",
-                    batch_frequency_in_seconds=60,
-                    max_chunk_size_in_bytes=10485760,
-                    container_name=example_container.name,
-                    encoding="Avro",
-                    file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-                ),
-                azure.iot.IoTHubEndpointArgs(
-                    type="AzureIotHub.EventHub",
-                    connection_string=example_authorization_rule.primary_connection_string,
-                    name="export2",
-                ),
+                {
+                    type: AzureIotHub.StorageContainer,
+                    connectionString: example_account.primary_blob_connection_string,
+                    name: export,
+                    batchFrequencyInSeconds: 60,
+                    maxChunkSizeInBytes: 10485760,
+                    containerName: example_container.name,
+                    encoding: Avro,
+                    fileNameFormat: {iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm},
+                },
+                {
+                    type: AzureIotHub.EventHub,
+                    connectionString: example_authorization_rule.primary_connection_string,
+                    name: export2,
+                },
             ],
             routes=[
-                azure.iot.IoTHubRouteArgs(
-                    name="export",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export"],
-                    enabled=True,
-                ),
-                azure.iot.IoTHubRouteArgs(
-                    name="export2",
-                    source="DeviceMessages",
-                    condition="true",
-                    endpoint_names=["export2"],
-                    enabled=True,
-                ),
+                {
+                    name: export,
+                    source: DeviceMessages,
+                    condition: true,
+                    endpointNames: [export],
+                    enabled: True,
+                },
+                {
+                    name: export2,
+                    source: DeviceMessages,
+                    condition: true,
+                    endpointNames: [export2],
+                    enabled: True,
+                },
             ],
-            enrichments=[azure.iot.IoTHubEnrichmentArgs(
-                key="tenant",
-                value="$twin.tags.Tenant",
-                endpoint_names=[
-                    "export",
-                    "export2",
+            enrichments=[{
+                key: tenant,
+                value: $twin.tags.Tenant,
+                endpointNames: [
+                    export,
+                    export2,
                 ],
-            )],
-            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
-                max_delivery_count=30,
-                default_ttl="PT1H",
-                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
-                    time_to_live="PT1H10M",
-                    max_delivery_count=15,
-                    lock_duration="PT30S",
-                )],
-            ),
+            }],
+            cloud_to_device={
+                maxDeliveryCount: 30,
+                defaultTtl: PT1H,
+                feedbacks: [{
+                    timeToLive: PT1H10M,
+                    maxDeliveryCount: 15,
+                    lockDuration: PT30S,
+                }],
+            },
             tags={
-                "purpose": "testing",
+                purpose: testing,
             })
         ```
 

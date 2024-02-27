@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "virtualnetwork",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ * const exampleNetworkInterface = new azure.network/networkInterface.NetworkInterface("example", {
  *     name: "nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ * const exampleLinuxVirtualMachine = new azure.compute/linuxVirtualMachine.LinuxVirtualMachine("example", {
  *     name: "machine",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("example", {
+ * const exampleDataCollectionRule = new azure.monitoring/dataCollectionRule.DataCollectionRule("example", {
  *     name: "example-dcr",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -73,20 +73,20 @@ import * as utilities from "../utilities";
  *         destinations: ["example-destination-metrics"],
  *     }],
  * });
- * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("example", {
+ * const exampleDataCollectionEndpoint = new azure.monitoring/dataCollectionEndpoint.DataCollectionEndpoint("example", {
  *     name: "example-dce",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
  * // associate to a Data Collection Rule
- * const example1 = new azure.monitoring.DataCollectionRuleAssociation("example1", {
+ * const example1 = new azure.monitoring/dataCollectionRuleAssociation.DataCollectionRuleAssociation("example1", {
  *     name: "example1-dcra",
  *     targetResourceId: exampleLinuxVirtualMachine.id,
  *     dataCollectionRuleId: exampleDataCollectionRule.id,
  *     description: "example",
  * });
  * // associate to a Data Collection Endpoint
- * const example2 = new azure.monitoring.DataCollectionRuleAssociation("example2", {
+ * const example2 = new azure.monitoring/dataCollectionRuleAssociation.DataCollectionRuleAssociation("example2", {
  *     targetResourceId: exampleLinuxVirtualMachine.id,
  *     dataCollectionEndpointId: exampleDataCollectionEndpoint.id,
  *     description: "example",

@@ -12,35 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Dedicated Host.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.LookupDedicatedHost(ctx, &compute.LookupDedicatedHostArgs{
-//				Name:                   "example-host",
-//				DedicatedHostGroupName: "example-host-group",
-//				ResourceGroupName:      "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("dedicatedHostId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedHostResult

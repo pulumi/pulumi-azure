@@ -325,42 +325,6 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="KustoRG",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="KustoDatabase",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_name=example_cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("example",
-            name="KustoPrincipalAssignment",
-            resource_group_name=example.name,
-            cluster_name=example_cluster.name,
-            database_name=example_database.name,
-            tenant_id=current.tenant_id,
-            principal_id=current.client_id,
-            principal_type="App",
-            role="Viewer")
-        ```
-
         ## Import
 
         Kusto Database Principal Assignment can be imported using the `resource id`, e.g.
@@ -388,42 +352,6 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="KustoRG",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="KustoDatabase",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_name=example_cluster.name,
-            hot_cache_period="P7D",
-            soft_delete_period="P31D")
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("example",
-            name="KustoPrincipalAssignment",
-            resource_group_name=example.name,
-            cluster_name=example_cluster.name,
-            database_name=example_database.name,
-            tenant_id=current.tenant_id,
-            principal_id=current.client_id,
-            principal_type="App",
-            role="Viewer")
-        ```
 
         ## Import
 

@@ -23,34 +23,34 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server", new()
+    ///     var server = new Random.Index.RandomId.RandomId("server", new()
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", "1" },
+    ///             { "azi_id", 1 },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "some-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var examplePlan = new Azure.Appservice.Plan.Plan("example", new()
     ///     {
     ///         Name = "some-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             { "tier", "Standard" },
+    ///             { "size", "S1" },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azure.Appservice.AppService.AppService("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         Location = example.Location,
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
-    ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("example", new()
+    ///     var exampleCustomHostnameBinding = new Azure.Appservice.CustomHostnameBinding.CustomHostnameBinding("example", new()
     ///     {
     ///         Hostname = "www.mywebsite.com",
     ///         AppServiceName = exampleAppService.Name,

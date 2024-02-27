@@ -207,28 +207,28 @@ class AlertRuleFusion(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="SecurityInsights",
+            sku=PerGB2018)
+        example_analytics_solution = azure.operationalinsights.analytics_solution.AnalyticsSolution("example",
+            solution_name=SecurityInsights,
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("example",
-            name="example-fusion-alert-rule",
+            plan={
+                publisher: Microsoft,
+                product: OMSGallery/SecurityInsights,
+            })
+        example_alert_rule_fusion = azure.sentinel.alert_rule_fusion.AlertRuleFusion("example",
+            name=example-fusion-alert-rule,
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
+            alert_rule_template_guid=f71aba3d-28fb-450b-b192-4e76a83015c8)
         ```
 
         ## Import
@@ -262,28 +262,28 @@ class AlertRuleFusion(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="SecurityInsights",
+            sku=PerGB2018)
+        example_analytics_solution = azure.operationalinsights.analytics_solution.AnalyticsSolution("example",
+            solution_name=SecurityInsights,
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("example",
-            name="example-fusion-alert-rule",
+            plan={
+                publisher: Microsoft,
+                product: OMSGallery/SecurityInsights,
+            })
+        example_alert_rule_fusion = azure.sentinel.alert_rule_fusion.AlertRuleFusion("example",
+            name=example-fusion-alert-rule,
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
+            alert_rule_template_guid=f71aba3d-28fb-450b-b192-4e76a83015c8)
         ```
 
         ## Import

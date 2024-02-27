@@ -252,27 +252,27 @@ class DataExportRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="exampleworkspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=exampleworkspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_export_rule = azure.loganalytics.DataExportRule("example",
-            name="dataExport1",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_data_export_rule = azure.loganalytics.data_export_rule.DataExportRule("example",
+            name=dataExport1,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             destination_resource_id=example_account.id,
-            table_names=["Heartbeat"],
+            table_names=[Heartbeat],
             enabled=True)
         ```
 
@@ -308,27 +308,27 @@ class DataExportRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="exampleworkspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=exampleworkspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018",
+            sku=PerGB2018,
             retention_in_days=30)
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
+        example_account = azure.storage.account.Account("example",
+            name=examplestoracc,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_data_export_rule = azure.loganalytics.DataExportRule("example",
-            name="dataExport1",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_data_export_rule = azure.loganalytics.data_export_rule.DataExportRule("example",
+            name=dataExport1,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             destination_resource_id=example_account.id,
-            table_names=["Heartbeat"],
+            table_names=[Heartbeat],
             enabled=True)
         ```
 

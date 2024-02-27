@@ -24,35 +24,35 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
+    ///     var exampleFactory = new Azure.Datafactory.Factory.Factory("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var anonymous = new Azure.DataFactory.LinkedServiceOdata("anonymous", new()
+    ///     var anonymous = new Azure.Datafactory.LinkedServiceOdata.LinkedServiceOdata("anonymous", new()
     ///     {
     ///         Name = "anonymous",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
     ///     });
     /// 
-    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basic_auth", new()
+    ///     var basicAuth = new Azure.Datafactory.LinkedServiceOdata.LinkedServiceOdata("basic_auth", new()
     ///     {
     ///         Name = "basic_auth",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
-    ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs
+    ///         BasicAuthentication = 
     ///         {
-    ///             Username = "emma",
-    ///             Password = "Ch4ngeM3!",
+    ///             { "username", "emma" },
+    ///             { "password", "Ch4ngeM3!" },
     ///         },
     ///     });
     /// 

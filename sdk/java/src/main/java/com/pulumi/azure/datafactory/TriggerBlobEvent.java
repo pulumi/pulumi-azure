@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.datafactory.TriggerBlobEvent;
  * import com.pulumi.azure.datafactory.TriggerBlobEventArgs;
- * import com.pulumi.azure.datafactory.inputs.TriggerBlobEventPipelineArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,14 +90,8 @@ import javax.annotation.Nullable;
  *                 &#34;test2&#34;,
  *                 &#34;test3&#34;)
  *             .description(&#34;example description&#34;)
- *             .pipelines(TriggerBlobEventPipelineArgs.builder()
- *                 .name(examplePipeline.name())
- *                 .parameters(Map.of(&#34;Env&#34;, &#34;Prod&#34;))
- *                 .build())
- *             .additionalProperties(Map.ofEntries(
- *                 Map.entry(&#34;foo&#34;, &#34;foo1&#34;),
- *                 Map.entry(&#34;bar&#34;, &#34;bar2&#34;)
- *             ))
+ *             .pipelines(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .additionalProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

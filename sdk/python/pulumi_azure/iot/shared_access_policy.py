@@ -351,19 +351,19 @@ class SharedAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_shared_access_policy = azure.iot.SharedAccessPolicy("example",
-            name="example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_shared_access_policy = azure.iot.shared_access_policy.SharedAccessPolicy("example",
+            name=example,
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             registry_read=True,
@@ -407,19 +407,19 @@ class SharedAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_io_t_hub = azure.iot.io_t_hub.IoTHub("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ))
-        example_shared_access_policy = azure.iot.SharedAccessPolicy("example",
-            name="example",
+            sku={
+                name: S1,
+                capacity: 1,
+            })
+        example_shared_access_policy = azure.iot.shared_access_policy.SharedAccessPolicy("example",
+            name=example,
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             registry_read=True,

@@ -20,76 +20,12 @@ public final class PostgresqlFunctions {
     /**
      * Use this data source to access information about an existing PostgreSQL Flexible Server.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args) {
         return getFlexibleServer(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing PostgreSQL Flexible Server.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args) {
@@ -98,76 +34,12 @@ public final class PostgresqlFunctions {
     /**
      * Use this data source to access information about an existing PostgreSQL Flexible Server.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:postgresql/getFlexibleServer:getFlexibleServer", TypeShape.of(GetFlexibleServerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing PostgreSQL Flexible Server.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getFlexibleServer(GetFlexibleServerArgs.builder()
-     *             .name(&#34;existing-postgresql-fs&#34;)
-     *             .resourceGroupName(&#34;existing-postgresql-resgroup&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getFlexibleServerResult -&gt; getFlexibleServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args, InvokeOptions options) {
@@ -176,76 +48,12 @@ public final class PostgresqlFunctions {
     /**
      * Use this data source to access information about an existing PostgreSQL Azure Database Server.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args) {
         return getServer(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing PostgreSQL Azure Database Server.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args) {
@@ -254,76 +62,12 @@ public final class PostgresqlFunctions {
     /**
      * Use this data source to access information about an existing PostgreSQL Azure Database Server.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:postgresql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing PostgreSQL Azure Database Server.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = PostgresqlFunctions.getServer(GetServerArgs.builder()
-     *             .name(&#34;postgresql-server-1&#34;)
-     *             .resourceGroupName(&#34;api-rg-pro&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;postgresqlServerId&#34;, example.applyValue(getServerResult -&gt; getServerResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {

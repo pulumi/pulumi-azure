@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudApp;
  * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudAppIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,9 +64,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-springcloudapp&#34;)
  *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
- *             .identity(SpringCloudAppIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -23,13 +23,13 @@ namespace Pulumi.Azure.Search
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.Search.Service("example", new()
+    ///     var exampleService = new Azure.Search.Service.Service("example", new()
     ///     {
     ///         Name = "example-resource",
     ///         ResourceGroupName = example.Name,
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.Search
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.Search.Service("example", new()
+    ///     var exampleService = new Azure.Search.Service.Service("example", new()
     ///     {
     ///         Name = "example-resource",
     ///         ResourceGroupName = example.Name,
@@ -77,13 +77,13 @@ namespace Pulumi.Azure.Search
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.Search.Service("example", new()
+    ///     var exampleService = new Azure.Search.Service.Service("example", new()
     ///     {
     ///         Name = "example-resource",
     ///         ResourceGroupName = example.Name,

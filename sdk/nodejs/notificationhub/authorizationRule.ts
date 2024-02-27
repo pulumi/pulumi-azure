@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "notificationhub-resources",
  *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.notificationhub.Namespace("example", {
+ * const exampleNamespace = new azure.notificationhub/namespace.Namespace("example", {
  *     name: "myappnamespace",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     namespaceType: "NotificationHub",
  *     skuName: "Free",
  * });
- * const exampleHub = new azure.notificationhub.Hub("example", {
+ * const exampleHub = new azure.notificationhub/hub.Hub("example", {
  *     name: "mynotificationhub",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleAuthorizationRule = new azure.notificationhub.AuthorizationRule("example", {
+ * const exampleAuthorizationRule = new azure.notificationhub/authorizationRule.AuthorizationRule("example", {
  *     name: "management-auth-rule",
  *     notificationHubName: exampleHub.name,
  *     namespaceName: exampleNamespace.name,

@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.cosmosdb.Account("example", {
+ * const exampleAccount = new azure.cosmosdb/account.Account("example", {
  *     name: "example-cosmosdb-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleNotebookWorkspace = new azure.cosmosdb.NotebookWorkspace("example", {
+ * const exampleNotebookWorkspace = new azure.cosmosdb/notebookWorkspace.NotebookWorkspace("example", {
  *     name: "default",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,

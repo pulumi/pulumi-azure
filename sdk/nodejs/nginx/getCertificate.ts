@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Nginx Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.nginx.getCertificate({
- *     name: "existing",
- *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -68,19 +55,6 @@ export interface GetCertificateResult {
 }
 /**
  * Use this data source to access information about an existing Nginx Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.nginx.getCertificate({
- *     name: "existing",
- *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
- * });
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

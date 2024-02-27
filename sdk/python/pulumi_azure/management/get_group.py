@@ -128,16 +128,6 @@ def get_group(display_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Management Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-    pulumi.export("displayName", example.display_name)
-    ```
-
 
     :param str display_name: Specifies the display name of this Management Group.
            
@@ -167,16 +157,6 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to access information about an existing Management Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-    pulumi.export("displayName", example.display_name)
-    ```
 
 
     :param str display_name: Specifies the display name of this Management Group.

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                 &#34;192.168.0.1&#34;,
  *                 &#34;172.16.240.0/20&#34;,
  *                 &#34;10.48.0.0/12&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,51 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/natGateway "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/natGateway"
+//	network/natGatewayPublicIpAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/natGatewayPublicIpAssociation"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-PIP"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNatGateway, err := network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
-//				Name:              pulumi.String("example-NatGateway"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNatGatewayPublicIpAssociation(ctx, "example", &network.NatGatewayPublicIpAssociationArgs{
-//				NatGatewayId:      exampleNatGateway.ID(),
-//				PublicIpAddressId: examplePublicIp.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-PIP",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleNatGateway, err := network/natGateway.NewNatGateway(ctx, "example", &network/natGateway.NatGatewayArgs{
+// Name: "example-NatGateway",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/natGatewayPublicIpAssociation.NewNatGatewayPublicIpAssociation(ctx, "example", &network/natGatewayPublicIpAssociation.NatGatewayPublicIpAssociationArgs{
+// NatGatewayId: exampleNatGateway.Id,
+// PublicIpAddressId: examplePublicIp.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

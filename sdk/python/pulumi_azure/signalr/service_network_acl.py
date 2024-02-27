@@ -173,49 +173,49 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.signalr.Service("example",
-            name="example-signalr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.signalr.service.Service("example",
+            name=example-signalr,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
+            sku={
+                name: Standard_S1,
+                capacity: 1,
+            })
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+            address_spaces=[10.5.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.2.0/24"],
+            address_prefixes=[10.5.2.0/24],
             enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("example",
-            name="example-privateendpoint",
+        example_endpoint = azure.privatelink.endpoint.Endpoint("example",
+            name=example-privateendpoint,
             resource_group_name=example.name,
             location=example.location,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["signalr"],
-            ))
-        example_service_network_acl = azure.signalr.ServiceNetworkAcl("example",
+            private_service_connection={
+                name: psc-sig-test,
+                isManualConnection: False,
+                privateConnectionResourceId: example_service.id,
+                subresourceNames: [signalr],
+            })
+        example_service_network_acl = azure.signalr.service_network_acl.ServiceNetworkAcl("example",
             signalr_service_id=example_service.id,
-            default_action="Deny",
-            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
-                allowed_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                allowed_request_types=["ServerConnection"],
-            )])
+            default_action=Deny,
+            public_network={
+                allowedRequestTypes: [ClientConnection],
+            },
+            private_endpoints=[{
+                id: example_endpoint.id,
+                allowedRequestTypes: [ServerConnection],
+            }])
         ```
 
         ## Import
@@ -248,49 +248,49 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.signalr.Service("example",
-            name="example-signalr",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_service = azure.signalr.service.Service("example",
+            name=example-signalr,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
+            sku={
+                name: Standard_S1,
+                capacity: 1,
+            })
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet,
             resource_group_name=example.name,
             location=example.location,
-            address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
+            address_spaces=[10.5.0.0/16])
+        example_subnet = azure.network.subnet.Subnet("example",
+            name=example-subnet,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.5.2.0/24"],
+            address_prefixes=[10.5.2.0/24],
             enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("example",
-            name="example-privateendpoint",
+        example_endpoint = azure.privatelink.endpoint.Endpoint("example",
+            name=example-privateendpoint,
             resource_group_name=example.name,
             location=example.location,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="psc-sig-test",
-                is_manual_connection=False,
-                private_connection_resource_id=example_service.id,
-                subresource_names=["signalr"],
-            ))
-        example_service_network_acl = azure.signalr.ServiceNetworkAcl("example",
+            private_service_connection={
+                name: psc-sig-test,
+                isManualConnection: False,
+                privateConnectionResourceId: example_service.id,
+                subresourceNames: [signalr],
+            })
+        example_service_network_acl = azure.signalr.service_network_acl.ServiceNetworkAcl("example",
             signalr_service_id=example_service.id,
-            default_action="Deny",
-            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
-                allowed_request_types=["ClientConnection"],
-            ),
-            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
-                id=example_endpoint.id,
-                allowed_request_types=["ServerConnection"],
-            )])
+            default_action=Deny,
+            public_network={
+                allowedRequestTypes: [ClientConnection],
+            },
+            private_endpoints=[{
+                id: example_endpoint.id,
+                allowedRequestTypes: [ServerConnection],
+            }])
         ```
 
         ## Import

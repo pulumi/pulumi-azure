@@ -14,66 +14,6 @@ import (
 
 // Manages a Resource Management Private Link Association.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = management.LookupGroup(ctx, &management.LookupGroupArgs{
-//				Name: pulumi.StringRef(example.TenantId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateLink, err := management.NewPrivateLink(ctx, "example", &management.PrivateLinkArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRandomUuid, err := random.NewRandomUuid(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-//				Name:                            exampleRandomUuid.Result,
-//				ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-//				ResourceManagementPrivateLinkId: examplePrivateLink.ID(),
-//				PublicNetworkAccessEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.
@@ -94,22 +34,21 @@ type PrivateLinkAssociation struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	management/privateLinkAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/privateLinkAssociation"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := management/privateLinkAssociation.NewPrivateLinkAssociation(ctx, "example", &management/privateLinkAssociation.PrivateLinkAssociationArgs{
+	// ManagementGroupId: exampleAzurermManagementGroup.Id,
+	// ResourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.Id,
+	// PublicNetworkAccessEnabled: true,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -170,22 +109,21 @@ type privateLinkAssociationState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	management/privateLinkAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/privateLinkAssociation"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := management/privateLinkAssociation.NewPrivateLinkAssociation(ctx, "example", &management/privateLinkAssociation.PrivateLinkAssociationArgs{
+	// ManagementGroupId: exampleAzurermManagementGroup.Id,
+	// ResourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.Id,
+	// PublicNetworkAccessEnabled: true,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Name *string `pulumi:"name"`
@@ -208,22 +146,21 @@ type PrivateLinkAssociationState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	management/privateLinkAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/privateLinkAssociation"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := management/privateLinkAssociation.NewPrivateLinkAssociation(ctx, "example", &management/privateLinkAssociation.PrivateLinkAssociationArgs{
+	// ManagementGroupId: exampleAzurermManagementGroup.Id,
+	// ResourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.Id,
+	// PublicNetworkAccessEnabled: true,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Name pulumi.StringPtrInput
@@ -250,22 +187,21 @@ type privateLinkAssociationArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	management/privateLinkAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/privateLinkAssociation"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := management/privateLinkAssociation.NewPrivateLinkAssociation(ctx, "example", &management/privateLinkAssociation.PrivateLinkAssociationArgs{
+	// ManagementGroupId: exampleAzurermManagementGroup.Id,
+	// ResourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.Id,
+	// PublicNetworkAccessEnabled: true,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Name *string `pulumi:"name"`
@@ -287,22 +223,21 @@ type PrivateLinkAssociationArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	management/privateLinkAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/privateLinkAssociation"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := management/privateLinkAssociation.NewPrivateLinkAssociation(ctx, "example", &management/privateLinkAssociation.PrivateLinkAssociationArgs{
+	// ManagementGroupId: exampleAzurermManagementGroup.Id,
+	// ResourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.Id,
+	// PublicNetworkAccessEnabled: true,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Name pulumi.StringPtrInput
@@ -413,25 +348,23 @@ func (o PrivateLinkAssociationOutput) ManagementGroupId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	management/privateLinkAssociation "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/management/privateLinkAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-//				ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-//				ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-//				PublicNetworkAccessEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := management/privateLinkAssociation.NewPrivateLinkAssociation(ctx, "example", &management/privateLinkAssociation.PrivateLinkAssociationArgs{
+// ManagementGroupId: exampleAzurermManagementGroup.Id,
+// ResourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.Id,
+// PublicNetworkAccessEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 func (o PrivateLinkAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)

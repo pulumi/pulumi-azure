@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	healthcare/workspace "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/healthcare/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := healthcare.NewWorkspace(ctx, "test", &healthcare.WorkspaceArgs{
-//				Name:              pulumi.String("tfexworkspace"),
-//				ResourceGroupName: pulumi.String("tfex-resource_group"),
-//				Location:          pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := healthcare/workspace.NewWorkspace(ctx, "test", &healthcare/workspace.WorkspaceArgs{
+// Name: "tfexworkspace",
+// ResourceGroupName: "tfex-resource_group",
+// Location: "east us",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

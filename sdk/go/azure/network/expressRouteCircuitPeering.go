@@ -22,72 +22,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/expressRouteCircuit "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRouteCircuit"
+//	network/expressRouteCircuitPeering "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRouteCircuitPeering"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exprtTest"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
-//				Name:                pulumi.String("expressRoute1"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				ServiceProviderName: pulumi.String("Equinix"),
-//				PeeringLocation:     pulumi.String("Silicon Valley"),
-//				BandwidthInMbps:     pulumi.Int(50),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
-//				AllowClassicOperations: pulumi.Bool(false),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
-//				PeeringType:                pulumi.String("MicrosoftPeering"),
-//				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
-//				ResourceGroupName:          example.Name,
-//				PeerAsn:                    pulumi.Int(100),
-//				PrimaryPeerAddressPrefix:   pulumi.String("123.0.0.0/30"),
-//				SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
-//				Ipv4Enabled:                pulumi.Bool(true),
-//				VlanId:                     pulumi.Int(300),
-//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
-//					AdvertisedPublicPrefixes: pulumi.StringArray{
-//						pulumi.String("123.1.0.0/24"),
-//					},
-//				},
-//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
-//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
-//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
-//					Enabled:                    pulumi.Bool(true),
-//					MicrosoftPeering: &network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{
-//						AdvertisedPublicPrefixes: pulumi.StringArray{
-//							pulumi.String("2002:db01::/126"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exprtTest",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleExpressRouteCircuit, err := network/expressRouteCircuit.NewExpressRouteCircuit(ctx, "example", &network/expressRouteCircuit.ExpressRouteCircuitArgs{
+// Name: "expressRoute1",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ServiceProviderName: "Equinix",
+// PeeringLocation: "Silicon Valley",
+// BandwidthInMbps: 50,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "family": "MeteredData",
+// },
+// AllowClassicOperations: false,
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/expressRouteCircuitPeering.NewExpressRouteCircuitPeering(ctx, "example", &network/expressRouteCircuitPeering.ExpressRouteCircuitPeeringArgs{
+// PeeringType: "MicrosoftPeering",
+// ExpressRouteCircuitName: exampleExpressRouteCircuit.Name,
+// ResourceGroupName: example.Name,
+// PeerAsn: 100,
+// PrimaryPeerAddressPrefix: "123.0.0.0/30",
+// SecondaryPeerAddressPrefix: "123.0.0.4/30",
+// Ipv4Enabled: true,
+// VlanId: 300,
+// MicrosoftPeeringConfig: map[string]interface{}{
+// "advertisedPublicPrefixes": []string{
+// "123.1.0.0/24",
+// },
+// },
+// Ipv6: map[string]interface{}{
+// "primaryPeerAddressPrefix": "2002:db01::/126",
+// "secondaryPeerAddressPrefix": "2003:db01::/126",
+// "enabled": true,
+// "microsoftPeering": map[string]interface{}{
+// "advertisedPublicPrefixes": []string{
+// "2002:db01::/126",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Creating Azure Private Peering)
 //
@@ -96,62 +95,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/expressRouteCircuit "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRouteCircuit"
+//	network/expressRouteCircuitPeering "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/expressRouteCircuitPeering"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exprtTest"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
-//				Name:                pulumi.String("expressRoute1"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				ServiceProviderName: pulumi.String("Equinix"),
-//				PeeringLocation:     pulumi.String("Silicon Valley"),
-//				BandwidthInMbps:     pulumi.Int(50),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
-//				AllowClassicOperations: pulumi.Bool(false),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
-//				PeeringType:                pulumi.String("AzurePrivatePeering"),
-//				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
-//				ResourceGroupName:          example.Name,
-//				PeerAsn:                    pulumi.Int(100),
-//				PrimaryPeerAddressPrefix:   pulumi.String("123.0.0.0/30"),
-//				SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
-//				Ipv4Enabled:                pulumi.Bool(true),
-//				VlanId:                     pulumi.Int(300),
-//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
-//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
-//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
-//					Enabled:                    pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exprtTest",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleExpressRouteCircuit, err := network/expressRouteCircuit.NewExpressRouteCircuit(ctx, "example", &network/expressRouteCircuit.ExpressRouteCircuitArgs{
+// Name: "expressRoute1",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// ServiceProviderName: "Equinix",
+// PeeringLocation: "Silicon Valley",
+// BandwidthInMbps: 50,
+// Sku: map[string]interface{}{
+// "tier": "Standard",
+// "family": "MeteredData",
+// },
+// AllowClassicOperations: false,
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/expressRouteCircuitPeering.NewExpressRouteCircuitPeering(ctx, "example", &network/expressRouteCircuitPeering.ExpressRouteCircuitPeeringArgs{
+// PeeringType: "AzurePrivatePeering",
+// ExpressRouteCircuitName: exampleExpressRouteCircuit.Name,
+// ResourceGroupName: example.Name,
+// PeerAsn: 100,
+// PrimaryPeerAddressPrefix: "123.0.0.0/30",
+// SecondaryPeerAddressPrefix: "123.0.0.4/30",
+// Ipv4Enabled: true,
+// VlanId: 300,
+// Ipv6: map[string]interface{}{
+// "primaryPeerAddressPrefix": "2002:db01::/126",
+// "secondaryPeerAddressPrefix": "2003:db01::/126",
+// "enabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -54,10 +54,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard_Verizon&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;environment&#34;, &#34;Production&#34;),
- *                 Map.entry(&#34;cost_center&#34;, &#34;MSFT&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

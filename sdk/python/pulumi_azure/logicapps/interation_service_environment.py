@@ -344,46 +344,46 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exampleRG1",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exampleRG1,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet1,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/22"])
-        isesubnet1 = azure.network.Subnet("isesubnet1",
-            name="isesubnet1",
+            address_spaces=[10.0.0.0/22])
+        isesubnet1 = azure.network.subnet.Subnet("isesubnet1",
+            name=isesubnet1,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Logic/integrationServiceEnvironments",
-                ),
-            )])
-        isesubnet2 = azure.network.Subnet("isesubnet2",
-            name="isesubnet2",
+            address_prefixes=[10.0.1.0/27],
+            delegations=[{
+                name: integrationServiceEnvironments,
+                serviceDelegation: {
+                    name: Microsoft.Logic/integrationServiceEnvironments,
+                },
+            }])
+        isesubnet2 = azure.network.subnet.Subnet("isesubnet2",
+            name=isesubnet2,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.32/27"])
-        isesubnet3 = azure.network.Subnet("isesubnet3",
-            name="isesubnet3",
+            address_prefixes=[10.0.1.32/27])
+        isesubnet3 = azure.network.subnet.Subnet("isesubnet3",
+            name=isesubnet3,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.64/27"])
-        isesubnet4 = azure.network.Subnet("isesubnet4",
-            name="isesubnet4",
+            address_prefixes=[10.0.1.64/27])
+        isesubnet4 = azure.network.subnet.Subnet("isesubnet4",
+            name=isesubnet4,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.96/27"])
-        example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("example",
-            name="example-ise",
+            address_prefixes=[10.0.1.96/27])
+        example_interation_service_environment = azure.logicapps.interation_service_environment.InterationServiceEnvironment("example",
+            name=example-ise,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Developer_0",
-            access_endpoint_type="Internal",
+            sku_name=Developer_0,
+            access_endpoint_type=Internal,
             virtual_network_subnet_ids=[
                 isesubnet1.id,
                 isesubnet2.id,
@@ -391,7 +391,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                 isesubnet4.id,
             ],
             tags={
-                "environment": "development",
+                environment: development,
             })
         ```
 
@@ -432,46 +432,46 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="exampleRG1",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=exampleRG1,
+            location=West Europe)
+        example_virtual_network = azure.network.virtual_network.VirtualNetwork("example",
+            name=example-vnet1,
             location=example.location,
             resource_group_name=example.name,
-            address_spaces=["10.0.0.0/22"])
-        isesubnet1 = azure.network.Subnet("isesubnet1",
-            name="isesubnet1",
+            address_spaces=[10.0.0.0/22])
+        isesubnet1 = azure.network.subnet.Subnet("isesubnet1",
+            name=isesubnet1,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Logic/integrationServiceEnvironments",
-                ),
-            )])
-        isesubnet2 = azure.network.Subnet("isesubnet2",
-            name="isesubnet2",
+            address_prefixes=[10.0.1.0/27],
+            delegations=[{
+                name: integrationServiceEnvironments,
+                serviceDelegation: {
+                    name: Microsoft.Logic/integrationServiceEnvironments,
+                },
+            }])
+        isesubnet2 = azure.network.subnet.Subnet("isesubnet2",
+            name=isesubnet2,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.32/27"])
-        isesubnet3 = azure.network.Subnet("isesubnet3",
-            name="isesubnet3",
+            address_prefixes=[10.0.1.32/27])
+        isesubnet3 = azure.network.subnet.Subnet("isesubnet3",
+            name=isesubnet3,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.64/27"])
-        isesubnet4 = azure.network.Subnet("isesubnet4",
-            name="isesubnet4",
+            address_prefixes=[10.0.1.64/27])
+        isesubnet4 = azure.network.subnet.Subnet("isesubnet4",
+            name=isesubnet4,
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.96/27"])
-        example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("example",
-            name="example-ise",
+            address_prefixes=[10.0.1.96/27])
+        example_interation_service_environment = azure.logicapps.interation_service_environment.InterationServiceEnvironment("example",
+            name=example-ise,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Developer_0",
-            access_endpoint_type="Internal",
+            sku_name=Developer_0,
+            access_endpoint_type=Internal,
             virtual_network_subnet_ids=[
                 isesubnet1.id,
                 isesubnet2.id,
@@ -479,7 +479,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                 isesubnet4.id,
             ],
             tags={
-                "environment": "development",
+                environment: development,
             })
         ```
 

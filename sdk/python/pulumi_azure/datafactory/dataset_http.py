@@ -446,25 +446,25 @@ class DatasetHttp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
-            name="example",
+        example_linked_service_web = azure.datafactory.linked_service_web.LinkedServiceWeb("example",
+            name=example,
             data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_http = azure.datafactory.DatasetHttp("example",
-            name="example",
+            authentication_type=Anonymous,
+            url=https://www.bing.com)
+        example_dataset_http = azure.datafactory.dataset_http.DatasetHttp("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            relative_url="http://www.bing.com",
-            request_body="foo=bar",
-            request_method="POST")
+            relative_url=http://www.bing.com,
+            request_body=foo=bar,
+            request_method=POST)
         ```
 
         ## Import
@@ -507,25 +507,25 @@ class DatasetHttp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_factory = azure.datafactory.factory.Factory("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
-            name="example",
+        example_linked_service_web = azure.datafactory.linked_service_web.LinkedServiceWeb("example",
+            name=example,
             data_factory_id=example_factory.id,
-            authentication_type="Anonymous",
-            url="https://www.bing.com")
-        example_dataset_http = azure.datafactory.DatasetHttp("example",
-            name="example",
+            authentication_type=Anonymous,
+            url=https://www.bing.com)
+        example_dataset_http = azure.datafactory.dataset_http.DatasetHttp("example",
+            name=example,
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            relative_url="http://www.bing.com",
-            request_body="foo=bar",
-            request_method="POST")
+            relative_url=http://www.bing.com,
+            request_body=foo=bar,
+            request_method=POST)
         ```
 
         ## Import

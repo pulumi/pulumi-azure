@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.iot.TimeSeriesInsightsGen2Environment;
  * import com.pulumi.azure.iot.TimeSeriesInsightsGen2EnvironmentArgs;
- * import com.pulumi.azure.iot.inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,10 +66,7 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;L1&#34;)
  *             .warmStoreDataRetentionTime(&#34;P30D&#34;)
  *             .idProperties(&#34;id&#34;)
- *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
- *                 .name(storage.name())
- *                 .key(storage.primaryAccessKey())
- *                 .build())
+ *             .storage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

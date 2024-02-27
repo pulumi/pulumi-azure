@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to access information about the existing Storage Containers within a Storage Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := storage.GetContainers(ctx, &storage.GetContainersArgs{
-//				StorageAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("containerId", example.Containers[0].ResourceManagerId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetContainers(ctx *pulumi.Context, args *GetContainersArgs, opts ...pulumi.InvokeOption) (*GetContainersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContainersResult

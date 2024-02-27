@@ -147,24 +147,24 @@ class TriggerCustom(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="workflow-resources",
-            location="West Europe")
-        example_workflow = azure.logicapps.Workflow("example",
-            name="workflow1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=workflow-resources,
+            location=West Europe)
+        example_workflow = azure.logicapps.workflow.Workflow("example",
+            name=workflow1,
             location=example.location,
             resource_group_name=example.name)
-        example_trigger_custom = azure.logicapps.TriggerCustom("example",
-            name="example-trigger",
+        example_trigger_custom = azure.logicapps.trigger_custom.TriggerCustom("example",
+            name=example-trigger,
             logic_app_id=example_workflow.id,
-            body=\"\"\"{
+            body={
           "recurrence": {
             "frequency": "Day",
             "interval": 1
           },
           "type": "Recurrence"
         }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -198,24 +198,24 @@ class TriggerCustom(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="workflow-resources",
-            location="West Europe")
-        example_workflow = azure.logicapps.Workflow("example",
-            name="workflow1",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=workflow-resources,
+            location=West Europe)
+        example_workflow = azure.logicapps.workflow.Workflow("example",
+            name=workflow1,
             location=example.location,
             resource_group_name=example.name)
-        example_trigger_custom = azure.logicapps.TriggerCustom("example",
-            name="example-trigger",
+        example_trigger_custom = azure.logicapps.trigger_custom.TriggerCustom("example",
+            name=example-trigger,
             logic_app_id=example_workflow.id,
-            body=\"\"\"{
+            body={
           "recurrence": {
             "frequency": "Day",
             "interval": 1
           },
           "type": "Recurrence"
         }
-        \"\"\")
+        )
         ```
 
         ## Import

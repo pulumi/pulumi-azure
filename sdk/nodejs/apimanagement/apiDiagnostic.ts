@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
+ * const exampleInsights = new azure.appinsights/insights.Insights("example", {
  *     name: "example-appinsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleService = new azure.apimanagement.Service("example", {
+ * const exampleService = new azure.apimanagement/service.Service("example", {
  *     name: "example-apim",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@mycompany.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApi = new azure.apimanagement.Api("example", {
+ * const exampleApi = new azure.apimanagement/api.Api("example", {
  *     name: "example-api",
  *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         contentValue: "http://conferenceapi.azurewebsites.net/?format=json",
  *     },
  * });
- * const exampleLogger = new azure.apimanagement.Logger("example", {
+ * const exampleLogger = new azure.apimanagement/logger.Logger("example", {
  *     name: "example-apimlogger",
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: example.name,
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
  * });
- * const exampleApiDiagnostic = new azure.apimanagement.ApiDiagnostic("example", {
+ * const exampleApiDiagnostic = new azure.apimanagement/apiDiagnostic.ApiDiagnostic("example", {
  *     identifier: "applicationinsights",
  *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,

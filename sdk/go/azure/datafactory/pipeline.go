@@ -21,40 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/pipeline "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/pipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/pipeline.NewPipeline(ctx, "example", &datafactory/pipeline.PipelineArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Activities
 //
@@ -63,42 +62,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	datafactory/pipeline "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/pipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datafactory/pipeline.NewPipeline(ctx, "test", &datafactory/pipeline.PipelineArgs{
+// Name: "example",
+// DataFactoryId: testAzurermDataFactory.Id,
+// Variables: map[string]interface{}{
+// "bob": "item1",
+// },
+// ActivitiesJson: `[
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: pulumi.Any(testAzurermDataFactory.Id),
-//				Variables: pulumi.StringMap{
-//					"bob": pulumi.String("item1"),
-//				},
-//				ActivitiesJson: pulumi.String(`[
-//	    {
-//	        "name": "Append variable1",
-//	        "type": "AppendVariable",
-//	        "dependsOn": [],
-//	        "userProperties": [],
-//	        "typeProperties": {
-//	          "variableName": "bob",
-//	          "value": "something"
-//	        }
+//	{
+//	    "name": "Append variable1",
+//	    "type": "AppendVariable",
+//	    "dependsOn": [],
+//	    "userProperties": [],
+//	    "typeProperties": {
+//	      "variableName": "bob",
+//	      "value": "something"
 //	    }
-//
-// ]
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
 //	}
 //
+// ]
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

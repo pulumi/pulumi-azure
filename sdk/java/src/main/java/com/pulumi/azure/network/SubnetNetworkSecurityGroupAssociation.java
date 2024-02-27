@@ -25,13 +25,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
- * import com.pulumi.azure.network.inputs.NetworkSecurityGroupSecurityRuleArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
  * import java.util.List;
@@ -70,17 +69,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;example-nsg&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .securityRules(NetworkSecurityGroupSecurityRuleArgs.builder()
- *                 .name(&#34;test123&#34;)
- *                 .priority(100)
- *                 .direction(&#34;Inbound&#34;)
- *                 .access(&#34;Allow&#34;)
- *                 .protocol(&#34;Tcp&#34;)
- *                 .sourcePortRange(&#34;*&#34;)
- *                 .destinationPortRange(&#34;*&#34;)
- *                 .sourceAddressPrefix(&#34;*&#34;)
- *                 .destinationAddressPrefix(&#34;*&#34;)
- *                 .build())
+ *             .securityRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        

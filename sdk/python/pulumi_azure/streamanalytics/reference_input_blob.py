@@ -393,43 +393,6 @@ class ReferenceInputBlob(pulumi.CustomResource):
         """
         Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="example",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        test = azure.streamanalytics.ReferenceInputBlob("test",
-            name="blob-reference-input",
-            stream_analytics_job_name=example.name,
-            resource_group_name=example.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="some-random-pattern",
-            date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.ReferenceInputBlobSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
-
         ## Import
 
         Stream Analytics Reference Input Blob's can be imported using the `resource id`, e.g.
@@ -460,43 +423,6 @@ class ReferenceInputBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example = azure.streamanalytics.get_job_output(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="example",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        test = azure.streamanalytics.ReferenceInputBlob("test",
-            name="blob-reference-input",
-            stream_analytics_job_name=example.name,
-            resource_group_name=example.resource_group_name,
-            storage_account_name=example_account.name,
-            storage_account_key=example_account.primary_access_key,
-            storage_container_name=example_container.name,
-            path_pattern="some-random-pattern",
-            date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization=azure.streamanalytics.ReferenceInputBlobSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
-        ```
 
         ## Import
 

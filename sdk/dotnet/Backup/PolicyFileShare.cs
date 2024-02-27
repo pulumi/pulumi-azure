@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tfex-recovery_vault",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
+    ///     var exampleVault = new Azure.Recoveryservices.Vault.Vault("example", new()
     ///     {
     ///         Name = "tfex-recovery-vault",
     ///         Location = example.Location,
@@ -36,61 +36,61 @@ namespace Pulumi.Azure.Backup
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var policy = new Azure.Backup.PolicyFileShare("policy", new()
+    ///     var policy = new Azure.Backup.PolicyFileShare.PolicyFileShare("policy", new()
     ///     {
     ///         Name = "tfex-recovery-vault-policy",
     ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = exampleVault.Name,
     ///         Timezone = "UTC",
-    ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///         Backup = 
     ///         {
-    ///             Frequency = "Daily",
-    ///             Time = "23:00",
+    ///             { "frequency", "Daily" },
+    ///             { "time", "23:00" },
     ///         },
-    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///         RetentionDaily = 
     ///         {
-    ///             Count = 10,
+    ///             { "count", 10 },
     ///         },
-    ///         RetentionWeekly = new Azure.Backup.Inputs.PolicyFileShareRetentionWeeklyArgs
+    ///         RetentionWeekly = 
     ///         {
-    ///             Count = 7,
-    ///             Weekdays = new[]
+    ///             { "count", 7 },
+    ///             { "weekdays", new[]
     ///             {
     ///                 "Sunday",
     ///                 "Wednesday",
     ///                 "Friday",
     ///                 "Saturday",
-    ///             },
+    ///             } },
     ///         },
-    ///         RetentionMonthly = new Azure.Backup.Inputs.PolicyFileShareRetentionMonthlyArgs
+    ///         RetentionMonthly = 
     ///         {
-    ///             Count = 7,
-    ///             Weekdays = new[]
+    ///             { "count", 7 },
+    ///             { "weekdays", new[]
     ///             {
     ///                 "Sunday",
     ///                 "Wednesday",
-    ///             },
-    ///             Weeks = new[]
+    ///             } },
+    ///             { "weeks", new[]
     ///             {
     ///                 "First",
     ///                 "Last",
-    ///             },
+    ///             } },
     ///         },
-    ///         RetentionYearly = new Azure.Backup.Inputs.PolicyFileShareRetentionYearlyArgs
+    ///         RetentionYearly = 
     ///         {
-    ///             Count = 7,
-    ///             Weekdays = new[]
+    ///             { "count", 7 },
+    ///             { "weekdays", new[]
     ///             {
     ///                 "Sunday",
-    ///             },
-    ///             Weeks = new[]
+    ///             } },
+    ///             { "weeks", new[]
     ///             {
     ///                 "Last",
-    ///             },
-    ///             Months = new[]
+    ///             } },
+    ///             { "months", new[]
     ///             {
     ///                 "January",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

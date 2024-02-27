@@ -12,25 +12,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleStaticSite = new azure.appservice.StaticSite("example", {
+ * const exampleStaticSite = new azure.appservice/staticSite.StaticSite("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
+ * const exampleCNameRecord = new azure.dns/cNameRecord.CNameRecord("example", {
  *     name: "my-domain",
  *     zoneName: "contoso.com",
  *     resourceGroupName: example.name,
  *     ttl: 300,
  *     record: exampleStaticSite.defaultHostName,
  * });
- * const exampleStaticSiteCustomDomain = new azure.appservice.StaticSiteCustomDomain("example", {
+ * const exampleStaticSiteCustomDomain = new azure.appservice/staticSiteCustomDomain.StaticSiteCustomDomain("example", {
  *     staticSiteId: exampleStaticSite.id,
- *     domainName: pulumi.interpolate`${exampleCNameRecord.name}.${exampleCNameRecord.zoneName}`,
+ *     domainName: `${exampleCNameRecord.name}.${exampleCNameRecord.zoneName}`,
  *     validationType: "cname-delegation",
  * });
  * ```
@@ -40,21 +40,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleStaticSite = new azure.appservice.StaticSite("example", {
+ * const exampleStaticSite = new azure.appservice/staticSite.StaticSite("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleStaticSiteCustomDomain = new azure.appservice.StaticSiteCustomDomain("example", {
+ * const exampleStaticSiteCustomDomain = new azure.appservice/staticSiteCustomDomain.StaticSiteCustomDomain("example", {
  *     staticSiteId: exampleStaticSite.id,
  *     domainName: "my-domain.contoso.com",
  *     validationType: "dns-txt-token",
  * });
- * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
+ * const exampleTxtRecord = new azure.dns/txtRecord.TxtRecord("example", {
  *     name: "_dnsauth.my-domain",
  *     zoneName: "contoso.com",
  *     resourceGroupName: example.name,

@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.servicefabric.ManagedCluster;
  * import com.pulumi.azure.servicefabric.ManagedClusterArgs;
- * import com.pulumi.azure.servicefabric.inputs.ManagedClusterLbRuleArgs;
- * import com.pulumi.azure.servicefabric.inputs.ManagedClusterNodeTypeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,27 +52,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .httpGatewayPort(4567)
- *             .lbRules(ManagedClusterLbRuleArgs.builder()
- *                 .backendPort(38080)
- *                 .frontendPort(80)
- *                 .probeProtocol(&#34;http&#34;)
- *                 .probeRequestPath(&#34;/test&#34;)
- *                 .protocol(&#34;tcp&#34;)
- *                 .build())
+ *             .lbRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .clientConnectionPort(12345)
- *             .nodeTypes(ManagedClusterNodeTypeArgs.builder()
- *                 .dataDiskSizeGb(130)
- *                 .name(&#34;test1&#34;)
- *                 .primary(true)
- *                 .applicationPortRange(&#34;30000-49000&#34;)
- *                 .ephemeralPortRange(&#34;10000-20000&#34;)
- *                 .vmSize(&#34;Standard_DS1_v2&#34;)
- *                 .vmImagePublisher(&#34;MicrosoftWindowsServer&#34;)
- *                 .vmImageSku(&#34;2019-Datacenter-with-Containers&#34;)
- *                 .vmImageOffer(&#34;WindowsServer&#34;)
- *                 .vmImageVersion(&#34;latest&#34;)
- *                 .vmInstanceCount(5)
- *                 .build())
+ *             .nodeTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

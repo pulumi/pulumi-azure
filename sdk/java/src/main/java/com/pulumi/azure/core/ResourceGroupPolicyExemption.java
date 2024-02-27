@@ -18,67 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Resource Group Policy Exemption.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.policy.PolicyFunctions;
- * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
- * import com.pulumi.azure.core.ResourceGroupPolicyAssignment;
- * import com.pulumi.azure.core.ResourceGroupPolicyAssignmentArgs;
- * import com.pulumi.azure.core.ResourceGroupPolicyExemption;
- * import com.pulumi.azure.core.ResourceGroupPolicyExemptionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;resourceGroup1&#34;)
- *             .location(&#34;westus&#34;)
- *             .build());
- * 
- *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
- *             .displayName(&#34;Allowed locations&#34;)
- *             .build());
- * 
- *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
- *             .name(&#34;exampleAssignment&#34;)
- *             .resourceGroupId(exampleResourceGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
- *             .parameters(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
- *                         jsonProperty(&#34;value&#34;, jsonArray(location))
- *                     ))
- *                 ))))
- *             .build());
- * 
- *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption(&#34;exampleResourceGroupPolicyExemption&#34;, ResourceGroupPolicyExemptionArgs.builder()        
- *             .name(&#34;exampleExemption&#34;)
- *             .resourceGroupId(exampleResourceGroup.id())
- *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())
- *             .exemptionCategory(&#34;Mitigated&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Policy Exemptions can be imported using the `resource id`, e.g.

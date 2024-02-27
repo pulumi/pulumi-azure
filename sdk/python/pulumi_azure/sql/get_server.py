@@ -143,17 +143,6 @@ def get_server(name: Optional[str] = None,
 
     > **Note:** The `sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Server` data source instead.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.sql.get_server(name="examplesqlservername",
-        resource_group_name="example-resources")
-    pulumi.export("sqlServerId", example.id)
-    ```
-
 
     :param str name: The name of the SQL Server.
     :param str resource_group_name: Specifies the name of the Resource Group where the SQL Server exists.
@@ -184,17 +173,6 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about an existing SQL Azure Database Server.
 
     > **Note:** The `sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Server` data source instead.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.sql.get_server(name="examplesqlservername",
-        resource_group_name="example-resources")
-    pulumi.export("sqlServerId", example.id)
-    ```
 
 
     :param str name: The name of the SQL Server.

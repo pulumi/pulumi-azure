@@ -20,60 +20,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** A bot can only have a single Email Channel associated with it.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.bot.ChannelsRegistration;
- * import com.pulumi.azure.bot.ChannelsRegistrationArgs;
- * import com.pulumi.azure.bot.ChannelEmail;
- * import com.pulumi.azure.bot.ChannelEmailArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
- * 
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .location(&#34;global&#34;)
- *             .resourceGroupName(example.name())
- *             .sku(&#34;F0&#34;)
- *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
- *             .build());
- * 
- *         var exampleChannelEmail = new ChannelEmail(&#34;exampleChannelEmail&#34;, ChannelEmailArgs.builder()        
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(example.name())
- *             .emailAddress(&#34;example.com&#34;)
- *             .emailPassword(&#34;123456&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.

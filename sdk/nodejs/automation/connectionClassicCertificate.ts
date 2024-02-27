@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automation Connection with type `AzureClassicCertificate`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "resourceGroup-example",
- *     location: "West Europe",
- * });
- * const example = azure.core.getClientConfig({});
- * const exampleAccount = new azure.automation.Account("example", {
- *     name: "account-example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleConnectionClassicCertificate = new azure.automation.ConnectionClassicCertificate("example", {
- *     name: "connection-example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
- *     certificateAssetName: "cert1",
- *     subscriptionName: "subs1",
- *     subscriptionId: example.then(example => example.subscriptionId),
- * });
- * ```
- *
  * ## Import
  *
  * Automation Connection can be imported using the `resource id`, e.g.

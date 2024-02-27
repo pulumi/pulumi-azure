@@ -15,23 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "terraform-webpubsub",
  *     location: "east us",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     name: "tfex-uai",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleService = new azure.webpubsub.Service("example", {
+ * const exampleService = new azure.webpubsub/service.Service("example", {
  *     name: "tfex-webpubsub",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const exampleHub = new azure.webpubsub.Hub("example", {
+ * const exampleHub = new azure.webpubsub/hub.Hub("example", {
  *     name: "tfex_wpsh",
  *     webPubsubId: exampleService.id,
  *     eventHandlers: [

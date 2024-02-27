@@ -21,50 +21,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	datafactory/factory "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/factory"
+//	datafactory/pipeline "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/pipeline"
+//	datafactory/triggerSchedule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/datafactory/triggerSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datafactory.NewTriggerSchedule(ctx, "example", &datafactory.TriggerScheduleArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				PipelineName:  examplePipeline.Name,
-//				Interval:      pulumi.Int(5),
-//				Frequency:     pulumi.String("Day"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFactory, err := datafactory/factory.NewFactory(ctx, "example", &datafactory/factory.FactoryArgs{
+// Name: "example",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// examplePipeline, err := datafactory/pipeline.NewPipeline(ctx, "example", &datafactory/pipeline.PipelineArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = datafactory/triggerSchedule.NewTriggerSchedule(ctx, "example", &datafactory/triggerSchedule.TriggerScheduleArgs{
+// Name: "example",
+// DataFactoryId: exampleFactory.Id,
+// PipelineName: examplePipeline.Name,
+// Interval: 5,
+// Frequency: "Day",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

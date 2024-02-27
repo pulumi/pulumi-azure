@@ -245,67 +245,67 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_express_route_port = azure.network.ExpressRoutePort("example",
-            name="example-erport",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_express_route_port = azure.network.express_route_port.ExpressRoutePort("example",
+            name=example-erport,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Equinix-Seattle-SE2",
+            peering_location=Equinix-Seattle-SE2,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="example-ercircuit",
+            encapsulation=Dot1Q)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=example-ercircuit,
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example2 = azure.network.ExpressRoutePort("example2",
-            name="example-erport2",
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            })
+        example2 = azure.network.express_route_port.ExpressRoutePort("example2",
+            name=example-erport2,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Allied-Toronto-King-West",
+            peering_location=Allied-Toronto-King-West,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example2_express_route_circuit = azure.network.ExpressRouteCircuit("example2",
-            name="example-ercircuit2",
+            encapsulation=Dot1Q)
+        example2_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example2",
+            name=example-ercircuit2,
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example2.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="AzurePrivatePeering",
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            })
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
-            shared_key="ItsASecret",
+            shared_key=ItsASecret,
             peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.1.0/30",
+            primary_peer_address_prefix=192.168.1.0/30,
+            secondary_peer_address_prefix=192.168.1.0/30,
             vlan_id=100)
-        example2_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example2",
-            peering_type="AzurePrivatePeering",
+        example2_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example2",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example2_express_route_circuit.name,
             resource_group_name=example.name,
-            shared_key="ItsASecret",
+            shared_key=ItsASecret,
             peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.1.0/30",
+            primary_peer_address_prefix=192.168.1.0/30,
+            secondary_peer_address_prefix=192.168.1.0/30,
             vlan_id=100)
-        example_express_route_circuit_connection = azure.network.ExpressRouteCircuitConnection("example",
-            name="example-ercircuitconnection",
+        example_express_route_circuit_connection = azure.network.express_route_circuit_connection.ExpressRouteCircuitConnection("example",
+            name=example-ercircuitconnection,
             peering_id=example_express_route_circuit_peering.id,
             peer_peering_id=example2_express_route_circuit_peering.id,
-            address_prefix_ipv4="192.169.9.0/29",
-            authorization_key="846a1918-b7a2-4917-b43c-8c4cdaee006a")
+            address_prefix_ipv4=192.169.9.0/29,
+            authorization_key=846a1918-b7a2-4917-b43c-8c4cdaee006a)
         ```
 
         ## Import
@@ -342,67 +342,67 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_express_route_port = azure.network.ExpressRoutePort("example",
-            name="example-erport",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_express_route_port = azure.network.express_route_port.ExpressRoutePort("example",
+            name=example-erport,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Equinix-Seattle-SE2",
+            peering_location=Equinix-Seattle-SE2,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
-            name="example-ercircuit",
+            encapsulation=Dot1Q)
+        example_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example",
+            name=example-ercircuit,
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example2 = azure.network.ExpressRoutePort("example2",
-            name="example-erport2",
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            })
+        example2 = azure.network.express_route_port.ExpressRoutePort("example2",
+            name=example-erport2,
             resource_group_name=example.name,
             location=example.location,
-            peering_location="Allied-Toronto-King-West",
+            peering_location=Allied-Toronto-King-West,
             bandwidth_in_gbps=10,
-            encapsulation="Dot1Q")
-        example2_express_route_circuit = azure.network.ExpressRouteCircuit("example2",
-            name="example-ercircuit2",
+            encapsulation=Dot1Q)
+        example2_express_route_circuit = azure.network.express_route_circuit.ExpressRouteCircuit("example2",
+            name=example-ercircuit2,
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example2.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
-            peering_type="AzurePrivatePeering",
+            sku={
+                tier: Standard,
+                family: MeteredData,
+            })
+        example_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
-            shared_key="ItsASecret",
+            shared_key=ItsASecret,
             peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.1.0/30",
+            primary_peer_address_prefix=192.168.1.0/30,
+            secondary_peer_address_prefix=192.168.1.0/30,
             vlan_id=100)
-        example2_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example2",
-            peering_type="AzurePrivatePeering",
+        example2_express_route_circuit_peering = azure.network.express_route_circuit_peering.ExpressRouteCircuitPeering("example2",
+            peering_type=AzurePrivatePeering,
             express_route_circuit_name=example2_express_route_circuit.name,
             resource_group_name=example.name,
-            shared_key="ItsASecret",
+            shared_key=ItsASecret,
             peer_asn=100,
-            primary_peer_address_prefix="192.168.1.0/30",
-            secondary_peer_address_prefix="192.168.1.0/30",
+            primary_peer_address_prefix=192.168.1.0/30,
+            secondary_peer_address_prefix=192.168.1.0/30,
             vlan_id=100)
-        example_express_route_circuit_connection = azure.network.ExpressRouteCircuitConnection("example",
-            name="example-ercircuitconnection",
+        example_express_route_circuit_connection = azure.network.express_route_circuit_connection.ExpressRouteCircuitConnection("example",
+            name=example-ercircuitconnection,
             peering_id=example_express_route_circuit_peering.id,
             peer_peering_id=example2_express_route_circuit_peering.id,
-            address_prefix_ipv4="192.169.9.0/29",
-            authorization_key="846a1918-b7a2-4917-b43c-8c4cdaee006a")
+            address_prefix_ipv4=192.169.9.0/29,
+            authorization_key=846a1918-b7a2-4917-b43c-8c4cdaee006a)
         ```
 
         ## Import

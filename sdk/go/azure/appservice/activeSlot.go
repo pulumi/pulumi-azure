@@ -25,47 +25,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	appservice/activeSlot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/activeSlot"
+//	appservice/appService "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/appService"
+//	appservice/plan "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/plan"
+//	appservice/slot "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/slot"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	index/randomId "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomId"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := random.NewRandomId(ctx, "server", nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewPlan(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleSlot, err := appservice.NewSlot(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewActiveSlot(ctx, "example", &appservice.ActiveSlotArgs{
-//				ResourceGroupName:  example.Name,
-//				AppServiceName:     exampleAppService.Name,
-//				AppServiceSlotName: exampleSlot.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := random.NewRandomId(ctx, "server", nil)
+// if err != nil {
+// return err
+// }
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = appservice/plan.NewPlan(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// exampleAppService, err := appservice/appService.NewAppService(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// exampleSlot, err := appservice/slot.NewSlot(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = appservice/activeSlot.NewActiveSlot(ctx, "example", &appservice/activeSlot.ActiveSlotArgs{
+// ResourceGroupName: example.Name,
+// AppServiceName: exampleAppService.Name,
+// AppServiceSlotName: exampleSlot.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ActiveSlot struct {
 	pulumi.CustomResourceState

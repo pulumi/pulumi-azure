@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const policy = new azure.policy.Definition("policy", {
+ * const policy = new azure.policy/definition.Definition("policy", {
  *     name: "accTestPolicy",
  *     policyType: "Custom",
  *     mode: "Indexed",

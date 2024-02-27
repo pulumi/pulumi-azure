@@ -24,13 +24,13 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.MySql
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     var @internal = new Azure.Network.Subnet.Subnet("internal", new()
     ///     {
     ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.MySql
     ///         },
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example", new()
+    ///     var exampleServer = new Azure.Mysql.Server.Server("example", new()
     ///     {
     ///         Name = "example-mysqlserver",
     ///         Location = example.Location,
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.MySql
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleVirtualNetworkRule = new Azure.MySql.VirtualNetworkRule("example", new()
+    ///     var exampleVirtualNetworkRule = new Azure.Mysql.VirtualNetworkRule.VirtualNetworkRule("example", new()
     ///     {
     ///         Name = "mysql-vnet-rule",
     ///         ResourceGroupName = example.Name,

@@ -304,52 +304,52 @@ class BudgetManagementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.management.Group("example", display_name="example")
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example",
-            location="eastus")
-        example_budget_management_group = azure.consumption.BudgetManagementGroup("example",
-            name="example",
+        example = azure.management.group.Group("example", display_name=example)
+        example_resource_group = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=eastus)
+        example_budget_management_group = azure.consumption.budget_management_group.BudgetManagementGroup("example",
+            name=example,
             management_group_id=example.id,
             amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetManagementGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example_resource_group.name],
-                )],
-                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
+            time_grain=Monthly,
+            time_period={
+                startDate: 2022-06-01T00:00:00Z,
+                endDate: 2022-07-01T00:00:00Z,
+            },
+            filter={
+                dimensions: [{
+                    name: ResourceGroupName,
+                    values: [example_resource_group.name],
+                }],
+                tags: [{
+                    name: foo,
+                    values: [
+                        bar,
+                        baz,
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                {
+                    enabled: True,
+                    threshold: 90,
+                    operator: EqualTo,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                ),
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                },
+                {
+                    enabled: False,
+                    threshold: 100,
+                    operator: GreaterThan,
+                    thresholdType: Forecasted,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                ),
+                },
             ])
         ```
 
@@ -387,52 +387,52 @@ class BudgetManagementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.management.Group("example", display_name="example")
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example",
-            location="eastus")
-        example_budget_management_group = azure.consumption.BudgetManagementGroup("example",
-            name="example",
+        example = azure.management.group.Group("example", display_name=example)
+        example_resource_group = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=eastus)
+        example_budget_management_group = azure.consumption.budget_management_group.BudgetManagementGroup("example",
+            name=example,
             management_group_id=example.id,
             amount=1000,
-            time_grain="Monthly",
-            time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetManagementGroupFilterArgs(
-                dimensions=[azure.consumption.BudgetManagementGroupFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example_resource_group.name],
-                )],
-                tags=[azure.consumption.BudgetManagementGroupFilterTagArgs(
-                    name="foo",
-                    values=[
-                        "bar",
-                        "baz",
+            time_grain=Monthly,
+            time_period={
+                startDate: 2022-06-01T00:00:00Z,
+                endDate: 2022-07-01T00:00:00Z,
+            },
+            filter={
+                dimensions: [{
+                    name: ResourceGroupName,
+                    values: [example_resource_group.name],
+                }],
+                tags: [{
+                    name: foo,
+                    values: [
+                        bar,
+                        baz,
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                {
+                    enabled: True,
+                    threshold: 90,
+                    operator: EqualTo,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                ),
-                azure.consumption.BudgetManagementGroupNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
-                        "foo@example.com",
-                        "bar@example.com",
+                },
+                {
+                    enabled: False,
+                    threshold: 100,
+                    operator: GreaterThan,
+                    thresholdType: Forecasted,
+                    contactEmails: [
+                        foo@example.com,
+                        bar@example.com,
                     ],
-                ),
+                },
             ])
         ```
 

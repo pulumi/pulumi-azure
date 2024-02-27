@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "example-sqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleDatabase = new azure.mssql.Database("example", {
+ * const exampleDatabase = new azure.mssql/database.Database("example", {
  *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
@@ -52,23 +52,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ * const exampleUserAssignedIdentity = new azure.authorization/userAssignedIdentity.UserAssignedIdentity("example", {
  *     name: "example-admin",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServer = new azure.mssql.Server("example", {
+ * const exampleServer = new azure.mssql/server.Server("example", {
  *     name: "example-sqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
  * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ * const exampleKeyVault = new azure.keyvault/keyVault.KeyVault("example", {
  *     name: "mssqltdeexample",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -112,7 +112,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("example", {
+ * const exampleKey = new azure.keyvault/key.Key("example", {
  *     name: "example-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *         "wrapKey",
  *     ],
  * });
- * const exampleDatabase = new azure.mssql.Database("example", {
+ * const exampleDatabase = new azure.mssql/database.Database("example", {
  *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",

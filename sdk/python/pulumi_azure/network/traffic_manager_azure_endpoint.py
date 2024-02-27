@@ -372,36 +372,36 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-public-ip",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-public-ip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            domain_name_label="example-public-ip")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name="example-profile",
+            allocation_method=Static,
+            domain_name_label=example-public-ip)
+        example_traffic_manager_profile = azure.network.traffic_manager_profile.TrafficManagerProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="example-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
+            traffic_routing_method=Weighted,
+            dns_config={
+                relativeName: example-profile,
+                ttl: 100,
+            },
+            monitor_config={
+                protocol: HTTP,
+                port: 80,
+                path: /,
+                intervalInSeconds: 30,
+                timeoutInSeconds: 9,
+                toleratedNumberOfFailures: 3,
+            },
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("example",
-            name="example-endpoint",
+        example_traffic_manager_azure_endpoint = azure.network.traffic_manager_azure_endpoint.TrafficManagerAzureEndpoint("example",
+            name=example-endpoint,
             profile_id=example_traffic_manager_profile.id,
             always_serve_enabled=True,
             weight=100,
@@ -444,36 +444,36 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_public_ip = azure.network.PublicIp("example",
-            name="example-public-ip",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_public_ip = azure.network.public_ip.PublicIp("example",
+            name=example-public-ip,
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Static",
-            domain_name_label="example-public-ip")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name="example-profile",
+            allocation_method=Static,
+            domain_name_label=example-public-ip)
+        example_traffic_manager_profile = azure.network.traffic_manager_profile.TrafficManagerProfile("example",
+            name=example-profile,
             resource_group_name=example.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name="example-profile",
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
+            traffic_routing_method=Weighted,
+            dns_config={
+                relativeName: example-profile,
+                ttl: 100,
+            },
+            monitor_config={
+                protocol: HTTP,
+                port: 80,
+                path: /,
+                intervalInSeconds: 30,
+                timeoutInSeconds: 9,
+                toleratedNumberOfFailures: 3,
+            },
             tags={
-                "environment": "Production",
+                environment: Production,
             })
-        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("example",
-            name="example-endpoint",
+        example_traffic_manager_azure_endpoint = azure.network.traffic_manager_azure_endpoint.TrafficManagerAzureEndpoint("example",
+            name=example-endpoint,
             profile_id=example_traffic_manager_profile.id,
             always_serve_enabled=True,
             weight=100,

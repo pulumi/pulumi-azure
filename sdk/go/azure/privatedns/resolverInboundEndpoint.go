@@ -21,85 +21,85 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
+//	privatedns/resolver "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/resolver"
+//	privatedns/resolverInboundEndpoint "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/resolverInboundEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResolver, err := privatedns.NewResolver(ctx, "example", &privatedns.ResolverArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("inbounddns"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/28"),
-//				},
-//				Delegations: network.SubnetDelegationArray{
-//					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
-//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-//							},
-//							Name: pulumi.String("Microsoft.Network/dnsResolvers"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = privatedns.NewResolverInboundEndpoint(ctx, "example", &privatedns.ResolverInboundEndpointArgs{
-//				Name:                 pulumi.String("example-drie"),
-//				PrivateDnsResolverId: exampleResolver.ID(),
-//				Location:             exampleResolver.Location,
-//				IpConfigurations: privatedns.ResolverInboundEndpointIpConfigurationArray{
-//					&privatedns.ResolverInboundEndpointIpConfigurationArgs{
-//						PrivateIpAllocationMethod: pulumi.String("Dynamic"),
-//						SubnetId:                  exampleSubnet.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleResolver, err := privatedns/resolver.NewResolver(ctx, "example", &privatedns/resolver.ResolverArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// VirtualNetworkId: exampleVirtualNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "inbounddns",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.0.0/28",
+// },
+// Delegations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Microsoft.Network.dnsResolvers",
+// "serviceDelegation": map[string]interface{}{
+// "actions": []string{
+// "Microsoft.Network/virtualNetworks/subnets/join/action",
+// },
+// "name": "Microsoft.Network/dnsResolvers",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = privatedns/resolverInboundEndpoint.NewResolverInboundEndpoint(ctx, "example", &privatedns/resolverInboundEndpoint.ResolverInboundEndpointArgs{
+// Name: "example-drie",
+// PrivateDnsResolverId: exampleResolver.Id,
+// Location: exampleResolver.Location,
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "privateIpAllocationMethod": "Dynamic",
+// "subnetId": exampleSubnet.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

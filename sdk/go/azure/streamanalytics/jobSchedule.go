@@ -21,117 +21,120 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/blob "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/blob"
+//	storage/container "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/container"
+//	streamanalytics/job "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/job"
+//	streamanalytics/jobSchedule "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/jobSchedule"
+//	streamanalytics/outputBlob "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/outputBlob"
+//	streamanalytics/streamInputBlob "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/streamanalytics/streamInputBlob"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("example"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
-//				Name:                pulumi.String("example"),
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewBlob(ctx, "example", &storage.BlobArgs{
-//				Name:                 pulumi.String("example"),
-//				StorageAccountName:   exampleAccount.Name,
-//				StorageContainerName: exampleContainer.Name,
-//				Type:                 pulumi.String("Block"),
-//				Source:               pulumi.NewFileAsset("example.csv"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleJob, err := streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
-//				Name:                               pulumi.String("example-job"),
-//				ResourceGroupName:                  example.Name,
-//				Location:                           example.Location,
-//				CompatibilityLevel:                 pulumi.String("1.2"),
-//				DataLocale:                         pulumi.String("en-GB"),
-//				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
-//				EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
-//				EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
-//				OutputErrorPolicy:                  pulumi.String("Drop"),
-//				StreamingUnits:                     pulumi.Int(3),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Example"),
-//				},
-//				TransformationQuery: pulumi.String("    SELECT *\n    INTO [exampleoutput]\n    FROM [exampleinput]\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewStreamInputBlob(ctx, "example", &streamanalytics.StreamInputBlobArgs{
-//				Name:                   pulumi.String("exampleinput"),
-//				StreamAnalyticsJobName: exampleJob.Name,
-//				ResourceGroupName:      exampleJob.ResourceGroupName,
-//				StorageAccountName:     exampleAccount.Name,
-//				StorageAccountKey:      exampleAccount.PrimaryAccessKey,
-//				StorageContainerName:   exampleContainer.Name,
-//				PathPattern:            pulumi.String(""),
-//				DateFormat:             pulumi.String("yyyy/MM/dd"),
-//				TimeFormat:             pulumi.String("HH"),
-//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
-//					Type:           pulumi.String("Csv"),
-//					Encoding:       pulumi.String("UTF8"),
-//					FieldDelimiter: pulumi.String(","),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
-//				Name:                   pulumi.String("exampleoutput"),
-//				StreamAnalyticsJobName: exampleJob.Name,
-//				ResourceGroupName:      exampleJob.ResourceGroupName,
-//				StorageAccountName:     exampleAccount.Name,
-//				StorageAccountKey:      exampleAccount.PrimaryAccessKey,
-//				StorageContainerName:   exampleContainer.Name,
-//				PathPattern:            pulumi.String("example-{date}-{time}"),
-//				DateFormat:             pulumi.String("yyyy-MM-dd"),
-//				TimeFormat:             pulumi.String("HH"),
-//				Serialization: &streamanalytics.OutputBlobSerializationArgs{
-//					Type: pulumi.String("Avro"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = streamanalytics.NewJobSchedule(ctx, "example", &streamanalytics.JobScheduleArgs{
-//				StreamAnalyticsJobId: exampleJob.ID(),
-//				StartMode:            pulumi.String("CustomTime"),
-//				StartTime:            pulumi.String("2022-09-21T00:00:00Z"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// })
+// if err != nil {
+// return err
+// }
+// exampleContainer, err := storage/container.NewContainer(ctx, "example", &storage/container.ContainerArgs{
+// Name: "example",
+// StorageAccountName: exampleAccount.Name,
+// ContainerAccessType: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/blob.NewBlob(ctx, "example", &storage/blob.BlobArgs{
+// Name: "example",
+// StorageAccountName: exampleAccount.Name,
+// StorageContainerName: exampleContainer.Name,
+// Type: "Block",
+// Source: pulumi.NewFileAsset("example.csv"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleJob, err := streamanalytics/job.NewJob(ctx, "example", &streamanalytics/job.JobArgs{
+// Name: "example-job",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// CompatibilityLevel: "1.2",
+// DataLocale: "en-GB",
+// EventsLateArrivalMaxDelayInSeconds: 60,
+// EventsOutOfOrderMaxDelayInSeconds: 50,
+// EventsOutOfOrderPolicy: "Adjust",
+// OutputErrorPolicy: "Drop",
+// StreamingUnits: 3,
+// Tags: map[string]interface{}{
+// "environment": "Example",
+// },
+// TransformationQuery: "    SELECT *\n    INTO [exampleoutput]\n    FROM [exampleinput]\n",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = streamanalytics/streamInputBlob.NewStreamInputBlob(ctx, "example", &streamanalytics/streamInputBlob.StreamInputBlobArgs{
+// Name: "exampleinput",
+// StreamAnalyticsJobName: exampleJob.Name,
+// ResourceGroupName: exampleJob.ResourceGroupName,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountKey: exampleAccount.PrimaryAccessKey,
+// StorageContainerName: exampleContainer.Name,
+// PathPattern: "",
+// DateFormat: "yyyy/MM/dd",
+// TimeFormat: "HH",
+// Serialization: map[string]interface{}{
+// "type": "Csv",
+// "encoding": "UTF8",
+// "fieldDelimiter": ",",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = streamanalytics/outputBlob.NewOutputBlob(ctx, "example", &streamanalytics/outputBlob.OutputBlobArgs{
+// Name: "exampleoutput",
+// StreamAnalyticsJobName: exampleJob.Name,
+// ResourceGroupName: exampleJob.ResourceGroupName,
+// StorageAccountName: exampleAccount.Name,
+// StorageAccountKey: exampleAccount.PrimaryAccessKey,
+// StorageContainerName: exampleContainer.Name,
+// PathPattern: "example-{date}-{time}",
+// DateFormat: "yyyy-MM-dd",
+// TimeFormat: "HH",
+// Serialization: map[string]interface{}{
+// "type": "Avro",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = streamanalytics/jobSchedule.NewJobSchedule(ctx, "example", &streamanalytics/jobSchedule.JobScheduleArgs{
+// StreamAnalyticsJobId: exampleJob.Id,
+// StartMode: "CustomTime",
+// StartTime: "2022-09-21T00:00:00Z",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

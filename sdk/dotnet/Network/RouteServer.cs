@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vn",
     ///         AddressSpaces = new[]
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "RouteServerSubnet",
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp.PublicIp("example", new()
     ///     {
     ///         Name = "example-pip",
     ///         ResourceGroupName = example.Name,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleRouteServer = new Azure.Network.RouteServer("example", new()
+    ///     var exampleRouteServer = new Azure.Network.RouteServer.RouteServer("example", new()
     ///     {
     ///         Name = "example-routerserver",
     ///         ResourceGroupName = example.Name,

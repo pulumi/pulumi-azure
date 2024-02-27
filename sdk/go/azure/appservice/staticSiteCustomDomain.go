@@ -22,56 +22,51 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	appservice/staticSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/staticSite"
+//	appservice/staticSiteCustomDomain "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/staticSiteCustomDomain"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/cNameRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/cNameRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStaticSite, err := appservice.NewStaticSite(ctx, "example", &appservice.StaticSiteArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				Name:              pulumi.String("my-domain"),
-//				ZoneName:          pulumi.String("contoso.com"),
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Record:            exampleStaticSite.DefaultHostName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewStaticSiteCustomDomain(ctx, "example", &appservice.StaticSiteCustomDomainArgs{
-//				StaticSiteId: exampleStaticSite.ID(),
-//				DomainName: pulumi.All(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).ApplyT(func(_args []interface{}) (string, error) {
-//					name := _args[0].(string)
-//					zoneName := _args[1].(string)
-//					return fmt.Sprintf("%v.%v", name, zoneName), nil
-//				}).(pulumi.StringOutput),
-//				ValidationType: pulumi.String("cname-delegation"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleStaticSite, err := appservice/staticSite.NewStaticSite(ctx, "example", &appservice/staticSite.StaticSiteArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleCNameRecord, err := dns/cNameRecord.NewCNameRecord(ctx, "example", &dns/cNameRecord.CNameRecordArgs{
+// Name: "my-domain",
+// ZoneName: "contoso.com",
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Record: exampleStaticSite.DefaultHostName,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/staticSiteCustomDomain.NewStaticSiteCustomDomain(ctx, "example", &appservice/staticSiteCustomDomain.StaticSiteCustomDomainArgs{
+// StaticSiteId: exampleStaticSite.Id,
+// DomainName: fmt.Sprintf("%v.%v", exampleCNameRecord.Name, exampleCNameRecord.ZoneName),
+// ValidationType: "cname-delegation",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### TXT validation
 //
@@ -80,56 +75,55 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	appservice/staticSite "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/staticSite"
+//	appservice/staticSiteCustomDomain "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/staticSiteCustomDomain"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dns/txtRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dns/txtRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStaticSite, err := appservice.NewStaticSite(ctx, "example", &appservice.StaticSiteArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStaticSiteCustomDomain, err := appservice.NewStaticSiteCustomDomain(ctx, "example", &appservice.StaticSiteCustomDomainArgs{
-//				StaticSiteId:   exampleStaticSite.ID(),
-//				DomainName:     pulumi.String("my-domain.contoso.com"),
-//				ValidationType: pulumi.String("dns-txt-token"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String("_dnsauth.my-domain"),
-//				ZoneName:          pulumi.String("contoso.com"),
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Records: dns.TxtRecordRecordArray{
-//					&dns.TxtRecordRecordArgs{
-//						Value: exampleStaticSiteCustomDomain.ValidationToken,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleStaticSite, err := appservice/staticSite.NewStaticSite(ctx, "example", &appservice/staticSite.StaticSiteArgs{
+// Name: "example",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// })
+// if err != nil {
+// return err
+// }
+// exampleStaticSiteCustomDomain, err := appservice/staticSiteCustomDomain.NewStaticSiteCustomDomain(ctx, "example", &appservice/staticSiteCustomDomain.StaticSiteCustomDomainArgs{
+// StaticSiteId: exampleStaticSite.Id,
+// DomainName: "my-domain.contoso.com",
+// ValidationType: "dns-txt-token",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dns/txtRecord.NewTxtRecord(ctx, "example", &dns/txtRecord.TxtRecordArgs{
+// Name: "_dnsauth.my-domain",
+// ZoneName: "contoso.com",
+// ResourceGroupName: example.Name,
+// Ttl: 300,
+// Records: []map[string]interface{}{
+// map[string]interface{}{
+// "value": exampleStaticSiteCustomDomain.ValidationToken,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

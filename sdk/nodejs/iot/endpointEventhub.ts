@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ * const exampleEventHubNamespace = new azure.eventhub/eventHubNamespace.EventHubNamespace("example", {
  *     name: "exampleEventHubNamespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Basic",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ * const exampleEventHub = new azure.eventhub/eventHub.EventHub("example", {
  *     name: "exampleEventHub",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ * const exampleAuthorizationRule = new azure.eventhub/authorizationRule.AuthorizationRule("example", {
  *     name: "exampleRule",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
@@ -41,19 +41,19 @@ import * as utilities from "../utilities";
  *     send: true,
  *     manage: false,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ * const exampleIoTHub = new azure.iot/ioTHub.IoTHub("example", {
  *     name: "exampleIothub",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sku: {
  *         name: "B1",
- *         capacity: 1,
+ *         capacity: "1",
  *     },
  *     tags: {
  *         purpose: "example",
  *     },
  * });
- * const exampleEndpointEventhub = new azure.iot.EndpointEventhub("example", {
+ * const exampleEndpointEventhub = new azure.iot/endpointEventhub.EndpointEventhub("example", {
  *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,
  *     name: "example",

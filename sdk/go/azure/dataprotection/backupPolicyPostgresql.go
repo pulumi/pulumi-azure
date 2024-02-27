@@ -21,88 +21,87 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dataprotection/backupPolicyPostgresql "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupPolicyPostgresql"
+//	dataprotection/backupVault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupVault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
-//				Name:              pulumi.String("example-backup-vault"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				DatastoreType:     pulumi.String("VaultStore"),
-//				Redundancy:        pulumi.String("LocallyRedundant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dataprotection.NewBackupPolicyPostgresql(ctx, "example", &dataprotection.BackupPolicyPostgresqlArgs{
-//				Name:              pulumi.String("example-backup-policy"),
-//				ResourceGroupName: example.Name,
-//				VaultName:         exampleBackupVault.Name,
-//				BackupRepeatingTimeIntervals: pulumi.StringArray{
-//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
-//				},
-//				TimeZone:                 pulumi.String("India Standard Time"),
-//				DefaultRetentionDuration: pulumi.String("P4M"),
-//				RetentionRules: dataprotection.BackupPolicyPostgresqlRetentionRuleArray{
-//					&dataprotection.BackupPolicyPostgresqlRetentionRuleArgs{
-//						Name:     pulumi.String("weekly"),
-//						Duration: pulumi.String("P6M"),
-//						Priority: pulumi.Int(20),
-//						Criteria: &dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
-//						},
-//					},
-//					&dataprotection.BackupPolicyPostgresqlRetentionRuleArgs{
-//						Name:     pulumi.String("thursday"),
-//						Duration: pulumi.String("P1W"),
-//						Priority: pulumi.Int(25),
-//						Criteria: &dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs{
-//							DaysOfWeeks: pulumi.StringArray{
-//								pulumi.String("Thursday"),
-//							},
-//							ScheduledBackupTimes: pulumi.StringArray{
-//								pulumi.String("2021-05-23T02:30:00Z"),
-//							},
-//						},
-//					},
-//					&dataprotection.BackupPolicyPostgresqlRetentionRuleArgs{
-//						Name:     pulumi.String("monthly"),
-//						Duration: pulumi.String("P1D"),
-//						Priority: pulumi.Int(15),
-//						Criteria: &dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs{
-//							WeeksOfMonths: pulumi.StringArray{
-//								pulumi.String("First"),
-//								pulumi.String("Last"),
-//							},
-//							DaysOfWeeks: pulumi.StringArray{
-//								pulumi.String("Tuesday"),
-//							},
-//							ScheduledBackupTimes: pulumi.StringArray{
-//								pulumi.String("2021-05-23T02:30:00Z"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleBackupVault, err := dataprotection/backupVault.NewBackupVault(ctx, "example", &dataprotection/backupVault.BackupVaultArgs{
+// Name: "example-backup-vault",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DatastoreType: "VaultStore",
+// Redundancy: "LocallyRedundant",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dataprotection/backupPolicyPostgresql.NewBackupPolicyPostgresql(ctx, "example", &dataprotection/backupPolicyPostgresql.BackupPolicyPostgresqlArgs{
+// Name: "example-backup-policy",
+// ResourceGroupName: example.Name,
+// VaultName: exampleBackupVault.Name,
+// BackupRepeatingTimeIntervals: []string{
+// "R/2021-05-23T02:30:00+00:00/P1W",
+// },
+// TimeZone: "India Standard Time",
+// DefaultRetentionDuration: "P4M",
+// RetentionRules: []interface{}{
+// map[string]interface{}{
+// "name": "weekly",
+// "duration": "P6M",
+// "priority": 20,
+// "criteria": map[string]interface{}{
+// "absoluteCriteria": "FirstOfWeek",
+// },
+// },
+// map[string]interface{}{
+// "name": "thursday",
+// "duration": "P1W",
+// "priority": 25,
+// "criteria": map[string]interface{}{
+// "daysOfWeeks": []string{
+// "Thursday",
+// },
+// "scheduledBackupTimes": []string{
+// "2021-05-23T02:30:00Z",
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "monthly",
+// "duration": "P1D",
+// "priority": 15,
+// "criteria": map[string]interface{}{
+// "weeksOfMonths": []string{
+// "First",
+// "Last",
+// },
+// "daysOfWeeks": []string{
+// "Tuesday",
+// },
+// "scheduledBackupTimes": []string{
+// "2021-05-23T02:30:00Z",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

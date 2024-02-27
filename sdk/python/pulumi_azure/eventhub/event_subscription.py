@@ -757,28 +757,28 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="exampleasa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=exampleasa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_queue = azure.storage.Queue("example",
-            name="example-astq",
+        example_queue = azure.storage.queue.Queue("example",
+            name=example-astq,
             storage_account_name=example_account.name)
-        example_event_subscription = azure.eventgrid.EventSubscription("example",
-            name="example-aees",
+        example_event_subscription = azure.eventgrid.event_subscription.EventSubscription("example",
+            name=example-aees,
             scope=example.id,
-            storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
-                storage_account_id=example_account.id,
-                queue_name=example_queue.name,
-            ))
+            storage_queue_endpoint={
+                storageAccountId: example_account.id,
+                queueName: example_queue.name,
+            })
         ```
 
         ## Import
@@ -832,28 +832,28 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="exampleasa",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=exampleasa,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
+            account_tier=Standard,
+            account_replication_type=LRS,
             tags={
-                "environment": "staging",
+                environment: staging,
             })
-        example_queue = azure.storage.Queue("example",
-            name="example-astq",
+        example_queue = azure.storage.queue.Queue("example",
+            name=example-astq,
             storage_account_name=example_account.name)
-        example_event_subscription = azure.eventgrid.EventSubscription("example",
-            name="example-aees",
+        example_event_subscription = azure.eventgrid.event_subscription.EventSubscription("example",
+            name=example-aees,
             scope=example.id,
-            storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
-                storage_account_id=example_account.id,
-                queue_name=example_queue.name,
-            ))
+            storage_queue_endpoint={
+                storageAccountId: example_account.id,
+                queueName: example_queue.name,
+            })
         ```
 
         ## Import

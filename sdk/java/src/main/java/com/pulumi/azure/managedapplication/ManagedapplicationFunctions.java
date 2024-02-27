@@ -17,76 +17,12 @@ public final class ManagedapplicationFunctions {
     /**
      * Uses this data source to access information about an existing Managed Application Definition.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
-     * import com.pulumi.azure.managedapplication.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args) {
         return getDefinition(args, InvokeOptions.Empty);
     }
     /**
      * Uses this data source to access information about an existing Managed Application Definition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
-     * import com.pulumi.azure.managedapplication.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args) {
@@ -95,76 +31,12 @@ public final class ManagedapplicationFunctions {
     /**
      * Uses this data source to access information about an existing Managed Application Definition.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
-     * import com.pulumi.azure.managedapplication.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:managedapplication/getDefinition:getDefinition", TypeShape.of(GetDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an existing Managed Application Definition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.managedapplication.ManagedapplicationFunctions;
-     * import com.pulumi.azure.managedapplication.inputs.GetDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ManagedapplicationFunctions.getDefinition(GetDefinitionArgs.builder()
-     *             .name(&#34;examplemanagedappdef&#34;)
-     *             .resourceGroupName(&#34;exampleresources&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getDefinitionResult -&gt; getDefinitionResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args, InvokeOptions options) {

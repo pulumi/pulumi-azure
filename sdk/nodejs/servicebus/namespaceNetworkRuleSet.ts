@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus/namespace.Namespace("example", {
  *     name: "example-sb-namespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Premium",
  *     capacity: 1,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ * const exampleVirtualNetwork = new azure.network/virtualNetwork.VirtualNetwork("example", {
  *     name: "example-vnet",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -40,14 +40,14 @@ import * as utilities from "../utilities";
  *         "10.0.0.5",
  *     ],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
+ * const exampleSubnet = new azure.network/subnet.Subnet("example", {
  *     name: "default",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["172.17.0.0/24"],
  *     serviceEndpoints: ["Microsoft.ServiceBus"],
  * });
- * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("example", {
+ * const exampleNamespaceNetworkRuleSet = new azure.servicebus/namespaceNetworkRuleSet.NamespaceNetworkRuleSet("example", {
  *     namespaceId: exampleNamespace.id,
  *     defaultAction: "Deny",
  *     publicNetworkAccessEnabled: true,

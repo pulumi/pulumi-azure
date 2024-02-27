@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .poolAllocationMode(&#34;BatchService&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

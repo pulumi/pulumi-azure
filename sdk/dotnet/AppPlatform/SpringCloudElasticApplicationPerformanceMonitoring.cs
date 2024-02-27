@@ -24,13 +24,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     var exampleSpringCloudService = new Azure.Appplatform.SpringCloudService.SpringCloudService("example", new()
     ///     {
     ///         Name = "example",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudElasticApplicationPerformanceMonitoring = new Azure.AppPlatform.SpringCloudElasticApplicationPerformanceMonitoring("example", new()
+    ///     var exampleSpringCloudElasticApplicationPerformanceMonitoring = new Azure.Appplatform.SpringCloudElasticApplicationPerformanceMonitoring.SpringCloudElasticApplicationPerformanceMonitoring("example", new()
     ///     {
     ///         Name = "example",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,

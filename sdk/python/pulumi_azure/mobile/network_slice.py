@@ -240,25 +240,25 @@ class NetworkSlice(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_slice = azure.mobile.NetworkSlice("example",
-            name="example-mns",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_slice = azure.mobile.network_slice.NetworkSlice("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
-            description="an example slice",
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ),
+            description=an example slice,
+            single_network_slice_selection_assistance_information={
+                sliceServiceType: 1,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -294,25 +294,25 @@ class NetworkSlice(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_slice = azure.mobile.NetworkSlice("example",
-            name="example-mns",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_slice = azure.mobile.network_slice.NetworkSlice("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
-            description="an example slice",
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ),
+            description=an example slice,
+            single_network_slice_selection_assistance_information={
+                sliceServiceType: 1,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

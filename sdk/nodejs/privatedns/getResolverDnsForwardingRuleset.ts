@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.privatedns.getResolverDnsForwardingRuleset({
- *     name: "example-ruleset",
- *     resourceGroupName: "example-ruleset-resourcegroup",
- * });
- * ```
  */
 export function getResolverDnsForwardingRuleset(args: GetResolverDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDnsForwardingRulesetResult> {
 
@@ -67,18 +55,6 @@ export interface GetResolverDnsForwardingRulesetResult {
 }
 /**
  * Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.privatedns.getResolverDnsForwardingRuleset({
- *     name: "example-ruleset",
- *     resourceGroupName: "example-ruleset-resourcegroup",
- * });
- * ```
  */
 export function getResolverDnsForwardingRulesetOutput(args: GetResolverDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDnsForwardingRulesetResult> {
     return pulumi.output(args).apply((a: any) => getResolverDnsForwardingRuleset(a, opts))

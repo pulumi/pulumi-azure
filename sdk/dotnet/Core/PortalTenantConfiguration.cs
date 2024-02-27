@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.PortalTenantConfiguration("example", new()
+    ///     var example = new Azure.Core.PortalTenantConfiguration.PortalTenantConfiguration("example", new()
     ///     {
     ///         PrivateMarkdownStorageEnforced = true,
     ///     });

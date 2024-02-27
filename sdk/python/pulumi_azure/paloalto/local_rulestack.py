@@ -371,11 +371,11 @@ class LocalRulestack(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -416,11 +416,11 @@ class LocalRulestack(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example_local_rulestack = azure.paloalto.LocalRulestack("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=rg-example,
+            location=West Europe)
+        example_local_rulestack = azure.paloalto.local_rulestack.LocalRulestack("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
         ```

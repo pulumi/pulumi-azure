@@ -13,60 +13,12 @@ namespace Pulumi.Azure.Backup
     {
         /// <summary>
         /// Use this data source to access information about an existing File Share Backup Policy.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var policy = Azure.Backup.GetPolicyFileshare.Invoke(new()
-        ///     {
-        ///         Name = "policy",
-        ///         RecoveryVaultName = "recovery_vault",
-        ///         ResourceGroupName = "resource_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyFileshareResult> InvokeAsync(GetPolicyFileshareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing File Share Backup Policy.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var policy = Azure.Backup.GetPolicyFileshare.Invoke(new()
-        ///     {
-        ///         Name = "policy",
-        ///         RecoveryVaultName = "recovery_vault",
-        ///         ResourceGroupName = "resource_group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyFileshareResult> Invoke(GetPolicyFileshareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareInvokeArgs(), options.WithDefaults());

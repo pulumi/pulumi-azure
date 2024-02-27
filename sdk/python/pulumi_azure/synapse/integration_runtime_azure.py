@@ -272,40 +272,40 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="content",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=content,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            container_access_type=private)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("example",
-            name="AllowAll",
+            identity={
+                type: SystemAssigned,
+            })
+        example_firewall_rule = azure.synapse.firewall_rule.FirewallRule("example",
+            name=AllowAll,
             synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("example",
-            name="example",
+            start_ip_address=0.0.0.0,
+            end_ip_address=255.255.255.255)
+        example_integration_runtime_azure = azure.synapse.integration_runtime_azure.IntegrationRuntimeAzure("example",
+            name=example,
             synapse_workspace_id=example_workspace.id,
             location=example.location)
         ```
@@ -343,40 +343,40 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="content",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=content,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
-            name="example",
+            container_access_type=private)
+        example_data_lake_gen2_filesystem = azure.storage.data_lake_gen2_filesystem.DataLakeGen2Filesystem("example",
+            name=example,
             storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("example",
-            name="example",
+        example_workspace = azure.synapse.workspace.Workspace("example",
+            name=example,
             location=example.location,
             resource_group_name=example.name,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
-            sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
+            sql_administrator_login=sqladminuser,
+            sql_administrator_login_password=H@Sh1CoR3!,
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_firewall_rule = azure.synapse.FirewallRule("example",
-            name="AllowAll",
+            identity={
+                type: SystemAssigned,
+            })
+        example_firewall_rule = azure.synapse.firewall_rule.FirewallRule("example",
+            name=AllowAll,
             synapse_workspace_id=example_workspace.id,
-            start_ip_address="0.0.0.0",
-            end_ip_address="255.255.255.255")
-        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("example",
-            name="example",
+            start_ip_address=0.0.0.0,
+            end_ip_address=255.255.255.255)
+        example_integration_runtime_azure = azure.synapse.integration_runtime_azure.IntegrationRuntimeAzure("example",
+            name=example,
             synapse_workspace_id=example_workspace.id,
             location=example.location)
         ```

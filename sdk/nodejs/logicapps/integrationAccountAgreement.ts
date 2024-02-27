@@ -9,62 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Logic App Integration Account Agreement.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const test = new azure.logicapps.IntegrationAccount("test", {
- *     name: "example-ia",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "Standard",
- * });
- * const host = new azure.logicapps.IntegrationAccountPartner("host", {
- *     name: "example-hostpartner",
- *     resourceGroupName: example.name,
- *     integrationAccountName: test.name,
- *     businessIdentities: [{
- *         qualifier: "AS2Identity",
- *         value: "FabrikamNY",
- *     }],
- * });
- * const guest = new azure.logicapps.IntegrationAccountPartner("guest", {
- *     name: "example-guestpartner",
- *     resourceGroupName: example.name,
- *     integrationAccountName: test.name,
- *     businessIdentities: [{
- *         qualifier: "AS2Identity",
- *         value: "FabrikamDC",
- *     }],
- * });
- * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("test", {
- *     name: "example-agreement",
- *     resourceGroupName: example.name,
- *     integrationAccountName: test.name,
- *     agreementType: "AS2",
- *     hostPartnerName: host.name,
- *     guestPartnerName: guest.name,
- *     content: std.file({
- *         input: "testdata/integration_account_agreement_content_as2.json",
- *     }).then(invoke => invoke.result),
- *     hostIdentity: {
- *         qualifier: "AS2Identity",
- *         value: "FabrikamNY",
- *     },
- *     guestIdentity: {
- *         qualifier: "AS2Identity",
- *         value: "FabrikamDC",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Logic App Integration Account Agreements can be imported using the `resource id`, e.g.

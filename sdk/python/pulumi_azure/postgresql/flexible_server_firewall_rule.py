@@ -171,23 +171,23 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("example",
-            name="example-psqlflexibleserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.postgresql.flexible_server.FlexibleServer("example",
+            name=example-psqlflexibleserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
+            version=12,
+            administrator_login=psqladmin,
+            administrator_password=H@Sh1CoR3!,
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_firewall_rule = azure.postgresql.FlexibleServerFirewallRule("example",
-            name="example-fw",
+            sku_name=GP_Standard_D4s_v3)
+        example_flexible_server_firewall_rule = azure.postgresql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=example-fw,
             server_id=example_flexible_server.id,
-            start_ip_address="122.122.0.0",
-            end_ip_address="122.122.0.0")
+            start_ip_address=122.122.0.0,
+            end_ip_address=122.122.0.0)
         ```
 
         ## Import
@@ -220,23 +220,23 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("example",
-            name="example-psqlflexibleserver",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_flexible_server = azure.postgresql.flexible_server.FlexibleServer("example",
+            name=example-psqlflexibleserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12",
-            administrator_login="psqladmin",
-            administrator_password="H@Sh1CoR3!",
+            version=12,
+            administrator_login=psqladmin,
+            administrator_password=H@Sh1CoR3!,
             storage_mb=32768,
-            sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_firewall_rule = azure.postgresql.FlexibleServerFirewallRule("example",
-            name="example-fw",
+            sku_name=GP_Standard_D4s_v3)
+        example_flexible_server_firewall_rule = azure.postgresql.flexible_server_firewall_rule.FlexibleServerFirewallRule("example",
+            name=example-fw,
             server_id=example_flexible_server.id,
-            start_ip_address="122.122.0.0",
-            end_ip_address="122.122.0.0")
+            start_ip_address=122.122.0.0,
+            end_ip_address=122.122.0.0)
         ```
 
         ## Import

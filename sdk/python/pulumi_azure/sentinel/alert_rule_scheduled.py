@@ -823,25 +823,25 @@ class AlertRuleScheduled(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_scheduled = azure.sentinel.AlertRuleScheduled("example",
-            name="example",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_scheduled = azure.sentinel.alert_rule_scheduled.AlertRuleScheduled("example",
+            name=example,
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example",
-            severity="High",
-            query=\"\"\"AzureActivity |
+            display_name=example,
+            severity=High,
+            query=AzureActivity |
           where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
           where ActivityStatus == "Succeeded" |
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -899,25 +899,25 @@ class AlertRuleScheduled(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_scheduled = azure.sentinel.AlertRuleScheduled("example",
-            name="example",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_scheduled = azure.sentinel.alert_rule_scheduled.AlertRuleScheduled("example",
+            name=example,
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
-            display_name="example",
-            severity="High",
-            query=\"\"\"AzureActivity |
+            display_name=example,
+            severity=High,
+            query=AzureActivity |
           where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment" |
           where ActivityStatus == "Succeeded" |
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
-        \"\"\")
+        )
         ```
 
         ## Import

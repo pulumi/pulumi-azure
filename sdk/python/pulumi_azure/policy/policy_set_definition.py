@@ -340,11 +340,11 @@ class PolicySetDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.policy.PolicySetDefinition("example",
-            name="testPolicySet",
-            policy_type="Custom",
-            display_name="Test Policy Set",
-            parameters=\"\"\"    {
+        example = azure.policy.policy_set_definition.PolicySetDefinition("example",
+            name=testPolicySet,
+            policy_type=Custom,
+            display_name=Test Policy Set,
+            parameters=    {
                 "allowedLocations": {
                     "type": "Array",
                     "metadata": {
@@ -354,14 +354,14 @@ class PolicySetDefinition(pulumi.CustomResource):
                     }
                 }
             }
-        \"\"\",
-            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                parameter_values=\"\"\"    {
+        ,
+            policy_definition_references=[{
+                policyDefinitionId: /providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988,
+                parameterValues:     {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
-        \"\"\",
-            )])
+        ,
+            }])
         ```
 
         ## Import
@@ -407,11 +407,11 @@ class PolicySetDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.policy.PolicySetDefinition("example",
-            name="testPolicySet",
-            policy_type="Custom",
-            display_name="Test Policy Set",
-            parameters=\"\"\"    {
+        example = azure.policy.policy_set_definition.PolicySetDefinition("example",
+            name=testPolicySet,
+            policy_type=Custom,
+            display_name=Test Policy Set,
+            parameters=    {
                 "allowedLocations": {
                     "type": "Array",
                     "metadata": {
@@ -421,14 +421,14 @@ class PolicySetDefinition(pulumi.CustomResource):
                     }
                 }
             }
-        \"\"\",
-            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                parameter_values=\"\"\"    {
+        ,
+            policy_definition_references=[{
+                policyDefinitionId: /providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988,
+                parameterValues:     {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
-        \"\"\",
-            )])
+        ,
+            }])
         ```
 
         ## Import

@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Policy to back up Kubernetes Cluster.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleBackupVault = new azure.dataprotection/backupVault.BackupVault("example", {
+ *     name: "example-backup-vault",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     datastoreType: "VaultStore",
+ *     redundancy: "LocallyRedundant",
+ * });
+ * const exampleBackupPolicyKubernetesCluster = new azure.dataprotection/backupPolicyKubernetesCluster.BackupPolicyKubernetesCluster("example", {
+ *     name: "example-backup-policy",
+ *     resourceGroupName: example.name,
+ *     vaultName: exampleBackupVault.name,
+ *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
+ *     timeZone: "India Standard Time",
+ *     defaultRetentionDuration: "P4M",
+ *     retentionRules: [{
+ *         name: "Daily",
+ *         priority: 25,
+ *         lifeCycles: [{
+ *             duration: "P84D",
+ *             dataStoreType: "OperationalStore",
+ *         }],
+ *         criteria: {
+ *             absoluteCriteria: "FirstOfDay",
+ *         },
+ *     }],
+ *     defaultRetentionRule: {
+ *         lifeCycles: [{
+ *             duration: "P7D",
+ *             dataStoreType: "OperationalStore",
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.

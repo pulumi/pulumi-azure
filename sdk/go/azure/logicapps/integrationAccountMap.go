@@ -14,60 +14,6 @@ import (
 
 // Manages a Logic App Integration Account Map.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
-//				Name:              pulumi.String("example-ia"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "testdata/integration_account_map_content.xsd",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = logicapps.NewIntegrationAccountMap(ctx, "example", &logicapps.IntegrationAccountMapArgs{
-//				Name:                   pulumi.String("example-iamap"),
-//				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				MapType:                pulumi.String("Xslt"),
-//				Content:                invokeFile.Result,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Logic App Integration Account Maps can be imported using the `resource id`, e.g.

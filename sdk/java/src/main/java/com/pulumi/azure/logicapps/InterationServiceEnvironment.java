@@ -30,12 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.logicapps.InterationServiceEnvironment;
  * import com.pulumi.azure.logicapps.InterationServiceEnvironmentArgs;
  * import java.util.List;
@@ -68,12 +66,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/27&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;integrationServiceEnvironments&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Logic/integrationServiceEnvironments&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var isesubnet2 = new Subnet(&#34;isesubnet2&#34;, SubnetArgs.builder()        
@@ -108,7 +101,7 @@ import javax.annotation.Nullable;
  *                 isesubnet2.id(),
  *                 isesubnet3.id(),
  *                 isesubnet4.id())
- *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

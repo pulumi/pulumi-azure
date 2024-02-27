@@ -263,40 +263,6 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Manages a Managed Private Endpoint for a Kusto Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_cluster_managed_private_endpoint = azure.kusto.ClusterManagedPrivateEndpoint("example",
-            name="examplempe",
-            resource_group_name=example.name,
-            cluster_name=example_cluster.name,
-            private_link_resource_id=example_account.id,
-            private_link_resource_region=example_account.location,
-            group_id="blob",
-            request_message="Please Approve")
-        ```
-
         ## Import
 
         Managed Private Endpoint for a Kusto Cluster can be imported using the `resource id`, e.g.
@@ -323,40 +289,6 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Private Endpoint for a Kusto Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_cluster_managed_private_endpoint = azure.kusto.ClusterManagedPrivateEndpoint("example",
-            name="examplempe",
-            resource_group_name=example.name,
-            cluster_name=example_cluster.name,
-            private_link_resource_id=example_account.id,
-            private_link_resource_region=example_account.location,
-            group_id="blob",
-            request_message="Please Approve")
-        ```
 
         ## Import
 

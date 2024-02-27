@@ -38,80 +38,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management API.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args) {
         return getApi(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management API.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args) {
@@ -120,80 +52,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management API.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getApi:getApi", TypeShape.of(GetApiResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management API.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .apiManagementName(&#34;search-api-management&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .revision(&#34;2&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiId&#34;, example.applyValue(getApiResult -&gt; getApiResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApiResult> getApiPlain(GetApiPlainArgs args, InvokeOptions options) {
@@ -202,78 +66,12 @@ public final class ApimanagementFunctions {
     /**
      * Uses this data source to access information about an API Version Set within an API Management Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args) {
         return getApiVersionSet(args, InvokeOptions.Empty);
     }
     /**
      * Uses this data source to access information about an API Version Set within an API Management Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args) {
@@ -282,78 +80,12 @@ public final class ApimanagementFunctions {
     /**
      * Uses this data source to access information about an API Version Set within an API Management Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetApiVersionSetResult> getApiVersionSet(GetApiVersionSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", TypeShape.of(GetApiVersionSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an API Version Set within an API Management Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetApiVersionSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getApiVersionSet(GetApiVersionSetArgs.builder()
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .apiManagementName(&#34;example-api&#34;)
-     *             .name(&#34;example-api-version-set&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementApiVersionSetId&#34;, example.applyValue(getApiVersionSetResult -&gt; getApiVersionSetResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApiVersionSetResult> getApiVersionSetPlain(GetApiVersionSetPlainArgs args, InvokeOptions options) {
@@ -362,86 +94,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args) {
         return getGateway(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args) {
@@ -450,86 +108,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-rg&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
@@ -538,102 +122,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(main.id())
-     *             .build());
-     * 
-     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args) {
         return getGatewayHostNameConfiguration(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(main.id())
-     *             .build());
-     * 
-     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args) {
@@ -642,102 +136,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(main.id())
-     *             .build());
-     * 
-     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", TypeShape.of(GetGatewayHostNameConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management Gateway Host Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayArgs;
-     * import com.pulumi.azure.apimanagement.inputs.GetGatewayHostNameConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .build());
-     * 
-     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(main.id())
-     *             .build());
-     * 
-     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
-     *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGatewayHostNameConfigurationResult> getGatewayHostNameConfigurationPlain(GetGatewayHostNameConfigurationPlainArgs args, InvokeOptions options) {
@@ -746,78 +150,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -826,78 +164,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my-group&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;groupType&#34;, example.applyValue(getGroupResult -&gt; getGroupResult.type()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -906,78 +178,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Product.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args) {
         return getProduct(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management Product.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args) {
@@ -986,78 +192,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Product.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management Product.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
-     *             .productId(&#34;my-product&#34;)
-     *             .apiManagementName(&#34;example-apim&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;productTerms&#34;, example.applyValue(getProductResult -&gt; getProductResult.terms()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
@@ -1066,76 +206,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
         return getService(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing API Management Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -1144,76 +220,12 @@ public final class ApimanagementFunctions {
     /**
      * Use this data source to access information about an existing API Management Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:apimanagement/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;search-api&#34;)
-     *             .resourceGroupName(&#34;search-service&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;apiManagementId&#34;, example.applyValue(getServiceResult -&gt; getServiceResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

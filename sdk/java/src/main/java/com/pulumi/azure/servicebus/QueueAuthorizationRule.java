@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
- *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;, QueueArgs.builder()        

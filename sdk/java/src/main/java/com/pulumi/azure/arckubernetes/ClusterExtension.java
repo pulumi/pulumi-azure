@@ -19,61 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Arc Kubernetes Cluster Extension.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.arckubernetes.Cluster;
- * import com.pulumi.azure.arckubernetes.ClusterArgs;
- * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
- * import com.pulumi.azure.arckubernetes.ClusterExtension;
- * import com.pulumi.azure.arckubernetes.ClusterExtensionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
- *             .name(&#34;example-resources&#34;)
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;example-akcc&#34;)
- *             .resourceGroupName(example.name())
- *             .location(&#34;West Europe&#34;)
- *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input(&#34;testdata/public.cer&#34;)
- *                 .build()).result())
- *             .identity(ClusterIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;ENV&#34;, &#34;Test&#34;))
- *             .build());
- * 
- *         var exampleClusterExtension = new ClusterExtension(&#34;exampleClusterExtension&#34;, ClusterExtensionArgs.builder()        
- *             .name(&#34;example-ext&#34;)
- *             .clusterId(exampleCluster.id())
- *             .extensionType(&#34;microsoft.flux&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

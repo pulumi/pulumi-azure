@@ -304,20 +304,20 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_resource_bridge_appliance = azure.arc.ResourceBridgeAppliance("example",
-            name="example-appliance",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_resource_bridge_appliance = azure.arc.resource_bridge_appliance.ResourceBridgeAppliance("example",
+            name=example-appliance,
             location=example.location,
             resource_group_name=example.name,
-            distro="AKSEdge",
-            infrastructure_provider="VMWare",
-            identity=azure.arc.ResourceBridgeApplianceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            distro=AKSEdge,
+            infrastructure_provider=VMWare,
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "hello": "world",
+                hello: world,
             })
         ```
 
@@ -355,20 +355,20 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_resource_bridge_appliance = azure.arc.ResourceBridgeAppliance("example",
-            name="example-appliance",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_resource_bridge_appliance = azure.arc.resource_bridge_appliance.ResourceBridgeAppliance("example",
+            name=example-appliance,
             location=example.location,
             resource_group_name=example.name,
-            distro="AKSEdge",
-            infrastructure_provider="VMWare",
-            identity=azure.arc.ResourceBridgeApplianceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            distro=AKSEdge,
+            infrastructure_provider=VMWare,
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "hello": "world",
+                hello: world,
             })
         ```
 

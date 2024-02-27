@@ -259,24 +259,6 @@ class RoleDefinition(pulumi.CustomResource):
         """
         Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example = azure.authorization.RoleDefinition("example",
-            name="my-custom-role",
-            scope=primary.id,
-            description="This is a custom role created",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["*"],
-                not_actions=[],
-            )],
-            assignable_scopes=[primary.id])
-        ```
-
         ## Import
 
         Role Definitions can be imported using the `resource id`, e.g.
@@ -304,24 +286,6 @@ class RoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        primary = azure.core.get_subscription()
-        example = azure.authorization.RoleDefinition("example",
-            name="my-custom-role",
-            scope=primary.id,
-            description="This is a custom role created",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["*"],
-                not_actions=[],
-            )],
-            assignable_scopes=[primary.id])
-        ```
 
         ## Import
 

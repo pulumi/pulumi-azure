@@ -21,80 +21,79 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	appservice/environment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/appservice/environment"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("exampleRG1"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-vnet1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ase, err := network.NewSubnet(ctx, "ase", &network.SubnetArgs{
-//				Name:               pulumi.String("asesubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewSubnet(ctx, "gateway", &network.SubnetArgs{
-//				Name:               pulumi.String("gatewaysubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewEnvironment(ctx, "example", &appservice.EnvironmentArgs{
-//				Name:                      pulumi.String("example-ase"),
-//				ResourceGroupName:         example.Name,
-//				SubnetId:                  ase.ID(),
-//				PricingTier:               pulumi.String("I2"),
-//				FrontEndScaleFactor:       pulumi.Int(10),
-//				InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
-//				AllowedUserIpCidrs: pulumi.StringArray{
-//					pulumi.String("11.22.33.44/32"),
-//					pulumi.String("55.66.77.0/24"),
-//				},
-//				ClusterSettings: appservice.EnvironmentClusterSettingArray{
-//					&appservice.EnvironmentClusterSettingArgs{
-//						Name:  pulumi.String("DisableTls1.0"),
-//						Value: pulumi.String("1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "exampleRG1",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet1",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// ase, err := network/subnet.NewSubnet(ctx, "ase", &network/subnet.SubnetArgs{
+// Name: "asesubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/subnet.NewSubnet(ctx, "gateway", &network/subnet.SubnetArgs{
+// Name: "gatewaysubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.2.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appservice/environment.NewEnvironment(ctx, "example", &appservice/environment.EnvironmentArgs{
+// Name: "example-ase",
+// ResourceGroupName: example.Name,
+// SubnetId: ase.Id,
+// PricingTier: "I2",
+// FrontEndScaleFactor: 10,
+// InternalLoadBalancingMode: "Web, Publishing",
+// AllowedUserIpCidrs: []string{
+// "11.22.33.44/32",
+// "55.66.77.0/24",
+// },
+// ClusterSettings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "DisableTls1.0",
+// "value": "1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -12,36 +12,6 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Web App.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleWebApp = new Azure.Bot.WebApp("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = "global",
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Bot Web App's can be imported using the `resource id`, e.g.

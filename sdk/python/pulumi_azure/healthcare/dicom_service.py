@@ -285,19 +285,19 @@ class DicomService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.healthcare.Workspace("test",
-            name="tfexworkspace",
-            resource_group_name="tfex-resource_group",
-            location="east us")
-        test_dicom_service = azure.healthcare.DicomService("test",
-            name="tfexDicom",
+        test = azure.healthcare.workspace.Workspace("test",
+            name=tfexworkspace,
+            resource_group_name=tfex-resource_group,
+            location=east us)
+        test_dicom_service = azure.healthcare.dicom_service.DicomService("test",
+            name=tfexDicom,
             workspace_id=test.id,
-            location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            location=east us,
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "environment": "None",
+                environment: None,
             })
         ```
 
@@ -333,19 +333,19 @@ class DicomService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test = azure.healthcare.Workspace("test",
-            name="tfexworkspace",
-            resource_group_name="tfex-resource_group",
-            location="east us")
-        test_dicom_service = azure.healthcare.DicomService("test",
-            name="tfexDicom",
+        test = azure.healthcare.workspace.Workspace("test",
+            name=tfexworkspace,
+            resource_group_name=tfex-resource_group,
+            location=east us)
+        test_dicom_service = azure.healthcare.dicom_service.DicomService("test",
+            name=tfexDicom,
             workspace_id=test.id,
-            location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            location=east us,
+            identity={
+                type: SystemAssigned,
+            },
             tags={
-                "environment": "None",
+                environment: None,
             })
         ```
 

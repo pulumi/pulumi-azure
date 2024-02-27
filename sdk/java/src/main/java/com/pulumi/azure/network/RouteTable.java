@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.network.RouteTable;
  * import com.pulumi.azure.network.RouteTableArgs;
- * import com.pulumi.azure.network.inputs.RouteTableRouteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,12 +58,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
- *             .routes(RouteTableRouteArgs.builder()
- *                 .name(&#34;route1&#34;)
- *                 .addressPrefix(&#34;10.1.0.0/16&#34;)
- *                 .nextHopType(&#34;VnetLocal&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .routes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

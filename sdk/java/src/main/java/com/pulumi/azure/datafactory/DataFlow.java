@@ -38,21 +38,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.LinkedCustomServiceArgs;
  * import com.pulumi.azure.datafactory.DatasetJson;
  * import com.pulumi.azure.datafactory.DatasetJsonArgs;
- * import com.pulumi.azure.datafactory.inputs.DatasetJsonAzureBlobStorageLocationArgs;
  * import com.pulumi.azure.datafactory.FlowletDataFlow;
  * import com.pulumi.azure.datafactory.FlowletDataFlowArgs;
- * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceArgs;
- * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceLinkedServiceArgs;
- * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSinkArgs;
- * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSinkLinkedServiceArgs;
  * import com.pulumi.azure.datafactory.DataFlow;
  * import com.pulumi.azure.datafactory.DataFlowArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSourceArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSourceFlowletArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSourceDatasetArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSinkArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSinkFlowletArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSinkDatasetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,22 +78,18 @@ import javax.annotation.Nullable;
  *             .name(&#34;linked_service&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .type(&#34;AzureBlobStorage&#34;)
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
+ *             .typePropertiesJson(&#34;&#34;&#34;
  * {
  *   &#34;connectionString&#34;: &#34;%s&#34;
  * }
- * &#34;, primaryConnectionString)))
+ * &#34;, exampleAccount.primaryConnectionString()))
  *             .build());
  * 
  *         var example1 = new DatasetJson(&#34;example1&#34;, DatasetJsonArgs.builder()        
  *             .name(&#34;dataset1&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
- *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
- *                 .container(&#34;container&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;foo.txt&#34;)
- *                 .build())
+ *             .azureBlobStorageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .encoding(&#34;UTF-8&#34;)
  *             .build());
  * 
@@ -112,29 +97,15 @@ import javax.annotation.Nullable;
  *             .name(&#34;dataset2&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
- *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
- *                 .container(&#34;container&#34;)
- *                 .path(&#34;foo/bar/&#34;)
- *                 .filename(&#34;bar.txt&#34;)
- *                 .build())
+ *             .azureBlobStorageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .encoding(&#34;UTF-8&#34;)
  *             .build());
  * 
  *         var example1FlowletDataFlow = new FlowletDataFlow(&#34;example1FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
- *             .sources(FlowletDataFlowSourceArgs.builder()
- *                 .name(&#34;source1&#34;)
- *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
- *                     .name(exampleLinkedCustomService.name())
- *                     .build())
- *                 .build())
- *             .sinks(FlowletDataFlowSinkArgs.builder()
- *                 .name(&#34;sink1&#34;)
- *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
- *                     .name(exampleLinkedCustomService.name())
- *                     .build())
- *                 .build())
+ *             .sources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .script(&#34;&#34;&#34;
  * source(
  *   allowSchemaDrift: true, 
@@ -153,18 +124,8 @@ import javax.annotation.Nullable;
  *         var example2FlowletDataFlow = new FlowletDataFlow(&#34;example2FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
- *             .sources(FlowletDataFlowSourceArgs.builder()
- *                 .name(&#34;source1&#34;)
- *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
- *                     .name(exampleLinkedCustomService.name())
- *                     .build())
- *                 .build())
- *             .sinks(FlowletDataFlowSinkArgs.builder()
- *                 .name(&#34;sink1&#34;)
- *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
- *                     .name(exampleLinkedCustomService.name())
- *                     .build())
- *                 .build())
+ *             .sources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .script(&#34;&#34;&#34;
  * source(
  *   allowSchemaDrift: true, 
@@ -183,26 +144,8 @@ import javax.annotation.Nullable;
  *         var exampleDataFlow = new DataFlow(&#34;exampleDataFlow&#34;, DataFlowArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
- *             .sources(DataFlowSourceArgs.builder()
- *                 .name(&#34;source1&#34;)
- *                 .flowlet(DataFlowSourceFlowletArgs.builder()
- *                     .name(example1FlowletDataFlow.name())
- *                     .parameters(Map.of(&#34;Key1&#34;, &#34;value1&#34;))
- *                     .build())
- *                 .dataset(DataFlowSourceDatasetArgs.builder()
- *                     .name(example1.name())
- *                     .build())
- *                 .build())
- *             .sinks(DataFlowSinkArgs.builder()
- *                 .name(&#34;sink1&#34;)
- *                 .flowlet(DataFlowSinkFlowletArgs.builder()
- *                     .name(example2FlowletDataFlow.name())
- *                     .parameters(Map.of(&#34;Key1&#34;, &#34;value1&#34;))
- *                     .build())
- *                 .dataset(DataFlowSinkDatasetArgs.builder()
- *                     .name(example2.name())
- *                     .build())
- *                 .build())
+ *             .sources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sinks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .script(&#34;&#34;&#34;
  * source(
  *   allowSchemaDrift: true, 

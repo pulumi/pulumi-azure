@@ -21,50 +21,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	cognitive/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cognitive/account"
+//	cognitive/deployment "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/cognitive/deployment"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
-//				Name:              pulumi.String("example-ca"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.String("OpenAI"),
-//				SkuName:           pulumi.String("S0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognitive.NewDeployment(ctx, "example", &cognitive.DeploymentArgs{
-//				Name:               pulumi.String("example-cd"),
-//				CognitiveAccountId: exampleAccount.ID(),
-//				Model: &cognitive.DeploymentModelArgs{
-//					Format:  pulumi.String("OpenAI"),
-//					Name:    pulumi.String("text-curie-001"),
-//					Version: pulumi.String("1"),
-//				},
-//				Scale: &cognitive.DeploymentScaleArgs{
-//					Type: pulumi.String("Standard"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := cognitive/account.NewAccount(ctx, "example", &cognitive/account.AccountArgs{
+// Name: "example-ca",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// Kind: "OpenAI",
+// SkuName: "S0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cognitive/deployment.NewDeployment(ctx, "example", &cognitive/deployment.DeploymentArgs{
+// Name: "example-cd",
+// CognitiveAccountId: exampleAccount.Id,
+// Model: map[string]interface{}{
+// "format": "OpenAI",
+// "name": "text-curie-001",
+// "version": "1",
+// },
+// Scale: map[string]interface{}{
+// "type": "Standard",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

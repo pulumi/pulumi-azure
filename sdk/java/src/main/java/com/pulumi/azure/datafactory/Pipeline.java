@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *         var test = new Pipeline(&#34;test&#34;, PipelineArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .dataFactoryId(testAzurermDataFactory.id())
- *             .variables(Map.of(&#34;bob&#34;, &#34;item1&#34;))
+ *             .variables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .activitiesJson(&#34;&#34;&#34;
  * [
  *     {

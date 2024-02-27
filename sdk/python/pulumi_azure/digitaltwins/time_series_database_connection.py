@@ -365,73 +365,73 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_instance = azure.digitaltwins.instance.Instance("example",
+            name=example-DT,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.digitaltwins.InstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="exampleEventHubNamespace",
+            identity={
+                type: SystemAssigned,
+            })
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=exampleEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="exampleEventHub",
+            sku=Standard)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=exampleEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=7)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="example-consumergroup",
+        example_consumer_group = azure.eventhub.consumer_group.ConsumerGroup("example",
+            name=example-consumergroup,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name)
-        example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
+        example_cluster = azure.kusto.cluster.Cluster("example",
+            name=examplekc,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="example-kusto-database",
+            sku={
+                name: Dev(No SLA)_Standard_D11_v2,
+                capacity: 1,
+            })
+        example_database = azure.kusto.database.Database("example",
+            name=example-kusto-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=example_cluster.name)
-        database_contributor = azure.authorization.Assignment("database_contributor",
+        database_contributor = azure.authorization.assignment.Assignment("database_contributor",
             scope=example_database.id,
             principal_id=example_instance.identity.principal_id,
-            role_definition_name="Contributor")
-        eventhub_data_owner = azure.authorization.Assignment("eventhub_data_owner",
+            role_definition_name=Contributor)
+        eventhub_data_owner = azure.authorization.assignment.Assignment("eventhub_data_owner",
             scope=example_event_hub.id,
             principal_id=example_instance.identity.principal_id,
-            role_definition_name="Azure Event Hubs Data Owner")
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("example",
-            name="dataadmin",
+            role_definition_name=Azure Event Hubs Data Owner)
+        example_database_principal_assignment = azure.kusto.database_principal_assignment.DatabasePrincipalAssignment("example",
+            name=dataadmin,
             resource_group_name=example.name,
             cluster_name=example_cluster.name,
             database_name=example_database.name,
             tenant_id=example_instance.identity.tenant_id,
             principal_id=example_instance.identity.principal_id,
-            principal_type="App",
-            role="Admin")
-        example_time_series_database_connection = azure.digitaltwins.TimeSeriesDatabaseConnection("example",
-            name="example-connection",
+            principal_type=App,
+            role=Admin)
+        example_time_series_database_connection = azure.digitaltwins.time_series_database_connection.TimeSeriesDatabaseConnection("example",
+            name=example-connection,
             digital_twins_id=example_instance.id,
             eventhub_name=example_event_hub.name,
             eventhub_namespace_id=example_event_hub_namespace.id,
-            eventhub_namespace_endpoint_uri=example_event_hub_namespace.name.apply(lambda name: f"sb://{name}.servicebus.windows.net"),
+            eventhub_namespace_endpoint_uri=fsb://{example_event_hub_namespace.name}.servicebus.windows.net,
             eventhub_consumer_group_name=example_consumer_group.name,
             kusto_cluster_id=example_cluster.id,
             kusto_cluster_uri=example_cluster.uri,
             kusto_database_name=example_database.name,
-            kusto_table_name="exampleTable")
+            kusto_table_name=exampleTable)
         ```
 
         ## Import
@@ -470,73 +470,73 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_instance = azure.digitaltwins.instance.Instance("example",
+            name=example-DT,
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.digitaltwins.InstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
-            name="exampleEventHubNamespace",
+            identity={
+                type: SystemAssigned,
+            })
+        example_event_hub_namespace = azure.eventhub.event_hub_namespace.EventHubNamespace("example",
+            name=exampleEventHubNamespace,
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("example",
-            name="exampleEventHub",
+            sku=Standard)
+        example_event_hub = azure.eventhub.event_hub.EventHub("example",
+            name=exampleEventHub,
             namespace_name=example_event_hub_namespace.name,
             resource_group_name=example.name,
             partition_count=2,
             message_retention=7)
-        example_consumer_group = azure.eventhub.ConsumerGroup("example",
-            name="example-consumergroup",
+        example_consumer_group = azure.eventhub.consumer_group.ConsumerGroup("example",
+            name=example-consumergroup,
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name)
-        example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
+        example_cluster = azure.kusto.cluster.Cluster("example",
+            name=examplekc,
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
-        example_database = azure.kusto.Database("example",
-            name="example-kusto-database",
+            sku={
+                name: Dev(No SLA)_Standard_D11_v2,
+                capacity: 1,
+            })
+        example_database = azure.kusto.database.Database("example",
+            name=example-kusto-database,
             resource_group_name=example.name,
             location=example.location,
             cluster_name=example_cluster.name)
-        database_contributor = azure.authorization.Assignment("database_contributor",
+        database_contributor = azure.authorization.assignment.Assignment("database_contributor",
             scope=example_database.id,
             principal_id=example_instance.identity.principal_id,
-            role_definition_name="Contributor")
-        eventhub_data_owner = azure.authorization.Assignment("eventhub_data_owner",
+            role_definition_name=Contributor)
+        eventhub_data_owner = azure.authorization.assignment.Assignment("eventhub_data_owner",
             scope=example_event_hub.id,
             principal_id=example_instance.identity.principal_id,
-            role_definition_name="Azure Event Hubs Data Owner")
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("example",
-            name="dataadmin",
+            role_definition_name=Azure Event Hubs Data Owner)
+        example_database_principal_assignment = azure.kusto.database_principal_assignment.DatabasePrincipalAssignment("example",
+            name=dataadmin,
             resource_group_name=example.name,
             cluster_name=example_cluster.name,
             database_name=example_database.name,
             tenant_id=example_instance.identity.tenant_id,
             principal_id=example_instance.identity.principal_id,
-            principal_type="App",
-            role="Admin")
-        example_time_series_database_connection = azure.digitaltwins.TimeSeriesDatabaseConnection("example",
-            name="example-connection",
+            principal_type=App,
+            role=Admin)
+        example_time_series_database_connection = azure.digitaltwins.time_series_database_connection.TimeSeriesDatabaseConnection("example",
+            name=example-connection,
             digital_twins_id=example_instance.id,
             eventhub_name=example_event_hub.name,
             eventhub_namespace_id=example_event_hub_namespace.id,
-            eventhub_namespace_endpoint_uri=example_event_hub_namespace.name.apply(lambda name: f"sb://{name}.servicebus.windows.net"),
+            eventhub_namespace_endpoint_uri=fsb://{example_event_hub_namespace.name}.servicebus.windows.net,
             eventhub_consumer_group_name=example_consumer_group.name,
             kusto_cluster_id=example_cluster.id,
             kusto_cluster_uri=example_cluster.uri,
             kusto_database_name=example_database.name,
-            kusto_table_name="exampleTable")
+            kusto_table_name=exampleTable)
         ```
 
         ## Import

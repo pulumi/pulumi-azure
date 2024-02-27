@@ -437,24 +437,24 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-automation-account",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="tfex-automation-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-automation-account,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=tfex-automation-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_schedule = azure.automation.Schedule("example",
-            name="tfex-automation-schedule",
+            sku_name=Basic)
+        example_schedule = azure.automation.schedule.Schedule("example",
+            name=tfex-automation-schedule,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            frequency="Week",
+            frequency=Week,
             interval=1,
-            timezone="Australia/Perth",
-            start_time="2014-04-15T18:00:15+02:00",
-            description="This is an example schedule",
-            week_days=["Friday"])
+            timezone=Australia/Perth,
+            start_time=2014-04-15T18:00:15+02:00,
+            description=This is an example schedule,
+            week_days=[Friday])
         ```
 
         ## Import
@@ -495,24 +495,24 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="tfex-automation-account",
-            location="West Europe")
-        example_account = azure.automation.Account("example",
-            name="tfex-automation-account",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=tfex-automation-account,
+            location=West Europe)
+        example_account = azure.automation.account.Account("example",
+            name=tfex-automation-account,
             location=example.location,
             resource_group_name=example.name,
-            sku_name="Basic")
-        example_schedule = azure.automation.Schedule("example",
-            name="tfex-automation-schedule",
+            sku_name=Basic)
+        example_schedule = azure.automation.schedule.Schedule("example",
+            name=tfex-automation-schedule,
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            frequency="Week",
+            frequency=Week,
             interval=1,
-            timezone="Australia/Perth",
-            start_time="2014-04-15T18:00:15+02:00",
-            description="This is an example schedule",
-            week_days=["Friday"])
+            timezone=Australia/Perth,
+            start_time=2014-04-15T18:00:15+02:00,
+            description=This is an example schedule,
+            week_days=[Friday])
         ```
 
         ## Import

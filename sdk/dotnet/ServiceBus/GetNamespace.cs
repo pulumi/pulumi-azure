@@ -13,66 +13,12 @@ namespace Pulumi.Azure.ServiceBus
     {
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Namespace.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ServiceBus.GetNamespace.Invoke(new()
-        ///     {
-        ///         Name = "examplenamespace",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["location"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.Location),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Namespace.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.ServiceBus.GetNamespace.Invoke(new()
-        ///     {
-        ///         Name = "examplenamespace",
-        ///         ResourceGroupName = "example-resources",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["location"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.Location),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

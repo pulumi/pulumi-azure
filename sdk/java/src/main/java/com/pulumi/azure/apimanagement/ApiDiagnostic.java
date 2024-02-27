@@ -38,16 +38,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.apimanagement.Api;
  * import com.pulumi.azure.apimanagement.ApiArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiImportArgs;
  * import com.pulumi.azure.apimanagement.Logger;
  * import com.pulumi.azure.apimanagement.LoggerArgs;
- * import com.pulumi.azure.apimanagement.inputs.LoggerApplicationInsightsArgs;
  * import com.pulumi.azure.apimanagement.ApiDiagnostic;
  * import com.pulumi.azure.apimanagement.ApiDiagnosticArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiDiagnosticFrontendRequestArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiDiagnosticFrontendResponseArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiDiagnosticBackendRequestArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiDiagnosticBackendResponseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,19 +84,14 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Example API&#34;)
  *             .path(&#34;example&#34;)
  *             .protocols(&#34;https&#34;)
- *             .import_(ApiImportArgs.builder()
- *                 .contentFormat(&#34;swagger-link-json&#34;)
- *                 .contentValue(&#34;http://conferenceapi.azurewebsites.net/?format=json&#34;)
- *                 .build())
+ *             .import_(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleLogger = new Logger(&#34;exampleLogger&#34;, LoggerArgs.builder()        
  *             .name(&#34;example-apimlogger&#34;)
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
- *                 .instrumentationKey(exampleInsights.instrumentationKey())
- *                 .build())
+ *             .applicationInsights(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleApiDiagnostic = new ApiDiagnostic(&#34;exampleApiDiagnostic&#34;, ApiDiagnosticArgs.builder()        
@@ -116,34 +105,10 @@ import javax.annotation.Nullable;
  *             .logClientIp(true)
  *             .verbosity(&#34;verbose&#34;)
  *             .httpCorrelationProtocol(&#34;W3C&#34;)
- *             .frontendRequest(ApiDiagnosticFrontendRequestArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;accept&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
- *             .frontendResponse(ApiDiagnosticFrontendResponseArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;content-length&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
- *             .backendRequest(ApiDiagnosticBackendRequestArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;accept&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
- *             .backendResponse(ApiDiagnosticBackendResponseArgs.builder()
- *                 .bodyBytes(32)
- *                 .headersToLogs(                
- *                     &#34;content-type&#34;,
- *                     &#34;content-length&#34;,
- *                     &#34;origin&#34;)
- *                 .build())
+ *             .frontendRequest(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .frontendResponse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendRequest(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .backendResponse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

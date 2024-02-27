@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Stream Analytics Job.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-//				Name:              "example-job",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("jobId", example.JobId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupJobResult

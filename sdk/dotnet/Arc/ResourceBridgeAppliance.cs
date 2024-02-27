@@ -22,22 +22,22 @@ namespace Pulumi.Azure.Arc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleResourceBridgeAppliance = new Azure.Arc.ResourceBridgeAppliance("example", new()
+    ///     var exampleResourceBridgeAppliance = new Azure.Arc.ResourceBridgeAppliance.ResourceBridgeAppliance("example", new()
     ///     {
     ///         Name = "example-appliance",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Distro = "AKSEdge",
     ///         InfrastructureProvider = "VMWare",
-    ///         Identity = new Azure.Arc.Inputs.ResourceBridgeApplianceIdentityArgs
+    ///         Identity = 
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             { "type", "SystemAssigned" },
     ///         },
     ///         Tags = 
     ///         {

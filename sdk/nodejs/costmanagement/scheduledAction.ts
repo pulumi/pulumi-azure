@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.costmanagement.ScheduledAction("example", {
+ * const example = new azure.costmanagement/scheduledAction.ScheduledAction("example", {
  *     name: "examplescheduledaction",
  *     displayName: "Report Last 6 Months",
  *     viewId: "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService",

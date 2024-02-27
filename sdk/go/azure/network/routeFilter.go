@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	network/routeFilter "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/routeFilter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := network.NewRouteFilter(ctx, "example", &network.RouteFilterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("East US"),
-//				Rule: &network.RouteFilterRuleArgs{
-//					Name:     pulumi.String("rule"),
-//					Access:   pulumi.String("Allow"),
-//					RuleType: pulumi.String("Community"),
-//					Communities: pulumi.StringArray{
-//						pulumi.String("12076:52004"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := network/routeFilter.NewRouteFilter(ctx, "example", &network/routeFilter.RouteFilterArgs{
+// Name: "example",
+// ResourceGroupName: "example",
+// Location: "East US",
+// Rule: map[string]interface{}{
+// "name": "rule",
+// "access": "Allow",
+// "ruleType": "Community",
+// "communities": []string{
+// "12076:52004",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

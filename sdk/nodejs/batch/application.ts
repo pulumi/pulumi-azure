@@ -13,18 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccount2 = new azure.batch.Account("example", {
+ * const exampleAccount2 = new azure.batch/account.Account("example", {
  *     name: "exampleba",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  *     storageAccountAuthenticationMode: "StorageKeys",
  * });
- * const exampleApplication = new azure.batch.Application("example", {
+ * const exampleApplication = new azure.batch/application.Application("example", {
  *     name: "example-batch-application",
  *     resourceGroupName: example.name,
  *     accountName: exampleAccount2.name,

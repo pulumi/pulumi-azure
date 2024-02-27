@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.appservice.Plan;
  * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
  * import com.pulumi.azure.appservice.FunctionApp;
  * import com.pulumi.azure.appservice.FunctionAppArgs;
  * import com.pulumi.azure.streamanalytics.Job;
@@ -71,10 +70,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .kind(&#34;FunctionApp&#34;)
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier(&#34;Dynamic&#34;)
- *                 .size(&#34;Y1&#34;)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        

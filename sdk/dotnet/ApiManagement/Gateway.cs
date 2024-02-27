@@ -22,13 +22,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     var exampleService = new Azure.Apimanagement.Service.Service("example", new()
     ///     {
     ///         Name = "example-apim",
     ///         Location = example.Location,
@@ -38,17 +38,17 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Consumption_0",
     ///     });
     /// 
-    ///     var exampleGateway = new Azure.ApiManagement.Gateway("example", new()
+    ///     var exampleGateway = new Azure.Apimanagement.Gateway.Gateway("example", new()
     ///     {
     ///         Name = "example-gateway",
     ///         ApiManagementId = exampleService.Id,
     ///         Description = "Example API Management gateway",
-    ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
+    ///         LocationData = 
     ///         {
-    ///             Name = "example name",
-    ///             City = "example city",
-    ///             District = "example district",
-    ///             Region = "example region",
+    ///             { "name", "example name" },
+    ///             { "city", "example city" },
+    ///             { "district", "example district" },
+    ///             { "region", "example region" },
     ///         },
     ///     });
     /// 

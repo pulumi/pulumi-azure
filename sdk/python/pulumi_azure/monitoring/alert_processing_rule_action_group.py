@@ -338,51 +338,51 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-action-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-action-group,
             resource_group_name=example.name,
-            short_name="action")
-        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("example",
-            name="example",
-            resource_group_name="example",
+            short_name=action)
+        example_alert_processing_rule_action_group = azure.monitoring.alert_processing_rule_action_group.AlertProcessingRuleActionGroup("example",
+            name=example,
+            resource_group_name=example,
             scopes=[example.id],
             add_action_group_ids=[example_action_group.id],
-            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
+            condition={
+                targetResourceType: {
+                    operator: Equals,
+                    values: [Microsoft.Compute/VirtualMachines],
+                },
+                severity: {
+                    operator: Equals,
+                    values: [
+                        Sev0,
+                        Sev1,
+                        Sev2,
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
+                },
+            },
+            schedule={
+                effectiveFrom: 2022-01-01T01:02:03,
+                effectiveUntil: 2022-02-02T01:02:03,
+                timeZone: Pacific Standard Time,
+                recurrence: {
+                    dailies: [{
+                        startTime: 17:00:00,
+                        endTime: 09:00:00,
+                    }],
+                    weeklies: [{
+                        daysOfWeeks: [
+                            Saturday,
+                            Sunday,
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -421,51 +421,51 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("example",
-            name="example-action-group",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_action_group = azure.monitoring.action_group.ActionGroup("example",
+            name=example-action-group,
             resource_group_name=example.name,
-            short_name="action")
-        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("example",
-            name="example",
-            resource_group_name="example",
+            short_name=action)
+        example_alert_processing_rule_action_group = azure.monitoring.alert_processing_rule_action_group.AlertProcessingRuleActionGroup("example",
+            name=example,
+            resource_group_name=example,
             scopes=[example.id],
             add_action_group_ids=[example_action_group.id],
-            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
-                        "Sev0",
-                        "Sev1",
-                        "Sev2",
+            condition={
+                targetResourceType: {
+                    operator: Equals,
+                    values: [Microsoft.Compute/VirtualMachines],
+                },
+                severity: {
+                    operator: Equals,
+                    values: [
+                        Sev0,
+                        Sev1,
+                        Sev2,
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
-                            "Saturday",
-                            "Sunday",
+                },
+            },
+            schedule={
+                effectiveFrom: 2022-01-01T01:02:03,
+                effectiveUntil: 2022-02-02T01:02:03,
+                timeZone: Pacific Standard Time,
+                recurrence: {
+                    dailies: [{
+                        startTime: 17:00:00,
+                        endTime: 09:00:00,
+                    }],
+                    weeklies: [{
+                        daysOfWeeks: [
+                            Saturday,
+                            Sunday,
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

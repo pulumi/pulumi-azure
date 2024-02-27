@@ -28,57 +28,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Microsoft SQL Virtual Machine
  * 
- * ## Example Usage
- * 
- * This example provisions a brief Managed Microsoft SQL Virtual Machine.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.compute.ComputeFunctions;
- * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
- * import com.pulumi.azure.mssql.VirtualMachine;
- * import com.pulumi.azure.mssql.VirtualMachineArgs;
- * import com.pulumi.azure.mssql.inputs.VirtualMachineAutoPatchingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
- *             .name(&#34;example-vm&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build());
- * 
- *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .virtualMachineId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
- *             .sqlLicenseType(&#34;PAYG&#34;)
- *             .rServicesEnabled(true)
- *             .sqlConnectivityPort(1433)
- *             .sqlConnectivityType(&#34;PRIVATE&#34;)
- *             .sqlConnectivityUpdatePassword(&#34;Password1234!&#34;)
- *             .sqlConnectivityUpdateUsername(&#34;sqllogin&#34;)
- *             .autoPatching(VirtualMachineAutoPatchingArgs.builder()
- *                 .dayOfWeek(&#34;Sunday&#34;)
- *                 .maintenanceWindowDurationInMinutes(60)
- *                 .maintenanceWindowStartingHour(2)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Microsoft SQL Virtual Machines can be imported using the `resource id`, e.g.

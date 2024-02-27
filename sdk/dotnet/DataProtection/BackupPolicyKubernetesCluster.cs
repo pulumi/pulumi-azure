@@ -12,6 +12,78 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Policy to back up Kubernetes Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.Dataprotection.BackupVault.BackupVault("example", new()
+    ///     {
+    ///         Name = "example-backup-vault",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyKubernetesCluster = new Azure.Dataprotection.BackupPolicyKubernetesCluster.BackupPolicyKubernetesCluster("example", new()
+    ///     {
+    ///         Name = "example-backup-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         TimeZone = "India Standard Time",
+    ///         DefaultRetentionDuration = "P4M",
+    ///         RetentionRules = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "name", "Daily" },
+    ///                 { "priority", 25 },
+    ///                 { "lifeCycles", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "duration", "P84D" },
+    ///                         { "dataStoreType", "OperationalStore" },
+    ///                     },
+    ///                 } },
+    ///                 { "criteria", 
+    ///                 {
+    ///                     { "absoluteCriteria", "FirstOfDay" },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         DefaultRetentionRule = 
+    ///         {
+    ///             { "lifeCycles", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "duration", "P7D" },
+    ///                     { "dataStoreType", "OperationalStore" },
+    ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.

@@ -13,30 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleDedicatedHostGroup = new azure.compute.DedicatedHostGroup("example", {
+ * const exampleDedicatedHostGroup = new azure.compute/dedicatedHostGroup.DedicatedHostGroup("example", {
  *     name: "example-host-group",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     platformFaultDomainCount: 2,
  * });
- * const exampleDedicatedHost = new azure.compute.DedicatedHost("example", {
+ * const exampleDedicatedHost = new azure.compute/dedicatedHost.DedicatedHost("example", {
  *     name: "example-host",
  *     location: example.location,
  *     dedicatedHostGroupId: exampleDedicatedHostGroup.id,
  *     skuName: "DSv3-Type3",
  *     platformFaultDomain: 1,
  * });
- * const exampleConfiguration = new azure.maintenance.Configuration("example", {
+ * const exampleConfiguration = new azure.maintenance/configuration.Configuration("example", {
  *     name: "example-mc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     scope: "Host",
  * });
- * const exampleAssignmentDedicatedHost = new azure.maintenance.AssignmentDedicatedHost("example", {
+ * const exampleAssignmentDedicatedHost = new azure.maintenance/assignmentDedicatedHost.AssignmentDedicatedHost("example", {
  *     location: example.location,
  *     maintenanceConfigurationId: exampleConfiguration.id,
  *     dedicatedHostId: exampleDedicatedHost.id,

@@ -289,10 +289,10 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.SubscriptionTemplateDeployment("example",
-            name="example-deployment",
-            location="West Europe",
-            template_content=\"\"\" {
+        example = azure.core.subscription_template_deployment.SubscriptionTemplateDeployment("example",
+            name=example-deployment,
+            location=West Europe,
+            template_content= {
            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
            "contentVersion": "1.0.0.0",
            "parameters": {},
@@ -307,7 +307,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
              }
            ]
          }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -343,10 +343,10 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.SubscriptionTemplateDeployment("example",
-            name="example-deployment",
-            location="West Europe",
-            template_content=\"\"\" {
+        example = azure.core.subscription_template_deployment.SubscriptionTemplateDeployment("example",
+            name=example-deployment,
+            location=West Europe,
+            template_content= {
            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
            "contentVersion": "1.0.0.0",
            "parameters": {},
@@ -361,7 +361,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
              }
            ]
          }
-        \"\"\")
+        )
         ```
 
         ## Import

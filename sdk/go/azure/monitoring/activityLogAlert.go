@@ -21,74 +21,73 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	monitoring/actionGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/actionGroup"
+//	monitoring/activityLogAlert "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/monitoring/activityLogAlert"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-actiongroup"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("p0action"),
-//				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
-//					&monitoring.ActionGroupWebhookReceiverArgs{
-//						Name:       pulumi.String("callmyapi"),
-//						ServiceUri: pulumi.String("http://example.com/alert"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			toMonitor, err := storage.NewAccount(ctx, "to_monitor", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = monitoring.NewActivityLogAlert(ctx, "main", &monitoring.ActivityLogAlertArgs{
-//				Name:              pulumi.String("example-activitylogalert"),
-//				ResourceGroupName: example.Name,
-//				Scopes: pulumi.StringArray{
-//					example.ID(),
-//				},
-//				Description: pulumi.String("This alert will monitor a specific storage account updates."),
-//				Criteria: &monitoring.ActivityLogAlertCriteriaArgs{
-//					ResourceId:    toMonitor.ID(),
-//					OperationName: pulumi.String("Microsoft.Storage/storageAccounts/write"),
-//					Category:      pulumi.String("Recommendation"),
-//				},
-//				Actions: monitoring.ActivityLogAlertActionArray{
-//					&monitoring.ActivityLogAlertActionArgs{
-//						ActionGroupId: main.ID(),
-//						WebhookProperties: pulumi.StringMap{
-//							"from": pulumi.String("source"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// main, err := monitoring/actionGroup.NewActionGroup(ctx, "main", &monitoring/actionGroup.ActionGroupArgs{
+// Name: "example-actiongroup",
+// ResourceGroupName: example.Name,
+// ShortName: "p0action",
+// WebhookReceivers: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "callmyapi",
+// "serviceUri": "http://example.com/alert",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// toMonitor, err := storage/account.NewAccount(ctx, "to_monitor", &storage/account.AccountArgs{
+// Name: "examplesa",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "GRS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = monitoring/activityLogAlert.NewActivityLogAlert(ctx, "main", &monitoring/activityLogAlert.ActivityLogAlertArgs{
+// Name: "example-activitylogalert",
+// ResourceGroupName: example.Name,
+// Scopes: []interface{}{
+// example.Id,
+// },
+// Description: "This alert will monitor a specific storage account updates.",
+// Criteria: map[string]interface{}{
+// "resourceId": toMonitor.Id,
+// "operationName": "Microsoft.Storage/storageAccounts/write",
+// "category": "Recommendation",
+// },
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "actionGroupId": main.Id,
+// "webhookProperties": map[string]interface{}{
+// "from": "source",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

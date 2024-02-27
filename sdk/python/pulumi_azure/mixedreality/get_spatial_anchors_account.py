@@ -113,17 +113,6 @@ def get_spatial_anchors_account(name: Optional[str] = None,
     """
     Get information about an Azure Spatial Anchors Account.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.mixedreality.get_spatial_anchors_account(name="example",
-        resource_group_name=example_azurerm_resource_group["name"])
-    pulumi.export("accountDomain", account_domain_azurerm_spatial_anchors_account)
-    ```
-
 
     :param str name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
     :param str resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
@@ -150,17 +139,6 @@ def get_spatial_anchors_account_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
     """
     Get information about an Azure Spatial Anchors Account.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azure as azure
-
-    example = azure.mixedreality.get_spatial_anchors_account(name="example",
-        resource_group_name=example_azurerm_resource_group["name"])
-    pulumi.export("accountDomain", account_domain_azurerm_spatial_anchors_account)
-    ```
 
 
     :param str name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.

@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.CapacityReservationGroupArgs;
  * import com.pulumi.azure.compute.CapacityReservation;
  * import com.pulumi.azure.compute.CapacityReservationArgs;
- * import com.pulumi.azure.compute.inputs.CapacityReservationSkuArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,10 +59,7 @@ import javax.annotation.Nullable;
  *         var exampleCapacityReservation = new CapacityReservation(&#34;exampleCapacityReservation&#34;, CapacityReservationArgs.builder()        
  *             .name(&#34;example-capacity-reservation&#34;)
  *             .capacityReservationGroupId(exampleCapacityReservationGroup.id())
- *             .sku(CapacityReservationSkuArgs.builder()
- *                 .name(&#34;Standard_D2s_v3&#34;)
- *                 .capacity(1)
- *                 .build())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

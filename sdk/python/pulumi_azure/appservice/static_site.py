@@ -341,11 +341,11 @@ class StaticSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_static_site = azure.appservice.StaticSite("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_static_site = azure.appservice.static_site.StaticSite("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -386,11 +386,11 @@ class StaticSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_static_site = azure.appservice.StaticSite("example",
-            name="example",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_static_site = azure.appservice.static_site.StaticSite("example",
+            name=example,
             resource_group_name=example.name,
             location=example.location)
         ```

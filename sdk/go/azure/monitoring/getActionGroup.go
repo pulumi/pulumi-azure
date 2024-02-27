@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access the properties of an Action Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := monitoring.LookupActionGroup(ctx, &monitoring.LookupActionGroupArgs{
-//				ResourceGroupName: "example-rg",
-//				Name:              "tfex-actiongroup",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("actionGroupId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActionGroupResult

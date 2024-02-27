@@ -21,101 +21,103 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/firewall "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/firewall"
+//	network/firewallApplicationRuleCollection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/firewallApplicationRuleCollection"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("testvnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("AzureFirewallSubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("testpip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFirewall, err := network.NewFirewall(ctx, "example", &network.FirewallArgs{
-//				Name:              pulumi.String("testfirewall"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("AZFW_VNet"),
-//				SkuTier:           pulumi.String("Standard"),
-//				IpConfigurations: network.FirewallIpConfigurationArray{
-//					&network.FirewallIpConfigurationArgs{
-//						Name:              pulumi.String("configuration"),
-//						SubnetId:          exampleSubnet.ID(),
-//						PublicIpAddressId: examplePublicIp.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewFirewallApplicationRuleCollection(ctx, "example", &network.FirewallApplicationRuleCollectionArgs{
-//				Name:              pulumi.String("testcollection"),
-//				AzureFirewallName: exampleFirewall.Name,
-//				ResourceGroupName: example.Name,
-//				Priority:          pulumi.Int(100),
-//				Action:            pulumi.String("Allow"),
-//				Rules: network.FirewallApplicationRuleCollectionRuleArray{
-//					&network.FirewallApplicationRuleCollectionRuleArgs{
-//						Name: pulumi.String("testrule"),
-//						SourceAddresses: pulumi.StringArray{
-//							pulumi.String("10.0.0.0/16"),
-//						},
-//						TargetFqdns: pulumi.StringArray{
-//							pulumi.String("*.google.com"),
-//						},
-//						Protocols: network.FirewallApplicationRuleCollectionRuleProtocolArray{
-//							&network.FirewallApplicationRuleCollectionRuleProtocolArgs{
-//								Port: pulumi.Int(443),
-//								Type: pulumi.String("Https"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "testvnet",
+// AddressSpaces: []string{
+// "10.0.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "AzureFirewallSubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.0.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "testpip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleFirewall, err := network/firewall.NewFirewall(ctx, "example", &network/firewall.FirewallArgs{
+// Name: "testfirewall",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// SkuName: "AZFW_VNet",
+// SkuTier: "Standard",
+// IpConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "configuration",
+// "subnetId": exampleSubnet.Id,
+// "publicIpAddressId": examplePublicIp.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/firewallApplicationRuleCollection.NewFirewallApplicationRuleCollection(ctx, "example", &network/firewallApplicationRuleCollection.FirewallApplicationRuleCollectionArgs{
+// Name: "testcollection",
+// AzureFirewallName: exampleFirewall.Name,
+// ResourceGroupName: example.Name,
+// Priority: 100,
+// Action: "Allow",
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "testrule",
+// "sourceAddresses": []string{
+// "10.0.0.0/16",
+// },
+// "targetFqdns": []string{
+// "*.google.com",
+// },
+// "protocols": []map[string]interface{}{
+// map[string]interface{}{
+// "port": "443",
+// "type": "Https",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

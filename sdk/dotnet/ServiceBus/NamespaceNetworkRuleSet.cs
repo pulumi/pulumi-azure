@@ -26,13 +26,13 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     var exampleNamespace = new Azure.Servicebus.Namespace.Namespace("example", new()
     ///     {
     ///         Name = "example-sb-namespace",
     ///         Location = example.Location,
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork.VirtualNetwork("example", new()
     ///     {
     ///         Name = "example-vnet",
     ///         Location = example.Location,
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet.Subnet("example", new()
     ///     {
     ///         Name = "default",
     ///         ResourceGroupName = example.Name,
@@ -72,17 +72,17 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("example", new()
+    ///     var exampleNamespaceNetworkRuleSet = new Azure.Servicebus.NamespaceNetworkRuleSet.NamespaceNetworkRuleSet("example", new()
     ///     {
     ///         NamespaceId = exampleNamespace.Id,
     ///         DefaultAction = "Deny",
     ///         PublicNetworkAccessEnabled = true,
     ///         NetworkRules = new[]
     ///         {
-    ///             new Azure.ServiceBus.Inputs.NamespaceNetworkRuleSetNetworkRuleArgs
+    ///             
     ///             {
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 IgnoreMissingVnetServiceEndpoint = false,
+    ///                 { "subnetId", exampleSubnet.Id },
+    ///                 { "ignoreMissingVnetServiceEndpoint", false },
     ///             },
     ///         },
     ///         IpRules = new[]

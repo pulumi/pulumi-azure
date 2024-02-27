@@ -13,28 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-rg",
  *     location: "East US",
  * });
- * const exampleVault = new azure.recoveryservices.Vault("example", {
+ * const exampleVault = new azure.recoveryservices/vault.Vault("example", {
  *     name: "example-recovery-vault",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleHyperVSite = new azure.siterecovery.HyperVSite("example", {
+ * const exampleHyperVSite = new azure.siterecovery/hyperVSite.HyperVSite("example", {
  *     recoveryVaultId: exampleVault.id,
  *     name: "example-site",
  * });
- * const exampleHyperVReplicationPolicy = new azure.siterecovery.HyperVReplicationPolicy("example", {
+ * const exampleHyperVReplicationPolicy = new azure.siterecovery/hyperVReplicationPolicy.HyperVReplicationPolicy("example", {
  *     name: "policy",
  *     recoveryVaultId: exampleVault.id,
  *     recoveryPointRetentionInHours: 2,
  *     applicationConsistentSnapshotFrequencyInHours: 1,
  *     replicationIntervalInSeconds: 300,
  * });
- * const exampleHyperVReplicationPolicyAssociation = new azure.siterecovery.HyperVReplicationPolicyAssociation("example", {
+ * const exampleHyperVReplicationPolicyAssociation = new azure.siterecovery/hyperVReplicationPolicyAssociation.HyperVReplicationPolicyAssociation("example", {
  *     name: "example-association",
  *     hypervSiteId: exampleHyperVSite.id,
  *     policyId: exampleHyperVReplicationPolicy.id,

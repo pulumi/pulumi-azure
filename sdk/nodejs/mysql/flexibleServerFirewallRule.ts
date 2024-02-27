@@ -14,16 +14,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ * const exampleFlexibleServer = new azure.mysql/flexibleServer.FlexibleServer("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleFlexibleServerFirewallRule = new azure.mysql.FlexibleServerFirewallRule("example", {
+ * const exampleFlexibleServerFirewallRule = new azure.mysql/flexibleServerFirewallRule.FlexibleServerFirewallRule("example", {
  *     name: "office",
  *     resourceGroupName: example.name,
  *     serverName: exampleFlexibleServer.name,
@@ -37,16 +37,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ * const exampleFlexibleServer = new azure.mysql/flexibleServer.FlexibleServer("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleFlexibleServerFirewallRule = new azure.mysql.FlexibleServerFirewallRule("example", {
+ * const exampleFlexibleServerFirewallRule = new azure.mysql/flexibleServerFirewallRule.FlexibleServerFirewallRule("example", {
  *     name: "office",
  *     resourceGroupName: example.name,
  *     serverName: exampleFlexibleServer.name,
@@ -60,16 +60,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "api-rg-pro",
  *     location: "West Europe",
  * });
- * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ * const exampleFlexibleServer = new azure.mysql/flexibleServer.FlexibleServer("example", {
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
- * const exampleFlexibleServerFirewallRule = new azure.mysql.FlexibleServerFirewallRule("example", {
+ * const exampleFlexibleServerFirewallRule = new azure.mysql/flexibleServerFirewallRule.FlexibleServerFirewallRule("example", {
  *     name: "office",
  *     resourceGroupName: example.name,
  *     serverName: exampleFlexibleServer.name,

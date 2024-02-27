@@ -705,55 +705,55 @@ class HBaseCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="hdinsightstor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=hdinsightstor,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="hdinsight",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=hdinsight,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_h_base_cluster = azure.hdinsight.HBaseCluster("example",
-            name="example-hdicluster",
+            container_access_type=private)
+        example_h_base_cluster = azure.hdinsight.h_base_cluster.HBaseCluster("example",
+            name=example-hdicluster,
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.HBaseClusterComponentVersionArgs(
-                hbase="1.1",
-            ),
-            gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.HBaseClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.HBaseClusterRolesArgs(
-                head_node=azure.hdinsight.HBaseClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.HBaseClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.HBaseClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            cluster_version=3.6,
+            tier=Standard,
+            component_version={
+                hbase: 1.1,
+            },
+            gateway={
+                username: acctestusrgw,
+                password: Password123!,
+            },
+            storage_accounts=[{
+                storageContainerId: example_container.id,
+                storageAccountKey: example_account.primary_access_key,
+                isDefault: True,
+            }],
+            roles={
+                headNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+                workerNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                    targetInstanceCount: 3,
+                },
+                zookeeperNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+            })
         ```
 
         ## Import
@@ -803,55 +803,55 @@ class HBaseCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="hdinsightstor",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_account = azure.storage.account.Account("example",
+            name=hdinsightstor,
             resource_group_name=example.name,
             location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("example",
-            name="hdinsight",
+            account_tier=Standard,
+            account_replication_type=LRS)
+        example_container = azure.storage.container.Container("example",
+            name=hdinsight,
             storage_account_name=example_account.name,
-            container_access_type="private")
-        example_h_base_cluster = azure.hdinsight.HBaseCluster("example",
-            name="example-hdicluster",
+            container_access_type=private)
+        example_h_base_cluster = azure.hdinsight.h_base_cluster.HBaseCluster("example",
+            name=example-hdicluster,
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
-            component_version=azure.hdinsight.HBaseClusterComponentVersionArgs(
-                hbase="1.1",
-            ),
-            gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.HBaseClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.HBaseClusterRolesArgs(
-                head_node=azure.hdinsight.HBaseClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.HBaseClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.HBaseClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            cluster_version=3.6,
+            tier=Standard,
+            component_version={
+                hbase: 1.1,
+            },
+            gateway={
+                username: acctestusrgw,
+                password: Password123!,
+            },
+            storage_accounts=[{
+                storageContainerId: example_container.id,
+                storageAccountKey: example_account.primary_access_key,
+                isDefault: True,
+            }],
+            roles={
+                headNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+                workerNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                    targetInstanceCount: 3,
+                },
+                zookeeperNode: {
+                    vmSize: Standard_D3_V2,
+                    username: acctestusrvm,
+                    password: AccTestvdSC4daf986!,
+                },
+            })
         ```
 
         ## Import

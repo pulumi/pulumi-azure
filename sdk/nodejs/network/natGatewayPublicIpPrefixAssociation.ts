@@ -13,24 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("example", {
+ * const examplePublicIpPrefix = new azure.network/publicIpPrefix.PublicIpPrefix("example", {
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     prefixLength: 30,
  *     zones: ["1"],
  * });
- * const exampleNatGateway = new azure.network.NatGateway("example", {
+ * const exampleNatGateway = new azure.network/natGateway.NatGateway("example", {
  *     name: "example-NatGateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleNatGatewayPublicIpPrefixAssociation = new azure.network.NatGatewayPublicIpPrefixAssociation("example", {
+ * const exampleNatGatewayPublicIpPrefixAssociation = new azure.network/natGatewayPublicIpPrefixAssociation.NatGatewayPublicIpPrefixAssociation("example", {
  *     natGatewayId: exampleNatGateway.id,
  *     publicIpPrefixId: examplePublicIpPrefix.id,
  * });

@@ -14,6 +14,79 @@ import (
 
 // Manages a Backup Policy to back up Kubernetes Cluster.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	dataprotection/backupPolicyKubernetesCluster "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupPolicyKubernetesCluster"
+//	dataprotection/backupVault "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/dataprotection/backupVault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleBackupVault, err := dataprotection/backupVault.NewBackupVault(ctx, "example", &dataprotection/backupVault.BackupVaultArgs{
+// Name: "example-backup-vault",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// DatastoreType: "VaultStore",
+// Redundancy: "LocallyRedundant",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dataprotection/backupPolicyKubernetesCluster.NewBackupPolicyKubernetesCluster(ctx, "example", &dataprotection/backupPolicyKubernetesCluster.BackupPolicyKubernetesClusterArgs{
+// Name: "example-backup-policy",
+// ResourceGroupName: example.Name,
+// VaultName: exampleBackupVault.Name,
+// BackupRepeatingTimeIntervals: []string{
+// "R/2021-05-23T02:30:00+00:00/P1W",
+// },
+// TimeZone: "India Standard Time",
+// DefaultRetentionDuration: "P4M",
+// RetentionRules: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Daily",
+// "priority": 25,
+// "lifeCycles": []map[string]interface{}{
+// map[string]interface{}{
+// "duration": "P84D",
+// "dataStoreType": "OperationalStore",
+// },
+// },
+// "criteria": map[string]interface{}{
+// "absoluteCriteria": "FirstOfDay",
+// },
+// },
+// },
+// DefaultRetentionRule: map[string]interface{}{
+// "lifeCycles": []map[string]interface{}{
+// map[string]interface{}{
+// "duration": "P7D",
+// "dataStoreType": "OperationalStore",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.

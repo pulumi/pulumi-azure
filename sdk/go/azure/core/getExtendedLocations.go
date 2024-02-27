@@ -12,32 +12,6 @@ import (
 )
 
 // This data source return the available Extended Locations for a specific Azure Region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.GetExtendedLocations(ctx, &core.GetExtendedLocationsArgs{
-//				Location: "West Europe",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetExtendedLocations(ctx *pulumi.Context, args *GetExtendedLocationsArgs, opts ...pulumi.InvokeOption) (*GetExtendedLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExtendedLocationsResult

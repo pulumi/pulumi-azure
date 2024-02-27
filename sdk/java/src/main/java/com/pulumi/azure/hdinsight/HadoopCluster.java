@@ -46,13 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.hdinsight.HadoopCluster;
  * import com.pulumi.azure.hdinsight.HadoopClusterArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterComponentVersionArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterStorageAccountArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesHeadNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesWorkerNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesZookeeperNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,36 +84,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .clusterVersion(&#34;3.6&#34;)
  *             .tier(&#34;Standard&#34;)
- *             .componentVersion(HadoopClusterComponentVersionArgs.builder()
- *                 .hadoop(&#34;2.7&#34;)
- *                 .build())
- *             .gateway(HadoopClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;PAssword123!&#34;)
- *                 .build())
- *             .storageAccounts(HadoopClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
- *                 .build())
- *             .roles(HadoopClusterRolesArgs.builder()
- *                 .headNode(HadoopClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .workerNode(HadoopClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D4_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .targetInstanceCount(3)
- *                     .build())
- *                 .zookeeperNode(HadoopClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Standard_D3_V2&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .build())
+ *             .componentVersion(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .gateway(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .roles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

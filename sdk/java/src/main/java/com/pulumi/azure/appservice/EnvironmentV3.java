@@ -34,15 +34,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.VirtualNetwork;
- * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetwork;
+ * import com.pulumi.azure.network_virtualNetwork.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
- * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.appservice.EnvironmentV3;
  * import com.pulumi.azure.appservice.EnvironmentV3Args;
- * import com.pulumi.azure.appservice.inputs.EnvironmentV3ClusterSettingArgs;
  * import com.pulumi.azure.appservice.ServicePlan;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import java.util.List;
@@ -75,13 +72,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name(&#34;Microsoft.Web.hostingEnvironments&#34;)
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name(&#34;Microsoft.Web/hostingEnvironments&#34;)
- *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
- *                     .build())
- *                 .build())
+ *             .delegations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEnvironmentV3 = new EnvironmentV3(&#34;exampleEnvironmentV3&#34;, EnvironmentV3Args.builder()        
@@ -90,22 +81,10 @@ import javax.annotation.Nullable;
  *             .subnetId(exampleSubnet.id())
  *             .internalLoadBalancingMode(&#34;Web, Publishing&#34;)
  *             .clusterSettings(            
- *                 EnvironmentV3ClusterSettingArgs.builder()
- *                     .name(&#34;DisableTls1.0&#34;)
- *                     .value(&#34;1&#34;)
- *                     .build(),
- *                 EnvironmentV3ClusterSettingArgs.builder()
- *                     .name(&#34;InternalEncryption&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 EnvironmentV3ClusterSettingArgs.builder()
- *                     .name(&#34;FrontEndSSLCipherSuiteOrder&#34;)
- *                     .value(&#34;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;)
- *                     .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;env&#34;, &#34;production&#34;),
- *                 Map.entry(&#34;terraformed&#34;, &#34;true&#34;)
- *             ))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        

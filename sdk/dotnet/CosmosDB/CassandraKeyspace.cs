@@ -22,13 +22,13 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "tflex-cosmosdb-account-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     var exampleAccount = new Azure.Cosmosdb.Account.Account("example", new()
     ///     {
     ///         Name = "tfex-cosmosdb-account",
     ///         ResourceGroupName = example.Name,
@@ -36,26 +36,26 @@ namespace Pulumi.Azure.CosmosDB
     ///         OfferType = "Standard",
     ///         Capabilities = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             
     ///             {
-    ///                 Name = "EnableCassandra",
+    ///                 { "name", "EnableCassandra" },
     ///             },
     ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         ConsistencyPolicy = 
     ///         {
-    ///             ConsistencyLevel = "Strong",
+    ///             { "consistencyLevel", "Strong" },
     ///         },
     ///         GeoLocations = new[]
     ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             
     ///             {
-    ///                 Location = example.Location,
-    ///                 FailoverPriority = 0,
+    ///                 { "location", example.Location },
+    ///                 { "failoverPriority", 0 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("example", new()
+    ///     var exampleCassandraKeyspace = new Azure.Cosmosdb.CassandraKeyspace.CassandraKeyspace("example", new()
     ///     {
     ///         Name = "tfex-cosmos-cassandra-keyspace",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,

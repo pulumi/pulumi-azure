@@ -12,35 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Batch Application instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := batch.LookupApplication(ctx, &batch.LookupApplicationArgs{
-//				Name:              "testapplication",
-//				ResourceGroupName: "test",
-//				AccountName:       "testbatchaccount",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("batchApplicationId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationResult

@@ -19,61 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Subscription within a API Management Service.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
- * import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
- * import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
- * import com.pulumi.azure.apimanagement.Subscription;
- * import com.pulumi.azure.apimanagement.SubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;example-apim&#34;)
- *             .resourceGroupName(&#34;example-resources&#34;)
- *             .build());
- * 
- *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
- *             .productId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .build());
- * 
- *         final var exampleGetUser = ApimanagementFunctions.getUser(GetUserArgs.builder()
- *             .userId(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .build());
- * 
- *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .userId(exampleGetUser.applyValue(getUserResult -&gt; getUserResult.id()))
- *             .productId(exampleGetProduct.applyValue(getProductResult -&gt; getProductResult.id()))
- *             .displayName(&#34;Parser API&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * API Management Subscriptions can be imported using the `resource id`, e.g.

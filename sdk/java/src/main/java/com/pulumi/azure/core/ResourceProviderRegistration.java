@@ -63,7 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceProviderRegistration;
  * import com.pulumi.azure.core.ResourceProviderRegistrationArgs;
- * import com.pulumi.azure.core.inputs.ResourceProviderRegistrationFeatureArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,10 +78,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceProviderRegistration(&#34;example&#34;, ResourceProviderRegistrationArgs.builder()        
  *             .name(&#34;Microsoft.ContainerService&#34;)
- *             .features(ResourceProviderRegistrationFeatureArgs.builder()
- *                 .name(&#34;AKS-DataPlaneAutoApprove&#34;)
- *                 .registered(true)
- *                 .build())
+ *             .features(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

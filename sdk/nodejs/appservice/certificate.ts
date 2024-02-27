@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service certificate.
  *
- * ## Example Usage
- *
- * This example provisions an App Service Certificate from a Local File.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleCertificate = new azure.appservice.Certificate("example", {
- *     name: "example-cert",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     pfxBlob: std.filebase64({
- *         input: "certificate.pfx",
- *     }).then(invoke => invoke.result),
- *     password: "password123!",
- * });
- * ```
- *
  * ## Import
  *
  * App Service Certificates can be imported using the `resource id`, e.g.

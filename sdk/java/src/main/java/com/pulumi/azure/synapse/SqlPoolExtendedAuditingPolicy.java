@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
  * import com.pulumi.azure.synapse.Workspace;
  * import com.pulumi.azure.synapse.WorkspaceArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.SqlPool;
  * import com.pulumi.azure.synapse.SqlPoolArgs;
  * import com.pulumi.azure.synapse.SqlPoolExtendedAuditingPolicy;
@@ -79,9 +78,7 @@ import javax.annotation.Nullable;
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned&#34;)
- *                 .build())
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSqlPool = new SqlPool(&#34;exampleSqlPool&#34;, SqlPoolArgs.builder()        

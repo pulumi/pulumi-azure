@@ -13,27 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const primary = new azure.core.ResourceGroup("primary", {
+ * const primary = new azure.core/resourceGroup.ResourceGroup("primary", {
  *     name: "tfex-network-mapping-primary",
  *     location: "West US",
  * });
- * const secondary = new azure.core.ResourceGroup("secondary", {
+ * const secondary = new azure.core/resourceGroup.ResourceGroup("secondary", {
  *     name: "tfex-network-mapping-secondary",
  *     location: "East US",
  * });
- * const vault = new azure.recoveryservices.Vault("vault", {
+ * const vault = new azure.recoveryservices/vault.Vault("vault", {
  *     name: "example-recovery-vault",
  *     location: secondary.location,
  *     resourceGroupName: secondary.name,
  *     sku: "Standard",
  * });
- * const fabric = new azure.siterecovery.Fabric("fabric", {
+ * const fabric = new azure.siterecovery/fabric.Fabric("fabric", {
  *     name: "primary-fabric",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     location: primary.location,
  * });
- * const protection_container = new azure.siterecovery.ProtectionContainer("protection-container", {
+ * const protection_container = new azure.siterecovery/protectionContainer.ProtectionContainer("protection-container", {
  *     name: "protection-container",
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,

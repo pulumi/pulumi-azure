@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "atp-example",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
+ * const exampleAccount = new azure.storage/account.Account("example", {
  *     name: "examplestorage",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         environment: "example",
  *     },
  * });
- * const exampleAdvancedThreatProtection = new azure.securitycenter.AdvancedThreatProtection("example", {
+ * const exampleAdvancedThreatProtection = new azure.securitycenter/advancedThreatProtection.AdvancedThreatProtection("example", {
  *     targetResourceId: exampleAccount.id,
  *     enabled: true,
  * });

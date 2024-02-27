@@ -337,72 +337,72 @@ class NetworkSimPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("example",
-            name="example-mndn",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_data_network = azure.mobile.network_data_network.NetworkDataNetwork("example",
+            name=example-mndn,
             mobile_network_id=example_network.id,
             location=example.location)
-        example_network_service = azure.mobile.NetworkService("example",
-            name="example-mns",
+        example_network_service = azure.mobile.network_service.NetworkService("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )])
-        example_network_slice = azure.mobile.NetworkSlice("example",
-            name="example-mns",
+            pcc_rules=[{
+                name: default-rule,
+                precedence: 1,
+                trafficControlEnabled: True,
+                serviceDataFlowTemplates: [{
+                    direction: Uplink,
+                    name: IP-to-server,
+                    ports: [],
+                    protocols: [ip],
+                    remoteIpLists: [10.3.4.0/24],
+                }],
+            }])
+        example_network_slice = azure.mobile.network_slice.NetworkSlice("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ))
-        example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
-            name="example-mnsp",
+            single_network_slice_selection_assistance_information={
+                sliceServiceType: 1,
+            })
+        example_network_sim_policy = azure.mobile.network_sim_policy.NetworkSimPolicy("example",
+            name=example-mnsp,
             mobile_network_id=example_network.id,
             location=example.location,
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
-            slices=[azure.mobile.NetworkSimPolicySliceArgs(
-                default_data_network_id=example_network_data_network.id,
-                slice_id=example_network_slice.id,
-                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArgs(
-                    data_network_id=example_network_data_network.id,
-                    allocation_and_retention_priority_level=9,
-                    default_session_type="IPv4",
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    allowed_services_ids=[example_network_service.id],
-                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="500 Mbps",
-                    ),
-                )],
-            )],
-            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs(
-                downlink="1 Gbps",
-                uplink="500 Mbps",
-            ),
+            slices=[{
+                defaultDataNetworkId: example_network_data_network.id,
+                sliceId: example_network_slice.id,
+                dataNetworks: [{
+                    dataNetworkId: example_network_data_network.id,
+                    allocationAndRetentionPriorityLevel: 9,
+                    defaultSessionType: IPv4,
+                    qosIndicator: 9,
+                    preemptionCapability: NotPreempt,
+                    preemptionVulnerability: Preemptable,
+                    allowedServicesIds: [example_network_service.id],
+                    sessionAggregateMaximumBitRate: {
+                        downlink: 1 Gbps,
+                        uplink: 500 Mbps,
+                    },
+                }],
+            }],
+            user_equipment_aggregate_maximum_bit_rate={
+                downlink: 1 Gbps,
+                uplink: 500 Mbps,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 
@@ -441,72 +441,72 @@ class NetworkSimPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_network = azure.mobile.Network("example",
-            name="example-mn",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_network = azure.mobile.network.Network("example",
+            name=example-mn,
             location=example.location,
             resource_group_name=example.name,
-            mobile_country_code="001",
-            mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("example",
-            name="example-mndn",
+            mobile_country_code=001,
+            mobile_network_code=01)
+        example_network_data_network = azure.mobile.network_data_network.NetworkDataNetwork("example",
+            name=example-mndn,
             mobile_network_id=example_network.id,
             location=example.location)
-        example_network_service = azure.mobile.NetworkService("example",
-            name="example-mns",
+        example_network_service = azure.mobile.network_service.NetworkService("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )])
-        example_network_slice = azure.mobile.NetworkSlice("example",
-            name="example-mns",
+            pcc_rules=[{
+                name: default-rule,
+                precedence: 1,
+                trafficControlEnabled: True,
+                serviceDataFlowTemplates: [{
+                    direction: Uplink,
+                    name: IP-to-server,
+                    ports: [],
+                    protocols: [ip],
+                    remoteIpLists: [10.3.4.0/24],
+                }],
+            }])
+        example_network_slice = azure.mobile.network_slice.NetworkSlice("example",
+            name=example-mns,
             mobile_network_id=example_network.id,
             location=example.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
-                slice_service_type=1,
-            ))
-        example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
-            name="example-mnsp",
+            single_network_slice_selection_assistance_information={
+                sliceServiceType: 1,
+            })
+        example_network_sim_policy = azure.mobile.network_sim_policy.NetworkSimPolicy("example",
+            name=example-mnsp,
             mobile_network_id=example_network.id,
             location=example.location,
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
-            slices=[azure.mobile.NetworkSimPolicySliceArgs(
-                default_data_network_id=example_network_data_network.id,
-                slice_id=example_network_slice.id,
-                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArgs(
-                    data_network_id=example_network_data_network.id,
-                    allocation_and_retention_priority_level=9,
-                    default_session_type="IPv4",
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    allowed_services_ids=[example_network_service.id],
-                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="500 Mbps",
-                    ),
-                )],
-            )],
-            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs(
-                downlink="1 Gbps",
-                uplink="500 Mbps",
-            ),
+            slices=[{
+                defaultDataNetworkId: example_network_data_network.id,
+                sliceId: example_network_slice.id,
+                dataNetworks: [{
+                    dataNetworkId: example_network_data_network.id,
+                    allocationAndRetentionPriorityLevel: 9,
+                    defaultSessionType: IPv4,
+                    qosIndicator: 9,
+                    preemptionCapability: NotPreempt,
+                    preemptionVulnerability: Preemptable,
+                    allowedServicesIds: [example_network_service.id],
+                    sessionAggregateMaximumBitRate: {
+                        downlink: 1 Gbps,
+                        uplink: 500 Mbps,
+                    },
+                }],
+            }],
+            user_equipment_aggregate_maximum_bit_rate={
+                downlink: 1 Gbps,
+                uplink: 500 Mbps,
+            },
             tags={
-                "key": "value",
+                key: value,
             })
         ```
 

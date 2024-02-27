@@ -14,56 +14,6 @@ import (
 
 // Manages a API Management Gateway API.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-//				Name:              "example-api",
-//				ResourceGroupName: "example-resources",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-//				Name:              "search-api",
-//				ApiManagementName: example.Name,
-//				ResourceGroupName: example.ResourceGroupName,
-//				Revision:          "2",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
-//				Name:            "example-gateway",
-//				ApiManagementId: example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewGatewayApi(ctx, "example", &apimanagement.GatewayApiArgs{
-//				GatewayId: *pulumi.String(exampleGetGateway.Id),
-//				ApiId:     *pulumi.String(exampleGetApi.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management Gateway APIs can be imported using the `resource id`, e.g.

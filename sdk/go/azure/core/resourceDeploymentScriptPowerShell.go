@@ -21,64 +21,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	authorization/userAssignedIdentity "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/authorization/userAssignedIdentity"
+//	core/resourceDeploymentScriptPowerShell "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceDeploymentScriptPowerShell"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserAssignedIdentity, err := authorization/userAssignedIdentity.NewUserAssignedIdentity(ctx, "example", &authorization/userAssignedIdentity.UserAssignedIdentityArgs{
+// Name: "example-uai",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = core/resourceDeploymentScriptPowerShell.NewResourceDeploymentScriptPowerShell(ctx, "example", &core/resourceDeploymentScriptPowerShell.ResourceDeploymentScriptPowerShellArgs{
+// Name: "example-rdsaps",
+// ResourceGroupName: example.Name,
+// Location: "West Europe",
+// Version: "8.3",
+// RetentionInterval: "P1D",
+// CommandLine: "-name \"John Dole\"",
+// CleanupPreference: "OnSuccess",
+// ForceUpdateTag: "1",
+// Timeout: "PT30M",
+// ScriptContent: `          param([string] $name)
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				Name:              pulumi.String("example-uai"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = core.NewResourceDeploymentScriptPowerShell(ctx, "example", &core.ResourceDeploymentScriptPowerShellArgs{
-//				Name:              pulumi.String("example-rdsaps"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("West Europe"),
-//				Version:           pulumi.String("8.3"),
-//				RetentionInterval: pulumi.String("P1D"),
-//				CommandLine:       pulumi.String("-name \"John Dole\""),
-//				CleanupPreference: pulumi.String("OnSuccess"),
-//				ForceUpdateTag:    pulumi.String("1"),
-//				Timeout:           pulumi.String("PT30M"),
-//				ScriptContent: pulumi.String(`          param([string] $name)
-//	            $output = 'Hello {0}.' -f $name
-//	            Write-Output $output
-//	            $DeploymentScriptOutputs = @{}
-//	            $DeploymentScriptOutputs['text'] = $output
+//	$output = 'Hello {0}.' -f $name
+//	Write-Output $output
+//	$DeploymentScriptOutputs = @{}
+//	$DeploymentScriptOutputs['text'] = $output
 //
-// `),
-//
-//				Identity: &core.ResourceDeploymentScriptPowerShellIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// Identity: map[string]interface{}{
+// "type": "UserAssigned",
+// "identityIds": []interface{}{
+// exampleUserAssignedIdentity.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

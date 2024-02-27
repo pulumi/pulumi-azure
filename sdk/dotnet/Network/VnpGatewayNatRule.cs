@@ -22,20 +22,20 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan.VirtualWan("example", new()
     ///     {
     ///         Name = "example-vwan",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub.VirtualHub("example", new()
     ///     {
     ///         Name = "example-vhub",
     ///         ResourceGroupName = example.Name,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///     });
     /// 
-    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("example", new()
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway.VpnGateway("example", new()
     ///     {
     ///         Name = "example-vpngateway",
     ///         Location = example.Location,
@@ -52,23 +52,23 @@ namespace Pulumi.Azure.Network
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///     });
     /// 
-    ///     var exampleVnpGatewayNatRule = new Azure.Network.VnpGatewayNatRule("example", new()
+    ///     var exampleVnpGatewayNatRule = new Azure.Network.VnpGatewayNatRule.VnpGatewayNatRule("example", new()
     ///     {
     ///         Name = "example-vpngatewaynatrule",
     ///         ResourceGroupName = example.Name,
     ///         VpnGatewayId = exampleVpnGateway.Id,
     ///         ExternalMappings = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VnpGatewayNatRuleExternalMappingArgs
+    ///             
     ///             {
-    ///                 AddressSpace = "192.168.21.0/26",
+    ///                 { "addressSpace", "192.168.21.0/26" },
     ///             },
     ///         },
     ///         InternalMappings = new[]
     ///         {
-    ///             new Azure.Network.Inputs.VnpGatewayNatRuleInternalMappingArgs
+    ///             
     ///             {
-    ///                 AddressSpace = "10.4.0.0/26",
+    ///                 { "addressSpace", "10.4.0.0/26" },
     ///             },
     ///         },
     ///     });

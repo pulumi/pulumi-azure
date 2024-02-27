@@ -18,26 +18,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	privatedns/cnameRecord "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/privatedns/cnameRecord"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := privatedns.NewCnameRecord(ctx, "example", &privatedns.CnameRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.Id)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := privatedns/cnameRecord.NewCnameRecord(ctx, "example", &privatedns/cnameRecord.CnameRecordArgs{
+// Name: "test",
+// ZoneName: "test-zone",
+// ResourceGroupName: "test-rg",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.Id)
+// return nil
+// })
+// }
 // ```
 func LookupCnameRecord(ctx *pulumi.Context, args *LookupCnameRecordArgs, opts ...pulumi.InvokeOption) (*LookupCnameRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

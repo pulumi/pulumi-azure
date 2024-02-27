@@ -23,18 +23,18 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	policy/policySetDefinition "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/policy/policySetDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := policy/policySetDefinition.NewPolicySetDefinition(ctx, "example", &policy/policySetDefinition.PolicySetDefinitionArgs{
+// Name: "testPolicySet",
+// PolicyType: "Custom",
+// DisplayName: "Test Policy Set",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
-//				Name:        pulumi.String("testPolicySet"),
-//				PolicyType:  pulumi.String("Custom"),
-//				DisplayName: pulumi.String("Test Policy Set"),
-//				Parameters: pulumi.String(`    {
+//	Parameters: `    {
 //	        "allowedLocations": {
 //	            "type": "Array",
 //	            "metadata": {
@@ -45,22 +45,20 @@ import (
 //	        }
 //	    }
 //
-// `),
-//
-//				PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
-//					&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
-//						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
-//						ParameterValues:    pulumi.String("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// PolicyDefinitionReferences: []map[string]interface{}{
+// map[string]interface{}{
+// "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+// "parameterValues": "    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

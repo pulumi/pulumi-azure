@@ -231,28 +231,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         """
         Manages a Logic App Integration Account Schema.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("example",
-            name="example-ia",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Basic")
-        example_integration_account_schema = azure.logicapps.IntegrationAccountSchema("example",
-            name="example-ias",
-            resource_group_name=example.name,
-            integration_account_name=example_integration_account.name,
-            content=std.file(input="testdata/integration_account_schema_content.xsd").result)
-        ```
-
         ## Import
 
         Logic App Integration Account Schemas can be imported using the `resource id`, e.g.
@@ -278,28 +256,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Schema.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("example",
-            name="example-ia",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="Basic")
-        example_integration_account_schema = azure.logicapps.IntegrationAccountSchema("example",
-            name="example-ias",
-            resource_group_name=example.name,
-            integration_account_name=example_integration_account.name,
-            content=std.file(input="testdata/integration_account_schema_content.xsd").result)
-        ```
 
         ## Import
 

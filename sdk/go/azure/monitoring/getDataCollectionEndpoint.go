@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Data Collection Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := monitoring.LookupDataCollectionEndpoint(ctx, &monitoring.LookupDataCollectionEndpointArgs{
-//				Name:              "example-mdce",
-//				ResourceGroupName: exampleAzurermResourceGroup.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("endpointId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDataCollectionEndpoint(ctx *pulumi.Context, args *LookupDataCollectionEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataCollectionEndpointResult

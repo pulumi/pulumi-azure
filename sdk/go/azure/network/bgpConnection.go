@@ -21,86 +21,89 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	network/bgpConnection "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/bgpConnection"
+//	network/publicIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/publicIp"
+//	network/subnet "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/subnet"
+//	network/virtualHub "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHub"
+//	network/virtualHubIp "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualHubIp"
+//	network/virtualNetwork "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/network/virtualNetwork"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
-//				Name:              pulumi.String("example-vhub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
-//				Name:              pulumi.String("example-pip"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.5.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("RouteServerSubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.5.1.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewVirtualHubIp(ctx, "example", &network.VirtualHubIpArgs{
-//				Name:                      pulumi.String("example-vhubip"),
-//				VirtualHubId:              exampleVirtualHub.ID(),
-//				PrivateIpAddress:          pulumi.String("10.5.1.18"),
-//				PrivateIpAllocationMethod: pulumi.String("Static"),
-//				PublicIpAddressId:         examplePublicIp.ID(),
-//				SubnetId:                  exampleSubnet.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewBgpConnection(ctx, "example", &network.BgpConnectionArgs{
-//				Name:         pulumi.String("example-vhub-bgpconnection"),
-//				VirtualHubId: exampleVirtualHub.ID(),
-//				PeerAsn:      pulumi.Int(65514),
-//				PeerIp:       pulumi.String("169.254.21.5"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualHub, err := network/virtualHub.NewVirtualHub(ctx, "example", &network/virtualHub.VirtualHubArgs{
+// Name: "example-vhub",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// examplePublicIp, err := network/publicIp.NewPublicIp(ctx, "example", &network/publicIp.PublicIpArgs{
+// Name: "example-pip",
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// AllocationMethod: "Static",
+// Sku: "Standard",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVirtualNetwork, err := network/virtualNetwork.NewVirtualNetwork(ctx, "example", &network/virtualNetwork.VirtualNetworkArgs{
+// Name: "example-vnet",
+// AddressSpaces: []string{
+// "10.5.0.0/16",
+// },
+// Location: example.Location,
+// ResourceGroupName: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := network/subnet.NewSubnet(ctx, "example", &network/subnet.SubnetArgs{
+// Name: "RouteServerSubnet",
+// ResourceGroupName: example.Name,
+// VirtualNetworkName: exampleVirtualNetwork.Name,
+// AddressPrefixes: []string{
+// "10.5.1.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/virtualHubIp.NewVirtualHubIp(ctx, "example", &network/virtualHubIp.VirtualHubIpArgs{
+// Name: "example-vhubip",
+// VirtualHubId: exampleVirtualHub.Id,
+// PrivateIpAddress: "10.5.1.18",
+// PrivateIpAllocationMethod: "Static",
+// PublicIpAddressId: examplePublicIp.Id,
+// SubnetId: exampleSubnet.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = network/bgpConnection.NewBgpConnection(ctx, "example", &network/bgpConnection.BgpConnectionArgs{
+// Name: "example-vhub-bgpconnection",
+// VirtualHubId: exampleVirtualHub.Id,
+// PeerAsn: 65514,
+// PeerIp: "169.254.21.5",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceProviderRegistration("example", new()
+    ///     var example = new Azure.Core.ResourceProviderRegistration.ResourceProviderRegistration("example", new()
     ///     {
     ///         Name = "Microsoft.PolicyInsights",
     ///     });
@@ -45,15 +45,15 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceProviderRegistration("example", new()
+    ///     var example = new Azure.Core.ResourceProviderRegistration.ResourceProviderRegistration("example", new()
     ///     {
     ///         Name = "Microsoft.ContainerService",
     ///         Features = new[]
     ///         {
-    ///             new Azure.Core.Inputs.ResourceProviderRegistrationFeatureArgs
+    ///             
     ///             {
-    ///                 Name = "AKS-DataPlaneAutoApprove",
-    ///                 Registered = true,
+    ///                 { "name", "AKS-DataPlaneAutoApprove" },
+    ///                 { "registered", true },
     ///             },
     ///         },
     ///     });

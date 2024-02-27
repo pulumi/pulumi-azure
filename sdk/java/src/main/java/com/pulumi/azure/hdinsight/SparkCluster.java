@@ -47,13 +47,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.hdinsight.SparkCluster;
  * import com.pulumi.azure.hdinsight.SparkClusterArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterComponentVersionArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterStorageAccountArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesHeadNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesWorkerNodeArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesZookeeperNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,36 +85,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .clusterVersion(&#34;3.6&#34;)
  *             .tier(&#34;Standard&#34;)
- *             .componentVersion(SparkClusterComponentVersionArgs.builder()
- *                 .spark(&#34;2.3&#34;)
- *                 .build())
- *             .gateway(SparkClusterGatewayArgs.builder()
- *                 .username(&#34;acctestusrgw&#34;)
- *                 .password(&#34;Password123!&#34;)
- *                 .build())
- *             .storageAccounts(SparkClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
- *                 .build())
- *             .roles(SparkClusterRolesArgs.builder()
- *                 .headNode(SparkClusterRolesHeadNodeArgs.builder()
- *                     .vmSize(&#34;Standard_A3&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .workerNode(SparkClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize(&#34;Standard_A3&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .targetInstanceCount(3)
- *                     .build())
- *                 .zookeeperNode(SparkClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize(&#34;Medium&#34;)
- *                     .username(&#34;acctestusrvm&#34;)
- *                     .password(&#34;AccTestvdSC4daf986!&#34;)
- *                     .build())
- *                 .build())
+ *             .componentVersion(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .gateway(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageAccounts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .roles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

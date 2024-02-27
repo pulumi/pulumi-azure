@@ -23,53 +23,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
+//	storage/account "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/account"
+//	storage/dataLakeGen2Filesystem "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/dataLakeGen2Filesystem"
+//	storage/dataLakeGen2Path "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/storage/dataLakeGen2Path"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageacc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				IsHnsEnabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
-//				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewDataLakeGen2Path(ctx, "example", &storage.DataLakeGen2PathArgs{
-//				Path:             pulumi.String("example"),
-//				FilesystemName:   exampleDataLakeGen2Filesystem.Name,
-//				StorageAccountId: exampleAccount.ID(),
-//				Resource:         pulumi.String("directory"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAccount, err := storage/account.NewAccount(ctx, "example", &storage/account.AccountArgs{
+// Name: "examplestorageacc",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// AccountTier: "Standard",
+// AccountReplicationType: "LRS",
+// AccountKind: "StorageV2",
+// IsHnsEnabled: "true",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDataLakeGen2Filesystem, err := storage/dataLakeGen2Filesystem.NewDataLakeGen2Filesystem(ctx, "example", &storage/dataLakeGen2Filesystem.DataLakeGen2FilesystemArgs{
+// Name: "example",
+// StorageAccountId: exampleAccount.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = storage/dataLakeGen2Path.NewDataLakeGen2Path(ctx, "example", &storage/dataLakeGen2Path.DataLakeGen2PathArgs{
+// Path: "example",
+// FilesystemName: exampleDataLakeGen2Filesystem.Name,
+// StorageAccountId: exampleAccount.Id,
+// Resource: "directory",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

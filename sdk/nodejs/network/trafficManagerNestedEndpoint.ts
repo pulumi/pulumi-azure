@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
+ * const example = new azure.core/resourceGroup.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
+ * const examplePublicIp = new azure.network/publicIp.PublicIp("example", {
  *     name: "example-publicip",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     domainNameLabel: "example-pip",
  * });
- * const parent = new azure.network.TrafficManagerProfile("parent", {
+ * const parent = new azure.network/trafficManagerProfile.TrafficManagerProfile("parent", {
  *     name: "parent-profile",
  *     resourceGroupName: example.name,
  *     trafficRoutingMethod: "Weighted",
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const nested = new azure.network.TrafficManagerProfile("nested", {
+ * const nested = new azure.network/trafficManagerProfile.TrafficManagerProfile("nested", {
  *     name: "nested-profile",
  *     resourceGroupName: example.name,
  *     trafficRoutingMethod: "Priority",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         path: "/",
  *     },
  * });
- * const exampleTrafficManagerNestedEndpoint = new azure.network.TrafficManagerNestedEndpoint("example", {
+ * const exampleTrafficManagerNestedEndpoint = new azure.network/trafficManagerNestedEndpoint.TrafficManagerNestedEndpoint("example", {
  *     name: "example-endpoint",
  *     targetResourceId: nested.id,
  *     priority: 1,

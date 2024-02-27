@@ -14,53 +14,6 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single Facebook Channel associated with it.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("example", new()
-    ///     {
-    ///         Name = "example-bcr",
-    ///         Location = "global",
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "F0",
-    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///     });
-    /// 
-    ///     var exampleChannelFacebook = new Azure.Bot.ChannelFacebook("example", new()
-    ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         FacebookApplicationId = "563490254873576",
-    ///         FacebookApplicationSecret = "8976d2536445ad5b976dee8437b9beb0",
-    ///         Pages = new[]
-    ///         {
-    ///             new Azure.Bot.Inputs.ChannelFacebookPageArgs
-    ///             {
-    ///                 Id = "876248795081953",
-    ///                 AccessToken = "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.

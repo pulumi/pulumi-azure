@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var example = new Azure.Core.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+    ///     var exampleEventHubNamespace = new Azure.Eventhub.EventHubNamespace.EventHubNamespace("example", new()
     ///     {
     ///         Name = "exampleEventHubNamespace",
     ///         Location = example.Location,
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Iot
     ///         Sku = "Basic",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+    ///     var exampleEventHub = new Azure.Eventhub.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "exampleEventHub",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Iot
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("example", new()
+    ///     var exampleAuthorizationRule = new Azure.Eventhub.AuthorizationRule.AuthorizationRule("example", new()
     ///     {
     ///         Name = "exampleRule",
     ///         NamespaceName = exampleEventHubNamespace.Name,
@@ -58,15 +58,15 @@ namespace Pulumi.Azure.Iot
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub.IoTHub("example", new()
     ///     {
     ///         Name = "exampleIothub",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         Sku = 
     ///         {
-    ///             Name = "B1",
-    ///             Capacity = 1,
+    ///             { "name", "B1" },
+    ///             { "capacity", "1" },
     ///         },
     ///         Tags = 
     ///         {
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Iot
     ///         },
     ///     });
     /// 
-    ///     var exampleEndpointEventhub = new Azure.Iot.EndpointEventhub("example", new()
+    ///     var exampleEndpointEventhub = new Azure.Iot.EndpointEventhub.EndpointEventhub("example", new()
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         IothubId = exampleIoTHub.Id,

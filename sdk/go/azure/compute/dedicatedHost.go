@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	compute/dedicatedHost "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/dedicatedHost"
+//	compute/dedicatedHostGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/compute/dedicatedHostGroup"
+//	core/resourceGroup "github.com/pulumi/pulumi-azure/sdk/v1/go/azure/core/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDedicatedHostGroup, err := compute.NewDedicatedHostGroup(ctx, "example", &compute.DedicatedHostGroupArgs{
-//				Name:                     pulumi.String("example-host-group"),
-//				ResourceGroupName:        example.Name,
-//				Location:                 example.Location,
-//				PlatformFaultDomainCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewDedicatedHost(ctx, "example", &compute.DedicatedHostArgs{
-//				Name:                 pulumi.String("example-host"),
-//				Location:             example.Location,
-//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
-//				SkuName:              pulumi.String("DSv3-Type3"),
-//				PlatformFaultDomain:  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := core/resourceGroup.NewResourceGroup(ctx, "example", &core/resourceGroup.ResourceGroupArgs{
+// Name: "example-resources",
+// Location: "West Europe",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDedicatedHostGroup, err := compute/dedicatedHostGroup.NewDedicatedHostGroup(ctx, "example", &compute/dedicatedHostGroup.DedicatedHostGroupArgs{
+// Name: "example-host-group",
+// ResourceGroupName: example.Name,
+// Location: example.Location,
+// PlatformFaultDomainCount: 2,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = compute/dedicatedHost.NewDedicatedHost(ctx, "example", &compute/dedicatedHost.DedicatedHostArgs{
+// Name: "example-host",
+// Location: example.Location,
+// DedicatedHostGroupId: exampleDedicatedHostGroup.Id,
+// SkuName: "DSv3-Type3",
+// PlatformFaultDomain: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -172,19 +172,19 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("example",
-            name="example-ml-alert-rule",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.alert_rule_machine_learning_behavior_analytics.AlertRuleMachineLearningBehaviorAnalytics("example",
+            name=example-ml-alert-rule,
             log_analytics_workspace_id=example_analytics_workspace.id,
-            alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
+            alert_rule_template_guid=737a2ce1-70a3-4968-9e90-3e6aca836abf)
         ```
 
         ## Import
@@ -217,19 +217,19 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="example-workspace",
+        example = azure.core.resource_group.ResourceGroup("example",
+            name=example-resources,
+            location=West Europe)
+        example_analytics_workspace = azure.operationalinsights.analytics_workspace.AnalyticsWorkspace("example",
+            name=example-workspace,
             location=example.location,
             resource_group_name=example.name,
-            sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
-        example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("example",
-            name="example-ml-alert-rule",
+            sku=PerGB2018)
+        example_log_analytics_workspace_onboarding = azure.sentinel.log_analytics_workspace_onboarding.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.alert_rule_machine_learning_behavior_analytics.AlertRuleMachineLearningBehaviorAnalytics("example",
+            name=example-ml-alert-rule,
             log_analytics_workspace_id=example_analytics_workspace.id,
-            alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
+            alert_rule_template_guid=737a2ce1-70a3-4968-9e90-3e6aca836abf)
         ```
 
         ## Import
