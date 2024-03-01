@@ -101,7 +101,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -361,7 +361,7 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -523,7 +523,7 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**

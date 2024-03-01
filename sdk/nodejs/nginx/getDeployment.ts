@@ -50,6 +50,10 @@ export interface GetDeploymentArgs {
  */
 export interface GetDeploymentResult {
     /**
+     * The automatic upgrade channel for this NGINX deployment.
+     */
+    readonly automaticUpgradeChannel: string;
+    /**
      * The number of NGINX capacity units for this Nginx Deployment.
      */
     readonly capacity: number;

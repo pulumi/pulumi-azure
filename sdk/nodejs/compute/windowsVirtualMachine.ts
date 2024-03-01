@@ -169,6 +169,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     */
+    public readonly diskControllerType!: pulumi.Output<string>;
+    /**
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
@@ -230,6 +234,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * A `osDisk` block as defined below.
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsDisk>;
+    /**
+     * A `osImageNotification` block as defined below.
+     */
+    public readonly osImageNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsImageNotification | undefined>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
@@ -335,11 +343,17 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
     /**
-     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     *
+     * > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      *
      * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     */
+    public readonly vmAgentPlatformUpdatesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
@@ -379,6 +393,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["customData"] = state ? state.customData : undefined;
             resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
+            resourceInputs["diskControllerType"] = state ? state.diskControllerType : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
@@ -393,6 +408,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["osDisk"] = state ? state.osDisk : undefined;
+            resourceInputs["osImageNotification"] = state ? state.osImageNotification : undefined;
             resourceInputs["patchAssessmentMode"] = state ? state.patchAssessmentMode : undefined;
             resourceInputs["patchMode"] = state ? state.patchMode : undefined;
             resourceInputs["plan"] = state ? state.plan : undefined;
@@ -417,6 +433,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["userData"] = state ? state.userData : undefined;
             resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            resourceInputs["vmAgentPlatformUpdatesEnabled"] = state ? state.vmAgentPlatformUpdatesEnabled : undefined;
             resourceInputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             resourceInputs["winrmListeners"] = state ? state.winrmListeners : undefined;
             resourceInputs["zone"] = state ? state.zone : undefined;
@@ -453,6 +470,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
             resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
             resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
+            resourceInputs["diskControllerType"] = args ? args.diskControllerType : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
@@ -467,6 +485,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
             resourceInputs["osDisk"] = args ? args.osDisk : undefined;
+            resourceInputs["osImageNotification"] = args ? args.osImageNotification : undefined;
             resourceInputs["patchAssessmentMode"] = args ? args.patchAssessmentMode : undefined;
             resourceInputs["patchMode"] = args ? args.patchMode : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
@@ -486,6 +505,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            resourceInputs["vmAgentPlatformUpdatesEnabled"] = args ? args.vmAgentPlatformUpdatesEnabled : undefined;
             resourceInputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             resourceInputs["winrmListeners"] = args ? args.winrmListeners : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
@@ -563,6 +583,10 @@ export interface WindowsVirtualMachineState {
      */
     dedicatedHostId?: pulumi.Input<string>;
     /**
+     * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     */
+    diskControllerType?: pulumi.Input<string>;
+    /**
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
      */
     edgeZone?: pulumi.Input<string>;
@@ -624,6 +648,10 @@ export interface WindowsVirtualMachineState {
      * A `osDisk` block as defined below.
      */
     osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
+    /**
+     * A `osImageNotification` block as defined below.
+     */
+    osImageNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsImageNotification>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
@@ -729,11 +757,17 @@ export interface WindowsVirtualMachineState {
      */
     virtualMachineId?: pulumi.Input<string>;
     /**
-     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     *
+     * > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      *
      * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     */
+    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
@@ -809,6 +843,10 @@ export interface WindowsVirtualMachineArgs {
      */
     dedicatedHostId?: pulumi.Input<string>;
     /**
+     * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     */
+    diskControllerType?: pulumi.Input<string>;
+    /**
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
      */
     edgeZone?: pulumi.Input<string>;
@@ -870,6 +908,10 @@ export interface WindowsVirtualMachineArgs {
      * A `osDisk` block as defined below.
      */
     osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
+    /**
+     * A `osImageNotification` block as defined below.
+     */
+    osImageNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsImageNotification>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
@@ -955,11 +997,17 @@ export interface WindowsVirtualMachineArgs {
      */
     userData?: pulumi.Input<string>;
     /**
-     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     *
+     * > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      *
      * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     */
+    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */

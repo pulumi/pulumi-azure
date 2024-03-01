@@ -31,16 +31,16 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The size of the Data Disk which should be created.
+        /// The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
         /// </summary>
-        [Input("diskSizeGb", required: true)]
-        public Input<int> DiskSizeGb { get; set; } = null!;
+        [Input("diskSizeGb")]
+        public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
         /// </summary>
-        [Input("lun", required: true)]
-        public Input<int> Lun { get; set; } = null!;
+        [Input("lun")]
+        public Input<int>? Lun { get; set; }
 
         /// <summary>
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.

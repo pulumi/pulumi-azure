@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+        /// JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
         /// </summary>
         public readonly string? ProtectedSettings;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// JSON formatted public settings for the extension.
+        /// JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
         /// </summary>
         public readonly string? SettingsJson;
         /// <summary>

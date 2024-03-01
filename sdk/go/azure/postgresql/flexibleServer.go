@@ -101,6 +101,7 @@ import (
 //				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 //				Zone:                  pulumi.String("1"),
 //				StorageMb:             pulumi.Int(32768),
+//				StorageTier:           pulumi.String("P30"),
 //				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
 //			})
 //			if err != nil {
@@ -111,6 +112,26 @@ import (
 //	}
 //
 // ```
+// ## `storageTier` defaults based on `storageMb`
+//
+// | `storageMb` | GiB   | TiB | Default | Supported `storageTier`'s           | Provisioned `IOPS`  |
+// |:------------:|:-----:|:---:|:-------:|:------------------------------------:|:-------------------:|
+// | 32768        | 32    |  -  | P4      | P4, P6, P10, P15, P20, P30, P40, P50 | 120                 |
+// | 65536        | 64    |  -  | P6      | P6, P10, P15, P20, P30, P40, P50     | 240                 |
+// | 131072       | 128   |  -  | P10     | P10, P15, P20, P30, P40, P50         | 500                 |
+// | 262144       | 256   |  -  | P15     | P15, P20, P30, P40, P50              | 1,100               |
+// | 524288       | 512   |  -  | P20     | P20, P30, P40, P50                   | 2,300               |
+// | 1048576      | 1024  |  1  | P30     | P30, P40, P50                        | 5,000               |
+// | 2097152      | 2048  |  2  | P40     | P40, P50                             | 7,500               |
+// | 4193280      | 4095  |  4  | P50     | P50                                  | 7,500               |
+// | 4194304      | 4096  |  4  | P50     | P50                                  | 7,500               |
+// | 8388608      | 8192  |  8  | P60     | P60, P70                             | 16,000              |
+// | 16777216     | 16384 |  16 | P70     | P70, P80                             | 18,000              |
+// | 33553408     | 32767 |  32 | P80     | P80                                  | 20,000              |
+//
+// > **Note:** Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4194304 MiB. This means any disk that is provisioned up to 4193280 MiB can take advantage of Host Caching. Host caching is not supported for disk sizes larger than 4193280 MiB. For example, a P50 premium disk provisioned at 4193280 GiB can take advantage of Host caching while a P50 disk provisioned at 4194304 MiB cannot. Moving from a smaller disk size to a larger disk size, greater than 4193280 MiB, will cause the disk to lose the disk caching ability.
+//
+// ***
 //
 // ## Import
 //
@@ -164,13 +185,13 @@ type FlexibleServer struct {
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrOutput `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
-	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
-	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
+	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
 	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -179,7 +200,15 @@ type FlexibleServer struct {
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
+	//
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
+	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
+	//
+	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
@@ -271,13 +300,13 @@ type flexibleServerState struct {
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
-	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
-	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
+	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -286,7 +315,15 @@ type flexibleServerState struct {
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
+	//
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
 	StorageMb *int `pulumi:"storageMb"`
+	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
+	//
+	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	StorageTier *string `pulumi:"storageTier"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
@@ -339,13 +376,13 @@ type FlexibleServerState struct {
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
-	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
-	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
+	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -354,7 +391,15 @@ type FlexibleServerState struct {
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
+	//
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
 	StorageMb pulumi.IntPtrInput
+	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
+	//
+	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	StorageTier pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
@@ -409,11 +454,11 @@ type flexibleServerArgs struct {
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
-	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
-	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
+	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -422,7 +467,15 @@ type flexibleServerArgs struct {
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
+	//
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
 	StorageMb *int `pulumi:"storageMb"`
+	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
+	//
+	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	StorageTier *string `pulumi:"storageTier"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
@@ -474,11 +527,11 @@ type FlexibleServerArgs struct {
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
 	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
-	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+	// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 	//
-	// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
+	// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
 	ResourceGroupName pulumi.StringInput
@@ -487,7 +540,15 @@ type FlexibleServerArgs struct {
 	// The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	SourceServerId pulumi.StringPtrInput
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+	//
+	// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
+	//
+	// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
 	StorageMb pulumi.IntPtrInput
+	// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
+	//
+	// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+	StorageTier pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
@@ -674,7 +735,7 @@ func (o FlexibleServerOutput) PointInTimeRestoreTimeInUtc() pulumi.StringPtrOutp
 
 // The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 //
-// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+// > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 func (o FlexibleServerOutput) PrivateDnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
 }
@@ -686,7 +747,7 @@ func (o FlexibleServerOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 
 // The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
 //
-// > **NOTE:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
+// > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
 func (o FlexibleServerOutput) ReplicationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.ReplicationRole }).(pulumi.StringPtrOutput)
 }
@@ -707,8 +768,19 @@ func (o FlexibleServerOutput) SourceServerId() pulumi.StringPtrOutput {
 }
 
 // The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
+//
+// > **Note:** If the `storageMb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storageMb` field has been defined and then removed, the `storageMb` field will retain the previously defined value.
+//
+// > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`.
 func (o FlexibleServerOutput) StorageMb() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.StorageMb }).(pulumi.IntOutput)
+}
+
+// The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
+//
+// > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
+func (o FlexibleServerOutput) StorageTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.StorageTier }).(pulumi.StringOutput)
 }
 
 // A mapping of tags which should be assigned to the PostgreSQL Flexible Server.

@@ -84,12 +84,13 @@ import (
 //				return err
 //			}
 //			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
-//				Name:                   pulumi.String("example-nginx"),
-//				ResourceGroupName:      example.Name,
-//				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:               example.Location,
-//				ManagedResourceGroup:   pulumi.String("example"),
-//				DiagnoseSupportEnabled: pulumi.Bool(true),
+//				Name:                    pulumi.String("example-nginx"),
+//				ResourceGroupName:       example.Name,
+//				Sku:                     pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
+//				Location:                example.Location,
+//				ManagedResourceGroup:    pulumi.String("example"),
+//				DiagnoseSupportEnabled:  pulumi.Bool(true),
+//				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
 //						examplePublicIp.ID(),
@@ -122,6 +123,8 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
+	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+	AutomaticUpgradeChannel pulumi.StringPtrOutput `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -152,7 +155,7 @@ type Deployment struct {
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -194,6 +197,8 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
+	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -224,13 +229,15 @@ type deploymentState struct {
 	NginxVersion *string `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type DeploymentState struct {
+	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -261,7 +268,7 @@ type DeploymentState struct {
 	NginxVersion pulumi.StringPtrInput
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags pulumi.StringMapInput
@@ -272,6 +279,8 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
+	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -298,7 +307,7 @@ type deploymentArgs struct {
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags map[string]string `pulumi:"tags"`
@@ -306,6 +315,8 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
+	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -332,7 +343,7 @@ type DeploymentArgs struct {
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+	// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
 	Sku pulumi.StringInput
 	// A mapping of tags which should be assigned to the Nginx Deployment.
 	Tags pulumi.StringMapInput
@@ -425,6 +436,11 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+func (o DeploymentOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.AutomaticUpgradeChannel }).(pulumi.StringPtrOutput)
+}
+
 // Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 //
 // > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -497,7 +513,7 @@ func (o DeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
 func (o DeploymentOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

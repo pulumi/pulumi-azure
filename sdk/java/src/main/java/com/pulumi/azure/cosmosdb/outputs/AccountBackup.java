@@ -31,6 +31,11 @@ public final class AccountBackup {
      */
     private @Nullable String storageRedundancy;
     /**
+     * @return The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+     * 
+     */
+    private @Nullable String tier;
+    /**
      * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`.
      * 
      * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -63,6 +68,13 @@ public final class AccountBackup {
         return Optional.ofNullable(this.storageRedundancy);
     }
     /**
+     * @return The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+     * 
+     */
+    public Optional<String> tier() {
+        return Optional.ofNullable(this.tier);
+    }
+    /**
      * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`.
      * 
      * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -84,6 +96,7 @@ public final class AccountBackup {
         private @Nullable Integer intervalInMinutes;
         private @Nullable Integer retentionInHours;
         private @Nullable String storageRedundancy;
+        private @Nullable String tier;
         private String type;
         public Builder() {}
         public Builder(AccountBackup defaults) {
@@ -91,6 +104,7 @@ public final class AccountBackup {
     	      this.intervalInMinutes = defaults.intervalInMinutes;
     	      this.retentionInHours = defaults.retentionInHours;
     	      this.storageRedundancy = defaults.storageRedundancy;
+    	      this.tier = defaults.tier;
     	      this.type = defaults.type;
         }
 
@@ -113,6 +127,12 @@ public final class AccountBackup {
             return this;
         }
         @CustomType.Setter
+        public Builder tier(@Nullable String tier) {
+
+            this.tier = tier;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("AccountBackup", "type");
@@ -125,6 +145,7 @@ public final class AccountBackup {
             _resultValue.intervalInMinutes = intervalInMinutes;
             _resultValue.retentionInHours = retentionInHours;
             _resultValue.storageRedundancy = storageRedundancy;
+            _resultValue.tier = tier;
             _resultValue.type = type;
             return _resultValue;
         }

@@ -102,7 +102,7 @@ class FlexibleServerHighAvailabilityArgs:
         """
         :param pulumi.Input[str] mode: The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
                
-               > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+               > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -114,7 +114,7 @@ class FlexibleServerHighAvailabilityArgs:
         """
         The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
 
-        > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+        > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
         return pulumi.get(self, "mode")
 

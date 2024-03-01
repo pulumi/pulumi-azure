@@ -1979,7 +1979,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         :param str id: The ID of the Rewrite Rule Set
         :param int priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
                
-               > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+               > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         :param str redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param str redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param str rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
@@ -2097,7 +2097,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         """
         Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
-        > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+        > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         """
         return pulumi.get(self, "priority")
 
@@ -10427,7 +10427,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
         :param str public_ip_address_id: The ID of the public IP address to associate with the Virtual Network Gateway.
         :param str subnet_id: The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
         :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
-        :param str private_ip_address_allocation: Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+        :param str private_ip_address_allocation: Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
         """
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -10464,7 +10464,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
     @pulumi.getter(name="privateIpAddressAllocation")
     def private_ip_address_allocation(self) -> Optional[str]:
         """
-        Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+        Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
 

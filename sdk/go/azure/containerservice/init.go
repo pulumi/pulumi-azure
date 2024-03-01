@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConnectedRegistry{}
 	case "azure:containerservice/fleetMember:FleetMember":
 		r = &FleetMember{}
+	case "azure:containerservice/fleetUpdateRun:FleetUpdateRun":
+		r = &FleetUpdateRun{}
 	case "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy":
 		r = &FleetUpdateStrategy{}
 	case "azure:containerservice/fluxConfiguration:FluxConfiguration":
@@ -85,6 +87,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/fleetMember",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/fleetUpdateRun",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -16699,7 +16699,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
-        :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        :param pulumi.Input[str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
             warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
@@ -16920,7 +16920,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="rubyVersion")
     def ruby_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         return pulumi.get(self, "ruby_version")
 
@@ -20858,7 +20858,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
-        :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        :param pulumi.Input[str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
             warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
@@ -21079,7 +21079,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="rubyVersion")
     def ruby_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         return pulumi.get(self, "ruby_version")
 

@@ -268,9 +268,17 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly recoverDatabaseId!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+     */
+    public readonly recoveryPointId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      */
     public readonly restoreDroppedDatabaseId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+     */
+    public readonly restoreLongTermRetentionBackupId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
      */
@@ -360,7 +368,9 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["readReplicaCount"] = state ? state.readReplicaCount : undefined;
             resourceInputs["readScale"] = state ? state.readScale : undefined;
             resourceInputs["recoverDatabaseId"] = state ? state.recoverDatabaseId : undefined;
+            resourceInputs["recoveryPointId"] = state ? state.recoveryPointId : undefined;
             resourceInputs["restoreDroppedDatabaseId"] = state ? state.restoreDroppedDatabaseId : undefined;
+            resourceInputs["restoreLongTermRetentionBackupId"] = state ? state.restoreLongTermRetentionBackupId : undefined;
             resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
             resourceInputs["sampleName"] = state ? state.sampleName : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
@@ -397,7 +407,9 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["readReplicaCount"] = args ? args.readReplicaCount : undefined;
             resourceInputs["readScale"] = args ? args.readScale : undefined;
             resourceInputs["recoverDatabaseId"] = args ? args.recoverDatabaseId : undefined;
+            resourceInputs["recoveryPointId"] = args ? args.recoveryPointId : undefined;
             resourceInputs["restoreDroppedDatabaseId"] = args ? args.restoreDroppedDatabaseId : undefined;
+            resourceInputs["restoreLongTermRetentionBackupId"] = args ? args.restoreLongTermRetentionBackupId : undefined;
             resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             resourceInputs["sampleName"] = args ? args.sampleName : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
@@ -509,9 +521,17 @@ export interface DatabaseState {
      */
     recoverDatabaseId?: pulumi.Input<string>;
     /**
+     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+     */
+    recoveryPointId?: pulumi.Input<string>;
+    /**
      * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      */
     restoreDroppedDatabaseId?: pulumi.Input<string>;
+    /**
+     * The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+     */
+    restoreLongTermRetentionBackupId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
      */
@@ -663,9 +683,17 @@ export interface DatabaseArgs {
      */
     recoverDatabaseId?: pulumi.Input<string>;
     /**
+     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+     */
+    recoveryPointId?: pulumi.Input<string>;
+    /**
      * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      */
     restoreDroppedDatabaseId?: pulumi.Input<string>;
+    /**
+     * The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+     */
+    restoreLongTermRetentionBackupId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
      */

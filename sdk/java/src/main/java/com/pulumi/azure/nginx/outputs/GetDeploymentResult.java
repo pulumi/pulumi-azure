@@ -20,6 +20,11 @@ import java.util.Objects;
 @CustomType
 public final class GetDeploymentResult {
     /**
+     * @return The automatic upgrade channel for this NGINX deployment.
+     * 
+     */
+    private String automaticUpgradeChannel;
+    /**
      * @return The number of NGINX capacity units for this Nginx Deployment.
      * 
      */
@@ -102,6 +107,13 @@ public final class GetDeploymentResult {
     private Map<String,String> tags;
 
     private GetDeploymentResult() {}
+    /**
+     * @return The automatic upgrade channel for this NGINX deployment.
+     * 
+     */
+    public String automaticUpgradeChannel() {
+        return this.automaticUpgradeChannel;
+    }
     /**
      * @return The number of NGINX capacity units for this Nginx Deployment.
      * 
@@ -227,6 +239,7 @@ public final class GetDeploymentResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String automaticUpgradeChannel;
         private Integer capacity;
         private Boolean diagnoseSupportEnabled;
         private String email;
@@ -247,6 +260,7 @@ public final class GetDeploymentResult {
         public Builder() {}
         public Builder(GetDeploymentResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.automaticUpgradeChannel = defaults.automaticUpgradeChannel;
     	      this.capacity = defaults.capacity;
     	      this.diagnoseSupportEnabled = defaults.diagnoseSupportEnabled;
     	      this.email = defaults.email;
@@ -266,6 +280,14 @@ public final class GetDeploymentResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder automaticUpgradeChannel(String automaticUpgradeChannel) {
+            if (automaticUpgradeChannel == null) {
+              throw new MissingRequiredPropertyException("GetDeploymentResult", "automaticUpgradeChannel");
+            }
+            this.automaticUpgradeChannel = automaticUpgradeChannel;
+            return this;
+        }
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
             if (capacity == null) {
@@ -419,6 +441,7 @@ public final class GetDeploymentResult {
         }
         public GetDeploymentResult build() {
             final var _resultValue = new GetDeploymentResult();
+            _resultValue.automaticUpgradeChannel = automaticUpgradeChannel;
             _resultValue.capacity = capacity;
             _resultValue.diagnoseSupportEnabled = diagnoseSupportEnabled;
             _resultValue.email = email;

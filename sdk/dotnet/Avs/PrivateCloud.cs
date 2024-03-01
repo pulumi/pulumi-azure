@@ -73,8 +73,8 @@ namespace Pulumi.Azure.Avs
         public Output<string> HcxCloudManagerEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("internetConnectionEnabled")]
         public Output<bool?> InternetConnectionEnabled { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// A `management_cluster` block as defined below.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("managementCluster")]
         public Output<Outputs.PrivateCloudManagementCluster> ManagementCluster { get; private set; } = null!;
@@ -228,8 +228,8 @@ namespace Pulumi.Azure.Avs
     public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// A `management_cluster` block as defined below.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("managementCluster", required: true)]
         public Input<Inputs.PrivateCloudManagementClusterArgs> ManagementCluster { get; set; } = null!;
@@ -342,8 +342,8 @@ namespace Pulumi.Azure.Avs
         public Input<string>? HcxCloudManagerEndpoint { get; set; }
 
         /// <summary>
-        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        /// Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// A `management_cluster` block as defined below.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("managementCluster")]
         public Input<Inputs.PrivateCloudManagementClusterGetArgs>? ManagementCluster { get; set; }

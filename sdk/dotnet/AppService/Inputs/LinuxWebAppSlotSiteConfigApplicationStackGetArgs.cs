@@ -111,7 +111,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? PythonVersion { get; set; }
 
         /// <summary>
-        /// Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        /// The version of Ruby to run. Possible values include `2.6` and `2.7`.
         /// </summary>
         [Input("rubyVersion")]
         public Input<string>? RubyVersion { get; set; }

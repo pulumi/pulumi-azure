@@ -77,9 +77,11 @@ type LookupNamespaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the ServiceBus Namespace exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// The messaging partitions of the ServiceBus Namespace.
+	PremiumMessagingPartitions int    `pulumi:"premiumMessagingPartitions"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The Tier used for the ServiceBus Namespace.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
@@ -172,6 +174,11 @@ func (o LookupNamespaceResultOutput) Location() pulumi.StringOutput {
 
 func (o LookupNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The messaging partitions of the ServiceBus Namespace.
+func (o LookupNamespaceResultOutput) PremiumMessagingPartitions() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) int { return v.PremiumMessagingPartitions }).(pulumi.IntOutput)
 }
 
 func (o LookupNamespaceResultOutput) ResourceGroupName() pulumi.StringOutput {

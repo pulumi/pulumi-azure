@@ -185,7 +185,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+     * An `aadAdmin` block as defined below.
      */
     public readonly aadAdmin!: pulumi.Output<outputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -205,7 +205,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+     * A `customerManagedKey` block as defined below.
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.synapse.WorkspaceCustomerManagedKey | undefined>;
     /**
@@ -357,7 +357,7 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceState {
     /**
-     * An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+     * An `aadAdmin` block as defined below.
      */
     aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -377,7 +377,7 @@ export interface WorkspaceState {
      */
     connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+     * A `customerManagedKey` block as defined below.
      */
     customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
     /**
@@ -455,7 +455,7 @@ export interface WorkspaceState {
  */
 export interface WorkspaceArgs {
     /**
-     * An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+     * An `aadAdmin` block as defined below.
      */
     aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -471,7 +471,7 @@ export interface WorkspaceArgs {
      */
     computeSubnetId?: pulumi.Input<string>;
     /**
-     * A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+     * A `customerManagedKey` block as defined below.
      */
     customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
     /**

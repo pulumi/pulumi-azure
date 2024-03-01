@@ -30,15 +30,15 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      */
     private @Nullable String diskEncryptionSetId;
     /**
-     * @return The size of the Data Disk which should be created.
+     * @return The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
      * 
      */
-    private Integer diskSizeGb;
+    private @Nullable Integer diskSizeGb;
     /**
-     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
      * 
      */
-    private Integer lun;
+    private @Nullable Integer lun;
     /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
@@ -83,18 +83,18 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
     /**
-     * @return The size of the Data Disk which should be created.
+     * @return The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
      * 
      */
-    public Integer diskSizeGb() {
-        return this.diskSizeGb;
+    public Optional<Integer> diskSizeGb() {
+        return Optional.ofNullable(this.diskSizeGb);
     }
     /**
-     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
      * 
      */
-    public Integer lun() {
-        return this.lun;
+    public Optional<Integer> lun() {
+        return Optional.ofNullable(this.lun);
     }
     /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
@@ -137,8 +137,8 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         private String caching;
         private @Nullable String createOption;
         private @Nullable String diskEncryptionSetId;
-        private Integer diskSizeGb;
-        private Integer lun;
+        private @Nullable Integer diskSizeGb;
+        private @Nullable Integer lun;
         private String storageAccountType;
         private @Nullable Integer ultraSsdDiskIopsReadWrite;
         private @Nullable Integer ultraSsdDiskMbpsReadWrite;
@@ -178,18 +178,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
             return this;
         }
         @CustomType.Setter
-        public Builder diskSizeGb(Integer diskSizeGb) {
-            if (diskSizeGb == null) {
-              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDisk", "diskSizeGb");
-            }
+        public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
+
             this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
-        public Builder lun(Integer lun) {
-            if (lun == null) {
-              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDisk", "lun");
-            }
+        public Builder lun(@Nullable Integer lun) {
+
             this.lun = lun;
             return this;
         }

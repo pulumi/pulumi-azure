@@ -194,6 +194,15 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public readonly string ServiceLevel;
         /// <summary>
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+        /// ---
+        /// </summary>
+        public readonly bool SmbAccessBasedEnumerationEnabled;
+        /// <summary>
+        /// Limits clients from browsing for an SMB share.
+        /// </summary>
+        public readonly bool SmbNonBrowsableEnabled;
+        /// <summary>
         /// The maximum Storage Quota in Gigabytes allowed for a file system.
         /// </summary>
         public readonly int StorageQuotaInGb;
@@ -240,6 +249,10 @@ namespace Pulumi.Azure.NetApp
 
             string serviceLevel,
 
+            bool smbAccessBasedEnumerationEnabled,
+
+            bool smbNonBrowsableEnabled,
+
             int storageQuotaInGb,
 
             string subnetId,
@@ -262,6 +275,8 @@ namespace Pulumi.Azure.NetApp
             ResourceGroupName = resourceGroupName;
             SecurityStyle = securityStyle;
             ServiceLevel = serviceLevel;
+            SmbAccessBasedEnumerationEnabled = smbAccessBasedEnumerationEnabled;
+            SmbNonBrowsableEnabled = smbNonBrowsableEnabled;
             StorageQuotaInGb = storageQuotaInGb;
             SubnetId = subnetId;
             VolumePath = volumePath;

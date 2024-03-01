@@ -180,6 +180,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The current version running on the Azure Kubernetes Managed Cluster.
+     * 
+     */
+    @Import(name="currentKubernetesVersion")
+    private @Nullable Output<String> currentKubernetesVersion;
+
+    /**
+     * @return The current version running on the Azure Kubernetes Managed Cluster.
+     * 
+     */
+    public Optional<Output<String>> currentKubernetesVersion() {
+        return Optional.ofNullable(this.currentKubernetesVersion);
+    }
+
+    /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
      * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -1293,6 +1308,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
         this.confidentialComputing = $.confidentialComputing;
+        this.currentKubernetesVersion = $.currentKubernetesVersion;
         this.customCaTrustCertificatesBase64s = $.customCaTrustCertificatesBase64s;
         this.defaultNodePool = $.defaultNodePool;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
@@ -1562,6 +1578,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder confidentialComputing(KubernetesClusterConfidentialComputingArgs confidentialComputing) {
             return confidentialComputing(Output.of(confidentialComputing));
+        }
+
+        /**
+         * @param currentKubernetesVersion The current version running on the Azure Kubernetes Managed Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder currentKubernetesVersion(@Nullable Output<String> currentKubernetesVersion) {
+            $.currentKubernetesVersion = currentKubernetesVersion;
+            return this;
+        }
+
+        /**
+         * @param currentKubernetesVersion The current version running on the Azure Kubernetes Managed Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder currentKubernetesVersion(String currentKubernetesVersion) {
+            return currentKubernetesVersion(Output.of(currentKubernetesVersion));
         }
 
         /**

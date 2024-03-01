@@ -1944,12 +1944,16 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.
 }
 
 type LinuxVirtualMachineGalleryApplication struct {
+	// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
 	Order *int `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag *string `pulumi:"tag"`
+	// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+	TreatFailureAsDeploymentFailureEnabled *bool `pulumi:"treatFailureAsDeploymentFailureEnabled"`
 	// Specifies the Gallery Application Version resource ID.
 	VersionId string `pulumi:"versionId"`
 }
@@ -1966,12 +1970,16 @@ type LinuxVirtualMachineGalleryApplicationInput interface {
 }
 
 type LinuxVirtualMachineGalleryApplicationArgs struct {
+	// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+	TreatFailureAsDeploymentFailureEnabled pulumi.BoolPtrInput `pulumi:"treatFailureAsDeploymentFailureEnabled"`
 	// Specifies the Gallery Application Version resource ID.
 	VersionId pulumi.StringInput `pulumi:"versionId"`
 }
@@ -2027,6 +2035,11 @@ func (o LinuxVirtualMachineGalleryApplicationOutput) ToLinuxVirtualMachineGaller
 	return o
 }
 
+// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+func (o LinuxVirtualMachineGalleryApplicationOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 func (o LinuxVirtualMachineGalleryApplicationOutput) ConfigurationBlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
@@ -2040,6 +2053,11 @@ func (o LinuxVirtualMachineGalleryApplicationOutput) Order() pulumi.IntPtrOutput
 // Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 func (o LinuxVirtualMachineGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+func (o LinuxVirtualMachineGalleryApplicationOutput) TreatFailureAsDeploymentFailureEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *bool { return v.TreatFailureAsDeploymentFailureEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the Gallery Application Version resource ID.
@@ -2769,6 +2787,143 @@ func (o LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi.S
 			return nil
 		}
 		return v.Placement
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineOsImageNotification struct {
+	// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// LinuxVirtualMachineOsImageNotificationInput is an input type that accepts LinuxVirtualMachineOsImageNotificationArgs and LinuxVirtualMachineOsImageNotificationOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineOsImageNotificationInput` via:
+//
+//	LinuxVirtualMachineOsImageNotificationArgs{...}
+type LinuxVirtualMachineOsImageNotificationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOsImageNotificationOutput() LinuxVirtualMachineOsImageNotificationOutput
+	ToLinuxVirtualMachineOsImageNotificationOutputWithContext(context.Context) LinuxVirtualMachineOsImageNotificationOutput
+}
+
+type LinuxVirtualMachineOsImageNotificationArgs struct {
+	// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (LinuxVirtualMachineOsImageNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineOsImageNotificationArgs) ToLinuxVirtualMachineOsImageNotificationOutput() LinuxVirtualMachineOsImageNotificationOutput {
+	return i.ToLinuxVirtualMachineOsImageNotificationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineOsImageNotificationArgs) ToLinuxVirtualMachineOsImageNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineOsImageNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsImageNotificationOutput)
+}
+
+func (i LinuxVirtualMachineOsImageNotificationArgs) ToLinuxVirtualMachineOsImageNotificationPtrOutput() LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineOsImageNotificationArgs) ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsImageNotificationOutput).ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineOsImageNotificationPtrInput is an input type that accepts LinuxVirtualMachineOsImageNotificationArgs, LinuxVirtualMachineOsImageNotificationPtr and LinuxVirtualMachineOsImageNotificationPtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineOsImageNotificationPtrInput` via:
+//
+//	        LinuxVirtualMachineOsImageNotificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinuxVirtualMachineOsImageNotificationPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineOsImageNotificationPtrOutput() LinuxVirtualMachineOsImageNotificationPtrOutput
+	ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(context.Context) LinuxVirtualMachineOsImageNotificationPtrOutput
+}
+
+type linuxVirtualMachineOsImageNotificationPtrType LinuxVirtualMachineOsImageNotificationArgs
+
+func LinuxVirtualMachineOsImageNotificationPtr(v *LinuxVirtualMachineOsImageNotificationArgs) LinuxVirtualMachineOsImageNotificationPtrInput {
+	return (*linuxVirtualMachineOsImageNotificationPtrType)(v)
+}
+
+func (*linuxVirtualMachineOsImageNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineOsImageNotificationPtrType) ToLinuxVirtualMachineOsImageNotificationPtrOutput() LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return i.ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineOsImageNotificationPtrType) ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsImageNotificationPtrOutput)
+}
+
+type LinuxVirtualMachineOsImageNotificationOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineOsImageNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOsImageNotificationOutput) ToLinuxVirtualMachineOsImageNotificationOutput() LinuxVirtualMachineOsImageNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsImageNotificationOutput) ToLinuxVirtualMachineOsImageNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineOsImageNotificationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsImageNotificationOutput) ToLinuxVirtualMachineOsImageNotificationPtrOutput() LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return o.ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineOsImageNotificationOutput) ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineOsImageNotification) *LinuxVirtualMachineOsImageNotification {
+		return &v
+	}).(LinuxVirtualMachineOsImageNotificationPtrOutput)
+}
+
+// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+func (o LinuxVirtualMachineOsImageNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsImageNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineOsImageNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineOsImageNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineOsImageNotificationPtrOutput) ToLinuxVirtualMachineOsImageNotificationPtrOutput() LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsImageNotificationPtrOutput) ToLinuxVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineOsImageNotificationPtrOutput) Elem() LinuxVirtualMachineOsImageNotificationOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsImageNotification) LinuxVirtualMachineOsImageNotification {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineOsImageNotification
+		return ret
+	}).(LinuxVirtualMachineOsImageNotificationOutput)
+}
+
+// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+func (o LinuxVirtualMachineOsImageNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsImageNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8616,10 +8771,10 @@ type OrchestratedVirtualMachineScaleSetDataDisk struct {
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The size of the Data Disk which should be created.
-	DiskSizeGb int `pulumi:"diskSizeGb"`
-	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-	Lun int `pulumi:"lun"`
+	// The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
+	Lun *int `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
@@ -8648,10 +8803,10 @@ type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// The size of the Data Disk which should be created.
-	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
-	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-	Lun pulumi.IntInput `pulumi:"lun"`
+	// The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
+	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
+	Lun pulumi.IntPtrInput `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
@@ -8728,14 +8883,14 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() 
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the Data Disk which should be created.
-func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+// The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
 
 // The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
@@ -22542,12 +22697,16 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulum
 }
 
 type WindowsVirtualMachineGalleryApplication struct {
+	// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
 	Order *int `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag *string `pulumi:"tag"`
+	// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+	TreatFailureAsDeploymentFailureEnabled *bool `pulumi:"treatFailureAsDeploymentFailureEnabled"`
 	// Specifies the Gallery Application Version resource ID.
 	VersionId string `pulumi:"versionId"`
 }
@@ -22564,12 +22723,16 @@ type WindowsVirtualMachineGalleryApplicationInput interface {
 }
 
 type WindowsVirtualMachineGalleryApplicationArgs struct {
+	// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+	TreatFailureAsDeploymentFailureEnabled pulumi.BoolPtrInput `pulumi:"treatFailureAsDeploymentFailureEnabled"`
 	// Specifies the Gallery Application Version resource ID.
 	VersionId pulumi.StringInput `pulumi:"versionId"`
 }
@@ -22625,6 +22788,11 @@ func (o WindowsVirtualMachineGalleryApplicationOutput) ToWindowsVirtualMachineGa
 	return o
 }
 
+// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+func (o WindowsVirtualMachineGalleryApplicationOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
 func (o WindowsVirtualMachineGalleryApplicationOutput) ConfigurationBlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
@@ -22638,6 +22806,11 @@ func (o WindowsVirtualMachineGalleryApplicationOutput) Order() pulumi.IntPtrOutp
 // Specifies a passthrough value for more generic context. This field can be any valid `string` value.
 func (o WindowsVirtualMachineGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+func (o WindowsVirtualMachineGalleryApplicationOutput) TreatFailureAsDeploymentFailureEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *bool { return v.TreatFailureAsDeploymentFailureEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the Gallery Application Version resource ID.
@@ -23367,6 +23540,143 @@ func (o WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput) Placement() pulumi
 			return nil
 		}
 		return v.Placement
+	}).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineOsImageNotification struct {
+	// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// WindowsVirtualMachineOsImageNotificationInput is an input type that accepts WindowsVirtualMachineOsImageNotificationArgs and WindowsVirtualMachineOsImageNotificationOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineOsImageNotificationInput` via:
+//
+//	WindowsVirtualMachineOsImageNotificationArgs{...}
+type WindowsVirtualMachineOsImageNotificationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOsImageNotificationOutput() WindowsVirtualMachineOsImageNotificationOutput
+	ToWindowsVirtualMachineOsImageNotificationOutputWithContext(context.Context) WindowsVirtualMachineOsImageNotificationOutput
+}
+
+type WindowsVirtualMachineOsImageNotificationArgs struct {
+	// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (WindowsVirtualMachineOsImageNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineOsImageNotificationArgs) ToWindowsVirtualMachineOsImageNotificationOutput() WindowsVirtualMachineOsImageNotificationOutput {
+	return i.ToWindowsVirtualMachineOsImageNotificationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineOsImageNotificationArgs) ToWindowsVirtualMachineOsImageNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineOsImageNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsImageNotificationOutput)
+}
+
+func (i WindowsVirtualMachineOsImageNotificationArgs) ToWindowsVirtualMachineOsImageNotificationPtrOutput() WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineOsImageNotificationArgs) ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsImageNotificationOutput).ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineOsImageNotificationPtrInput is an input type that accepts WindowsVirtualMachineOsImageNotificationArgs, WindowsVirtualMachineOsImageNotificationPtr and WindowsVirtualMachineOsImageNotificationPtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineOsImageNotificationPtrInput` via:
+//
+//	        WindowsVirtualMachineOsImageNotificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WindowsVirtualMachineOsImageNotificationPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineOsImageNotificationPtrOutput() WindowsVirtualMachineOsImageNotificationPtrOutput
+	ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(context.Context) WindowsVirtualMachineOsImageNotificationPtrOutput
+}
+
+type windowsVirtualMachineOsImageNotificationPtrType WindowsVirtualMachineOsImageNotificationArgs
+
+func WindowsVirtualMachineOsImageNotificationPtr(v *WindowsVirtualMachineOsImageNotificationArgs) WindowsVirtualMachineOsImageNotificationPtrInput {
+	return (*windowsVirtualMachineOsImageNotificationPtrType)(v)
+}
+
+func (*windowsVirtualMachineOsImageNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineOsImageNotificationPtrType) ToWindowsVirtualMachineOsImageNotificationPtrOutput() WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return i.ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineOsImageNotificationPtrType) ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsImageNotificationPtrOutput)
+}
+
+type WindowsVirtualMachineOsImageNotificationOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineOsImageNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOsImageNotificationOutput) ToWindowsVirtualMachineOsImageNotificationOutput() WindowsVirtualMachineOsImageNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsImageNotificationOutput) ToWindowsVirtualMachineOsImageNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineOsImageNotificationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsImageNotificationOutput) ToWindowsVirtualMachineOsImageNotificationPtrOutput() WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return o.ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineOsImageNotificationOutput) ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineOsImageNotification) *WindowsVirtualMachineOsImageNotification {
+		return &v
+	}).(WindowsVirtualMachineOsImageNotificationPtrOutput)
+}
+
+// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+func (o WindowsVirtualMachineOsImageNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsImageNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineOsImageNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineOsImageNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineOsImageNotification)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineOsImageNotificationPtrOutput) ToWindowsVirtualMachineOsImageNotificationPtrOutput() WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsImageNotificationPtrOutput) ToWindowsVirtualMachineOsImageNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsImageNotificationPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineOsImageNotificationPtrOutput) Elem() WindowsVirtualMachineOsImageNotificationOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsImageNotification) WindowsVirtualMachineOsImageNotification {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineOsImageNotification
+		return ret
+	}).(WindowsVirtualMachineOsImageNotificationOutput)
+}
+
+// Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+func (o WindowsVirtualMachineOsImageNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsImageNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -32708,6 +33018,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskPtrInput)(nil)).Elem(), LinuxVirtualMachineOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettingsInput)(nil)).Elem(), LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsImageNotificationInput)(nil)).Elem(), LinuxVirtualMachineOsImageNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsImageNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineOsImageNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachinePlanInput)(nil)).Elem(), LinuxVirtualMachinePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachinePlanPtrInput)(nil)).Elem(), LinuxVirtualMachinePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput)(nil)).Elem(), LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs{})
@@ -32956,6 +33268,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskPtrInput)(nil)).Elem(), WindowsVirtualMachineOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettingsInput)(nil)).Elem(), WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsImageNotificationInput)(nil)).Elem(), WindowsVirtualMachineOsImageNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsImageNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineOsImageNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachinePlanInput)(nil)).Elem(), WindowsVirtualMachinePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachinePlanPtrInput)(nil)).Elem(), WindowsVirtualMachinePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput)(nil)).Elem(), WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs{})
@@ -33116,6 +33430,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineOsImageNotificationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineOsImageNotificationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachinePlanOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachinePlanPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput{})
@@ -33364,6 +33680,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineOsImageNotificationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineOsImageNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachinePlanOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachinePlanPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput{})

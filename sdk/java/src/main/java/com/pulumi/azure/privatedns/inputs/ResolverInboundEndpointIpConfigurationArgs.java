@@ -32,14 +32,14 @@ public final class ResolverInboundEndpointIpConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+     * Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     @Import(name="privateIpAllocationMethod")
     private @Nullable Output<String> privateIpAllocationMethod;
 
     /**
-     * @return Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+     * @return Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     public Optional<Output<String>> privateIpAllocationMethod() {
@@ -109,7 +109,7 @@ public final class ResolverInboundEndpointIpConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param privateIpAllocationMethod Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+         * @param privateIpAllocationMethod Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ResolverInboundEndpointIpConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param privateIpAllocationMethod Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+         * @param privateIpAllocationMethod Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
          * 
          * @return builder
          * 

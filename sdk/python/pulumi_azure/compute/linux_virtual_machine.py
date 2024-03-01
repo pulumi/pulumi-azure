@@ -34,6 +34,7 @@ class LinuxVirtualMachineArgs:
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class LinuxVirtualMachineArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 os_image_notification: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
@@ -60,6 +62,7 @@ class LinuxVirtualMachineArgs:
                  termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -95,6 +98,7 @@ class LinuxVirtualMachineArgs:
                > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -109,6 +113,7 @@ class LinuxVirtualMachineArgs:
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -136,9 +141,12 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -173,6 +181,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if disk_controller_type is not None:
+            pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if encryption_at_host_enabled is not None:
@@ -193,6 +203,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if os_image_notification is not None:
+            pulumi.set(__self__, "os_image_notification", os_image_notification)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -225,6 +237,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vm_agent_platform_updates_enabled is not None:
+            pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if zone is not None:
@@ -460,6 +474,18 @@ class LinuxVirtualMachineArgs:
         pulumi.set(self, "disable_password_authentication", value)
 
     @property
+    @pulumi.getter(name="diskControllerType")
+    def disk_controller_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        """
+        return pulumi.get(self, "disk_controller_type")
+
+    @disk_controller_type.setter
+    def disk_controller_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_controller_type", value)
+
+    @property
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -582,6 +608,18 @@ class LinuxVirtualMachineArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="osImageNotification")
+    def os_image_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']]:
+        """
+        A `os_image_notification` block as defined below.
+        """
+        return pulumi.get(self, "os_image_notification")
+
+    @os_image_notification.setter
+    def os_image_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']]):
+        pulumi.set(self, "os_image_notification", value)
 
     @property
     @pulumi.getter(name="patchAssessmentMode")
@@ -779,7 +817,9 @@ class LinuxVirtualMachineArgs:
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+
+        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
         > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         """
@@ -788,6 +828,18 @@ class LinuxVirtualMachineArgs:
     @virtual_machine_scale_set_id.setter
     def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_agent_platform_updates_enabled")
+
+    @vm_agent_platform_updates_enabled.setter
+    def vm_agent_platform_updates_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vm_agent_platform_updates_enabled", value)
 
     @property
     @pulumi.getter(name="vtpmEnabled")
@@ -831,6 +883,7 @@ class _LinuxVirtualMachineState:
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -843,6 +896,7 @@ class _LinuxVirtualMachineState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
+                 os_image_notification: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
@@ -866,6 +920,7 @@ class _LinuxVirtualMachineState:
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -897,6 +952,7 @@ class _LinuxVirtualMachineState:
                > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -913,6 +969,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -947,9 +1004,12 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -981,6 +1041,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if disk_controller_type is not None:
+            pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if encryption_at_host_enabled is not None:
@@ -1005,6 +1067,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if os_disk is not None:
             pulumi.set(__self__, "os_disk", os_disk)
+        if os_image_notification is not None:
+            pulumi.set(__self__, "os_image_notification", os_image_notification)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -1051,6 +1115,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vm_agent_platform_updates_enabled is not None:
+            pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if zone is not None:
@@ -1238,6 +1304,18 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "disable_password_authentication", value)
 
     @property
+    @pulumi.getter(name="diskControllerType")
+    def disk_controller_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        """
+        return pulumi.get(self, "disk_controller_type")
+
+    @disk_controller_type.setter
+    def disk_controller_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_controller_type", value)
+
+    @property
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1384,6 +1462,18 @@ class _LinuxVirtualMachineState:
     @os_disk.setter
     def os_disk(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
+
+    @property
+    @pulumi.getter(name="osImageNotification")
+    def os_image_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']]:
+        """
+        A `os_image_notification` block as defined below.
+        """
+        return pulumi.get(self, "os_image_notification")
+
+    @os_image_notification.setter
+    def os_image_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']]):
+        pulumi.set(self, "os_image_notification", value)
 
     @property
     @pulumi.getter(name="patchAssessmentMode")
@@ -1665,7 +1755,9 @@ class _LinuxVirtualMachineState:
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+
+        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
         > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         """
@@ -1674,6 +1766,18 @@ class _LinuxVirtualMachineState:
     @virtual_machine_scale_set_id.setter
     def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_agent_platform_updates_enabled")
+
+    @vm_agent_platform_updates_enabled.setter
+    def vm_agent_platform_updates_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vm_agent_platform_updates_enabled", value)
 
     @property
     @pulumi.getter(name="vtpmEnabled")
@@ -1719,6 +1823,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1731,6 +1836,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
+                 os_image_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsImageNotificationArgs']]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
@@ -1749,6 +1855,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1858,6 +1965,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -1874,6 +1982,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsImageNotificationArgs']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -1903,9 +2012,12 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -2021,6 +2133,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -2033,6 +2146,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
+                 os_image_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsImageNotificationArgs']]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
@@ -2051,6 +2165,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -2078,6 +2193,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
             __props__.__dict__["dedicated_host_id"] = dedicated_host_id
             __props__.__dict__["disable_password_authentication"] = disable_password_authentication
+            __props__.__dict__["disk_controller_type"] = disk_controller_type
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
@@ -2094,6 +2210,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
+            __props__.__dict__["os_image_notification"] = os_image_notification
             __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
             __props__.__dict__["plan"] = plan
@@ -2116,6 +2233,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+            __props__.__dict__["vm_agent_platform_updates_enabled"] = vm_agent_platform_updates_enabled
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["zone"] = zone
             __props__.__dict__["private_ip_address"] = None
@@ -2149,6 +2267,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
             dedicated_host_id: Optional[pulumi.Input[str]] = None,
             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+            disk_controller_type: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -2161,6 +2280,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
+            os_image_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsImageNotificationArgs']]] = None,
             patch_assessment_mode: Optional[pulumi.Input[str]] = None,
             patch_mode: Optional[pulumi.Input[str]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
@@ -2184,6 +2304,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             user_data: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+            vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'LinuxVirtualMachine':
         """
@@ -2220,6 +2341,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -2236,6 +2358,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsImageNotificationArgs']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2270,9 +2393,12 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -2294,6 +2420,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
         __props__.__dict__["dedicated_host_id"] = dedicated_host_id
         __props__.__dict__["disable_password_authentication"] = disable_password_authentication
+        __props__.__dict__["disk_controller_type"] = disk_controller_type
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
@@ -2306,6 +2433,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["os_disk"] = os_disk
+        __props__.__dict__["os_image_notification"] = os_image_notification
         __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
         __props__.__dict__["patch_mode"] = patch_mode
         __props__.__dict__["plan"] = plan
@@ -2329,6 +2457,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["user_data"] = user_data
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+        __props__.__dict__["vm_agent_platform_updates_enabled"] = vm_agent_platform_updates_enabled
         __props__.__dict__["vtpm_enabled"] = vtpm_enabled
         __props__.__dict__["zone"] = zone
         return LinuxVirtualMachine(resource_name, opts=opts, __props__=__props__)
@@ -2459,6 +2588,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "disable_password_authentication")
 
     @property
+    @pulumi.getter(name="diskControllerType")
+    def disk_controller_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        """
+        return pulumi.get(self, "disk_controller_type")
+
+    @property
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2557,6 +2694,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         A `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter(name="osImageNotification")
+    def os_image_notification(self) -> pulumi.Output[Optional['outputs.LinuxVirtualMachineOsImageNotification']]:
+        """
+        A `os_image_notification` block as defined below.
+        """
+        return pulumi.get(self, "os_image_notification")
 
     @property
     @pulumi.getter(name="patchAssessmentMode")
@@ -2750,11 +2895,21 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+
+        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
         > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
+
+    @property
+    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    def vm_agent_platform_updates_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_agent_platform_updates_enabled")
 
     @property
     @pulumi.getter(name="vtpmEnabled")

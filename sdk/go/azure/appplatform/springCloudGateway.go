@@ -114,6 +114,8 @@ type SpringCloudGateway struct {
 
 	// A `apiMetadata` block as defined below.
 	ApiMetadata SpringCloudGatewayApiMetadataPtrOutput `pulumi:"apiMetadata"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayOutput `pulumi:"applicationPerformanceMonitoringIds"`
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes pulumi.StringArrayOutput `pulumi:"applicationPerformanceMonitoringTypes"`
 	// A `clientAuthorization` block as defined below.
@@ -188,6 +190,8 @@ func GetSpringCloudGateway(ctx *pulumi.Context,
 type springCloudGatewayState struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds []string `pulumi:"applicationPerformanceMonitoringIds"`
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes []string `pulumi:"applicationPerformanceMonitoringTypes"`
 	// A `clientAuthorization` block as defined below.
@@ -223,6 +227,8 @@ type springCloudGatewayState struct {
 type SpringCloudGatewayState struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata SpringCloudGatewayApiMetadataPtrInput
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayInput
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes pulumi.StringArrayInput
 	// A `clientAuthorization` block as defined below.
@@ -262,6 +268,8 @@ func (SpringCloudGatewayState) ElementType() reflect.Type {
 type springCloudGatewayArgs struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata *SpringCloudGatewayApiMetadata `pulumi:"apiMetadata"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds []string `pulumi:"applicationPerformanceMonitoringIds"`
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes []string `pulumi:"applicationPerformanceMonitoringTypes"`
 	// A `clientAuthorization` block as defined below.
@@ -296,6 +304,8 @@ type springCloudGatewayArgs struct {
 type SpringCloudGatewayArgs struct {
 	// A `apiMetadata` block as defined below.
 	ApiMetadata SpringCloudGatewayApiMetadataPtrInput
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayInput
 	// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
 	ApplicationPerformanceMonitoringTypes pulumi.StringArrayInput
 	// A `clientAuthorization` block as defined below.
@@ -416,6 +426,11 @@ func (o SpringCloudGatewayOutput) ToSpringCloudGatewayOutputWithContext(ctx cont
 // A `apiMetadata` block as defined below.
 func (o SpringCloudGatewayOutput) ApiMetadata() SpringCloudGatewayApiMetadataPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayApiMetadataPtrOutput { return v.ApiMetadata }).(SpringCloudGatewayApiMetadataPtrOutput)
+}
+
+// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+func (o SpringCloudGatewayOutput) ApplicationPerformanceMonitoringIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringArrayOutput { return v.ApplicationPerformanceMonitoringIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.

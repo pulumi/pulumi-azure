@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Synapse.Inputs
         [Input("keyVersionlessId", required: true)]
         public Input<string> KeyVersionlessId { get; set; } = null!;
 
+        /// <summary>
+        /// The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
         public WorkspaceCustomerManagedKeyGetArgs()
         {
         }

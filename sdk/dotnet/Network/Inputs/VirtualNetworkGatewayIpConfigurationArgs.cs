@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+        /// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
         /// </summary>
         [Input("privateIpAddressAllocation")]
         public Input<string>? PrivateIpAddressAllocation { get; set; }

@@ -66,6 +66,12 @@ namespace Pulumi.Azure.NetApp
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("encryptionType")]
+        public Output<string?> EncryptionType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -90,7 +96,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
@@ -162,6 +168,12 @@ namespace Pulumi.Azure.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("encryptionType")]
+        public Input<string>? EncryptionType { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -186,7 +198,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel", required: true)]
         public Input<string> ServiceLevel { get; set; } = null!;
@@ -226,6 +238,12 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
+        /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("encryptionType")]
+        public Input<string>? EncryptionType { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -250,7 +268,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }

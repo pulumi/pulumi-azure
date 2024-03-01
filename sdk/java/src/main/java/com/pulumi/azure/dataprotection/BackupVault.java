@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -158,6 +159,42 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     * 
+     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * 
+     */
+    @Export(name="retentionDurationInDays", refs={Double.class}, tree="[0]")
+    private Output</* @Nullable */ Double> retentionDurationInDays;
+
+    /**
+     * @return The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     * 
+     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * 
+     */
+    public Output<Optional<Double>> retentionDurationInDays() {
+        return Codegen.optional(this.retentionDurationInDays);
+    }
+    /**
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * 
+     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * 
+     */
+    @Export(name="softDelete", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> softDelete;
+
+    /**
+     * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * 
+     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * 
+     */
+    public Output<Optional<String>> softDelete() {
+        return Codegen.optional(this.softDelete);
     }
     /**
      * A mapping of tags which should be assigned to the Backup Vault.

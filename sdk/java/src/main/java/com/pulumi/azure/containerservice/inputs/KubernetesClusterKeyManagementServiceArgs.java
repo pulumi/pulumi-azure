@@ -17,14 +17,14 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
     public static final KubernetesClusterKeyManagementServiceArgs Empty = new KubernetesClusterKeyManagementServiceArgs();
 
     /**
-     * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+     * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -72,7 +72,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+         * @param keyVaultKeyId Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          * 
          * @return builder
          * 

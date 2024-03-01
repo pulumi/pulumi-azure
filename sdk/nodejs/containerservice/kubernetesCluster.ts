@@ -115,6 +115,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
+     * The current version running on the Azure Kubernetes Managed Cluster.
+     */
+    public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
+    /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
      *
      * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
@@ -446,6 +450,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
+            resourceInputs["currentKubernetesVersion"] = state ? state.currentKubernetesVersion : undefined;
             resourceInputs["customCaTrustCertificatesBase64s"] = state ? state.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
@@ -570,6 +575,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["workloadAutoscalerProfile"] = args ? args.workloadAutoscalerProfile : undefined;
             resourceInputs["workloadIdentityEnabled"] = args ? args.workloadIdentityEnabled : undefined;
+            resourceInputs["currentKubernetesVersion"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["httpApplicationRoutingZoneName"] = undefined /*out*/;
             resourceInputs["kubeAdminConfigRaw"] = undefined /*out*/;
@@ -628,6 +634,10 @@ export interface KubernetesClusterState {
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
+    /**
+     * The current version running on the Azure Kubernetes Managed Cluster.
+     */
+    currentKubernetesVersion?: pulumi.Input<string>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
      *

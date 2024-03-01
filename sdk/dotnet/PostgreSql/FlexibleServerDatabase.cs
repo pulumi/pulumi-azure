@@ -40,7 +40,7 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     ///     var exampleFlexibleServerDatabase = new Azure.PostgreSql.FlexibleServerDatabase("example", new()
     ///     {
-    ///         Name = "example-db",
+    ///         Name = "exampledb",
     ///         ServerId = exampleFlexibleServer.Id,
     ///         Collation = "en_US.utf8",
     ///         Charset = "utf8",
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+        /// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+        /// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+        /// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

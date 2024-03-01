@@ -18,7 +18,7 @@ public final class ResolverInboundEndpointIpConfiguration {
      */
     private @Nullable String privateIpAddress;
     /**
-     * @return Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+     * @return Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     private @Nullable String privateIpAllocationMethod;
@@ -37,7 +37,7 @@ public final class ResolverInboundEndpointIpConfiguration {
         return Optional.ofNullable(this.privateIpAddress);
     }
     /**
-     * @return Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+     * @return Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     public Optional<String> privateIpAllocationMethod() {

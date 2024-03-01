@@ -19,12 +19,14 @@ class SpringCloudConfigurationServiceArgs:
                  spring_cloud_service_id: pulumi.Input[str],
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a SpringCloudConfigurationService resource.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        :param pulumi.Input[int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
         """
         pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
@@ -32,6 +34,8 @@ class SpringCloudConfigurationServiceArgs:
             pulumi.set(__self__, "generation", generation)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if refresh_interval_in_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_in_seconds", refresh_interval_in_seconds)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
 
@@ -72,6 +76,18 @@ class SpringCloudConfigurationServiceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="refreshIntervalInSeconds")
+    def refresh_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies how often to check repository updates. Minimum value is 0.
+        """
+        return pulumi.get(self, "refresh_interval_in_seconds")
+
+    @refresh_interval_in_seconds.setter
+    def refresh_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_interval_in_seconds", value)
+
+    @property
     @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
         """
@@ -89,12 +105,14 @@ class _SpringCloudConfigurationServiceState:
     def __init__(__self__, *,
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConfigurationService resources.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        :param pulumi.Input[int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
@@ -102,6 +120,8 @@ class _SpringCloudConfigurationServiceState:
             pulumi.set(__self__, "generation", generation)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if refresh_interval_in_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_in_seconds", refresh_interval_in_seconds)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
         if spring_cloud_service_id is not None:
@@ -130,6 +150,18 @@ class _SpringCloudConfigurationServiceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="refreshIntervalInSeconds")
+    def refresh_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies how often to check repository updates. Minimum value is 0.
+        """
+        return pulumi.get(self, "refresh_interval_in_seconds")
+
+    @refresh_interval_in_seconds.setter
+    def refresh_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "refresh_interval_in_seconds", value)
 
     @property
     @pulumi.getter
@@ -163,6 +195,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -215,6 +248,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        :param pulumi.Input[int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
@@ -286,6 +320,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -299,6 +334,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
 
             __props__.__dict__["generation"] = generation
             __props__.__dict__["name"] = name
+            __props__.__dict__["refresh_interval_in_seconds"] = refresh_interval_in_seconds
             __props__.__dict__["repositories"] = repositories
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
@@ -315,6 +351,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             generation: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudConfigurationService':
         """
@@ -326,6 +363,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        :param pulumi.Input[int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
@@ -335,6 +373,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
 
         __props__.__dict__["generation"] = generation
         __props__.__dict__["name"] = name
+        __props__.__dict__["refresh_interval_in_seconds"] = refresh_interval_in_seconds
         __props__.__dict__["repositories"] = repositories
         __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
         return SpringCloudConfigurationService(resource_name, opts=opts, __props__=__props__)
@@ -354,6 +393,14 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="refreshIntervalInSeconds")
+    def refresh_interval_in_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies how often to check repository updates. Minimum value is 0.
+        """
+        return pulumi.get(self, "refresh_interval_in_seconds")
 
     @property
     @pulumi.getter

@@ -122,6 +122,12 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly networkRuleSet!: pulumi.Output<outputs.eventhub.NamespaceNetworkRuleSet>;
     /**
+     * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+     *
+     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     */
+    public readonly premiumMessagingPartitions!: pulumi.Output<number | undefined>;
+    /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
@@ -172,6 +178,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
+            resourceInputs["premiumMessagingPartitions"] = state ? state.premiumMessagingPartitions : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
@@ -193,6 +200,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
+            resourceInputs["premiumMessagingPartitions"] = args ? args.premiumMessagingPartitions : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -268,6 +276,12 @@ export interface NamespaceState {
      */
     networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet>;
     /**
+     * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+     *
+     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     */
+    premiumMessagingPartitions?: pulumi.Input<number>;
+    /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
@@ -326,6 +340,12 @@ export interface NamespaceArgs {
      * An `networkRuleSet` block as defined below.
      */
     networkRuleSet?: pulumi.Input<inputs.eventhub.NamespaceNetworkRuleSet>;
+    /**
+     * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+     *
+     * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     */
+    premiumMessagingPartitions?: pulumi.Input<number>;
     /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */

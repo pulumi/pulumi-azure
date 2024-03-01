@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudConfigurationServiceReposi
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,6 +50,21 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
     }
 
     /**
+     * Specifies how often to check repository updates. Minimum value is 0.
+     * 
+     */
+    @Import(name="refreshIntervalInSeconds")
+    private @Nullable Output<Integer> refreshIntervalInSeconds;
+
+    /**
+     * @return Specifies how often to check repository updates. Minimum value is 0.
+     * 
+     */
+    public Optional<Output<Integer>> refreshIntervalInSeconds() {
+        return Optional.ofNullable(this.refreshIntervalInSeconds);
+    }
+
+    /**
      * One or more `repository` blocks as defined below.
      * 
      */
@@ -83,6 +99,7 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
     private SpringCloudConfigurationServiceArgs(SpringCloudConfigurationServiceArgs $) {
         this.generation = $.generation;
         this.name = $.name;
+        this.refreshIntervalInSeconds = $.refreshIntervalInSeconds;
         this.repositories = $.repositories;
         this.springCloudServiceId = $.springCloudServiceId;
     }
@@ -145,6 +162,27 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param refreshIntervalInSeconds Specifies how often to check repository updates. Minimum value is 0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshIntervalInSeconds(@Nullable Output<Integer> refreshIntervalInSeconds) {
+            $.refreshIntervalInSeconds = refreshIntervalInSeconds;
+            return this;
+        }
+
+        /**
+         * @param refreshIntervalInSeconds Specifies how often to check repository updates. Minimum value is 0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshIntervalInSeconds(Integer refreshIntervalInSeconds) {
+            return refreshIntervalInSeconds(Output.of(refreshIntervalInSeconds));
         }
 
         /**

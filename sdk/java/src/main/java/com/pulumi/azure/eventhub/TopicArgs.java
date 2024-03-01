@@ -173,18 +173,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether Changing this forces a new resource to be created.
-     * the Topic requires duplicate detection. Defaults to false. Changing this forces
-     * a new resource to be created.
+     * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
      * 
      */
     @Import(name="requiresDuplicateDetection")
     private @Nullable Output<Boolean> requiresDuplicateDetection;
 
     /**
-     * @return Boolean flag which controls whether Changing this forces a new resource to be created.
-     * the Topic requires duplicate detection. Defaults to false. Changing this forces
-     * a new resource to be created.
+     * @return Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> requiresDuplicateDetection() {
@@ -472,9 +468,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requiresDuplicateDetection Boolean flag which controls whether Changing this forces a new resource to be created.
-         * the Topic requires duplicate detection. Defaults to false. Changing this forces
-         * a new resource to be created.
+         * @param requiresDuplicateDetection Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
          * 
          * @return builder
          * 
@@ -485,9 +479,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requiresDuplicateDetection Boolean flag which controls whether Changing this forces a new resource to be created.
-         * the Topic requires duplicate detection. Defaults to false. Changing this forces
-         * a new resource to be created.
+         * @param requiresDuplicateDetection Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
          * 
          * @return builder
          * 

@@ -32,7 +32,7 @@ public final class PoolExtension {
      */
     private String name;
     /**
-     * @return The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
      * 
      */
     private @Nullable String protectedSettings;
@@ -47,7 +47,7 @@ public final class PoolExtension {
      */
     private String publisher;
     /**
-     * @return JSON formatted public settings for the extension.
+     * @return JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
      * 
      */
     private @Nullable String settingsJson;
@@ -87,7 +87,7 @@ public final class PoolExtension {
         return this.name;
     }
     /**
-     * @return The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
      * 
      */
     public Optional<String> protectedSettings() {
@@ -108,7 +108,7 @@ public final class PoolExtension {
         return this.publisher;
     }
     /**
-     * @return JSON formatted public settings for the extension.
+     * @return JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
      * 
      */
     public Optional<String> settingsJson() {

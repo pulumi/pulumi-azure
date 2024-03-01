@@ -38,6 +38,11 @@ public final class CacheRedisConfiguration {
      */
     private @Nullable String aofStorageConnectionString1;
     /**
+     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * 
+     */
+    private @Nullable String dataPersistenceAuthenticationMethod;
+    /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
      * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
@@ -165,6 +170,13 @@ public final class CacheRedisConfiguration {
      */
     public Optional<String> aofStorageConnectionString1() {
         return Optional.ofNullable(this.aofStorageConnectionString1);
+    }
+    /**
+     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * 
+     */
+    public Optional<String> dataPersistenceAuthenticationMethod() {
+        return Optional.ofNullable(this.dataPersistenceAuthenticationMethod);
     }
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
@@ -299,6 +311,7 @@ public final class CacheRedisConfiguration {
         private @Nullable Boolean aofBackupEnabled;
         private @Nullable String aofStorageConnectionString0;
         private @Nullable String aofStorageConnectionString1;
+        private @Nullable String dataPersistenceAuthenticationMethod;
         private @Nullable Boolean enableAuthentication;
         private @Nullable Integer maxclients;
         private @Nullable Integer maxfragmentationmemoryReserved;
@@ -318,6 +331,7 @@ public final class CacheRedisConfiguration {
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
     	      this.aofStorageConnectionString0 = defaults.aofStorageConnectionString0;
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
+    	      this.dataPersistenceAuthenticationMethod = defaults.dataPersistenceAuthenticationMethod;
     	      this.enableAuthentication = defaults.enableAuthentication;
     	      this.maxclients = defaults.maxclients;
     	      this.maxfragmentationmemoryReserved = defaults.maxfragmentationmemoryReserved;
@@ -354,6 +368,12 @@ public final class CacheRedisConfiguration {
         public Builder aofStorageConnectionString1(@Nullable String aofStorageConnectionString1) {
 
             this.aofStorageConnectionString1 = aofStorageConnectionString1;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataPersistenceAuthenticationMethod(@Nullable String dataPersistenceAuthenticationMethod) {
+
+            this.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             return this;
         }
         @CustomType.Setter
@@ -434,6 +454,7 @@ public final class CacheRedisConfiguration {
             _resultValue.aofBackupEnabled = aofBackupEnabled;
             _resultValue.aofStorageConnectionString0 = aofStorageConnectionString0;
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;
+            _resultValue.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             _resultValue.enableAuthentication = enableAuthentication;
             _resultValue.maxclients = maxclients;
             _resultValue.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;

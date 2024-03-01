@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -119,6 +120,20 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies how often to check repository updates. Minimum value is 0.
+     * 
+     */
+    @Export(name="refreshIntervalInSeconds", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> refreshIntervalInSeconds;
+
+    /**
+     * @return Specifies how often to check repository updates. Minimum value is 0.
+     * 
+     */
+    public Output<Optional<Integer>> refreshIntervalInSeconds() {
+        return Codegen.optional(this.refreshIntervalInSeconds);
     }
     /**
      * One or more `repository` blocks as defined below.

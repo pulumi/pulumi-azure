@@ -282,7 +282,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      * 
-     * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+     * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      * 
      */
     @Import(name="privateDnsZoneId")
@@ -291,7 +291,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      * 
-     * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+     * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      * 
      */
     public Optional<Output<String>> privateDnsZoneId() {
@@ -316,7 +316,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
-     * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+     * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
      * 
      */
     @Import(name="replicationRole")
@@ -325,7 +325,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
-     * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+     * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
      * 
      */
     public Optional<Output<String>> replicationRole() {
@@ -380,6 +380,10 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      * 
+     * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+     * 
+     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+     * 
      */
     @Import(name="storageMb")
     private @Nullable Output<Integer> storageMb;
@@ -387,9 +391,32 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      * 
+     * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+     * 
+     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+     * 
      */
     public Optional<Output<Integer>> storageMb() {
         return Optional.ofNullable(this.storageMb);
+    }
+
+    /**
+     * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+     * 
+     * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+     * 
+     */
+    @Import(name="storageTier")
+    private @Nullable Output<String> storageTier;
+
+    /**
+     * @return The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+     * 
+     * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+     * 
+     */
+    public Optional<Output<String>> storageTier() {
+        return Optional.ofNullable(this.storageTier);
     }
 
     /**
@@ -459,6 +486,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         this.skuName = $.skuName;
         this.sourceServerId = $.sourceServerId;
         this.storageMb = $.storageMb;
+        this.storageTier = $.storageTier;
         this.tags = $.tags;
         this.version = $.version;
         this.zone = $.zone;
@@ -837,7 +865,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param privateDnsZoneId The ID of the private DNS zone to create the PostgreSQL Flexible Server.
          * 
-         * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+         * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
          * 
          * @return builder
          * 
@@ -850,7 +878,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param privateDnsZoneId The ID of the private DNS zone to create the PostgreSQL Flexible Server.
          * 
-         * &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
+         * &gt; **Note:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don&#39;t want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
          * 
          * @return builder
          * 
@@ -883,7 +911,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
          * 
-         * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+         * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
          * 
          * @return builder
          * 
@@ -896,7 +924,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param replicationRole The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
          * 
-         * &gt; **NOTE:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
+         * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated to `None` for replica server.
          * 
          * @return builder
          * 
@@ -971,6 +999,10 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
          * 
+         * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+         * 
+         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+         * 
          * @return builder
          * 
          */
@@ -982,11 +1014,40 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
          * 
+         * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
+         * 
+         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+         * 
          * @return builder
          * 
          */
         public Builder storageMb(Integer storageMb) {
             return storageMb(Output.of(storageMb));
+        }
+
+        /**
+         * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+         * 
+         * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTier(@Nullable Output<String> storageTier) {
+            $.storageTier = storageTier;
+            return this;
+        }
+
+        /**
+         * @param storageTier The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storage_mb` value. Please see the `storage_tier` defaults based on `storage_mb` table below.
+         * 
+         * &gt; **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server&#39;s configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTier(String storageTier) {
+            return storageTier(Output.of(storageTier));
         }
 
         /**

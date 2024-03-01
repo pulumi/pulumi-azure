@@ -124,6 +124,10 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetDeploymentResult
     {
         /// <summary>
+        /// The automatic upgrade channel for this NGINX deployment.
+        /// </summary>
+        public readonly string AutomaticUpgradeChannel;
+        /// <summary>
         /// The number of NGINX capacity units for this Nginx Deployment.
         /// </summary>
         public readonly int Capacity;
@@ -191,6 +195,8 @@ namespace Pulumi.Azure.Nginx
 
         [OutputConstructor]
         private GetDeploymentResult(
+            string automaticUpgradeChannel,
+
             int capacity,
 
             bool diagnoseSupportEnabled,
@@ -225,6 +231,7 @@ namespace Pulumi.Azure.Nginx
 
             ImmutableDictionary<string, string> tags)
         {
+            AutomaticUpgradeChannel = automaticUpgradeChannel;
             Capacity = capacity;
             DiagnoseSupportEnabled = diagnoseSupportEnabled;
             Email = email;

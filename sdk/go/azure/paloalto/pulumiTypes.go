@@ -2904,9 +2904,9 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontend
 
 type NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings struct {
 	AzureDnsServers []string `pulumi:"azureDnsServers"`
-	// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+	// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 	UseAzureDns *bool `pulumi:"useAzureDns"`
 }
 
@@ -2923,9 +2923,9 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsInput interfac
 
 type NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs struct {
 	AzureDnsServers pulumi.StringArrayInput `pulumi:"azureDnsServers"`
-	// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+	// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 	UseAzureDns pulumi.BoolPtrInput `pulumi:"useAzureDns"`
 }
 
@@ -3012,12 +3012,12 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) Azu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings) *bool { return v.UseAzureDns }).(pulumi.BoolPtrOutput)
 }
@@ -3055,7 +3055,7 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings) []string {
 		if v == nil {
@@ -3065,7 +3065,7 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings) *bool {
 		if v == nil {
@@ -3963,9 +3963,9 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig
 
 type NextGenerationFirewallVirtualNetworkPanoramaDnsSettings struct {
 	AzureDnsServers []string `pulumi:"azureDnsServers"`
-	// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+	// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 	UseAzureDns *bool `pulumi:"useAzureDns"`
 }
 
@@ -3982,9 +3982,9 @@ type NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsInput interface {
 
 type NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs struct {
 	AzureDnsServers pulumi.StringArrayInput `pulumi:"azureDnsServers"`
-	// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+	// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+	// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 	UseAzureDns pulumi.BoolPtrInput `pulumi:"useAzureDns"`
 }
 
@@ -4069,12 +4069,12 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) AzureDnsS
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkPanoramaDnsSettings) []string { return v.AzureDnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkPanoramaDnsSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkPanoramaDnsSettings) *bool { return v.UseAzureDns }).(pulumi.BoolPtrOutput)
 }
@@ -4112,7 +4112,7 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) AzureD
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+// Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanoramaDnsSettings) []string {
 		if v == nil {
@@ -4122,7 +4122,7 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) DnsSer
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+// Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
 func (o NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput) UseAzureDns() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanoramaDnsSettings) *bool {
 		if v == nil {

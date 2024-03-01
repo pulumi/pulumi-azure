@@ -55,6 +55,10 @@ export interface GetPoolArgs {
 export interface GetPoolResult {
     readonly accountName: string;
     /**
+     * The encryption type of the pool.
+     */
+    readonly encryptionType: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

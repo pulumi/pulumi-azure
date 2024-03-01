@@ -190,14 +190,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.encryptionAtHostEnabled);
     }
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
-     * @return The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * @return The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {

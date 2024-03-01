@@ -60,6 +60,8 @@ type LookupDeploymentArgs struct {
 
 // A collection of values returned by getDeployment.
 type LookupDeploymentResult struct {
+	// The automatic upgrade channel for this NGINX deployment.
+	AutomaticUpgradeChannel string `pulumi:"automaticUpgradeChannel"`
 	// The number of NGINX capacity units for this Nginx Deployment.
 	Capacity int `pulumi:"capacity"`
 	// Whether diagnostic settings are enabled.
@@ -133,6 +135,11 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutput() LookupDep
 
 func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(ctx context.Context) LookupDeploymentResultOutput {
 	return o
+}
+
+// The automatic upgrade channel for this NGINX deployment.
+func (o LookupDeploymentResultOutput) AutomaticUpgradeChannel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) string { return v.AutomaticUpgradeChannel }).(pulumi.StringOutput)
 }
 
 // The number of NGINX capacity units for this Nginx Deployment.

@@ -452,6 +452,8 @@ type Workspace struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `managedNetwork` block as defined below.
+	ManagedNetwork WorkspaceManagedNetworkOutput `pulumi:"managedNetwork"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
@@ -466,7 +468,7 @@ type Workspace struct {
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
@@ -553,6 +555,8 @@ type workspaceState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `managedNetwork` block as defined below.
+	ManagedNetwork *WorkspaceManagedNetwork `pulumi:"managedNetwork"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
@@ -567,7 +571,7 @@ type workspaceState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
@@ -610,6 +614,8 @@ type WorkspaceState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `managedNetwork` block as defined below.
+	ManagedNetwork WorkspaceManagedNetworkPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The user assigned identity id that represents the workspace identity.
@@ -624,7 +630,7 @@ type WorkspaceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
@@ -669,6 +675,8 @@ type workspaceArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `managedNetwork` block as defined below.
+	ManagedNetwork *WorkspaceManagedNetwork `pulumi:"managedNetwork"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The user assigned identity id that represents the workspace identity.
@@ -683,7 +691,7 @@ type workspaceArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
@@ -723,6 +731,8 @@ type WorkspaceArgs struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `managedNetwork` block as defined below.
+	ManagedNetwork WorkspaceManagedNetworkPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The user assigned identity id that represents the workspace identity.
@@ -737,7 +747,7 @@ type WorkspaceArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
@@ -903,6 +913,11 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// A `managedNetwork` block as defined below.
+func (o WorkspaceOutput) ManagedNetwork() WorkspaceManagedNetworkOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceManagedNetworkOutput { return v.ManagedNetwork }).(WorkspaceManagedNetworkOutput)
+}
+
 // Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -932,7 +947,7 @@ func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 func (o WorkspaceOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

@@ -96,7 +96,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String pythonVersion;
     /**
-     * @return Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+     * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
      */
     private @Nullable String rubyVersion;
@@ -215,7 +215,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.pythonVersion);
     }
     /**
-     * @return Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+     * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
      */
     public Optional<String> rubyVersion() {

@@ -42,6 +42,21 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    @Import(name="applicationPerformanceMonitoringIds")
+    private @Nullable Output<List<String>> applicationPerformanceMonitoringIds;
+
+    /**
+     * @return Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    public Optional<Output<List<String>>> applicationPerformanceMonitoringIds() {
+        return Optional.ofNullable(this.applicationPerformanceMonitoringIds);
+    }
+
+    /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
@@ -270,6 +285,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
 
     private SpringCloudGatewayState(SpringCloudGatewayState $) {
         this.apiMetadata = $.apiMetadata;
+        this.applicationPerformanceMonitoringIds = $.applicationPerformanceMonitoringIds;
         this.applicationPerformanceMonitoringTypes = $.applicationPerformanceMonitoringTypes;
         this.clientAuthorization = $.clientAuthorization;
         this.cors = $.cors;
@@ -324,6 +340,37 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
          */
         public Builder apiMetadata(SpringCloudGatewayApiMetadataArgs apiMetadata) {
             return apiMetadata(Output.of(apiMetadata));
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringIds Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringIds(@Nullable Output<List<String>> applicationPerformanceMonitoringIds) {
+            $.applicationPerformanceMonitoringIds = applicationPerformanceMonitoringIds;
+            return this;
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringIds Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringIds(List<String> applicationPerformanceMonitoringIds) {
+            return applicationPerformanceMonitoringIds(Output.of(applicationPerformanceMonitoringIds));
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringIds Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringIds(String... applicationPerformanceMonitoringIds) {
+            return applicationPerformanceMonitoringIds(List.of(applicationPerformanceMonitoringIds));
         }
 
         /**

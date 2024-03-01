@@ -86,7 +86,8 @@ class AccountBackupArgs:
                  type: pulumi.Input[str],
                  interval_in_minutes: Optional[pulumi.Input[int]] = None,
                  retention_in_hours: Optional[pulumi.Input[int]] = None,
-                 storage_redundancy: Optional[pulumi.Input[str]] = None):
+                 storage_redundancy: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
                
@@ -96,6 +97,7 @@ class AccountBackupArgs:
         :param pulumi.Input[str] storage_redundancy: The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
                
                > **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
+        :param pulumi.Input[str] tier: The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
         """
         pulumi.set(__self__, "type", type)
         if interval_in_minutes is not None:
@@ -104,6 +106,8 @@ class AccountBackupArgs:
             pulumi.set(__self__, "retention_in_hours", retention_in_hours)
         if storage_redundancy is not None:
             pulumi.set(__self__, "storage_redundancy", storage_redundancy)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -156,6 +160,18 @@ class AccountBackupArgs:
     @storage_redundancy.setter
     def storage_redundancy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_redundancy", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type

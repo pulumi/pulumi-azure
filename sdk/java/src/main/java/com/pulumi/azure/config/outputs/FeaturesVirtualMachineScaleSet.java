@@ -12,12 +12,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeaturesVirtualMachineScaleSet {
     private @Nullable Boolean forceDelete;
+    private @Nullable Boolean reimageOnManualUpgrade;
     private @Nullable Boolean rollInstancesWhenRequired;
     private @Nullable Boolean scaleToZeroBeforeDeletion;
 
     private FeaturesVirtualMachineScaleSet() {}
     public Optional<Boolean> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
+    }
+    public Optional<Boolean> reimageOnManualUpgrade() {
+        return Optional.ofNullable(this.reimageOnManualUpgrade);
     }
     public Optional<Boolean> rollInstancesWhenRequired() {
         return Optional.ofNullable(this.rollInstancesWhenRequired);
@@ -36,12 +40,14 @@ public final class FeaturesVirtualMachineScaleSet {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean forceDelete;
+        private @Nullable Boolean reimageOnManualUpgrade;
         private @Nullable Boolean rollInstancesWhenRequired;
         private @Nullable Boolean scaleToZeroBeforeDeletion;
         public Builder() {}
         public Builder(FeaturesVirtualMachineScaleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.forceDelete = defaults.forceDelete;
+    	      this.reimageOnManualUpgrade = defaults.reimageOnManualUpgrade;
     	      this.rollInstancesWhenRequired = defaults.rollInstancesWhenRequired;
     	      this.scaleToZeroBeforeDeletion = defaults.scaleToZeroBeforeDeletion;
         }
@@ -50,6 +56,12 @@ public final class FeaturesVirtualMachineScaleSet {
         public Builder forceDelete(@Nullable Boolean forceDelete) {
 
             this.forceDelete = forceDelete;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder reimageOnManualUpgrade(@Nullable Boolean reimageOnManualUpgrade) {
+
+            this.reimageOnManualUpgrade = reimageOnManualUpgrade;
             return this;
         }
         @CustomType.Setter
@@ -67,6 +79,7 @@ public final class FeaturesVirtualMachineScaleSet {
         public FeaturesVirtualMachineScaleSet build() {
             final var _resultValue = new FeaturesVirtualMachineScaleSet();
             _resultValue.forceDelete = forceDelete;
+            _resultValue.reimageOnManualUpgrade = reimageOnManualUpgrade;
             _resultValue.rollInstancesWhenRequired = rollInstancesWhenRequired;
             _resultValue.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
             return _resultValue;

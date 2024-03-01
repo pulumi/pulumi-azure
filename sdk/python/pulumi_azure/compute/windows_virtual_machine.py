@@ -33,6 +33,7 @@ class WindowsVirtualMachineArgs:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -45,6 +46,7 @@ class WindowsVirtualMachineArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 os_image_notification: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
@@ -62,6 +64,7 @@ class WindowsVirtualMachineArgs:
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
@@ -88,6 +91,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -106,6 +110,7 @@ class WindowsVirtualMachineArgs:
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -134,9 +139,12 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input['WindowsVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
@@ -169,6 +177,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+        if disk_controller_type is not None:
+            pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
@@ -193,6 +203,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if os_image_notification is not None:
+            pulumi.set(__self__, "os_image_notification", os_image_notification)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -227,6 +239,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vm_agent_platform_updates_enabled is not None:
+            pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
@@ -443,6 +457,18 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "dedicated_host_id", value)
 
     @property
+    @pulumi.getter(name="diskControllerType")
+    def disk_controller_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        """
+        return pulumi.get(self, "disk_controller_type")
+
+    @disk_controller_type.setter
+    def disk_controller_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_controller_type", value)
+
+    @property
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -591,6 +617,18 @@ class WindowsVirtualMachineArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="osImageNotification")
+    def os_image_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]:
+        """
+        A `os_image_notification` block as defined below.
+        """
+        return pulumi.get(self, "os_image_notification")
+
+    @os_image_notification.setter
+    def os_image_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]):
+        pulumi.set(self, "os_image_notification", value)
 
     @property
     @pulumi.getter(name="patchAssessmentMode")
@@ -800,7 +838,9 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+
+        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
         > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         """
@@ -809,6 +849,18 @@ class WindowsVirtualMachineArgs:
     @virtual_machine_scale_set_id.setter
     def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_agent_platform_updates_enabled")
+
+    @vm_agent_platform_updates_enabled.setter
+    def vm_agent_platform_updates_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vm_agent_platform_updates_enabled", value)
 
     @property
     @pulumi.getter(name="vtpmEnabled")
@@ -863,6 +915,7 @@ class _WindowsVirtualMachineState:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -877,6 +930,7 @@ class _WindowsVirtualMachineState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']] = None,
+                 os_image_notification: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
@@ -901,6 +955,7 @@ class _WindowsVirtualMachineState:
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
@@ -923,6 +978,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -943,6 +999,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -978,9 +1035,12 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
@@ -1011,6 +1071,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
             pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+        if disk_controller_type is not None:
+            pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_automatic_updates is not None:
@@ -1039,6 +1101,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if os_disk is not None:
             pulumi.set(__self__, "os_disk", os_disk)
+        if os_image_notification is not None:
+            pulumi.set(__self__, "os_image_notification", os_image_notification)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -1087,6 +1151,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vm_agent_platform_updates_enabled is not None:
+            pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
@@ -1253,6 +1319,18 @@ class _WindowsVirtualMachineState:
     @dedicated_host_id.setter
     def dedicated_host_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dedicated_host_id", value)
+
+    @property
+    @pulumi.getter(name="diskControllerType")
+    def disk_controller_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        """
+        return pulumi.get(self, "disk_controller_type")
+
+    @disk_controller_type.setter
+    def disk_controller_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_controller_type", value)
 
     @property
     @pulumi.getter(name="edgeZone")
@@ -1427,6 +1505,18 @@ class _WindowsVirtualMachineState:
     @os_disk.setter
     def os_disk(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']]):
         pulumi.set(self, "os_disk", value)
+
+    @property
+    @pulumi.getter(name="osImageNotification")
+    def os_image_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]:
+        """
+        A `os_image_notification` block as defined below.
+        """
+        return pulumi.get(self, "os_image_notification")
+
+    @os_image_notification.setter
+    def os_image_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]):
+        pulumi.set(self, "os_image_notification", value)
 
     @property
     @pulumi.getter(name="patchAssessmentMode")
@@ -1720,7 +1810,9 @@ class _WindowsVirtualMachineState:
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+
+        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
         > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         """
@@ -1729,6 +1821,18 @@ class _WindowsVirtualMachineState:
     @virtual_machine_scale_set_id.setter
     def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_agent_platform_updates_enabled")
+
+    @vm_agent_platform_updates_enabled.setter
+    def vm_agent_platform_updates_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vm_agent_platform_updates_enabled", value)
 
     @property
     @pulumi.getter(name="vtpmEnabled")
@@ -1785,6 +1889,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1799,6 +1904,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+                 os_image_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsImageNotificationArgs']]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
@@ -1818,6 +1924,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -1914,6 +2021,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -1934,6 +2042,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsImageNotificationArgs']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -1964,9 +2073,12 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
@@ -2078,6 +2190,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2092,6 +2205,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+                 os_image_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsImageNotificationArgs']]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
@@ -2111,6 +2225,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -2140,6 +2255,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["custom_data"] = None if custom_data is None else pulumi.Output.secret(custom_data)
             __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
             __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+            __props__.__dict__["disk_controller_type"] = disk_controller_type
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
@@ -2158,6 +2274,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
+            __props__.__dict__["os_image_notification"] = os_image_notification
             __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
             __props__.__dict__["plan"] = plan
@@ -2181,6 +2298,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+            __props__.__dict__["vm_agent_platform_updates_enabled"] = vm_agent_platform_updates_enabled
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["winrm_listeners"] = winrm_listeners
             __props__.__dict__["zone"] = zone
@@ -2214,6 +2332,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             custom_data: Optional[pulumi.Input[str]] = None,
             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+            disk_controller_type: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2228,6 +2347,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+            os_image_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsImageNotificationArgs']]] = None,
             patch_assessment_mode: Optional[pulumi.Input[str]] = None,
             patch_mode: Optional[pulumi.Input[str]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
@@ -2252,6 +2372,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             user_data: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+            vm_agent_platform_updates_enabled: Optional[pulumi.Input[bool]] = None,
             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
             winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'WindowsVirtualMachine':
@@ -2279,6 +2400,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        :param pulumi.Input[str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -2299,6 +2421,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsImageNotificationArgs']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2334,9 +2457,12 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
-        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+               
+               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        :param pulumi.Input[bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
@@ -2358,6 +2484,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["custom_data"] = custom_data
         __props__.__dict__["dedicated_host_group_id"] = dedicated_host_group_id
         __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+        __props__.__dict__["disk_controller_type"] = disk_controller_type
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
@@ -2372,6 +2499,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["os_disk"] = os_disk
+        __props__.__dict__["os_image_notification"] = os_image_notification
         __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
         __props__.__dict__["patch_mode"] = patch_mode
         __props__.__dict__["plan"] = plan
@@ -2396,6 +2524,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["user_data"] = user_data
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+        __props__.__dict__["vm_agent_platform_updates_enabled"] = vm_agent_platform_updates_enabled
         __props__.__dict__["vtpm_enabled"] = vtpm_enabled
         __props__.__dict__["winrm_listeners"] = winrm_listeners
         __props__.__dict__["zone"] = zone
@@ -2508,6 +2637,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         """
         return pulumi.get(self, "dedicated_host_id")
+
+    @property
+    @pulumi.getter(name="diskControllerType")
+    def disk_controller_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        """
+        return pulumi.get(self, "disk_controller_type")
 
     @property
     @pulumi.getter(name="edgeZone")
@@ -2626,6 +2763,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter(name="osImageNotification")
+    def os_image_notification(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineOsImageNotification']]:
+        """
+        A `os_image_notification` block as defined below.
+        """
+        return pulumi.get(self, "os_image_notification")
 
     @property
     @pulumi.getter(name="patchAssessmentMode")
@@ -2827,11 +2972,21 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+
+        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
         > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
+
+    @property
+    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    def vm_agent_platform_updates_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_agent_platform_updates_enabled")
 
     @property
     @pulumi.getter(name="vtpmEnabled")

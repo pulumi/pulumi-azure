@@ -23,7 +23,7 @@ class GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
     """
-    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, endpoint=None, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
+    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, endpoint=None, id=None, location=None, name=None, premium_messaging_partitions=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
@@ -51,6 +51,9 @@ class GetServiceBusNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if premium_messaging_partitions and not isinstance(premium_messaging_partitions, int):
+            raise TypeError("Expected argument 'premium_messaging_partitions' to be a int")
+        pulumi.set(__self__, "premium_messaging_partitions", premium_messaging_partitions)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -136,6 +139,14 @@ class GetServiceBusNamespaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="premiumMessagingPartitions")
+    def premium_messaging_partitions(self) -> int:
+        """
+        The messaging partitions of the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "premium_messaging_partitions")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -180,6 +191,7 @@ class AwaitableGetServiceBusNamespaceResult(GetServiceBusNamespaceResult):
             id=self.id,
             location=self.location,
             name=self.name,
+            premium_messaging_partitions=self.premium_messaging_partitions,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             tags=self.tags,
@@ -224,6 +236,7 @@ def get_service_bus_namespace(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        premium_messaging_partitions=pulumi.get(__ret__, 'premium_messaging_partitions'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),

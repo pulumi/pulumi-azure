@@ -2961,7 +2961,7 @@ type ApplicationGatewayRequestRoutingRule struct {
 	Name string `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 	//
-	// > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+	// > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
 	Priority *int `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
@@ -3011,7 +3011,7 @@ type ApplicationGatewayRequestRoutingRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 	//
-	// > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+	// > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId pulumi.StringPtrInput `pulumi:"redirectConfigurationId"`
@@ -3124,7 +3124,7 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringOutput {
 
 // Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 //
-// > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+// > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
 func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
@@ -21135,7 +21135,7 @@ func (o VirtualNetworkGatewayCustomRoutePtrOutput) AddressPrefixes() pulumi.Stri
 type VirtualNetworkGatewayIpConfiguration struct {
 	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
 	Name *string `pulumi:"name"`
-	// Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+	// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public IP address to associate with the Virtual Network Gateway.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
@@ -21157,7 +21157,7 @@ type VirtualNetworkGatewayIpConfigurationInput interface {
 type VirtualNetworkGatewayIpConfigurationArgs struct {
 	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+	// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public IP address to associate with the Virtual Network Gateway.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
@@ -21221,7 +21221,7 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) Name() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 func (o VirtualNetworkGatewayIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
 }

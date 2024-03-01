@@ -32,14 +32,14 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+     * Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
      * 
      */
     @Import(name="privateIpAddressAllocation")
     private @Nullable Output<String> privateIpAddressAllocation;
 
     /**
-     * @return Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+     * @return Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
      * 
      */
     public Optional<Output<String>> privateIpAddressAllocation() {
@@ -125,7 +125,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param privateIpAddressAllocation Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+         * @param privateIpAddressAllocation Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param privateIpAddressAllocation Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+         * @param privateIpAddressAllocation Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
          * 
          * @return builder
          * 

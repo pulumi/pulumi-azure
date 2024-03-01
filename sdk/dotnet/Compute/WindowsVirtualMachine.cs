@@ -203,6 +203,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> DedicatedHostId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        /// </summary>
+        [Output("diskControllerType")]
+        public Output<string> DiskControllerType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Output("edgeZone")]
@@ -291,6 +297,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.WindowsVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
+
+        /// <summary>
+        /// A `os_image_notification` block as defined below.
+        /// </summary>
+        [Output("osImageNotification")]
+        public Output<Outputs.WindowsVirtualMachineOsImageNotification?> OsImageNotification { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -443,12 +455,20 @@ namespace Pulumi.Azure.Compute
         public Output<string> VirtualMachineId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+        /// 
+        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
         /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// </summary>
         [Output("virtualMachineScaleSetId")]
         public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// </summary>
+        [Output("vmAgentPlatformUpdatesEnabled")]
+        public Output<bool?> VmAgentPlatformUpdatesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -628,6 +648,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DedicatedHostId { get; set; }
 
         /// <summary>
+        /// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        /// </summary>
+        [Input("diskControllerType")]
+        public Input<string>? DiskControllerType { get; set; }
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Input("edgeZone")]
@@ -728,6 +754,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osDisk", required: true)]
         public Input<Inputs.WindowsVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
+
+        /// <summary>
+        /// A `os_image_notification` block as defined below.
+        /// </summary>
+        [Input("osImageNotification")]
+        public Input<Inputs.WindowsVirtualMachineOsImageNotificationArgs>? OsImageNotification { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -862,12 +894,20 @@ namespace Pulumi.Azure.Compute
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+        /// 
+        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
         /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
+
+        /// <summary>
+        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("vmAgentPlatformUpdatesEnabled")]
+        public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
 
         /// <summary>
         /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -1010,6 +1050,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DedicatedHostId { get; set; }
 
         /// <summary>
+        /// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+        /// </summary>
+        [Input("diskControllerType")]
+        public Input<string>? DiskControllerType { get; set; }
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Input("edgeZone")]
@@ -1110,6 +1156,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.WindowsVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }
+
+        /// <summary>
+        /// A `os_image_notification` block as defined below.
+        /// </summary>
+        [Input("osImageNotification")]
+        public Input<Inputs.WindowsVirtualMachineOsImageNotificationGetArgs>? OsImageNotification { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -1286,12 +1338,20 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineId { get; set; }
 
         /// <summary>
-        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+        /// 
+        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
         /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
+
+        /// <summary>
+        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("vmAgentPlatformUpdatesEnabled")]
+        public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
 
         /// <summary>
         /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.

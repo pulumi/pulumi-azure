@@ -86,6 +86,21 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * 
+     */
+    @Import(name="dataPersistenceAuthenticationMethod")
+    private @Nullable Output<String> dataPersistenceAuthenticationMethod;
+
+    /**
+     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * 
+     */
+    public Optional<Output<String>> dataPersistenceAuthenticationMethod() {
+        return Optional.ofNullable(this.dataPersistenceAuthenticationMethod);
+    }
+
+    /**
      * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
      * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
@@ -342,6 +357,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         this.aofBackupEnabled = $.aofBackupEnabled;
         this.aofStorageConnectionString0 = $.aofStorageConnectionString0;
         this.aofStorageConnectionString1 = $.aofStorageConnectionString1;
+        this.dataPersistenceAuthenticationMethod = $.dataPersistenceAuthenticationMethod;
         this.enableAuthentication = $.enableAuthentication;
         this.maxclients = $.maxclients;
         this.maxfragmentationmemoryReserved = $.maxfragmentationmemoryReserved;
@@ -464,6 +480,27 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          */
         public Builder aofStorageConnectionString1(String aofStorageConnectionString1) {
             return aofStorageConnectionString1(Output.of(aofStorageConnectionString1));
+        }
+
+        /**
+         * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPersistenceAuthenticationMethod(@Nullable Output<String> dataPersistenceAuthenticationMethod) {
+            $.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
+            return this;
+        }
+
+        /**
+         * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPersistenceAuthenticationMethod(String dataPersistenceAuthenticationMethod) {
+            return dataPersistenceAuthenticationMethod(Output.of(dataPersistenceAuthenticationMethod));
         }
 
         /**

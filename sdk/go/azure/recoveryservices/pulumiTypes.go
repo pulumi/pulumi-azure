@@ -18,7 +18,7 @@ type VaultEncryption struct {
 	InfrastructureEncryptionEnabled bool `pulumi:"infrastructureEncryptionEnabled"`
 	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
 	KeyId string `pulumi:"keyId"`
-	// Indicate that system assigned identity should be used or not. Defaults to `true`.
+	// Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 	//
 	// !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 	//
@@ -44,7 +44,7 @@ type VaultEncryptionArgs struct {
 	InfrastructureEncryptionEnabled pulumi.BoolInput `pulumi:"infrastructureEncryptionEnabled"`
 	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
-	// Indicate that system assigned identity should be used or not. Defaults to `true`.
+	// Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 	//
 	// !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 	//
@@ -141,7 +141,7 @@ func (o VaultEncryptionOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultEncryption) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Indicate that system assigned identity should be used or not. Defaults to `true`.
+// Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 //
 // !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 //
@@ -199,7 +199,7 @@ func (o VaultEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicate that system assigned identity should be used or not. Defaults to `true`.
+// Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
 //
 // !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 //

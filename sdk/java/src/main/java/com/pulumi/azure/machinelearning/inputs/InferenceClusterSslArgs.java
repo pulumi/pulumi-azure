@@ -17,14 +17,14 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
     public static final InferenceClusterSslArgs Empty = new InferenceClusterSslArgs();
 
     /**
-     * The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="cert")
     private @Nullable Output<String> cert;
 
     /**
-     * @return The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> cert() {
@@ -32,14 +32,14 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="cname")
     private @Nullable Output<String> cname;
 
     /**
-     * @return The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> cname() {
@@ -47,14 +47,14 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> key() {
@@ -62,14 +62,14 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="leafDomainLabel")
     private @Nullable Output<String> leafDomainLabel;
 
     /**
-     * @return The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> leafDomainLabel() {
@@ -77,14 +77,14 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="overwriteExistingDomain")
     private @Nullable Output<Boolean> overwriteExistingDomain;
 
     /**
-     * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+     * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<Boolean>> overwriteExistingDomain() {
@@ -120,7 +120,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param cert The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param cert The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param cert The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param cert The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param cname The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param cname The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param cname The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param cname The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param key The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param key The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param leafDomainLabel The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param leafDomainLabel The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param leafDomainLabel The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param leafDomainLabel The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param overwriteExistingDomain Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param overwriteExistingDomain Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class InferenceClusterSslArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param overwriteExistingDomain Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
+         * @param overwriteExistingDomain Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

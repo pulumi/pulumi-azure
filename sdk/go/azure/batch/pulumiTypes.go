@@ -2019,13 +2019,13 @@ type PoolExtension struct {
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name string `pulumi:"name"`
-	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+	// JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// The name of the extension handler publisher.The name of the extension handler publisher.
 	Publisher string `pulumi:"publisher"`
-	// JSON formatted public settings for the extension.
+	// JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
 	SettingsJson *string `pulumi:"settingsJson"`
 	// The type of the extensions.
 	Type string `pulumi:"type"`
@@ -2053,13 +2053,13 @@ type PoolExtensionArgs struct {
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+	// JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
 	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
 	// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// The name of the extension handler publisher.The name of the extension handler publisher.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// JSON formatted public settings for the extension.
+	// JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
 	SettingsJson pulumi.StringPtrInput `pulumi:"settingsJson"`
 	// The type of the extensions.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2135,7 +2135,7 @@ func (o PoolExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolExtension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+// JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
 func (o PoolExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
@@ -2150,7 +2150,7 @@ func (o PoolExtensionOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolExtension) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// JSON formatted public settings for the extension.
+// JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
 func (o PoolExtensionOutput) SettingsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolExtension) *string { return v.SettingsJson }).(pulumi.StringPtrOutput)
 }

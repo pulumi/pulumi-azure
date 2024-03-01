@@ -243,6 +243,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     */
+    public readonly minimalTlsVersion!: pulumi.Output<string>;
+    /**
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
     public readonly mongoServerVersion!: pulumi.Output<string>;
@@ -381,6 +385,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minimalTlsVersion"] = state ? state.minimalTlsVersion : undefined;
             resourceInputs["mongoServerVersion"] = state ? state.mongoServerVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkAclBypassForAzureServices"] = state ? state.networkAclBypassForAzureServices : undefined;
@@ -441,6 +446,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
             resourceInputs["mongoServerVersion"] = args ? args.mongoServerVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAclBypassForAzureServices"] = args ? args.networkAclBypassForAzureServices : undefined;
@@ -582,6 +588,10 @@ export interface AccountState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     */
+    minimalTlsVersion?: pulumi.Input<string>;
     /**
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */
@@ -784,6 +794,10 @@ export interface AccountArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     */
+    minimalTlsVersion?: pulumi.Input<string>;
     /**
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      */

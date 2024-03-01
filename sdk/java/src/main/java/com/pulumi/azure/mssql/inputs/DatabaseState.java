@@ -334,6 +334,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+     * 
+     */
+    @Import(name="recoveryPointId")
+    private @Nullable Output<String> recoveryPointId;
+
+    /**
+     * @return The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+     * 
+     */
+    public Optional<Output<String>> recoveryPointId() {
+        return Optional.ofNullable(this.recoveryPointId);
+    }
+
+    /**
      * The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
      * 
      */
@@ -346,6 +361,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> restoreDroppedDatabaseId() {
         return Optional.ofNullable(this.restoreDroppedDatabaseId);
+    }
+
+    /**
+     * The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+     * 
+     */
+    @Import(name="restoreLongTermRetentionBackupId")
+    private @Nullable Output<String> restoreLongTermRetentionBackupId;
+
+    /**
+     * @return The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+     * 
+     */
+    public Optional<Output<String>> restoreLongTermRetentionBackupId() {
+        return Optional.ofNullable(this.restoreLongTermRetentionBackupId);
     }
 
     /**
@@ -566,7 +596,9 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.readReplicaCount = $.readReplicaCount;
         this.readScale = $.readScale;
         this.recoverDatabaseId = $.recoverDatabaseId;
+        this.recoveryPointId = $.recoveryPointId;
         this.restoreDroppedDatabaseId = $.restoreDroppedDatabaseId;
+        this.restoreLongTermRetentionBackupId = $.restoreLongTermRetentionBackupId;
         this.restorePointInTime = $.restorePointInTime;
         this.sampleName = $.sampleName;
         this.serverId = $.serverId;
@@ -1023,6 +1055,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param recoveryPointId The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryPointId(@Nullable Output<String> recoveryPointId) {
+            $.recoveryPointId = recoveryPointId;
+            return this;
+        }
+
+        /**
+         * @param recoveryPointId The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryPointId(String recoveryPointId) {
+            return recoveryPointId(Output.of(recoveryPointId));
+        }
+
+        /**
          * @param restoreDroppedDatabaseId The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
          * 
          * @return builder
@@ -1041,6 +1094,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restoreDroppedDatabaseId(String restoreDroppedDatabaseId) {
             return restoreDroppedDatabaseId(Output.of(restoreDroppedDatabaseId));
+        }
+
+        /**
+         * @param restoreLongTermRetentionBackupId The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreLongTermRetentionBackupId(@Nullable Output<String> restoreLongTermRetentionBackupId) {
+            $.restoreLongTermRetentionBackupId = restoreLongTermRetentionBackupId;
+            return this;
+        }
+
+        /**
+         * @param restoreLongTermRetentionBackupId The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreLongTermRetentionBackupId(String restoreLongTermRetentionBackupId) {
+            return restoreLongTermRetentionBackupId(Output.of(restoreLongTermRetentionBackupId));
         }
 
         /**

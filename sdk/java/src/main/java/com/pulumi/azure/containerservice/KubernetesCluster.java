@@ -234,6 +234,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.confidentialComputing);
     }
     /**
+     * The current version running on the Azure Kubernetes Managed Cluster.
+     * 
+     */
+    @Export(name="currentKubernetesVersion", refs={String.class}, tree="[0]")
+    private Output<String> currentKubernetesVersion;
+
+    /**
+     * @return The current version running on the Azure Kubernetes Managed Cluster.
+     * 
+     */
+    public Output<String> currentKubernetesVersion() {
+        return this.currentKubernetesVersion;
+    }
+    /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
      * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.

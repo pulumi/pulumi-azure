@@ -159,6 +159,10 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// The messaging partitions of the ServiceBus Namespace.
+        /// </summary>
+        public readonly int PremiumMessagingPartitions;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Tier used for the ServiceBus Namespace.
@@ -193,6 +197,8 @@ namespace Pulumi.Azure.EventHub
 
             string name,
 
+            int premiumMessagingPartitions,
+
             string resourceGroupName,
 
             string sku,
@@ -210,6 +216,7 @@ namespace Pulumi.Azure.EventHub
             Id = id;
             Location = location;
             Name = name;
+            PremiumMessagingPartitions = premiumMessagingPartitions;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;

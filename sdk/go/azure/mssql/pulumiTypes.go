@@ -2767,7 +2767,7 @@ func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) Enabled()
 }
 
 type ServerAzureadAdministrator struct {
-	// Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
+	// Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// The login username of the Azure AD Administrator of this SQL Server.
 	LoginUsername string `pulumi:"loginUsername"`
@@ -2789,7 +2789,7 @@ type ServerAzureadAdministratorInput interface {
 }
 
 type ServerAzureadAdministratorArgs struct {
-	// Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
+	// Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
 	AzureadAuthenticationOnly pulumi.BoolPtrInput `pulumi:"azureadAuthenticationOnly"`
 	// The login username of the Azure AD Administrator of this SQL Server.
 	LoginUsername pulumi.StringInput `pulumi:"loginUsername"`
@@ -2876,7 +2876,7 @@ func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutputW
 	}).(ServerAzureadAdministratorPtrOutput)
 }
 
-// Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
+// Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
 func (o ServerAzureadAdministratorOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerAzureadAdministrator) *bool { return v.AzureadAuthenticationOnly }).(pulumi.BoolPtrOutput)
 }
@@ -2920,7 +2920,7 @@ func (o ServerAzureadAdministratorPtrOutput) Elem() ServerAzureadAdministratorOu
 	}).(ServerAzureadAdministratorOutput)
 }
 
-// Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
+// Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
 func (o ServerAzureadAdministratorPtrOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerAzureadAdministrator) *bool {
 		if v == nil {

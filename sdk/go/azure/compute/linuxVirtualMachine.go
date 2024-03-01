@@ -181,6 +181,8 @@ type LinuxVirtualMachine struct {
 	//
 	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
+	// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+	DiskControllerType pulumi.StringOutput `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -209,6 +211,8 @@ type LinuxVirtualMachine struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
+	// A `osImageNotification` block as defined below.
+	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrOutput `pulumi:"osImageNotification"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -265,10 +269,14 @@ type LinuxVirtualMachine struct {
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
-	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+	//
+	// > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 	//
 	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
+	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrOutput `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
@@ -372,6 +380,8 @@ type linuxVirtualMachineState struct {
 	//
 	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+	DiskControllerType *string `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -400,6 +410,8 @@ type linuxVirtualMachineState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
+	// A `osImageNotification` block as defined below.
+	OsImageNotification *LinuxVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -456,10 +468,14 @@ type linuxVirtualMachineState struct {
 	UserData *string `pulumi:"userData"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+	//
+	// > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 	//
 	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
+	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	VmAgentPlatformUpdatesEnabled *bool `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
@@ -508,6 +524,8 @@ type LinuxVirtualMachineState struct {
 	//
 	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
+	// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+	DiskControllerType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -536,6 +554,8 @@ type LinuxVirtualMachineState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
+	// A `osImageNotification` block as defined below.
+	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -592,10 +612,14 @@ type LinuxVirtualMachineState struct {
 	UserData pulumi.StringPtrInput
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
-	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+	//
+	// > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 	//
 	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
@@ -648,6 +672,8 @@ type linuxVirtualMachineArgs struct {
 	//
 	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+	DiskControllerType *string `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -676,6 +702,8 @@ type linuxVirtualMachineArgs struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
+	// A `osImageNotification` block as defined below.
+	OsImageNotification *LinuxVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -722,10 +750,14 @@ type linuxVirtualMachineArgs struct {
 	TerminationNotification *LinuxVirtualMachineTerminationNotification `pulumi:"terminationNotification"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData *string `pulumi:"userData"`
-	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+	//
+	// > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 	//
 	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
+	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	VmAgentPlatformUpdatesEnabled *bool `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
@@ -775,6 +807,8 @@ type LinuxVirtualMachineArgs struct {
 	//
 	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
+	// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+	DiskControllerType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -803,6 +837,8 @@ type LinuxVirtualMachineArgs struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskInput
+	// A `osImageNotification` block as defined below.
+	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -849,10 +885,14 @@ type LinuxVirtualMachineArgs struct {
 	TerminationNotification LinuxVirtualMachineTerminationNotificationPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData pulumi.StringPtrInput
-	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+	//
+	// > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 	//
 	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
@@ -1033,6 +1073,11 @@ func (o LinuxVirtualMachineOutput) DisablePasswordAuthentication() pulumi.BoolPt
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+func (o LinuxVirtualMachineOutput) DiskControllerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.DiskControllerType }).(pulumi.StringOutput)
+}
+
 // Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 func (o LinuxVirtualMachineOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
@@ -1097,6 +1142,13 @@ func (o LinuxVirtualMachineOutput) NetworkInterfaceIds() pulumi.StringArrayOutpu
 // A `osDisk` block as defined below.
 func (o LinuxVirtualMachineOutput) OsDisk() LinuxVirtualMachineOsDiskOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineOsDiskOutput { return v.OsDisk }).(LinuxVirtualMachineOsDiskOutput)
+}
+
+// A `osImageNotification` block as defined below.
+func (o LinuxVirtualMachineOutput) OsImageNotification() LinuxVirtualMachineOsImageNotificationPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineOsImageNotificationPtrOutput {
+		return v.OsImageNotification
+	}).(LinuxVirtualMachineOsImageNotificationPtrOutput)
 }
 
 // Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -1225,11 +1277,18 @@ func (o LinuxVirtualMachineOutput) VirtualMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.VirtualMachineId }).(pulumi.StringOutput)
 }
 
-// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+//
+// > **NOTE:** To update `virtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 //
 // > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 func (o LinuxVirtualMachineOutput) VirtualMachineScaleSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.VirtualMachineScaleSetId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+func (o LinuxVirtualMachineOutput) VmAgentPlatformUpdatesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.VmAgentPlatformUpdatesEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.

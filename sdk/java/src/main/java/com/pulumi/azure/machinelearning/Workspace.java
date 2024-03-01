@@ -9,6 +9,7 @@ import com.pulumi.azure.machinelearning.inputs.WorkspaceState;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceEncryption;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceFeatureStore;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceIdentity;
+import com.pulumi.azure.machinelearning.outputs.WorkspaceManagedNetwork;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -601,6 +602,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
+     * A `managed_network` block as defined below.
+     * 
+     */
+    @Export(name="managedNetwork", refs={WorkspaceManagedNetwork.class}, tree="[0]")
+    private Output<WorkspaceManagedNetwork> managedNetwork;
+
+    /**
+     * @return A `managed_network` block as defined below.
+     * 
+     */
+    public Output<WorkspaceManagedNetwork> managedNetwork() {
+        return this.managedNetwork;
+    }
+    /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
@@ -679,14 +694,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuName;
 
     /**
-     * @return SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * @return SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */
     public Output<Optional<String>> skuName() {

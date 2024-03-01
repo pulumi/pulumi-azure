@@ -55,6 +55,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
+ *     automaticUpgradeChannel: "stable",
  *     frontendPublic: {
  *         ipAddresses: [examplePublicIp.id],
  *     },
@@ -102,6 +103,10 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
+    /**
+     * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     */
+    public readonly automaticUpgradeChannel!: pulumi.Output<string | undefined>;
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      *
@@ -161,7 +166,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -182,6 +187,7 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
+            resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["diagnoseSupportEnabled"] = state ? state.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
@@ -206,6 +212,7 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["automaticUpgradeChannel"] = args ? args.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["diagnoseSupportEnabled"] = args ? args.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
@@ -232,6 +239,10 @@ export class Deployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Deployment resources.
  */
 export interface DeploymentState {
+    /**
+     * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     */
+    automaticUpgradeChannel?: pulumi.Input<string>;
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      *
@@ -291,7 +302,7 @@ export interface DeploymentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -304,6 +315,10 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     */
+    automaticUpgradeChannel?: pulumi.Input<string>;
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      *
@@ -355,7 +370,7 @@ export interface DeploymentArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      */
     sku: pulumi.Input<string>;
     /**

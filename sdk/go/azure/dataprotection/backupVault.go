@@ -76,6 +76,14 @@ type BackupVault struct {
 	Redundancy pulumi.StringOutput `pulumi:"redundancy"`
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+	//
+	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+	RetentionDurationInDays pulumi.Float64PtrOutput `pulumi:"retentionDurationInDays"`
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	//
+	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+	SoftDelete pulumi.StringPtrOutput `pulumi:"softDelete"`
 	// A mapping of tags which should be assigned to the Backup Vault.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -133,6 +141,14 @@ type backupVaultState struct {
 	Redundancy *string `pulumi:"redundancy"`
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+	//
+	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+	RetentionDurationInDays *float64 `pulumi:"retentionDurationInDays"`
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	//
+	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+	SoftDelete *string `pulumi:"softDelete"`
 	// A mapping of tags which should be assigned to the Backup Vault.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -152,6 +168,14 @@ type BackupVaultState struct {
 	Redundancy pulumi.StringPtrInput
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+	//
+	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+	RetentionDurationInDays pulumi.Float64PtrInput
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	//
+	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+	SoftDelete pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Backup Vault.
 	Tags pulumi.StringMapInput
 }
@@ -175,6 +199,14 @@ type backupVaultArgs struct {
 	Redundancy string `pulumi:"redundancy"`
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+	//
+	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+	RetentionDurationInDays *float64 `pulumi:"retentionDurationInDays"`
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	//
+	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+	SoftDelete *string `pulumi:"softDelete"`
 	// A mapping of tags which should be assigned to the Backup Vault.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -195,6 +227,14 @@ type BackupVaultArgs struct {
 	Redundancy pulumi.StringInput
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName pulumi.StringInput
+	// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+	//
+	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+	RetentionDurationInDays pulumi.Float64PtrInput
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	//
+	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+	SoftDelete pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Backup Vault.
 	Tags pulumi.StringMapInput
 }
@@ -316,6 +356,20 @@ func (o BackupVaultOutput) Redundancy() pulumi.StringOutput {
 // The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 func (o BackupVaultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+//
+// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+func (o BackupVaultOutput) RetentionDurationInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.Float64PtrOutput { return v.RetentionDurationInDays }).(pulumi.Float64PtrOutput)
+}
+
+// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+//
+// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+func (o BackupVaultOutput) SoftDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringPtrOutput { return v.SoftDelete }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags which should be assigned to the Backup Vault.

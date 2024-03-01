@@ -388,6 +388,9 @@ namespace Pulumi.Azure.MSSql
         [Output("vcores")]
         public Output<int> Vcores { get; private set; } = null!;
 
+        [Output("zoneRedundantEnabled")]
+        public Output<bool?> ZoneRedundantEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ManagedInstance resource with the given unique name, arguments, and options.
@@ -574,6 +577,9 @@ namespace Pulumi.Azure.MSSql
         [Input("vcores", required: true)]
         public Input<int> Vcores { get; set; } = null!;
 
+        [Input("zoneRedundantEnabled")]
+        public Input<bool>? ZoneRedundantEnabled { get; set; }
+
         public ManagedInstanceArgs()
         {
         }
@@ -729,6 +735,9 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("vcores")]
         public Input<int>? Vcores { get; set; }
+
+        [Input("zoneRedundantEnabled")]
+        public Input<bool>? ZoneRedundantEnabled { get; set; }
 
         public ManagedInstanceState()
         {

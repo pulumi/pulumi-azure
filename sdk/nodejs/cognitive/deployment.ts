@@ -97,7 +97,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly scale!: pulumi.Output<outputs.cognitive.DeploymentScale>;
     /**
-     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
     public readonly versionUpgradeOption!: pulumi.Output<string | undefined>;
 
@@ -168,7 +168,7 @@ export interface DeploymentState {
      */
     scale?: pulumi.Input<inputs.cognitive.DeploymentScale>;
     /**
-     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
     versionUpgradeOption?: pulumi.Input<string>;
 }
@@ -198,7 +198,7 @@ export interface DeploymentArgs {
      */
     scale: pulumi.Input<inputs.cognitive.DeploymentScale>;
     /**
-     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
     versionUpgradeOption?: pulumi.Input<string>;
 }

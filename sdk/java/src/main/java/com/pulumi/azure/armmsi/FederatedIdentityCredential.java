@@ -78,42 +78,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential")
 public class FederatedIdentityCredential extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the audience for this Federated Identity Credential.
      * 
      */
     @Export(name="audience", refs={String.class}, tree="[0]")
     private Output<String> audience;
 
     /**
-     * @return Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the audience for this Federated Identity Credential.
      * 
      */
     public Output<String> audience() {
         return this.audience;
     }
     /**
-     * Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the issuer of this Federated Identity Credential.
      * 
      */
     @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
-     * @return Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the issuer of this Federated Identity Credential.
      * 
      */
     public Output<String> issuer() {
         return this.issuer;
     }
     /**
-     * Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the name of this Federated Identity Credential.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the name of this Federated Identity Credential.
      * 
      */
     public Output<String> name() {
@@ -148,14 +148,14 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
         return this.resourceGroupName;
     }
     /**
-     * Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the subject for this Federated Identity Credential.
      * 
      */
     @Export(name="subject", refs={String.class}, tree="[0]")
     private Output<String> subject;
 
     /**
-     * @return Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the subject for this Federated Identity Credential.
      * 
      */
     public Output<String> subject() {

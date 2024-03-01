@@ -241,7 +241,7 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+	// An `aadAdmin` block as defined below.
 	AadAdmin WorkspaceAadAdminTypeOutput `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
@@ -251,7 +251,7 @@ type Workspace struct {
 	ComputeSubnetId pulumi.StringPtrOutput `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
-	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"dataExfiltrationProtectionEnabled"`
@@ -332,7 +332,7 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+	// An `aadAdmin` block as defined below.
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
@@ -342,7 +342,7 @@ type workspaceState struct {
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
-	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
@@ -381,7 +381,7 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
-	// An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+	// An `aadAdmin` block as defined below.
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
@@ -391,7 +391,7 @@ type WorkspaceState struct {
 	ComputeSubnetId pulumi.StringPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapInput
-	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
@@ -434,7 +434,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+	// An `aadAdmin` block as defined below.
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
@@ -442,7 +442,7 @@ type workspaceArgs struct {
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
-	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
@@ -482,7 +482,7 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+	// An `aadAdmin` block as defined below.
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
@@ -490,7 +490,7 @@ type WorkspaceArgs struct {
 	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrInput
-	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
@@ -615,7 +615,7 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
+// An `aadAdmin` block as defined below.
 func (o WorkspaceOutput) AadAdmin() WorkspaceAadAdminTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAadAdminTypeOutput { return v.AadAdmin }).(WorkspaceAadAdminTypeOutput)
 }
@@ -640,7 +640,7 @@ func (o WorkspaceOutput) ConnectivityEndpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.ConnectivityEndpoints }).(pulumi.StringMapOutput)
 }
 
-// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
+// A `customerManagedKey` block as defined below.
 func (o WorkspaceOutput) CustomerManagedKey() WorkspaceCustomerManagedKeyPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(WorkspaceCustomerManagedKeyPtrOutput)
 }

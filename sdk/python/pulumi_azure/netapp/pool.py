@@ -18,6 +18,7 @@ class PoolArgs:
                  resource_group_name: pulumi.Input[str],
                  service_level: pulumi.Input[str],
                  size_in_tb: pulumi.Input[int],
+                 encryption_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[str]] = None,
@@ -26,10 +27,11 @@ class PoolArgs:
         The set of arguments for constructing a Pool resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `500`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+        :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
@@ -39,6 +41,8 @@ class PoolArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_level", service_level)
         pulumi.set(__self__, "size_in_tb", size_in_tb)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -76,7 +80,7 @@ class PoolArgs:
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Input[str]:
         """
-        The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
@@ -97,6 +101,18 @@ class PoolArgs:
     @size_in_tb.setter
     def size_in_tb(self, value: pulumi.Input[int]):
         pulumi.set(self, "size_in_tb", value)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_type", value)
 
     @property
     @pulumi.getter
@@ -151,6 +167,7 @@ class PoolArgs:
 class _PoolState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[str]] = None,
@@ -161,11 +178,12 @@ class _PoolState:
         """
         Input properties used for looking up and filtering Pool resources.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `500`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -173,6 +191,8 @@ class _PoolState:
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -199,6 +219,18 @@ class _PoolState:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_type", value)
 
     @property
     @pulumi.getter
@@ -252,7 +284,7 @@ class _PoolState:
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
@@ -293,6 +325,7 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[str]] = None,
@@ -337,11 +370,12 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `500`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -402,6 +436,7 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  qos_type: Optional[pulumi.Input[str]] = None,
@@ -421,6 +456,7 @@ class Pool(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["qos_type"] = qos_type
@@ -445,6 +481,7 @@ class Pool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            encryption_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             qos_type: Optional[pulumi.Input[str]] = None,
@@ -460,11 +497,12 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `500`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -475,6 +513,7 @@ class Pool(pulumi.CustomResource):
         __props__ = _PoolState.__new__(_PoolState)
 
         __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["encryption_type"] = encryption_type
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["qos_type"] = qos_type
@@ -491,6 +530,14 @@ class Pool(pulumi.CustomResource):
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter
@@ -528,7 +575,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Output[str]:
         """
-        The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 

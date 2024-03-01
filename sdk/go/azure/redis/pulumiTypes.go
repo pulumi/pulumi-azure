@@ -341,6 +341,8 @@ type CacheRedisConfiguration struct {
 	//
 	// Example usage:
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
+	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+	DataPersistenceAuthenticationMethod *string `pulumi:"dataPersistenceAuthenticationMethod"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
 	// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
@@ -397,6 +399,8 @@ type CacheRedisConfigurationArgs struct {
 	//
 	// Example usage:
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
+	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+	DataPersistenceAuthenticationMethod pulumi.StringPtrInput `pulumi:"dataPersistenceAuthenticationMethod"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
 	// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
@@ -530,6 +534,11 @@ func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.Stri
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
+// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+func (o CacheRedisConfigurationOutput) DataPersistenceAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.DataPersistenceAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
 // If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 //
 // > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
@@ -661,6 +670,16 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.S
 			return nil
 		}
 		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+func (o CacheRedisConfigurationPtrOutput) DataPersistenceAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataPersistenceAuthenticationMethod
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1018,9 +1037,10 @@ func (o GetCachePatchScheduleArrayOutput) Index(i pulumi.IntInput) GetCachePatch
 }
 
 type GetCacheRedisConfiguration struct {
-	AofBackupEnabled            bool   `pulumi:"aofBackupEnabled"`
-	AofStorageConnectionString0 string `pulumi:"aofStorageConnectionString0"`
-	AofStorageConnectionString1 string `pulumi:"aofStorageConnectionString1"`
+	AofBackupEnabled                    bool   `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0         string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1         string `pulumi:"aofStorageConnectionString1"`
+	DataPersistenceAuthenticationMethod string `pulumi:"dataPersistenceAuthenticationMethod"`
 	// Specifies if authentication is enabled
 	EnableAuthentication bool `pulumi:"enableAuthentication"`
 	Maxclients           int  `pulumi:"maxclients"`
@@ -1057,9 +1077,10 @@ type GetCacheRedisConfigurationInput interface {
 }
 
 type GetCacheRedisConfigurationArgs struct {
-	AofBackupEnabled            pulumi.BoolInput   `pulumi:"aofBackupEnabled"`
-	AofStorageConnectionString0 pulumi.StringInput `pulumi:"aofStorageConnectionString0"`
-	AofStorageConnectionString1 pulumi.StringInput `pulumi:"aofStorageConnectionString1"`
+	AofBackupEnabled                    pulumi.BoolInput   `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0         pulumi.StringInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1         pulumi.StringInput `pulumi:"aofStorageConnectionString1"`
+	DataPersistenceAuthenticationMethod pulumi.StringInput `pulumi:"dataPersistenceAuthenticationMethod"`
 	// Specifies if authentication is enabled
 	EnableAuthentication pulumi.BoolInput `pulumi:"enableAuthentication"`
 	Maxclients           pulumi.IntInput  `pulumi:"maxclients"`
@@ -1145,6 +1166,10 @@ func (o GetCacheRedisConfigurationOutput) AofStorageConnectionString0() pulumi.S
 
 func (o GetCacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.AofStorageConnectionString1 }).(pulumi.StringOutput)
+}
+
+func (o GetCacheRedisConfigurationOutput) DataPersistenceAuthenticationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.DataPersistenceAuthenticationMethod }).(pulumi.StringOutput)
 }
 
 // Specifies if authentication is enabled

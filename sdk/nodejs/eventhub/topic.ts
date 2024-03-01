@@ -118,9 +118,7 @@ export class Topic extends pulumi.CustomResource {
     public readonly namespaceId!: pulumi.Output<string>;
     public /*out*/ readonly namespaceName!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls whether Changing this forces a new resource to be created.
-     * the Topic requires duplicate detection. Defaults to false. Changing this forces
-     * a new resource to be created.
+     * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
      */
     public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
@@ -238,9 +236,7 @@ export interface TopicState {
     namespaceId?: pulumi.Input<string>;
     namespaceName?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether Changing this forces a new resource to be created.
-     * the Topic requires duplicate detection. Defaults to false. Changing this forces
-     * a new resource to be created.
+     * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
     resourceGroupName?: pulumi.Input<string>;
@@ -301,9 +297,7 @@ export interface TopicArgs {
      */
     namespaceId: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether Changing this forces a new resource to be created.
-     * the Topic requires duplicate detection. Defaults to false. Changing this forces
-     * a new resource to be created.
+     * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**

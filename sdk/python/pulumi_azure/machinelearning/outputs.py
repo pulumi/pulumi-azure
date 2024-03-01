@@ -22,6 +22,7 @@ __all__ = [
     'WorkspaceEncryption',
     'WorkspaceFeatureStore',
     'WorkspaceIdentity',
+    'WorkspaceManagedNetwork',
     'GetWorkspaceIdentityResult',
 ]
 
@@ -527,11 +528,11 @@ class InferenceClusterSsl(dict):
                  leaf_domain_label: Optional[str] = None,
                  overwrite_existing_domain: Optional[bool] = None):
         """
-        :param str cert: The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
-        :param str cname: The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
-        :param str key: The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
-        :param str leaf_domain_label: The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
-        :param bool overwrite_existing_domain: Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str cert: The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str cname: The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str key: The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str leaf_domain_label: The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param bool overwrite_existing_domain: Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -548,7 +549,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter
     def cert(self) -> Optional[str]:
         """
-        The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "cert")
 
@@ -556,7 +557,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter
     def cname(self) -> Optional[str]:
         """
-        The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "cname")
 
@@ -564,7 +565,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "key")
 
@@ -572,7 +573,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter(name="leafDomainLabel")
     def leaf_domain_label(self) -> Optional[str]:
         """
-        The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "leaf_domain_label")
 
@@ -580,7 +581,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter(name="overwriteExistingDomain")
     def overwrite_existing_domain(self) -> Optional[bool]:
         """
-        Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "overwrite_existing_domain")
 
@@ -875,6 +876,42 @@ class WorkspaceIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class WorkspaceManagedNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isolationMode":
+            suggest = "isolation_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceManagedNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceManagedNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceManagedNetwork.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 isolation_mode: Optional[str] = None):
+        """
+        :param str isolation_mode: The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        """
+        if isolation_mode is not None:
+            pulumi.set(__self__, "isolation_mode", isolation_mode)
+
+    @property
+    @pulumi.getter(name="isolationMode")
+    def isolation_mode(self) -> Optional[str]:
+        """
+        The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        """
+        return pulumi.get(self, "isolation_mode")
 
 
 @pulumi.output_type

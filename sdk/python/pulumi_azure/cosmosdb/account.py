@@ -39,6 +39,7 @@ class AccountArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
@@ -83,6 +84,7 @@ class AccountArgs:
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
@@ -137,6 +139,8 @@ class AccountArgs:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimal_tls_version is not None:
+            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
             pulumi.set(__self__, "mongo_server_version", mongo_server_version)
         if name is not None:
@@ -443,6 +447,18 @@ class AccountArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @minimal_tls_version.setter
+    def minimal_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimal_tls_version", value)
+
+    @property
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -579,6 +595,7 @@ class _AccountState:
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
@@ -639,6 +656,7 @@ class _AccountState:
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
@@ -713,6 +731,8 @@ class _AccountState:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimal_tls_version is not None:
+            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
             pulumi.set(__self__, "mongo_server_version", mongo_server_version)
         if name is not None:
@@ -1051,6 +1071,18 @@ class _AccountState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        """
+        return pulumi.get(self, "minimal_tls_version")
+
+    @minimal_tls_version.setter
+    def minimal_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimal_tls_version", value)
+
+    @property
     @pulumi.getter(name="mongoServerVersion")
     def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1379,6 +1411,7 @@ class Account(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
@@ -1523,6 +1556,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
@@ -1678,6 +1712,7 @@ class Account(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
@@ -1723,6 +1758,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["minimal_tls_version"] = minimal_tls_version
             __props__.__dict__["mongo_server_version"] = mongo_server_version
             __props__.__dict__["name"] = name
             __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
@@ -1789,6 +1825,7 @@ class Account(pulumi.CustomResource):
             kind: Optional[pulumi.Input[str]] = None,
             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            minimal_tls_version: Optional[pulumi.Input[str]] = None,
             mongo_server_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
@@ -1854,6 +1891,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB`, `MongoDB` and `Parse`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_authentication_disabled: Disable local authentication and ensure only MSI and AAD can be used exclusively for authentication. Defaults to `false`. Can be set only when using the SQL API.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
@@ -1909,6 +1947,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["minimal_tls_version"] = minimal_tls_version
         __props__.__dict__["mongo_server_version"] = mongo_server_version
         __props__.__dict__["name"] = name
         __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
@@ -2129,6 +2168,14 @@ class Account(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="minimalTlsVersion")
+    def minimal_tls_version(self) -> pulumi.Output[str]:
+        """
+        Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        """
+        return pulumi.get(self, "minimal_tls_version")
 
     @property
     @pulumi.getter(name="mongoServerVersion")

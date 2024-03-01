@@ -291,7 +291,7 @@ type Certificate struct {
 	CertificateData pulumi.StringOutput `pulumi:"certificateData"`
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringOutput `pulumi:"certificateDataBase64"`
-	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+	// A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyOutput `pulumi:"certificatePolicy"`
@@ -364,7 +364,7 @@ type certificateState struct {
 	CertificateData *string `pulumi:"certificateData"`
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 *string `pulumi:"certificateDataBase64"`
-	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+	// A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
@@ -399,7 +399,7 @@ type CertificateState struct {
 	CertificateData pulumi.StringPtrInput
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringPtrInput
-	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+	// A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
@@ -432,7 +432,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate *CertificateCertificate `pulumi:"certificate"`
-	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+	// A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
@@ -448,7 +448,7 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
 	Certificate CertificateCertificatePtrInput
-	// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+	// A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
 	//
 	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
@@ -567,7 +567,7 @@ func (o CertificateOutput) CertificateDataBase64() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateDataBase64 }).(pulumi.StringOutput)
 }
 
-// A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+// A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
 //
 // > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 func (o CertificateOutput) CertificatePolicy() CertificateCertificatePolicyOutput {

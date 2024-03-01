@@ -1633,6 +1633,8 @@ type WorkspaceCustomerManagedKey struct {
 	KeyName *string `pulumi:"keyName"`
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	KeyVersionlessId string `pulumi:"keyVersionlessId"`
+	// The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // WorkspaceCustomerManagedKeyInput is an input type that accepts WorkspaceCustomerManagedKeyArgs and WorkspaceCustomerManagedKeyOutput values.
@@ -1651,6 +1653,8 @@ type WorkspaceCustomerManagedKeyArgs struct {
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
 	KeyVersionlessId pulumi.StringInput `pulumi:"keyVersionlessId"`
+	// The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (WorkspaceCustomerManagedKeyArgs) ElementType() reflect.Type {
@@ -1740,6 +1744,11 @@ func (o WorkspaceCustomerManagedKeyOutput) KeyVersionlessId() pulumi.StringOutpu
 	return o.ApplyT(func(v WorkspaceCustomerManagedKey) string { return v.KeyVersionlessId }).(pulumi.StringOutput)
 }
 
+// The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+func (o WorkspaceCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomerManagedKey) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
@@ -1781,6 +1790,16 @@ func (o WorkspaceCustomerManagedKeyPtrOutput) KeyVersionlessId() pulumi.StringPt
 			return nil
 		}
 		return &v.KeyVersionlessId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+func (o WorkspaceCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 

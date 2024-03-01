@@ -170,11 +170,11 @@ func (o ActiveRoleAssignmentSchedulePtrOutput) StartDateTime() pulumi.StringPtrO
 }
 
 type ActiveRoleAssignmentScheduleExpiration struct {
-	// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+	// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 	DurationDays *int `pulumi:"durationDays"`
-	// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+	// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 	DurationHours *int `pulumi:"durationHours"`
-	// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+	// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
 	EndDateTime *string `pulumi:"endDateTime"`
 }
 
@@ -190,11 +190,11 @@ type ActiveRoleAssignmentScheduleExpirationInput interface {
 }
 
 type ActiveRoleAssignmentScheduleExpirationArgs struct {
-	// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+	// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 	DurationDays pulumi.IntPtrInput `pulumi:"durationDays"`
-	// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+	// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 	DurationHours pulumi.IntPtrInput `pulumi:"durationHours"`
-	// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+	// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
 }
 
@@ -275,17 +275,17 @@ func (o ActiveRoleAssignmentScheduleExpirationOutput) ToActiveRoleAssignmentSche
 	}).(ActiveRoleAssignmentScheduleExpirationPtrOutput)
 }
 
-// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 func (o ActiveRoleAssignmentScheduleExpirationOutput) DurationDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ActiveRoleAssignmentScheduleExpiration) *int { return v.DurationDays }).(pulumi.IntPtrOutput)
 }
 
-// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 func (o ActiveRoleAssignmentScheduleExpirationOutput) DurationHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ActiveRoleAssignmentScheduleExpiration) *int { return v.DurationHours }).(pulumi.IntPtrOutput)
 }
 
-// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
 func (o ActiveRoleAssignmentScheduleExpirationOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveRoleAssignmentScheduleExpiration) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
@@ -314,7 +314,7 @@ func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) Elem() ActiveRoleAssign
 	}).(ActiveRoleAssignmentScheduleExpirationOutput)
 }
 
-// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) DurationDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignmentScheduleExpiration) *int {
 		if v == nil {
@@ -324,7 +324,7 @@ func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) DurationDays() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
 func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) DurationHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignmentScheduleExpiration) *int {
 		if v == nil {
@@ -334,7 +334,7 @@ func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) DurationHours() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
 func (o ActiveRoleAssignmentScheduleExpirationPtrOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActiveRoleAssignmentScheduleExpiration) *string {
 		if v == nil {
@@ -657,11 +657,11 @@ func (o EligibleRoleAssignmentSchedulePtrOutput) StartDateTime() pulumi.StringPt
 }
 
 type EligibleRoleAssignmentScheduleExpiration struct {
-	// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 	DurationDays *int `pulumi:"durationDays"`
-	// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 	DurationHours *int `pulumi:"durationHours"`
-	// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
 	EndDateTime *string `pulumi:"endDateTime"`
 }
 
@@ -677,11 +677,11 @@ type EligibleRoleAssignmentScheduleExpirationInput interface {
 }
 
 type EligibleRoleAssignmentScheduleExpirationArgs struct {
-	// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 	DurationDays pulumi.IntPtrInput `pulumi:"durationDays"`
-	// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 	DurationHours pulumi.IntPtrInput `pulumi:"durationHours"`
-	// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+	// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
 }
 
@@ -762,17 +762,17 @@ func (o EligibleRoleAssignmentScheduleExpirationOutput) ToEligibleRoleAssignment
 	}).(EligibleRoleAssignmentScheduleExpirationPtrOutput)
 }
 
-// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 func (o EligibleRoleAssignmentScheduleExpirationOutput) DurationDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EligibleRoleAssignmentScheduleExpiration) *int { return v.DurationDays }).(pulumi.IntPtrOutput)
 }
 
-// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 func (o EligibleRoleAssignmentScheduleExpirationOutput) DurationHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EligibleRoleAssignmentScheduleExpiration) *int { return v.DurationHours }).(pulumi.IntPtrOutput)
 }
 
-// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
 func (o EligibleRoleAssignmentScheduleExpirationOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EligibleRoleAssignmentScheduleExpiration) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
@@ -801,7 +801,7 @@ func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) Elem() EligibleRoleAs
 	}).(EligibleRoleAssignmentScheduleExpirationOutput)
 }
 
-// The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+// The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) DurationDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignmentScheduleExpiration) *int {
 		if v == nil {
@@ -811,7 +811,7 @@ func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) DurationDays() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+// The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
 func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) DurationHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignmentScheduleExpiration) *int {
 		if v == nil {
@@ -821,7 +821,7 @@ func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) DurationHours() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+// The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
 func (o EligibleRoleAssignmentScheduleExpirationPtrOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignmentScheduleExpiration) *string {
 		if v == nil {

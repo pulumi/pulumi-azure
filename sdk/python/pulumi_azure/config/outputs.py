@@ -429,10 +429,13 @@ class FeaturesVirtualMachine(dict):
 class FeaturesVirtualMachineScaleSet(dict):
     def __init__(__self__, *,
                  force_delete: Optional[bool] = None,
+                 reimage_on_manual_upgrade: Optional[bool] = None,
                  roll_instances_when_required: Optional[bool] = None,
                  scale_to_zero_before_deletion: Optional[bool] = None):
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if reimage_on_manual_upgrade is not None:
+            pulumi.set(__self__, "reimage_on_manual_upgrade", reimage_on_manual_upgrade)
         if roll_instances_when_required is not None:
             pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
         if scale_to_zero_before_deletion is not None:
@@ -442,6 +445,11 @@ class FeaturesVirtualMachineScaleSet(dict):
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[bool]:
         return pulumi.get(self, "force_delete")
+
+    @property
+    @pulumi.getter(name="reimageOnManualUpgrade")
+    def reimage_on_manual_upgrade(self) -> Optional[bool]:
+        return pulumi.get(self, "reimage_on_manual_upgrade")
 
     @property
     @pulumi.getter(name="rollInstancesWhenRequired")

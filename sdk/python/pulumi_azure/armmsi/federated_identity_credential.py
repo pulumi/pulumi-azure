@@ -22,12 +22,12 @@ class FederatedIdentityCredentialArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FederatedIdentityCredential resource.
-        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential.
+        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential.
+        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "issuer", issuer)
@@ -41,7 +41,7 @@ class FederatedIdentityCredentialArgs:
     @pulumi.getter
     def audience(self) -> pulumi.Input[str]:
         """
-        Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the audience for this Federated Identity Credential.
         """
         return pulumi.get(self, "audience")
 
@@ -53,7 +53,7 @@ class FederatedIdentityCredentialArgs:
     @pulumi.getter
     def issuer(self) -> pulumi.Input[str]:
         """
-        Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the issuer of this Federated Identity Credential.
         """
         return pulumi.get(self, "issuer")
 
@@ -89,7 +89,7 @@ class FederatedIdentityCredentialArgs:
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
         """
-        Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the subject for this Federated Identity Credential.
         """
         return pulumi.get(self, "subject")
 
@@ -101,7 +101,7 @@ class FederatedIdentityCredentialArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the name of this Federated Identity Credential.
         """
         return pulumi.get(self, "name")
 
@@ -121,12 +121,12 @@ class _FederatedIdentityCredentialState:
                  subject: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FederatedIdentityCredential resources.
-        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential.
+        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential.
+        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential.
         :param pulumi.Input[str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential.
         """
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
@@ -145,7 +145,7 @@ class _FederatedIdentityCredentialState:
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the audience for this Federated Identity Credential.
         """
         return pulumi.get(self, "audience")
 
@@ -157,7 +157,7 @@ class _FederatedIdentityCredentialState:
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the issuer of this Federated Identity Credential.
         """
         return pulumi.get(self, "issuer")
 
@@ -169,7 +169,7 @@ class _FederatedIdentityCredentialState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the name of this Federated Identity Credential.
         """
         return pulumi.get(self, "name")
 
@@ -205,7 +205,7 @@ class _FederatedIdentityCredentialState:
     @pulumi.getter
     def subject(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the subject for this Federated Identity Credential.
         """
         return pulumi.get(self, "subject")
 
@@ -261,12 +261,12 @@ class FederatedIdentityCredential(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential.
+        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential.
+        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential.
         :param pulumi.Input[str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential.
         """
         ...
     @overload
@@ -376,12 +376,12 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] audience: Specifies the audience for this Federated Identity Credential.
+        :param pulumi.Input[str] issuer: Specifies the issuer of this Federated Identity Credential.
+        :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential.
         :param pulumi.Input[str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -399,7 +399,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     @pulumi.getter
     def audience(self) -> pulumi.Output[str]:
         """
-        Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the audience for this Federated Identity Credential.
         """
         return pulumi.get(self, "audience")
 
@@ -407,7 +407,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     @pulumi.getter
     def issuer(self) -> pulumi.Output[str]:
         """
-        Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the issuer of this Federated Identity Credential.
         """
         return pulumi.get(self, "issuer")
 
@@ -415,7 +415,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the name of this Federated Identity Credential.
         """
         return pulumi.get(self, "name")
 
@@ -439,7 +439,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     @pulumi.getter
     def subject(self) -> pulumi.Output[str]:
         """
-        Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        Specifies the subject for this Federated Identity Credential.
         """
         return pulumi.get(self, "subject")
 

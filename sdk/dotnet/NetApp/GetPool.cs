@@ -131,6 +131,10 @@ namespace Pulumi.Azure.NetApp
     {
         public readonly string AccountName;
         /// <summary>
+        /// The encryption type of the pool.
+        /// </summary>
+        public readonly string EncryptionType;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -153,6 +157,8 @@ namespace Pulumi.Azure.NetApp
         private GetPoolResult(
             string accountName,
 
+            string encryptionType,
+
             string id,
 
             string location,
@@ -166,6 +172,7 @@ namespace Pulumi.Azure.NetApp
             int sizeInTb)
         {
             AccountName = accountName;
+            EncryptionType = encryptionType;
             Id = id;
             Location = location;
             Name = name;

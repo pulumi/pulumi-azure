@@ -303,7 +303,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> CertificateDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.CertifiateCertificateArgs>? KeyVaultCertificate { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? CertificateDataBase64 { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>

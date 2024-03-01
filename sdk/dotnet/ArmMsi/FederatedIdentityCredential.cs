@@ -60,19 +60,19 @@ namespace Pulumi.Azure.ArmMsi
     public partial class FederatedIdentityCredential : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the audience for this Federated Identity Credential.
         /// </summary>
         [Output("audience")]
         public Output<string> Audience { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the issuer of this Federated Identity Credential.
         /// </summary>
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the name of this Federated Identity Credential.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.ArmMsi
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the subject for this Federated Identity Credential.
         /// </summary>
         [Output("subject")]
         public Output<string> Subject { get; private set; } = null!;
@@ -142,19 +142,19 @@ namespace Pulumi.Azure.ArmMsi
     public sealed class FederatedIdentityCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the audience for this Federated Identity Credential.
         /// </summary>
         [Input("audience", required: true)]
         public Input<string> Audience { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the issuer of this Federated Identity Credential.
         /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the name of this Federated Identity Credential.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.ArmMsi
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the subject for this Federated Identity Credential.
         /// </summary>
         [Input("subject", required: true)]
         public Input<string> Subject { get; set; } = null!;
@@ -186,19 +186,19 @@ namespace Pulumi.Azure.ArmMsi
     public sealed class FederatedIdentityCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the audience for this Federated Identity Credential.
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
 
         /// <summary>
-        /// Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the issuer of this Federated Identity Credential.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the name of this Federated Identity Credential.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.ArmMsi
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+        /// Specifies the subject for this Federated Identity Credential.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }

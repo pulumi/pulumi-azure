@@ -13,6 +13,11 @@ import java.util.Objects;
 public final class GetPoolResult {
     private String accountName;
     /**
+     * @return The encryption type of the pool.
+     * 
+     */
+    private String encryptionType;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -38,6 +43,13 @@ public final class GetPoolResult {
     private GetPoolResult() {}
     public String accountName() {
         return this.accountName;
+    }
+    /**
+     * @return The encryption type of the pool.
+     * 
+     */
+    public String encryptionType() {
+        return this.encryptionType;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -84,6 +96,7 @@ public final class GetPoolResult {
     @CustomType.Builder
     public static final class Builder {
         private String accountName;
+        private String encryptionType;
         private String id;
         private String location;
         private String name;
@@ -94,6 +107,7 @@ public final class GetPoolResult {
         public Builder(GetPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
+    	      this.encryptionType = defaults.encryptionType;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -108,6 +122,14 @@ public final class GetPoolResult {
               throw new MissingRequiredPropertyException("GetPoolResult", "accountName");
             }
             this.accountName = accountName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionType(String encryptionType) {
+            if (encryptionType == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "encryptionType");
+            }
+            this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
@@ -161,6 +183,7 @@ public final class GetPoolResult {
         public GetPoolResult build() {
             final var _resultValue = new GetPoolResult();
             _resultValue.accountName = accountName;
+            _resultValue.encryptionType = encryptionType;
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.name = name;

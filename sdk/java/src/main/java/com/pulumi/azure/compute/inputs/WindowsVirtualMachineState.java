@@ -9,6 +9,7 @@ import com.pulumi.azure.compute.inputs.WindowsVirtualMachineBootDiagnosticsArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineGalleryApplicationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineIdentityArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineOsDiskArgs;
+import com.pulumi.azure.compute.inputs.WindowsVirtualMachineOsImageNotificationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachinePlanArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineSecretArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineSourceImageReferenceArgs;
@@ -235,6 +236,21 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     * 
+     */
+    @Import(name="diskControllerType")
+    private @Nullable Output<String> diskControllerType;
+
+    /**
+     * @return Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     * 
+     */
+    public Optional<Output<String>> diskControllerType() {
+        return Optional.ofNullable(this.diskControllerType);
+    }
+
+    /**
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
      * 
      */
@@ -454,6 +470,21 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
      */
     public Optional<Output<WindowsVirtualMachineOsDiskArgs>> osDisk() {
         return Optional.ofNullable(this.osDisk);
+    }
+
+    /**
+     * A `os_image_notification` block as defined below.
+     * 
+     */
+    @Import(name="osImageNotification")
+    private @Nullable Output<WindowsVirtualMachineOsImageNotificationArgs> osImageNotification;
+
+    /**
+     * @return A `os_image_notification` block as defined below.
+     * 
+     */
+    public Optional<Output<WindowsVirtualMachineOsImageNotificationArgs>> osImageNotification() {
+        return Optional.ofNullable(this.osImageNotification);
     }
 
     /**
@@ -826,7 +857,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     * 
+     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
@@ -835,13 +868,30 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     private @Nullable Output<String> virtualMachineScaleSetId;
 
     /**
-     * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     * 
+     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
      */
     public Optional<Output<String>> virtualMachineScaleSetId() {
         return Optional.ofNullable(this.virtualMachineScaleSetId);
+    }
+
+    /**
+     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="vmAgentPlatformUpdatesEnabled")
+    private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
+
+    /**
+     * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
+        return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
     }
 
     /**
@@ -905,6 +955,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         this.customData = $.customData;
         this.dedicatedHostGroupId = $.dedicatedHostGroupId;
         this.dedicatedHostId = $.dedicatedHostId;
+        this.diskControllerType = $.diskControllerType;
         this.edgeZone = $.edgeZone;
         this.enableAutomaticUpdates = $.enableAutomaticUpdates;
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
@@ -919,6 +970,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         this.name = $.name;
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.osDisk = $.osDisk;
+        this.osImageNotification = $.osImageNotification;
         this.patchAssessmentMode = $.patchAssessmentMode;
         this.patchMode = $.patchMode;
         this.plan = $.plan;
@@ -943,6 +995,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         this.userData = $.userData;
         this.virtualMachineId = $.virtualMachineId;
         this.virtualMachineScaleSetId = $.virtualMachineScaleSetId;
+        this.vmAgentPlatformUpdatesEnabled = $.vmAgentPlatformUpdatesEnabled;
         this.vtpmEnabled = $.vtpmEnabled;
         this.winrmListeners = $.winrmListeners;
         this.zone = $.zone;
@@ -1255,6 +1308,27 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
          */
         public Builder dedicatedHostId(String dedicatedHostId) {
             return dedicatedHostId(Output.of(dedicatedHostId));
+        }
+
+        /**
+         * @param diskControllerType Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskControllerType(@Nullable Output<String> diskControllerType) {
+            $.diskControllerType = diskControllerType;
+            return this;
+        }
+
+        /**
+         * @param diskControllerType Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskControllerType(String diskControllerType) {
+            return diskControllerType(Output.of(diskControllerType));
         }
 
         /**
@@ -1581,6 +1655,27 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
          */
         public Builder osDisk(WindowsVirtualMachineOsDiskArgs osDisk) {
             return osDisk(Output.of(osDisk));
+        }
+
+        /**
+         * @param osImageNotification A `os_image_notification` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osImageNotification(@Nullable Output<WindowsVirtualMachineOsImageNotificationArgs> osImageNotification) {
+            $.osImageNotification = osImageNotification;
+            return this;
+        }
+
+        /**
+         * @param osImageNotification A `os_image_notification` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osImageNotification(WindowsVirtualMachineOsImageNotificationArgs osImageNotification) {
+            return osImageNotification(Output.of(osImageNotification));
         }
 
         /**
@@ -2121,7 +2216,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+         * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+         * 
+         * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
          * 
          * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
          * 
@@ -2134,7 +2231,9 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+         * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+         * 
+         * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
          * 
          * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
          * 
@@ -2143,6 +2242,27 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
          */
         public Builder virtualMachineScaleSetId(String virtualMachineScaleSetId) {
             return virtualMachineScaleSetId(Output.of(virtualMachineScaleSetId));
+        }
+
+        /**
+         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
+            $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
+            return this;
+        }
+
+        /**
+         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
+            return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }
 
         /**

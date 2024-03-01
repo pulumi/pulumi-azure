@@ -5,6 +5,7 @@ package com.pulumi.azure.postgresql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,7 +34,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     /**
      * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
      * 
-     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="geoBackupUserAssignedIdentityId")
@@ -42,7 +43,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
      * 
-     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<String>> geoBackupUserAssignedIdentityId() {
@@ -53,15 +54,15 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
      * The ID of the Key Vault Key.
      * 
      */
-    @Import(name="keyVaultKeyId")
-    private @Nullable Output<String> keyVaultKeyId;
+    @Import(name="keyVaultKeyId", required=true)
+    private Output<String> keyVaultKeyId;
 
     /**
      * @return The ID of the Key Vault Key.
      * 
      */
-    public Optional<Output<String>> keyVaultKeyId() {
-        return Optional.ofNullable(this.keyVaultKeyId);
+    public Output<String> keyVaultKeyId() {
+        return this.keyVaultKeyId;
     }
 
     /**
@@ -130,7 +131,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         /**
          * @param geoBackupUserAssignedIdentityId The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
          * 
-         * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -143,7 +144,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         /**
          * @param geoBackupUserAssignedIdentityId The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
          * 
-         * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -158,7 +159,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder keyVaultKeyId(@Nullable Output<String> keyVaultKeyId) {
+        public Builder keyVaultKeyId(Output<String> keyVaultKeyId) {
             $.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
@@ -195,6 +196,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         public FlexibleServerCustomerManagedKeyArgs build() {
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
             return $;
         }
     }

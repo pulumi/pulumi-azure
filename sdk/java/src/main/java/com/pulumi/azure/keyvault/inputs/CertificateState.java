@@ -81,7 +81,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
@@ -90,7 +90,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<CertificateCertificatePolicyArgs> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * @return A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
@@ -382,7 +382,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
          * 
          * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
          * 
@@ -395,7 +395,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+         * @param certificatePolicy A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
          * 
          * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
          * 

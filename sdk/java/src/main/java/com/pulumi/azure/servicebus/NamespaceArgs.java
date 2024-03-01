@@ -143,6 +143,25 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * 
+     */
+    @Import(name="premiumMessagingPartitions")
+    private @Nullable Output<Integer> premiumMessagingPartitions;
+
+    /**
+     * @return Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+     * 
+     */
+    public Optional<Output<Integer>> premiumMessagingPartitions() {
+        return Optional.ofNullable(this.premiumMessagingPartitions);
+    }
+
+    /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      * 
      */
@@ -230,6 +249,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
         this.networkRuleSet = $.networkRuleSet;
+        this.premiumMessagingPartitions = $.premiumMessagingPartitions;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
@@ -421,6 +441,31 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder networkRuleSet(NamespaceNetworkRuleSetArgs networkRuleSet) {
             return networkRuleSet(Output.of(networkRuleSet));
+        }
+
+        /**
+         * @param premiumMessagingPartitions Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder premiumMessagingPartitions(@Nullable Output<Integer> premiumMessagingPartitions) {
+            $.premiumMessagingPartitions = premiumMessagingPartitions;
+            return this;
+        }
+
+        /**
+         * @param premiumMessagingPartitions Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** It&#39;s not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder premiumMessagingPartitions(Integer premiumMessagingPartitions) {
+            return premiumMessagingPartitions(Output.of(premiumMessagingPartitions));
         }
 
         /**

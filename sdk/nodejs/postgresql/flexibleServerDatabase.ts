@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     skuName: "GP_Standard_D4s_v3",
  * });
  * const exampleFlexibleServerDatabase = new azure.postgresql.FlexibleServerDatabase("example", {
- *     name: "example-db",
+ *     name: "exampledb",
  *     serverId: exampleFlexibleServer.id,
  *     collation: "en_US.utf8",
  *     charset: "utf8",
@@ -78,7 +78,7 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
-     * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export interface FlexibleServerDatabaseState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface FlexibleServerDatabaseArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
     name?: pulumi.Input<string>;
     /**

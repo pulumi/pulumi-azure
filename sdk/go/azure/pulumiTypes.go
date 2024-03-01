@@ -2142,6 +2142,7 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) SkipShutdownAndForceDelete() pu
 
 type ProviderFeaturesVirtualMachineScaleSet struct {
 	ForceDelete               *bool `pulumi:"forceDelete"`
+	ReimageOnManualUpgrade    *bool `pulumi:"reimageOnManualUpgrade"`
 	RollInstancesWhenRequired *bool `pulumi:"rollInstancesWhenRequired"`
 	ScaleToZeroBeforeDeletion *bool `pulumi:"scaleToZeroBeforeDeletion"`
 }
@@ -2159,6 +2160,7 @@ type ProviderFeaturesVirtualMachineScaleSetInput interface {
 
 type ProviderFeaturesVirtualMachineScaleSetArgs struct {
 	ForceDelete               pulumi.BoolPtrInput `pulumi:"forceDelete"`
+	ReimageOnManualUpgrade    pulumi.BoolPtrInput `pulumi:"reimageOnManualUpgrade"`
 	RollInstancesWhenRequired pulumi.BoolPtrInput `pulumi:"rollInstancesWhenRequired"`
 	ScaleToZeroBeforeDeletion pulumi.BoolPtrInput `pulumi:"scaleToZeroBeforeDeletion"`
 }
@@ -2244,6 +2246,10 @@ func (o ProviderFeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolP
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesVirtualMachineScaleSetOutput) ReimageOnManualUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *bool { return v.ReimageOnManualUpgrade }).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesVirtualMachineScaleSetOutput) RollInstancesWhenRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *bool { return v.RollInstancesWhenRequired }).(pulumi.BoolPtrOutput)
 }
@@ -2282,6 +2288,15 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ForceDelete() pulumi.Bo
 			return nil
 		}
 		return v.ForceDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ReimageOnManualUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachineScaleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReimageOnManualUpgrade
 	}).(pulumi.BoolPtrOutput)
 }
 

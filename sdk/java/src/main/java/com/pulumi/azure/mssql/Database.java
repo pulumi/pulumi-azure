@@ -521,6 +521,20 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.recoverDatabaseId);
     }
     /**
+     * The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+     * 
+     */
+    @Export(name="recoveryPointId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> recoveryPointId;
+
+    /**
+     * @return The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+     * 
+     */
+    public Output<Optional<String>> recoveryPointId() {
+        return Codegen.optional(this.recoveryPointId);
+    }
+    /**
      * The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
      * 
      */
@@ -533,6 +547,20 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> restoreDroppedDatabaseId() {
         return Codegen.optional(this.restoreDroppedDatabaseId);
+    }
+    /**
+     * The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+     * 
+     */
+    @Export(name="restoreLongTermRetentionBackupId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> restoreLongTermRetentionBackupId;
+
+    /**
+     * @return The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+     * 
+     */
+    public Output<Optional<String>> restoreLongTermRetentionBackupId() {
+        return Codegen.optional(this.restoreLongTermRetentionBackupId);
     }
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.

@@ -46,11 +46,27 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
         return this.keyVersionlessId;
     }
 
+    /**
+     * The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
     private WorkspaceCustomerManagedKeyArgs() {}
 
     private WorkspaceCustomerManagedKeyArgs(WorkspaceCustomerManagedKeyArgs $) {
         this.keyName = $.keyName;
         this.keyVersionlessId = $.keyVersionlessId;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -111,6 +127,27 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
          */
         public Builder keyVersionlessId(String keyVersionlessId) {
             return keyVersionlessId(Output.of(keyVersionlessId));
+        }
+
+        /**
+         * @param userAssignedIdentityId The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public WorkspaceCustomerManagedKeyArgs build() {

@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EligibleRoleAssignmentScheduleExpiration {
     /**
-     * @return The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
     private @Nullable Integer durationDays;
     /**
-     * @return The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
     private @Nullable Integer durationHours;
     /**
-     * @return The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
     private @Nullable String endDateTime;
 
     private EligibleRoleAssignmentScheduleExpiration() {}
     /**
-     * @return The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
     public Optional<Integer> durationDays() {
         return Optional.ofNullable(this.durationDays);
     }
     /**
-     * @return The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
     public Optional<Integer> durationHours() {
         return Optional.ofNullable(this.durationHours);
     }
     /**
-     * @return The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+     * @return The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
      * 
      */
     public Optional<String> endDateTime() {

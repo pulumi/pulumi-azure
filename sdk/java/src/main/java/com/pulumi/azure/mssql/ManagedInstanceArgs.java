@@ -320,6 +320,13 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         return this.vcores;
     }
 
+    @Import(name="zoneRedundantEnabled")
+    private @Nullable Output<Boolean> zoneRedundantEnabled;
+
+    public Optional<Output<Boolean>> zoneRedundantEnabled() {
+        return Optional.ofNullable(this.zoneRedundantEnabled);
+    }
+
     private ManagedInstanceArgs() {}
 
     private ManagedInstanceArgs(ManagedInstanceArgs $) {
@@ -343,6 +350,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.tags = $.tags;
         this.timezoneId = $.timezoneId;
         this.vcores = $.vcores;
+        this.zoneRedundantEnabled = $.zoneRedundantEnabled;
     }
 
     public static Builder builder() {
@@ -781,6 +789,15 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder vcores(Integer vcores) {
             return vcores(Output.of(vcores));
+        }
+
+        public Builder zoneRedundantEnabled(@Nullable Output<Boolean> zoneRedundantEnabled) {
+            $.zoneRedundantEnabled = zoneRedundantEnabled;
+            return this;
+        }
+
+        public Builder zoneRedundantEnabled(Boolean zoneRedundantEnabled) {
+            return zoneRedundantEnabled(Output.of(zoneRedundantEnabled));
         }
 
         public ManagedInstanceArgs build() {

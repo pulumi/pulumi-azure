@@ -1127,8 +1127,8 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
                  dns_servers: Optional[Sequence[str]] = None,
                  use_azure_dns: Optional[bool] = None):
         """
-        :param Sequence[str] dns_servers: Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
-        :param bool use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+        :param Sequence[str] dns_servers: Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+        :param bool use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
         """
         if azure_dns_servers is not None:
             pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
@@ -1146,7 +1146,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+        Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -1154,7 +1154,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
     @pulumi.getter(name="useAzureDns")
     def use_azure_dns(self) -> Optional[bool]:
         """
-        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
         """
         return pulumi.get(self, "use_azure_dns")
 
@@ -1524,8 +1524,8 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
                  dns_servers: Optional[Sequence[str]] = None,
                  use_azure_dns: Optional[bool] = None):
         """
-        :param Sequence[str] dns_servers: Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
-        :param bool use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+        :param Sequence[str] dns_servers: Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+        :param bool use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
         """
         if azure_dns_servers is not None:
             pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
@@ -1543,7 +1543,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+        Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -1551,7 +1551,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
     @pulumi.getter(name="useAzureDns")
     def use_azure_dns(self) -> Optional[bool]:
         """
-        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
         """
         return pulumi.get(self, "use_azure_dns")
 

@@ -367,7 +367,7 @@ func (o ResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInpu
 type ResolverInboundEndpointIpConfiguration struct {
 	// Private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+	// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
 	// The subnet ID of the IP configuration.
 	SubnetId string `pulumi:"subnetId"`
@@ -387,7 +387,7 @@ type ResolverInboundEndpointIpConfigurationInput interface {
 type ResolverInboundEndpointIpConfigurationArgs struct {
 	// Private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+	// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
 	// The subnet ID of the IP configuration.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -449,7 +449,7 @@ func (o ResolverInboundEndpointIpConfigurationOutput) PrivateIpAddress() pulumi.
 	return o.ApplyT(func(v ResolverInboundEndpointIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
 func (o ResolverInboundEndpointIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverInboundEndpointIpConfiguration) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }

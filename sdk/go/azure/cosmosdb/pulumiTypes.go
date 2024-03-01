@@ -159,6 +159,8 @@ type AccountBackup struct {
 	//
 	// > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
 	StorageRedundancy *string `pulumi:"storageRedundancy"`
+	// The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+	Tier *string `pulumi:"tier"`
 	// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
 	//
 	// > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -185,6 +187,8 @@ type AccountBackupArgs struct {
 	//
 	// > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
 	StorageRedundancy pulumi.StringPtrInput `pulumi:"storageRedundancy"`
+	// The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
 	// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
 	//
 	// > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -285,6 +289,11 @@ func (o AccountBackupOutput) StorageRedundancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *string { return v.StorageRedundancy }).(pulumi.StringPtrOutput)
 }
 
+// The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+func (o AccountBackupOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountBackup) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
 // The type of the `backup`. Possible values are `Continuous` and `Periodic`.
 //
 // > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -345,6 +354,16 @@ func (o AccountBackupPtrOutput) StorageRedundancy() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.StorageRedundancy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+func (o AccountBackupPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 

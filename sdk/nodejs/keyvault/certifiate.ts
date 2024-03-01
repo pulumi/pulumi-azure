@@ -262,7 +262,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateDataBase64!: pulumi.Output<string>;
     /**
-     * A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
      * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
@@ -386,7 +386,7 @@ export interface CertifiateState {
      */
     certificateDataBase64?: pulumi.Input<string>;
     /**
-     * A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
      * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
@@ -442,7 +442,7 @@ export interface CertifiateArgs {
      */
     certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
     /**
-     * A `certificatePolicy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
      * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */

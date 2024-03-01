@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = postgresql.NewFlexibleServerDatabase(ctx, "example", &postgresql.FlexibleServerDatabaseArgs{
-//				Name:      pulumi.String("example-db"),
+//				Name:      pulumi.String("exampledb"),
 //				ServerId:  exampleFlexibleServer.ID(),
 //				Collation: pulumi.String("en_US.utf8"),
 //				Charset:   pulumi.String("utf8"),
@@ -76,7 +76,7 @@ type FlexibleServerDatabase struct {
 	Charset pulumi.StringPtrOutput `pulumi:"charset"`
 	// Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+	// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -119,7 +119,7 @@ type flexibleServerDatabaseState struct {
 	Charset *string `pulumi:"charset"`
 	// Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Collation *string `pulumi:"collation"`
-	// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+	// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	ServerId *string `pulumi:"serverId"`
@@ -130,7 +130,7 @@ type FlexibleServerDatabaseState struct {
 	Charset pulumi.StringPtrInput
 	// Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Collation pulumi.StringPtrInput
-	// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+	// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	ServerId pulumi.StringPtrInput
@@ -145,7 +145,7 @@ type flexibleServerDatabaseArgs struct {
 	Charset *string `pulumi:"charset"`
 	// Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Collation *string `pulumi:"collation"`
-	// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+	// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	ServerId string `pulumi:"serverId"`
@@ -157,7 +157,7 @@ type FlexibleServerDatabaseArgs struct {
 	Charset pulumi.StringPtrInput
 	// Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Collation pulumi.StringPtrInput
-	// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+	// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 	ServerId pulumi.StringInput
@@ -260,7 +260,7 @@ func (o FlexibleServerDatabaseOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerDatabase) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
 func (o FlexibleServerDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

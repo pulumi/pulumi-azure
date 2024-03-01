@@ -22,6 +22,8 @@ class BackupVaultArgs:
                  identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 retention_duration_in_days: Optional[pulumi.Input[float]] = None,
+                 soft_delete: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
@@ -33,6 +35,12 @@ class BackupVaultArgs:
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
+        :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+               
+               > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+               
+               > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
         pulumi.set(__self__, "datastore_type", datastore_type)
@@ -44,6 +52,10 @@ class BackupVaultArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if retention_duration_in_days is not None:
+            pulumi.set(__self__, "retention_duration_in_days", retention_duration_in_days)
+        if soft_delete is not None:
+            pulumi.set(__self__, "soft_delete", soft_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -122,6 +134,34 @@ class BackupVaultArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="retentionDurationInDays")
+    def retention_duration_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+
+        > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        """
+        return pulumi.get(self, "retention_duration_in_days")
+
+    @retention_duration_in_days.setter
+    def retention_duration_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "retention_duration_in_days", value)
+
+    @property
+    @pulumi.getter(name="softDelete")
+    def soft_delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+
+        > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        """
+        return pulumi.get(self, "soft_delete")
+
+    @soft_delete.setter
+    def soft_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "soft_delete", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -143,6 +183,8 @@ class _BackupVaultState:
                  name: Optional[pulumi.Input[str]] = None,
                  redundancy: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_duration_in_days: Optional[pulumi.Input[float]] = None,
+                 soft_delete: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering BackupVault resources.
@@ -154,6 +196,12 @@ class _BackupVaultState:
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
+        :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+               
+               > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+               
+               > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
         if datastore_type is not None:
@@ -168,6 +216,10 @@ class _BackupVaultState:
             pulumi.set(__self__, "redundancy", redundancy)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retention_duration_in_days is not None:
+            pulumi.set(__self__, "retention_duration_in_days", retention_duration_in_days)
+        if soft_delete is not None:
+            pulumi.set(__self__, "soft_delete", soft_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -246,6 +298,34 @@ class _BackupVaultState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="retentionDurationInDays")
+    def retention_duration_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+
+        > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        """
+        return pulumi.get(self, "retention_duration_in_days")
+
+    @retention_duration_in_days.setter
+    def retention_duration_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "retention_duration_in_days", value)
+
+    @property
+    @pulumi.getter(name="softDelete")
+    def soft_delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+
+        > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        """
+        return pulumi.get(self, "soft_delete")
+
+    @soft_delete.setter
+    def soft_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "soft_delete", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -269,6 +349,8 @@ class BackupVault(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  redundancy: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_duration_in_days: Optional[pulumi.Input[float]] = None,
+                 soft_delete: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -309,6 +391,12 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
+        :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+               
+               > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+               
+               > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
         ...
@@ -366,6 +454,8 @@ class BackupVault(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  redundancy: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_duration_in_days: Optional[pulumi.Input[float]] = None,
+                 soft_delete: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -388,6 +478,8 @@ class BackupVault(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_duration_in_days"] = retention_duration_in_days
+            __props__.__dict__["soft_delete"] = soft_delete
             __props__.__dict__["tags"] = tags
         super(BackupVault, __self__).__init__(
             'azure:dataprotection/backupVault:BackupVault',
@@ -405,6 +497,8 @@ class BackupVault(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             redundancy: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            retention_duration_in_days: Optional[pulumi.Input[float]] = None,
+            soft_delete: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'BackupVault':
         """
         Get an existing BackupVault resource's state with the given name, id, and optional extra
@@ -421,6 +515,12 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
+        :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+               
+               > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+               
+               > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -433,6 +533,8 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["redundancy"] = redundancy
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["retention_duration_in_days"] = retention_duration_in_days
+        __props__.__dict__["soft_delete"] = soft_delete
         __props__.__dict__["tags"] = tags
         return BackupVault(resource_name, opts=opts, __props__=__props__)
 
@@ -485,6 +587,26 @@ class BackupVault(pulumi.CustomResource):
         The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="retentionDurationInDays")
+    def retention_duration_in_days(self) -> pulumi.Output[Optional[float]]:
+        """
+        The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+
+        > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        """
+        return pulumi.get(self, "retention_duration_in_days")
+
+    @property
+    @pulumi.getter(name="softDelete")
+    def soft_delete(self) -> pulumi.Output[Optional[str]]:
+        """
+        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+
+        > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        """
+        return pulumi.get(self, "soft_delete")
 
     @property
     @pulumi.getter

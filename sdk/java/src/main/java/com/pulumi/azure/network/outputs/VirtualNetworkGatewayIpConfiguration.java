@@ -18,7 +18,7 @@ public final class VirtualNetworkGatewayIpConfiguration {
      */
     private @Nullable String name;
     /**
-     * @return Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+     * @return Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
      * 
      */
     private @Nullable String privateIpAddressAllocation;
@@ -42,7 +42,7 @@ public final class VirtualNetworkGatewayIpConfiguration {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+     * @return Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
      * 
      */
     public Optional<String> privateIpAddressAllocation() {

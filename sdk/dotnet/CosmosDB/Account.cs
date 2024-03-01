@@ -311,6 +311,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        /// </summary>
+        [Output("minimalTlsVersion")]
+        public Output<string> MinimalTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Output("mongoServerVersion")]
@@ -673,6 +679,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        /// </summary>
+        [Input("minimalTlsVersion")]
+        public Input<string>? MinimalTlsVersion { get; set; }
+
+        /// <summary>
         /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
         /// </summary>
         [Input("mongoServerVersion")]
@@ -935,6 +947,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        /// </summary>
+        [Input("minimalTlsVersion")]
+        public Input<string>? MinimalTlsVersion { get; set; }
 
         /// <summary>
         /// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.

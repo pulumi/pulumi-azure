@@ -42,11 +42,11 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
@@ -134,7 +134,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="aadAdmin")
     def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
         """
-        An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        An `aad_admin` block as defined below.
         """
         return pulumi.get(self, "aad_admin")
 
@@ -182,7 +182,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
         """
-        A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -399,12 +399,12 @@ class _WorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
-        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
@@ -474,7 +474,7 @@ class _WorkspaceState:
     @pulumi.getter(name="aadAdmin")
     def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
         """
-        An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        An `aad_admin` block as defined below.
         """
         return pulumi.get(self, "aad_admin")
 
@@ -534,7 +534,7 @@ class _WorkspaceState:
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
         """
-        A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 
@@ -913,11 +913,11 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
@@ -1193,12 +1193,12 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
@@ -1250,7 +1250,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="aadAdmin")
     def aad_admin(self) -> pulumi.Output['outputs.WorkspaceAadAdmin']:
         """
-        An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        An `aad_admin` block as defined below.
         """
         return pulumi.get(self, "aad_admin")
 
@@ -1290,7 +1290,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional['outputs.WorkspaceCustomerManagedKey']]:
         """
-        A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        A `customer_managed_key` block as defined below.
         """
         return pulumi.get(self, "customer_managed_key")
 

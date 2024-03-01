@@ -26,6 +26,8 @@ import com.pulumi.azure.storage.inputs.GetSyncArgs;
 import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
 import com.pulumi.azure.storage.inputs.GetSyncGroupPlainArgs;
 import com.pulumi.azure.storage.inputs.GetSyncPlainArgs;
+import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
+import com.pulumi.azure.storage.inputs.GetTableEntitiesPlainArgs;
 import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
 import com.pulumi.azure.storage.inputs.GetTableEntityPlainArgs;
 import com.pulumi.azure.storage.outputs.GetAccountBlobContainerSASResult;
@@ -39,6 +41,7 @@ import com.pulumi.azure.storage.outputs.GetShareResult;
 import com.pulumi.azure.storage.outputs.GetStorageContainerResult;
 import com.pulumi.azure.storage.outputs.GetSyncGroupResult;
 import com.pulumi.azure.storage.outputs.GetSyncResult;
+import com.pulumi.azure.storage.outputs.GetTableEntitiesResult;
 import com.pulumi.azure.storage.outputs.GetTableEntityResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -2182,6 +2185,162 @@ public final class StorageFunctions {
      */
     public static CompletableFuture<GetSyncGroupResult> getSyncGroupPlain(GetSyncGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getSyncGroup:getSyncGroup", TypeShape.of(GetSyncGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table Entity.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTableEntitiesResult> getTableEntities(GetTableEntitiesArgs args) {
+        return getTableEntities(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table Entity.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTableEntitiesResult> getTableEntitiesPlain(GetTableEntitiesPlainArgs args) {
+        return getTableEntitiesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table Entity.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTableEntitiesResult> getTableEntities(GetTableEntitiesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getTableEntities:getTableEntities", TypeShape.of(GetTableEntitiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table Entity.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
+     *             .filter(&#34;PartitionKey eq &#39;example&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTableEntitiesResult> getTableEntitiesPlain(GetTableEntitiesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:storage/getTableEntities:getTableEntities", TypeShape.of(GetTableEntitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Storage Table Entity.

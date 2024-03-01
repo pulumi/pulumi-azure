@@ -68,14 +68,14 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
      * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
-     * @return The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -113,14 +113,14 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON formatted public settings for the extension.
+     * JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
      * 
      */
     @Import(name="settingsJson")
     private @Nullable Output<String> settingsJson;
 
     /**
-     * @return JSON formatted public settings for the extension.
+     * @return JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
      * 
      */
     public Optional<Output<String>> settingsJson() {
@@ -257,7 +257,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettings The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+         * @param protectedSettings JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettings The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+         * @param protectedSettings JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settingsJson JSON formatted public settings for the extension.
+         * @param settingsJson JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settingsJson JSON formatted public settings for the extension.
+         * @param settingsJson JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
          * 
          * @return builder
          * 

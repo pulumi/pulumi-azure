@@ -25,14 +25,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
     }
 
     /**
-     * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+     * Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
      * 
      */
     @Import(name="dnsServers")
     private @Nullable Output<List<String>> dnsServers;
 
     /**
-     * @return Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+     * @return Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
      * 
      */
     public Optional<Output<List<String>>> dnsServers() {
@@ -40,14 +40,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
     }
 
     /**
-     * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+     * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
      * 
      */
     @Import(name="useAzureDns")
     private @Nullable Output<Boolean> useAzureDns;
 
     /**
-     * @return Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+     * @return Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> useAzureDns() {
@@ -94,7 +94,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
         }
 
         /**
-         * @param dnsServers Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * @param dnsServers Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
         }
 
         /**
-         * @param dnsServers Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * @param dnsServers Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
         }
 
         /**
-         * @param dnsServers Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * @param dnsServers Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
         }
 
         /**
-         * @param useAzureDns Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         * @param useAzureDns Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
         }
 
         /**
-         * @param useAzureDns Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         * @param useAzureDns Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
          * 
          * @return builder
          * 

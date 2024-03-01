@@ -9497,6 +9497,121 @@ func (o GetShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetShareAcl
 	}).(GetShareAclAccessPolicyOutput)
 }
 
+type GetTableEntitiesItem struct {
+	// Partition Key of the Entity.
+	PartitionKey string `pulumi:"partitionKey"`
+	// A map of any additional properties in key-value format.
+	Properties map[string]string `pulumi:"properties"`
+	// Row Key of the Entity.
+	RowKey string `pulumi:"rowKey"`
+}
+
+// GetTableEntitiesItemInput is an input type that accepts GetTableEntitiesItemArgs and GetTableEntitiesItemOutput values.
+// You can construct a concrete instance of `GetTableEntitiesItemInput` via:
+//
+//	GetTableEntitiesItemArgs{...}
+type GetTableEntitiesItemInput interface {
+	pulumi.Input
+
+	ToGetTableEntitiesItemOutput() GetTableEntitiesItemOutput
+	ToGetTableEntitiesItemOutputWithContext(context.Context) GetTableEntitiesItemOutput
+}
+
+type GetTableEntitiesItemArgs struct {
+	// Partition Key of the Entity.
+	PartitionKey pulumi.StringInput `pulumi:"partitionKey"`
+	// A map of any additional properties in key-value format.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Row Key of the Entity.
+	RowKey pulumi.StringInput `pulumi:"rowKey"`
+}
+
+func (GetTableEntitiesItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableEntitiesItem)(nil)).Elem()
+}
+
+func (i GetTableEntitiesItemArgs) ToGetTableEntitiesItemOutput() GetTableEntitiesItemOutput {
+	return i.ToGetTableEntitiesItemOutputWithContext(context.Background())
+}
+
+func (i GetTableEntitiesItemArgs) ToGetTableEntitiesItemOutputWithContext(ctx context.Context) GetTableEntitiesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableEntitiesItemOutput)
+}
+
+// GetTableEntitiesItemArrayInput is an input type that accepts GetTableEntitiesItemArray and GetTableEntitiesItemArrayOutput values.
+// You can construct a concrete instance of `GetTableEntitiesItemArrayInput` via:
+//
+//	GetTableEntitiesItemArray{ GetTableEntitiesItemArgs{...} }
+type GetTableEntitiesItemArrayInput interface {
+	pulumi.Input
+
+	ToGetTableEntitiesItemArrayOutput() GetTableEntitiesItemArrayOutput
+	ToGetTableEntitiesItemArrayOutputWithContext(context.Context) GetTableEntitiesItemArrayOutput
+}
+
+type GetTableEntitiesItemArray []GetTableEntitiesItemInput
+
+func (GetTableEntitiesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableEntitiesItem)(nil)).Elem()
+}
+
+func (i GetTableEntitiesItemArray) ToGetTableEntitiesItemArrayOutput() GetTableEntitiesItemArrayOutput {
+	return i.ToGetTableEntitiesItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableEntitiesItemArray) ToGetTableEntitiesItemArrayOutputWithContext(ctx context.Context) GetTableEntitiesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableEntitiesItemArrayOutput)
+}
+
+type GetTableEntitiesItemOutput struct{ *pulumi.OutputState }
+
+func (GetTableEntitiesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableEntitiesItem)(nil)).Elem()
+}
+
+func (o GetTableEntitiesItemOutput) ToGetTableEntitiesItemOutput() GetTableEntitiesItemOutput {
+	return o
+}
+
+func (o GetTableEntitiesItemOutput) ToGetTableEntitiesItemOutputWithContext(ctx context.Context) GetTableEntitiesItemOutput {
+	return o
+}
+
+// Partition Key of the Entity.
+func (o GetTableEntitiesItemOutput) PartitionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableEntitiesItem) string { return v.PartitionKey }).(pulumi.StringOutput)
+}
+
+// A map of any additional properties in key-value format.
+func (o GetTableEntitiesItemOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTableEntitiesItem) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Row Key of the Entity.
+func (o GetTableEntitiesItemOutput) RowKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableEntitiesItem) string { return v.RowKey }).(pulumi.StringOutput)
+}
+
+type GetTableEntitiesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableEntitiesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableEntitiesItem)(nil)).Elem()
+}
+
+func (o GetTableEntitiesItemArrayOutput) ToGetTableEntitiesItemArrayOutput() GetTableEntitiesItemArrayOutput {
+	return o
+}
+
+func (o GetTableEntitiesItemArrayOutput) ToGetTableEntitiesItemArrayOutputWithContext(ctx context.Context) GetTableEntitiesItemArrayOutput {
+	return o
+}
+
+func (o GetTableEntitiesItemArrayOutput) Index(i pulumi.IntInput) GetTableEntitiesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableEntitiesItem {
+		return vs[0].([]GetTableEntitiesItem)[vs[1].(int)]
+	}).(GetTableEntitiesItemOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAzureFilesAuthenticationInput)(nil)).Elem(), AccountAzureFilesAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAzureFilesAuthenticationPtrInput)(nil)).Elem(), AccountAzureFilesAuthenticationArgs{})
@@ -9617,6 +9732,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareAclArrayInput)(nil)).Elem(), GetShareAclArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareAclAccessPolicyInput)(nil)).Elem(), GetShareAclAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareAclAccessPolicyArrayInput)(nil)).Elem(), GetShareAclAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableEntitiesItemInput)(nil)).Elem(), GetTableEntitiesItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableEntitiesItemArrayInput)(nil)).Elem(), GetTableEntitiesItemArray{})
 	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationOutput{})
 	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationActiveDirectoryOutput{})
@@ -9736,4 +9853,6 @@ func init() {
 	pulumi.RegisterOutputType(GetShareAclArrayOutput{})
 	pulumi.RegisterOutputType(GetShareAclAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetShareAclAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetTableEntitiesItemOutput{})
+	pulumi.RegisterOutputType(GetTableEntitiesItemArrayOutput{})
 }

@@ -228,6 +228,8 @@ type Account struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	MinimalTlsVersion pulumi.StringOutput `pulumi:"minimalTlsVersion"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -396,6 +398,8 @@ type accountState struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -507,6 +511,8 @@ type AccountState struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	MinimalTlsVersion pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -618,6 +624,8 @@ type accountArgs struct {
 	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -698,6 +706,8 @@ type AccountArgs struct {
 	LocalAuthenticationDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	MinimalTlsVersion pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -934,6 +944,11 @@ func (o AccountOutput) LocalAuthenticationDisabled() pulumi.BoolPtrOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+func (o AccountOutput) MinimalTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.MinimalTlsVersion }).(pulumi.StringOutput)
 }
 
 // The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.

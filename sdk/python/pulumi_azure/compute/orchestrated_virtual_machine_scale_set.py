@@ -68,7 +68,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
-        :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eviction_policy: The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
@@ -278,7 +278,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -647,7 +647,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
-        :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eviction_policy: The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
@@ -840,7 +840,7 @@ class _OrchestratedVirtualMachineScaleSetState:
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -1283,7 +1283,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
-        :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eviction_policy: The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
@@ -1525,7 +1525,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
-        :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eviction_policy: The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
@@ -1664,7 +1664,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
 

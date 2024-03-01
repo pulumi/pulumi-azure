@@ -576,10 +576,13 @@ class ProviderFeaturesVirtualMachineArgs:
 class ProviderFeaturesVirtualMachineScaleSetArgs:
     def __init__(__self__, *,
                  force_delete: Optional[pulumi.Input[bool]] = None,
+                 reimage_on_manual_upgrade: Optional[pulumi.Input[bool]] = None,
                  roll_instances_when_required: Optional[pulumi.Input[bool]] = None,
                  scale_to_zero_before_deletion: Optional[pulumi.Input[bool]] = None):
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if reimage_on_manual_upgrade is not None:
+            pulumi.set(__self__, "reimage_on_manual_upgrade", reimage_on_manual_upgrade)
         if roll_instances_when_required is not None:
             pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
         if scale_to_zero_before_deletion is not None:
@@ -593,6 +596,15 @@ class ProviderFeaturesVirtualMachineScaleSetArgs:
     @force_delete.setter
     def force_delete(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="reimageOnManualUpgrade")
+    def reimage_on_manual_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "reimage_on_manual_upgrade")
+
+    @reimage_on_manual_upgrade.setter
+    def reimage_on_manual_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reimage_on_manual_upgrade", value)
 
     @property
     @pulumi.getter(name="rollInstancesWhenRequired")

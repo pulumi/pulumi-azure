@@ -169,6 +169,8 @@ class CacheRedisConfiguration(dict):
             suggest = "aof_storage_connection_string0"
         elif key == "aofStorageConnectionString1":
             suggest = "aof_storage_connection_string1"
+        elif key == "dataPersistenceAuthenticationMethod":
+            suggest = "data_persistence_authentication_method"
         elif key == "enableAuthentication":
             suggest = "enable_authentication"
         elif key == "maxfragmentationmemoryReserved":
@@ -208,6 +210,7 @@ class CacheRedisConfiguration(dict):
                  aof_backup_enabled: Optional[bool] = None,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
+                 data_persistence_authentication_method: Optional[str] = None,
                  enable_authentication: Optional[bool] = None,
                  maxclients: Optional[int] = None,
                  maxfragmentationmemory_reserved: Optional[int] = None,
@@ -229,6 +232,7 @@ class CacheRedisConfiguration(dict):
         :param str aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
                Example usage:
+        :param str data_persistence_authentication_method: Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
         :param bool enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
                
                > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
@@ -256,6 +260,8 @@ class CacheRedisConfiguration(dict):
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
             pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        if data_persistence_authentication_method is not None:
+            pulumi.set(__self__, "data_persistence_authentication_method", data_persistence_authentication_method)
         if enable_authentication is not None:
             pulumi.set(__self__, "enable_authentication", enable_authentication)
         if maxclients is not None:
@@ -316,6 +322,14 @@ class CacheRedisConfiguration(dict):
         Example usage:
         """
         return pulumi.get(self, "aof_storage_connection_string1")
+
+    @property
+    @pulumi.getter(name="dataPersistenceAuthenticationMethod")
+    def data_persistence_authentication_method(self) -> Optional[str]:
+        """
+        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+        """
+        return pulumi.get(self, "data_persistence_authentication_method")
 
     @property
     @pulumi.getter(name="enableAuthentication")
@@ -504,6 +518,7 @@ class GetCacheRedisConfigurationResult(dict):
                  aof_backup_enabled: bool,
                  aof_storage_connection_string0: str,
                  aof_storage_connection_string1: str,
+                 data_persistence_authentication_method: str,
                  enable_authentication: bool,
                  maxclients: int,
                  maxfragmentationmemory_reserved: int,
@@ -531,6 +546,7 @@ class GetCacheRedisConfigurationResult(dict):
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        pulumi.set(__self__, "data_persistence_authentication_method", data_persistence_authentication_method)
         pulumi.set(__self__, "enable_authentication", enable_authentication)
         pulumi.set(__self__, "maxclients", maxclients)
         pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
@@ -558,6 +574,11 @@ class GetCacheRedisConfigurationResult(dict):
     @pulumi.getter(name="aofStorageConnectionString1")
     def aof_storage_connection_string1(self) -> str:
         return pulumi.get(self, "aof_storage_connection_string1")
+
+    @property
+    @pulumi.getter(name="dataPersistenceAuthenticationMethod")
+    def data_persistence_authentication_method(self) -> str:
+        return pulumi.get(self, "data_persistence_authentication_method")
 
     @property
     @pulumi.getter(name="enableAuthentication")

@@ -56,7 +56,7 @@ public final class ApplicationGatewayRequestRoutingRule {
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
-     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
      * 
      */
     private @Nullable Integer priority;
@@ -158,7 +158,7 @@ public final class ApplicationGatewayRequestRoutingRule {
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
-     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
      * 
      */
     public Optional<Integer> priority() {

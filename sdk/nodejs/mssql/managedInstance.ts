@@ -315,6 +315,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
     public readonly vcores!: pulumi.Output<number>;
+    public readonly zoneRedundantEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ManagedInstance resource with the given unique name, arguments, and options.
@@ -351,6 +352,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["timezoneId"] = state ? state.timezoneId : undefined;
             resourceInputs["vcores"] = state ? state.vcores : undefined;
+            resourceInputs["zoneRedundantEnabled"] = state ? state.zoneRedundantEnabled : undefined;
         } else {
             const args = argsOrState as ManagedInstanceArgs | undefined;
             if ((!args || args.administratorLogin === undefined) && !opts.urn) {
@@ -397,6 +399,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
             resourceInputs["vcores"] = args ? args.vcores : undefined;
+            resourceInputs["zoneRedundantEnabled"] = args ? args.zoneRedundantEnabled : undefined;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
@@ -499,6 +502,7 @@ export interface ManagedInstanceState {
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
     vcores?: pulumi.Input<number>;
+    zoneRedundantEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -585,4 +589,5 @@ export interface ManagedInstanceArgs {
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
     vcores: pulumi.Input<number>;
+    zoneRedundantEnabled?: pulumi.Input<boolean>;
 }

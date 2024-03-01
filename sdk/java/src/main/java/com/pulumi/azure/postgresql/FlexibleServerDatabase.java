@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFlexibleServerDatabase = new FlexibleServerDatabase(&#34;exampleFlexibleServerDatabase&#34;, FlexibleServerDatabaseArgs.builder()        
- *             .name(&#34;example-db&#34;)
+ *             .name(&#34;exampledb&#34;)
  *             .serverId(exampleFlexibleServer.id())
  *             .collation(&#34;en_US.utf8&#34;)
  *             .charset(&#34;utf8&#34;)
@@ -108,14 +108,14 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.collation);
     }
     /**
-     * The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
+     * @return Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      * 
      */
     public Output<String> name() {

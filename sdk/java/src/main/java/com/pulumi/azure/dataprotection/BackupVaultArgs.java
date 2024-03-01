@@ -7,6 +7,7 @@ import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -113,6 +114,44 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     * 
+     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * 
+     */
+    @Import(name="retentionDurationInDays")
+    private @Nullable Output<Double> retentionDurationInDays;
+
+    /**
+     * @return The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     * 
+     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * 
+     */
+    public Optional<Output<Double>> retentionDurationInDays() {
+        return Optional.ofNullable(this.retentionDurationInDays);
+    }
+
+    /**
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * 
+     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * 
+     */
+    @Import(name="softDelete")
+    private @Nullable Output<String> softDelete;
+
+    /**
+     * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * 
+     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * 
+     */
+    public Optional<Output<String>> softDelete() {
+        return Optional.ofNullable(this.softDelete);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Backup Vault.
      * 
      */
@@ -136,6 +175,8 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.redundancy = $.redundancy;
         this.resourceGroupName = $.resourceGroupName;
+        this.retentionDurationInDays = $.retentionDurationInDays;
+        this.softDelete = $.softDelete;
         this.tags = $.tags;
     }
 
@@ -285,6 +326,56 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param retentionDurationInDays The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+         * 
+         * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionDurationInDays(@Nullable Output<Double> retentionDurationInDays) {
+            $.retentionDurationInDays = retentionDurationInDays;
+            return this;
+        }
+
+        /**
+         * @param retentionDurationInDays The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+         * 
+         * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionDurationInDays(Double retentionDurationInDays) {
+            return retentionDurationInDays(Output.of(retentionDurationInDays));
+        }
+
+        /**
+         * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+         * 
+         * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softDelete(@Nullable Output<String> softDelete) {
+            $.softDelete = softDelete;
+            return this;
+        }
+
+        /**
+         * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+         * 
+         * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softDelete(String softDelete) {
+            return softDelete(Output.of(softDelete));
         }
 
         /**

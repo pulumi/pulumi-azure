@@ -12,6 +12,7 @@ import com.pulumi.azure.compute.outputs.LinuxVirtualMachineBootDiagnostics;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineGalleryApplication;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineIdentity;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineOsDisk;
+import com.pulumi.azure.compute.outputs.LinuxVirtualMachineOsImageNotification;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachinePlan;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineSecret;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineSourceImageReference;
@@ -373,6 +374,20 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disablePasswordAuthentication);
     }
     /**
+     * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     * 
+     */
+    @Export(name="diskControllerType", refs={String.class}, tree="[0]")
+    private Output<String> diskControllerType;
+
+    /**
+     * @return Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
+     * 
+     */
+    public Output<String> diskControllerType() {
+        return this.diskControllerType;
+    }
+    /**
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
      * 
      */
@@ -547,6 +562,20 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<LinuxVirtualMachineOsDisk> osDisk() {
         return this.osDisk;
+    }
+    /**
+     * A `os_image_notification` block as defined below.
+     * 
+     */
+    @Export(name="osImageNotification", refs={LinuxVirtualMachineOsImageNotification.class}, tree="[0]")
+    private Output</* @Nullable */ LinuxVirtualMachineOsImageNotification> osImageNotification;
+
+    /**
+     * @return A `os_image_notification` block as defined below.
+     * 
+     */
+    public Output<Optional<LinuxVirtualMachineOsImageNotification>> osImageNotification() {
+        return Codegen.optional(this.osImageNotification);
     }
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -881,7 +910,9 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.virtualMachineId;
     }
     /**
-     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     * 
+     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
@@ -890,13 +921,29 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> virtualMachineScaleSetId;
 
     /**
-     * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
+     * 
+     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
      * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
      */
     public Output<Optional<String>> virtualMachineScaleSetId() {
         return Codegen.optional(this.virtualMachineScaleSetId);
+    }
+    /**
+     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="vmAgentPlatformUpdatesEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> vmAgentPlatformUpdatesEnabled;
+
+    /**
+     * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> vmAgentPlatformUpdatesEnabled() {
+        return Codegen.optional(this.vmAgentPlatformUpdatesEnabled);
     }
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
