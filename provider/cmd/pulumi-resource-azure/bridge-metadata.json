@@ -6095,6 +6095,18 @@
                     }
                 }
             },
+            "azurerm_dev_center_catalog": {
+                "current": "azure:devcenter/catalog:Catalog",
+                "majorVersion": 5,
+                "fields": {
+                    "catalog_adogit": {
+                        "maxItemsOne": true
+                    },
+                    "catalog_github": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_dev_center_gallery": {
                 "current": "azure:devcenter/gallery:Gallery",
                 "majorVersion": 5
@@ -10125,6 +10137,35 @@
                 "current": "azure:containerservice/fleetMember:FleetMember",
                 "majorVersion": 5
             },
+            "azurerm_kubernetes_fleet_update_run": {
+                "current": "azure:containerservice/fleetUpdateRun:FleetUpdateRun",
+                "majorVersion": 5,
+                "fields": {
+                    "managed_cluster_update": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "node_image_selection": {
+                                    "maxItemsOne": true
+                                },
+                                "upgrade": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "stage": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "group": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_kubernetes_fleet_update_strategy": {
                 "current": "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy",
                 "majorVersion": 5,
@@ -11174,6 +11215,9 @@
                                 }
                             }
                         }
+                    },
+                    "os_image_notification": {
+                        "maxItemsOne": true
                     },
                     "plan": {
                         "maxItemsOne": true
@@ -12660,6 +12704,9 @@
                                 }
                             }
                         }
+                    },
+                    "managed_network": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -19104,6 +19151,9 @@
                     "api_metadata": {
                         "maxItemsOne": true
                     },
+                    "application_performance_monitoring_ids": {
+                        "maxItemsOne": false
+                    },
                     "application_performance_monitoring_types": {
                         "maxItemsOne": false
                     },
@@ -20421,6 +20471,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_system_center_virtual_machine_manager_server": {
+                "current": "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer",
+                "majorVersion": 5
             },
             "azurerm_template_deployment": {
                 "current": "azure:core/templateDeployment:TemplateDeployment",
@@ -22319,6 +22373,9 @@
                                 }
                             }
                         }
+                    },
+                    "os_image_notification": {
+                        "maxItemsOne": true
                     },
                     "plan": {
                         "maxItemsOne": true
@@ -25217,6 +25274,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_express_route_circuit_peering": {
+                "current": "azure:expressroute/getCircuitPeering:getCircuitPeering",
+                "majorVersion": 5
             },
             "azurerm_extended_locations": {
                 "current": "azure:core/getExtendedLocations:getExtendedLocations",
@@ -29052,6 +29113,18 @@
             "azurerm_storage_sync_group": {
                 "current": "azure:storage/getSyncGroup:getSyncGroup",
                 "majorVersion": 5
+            },
+            "azurerm_storage_table_entities": {
+                "current": "azure:storage/getTableEntities:getTableEntities",
+                "majorVersion": 5,
+                "fields": {
+                    "items": {
+                        "maxItemsOne": false
+                    },
+                    "select": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_storage_table_entity": {
                 "current": "azure:storage/getTableEntity:getTableEntity",

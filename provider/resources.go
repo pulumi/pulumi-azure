@@ -106,6 +106,7 @@ const (
 	azureDNS                   = "Dns"                   // DNS
 	azureDomainServices        = "DomainServices"        // DomainServices
 	azureElasticCloud          = "ElasticCloud"          // Elastic Cloud
+	azureExpressRoute          = "ExpressRoute"          // ExpressRoute
 	azureFluidRelay            = "FluidRelay"            // Fluid Relay
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
 	azureGraph                 = "Graph"                 // Graph
@@ -173,6 +174,7 @@ const (
 	azureStorage               = "Storage"               // Storage
 	azureStreamAnalytics       = "StreamAnalytics"       // StreamAnalytics
 	azureSynapse               = "Synapse"               // Synapse
+	azureSystemCenter          = "SystemCenter"          // SystemCenter
 	azureVideoAnalyzer         = "VideoAnalyzer"         // Video Analyzer
 	azureVoice                 = "Voice"                 // Voice
 	azureWaf                   = "Waf"                   // WAF
@@ -345,6 +347,8 @@ var moduleMap = map[string]string{
 	"network_function":         azureNetworkFunction,
 	"chaos_studio":             azureChaosStudio,
 	"redhat_openshift":         azureRedHatOpenShift,
+	"system_center":            azureSystemCenter,
+	"express_route":            azureExpressRoute,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
@@ -2612,6 +2616,9 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"urn": {Name: "capabilityUrn"},
 				},
+			},
+			"azurerm_dev_center_catalog": {
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
