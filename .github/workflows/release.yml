@@ -246,7 +246,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-spacev@v1
+      uses: jlumbroso/free-disk-space@v1.3.1
       with:
         # this might remove tools that are actually needed,
         # if set to "true" but frees about 6 GB
@@ -439,6 +439,16 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.5.0
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        swap-storage: false
+        tool-cache: false
+    - if: ${{ matrix.language == 'dotnet' }}
+      name: Setup DotNet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: make upstream
       run: |
         make upstream
