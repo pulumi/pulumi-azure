@@ -69,15 +69,15 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the audience for this Federated Identity Credential.
      */
     public readonly audience!: pulumi.Output<string>;
     /**
-     * Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the issuer of this Federated Identity Credential.
      */
     public readonly issuer!: pulumi.Output<string>;
     /**
-     * Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the name of this Federated Identity Credential.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the subject for this Federated Identity Credential.
      */
     public readonly subject!: pulumi.Output<string>;
 
@@ -146,15 +146,15 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
  */
 export interface FederatedIdentityCredentialState {
     /**
-     * Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the audience for this Federated Identity Credential.
      */
     audience?: pulumi.Input<string>;
     /**
-     * Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the issuer of this Federated Identity Credential.
      */
     issuer?: pulumi.Input<string>;
     /**
-     * Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the name of this Federated Identity Credential.
      */
     name?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface FederatedIdentityCredentialState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the subject for this Federated Identity Credential.
      */
     subject?: pulumi.Input<string>;
 }
@@ -176,15 +176,15 @@ export interface FederatedIdentityCredentialState {
  */
 export interface FederatedIdentityCredentialArgs {
     /**
-     * Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the audience for this Federated Identity Credential.
      */
     audience: pulumi.Input<string>;
     /**
-     * Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the issuer of this Federated Identity Credential.
      */
     issuer: pulumi.Input<string>;
     /**
-     * Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the name of this Federated Identity Credential.
      */
     name?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface FederatedIdentityCredentialArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the subject for this Federated Identity Credential.
      */
     subject: pulumi.Input<string>;
 }

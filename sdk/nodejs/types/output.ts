@@ -2990,7 +2990,7 @@ export namespace appplatform {
 
     export interface SpringCloudCustomizedAcceleratorGitRepository {
         /**
-         * A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          */
         basicAuth?: outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth;
         /**
@@ -3018,7 +3018,7 @@ export namespace appplatform {
          */
         path?: string;
         /**
-         * A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          */
         sshAuth?: outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositorySshAuth;
         /**
@@ -12565,7 +12565,7 @@ export namespace appservice {
          */
         pythonVersion?: string;
         /**
-         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         * The version of Ruby to run. Possible values include `2.6` and `2.7`.
          */
         rubyVersion?: string;
     }
@@ -13683,7 +13683,7 @@ export namespace appservice {
          */
         pythonVersion?: string;
         /**
-         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         * The version of Ruby to run. Possible values include `2.6` and `2.7`.
          */
         rubyVersion?: string;
     }
@@ -21386,7 +21386,7 @@ export namespace batch {
          */
         name: string;
         /**
-         * The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+         * JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
          */
         protectedSettings?: string;
         /**
@@ -21398,7 +21398,7 @@ export namespace batch {
          */
         publisher: string;
         /**
-         * JSON formatted public settings for the extension.
+         * JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
          */
         settingsJson?: string;
         /**
@@ -24635,6 +24635,10 @@ export namespace compute {
 
     export interface LinuxVirtualMachineGalleryApplication {
         /**
+         * Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: boolean;
+        /**
          * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
          */
         configurationBlobUri?: string;
@@ -24646,6 +24650,10 @@ export namespace compute {
          * Specifies a passthrough value for more generic context. This field can be any valid `string` value.
          */
         tag?: string;
+        /**
+         * Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+         */
+        treatFailureAsDeploymentFailureEnabled?: boolean;
         /**
          * Specifies the Gallery Application Version resource ID.
          */
@@ -24735,6 +24743,13 @@ export namespace compute {
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
+    }
+
+    export interface LinuxVirtualMachineOsImageNotification {
+        /**
+         * Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+         */
+        timeout?: string;
     }
 
     export interface LinuxVirtualMachinePlan {
@@ -25394,11 +25409,11 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
-         * The size of the Data Disk which should be created.
+         * The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
          */
         diskSizeGb: number;
         /**
-         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
          */
         lun: number;
         /**
@@ -26977,6 +26992,10 @@ export namespace compute {
 
     export interface WindowsVirtualMachineGalleryApplication {
         /**
+         * Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: boolean;
+        /**
          * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
          */
         configurationBlobUri?: string;
@@ -26988,6 +27007,10 @@ export namespace compute {
          * Specifies a passthrough value for more generic context. This field can be any valid `string` value.
          */
         tag?: string;
+        /**
+         * Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+         */
+        treatFailureAsDeploymentFailureEnabled?: boolean;
         /**
          * Specifies the Gallery Application Version resource ID.
          */
@@ -27077,6 +27100,13 @@ export namespace compute {
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: string;
+    }
+
+    export interface WindowsVirtualMachineOsImageNotification {
+        /**
+         * Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+         */
+        timeout?: string;
     }
 
     export interface WindowsVirtualMachinePlan {
@@ -27827,6 +27857,7 @@ export namespace config {
 
     export interface FeaturesVirtualMachineScaleSet {
         forceDelete?: boolean;
+        reimageOnManualUpgrade?: boolean;
         rollInstancesWhenRequired?: boolean;
         scaleToZeroBeforeDeletion?: boolean;
     }
@@ -29748,6 +29779,57 @@ export namespace containerservice {
         tag?: string;
     }
 
+    export interface FleetUpdateRunManagedClusterUpdate {
+        /**
+         * A `nodeImageSelection` block as defined below.
+         */
+        nodeImageSelection?: outputs.containerservice.FleetUpdateRunManagedClusterUpdateNodeImageSelection;
+        /**
+         * A `upgrade` block as defined below.
+         */
+        upgrade: outputs.containerservice.FleetUpdateRunManagedClusterUpdateUpgrade;
+    }
+
+    export interface FleetUpdateRunManagedClusterUpdateNodeImageSelection {
+        /**
+         * Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+         */
+        type: string;
+    }
+
+    export interface FleetUpdateRunManagedClusterUpdateUpgrade {
+        /**
+         * Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+         */
+        kubernetesVersion?: string;
+        /**
+         * Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+         */
+        type: string;
+    }
+
+    export interface FleetUpdateRunStage {
+        /**
+         * Specifies the time in seconds to wait at the end of this stage before starting the next one.
+         */
+        afterStageWaitInSeconds?: number;
+        /**
+         * One or more `group` blocks as defined below.
+         */
+        groups: outputs.containerservice.FleetUpdateRunStageGroup[];
+        /**
+         * The name which should be used for this stage.
+         */
+        name: string;
+    }
+
+    export interface FleetUpdateRunStageGroup {
+        /**
+         * The name which should be used for this group.
+         */
+        name: string;
+    }
+
     export interface FleetUpdateStrategyStage {
         /**
          * Specifies the time in seconds to wait at the end of this stage before starting the next one.
@@ -31157,7 +31239,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
          */
         osSku: string;
         /**
@@ -31573,7 +31655,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          */
         keyVaultKeyId: string;
         /**
@@ -31939,7 +32021,7 @@ export namespace containerservice {
          */
         networkPolicy: string;
         /**
-         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          */
         outboundType?: string;
         /**
@@ -32799,7 +32881,7 @@ export namespace containerservice {
 
     export interface TokenPasswordPassword1 {
         /**
-         * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
          */
         expiry?: string;
         /**
@@ -32810,7 +32892,7 @@ export namespace containerservice {
 
     export interface TokenPasswordPassword2 {
         /**
-         * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
          */
         expiry?: string;
         /**
@@ -33493,6 +33575,10 @@ export namespace cosmosdb {
          * > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
          */
         storageRedundancy: string;
+        /**
+         * The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+         */
+        tier: string;
         /**
          * The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
          *
@@ -36821,6 +36907,20 @@ export namespace desktopvirtualization {
 }
 
 export namespace devcenter {
+    export interface CatalogCatalogAdogit {
+        branch: string;
+        keyVaultKeyUrl: string;
+        path: string;
+        uri: string;
+    }
+
+    export interface CatalogCatalogGithub {
+        branch: string;
+        keyVaultKeyUrl: string;
+        path: string;
+        uri: string;
+    }
+
     export interface DevCenterIdentity {
         identityIds?: string[];
         principalId: string;
@@ -45982,23 +46082,23 @@ export namespace machinelearning {
 
     export interface InferenceClusterSsl {
         /**
-         * The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         cert?: string;
         /**
-         * The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         cname?: string;
         /**
-         * The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         key?: string;
         /**
-         * The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         leafDomainLabel?: string;
         /**
-         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         overwriteExistingDomain?: boolean;
     }
@@ -46077,6 +46177,13 @@ export namespace machinelearning {
          * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
+    }
+
+    export interface WorkspaceManagedNetwork {
+        /**
+         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         */
+        isolationMode: string;
     }
 
 }
@@ -52489,7 +52596,7 @@ export namespace mssql {
 
     export interface ServerAzureadAdministrator {
         /**
-         * Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
+         * Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
          */
         azureadAuthenticationOnly: boolean;
         /**
@@ -52926,7 +53033,7 @@ export namespace mysql {
         /**
          * The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
          *
-         * > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
+         * > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
          */
         mode: string;
         standbyAvailabilityZone?: string;
@@ -54130,7 +54237,7 @@ export namespace network {
         /**
          * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          *
-         * > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+         * > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
          */
         priority?: number;
         /**
@@ -58088,7 +58195,7 @@ export namespace network {
          */
         name?: string;
         /**
-         * Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+         * Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
          */
         privateIpAddressAllocation?: string;
         /**
@@ -59395,11 +59502,11 @@ export namespace paloalto {
     export interface NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings {
         azureDnsServers: string[];
         /**
-         * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          */
         dnsServers?: string[];
         /**
-         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
          */
         useAzureDns?: boolean;
     }
@@ -59487,11 +59594,11 @@ export namespace paloalto {
     export interface NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
         azureDnsServers: string[];
         /**
-         * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          */
         dnsServers?: string[];
         /**
-         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
          */
         useAzureDns?: boolean;
     }
@@ -59580,15 +59687,15 @@ export namespace pim {
 
     export interface ActiveRoleAssignmentScheduleExpiration {
         /**
-         * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          */
         durationDays: number;
         /**
-         * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          */
         durationHours: number;
         /**
-         * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+         * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
          */
         endDateTime: string;
     }
@@ -59617,15 +59724,15 @@ export namespace pim {
 
     export interface EligibleRoleAssignmentScheduleExpiration {
         /**
-         * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
          */
         durationDays: number;
         /**
-         * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
          */
         durationHours: number;
         /**
-         * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
          */
         endDateTime: string;
     }
@@ -59830,13 +59937,13 @@ export namespace postgresql {
         /**
          * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
          *
-         * > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+         * > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
          */
         geoBackupUserAssignedIdentityId?: string;
         /**
          * The ID of the Key Vault Key.
          */
-        keyVaultKeyId?: string;
+        keyVaultKeyId: string;
         /**
          * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
          */
@@ -60057,7 +60164,7 @@ export namespace privatedns {
          */
         privateIpAddress: string;
         /**
-         * Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+         * Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
          */
         privateIpAllocationMethod?: string;
         /**
@@ -60414,7 +60521,7 @@ export namespace recoveryservices {
          */
         keyId: string;
         /**
-         * Indicate that system assigned identity should be used or not. Defaults to `true`.
+         * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          *
          * !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          *
@@ -60650,6 +60757,10 @@ export namespace redis {
          */
         aofStorageConnectionString1?: string;
         /**
+         * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+         */
+        dataPersistenceAuthenticationMethod?: string;
+        /**
          * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          *
          * > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
@@ -60736,6 +60847,7 @@ export namespace redis {
         aofBackupEnabled: boolean;
         aofStorageConnectionString0: string;
         aofStorageConnectionString1: string;
+        dataPersistenceAuthenticationMethod: string;
         /**
          * Specifies if authentication is enabled
          */
@@ -64404,6 +64516,21 @@ export namespace storage {
         start: string;
     }
 
+    export interface GetTableEntitiesItem {
+        /**
+         * Partition Key of the Entity.
+         */
+        partitionKey: string;
+        /**
+         * A map of any additional properties in key-value format.
+         */
+        properties: {[key: string]: string};
+        /**
+         * Row Key of the Entity.
+         */
+        rowKey: string;
+    }
+
     export interface LocalUserPermissionScope {
         /**
          * A `permissions` block as defined below.
@@ -65157,6 +65284,10 @@ export namespace synapse {
          * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
          */
         keyVersionlessId: string;
+        /**
+         * The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+         */
+        userAssignedIdentityId?: string;
     }
 
     export interface WorkspaceGithubRepo {

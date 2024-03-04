@@ -36,14 +36,14 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
      * 
      */
     @Import(name="expirationDate")
     private @Nullable Output<String> expirationDate;
 
     /**
-     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
      * 
      */
     public Optional<Output<String>> expirationDate() {
@@ -128,12 +128,16 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
+     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * 
      */
     @Import(name="notBeforeDate")
     private @Nullable Output<String> notBeforeDate;
 
     /**
      * @return Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * 
+     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     public Optional<Output<String>> notBeforeDate() {
@@ -225,7 +229,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
          * 
          * @return builder
          * 
@@ -236,7 +240,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
          * 
          * @return builder
          * 
@@ -363,6 +367,8 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param notBeforeDate Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
          * 
+         * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+         * 
          * @return builder
          * 
          */
@@ -373,6 +379,8 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param notBeforeDate Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+         * 
+         * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
          * 
          * @return builder
          * 

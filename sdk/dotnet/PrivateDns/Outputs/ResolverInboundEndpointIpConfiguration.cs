@@ -18,7 +18,7 @@ namespace Pulumi.Azure.PrivateDns.Outputs
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>
-        /// Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+        /// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
         /// </summary>
         public readonly string? PrivateIpAllocationMethod;
         /// <summary>

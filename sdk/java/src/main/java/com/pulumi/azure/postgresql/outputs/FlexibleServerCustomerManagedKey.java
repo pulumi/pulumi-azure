@@ -4,6 +4,7 @@
 package com.pulumi.azure.postgresql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,7 +20,7 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
      * 
-     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable String geoBackupUserAssignedIdentityId;
@@ -27,7 +28,7 @@ public final class FlexibleServerCustomerManagedKey {
      * @return The ID of the Key Vault Key.
      * 
      */
-    private @Nullable String keyVaultKeyId;
+    private String keyVaultKeyId;
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
      * 
@@ -45,7 +46,7 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
      * 
-     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<String> geoBackupUserAssignedIdentityId() {
@@ -55,8 +56,8 @@ public final class FlexibleServerCustomerManagedKey {
      * @return The ID of the Key Vault Key.
      * 
      */
-    public Optional<String> keyVaultKeyId() {
-        return Optional.ofNullable(this.keyVaultKeyId);
+    public String keyVaultKeyId() {
+        return this.keyVaultKeyId;
     }
     /**
      * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
@@ -77,7 +78,7 @@ public final class FlexibleServerCustomerManagedKey {
     public static final class Builder {
         private @Nullable String geoBackupKeyVaultKeyId;
         private @Nullable String geoBackupUserAssignedIdentityId;
-        private @Nullable String keyVaultKeyId;
+        private String keyVaultKeyId;
         private @Nullable String primaryUserAssignedIdentityId;
         public Builder() {}
         public Builder(FlexibleServerCustomerManagedKey defaults) {
@@ -101,8 +102,10 @@ public final class FlexibleServerCustomerManagedKey {
             return this;
         }
         @CustomType.Setter
-        public Builder keyVaultKeyId(@Nullable String keyVaultKeyId) {
-
+        public Builder keyVaultKeyId(String keyVaultKeyId) {
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("FlexibleServerCustomerManagedKey", "keyVaultKeyId");
+            }
             this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }

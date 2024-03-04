@@ -90,6 +90,22 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+        /// 
+        /// &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        /// </summary>
+        [Output("retentionDurationInDays")]
+        public Output<double?> RetentionDurationInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        /// 
+        /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        /// </summary>
+        [Output("softDelete")]
+        public Output<string?> SoftDelete { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to the Backup Vault.
         /// </summary>
         [Output("tags")]
@@ -179,6 +195,22 @@ namespace Pulumi.Azure.DataProtection
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+        /// 
+        /// &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        /// </summary>
+        [Input("retentionDurationInDays")]
+        public Input<double>? RetentionDurationInDays { get; set; }
+
+        /// <summary>
+        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        /// 
+        /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        /// </summary>
+        [Input("softDelete")]
+        public Input<string>? SoftDelete { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -236,6 +268,22 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+        /// 
+        /// &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        /// </summary>
+        [Input("retentionDurationInDays")]
+        public Input<double>? RetentionDurationInDays { get; set; }
+
+        /// <summary>
+        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        /// 
+        /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        /// </summary>
+        [Input("softDelete")]
+        public Input<string>? SoftDelete { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

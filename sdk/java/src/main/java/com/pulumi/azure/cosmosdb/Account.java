@@ -523,6 +523,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
+     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * 
+     */
+    @Export(name="minimalTlsVersion", refs={String.class}, tree="[0]")
+    private Output<String> minimalTlsVersion;
+
+    /**
+     * @return Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * 
+     */
+    public Output<String> minimalTlsVersion() {
+        return this.minimalTlsVersion;
+    }
+    /**
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      * 
      */

@@ -102,6 +102,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .managedResourceGroup(&#34;example&#34;)
  *             .diagnoseSupportEnabled(true)
+ *             .automaticUpgradeChannel(&#34;stable&#34;)
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
  *                 .build())
@@ -127,6 +128,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:nginx/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
+    /**
+     * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     * 
+     */
+    @Export(name="automaticUpgradeChannel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> automaticUpgradeChannel;
+
+    /**
+     * @return Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     * 
+     */
+    public Output<Optional<String>> automaticUpgradeChannel() {
+        return Codegen.optional(this.automaticUpgradeChannel);
+    }
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      * 
@@ -328,14 +343,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
-     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      * 
      */
     public Output<String> sku() {

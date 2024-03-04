@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<Outputs.DeploymentScale> Scale { get; private set; } = null!;
 
         /// <summary>
-        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         /// </summary>
         [Output("versionUpgradeOption")]
         public Output<string?> VersionUpgradeOption { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<Inputs.DeploymentScaleArgs> Scale { get; set; } = null!;
 
         /// <summary>
-        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         /// </summary>
         [Input("versionUpgradeOption")]
         public Input<string>? VersionUpgradeOption { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<Inputs.DeploymentScaleGetArgs>? Scale { get; set; }
 
         /// <summary>
-        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         /// </summary>
         [Input("versionUpgradeOption")]
         public Input<string>? VersionUpgradeOption { get; set; }

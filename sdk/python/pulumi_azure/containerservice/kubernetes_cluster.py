@@ -1094,6 +1094,7 @@ class _KubernetesClusterState:
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 current_kubernetes_version: Optional[pulumi.Input[str]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -1166,6 +1167,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -1311,6 +1313,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
+        if current_kubernetes_version is not None:
+            pulumi.set(__self__, "current_kubernetes_version", current_kubernetes_version)
         if custom_ca_trust_certificates_base64s is not None:
             pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if default_node_pool is not None:
@@ -1535,6 +1539,18 @@ class _KubernetesClusterState:
     @confidential_computing.setter
     def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
         pulumi.set(self, "confidential_computing", value)
+
+    @property
+    @pulumi.getter(name="currentKubernetesVersion")
+    def current_kubernetes_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version running on the Azure Kubernetes Managed Cluster.
+        """
+        return pulumi.get(self, "current_kubernetes_version")
+
+    @current_kubernetes_version.setter
+    def current_kubernetes_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_kubernetes_version", value)
 
     @property
     @pulumi.getter(name="customCaTrustCertificatesBase64s")
@@ -2739,6 +2755,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
             __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
+            __props__.__dict__["current_kubernetes_version"] = None
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["http_application_routing_zone_name"] = None
             __props__.__dict__["kube_admin_config_raw"] = None
@@ -2769,6 +2786,7 @@ class KubernetesCluster(pulumi.CustomResource):
             azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
             confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+            current_kubernetes_version: Optional[pulumi.Input[str]] = None,
             custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -2846,6 +2864,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -2984,6 +3003,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
         __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
         __props__.__dict__["confidential_computing"] = confidential_computing
+        __props__.__dict__["current_kubernetes_version"] = current_kubernetes_version
         __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
@@ -3112,6 +3132,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
+
+    @property
+    @pulumi.getter(name="currentKubernetesVersion")
+    def current_kubernetes_version(self) -> pulumi.Output[str]:
+        """
+        The current version running on the Azure Kubernetes Managed Cluster.
+        """
+        return pulumi.get(self, "current_kubernetes_version")
 
     @property
     @pulumi.getter(name="customCaTrustCertificatesBase64s")

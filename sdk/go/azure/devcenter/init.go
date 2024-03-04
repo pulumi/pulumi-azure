@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:devcenter/catalog:Catalog":
+		r = &Catalog{}
 	case "azure:devcenter/devCenter:DevCenter":
 		r = &DevCenter{}
 	case "azure:devcenter/gallery:Gallery":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"devcenter/catalog",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"devcenter/devCenter",

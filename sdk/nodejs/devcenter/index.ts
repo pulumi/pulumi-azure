@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CatalogArgs, CatalogState } from "./catalog";
+export type Catalog = import("./catalog").Catalog;
+export const Catalog: typeof import("./catalog").Catalog = null as any;
+utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
+
 export { DevCenterArgs, DevCenterState } from "./devCenter";
 export type DevCenter = import("./devCenter").DevCenter;
 export const DevCenter: typeof import("./devCenter").DevCenter = null as any;
@@ -25,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:devcenter/catalog:Catalog":
+                return new Catalog(name, <any>undefined, { urn })
             case "azure:devcenter/devCenter:DevCenter":
                 return new DevCenter(name, <any>undefined, { urn })
             case "azure:devcenter/gallery:Gallery":
@@ -36,6 +43,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "devcenter/catalog", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/devCenter", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/gallery", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/project", _module)

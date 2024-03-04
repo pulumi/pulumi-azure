@@ -73,6 +73,8 @@ type Pool struct {
 
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -81,7 +83,7 @@ type Pool struct {
 	QosType pulumi.StringOutput `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
 	//
@@ -135,6 +137,8 @@ func GetPool(ctx *pulumi.Context,
 type poolState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
+	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+	EncryptionType *string `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -143,7 +147,7 @@ type poolState struct {
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
 	//
@@ -156,6 +160,8 @@ type poolState struct {
 type PoolState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
+	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+	EncryptionType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -164,7 +170,7 @@ type PoolState struct {
 	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringPtrInput
 	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
 	//
@@ -181,6 +187,8 @@ func (PoolState) ElementType() reflect.Type {
 type poolArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
+	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+	EncryptionType *string `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -189,7 +197,7 @@ type poolArgs struct {
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
 	//
@@ -203,6 +211,8 @@ type poolArgs struct {
 type PoolArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
+	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+	EncryptionType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -211,7 +221,7 @@ type PoolArgs struct {
 	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringInput
 	// Provisioned size of the pool in TB. Value must be between `2` and `500`.
 	//
@@ -313,6 +323,11 @@ func (o PoolOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+func (o PoolOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o PoolOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -333,7 +348,7 @@ func (o PoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 func (o PoolOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }

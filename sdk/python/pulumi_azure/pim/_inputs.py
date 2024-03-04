@@ -64,9 +64,9 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
                  duration_hours: Optional[pulumi.Input[int]] = None,
                  end_date_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] duration_days: The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
-        :param pulumi.Input[int] duration_hours: The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
-        :param pulumi.Input[str] end_date_time: The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+        :param pulumi.Input[int] duration_days: The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        :param pulumi.Input[int] duration_hours: The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        :param pulumi.Input[str] end_date_time: The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -79,7 +79,7 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
     @pulumi.getter(name="durationDays")
     def duration_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
         """
         return pulumi.get(self, "duration_days")
 
@@ -91,7 +91,7 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
     @pulumi.getter(name="durationHours")
     def duration_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+        The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
         """
         return pulumi.get(self, "duration_hours")
 
@@ -103,7 +103,7 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
     @pulumi.getter(name="endDateTime")
     def end_date_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+        The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
         """
         return pulumi.get(self, "end_date_time")
 
@@ -197,9 +197,9 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
                  duration_hours: Optional[pulumi.Input[int]] = None,
                  end_date_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] duration_days: The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[int] duration_hours: The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
-        :param pulumi.Input[str] end_date_time: The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[int] duration_days: The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[int] duration_hours: The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+        :param pulumi.Input[str] end_date_time: The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -212,7 +212,7 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
     @pulumi.getter(name="durationDays")
     def duration_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+        The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
         """
         return pulumi.get(self, "duration_days")
 
@@ -224,7 +224,7 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
     @pulumi.getter(name="durationHours")
     def duration_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+        The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
         """
         return pulumi.get(self, "duration_hours")
 
@@ -236,7 +236,7 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
     @pulumi.getter(name="endDateTime")
     def end_date_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+        The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
         """
         return pulumi.get(self, "end_date_time")
 

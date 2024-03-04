@@ -26,6 +26,7 @@ __all__ = [
     'LinuxVirtualMachineIdentityArgs',
     'LinuxVirtualMachineOsDiskArgs',
     'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs',
+    'LinuxVirtualMachineOsImageNotificationArgs',
     'LinuxVirtualMachinePlanArgs',
     'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs',
     'LinuxVirtualMachineScaleSetAdminSshKeyArgs',
@@ -150,6 +151,7 @@ __all__ = [
     'WindowsVirtualMachineIdentityArgs',
     'WindowsVirtualMachineOsDiskArgs',
     'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs',
+    'WindowsVirtualMachineOsImageNotificationArgs',
     'WindowsVirtualMachinePlanArgs',
     'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs',
     'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs',
@@ -849,22 +851,30 @@ class LinuxVirtualMachineBootDiagnosticsArgs:
 class LinuxVirtualMachineGalleryApplicationArgs:
     def __init__(__self__, *,
                  version_id: pulumi.Input[str],
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  configuration_blob_uri: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
-                 tag: Optional[pulumi.Input[str]] = None):
+                 tag: Optional[pulumi.Input[str]] = None,
+                 treat_failure_as_deployment_failure_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] version_id: Specifies the Gallery Application Version resource ID.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
         :param pulumi.Input[str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
         :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
         :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        :param pulumi.Input[bool] treat_failure_as_deployment_failure_enabled: Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
         """
         pulumi.set(__self__, "version_id", version_id)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if configuration_blob_uri is not None:
             pulumi.set(__self__, "configuration_blob_uri", configuration_blob_uri)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if tag is not None:
             pulumi.set(__self__, "tag", tag)
+        if treat_failure_as_deployment_failure_enabled is not None:
+            pulumi.set(__self__, "treat_failure_as_deployment_failure_enabled", treat_failure_as_deployment_failure_enabled)
 
     @property
     @pulumi.getter(name="versionId")
@@ -877,6 +887,18 @@ class LinuxVirtualMachineGalleryApplicationArgs:
     @version_id.setter
     def version_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "version_id", value)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
     @pulumi.getter(name="configurationBlobUri")
@@ -913,6 +935,18 @@ class LinuxVirtualMachineGalleryApplicationArgs:
     @tag.setter
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
+
+    @property
+    @pulumi.getter(name="treatFailureAsDeploymentFailureEnabled")
+    def treat_failure_as_deployment_failure_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+        """
+        return pulumi.get(self, "treat_failure_as_deployment_failure_enabled")
+
+    @treat_failure_as_deployment_failure_enabled.setter
+    def treat_failure_as_deployment_failure_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "treat_failure_as_deployment_failure_enabled", value)
 
 
 @pulumi.input_type
@@ -1202,6 +1236,29 @@ class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
     @placement.setter
     def placement(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "placement", value)
+
+
+@pulumi.input_type
+class LinuxVirtualMachineOsImageNotificationArgs:
+    def __init__(__self__, *,
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] timeout: Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+        """
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
@@ -3440,33 +3497,35 @@ class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs:
 class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
-                 disk_size_gb: pulumi.Input[int],
-                 lun: pulumi.Input[int],
                  storage_account_type: pulumi.Input[str],
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 lun: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
-        :param pulumi.Input[int] disk_size_gb: The size of the Data Disk which should be created.
-        :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] disk_size_gb: The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+        :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
         :param pulumi.Input[int] ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[int] ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "lun", lun)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
         if create_option is not None:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if lun is not None:
+            pulumi.set(__self__, "lun", lun)
         if ultra_ssd_disk_iops_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
         if ultra_ssd_disk_mbps_read_write is not None:
@@ -3485,30 +3544,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @caching.setter
     def caching(self, value: pulumi.Input[str]):
         pulumi.set(self, "caching", value)
-
-    @property
-    @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> pulumi.Input[int]:
-        """
-        The size of the Data Disk which should be created.
-        """
-        return pulumi.get(self, "disk_size_gb")
-
-    @disk_size_gb.setter
-    def disk_size_gb(self, value: pulumi.Input[int]):
-        pulumi.set(self, "disk_size_gb", value)
-
-    @property
-    @pulumi.getter
-    def lun(self) -> pulumi.Input[int]:
-        """
-        The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
-        """
-        return pulumi.get(self, "lun")
-
-    @lun.setter
-    def lun(self, value: pulumi.Input[int]):
-        pulumi.set(self, "lun", value)
 
     @property
     @pulumi.getter(name="storageAccountType")
@@ -3545,6 +3580,30 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGb")
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @disk_size_gb.setter
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+        """
+        return pulumi.get(self, "lun")
+
+    @lun.setter
+    def lun(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "lun", value)
 
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
@@ -9095,22 +9154,30 @@ class WindowsVirtualMachineBootDiagnosticsArgs:
 class WindowsVirtualMachineGalleryApplicationArgs:
     def __init__(__self__, *,
                  version_id: pulumi.Input[str],
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  configuration_blob_uri: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
-                 tag: Optional[pulumi.Input[str]] = None):
+                 tag: Optional[pulumi.Input[str]] = None,
+                 treat_failure_as_deployment_failure_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] version_id: Specifies the Gallery Application Version resource ID.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
         :param pulumi.Input[str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
         :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
         :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        :param pulumi.Input[bool] treat_failure_as_deployment_failure_enabled: Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
         """
         pulumi.set(__self__, "version_id", version_id)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if configuration_blob_uri is not None:
             pulumi.set(__self__, "configuration_blob_uri", configuration_blob_uri)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if tag is not None:
             pulumi.set(__self__, "tag", tag)
+        if treat_failure_as_deployment_failure_enabled is not None:
+            pulumi.set(__self__, "treat_failure_as_deployment_failure_enabled", treat_failure_as_deployment_failure_enabled)
 
     @property
     @pulumi.getter(name="versionId")
@@ -9123,6 +9190,18 @@ class WindowsVirtualMachineGalleryApplicationArgs:
     @version_id.setter
     def version_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "version_id", value)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
     @pulumi.getter(name="configurationBlobUri")
@@ -9159,6 +9238,18 @@ class WindowsVirtualMachineGalleryApplicationArgs:
     @tag.setter
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
+
+    @property
+    @pulumi.getter(name="treatFailureAsDeploymentFailureEnabled")
+    def treat_failure_as_deployment_failure_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+        """
+        return pulumi.get(self, "treat_failure_as_deployment_failure_enabled")
+
+    @treat_failure_as_deployment_failure_enabled.setter
+    def treat_failure_as_deployment_failure_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "treat_failure_as_deployment_failure_enabled", value)
 
 
 @pulumi.input_type
@@ -9448,6 +9539,29 @@ class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs:
     @placement.setter
     def placement(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "placement", value)
+
+
+@pulumi.input_type
+class WindowsVirtualMachineOsImageNotificationArgs:
+    def __init__(__self__, *,
+                 timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] timeout: Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+        """
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type

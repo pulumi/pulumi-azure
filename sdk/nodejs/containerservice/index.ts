@@ -20,6 +20,11 @@ export type FleetMember = import("./fleetMember").FleetMember;
 export const FleetMember: typeof import("./fleetMember").FleetMember = null as any;
 utilities.lazyLoad(exports, ["FleetMember"], () => require("./fleetMember"));
 
+export { FleetUpdateRunArgs, FleetUpdateRunState } from "./fleetUpdateRun";
+export type FleetUpdateRun = import("./fleetUpdateRun").FleetUpdateRun;
+export const FleetUpdateRun: typeof import("./fleetUpdateRun").FleetUpdateRun = null as any;
+utilities.lazyLoad(exports, ["FleetUpdateRun"], () => require("./fleetUpdateRun"));
+
 export { FleetUpdateStrategyArgs, FleetUpdateStrategyState } from "./fleetUpdateStrategy";
 export type FleetUpdateStrategy = import("./fleetUpdateStrategy").FleetUpdateStrategy;
 export const FleetUpdateStrategy: typeof import("./fleetUpdateStrategy").FleetUpdateStrategy = null as any;
@@ -151,6 +156,8 @@ const _module = {
                 return new ConnectedRegistry(name, <any>undefined, { urn })
             case "azure:containerservice/fleetMember:FleetMember":
                 return new FleetMember(name, <any>undefined, { urn })
+            case "azure:containerservice/fleetUpdateRun:FleetUpdateRun":
+                return new FleetUpdateRun(name, <any>undefined, { urn })
             case "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy":
                 return new FleetUpdateStrategy(name, <any>undefined, { urn })
             case "azure:containerservice/fluxConfiguration:FluxConfiguration":
@@ -191,6 +198,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "containerservice/clusterTrustedAccessRoleBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/fleetMember", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/fleetUpdateRun", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/fleetUpdateStrategy", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/fluxConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)

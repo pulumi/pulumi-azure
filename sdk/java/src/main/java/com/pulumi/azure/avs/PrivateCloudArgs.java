@@ -20,16 +20,16 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
     public static final PrivateCloudArgs Empty = new PrivateCloudArgs();
 
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     @Import(name="internetConnectionEnabled")
     private @Nullable Output<Boolean> internetConnectionEnabled;
 
     /**
-     * @return Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * @return Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     public Optional<Output<Boolean>> internetConnectionEnabled() {
@@ -53,7 +53,7 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A `management_cluster` block as defined below.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     @Import(name="managementCluster", required=true)
@@ -61,7 +61,7 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A `management_cluster` block as defined below.
-     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
      * 
      */
     public Output<PrivateCloudManagementClusterArgs> managementCluster() {
@@ -207,8 +207,8 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internetConnectionEnabled Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+         * @param internetConnectionEnabled Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
          * 
          * @return builder
          * 
@@ -219,8 +219,8 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internetConnectionEnabled Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+         * @param internetConnectionEnabled Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param managementCluster A `management_cluster` block as defined below.
-         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param managementCluster A `management_cluster` block as defined below.
-         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+         * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
          * 
          * @return builder
          * 

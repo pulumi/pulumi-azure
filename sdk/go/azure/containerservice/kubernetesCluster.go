@@ -98,6 +98,8 @@ type KubernetesCluster struct {
 	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrOutput `pulumi:"confidentialComputing"`
+	// The current version running on the Azure Kubernetes Managed Cluster.
+	CurrentKubernetesVersion pulumi.StringOutput `pulumi:"currentKubernetesVersion"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
 	//
 	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
@@ -382,6 +384,8 @@ type kubernetesClusterState struct {
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
+	// The current version running on the Azure Kubernetes Managed Cluster.
+	CurrentKubernetesVersion *string `pulumi:"currentKubernetesVersion"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
 	//
 	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
@@ -624,6 +628,8 @@ type KubernetesClusterState struct {
 	AzurePolicyEnabled pulumi.BoolPtrInput
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
+	// The current version running on the Azure Kubernetes Managed Cluster.
+	CurrentKubernetesVersion pulumi.StringPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
 	//
 	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
@@ -1429,6 +1435,11 @@ func (o KubernetesClusterOutput) ConfidentialComputing() KubernetesClusterConfid
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterConfidentialComputingPtrOutput {
 		return v.ConfidentialComputing
 	}).(KubernetesClusterConfidentialComputingPtrOutput)
+}
+
+// The current version running on the Azure Kubernetes Managed Cluster.
+func (o KubernetesClusterOutput) CurrentKubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
 // A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.

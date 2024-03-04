@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class SpringCloudCustomizedAcceleratorGitRepository
     {
         /// <summary>
-        /// A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        /// A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         /// </summary>
         public readonly Outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth? BasicAuth;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        /// A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         /// </summary>
         public readonly Outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth? SshAuth;
         /// <summary>

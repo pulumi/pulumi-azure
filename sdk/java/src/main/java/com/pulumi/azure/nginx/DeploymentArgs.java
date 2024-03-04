@@ -26,6 +26,21 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentArgs Empty = new DeploymentArgs();
 
     /**
+     * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     * 
+     */
+    @Import(name="automaticUpgradeChannel")
+    private @Nullable Output<String> automaticUpgradeChannel;
+
+    /**
+     * @return Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+     * 
+     */
+    public Optional<Output<String>> automaticUpgradeChannel() {
+        return Optional.ofNullable(this.automaticUpgradeChannel);
+    }
+
+    /**
      * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
@@ -210,14 +225,14 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      * 
      */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
     /**
-     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
      * 
      */
     public Output<String> sku() {
@@ -242,6 +257,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     private DeploymentArgs() {}
 
     private DeploymentArgs(DeploymentArgs $) {
+        this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.capacity = $.capacity;
         this.diagnoseSupportEnabled = $.diagnoseSupportEnabled;
         this.email = $.email;
@@ -274,6 +290,27 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DeploymentArgs defaults) {
             $ = new DeploymentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param automaticUpgradeChannel Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpgradeChannel(@Nullable Output<String> automaticUpgradeChannel) {
+            $.automaticUpgradeChannel = automaticUpgradeChannel;
+            return this;
+        }
+
+        /**
+         * @param automaticUpgradeChannel Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpgradeChannel(String automaticUpgradeChannel) {
+            return automaticUpgradeChannel(Output.of(automaticUpgradeChannel));
         }
 
         /**
@@ -563,7 +600,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+         * @param sku Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
          * 
          * @return builder
          * 
@@ -574,7 +611,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+         * @param sku Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
          * 
          * @return builder
          * 

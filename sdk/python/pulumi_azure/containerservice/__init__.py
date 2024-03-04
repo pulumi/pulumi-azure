@@ -8,6 +8,7 @@ import typing
 from .cluster_trusted_access_role_binding import *
 from .connected_registry import *
 from .fleet_member import *
+from .fleet_update_run import *
 from .fleet_update_strategy import *
 from .flux_configuration import *
 from .get_cluster_node_pool import *

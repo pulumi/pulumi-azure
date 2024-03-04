@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
-        /// The size of the Data Disk which should be created.
+        /// The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
         /// </summary>
-        public readonly int DiskSizeGb;
+        public readonly int? DiskSizeGb;
         /// <summary>
-        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
         /// </summary>
-        public readonly int Lun;
+        public readonly int? Lun;
         /// <summary>
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         /// </summary>
@@ -58,9 +58,9 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? diskEncryptionSetId,
 
-            int diskSizeGb,
+            int? diskSizeGb,
 
-            int lun,
+            int? lun,
 
             string storageAccountType,
 

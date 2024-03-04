@@ -22,7 +22,10 @@ class GetDeploymentResult:
     """
     A collection of values returned by getDeployment.
     """
-    def __init__(__self__, capacity=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, automatic_upgrade_channel=None, capacity=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
+        if automatic_upgrade_channel and not isinstance(automatic_upgrade_channel, str):
+            raise TypeError("Expected argument 'automatic_upgrade_channel' to be a str")
+        pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
@@ -74,6 +77,14 @@ class GetDeploymentResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeChannel")
+    def automatic_upgrade_channel(self) -> str:
+        """
+        The automatic upgrade channel for this NGINX deployment.
+        """
+        return pulumi.get(self, "automatic_upgrade_channel")
 
     @property
     @pulumi.getter
@@ -215,6 +226,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
+            automatic_upgrade_channel=self.automatic_upgrade_channel,
             capacity=self.capacity,
             diagnose_support_enabled=self.diagnose_support_enabled,
             email=self.email,
@@ -262,6 +274,7 @@ def get_deployment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:nginx/getDeployment:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
+        automatic_upgrade_channel=pulumi.get(__ret__, 'automatic_upgrade_channel'),
         capacity=pulumi.get(__ret__, 'capacity'),
         diagnose_support_enabled=pulumi.get(__ret__, 'diagnose_support_enabled'),
         email=pulumi.get(__ret__, 'email'),

@@ -12,6 +12,11 @@ from . import outputs
 
 __all__ = [
     'ConnectedRegistryNotification',
+    'FleetUpdateRunManagedClusterUpdate',
+    'FleetUpdateRunManagedClusterUpdateNodeImageSelection',
+    'FleetUpdateRunManagedClusterUpdateUpgrade',
+    'FleetUpdateRunStage',
+    'FleetUpdateRunStageGroup',
     'FleetUpdateStrategyStage',
     'FleetUpdateStrategyStageGroup',
     'FluxConfigurationBlobStorage',
@@ -203,6 +208,194 @@ class ConnectedRegistryNotification(dict):
         The tag of the artifact that wants to be subscribed for the Connected Registry.
         """
         return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class FleetUpdateRunManagedClusterUpdate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeImageSelection":
+            suggest = "node_image_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetUpdateRunManagedClusterUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetUpdateRunManagedClusterUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetUpdateRunManagedClusterUpdate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 upgrade: 'outputs.FleetUpdateRunManagedClusterUpdateUpgrade',
+                 node_image_selection: Optional['outputs.FleetUpdateRunManagedClusterUpdateNodeImageSelection'] = None):
+        """
+        :param 'FleetUpdateRunManagedClusterUpdateUpgradeArgs' upgrade: A `upgrade` block as defined below.
+        :param 'FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs' node_image_selection: A `node_image_selection` block as defined below.
+        """
+        pulumi.set(__self__, "upgrade", upgrade)
+        if node_image_selection is not None:
+            pulumi.set(__self__, "node_image_selection", node_image_selection)
+
+    @property
+    @pulumi.getter
+    def upgrade(self) -> 'outputs.FleetUpdateRunManagedClusterUpdateUpgrade':
+        """
+        A `upgrade` block as defined below.
+        """
+        return pulumi.get(self, "upgrade")
+
+    @property
+    @pulumi.getter(name="nodeImageSelection")
+    def node_image_selection(self) -> Optional['outputs.FleetUpdateRunManagedClusterUpdateNodeImageSelection']:
+        """
+        A `node_image_selection` block as defined below.
+        """
+        return pulumi.get(self, "node_image_selection")
+
+
+@pulumi.output_type
+class FleetUpdateRunManagedClusterUpdateNodeImageSelection(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FleetUpdateRunManagedClusterUpdateUpgrade(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetUpdateRunManagedClusterUpdateUpgrade. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetUpdateRunManagedClusterUpdateUpgrade.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetUpdateRunManagedClusterUpdateUpgrade.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 kubernetes_version: Optional[str] = None):
+        """
+        :param str type: Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+        :param str kubernetes_version: Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+        """
+        pulumi.set(__self__, "type", type)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
+        """
+        Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+
+@pulumi.output_type
+class FleetUpdateRunStage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterStageWaitInSeconds":
+            suggest = "after_stage_wait_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetUpdateRunStage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetUpdateRunStage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetUpdateRunStage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 groups: Sequence['outputs.FleetUpdateRunStageGroup'],
+                 name: str,
+                 after_stage_wait_in_seconds: Optional[int] = None):
+        """
+        :param Sequence['FleetUpdateRunStageGroupArgs'] groups: One or more `group` blocks as defined below.
+        :param str name: The name which should be used for this stage.
+        :param int after_stage_wait_in_seconds: Specifies the time in seconds to wait at the end of this stage before starting the next one.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "name", name)
+        if after_stage_wait_in_seconds is not None:
+            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Sequence['outputs.FleetUpdateRunStageGroup']:
+        """
+        One or more `group` blocks as defined below.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this stage.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="afterStageWaitInSeconds")
+    def after_stage_wait_in_seconds(self) -> Optional[int]:
+        """
+        Specifies the time in seconds to wait at the end of this stage before starting the next one.
+        """
+        return pulumi.get(self, "after_stage_wait_in_seconds")
+
+
+@pulumi.output_type
+class FleetUpdateRunStageGroup(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: The name which should be used for this group.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this group.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -3424,7 +3617,7 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
         :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
@@ -3751,7 +3944,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_sku")
 
@@ -5206,7 +5399,7 @@ class KubernetesClusterKeyManagementService(dict):
                  key_vault_key_id: str,
                  key_vault_network_access: Optional[str] = None):
         """
-        :param str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+        :param str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         :param str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -5217,7 +5410,7 @@ class KubernetesClusterKeyManagementService(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> str:
         """
-        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+        Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -6380,7 +6573,7 @@ class KubernetesClusterNetworkProfile(dict):
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
                > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
-        :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         :param str pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         :param Sequence[str] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         :param str service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
@@ -6539,7 +6732,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> Optional[str]:
         """
-        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         """
         return pulumi.get(self, "outbound_type")
 
@@ -9737,7 +9930,7 @@ class TokenPasswordPassword1(dict):
                  expiry: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str expiry: The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+        :param str expiry: The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         :param str value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -9749,7 +9942,7 @@ class TokenPasswordPassword1(dict):
     @pulumi.getter
     def expiry(self) -> Optional[str]:
         """
-        The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "expiry")
 
@@ -9768,7 +9961,7 @@ class TokenPasswordPassword2(dict):
                  expiry: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str expiry: The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+        :param str expiry: The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         :param str value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -9780,7 +9973,7 @@ class TokenPasswordPassword2(dict):
     @pulumi.getter
     def expiry(self) -> Optional[str]:
         """
-        The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "expiry")
 

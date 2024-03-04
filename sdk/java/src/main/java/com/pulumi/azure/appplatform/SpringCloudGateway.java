@@ -140,6 +140,20 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiMetadata);
     }
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    @Export(name="applicationPerformanceMonitoringIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> applicationPerformanceMonitoringIds;
+
+    /**
+     * @return Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    public Output<Optional<List<String>>> applicationPerformanceMonitoringIds() {
+        return Codegen.optional(this.applicationPerformanceMonitoringIds);
+    }
+    /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */

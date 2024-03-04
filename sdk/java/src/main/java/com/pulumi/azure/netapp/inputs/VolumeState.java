@@ -279,6 +279,36 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+     * 
+     */
+    @Import(name="smbAccessBasedEnumerationEnabled")
+    private @Nullable Output<Boolean> smbAccessBasedEnumerationEnabled;
+
+    /**
+     * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+     * 
+     */
+    public Optional<Output<Boolean>> smbAccessBasedEnumerationEnabled() {
+        return Optional.ofNullable(this.smbAccessBasedEnumerationEnabled);
+    }
+
+    /**
+     * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+     * 
+     */
+    @Import(name="smbNonBrowsableEnabled")
+    private @Nullable Output<Boolean> smbNonBrowsableEnabled;
+
+    /**
+     * @return Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+     * 
+     */
+    public Optional<Output<Boolean>> smbNonBrowsableEnabled() {
+        return Optional.ofNullable(this.smbNonBrowsableEnabled);
+    }
+
+    /**
      * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
      * 
      */
@@ -407,6 +437,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         this.resourceGroupName = $.resourceGroupName;
         this.securityStyle = $.securityStyle;
         this.serviceLevel = $.serviceLevel;
+        this.smbAccessBasedEnumerationEnabled = $.smbAccessBasedEnumerationEnabled;
+        this.smbNonBrowsableEnabled = $.smbNonBrowsableEnabled;
         this.snapshotDirectoryVisible = $.snapshotDirectoryVisible;
         this.storageQuotaInGb = $.storageQuotaInGb;
         this.subnetId = $.subnetId;
@@ -819,6 +851,48 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceLevel(String serviceLevel) {
             return serviceLevel(Output.of(serviceLevel));
+        }
+
+        /**
+         * @param smbAccessBasedEnumerationEnabled Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbAccessBasedEnumerationEnabled(@Nullable Output<Boolean> smbAccessBasedEnumerationEnabled) {
+            $.smbAccessBasedEnumerationEnabled = smbAccessBasedEnumerationEnabled;
+            return this;
+        }
+
+        /**
+         * @param smbAccessBasedEnumerationEnabled Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbAccessBasedEnumerationEnabled(Boolean smbAccessBasedEnumerationEnabled) {
+            return smbAccessBasedEnumerationEnabled(Output.of(smbAccessBasedEnumerationEnabled));
+        }
+
+        /**
+         * @param smbNonBrowsableEnabled Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbNonBrowsableEnabled(@Nullable Output<Boolean> smbNonBrowsableEnabled) {
+            $.smbNonBrowsableEnabled = smbNonBrowsableEnabled;
+            return this;
+        }
+
+        /**
+         * @param smbNonBrowsableEnabled Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in &#34;net view.&#34; Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smbNonBrowsableEnabled(Boolean smbNonBrowsableEnabled) {
+            return smbNonBrowsableEnabled(Output.of(smbNonBrowsableEnabled));
         }
 
         /**

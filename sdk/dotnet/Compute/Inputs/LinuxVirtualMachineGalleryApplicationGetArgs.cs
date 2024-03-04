@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineGalleryApplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
         /// </summary>
         [Input("configurationBlobUri")]
@@ -29,6 +35,12 @@ namespace Pulumi.Azure.Compute.Inputs
         /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }
+
+        /// <summary>
+        /// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+        /// </summary>
+        [Input("treatFailureAsDeploymentFailureEnabled")]
+        public Input<bool>? TreatFailureAsDeploymentFailureEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Gallery Application Version resource ID.

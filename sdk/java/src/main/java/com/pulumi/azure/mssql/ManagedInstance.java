@@ -572,6 +572,12 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     public Output<Integer> vcores() {
         return this.vcores;
     }
+    @Export(name="zoneRedundantEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> zoneRedundantEnabled;
+
+    public Output<Optional<Boolean>> zoneRedundantEnabled() {
+        return Codegen.optional(this.zoneRedundantEnabled);
+    }
 
     /**
      *

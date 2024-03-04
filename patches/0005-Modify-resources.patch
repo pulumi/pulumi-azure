@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 7 Feb 2024 13:53:37 -0500
-Subject: [PATCH 5/5] Modify resources
+Subject: [PATCH 5/9] Modify resources
 
 
 diff --git a/internal/services/advisor/advisor_recommendations_data_source.go b/internal/services/advisor/advisor_recommendations_data_source.go
@@ -292,10 +292,10 @@ index d1de175cb8..d18589669e 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index 1493cb62df..c7d6007942 100644
+index b79956b57d..4b1be52dcc 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
-@@ -344,11 +344,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
+@@ -359,11 +359,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -370,10 +370,10 @@ index 4852606790..219bed8e64 100644
  
  			"write_accelerator_enabled": {
 diff --git a/internal/services/compute/windows_virtual_machine_resource.go b/internal/services/compute/windows_virtual_machine_resource.go
-index b05a7ccb2d..3389a0c6c6 100644
+index 9d8cafbd14..9ad34c43b4 100644
 --- a/internal/services/compute/windows_virtual_machine_resource.go
 +++ b/internal/services/compute/windows_virtual_machine_resource.go
-@@ -367,11 +367,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
+@@ -384,11 +384,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -457,10 +457,10 @@ index a506d9b4e3..bf48597849 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 5f0c7dc20a..859e6bc666 100644
+index cf81c00711..6f89ae788e 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1129,7 +1129,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1130,7 +1130,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -488,7 +488,7 @@ index b141d14cfd..0e3d2fd1b2 100644
  						string(documentdb.IndexingModeConsistent),
  						string(documentdb.IndexingModeNone),
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index fb5df793e4..f73358c274 100644
+index 4001cad641..835aecb2d8 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -509,7 +509,7 @@ index fb5df793e4..f73358c274 100644
  			},
  
  			"analytical_storage": {
-@@ -277,7 +279,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+@@ -286,7 +288,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  					string(cosmosdb.DatabaseAccountKindGlobalDocumentDB),
  					string(cosmosdb.DatabaseAccountKindMongoDB),
  					string(cosmosdb.DatabaseAccountKindParse),
@@ -518,7 +518,7 @@ index fb5df793e4..f73358c274 100644
  			},
  
  			"ip_range_filter": func() *schema.Schema {
-@@ -351,7 +353,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+@@ -360,7 +362,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  								string(cosmosdb.DefaultConsistencyLevelEventual),
  								string(cosmosdb.DefaultConsistencyLevelSession),
  								string(cosmosdb.DefaultConsistencyLevelStrong),
@@ -526,8 +526,8 @@ index fb5df793e4..f73358c274 100644
 +							}, features.CaseInsensitive()),
  						},
  
- 						"max_interval_in_seconds": {
-@@ -408,8 +410,9 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+ 						// This value can only change if the 'consistency_level' is set to 'BoundedStaleness'
+@@ -419,8 +421,9 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  				Elem: &pluginsdk.Resource{
  					Schema: map[string]*pluginsdk.Schema{
  						"name": {
@@ -753,7 +753,7 @@ index e15c10ac79..ebcdb70c0b 100644
  			},
  			"template": {
 diff --git a/internal/services/iothub/iothub_resource.go b/internal/services/iothub/iothub_resource.go
-index fe0f2a2c40..5ba993084d 100644
+index c14cb45e16..debc0e57fa 100644
 --- a/internal/services/iothub/iothub_resource.go
 +++ b/internal/services/iothub/iothub_resource.go
 @@ -30,6 +30,7 @@ import (
@@ -764,7 +764,7 @@ index fe0f2a2c40..5ba993084d 100644
  	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/timeouts"
  	"github.com/hashicorp/terraform-provider-azurerm/utils"
-@@ -352,11 +353,13 @@ func resourceIotHub() *pluginsdk.Resource {
+@@ -343,11 +344,13 @@ func resourceIotHub() *pluginsdk.Resource {
  						},
  
  						"encoding": {
@@ -784,7 +784,7 @@ index fe0f2a2c40..5ba993084d 100644
  								string(devices.EncodingAvro),
  								string(devices.EncodingAvroDeflate),
 diff --git a/internal/services/keyvault/key_vault_certificate_resource.go b/internal/services/keyvault/key_vault_certificate_resource.go
-index 7bb4ed0809..eab4c819de 100644
+index 90e02d8080..8970530193 100644
 --- a/internal/services/keyvault/key_vault_certificate_resource.go
 +++ b/internal/services/keyvault/key_vault_certificate_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -796,7 +796,7 @@ index 7bb4ed0809..eab4c819de 100644
  	"log"
  	"math"
  	"strings"
-@@ -156,7 +158,8 @@ func resourceKeyVaultCertificate() *pluginsdk.Resource {
+@@ -157,7 +159,8 @@ func resourceKeyVaultCertificate() *pluginsdk.Resource {
  											string(keyvault.JSONWebKeyTypeRSA),
  											string(keyvault.JSONWebKeyTypeRSAHSM),
  											string(keyvault.JSONWebKeyTypeOct),
@@ -1014,7 +1014,7 @@ index ea0a79b9a6..addfe7d710 100644
  
  			"port": {
 diff --git a/internal/services/loadbalancer/rule_resource.go b/internal/services/loadbalancer/rule_resource.go
-index 74365aa972..792b8a2f9c 100644
+index 5d3a526959..efecebe015 100644
 --- a/internal/services/loadbalancer/rule_resource.go
 +++ b/internal/services/loadbalancer/rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1057,7 +1057,7 @@ index dbbf9132fb..2e56c94e0e 100644
  			},
  		},
 diff --git a/internal/services/loganalytics/log_analytics_workspace_resource.go b/internal/services/loganalytics/log_analytics_workspace_resource.go
-index 3c79c1330b..f89e448a8a 100644
+index 6cb3af7347..7b36437f13 100644
 --- a/internal/services/loganalytics/log_analytics_workspace_resource.go
 +++ b/internal/services/loganalytics/log_analytics_workspace_resource.go
 @@ -6,6 +6,8 @@ package loganalytics
@@ -1264,7 +1264,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index c8d0a4a7a7..801b4793d7 100644
+index 2b93ab80aa..eed5cf97f2 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1275,7 +1275,7 @@ index c8d0a4a7a7..801b4793d7 100644
  	"log"
  	"strings"
  	"time"
-@@ -1596,7 +1597,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1629,7 +1630,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1285,7 +1285,7 @@ index c8d0a4a7a7..801b4793d7 100644
  						},
  					},
  
-@@ -1607,7 +1609,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1640,7 +1642,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
  						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
@@ -1294,7 +1294,7 @@ index c8d0a4a7a7..801b4793d7 100644
  					},
  
  					"email_addresses": {
-@@ -1635,7 +1637,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1668,7 +1670,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
@@ -1929,7 +1929,7 @@ index d2434c6189..200bc2d5a6 100644
  func (r VirtualNetworkResource) tagCount(data acceptance.TestData) string {
  	tags := ""
 diff --git a/internal/services/notificationhub/notification_hub_namespace_resource.go b/internal/services/notificationhub/notification_hub_namespace_resource.go
-index 18b18d4675..b094b7aa61 100644
+index abd8c6b3f6..55bc1b0b1d 100644
 --- a/internal/services/notificationhub/notification_hub_namespace_resource.go
 +++ b/internal/services/notificationhub/notification_hub_namespace_resource.go
 @@ -6,6 +6,7 @@ package notificationhub
@@ -1940,7 +1940,7 @@ index 18b18d4675..b094b7aa61 100644
  	"log"
  	"strconv"
  	"time"
-@@ -82,7 +83,7 @@ func resourceNotificationHubNamespace() *pluginsdk.Resource {
+@@ -83,7 +84,7 @@ func resourceNotificationHubNamespace() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(namespaces.NamespaceTypeMessaging),
  					string(namespaces.NamespaceTypeNotificationHub),
@@ -2036,7 +2036,7 @@ index d68d5963fa..5da4ee2bdc 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 8938f9d1b2..c0fba3c5a8 100644
+index 29bc9d2710..5ae5f25686 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -2080,7 +2080,7 @@ index 3c73bae3bc..41759ee1ea 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index 5480f47ac6..63c521fe60 100644
+index 3914c1ae20..c52a8fc9d6 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2208,7 +2208,7 @@ index 693259db60..fa44554cd1 100644
  	return &pluginsdk.Resource{
  		Create: resourceServerVulnerabilityAssessmentCreate,
 diff --git a/internal/services/servicebus/servicebus_namespace_resource.go b/internal/services/servicebus/servicebus_namespace_resource.go
-index 96c932b7a2..5c3563db24 100644
+index 56fa2647cb..b03bdc1fa8 100644
 --- a/internal/services/servicebus/servicebus_namespace_resource.go
 +++ b/internal/services/servicebus/servicebus_namespace_resource.go
 @@ -87,7 +87,8 @@ func resourceServiceBusNamespace() *pluginsdk.Resource {
@@ -2526,7 +2526,7 @@ index b215edff58..af572b05db 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 49eb2adb75..19b2813c15 100644
+index b83c2a837e..eab0631cc1 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -6,6 +6,8 @@ package storage
@@ -2538,7 +2538,7 @@ index 49eb2adb75..19b2813c15 100644
  	"log"
  	"net/http"
  	"net/url"
-@@ -138,8 +140,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -139,8 +141,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					string(storage.KindBlockBlobStorage),
  					string(storage.KindFileStorage),
  					string(storage.KindStorageV2),
@@ -2550,7 +2550,7 @@ index 49eb2adb75..19b2813c15 100644
  			},
  
  			"account_tier": {
-@@ -149,7 +152,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -150,7 +153,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Standard",
  					"Premium",
@@ -2560,7 +2560,7 @@ index 49eb2adb75..19b2813c15 100644
  			},
  
  			"account_replication_type": {
-@@ -162,7 +166,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -163,7 +167,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2570,7 +2570,7 @@ index 49eb2adb75..19b2813c15 100644
  			},
  
  			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -173,7 +178,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -174,7 +179,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.AccessTierCool),
  					string(storage.AccessTierHot),
@@ -2580,7 +2580,7 @@ index 49eb2adb75..19b2813c15 100644
  			},
  
  			"azure_files_authentication": {
-@@ -391,7 +397,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -392,7 +398,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),
@@ -2655,7 +2655,7 @@ index c928831ac4..0fae0d312c 100644
  
  			"storage_account_access_key": {
 diff --git a/internal/services/trafficmanager/traffic_manager_profile_resource.go b/internal/services/trafficmanager/traffic_manager_profile_resource.go
-index a2e7c8201a..31096a3c5e 100644
+index 88fa114d68..0e395b4046 100644
 --- a/internal/services/trafficmanager/traffic_manager_profile_resource.go
 +++ b/internal/services/trafficmanager/traffic_manager_profile_resource.go
 @@ -5,6 +5,8 @@ package trafficmanager

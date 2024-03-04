@@ -121,6 +121,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterConfidentialComputing?> ConfidentialComputing { get; private set; } = null!;
 
         /// <summary>
+        /// The current version running on the Azure Kubernetes Managed Cluster.
+        /// </summary>
+        [Output("currentKubernetesVersion")]
+        public Output<string> CurrentKubernetesVersion { get; private set; } = null!;
+
+        /// <summary>
         /// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
         /// 
         /// &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -1118,6 +1124,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("confidentialComputing")]
         public Input<Inputs.KubernetesClusterConfidentialComputingGetArgs>? ConfidentialComputing { get; set; }
+
+        /// <summary>
+        /// The current version running on the Azure Kubernetes Managed Cluster.
+        /// </summary>
+        [Input("currentKubernetesVersion")]
+        public Input<string>? CurrentKubernetesVersion { get; set; }
 
         [Input("customCaTrustCertificatesBase64s")]
         private InputList<string>? _customCaTrustCertificatesBase64s;

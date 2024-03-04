@@ -482,14 +482,18 @@ class WorkspaceAzureDevopsRepoArgs:
 class WorkspaceCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  key_versionless_id: pulumi.Input[str],
-                 key_name: Optional[pulumi.Input[str]] = None):
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
         :param pulumi.Input[str] key_name: An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+        :param pulumi.Input[str] user_assigned_identity_id: The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         pulumi.set(__self__, "key_versionless_id", key_versionless_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyVersionlessId")
@@ -514,6 +518,18 @@ class WorkspaceCustomerManagedKeyArgs:
     @key_name.setter
     def key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type

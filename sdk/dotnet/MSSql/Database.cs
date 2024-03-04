@@ -328,10 +328,22 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> RecoverDatabaseId { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+        /// </summary>
+        [Output("recoveryPointId")]
+        public Output<string?> RecoveryPointId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         /// </summary>
         [Output("restoreDroppedDatabaseId")]
         public Output<string?> RestoreDroppedDatabaseId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+        /// </summary>
+        [Output("restoreLongTermRetentionBackupId")]
+        public Output<string?> RestoreLongTermRetentionBackupId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
@@ -586,10 +598,22 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? RecoverDatabaseId { get; set; }
 
         /// <summary>
+        /// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+        /// </summary>
+        [Input("recoveryPointId")]
+        public Input<string>? RecoveryPointId { get; set; }
+
+        /// <summary>
         /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         /// </summary>
         [Input("restoreDroppedDatabaseId")]
         public Input<string>? RestoreDroppedDatabaseId { get; set; }
+
+        /// <summary>
+        /// The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+        /// </summary>
+        [Input("restoreLongTermRetentionBackupId")]
+        public Input<string>? RestoreLongTermRetentionBackupId { get; set; }
 
         /// <summary>
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
@@ -812,10 +836,22 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? RecoverDatabaseId { get; set; }
 
         /// <summary>
+        /// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+        /// </summary>
+        [Input("recoveryPointId")]
+        public Input<string>? RecoveryPointId { get; set; }
+
+        /// <summary>
         /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         /// </summary>
         [Input("restoreDroppedDatabaseId")]
         public Input<string>? RestoreDroppedDatabaseId { get; set; }
+
+        /// <summary>
+        /// The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+        /// </summary>
+        [Input("restoreLongTermRetentionBackupId")]
+        public Input<string>? RestoreLongTermRetentionBackupId { get; set; }
 
         /// <summary>
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.

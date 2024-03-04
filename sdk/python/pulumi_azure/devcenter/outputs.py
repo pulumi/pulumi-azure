@@ -10,8 +10,110 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CatalogCatalogAdogit',
+    'CatalogCatalogGithub',
     'DevCenterIdentity',
 ]
+
+@pulumi.output_type
+class CatalogCatalogAdogit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyUrl":
+            suggest = "key_vault_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogCatalogAdogit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogCatalogAdogit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogCatalogAdogit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: str,
+                 key_vault_key_url: str,
+                 path: str,
+                 uri: str):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> str:
+        return pulumi.get(self, "key_vault_key_url")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class CatalogCatalogGithub(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyUrl":
+            suggest = "key_vault_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogCatalogGithub. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogCatalogGithub.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogCatalogGithub.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branch: str,
+                 key_vault_key_url: str,
+                 path: str,
+                 uri: str):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> str:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> str:
+        return pulumi.get(self, "key_vault_key_url")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        return pulumi.get(self, "uri")
+
 
 @pulumi.output_type
 class DevCenterIdentity(dict):

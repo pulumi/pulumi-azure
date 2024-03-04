@@ -18,6 +18,7 @@ class SpringCloudGatewayArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[str],
                  api_metadata: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_authorization: Optional[pulumi.Input['SpringCloudGatewayClientAuthorizationArgs']] = None,
                  cors: Optional[pulumi.Input['SpringCloudGatewayCorsArgs']] = None,
@@ -35,6 +36,7 @@ class SpringCloudGatewayArgs:
         The set of arguments for constructing a SpringCloudGateway resource.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
         :param pulumi.Input['SpringCloudGatewayApiMetadataArgs'] api_metadata: A `api_metadata` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input['SpringCloudGatewayClientAuthorizationArgs'] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input['SpringCloudGatewayCorsArgs'] cors: A `cors` block as defined below.
@@ -52,6 +54,8 @@ class SpringCloudGatewayArgs:
         pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if api_metadata is not None:
             pulumi.set(__self__, "api_metadata", api_metadata)
+        if application_performance_monitoring_ids is not None:
+            pulumi.set(__self__, "application_performance_monitoring_ids", application_performance_monitoring_ids)
         if application_performance_monitoring_types is not None:
             pulumi.set(__self__, "application_performance_monitoring_types", application_performance_monitoring_types)
         if client_authorization is not None:
@@ -102,6 +106,18 @@ class SpringCloudGatewayArgs:
     @api_metadata.setter
     def api_metadata(self, value: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']]):
         pulumi.set(self, "api_metadata", value)
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
+
+    @application_performance_monitoring_ids.setter
+    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @property
     @pulumi.getter(name="applicationPerformanceMonitoringTypes")
@@ -264,6 +280,7 @@ class SpringCloudGatewayArgs:
 class _SpringCloudGatewayState:
     def __init__(__self__, *,
                  api_metadata: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_authorization: Optional[pulumi.Input['SpringCloudGatewayClientAuthorizationArgs']] = None,
                  cors: Optional[pulumi.Input['SpringCloudGatewayCorsArgs']] = None,
@@ -282,6 +299,7 @@ class _SpringCloudGatewayState:
         """
         Input properties used for looking up and filtering SpringCloudGateway resources.
         :param pulumi.Input['SpringCloudGatewayApiMetadataArgs'] api_metadata: A `api_metadata` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input['SpringCloudGatewayClientAuthorizationArgs'] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input['SpringCloudGatewayCorsArgs'] cors: A `cors` block as defined below.
@@ -300,6 +318,8 @@ class _SpringCloudGatewayState:
         """
         if api_metadata is not None:
             pulumi.set(__self__, "api_metadata", api_metadata)
+        if application_performance_monitoring_ids is not None:
+            pulumi.set(__self__, "application_performance_monitoring_ids", application_performance_monitoring_ids)
         if application_performance_monitoring_types is not None:
             pulumi.set(__self__, "application_performance_monitoring_types", application_performance_monitoring_types)
         if client_authorization is not None:
@@ -342,6 +362,18 @@ class _SpringCloudGatewayState:
     @api_metadata.setter
     def api_metadata(self, value: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']]):
         pulumi.set(self, "api_metadata", value)
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
+
+    @application_performance_monitoring_ids.setter
+    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @property
     @pulumi.getter(name="applicationPerformanceMonitoringTypes")
@@ -530,6 +562,7 @@ class SpringCloudGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_metadata: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_authorization: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']]] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']]] = None,
@@ -612,6 +645,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']] api_metadata: A `api_metadata` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']] cors: A `cors` block as defined below.
@@ -713,6 +747,7 @@ class SpringCloudGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_metadata: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_authorization: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']]] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']]] = None,
@@ -737,6 +772,7 @@ class SpringCloudGateway(pulumi.CustomResource):
             __props__ = SpringCloudGatewayArgs.__new__(SpringCloudGatewayArgs)
 
             __props__.__dict__["api_metadata"] = api_metadata
+            __props__.__dict__["application_performance_monitoring_ids"] = application_performance_monitoring_ids
             __props__.__dict__["application_performance_monitoring_types"] = application_performance_monitoring_types
             __props__.__dict__["client_authorization"] = client_authorization
             __props__.__dict__["cors"] = cors
@@ -767,6 +803,7 @@ class SpringCloudGateway(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_metadata: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']]] = None,
+            application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             client_authorization: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']]] = None,
             cors: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']]] = None,
@@ -790,6 +827,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayApiMetadataArgs']] api_metadata: A `api_metadata` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayClientAuthorizationArgs']] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayCorsArgs']] cors: A `cors` block as defined below.
@@ -811,6 +849,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         __props__ = _SpringCloudGatewayState.__new__(_SpringCloudGatewayState)
 
         __props__.__dict__["api_metadata"] = api_metadata
+        __props__.__dict__["application_performance_monitoring_ids"] = application_performance_monitoring_ids
         __props__.__dict__["application_performance_monitoring_types"] = application_performance_monitoring_types
         __props__.__dict__["client_authorization"] = client_authorization
         __props__.__dict__["cors"] = cors
@@ -835,6 +874,14 @@ class SpringCloudGateway(pulumi.CustomResource):
         A `api_metadata` block as defined below.
         """
         return pulumi.get(self, "api_metadata")
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
 
     @property
     @pulumi.getter(name="applicationPerformanceMonitoringTypes")

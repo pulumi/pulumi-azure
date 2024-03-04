@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterKeyManagementService {
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
      * 
      */
     private String keyVaultKeyId;
@@ -25,7 +25,7 @@ public final class KubernetesClusterKeyManagementService {
 
     private KubernetesClusterKeyManagementService() {}
     /**
-     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+     * @return Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
      * 
      */
     public String keyVaultKeyId() {

@@ -10,8 +10,108 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CatalogCatalogAdogitArgs',
+    'CatalogCatalogGithubArgs',
     'DevCenterIdentityArgs',
 ]
+
+@pulumi.input_type
+class CatalogCatalogAdogitArgs:
+    def __init__(__self__, *,
+                 branch: pulumi.Input[str],
+                 key_vault_key_url: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 uri: pulumi.Input[str]):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key_vault_key_url")
+
+    @key_vault_key_url.setter
+    def key_vault_key_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_url", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class CatalogCatalogGithubArgs:
+    def __init__(__self__, *,
+                 branch: pulumi.Input[str],
+                 key_vault_key_url: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 uri: pulumi.Input[str]):
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUrl")
+    def key_vault_key_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key_vault_key_url")
+
+    @key_vault_key_url.setter
+    def key_vault_key_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_url", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
 
 @pulumi.input_type
 class DevCenterIdentityArgs:

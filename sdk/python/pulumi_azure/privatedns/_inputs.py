@@ -191,7 +191,7 @@ class ResolverInboundEndpointIpConfigurationArgs:
         """
         :param pulumi.Input[str] subnet_id: The subnet ID of the IP configuration.
         :param pulumi.Input[str] private_ip_address: Private IP address of the IP configuration.
-        :param pulumi.Input[str] private_ip_allocation_method: Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+        :param pulumi.Input[str] private_ip_allocation_method: Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if private_ip_address is not None:
@@ -227,7 +227,7 @@ class ResolverInboundEndpointIpConfigurationArgs:
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+        Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 

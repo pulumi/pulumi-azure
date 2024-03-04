@@ -73,6 +73,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+     */
+    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -89,7 +93,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
@@ -117,6 +121,7 @@ export class Pool extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
             resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["qosType"] = state ? state.qosType : undefined;
@@ -139,6 +144,7 @@ export class Pool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sizeInTb'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["qosType"] = args ? args.qosType : undefined;
@@ -161,6 +167,10 @@ export interface PoolState {
      */
     accountName?: pulumi.Input<string>;
     /**
+     * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+     */
+    encryptionType?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -177,7 +187,7 @@ export interface PoolState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
      */
     serviceLevel?: pulumi.Input<string>;
     /**
@@ -201,6 +211,10 @@ export interface PoolArgs {
      */
     accountName: pulumi.Input<string>;
     /**
+     * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+     */
+    encryptionType?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -217,7 +231,7 @@ export interface PoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
      */
     serviceLevel: pulumi.Input<string>;
     /**

@@ -82,6 +82,10 @@ export interface GetNamespaceResult {
      */
     readonly location: string;
     readonly name: string;
+    /**
+     * The messaging partitions of the ServiceBus Namespace.
+     */
+    readonly premiumMessagingPartitions: number;
     readonly resourceGroupName: string;
     /**
      * The Tier used for the ServiceBus Namespace.

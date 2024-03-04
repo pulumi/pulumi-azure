@@ -28,6 +28,10 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string? StorageRedundancy;
         /// <summary>
+        /// The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+        /// </summary>
+        public readonly string? Tier;
+        /// <summary>
         /// The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
         /// 
         /// &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -42,11 +46,14 @@ namespace Pulumi.Azure.CosmosDB.Outputs
 
             string? storageRedundancy,
 
+            string? tier,
+
             string type)
         {
             IntervalInMinutes = intervalInMinutes;
             RetentionInHours = retentionInHours;
             StorageRedundancy = storageRedundancy;
+            Tier = tier;
             Type = type;
         }
     }

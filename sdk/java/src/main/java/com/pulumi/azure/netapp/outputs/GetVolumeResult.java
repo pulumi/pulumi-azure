@@ -6,6 +6,7 @@ package com.pulumi.azure.netapp.outputs;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionReplication;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -61,6 +62,17 @@ public final class GetVolumeResult {
      * 
      */
     private String serviceLevel;
+    /**
+     * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+     * ---
+     * 
+     */
+    private Boolean smbAccessBasedEnumerationEnabled;
+    /**
+     * @return Limits clients from browsing for an SMB share.
+     * 
+     */
+    private Boolean smbNonBrowsableEnabled;
     /**
      * @return The maximum Storage Quota in Gigabytes allowed for a file system.
      * 
@@ -158,6 +170,21 @@ public final class GetVolumeResult {
         return this.serviceLevel;
     }
     /**
+     * @return Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+     * ---
+     * 
+     */
+    public Boolean smbAccessBasedEnumerationEnabled() {
+        return this.smbAccessBasedEnumerationEnabled;
+    }
+    /**
+     * @return Limits clients from browsing for an SMB share.
+     * 
+     */
+    public Boolean smbNonBrowsableEnabled() {
+        return this.smbNonBrowsableEnabled;
+    }
+    /**
      * @return The maximum Storage Quota in Gigabytes allowed for a file system.
      * 
      */
@@ -209,6 +236,8 @@ public final class GetVolumeResult {
         private String resourceGroupName;
         private @Nullable String securityStyle;
         private String serviceLevel;
+        private Boolean smbAccessBasedEnumerationEnabled;
+        private Boolean smbNonBrowsableEnabled;
         private Integer storageQuotaInGb;
         private String subnetId;
         private String volumePath;
@@ -230,6 +259,8 @@ public final class GetVolumeResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.securityStyle = defaults.securityStyle;
     	      this.serviceLevel = defaults.serviceLevel;
+    	      this.smbAccessBasedEnumerationEnabled = defaults.smbAccessBasedEnumerationEnabled;
+    	      this.smbNonBrowsableEnabled = defaults.smbNonBrowsableEnabled;
     	      this.storageQuotaInGb = defaults.storageQuotaInGb;
     	      this.subnetId = defaults.subnetId;
     	      this.volumePath = defaults.volumePath;
@@ -356,6 +387,22 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder smbAccessBasedEnumerationEnabled(Boolean smbAccessBasedEnumerationEnabled) {
+            if (smbAccessBasedEnumerationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "smbAccessBasedEnumerationEnabled");
+            }
+            this.smbAccessBasedEnumerationEnabled = smbAccessBasedEnumerationEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder smbNonBrowsableEnabled(Boolean smbNonBrowsableEnabled) {
+            if (smbNonBrowsableEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "smbNonBrowsableEnabled");
+            }
+            this.smbNonBrowsableEnabled = smbNonBrowsableEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageQuotaInGb(Integer storageQuotaInGb) {
             if (storageQuotaInGb == null) {
               throw new MissingRequiredPropertyException("GetVolumeResult", "storageQuotaInGb");
@@ -403,6 +450,8 @@ public final class GetVolumeResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.securityStyle = securityStyle;
             _resultValue.serviceLevel = serviceLevel;
+            _resultValue.smbAccessBasedEnumerationEnabled = smbAccessBasedEnumerationEnabled;
+            _resultValue.smbNonBrowsableEnabled = smbNonBrowsableEnabled;
             _resultValue.storageQuotaInGb = storageQuotaInGb;
             _resultValue.subnetId = subnetId;
             _resultValue.volumePath = volumePath;

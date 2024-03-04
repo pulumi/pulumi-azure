@@ -248,14 +248,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+     * An `aad_admin` block as defined below.
      * 
      */
     @Export(name="aadAdmin", refs={WorkspaceAadAdmin.class}, tree="[0]")
     private Output<WorkspaceAadAdmin> aadAdmin;
 
     /**
-     * @return An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+     * @return An `aad_admin` block as defined below.
      * 
      */
     public Output<WorkspaceAadAdmin> aadAdmin() {
@@ -318,14 +318,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.connectivityEndpoints;
     }
     /**
-     * A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+     * A `customer_managed_key` block as defined below.
      * 
      */
     @Export(name="customerManagedKey", refs={WorkspaceCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+     * @return A `customer_managed_key` block as defined below.
      * 
      */
     public Output<Optional<WorkspaceCustomerManagedKey>> customerManagedKey() {

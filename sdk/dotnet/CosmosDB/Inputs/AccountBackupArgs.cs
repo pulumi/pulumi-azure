@@ -33,6 +33,12 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string>? StorageRedundancy { get; set; }
 
         /// <summary>
+        /// The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
+
+        /// <summary>
         /// The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
         /// 
         /// &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.

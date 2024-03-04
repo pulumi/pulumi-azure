@@ -158,6 +158,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// The messaging partitions of the ServiceBus Namespace.
+        /// </summary>
+        public readonly int PremiumMessagingPartitions;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Tier used for the ServiceBus Namespace.
@@ -192,6 +196,8 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
+            int premiumMessagingPartitions,
+
             string resourceGroupName,
 
             string sku,
@@ -209,6 +215,7 @@ namespace Pulumi.Azure.ServiceBus
             Id = id;
             Location = location;
             Name = name;
+            PremiumMessagingPartitions = premiumMessagingPartitions;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;

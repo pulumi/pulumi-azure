@@ -6,6 +6,7 @@ package com.pulumi.azure.machinelearning;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceEncryptionArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceFeatureStoreArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
+import com.pulumi.azure.machinelearning.inputs.WorkspaceManagedNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -206,6 +207,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `managed_network` block as defined below.
+     * 
+     */
+    @Import(name="managedNetwork")
+    private @Nullable Output<WorkspaceManagedNetworkArgs> managedNetwork;
+
+    /**
+     * @return A `managed_network` block as defined below.
+     * 
+     */
+    public Optional<Output<WorkspaceManagedNetworkArgs>> managedNetwork() {
+        return Optional.ofNullable(this.managedNetwork);
+    }
+
+    /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
@@ -293,14 +309,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * @return SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -371,6 +387,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.keyVaultId = $.keyVaultId;
         this.kind = $.kind;
         this.location = $.location;
+        this.managedNetwork = $.managedNetwork;
         this.name = $.name;
         this.primaryUserAssignedIdentity = $.primaryUserAssignedIdentity;
         this.publicAccessBehindVirtualNetworkEnabled = $.publicAccessBehindVirtualNetworkEnabled;
@@ -657,6 +674,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param managedNetwork A `managed_network` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedNetwork(@Nullable Output<WorkspaceManagedNetworkArgs> managedNetwork) {
+            $.managedNetwork = managedNetwork;
+            return this;
+        }
+
+        /**
+         * @param managedNetwork A `managed_network` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedNetwork(WorkspaceManagedNetworkArgs managedNetwork) {
+            return managedNetwork(Output.of(managedNetwork));
+        }
+
+        /**
          * @param name Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -774,7 +812,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+         * @param skuName SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
          * 
          * @return builder
          * 
@@ -785,7 +823,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+         * @param skuName SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
          * 
          * @return builder
          * 

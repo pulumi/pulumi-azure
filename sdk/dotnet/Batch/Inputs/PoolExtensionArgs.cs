@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private Input<string>? _protectedSettings;
 
         /// <summary>
-        /// The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+        /// JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// JSON formatted public settings for the extension.
+        /// JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
         /// </summary>
         [Input("settingsJson")]
         public Input<string>? SettingsJson { get; set; }

@@ -64,33 +64,33 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The size of the Data Disk which should be created.
+     * The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
      * 
      */
-    @Import(name="diskSizeGb", required=true)
-    private Output<Integer> diskSizeGb;
+    @Import(name="diskSizeGb")
+    private @Nullable Output<Integer> diskSizeGb;
 
     /**
-     * @return The size of the Data Disk which should be created.
+     * @return The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
      * 
      */
-    public Output<Integer> diskSizeGb() {
-        return this.diskSizeGb;
+    public Optional<Output<Integer>> diskSizeGb() {
+        return Optional.ofNullable(this.diskSizeGb);
     }
 
     /**
-     * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
      * 
      */
-    @Import(name="lun", required=true)
-    private Output<Integer> lun;
+    @Import(name="lun")
+    private @Nullable Output<Integer> lun;
 
     /**
-     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
      * 
      */
-    public Output<Integer> lun() {
-        return this.lun;
+    public Optional<Output<Integer>> lun() {
+        return Optional.ofNullable(this.lun);
     }
 
     /**
@@ -249,18 +249,18 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param diskSizeGb The size of the Data Disk which should be created.
+         * @param diskSizeGb The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
          * 
          * @return builder
          * 
          */
-        public Builder diskSizeGb(Output<Integer> diskSizeGb) {
+        public Builder diskSizeGb(@Nullable Output<Integer> diskSizeGb) {
             $.diskSizeGb = diskSizeGb;
             return this;
         }
 
         /**
-         * @param diskSizeGb The size of the Data Disk which should be created.
+         * @param diskSizeGb The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
          * 
          * @return builder
          * 
@@ -270,18 +270,18 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
          * 
          * @return builder
          * 
          */
-        public Builder lun(Output<Integer> lun) {
+        public Builder lun(@Nullable Output<Integer> lun) {
             $.lun = lun;
             return this;
         }
 
         /**
-         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
          * 
          * @return builder
          * 
@@ -377,12 +377,6 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         public OrchestratedVirtualMachineScaleSetDataDiskArgs build() {
             if ($.caching == null) {
                 throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "caching");
-            }
-            if ($.diskSizeGb == null) {
-                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "diskSizeGb");
-            }
-            if ($.lun == null) {
-                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "lun");
             }
             if ($.storageAccountType == null) {
                 throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "storageAccountType");

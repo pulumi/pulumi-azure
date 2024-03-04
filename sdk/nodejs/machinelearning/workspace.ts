@@ -359,6 +359,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `managedNetwork` block as defined below.
+     */
+    public readonly managedNetwork!: pulumi.Output<outputs.machinelearning.WorkspaceManagedNetwork>;
+    /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -383,7 +387,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
@@ -431,6 +435,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedNetwork"] = state ? state.managedNetwork : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicAccessBehindVirtualNetworkEnabled"] = state ? state.publicAccessBehindVirtualNetworkEnabled : undefined;
@@ -470,6 +475,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedNetwork"] = args ? args.managedNetwork : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
             resourceInputs["publicAccessBehindVirtualNetworkEnabled"] = args ? args.publicAccessBehindVirtualNetworkEnabled : undefined;
@@ -546,6 +552,10 @@ export interface WorkspaceState {
      */
     location?: pulumi.Input<string>;
     /**
+     * A `managedNetwork` block as defined below.
+     */
+    managedNetwork?: pulumi.Input<inputs.machinelearning.WorkspaceManagedNetwork>;
+    /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -570,7 +580,7 @@ export interface WorkspaceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -648,6 +658,10 @@ export interface WorkspaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * A `managedNetwork` block as defined below.
+     */
+    managedNetwork?: pulumi.Input<inputs.machinelearning.WorkspaceManagedNetwork>;
+    /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -672,7 +686,7 @@ export interface WorkspaceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+     * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     skuName?: pulumi.Input<string>;
     /**

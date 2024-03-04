@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LinuxVirtualMachineGalleryApplication {
+    /**
+     * @return Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean automaticUpgradeEnabled;
     /**
      * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
      * 
@@ -29,12 +35,24 @@ public final class LinuxVirtualMachineGalleryApplication {
      */
     private @Nullable String tag;
     /**
+     * @return Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean treatFailureAsDeploymentFailureEnabled;
+    /**
      * @return Specifies the Gallery Application Version resource ID.
      * 
      */
     private String versionId;
 
     private LinuxVirtualMachineGalleryApplication() {}
+    /**
+     * @return Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> automaticUpgradeEnabled() {
+        return Optional.ofNullable(this.automaticUpgradeEnabled);
+    }
     /**
      * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
      * 
@@ -57,6 +75,13 @@ public final class LinuxVirtualMachineGalleryApplication {
         return Optional.ofNullable(this.tag);
     }
     /**
+     * @return Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> treatFailureAsDeploymentFailureEnabled() {
+        return Optional.ofNullable(this.treatFailureAsDeploymentFailureEnabled);
+    }
+    /**
      * @return Specifies the Gallery Application Version resource ID.
      * 
      */
@@ -73,19 +98,29 @@ public final class LinuxVirtualMachineGalleryApplication {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean automaticUpgradeEnabled;
         private @Nullable String configurationBlobUri;
         private @Nullable Integer order;
         private @Nullable String tag;
+        private @Nullable Boolean treatFailureAsDeploymentFailureEnabled;
         private String versionId;
         public Builder() {}
         public Builder(LinuxVirtualMachineGalleryApplication defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.automaticUpgradeEnabled = defaults.automaticUpgradeEnabled;
     	      this.configurationBlobUri = defaults.configurationBlobUri;
     	      this.order = defaults.order;
     	      this.tag = defaults.tag;
+    	      this.treatFailureAsDeploymentFailureEnabled = defaults.treatFailureAsDeploymentFailureEnabled;
     	      this.versionId = defaults.versionId;
         }
 
+        @CustomType.Setter
+        public Builder automaticUpgradeEnabled(@Nullable Boolean automaticUpgradeEnabled) {
+
+            this.automaticUpgradeEnabled = automaticUpgradeEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder configurationBlobUri(@Nullable String configurationBlobUri) {
 
@@ -105,6 +140,12 @@ public final class LinuxVirtualMachineGalleryApplication {
             return this;
         }
         @CustomType.Setter
+        public Builder treatFailureAsDeploymentFailureEnabled(@Nullable Boolean treatFailureAsDeploymentFailureEnabled) {
+
+            this.treatFailureAsDeploymentFailureEnabled = treatFailureAsDeploymentFailureEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versionId(String versionId) {
             if (versionId == null) {
               throw new MissingRequiredPropertyException("LinuxVirtualMachineGalleryApplication", "versionId");
@@ -114,9 +155,11 @@ public final class LinuxVirtualMachineGalleryApplication {
         }
         public LinuxVirtualMachineGalleryApplication build() {
             final var _resultValue = new LinuxVirtualMachineGalleryApplication();
+            _resultValue.automaticUpgradeEnabled = automaticUpgradeEnabled;
             _resultValue.configurationBlobUri = configurationBlobUri;
             _resultValue.order = order;
             _resultValue.tag = tag;
+            _resultValue.treatFailureAsDeploymentFailureEnabled = treatFailureAsDeploymentFailureEnabled;
             _resultValue.versionId = versionId;
             return _resultValue;
         }

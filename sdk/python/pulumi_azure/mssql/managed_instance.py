@@ -35,7 +35,8 @@ class ManagedInstanceArgs:
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timezone_id: Optional[pulumi.Input[str]] = None):
+                 timezone_id: Optional[pulumi.Input[str]] = None,
+                 zone_redundant_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ManagedInstance resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -91,6 +92,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "tags", tags)
         if timezone_id is not None:
             pulumi.set(__self__, "timezone_id", timezone_id)
+        if zone_redundant_enabled is not None:
+            pulumi.set(__self__, "zone_redundant_enabled", zone_redundant_enabled)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -332,6 +335,15 @@ class ManagedInstanceArgs:
     def timezone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timezone_id", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundantEnabled")
+    def zone_redundant_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "zone_redundant_enabled")
+
+    @zone_redundant_enabled.setter
+    def zone_redundant_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant_enabled", value)
+
 
 @pulumi.input_type
 class _ManagedInstanceState:
@@ -357,7 +369,8 @@ class _ManagedInstanceState:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
-                 vcores: Optional[pulumi.Input[int]] = None):
+                 vcores: Optional[pulumi.Input[int]] = None,
+                 zone_redundant_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ManagedInstance resources.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -427,6 +440,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "timezone_id", timezone_id)
         if vcores is not None:
             pulumi.set(__self__, "vcores", vcores)
+        if zone_redundant_enabled is not None:
+            pulumi.set(__self__, "zone_redundant_enabled", zone_redundant_enabled)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -692,6 +707,15 @@ class _ManagedInstanceState:
     def vcores(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vcores", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundantEnabled")
+    def zone_redundant_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "zone_redundant_enabled")
+
+    @zone_redundant_enabled.setter
+    def zone_redundant_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant_enabled", value)
+
 
 class ManagedInstance(pulumi.CustomResource):
     @overload
@@ -718,6 +742,7 @@ class ManagedInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
                  vcores: Optional[pulumi.Input[int]] = None,
+                 zone_redundant_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Azure Managed Instance.
@@ -1137,6 +1162,7 @@ class ManagedInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
                  vcores: Optional[pulumi.Input[int]] = None,
+                 zone_redundant_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1182,6 +1208,7 @@ class ManagedInstance(pulumi.CustomResource):
             if vcores is None and not opts.urn:
                 raise TypeError("Missing required property 'vcores'")
             __props__.__dict__["vcores"] = vcores
+            __props__.__dict__["zone_redundant_enabled"] = zone_redundant_enabled
             __props__.__dict__["dns_zone"] = None
             __props__.__dict__["fqdn"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
@@ -1217,7 +1244,8 @@ class ManagedInstance(pulumi.CustomResource):
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone_id: Optional[pulumi.Input[str]] = None,
-            vcores: Optional[pulumi.Input[int]] = None) -> 'ManagedInstance':
+            vcores: Optional[pulumi.Input[int]] = None,
+            zone_redundant_enabled: Optional[pulumi.Input[bool]] = None) -> 'ManagedInstance':
         """
         Get an existing ManagedInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1274,6 +1302,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["timezone_id"] = timezone_id
         __props__.__dict__["vcores"] = vcores
+        __props__.__dict__["zone_redundant_enabled"] = zone_redundant_enabled
         return ManagedInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1451,4 +1480,9 @@ class ManagedInstance(pulumi.CustomResource):
         Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         """
         return pulumi.get(self, "vcores")
+
+    @property
+    @pulumi.getter(name="zoneRedundantEnabled")
+    def zone_redundant_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "zone_redundant_enabled")
 

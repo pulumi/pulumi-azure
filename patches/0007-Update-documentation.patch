@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: aq17 <aqiu@pulumi.com>
-Date: Thu, 25 May 2023 10:33:39 -0700
+From: Venelin <venelin@pulumi.com>
+Date: Fri, 1 Mar 2024 16:55:56 +0000
 Subject: [PATCH 7/9] Update-documentation
 
 
@@ -74,7 +74,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index 0f3f465ce6..061d3a67b0 100644
+index c3d65c12e7..061d3a67b0 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -95,12 +95,12 @@ index 0f3f465ce6..061d3a67b0 100644
 -
 -```hcl
 -provider "kubernetes" {
--  host                   = data.azurerm_kubernetes_cluster.main.kube_config.0.host
--  username               = data.azurerm_kubernetes_cluster.main.kube_config.0.username
--  password               = data.azurerm_kubernetes_cluster.main.kube_config.0.password
--  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.main.kube_config.0.client_certificate)
--  client_key             = base64decode(data.azurerm_kubernetes_cluster.main.kube_config.0.client_key)
--  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.main.kube_config.0.cluster_ca_certificate)
+-  host                   = data.azurerm_kubernetes_cluster.main.kube_config[0].host
+-  username               = data.azurerm_kubernetes_cluster.main.kube_config[0].username
+-  password               = data.azurerm_kubernetes_cluster.main.kube_config[0].password
+-  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.main.kube_config[0].client_certificate)
+-  client_key             = base64decode(data.azurerm_kubernetes_cluster.main.kube_config[0].client_key)
+-  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.main.kube_config[0].cluster_ca_certificate)
 -}
 -```
 -
@@ -203,7 +203,7 @@ index d9f34055f6..df3d50e65f 100644
  
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
 diff --git a/website/docs/d/storage_account_blob_container_sas.html.markdown b/website/docs/d/storage_account_blob_container_sas.html.markdown
-index fe351b7ba4..4e89e00f49 100644
+index dfd7e805a5..9d33203dbb 100644
 --- a/website/docs/d/storage_account_blob_container_sas.html.markdown
 +++ b/website/docs/d/storage_account_blob_container_sas.html.markdown
 @@ -68,7 +68,7 @@ output "sas_url_query_string" {
@@ -229,7 +229,7 @@ index a078984a7b..1dff00245c 100644
  * `ip_addresses` - (Optional) IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.  
  * `signed_version` - (Optional) Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
 diff --git a/website/docs/guides/3.0-upgrade-guide.html.markdown b/website/docs/guides/3.0-upgrade-guide.html.markdown
-index 4cc96679d7..510129c9ff 100644
+index a6e28af30a..d1804e780b 100644
 --- a/website/docs/guides/3.0-upgrade-guide.html.markdown
 +++ b/website/docs/guides/3.0-upgrade-guide.html.markdown
 @@ -222,6 +222,7 @@ The `azurerm_app_service` data source has been superseded by the `azurerm_linux_
@@ -332,7 +332,7 @@ index ed8cf79b66..2eee7160e6 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_certificate.html.markdown b/website/docs/r/api_management_certificate.html.markdown
-index 8c9040b2e3..598c6a5b9b 100644
+index d14161fd00..18b0cbad0e 100644
 --- a/website/docs/r/api_management_certificate.html.markdown
 +++ b/website/docs/r/api_management_certificate.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_api_management" "example" {
@@ -532,7 +532,7 @@ index 95dac2d863..22f89d3199 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index bf42433205..f894d24ca5 100644
+index 25e53059a0..b2f7684482 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -603,7 +603,7 @@ index 716b583a3f..944b7ec8aa 100644
  ```hcl
  data "azuread_service_principal" "MicrosoftWebApp" {
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index e41190f45b..bfe9bfeed6 100644
+index 4d2a801464..90f4a28915 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
@@ -997,7 +997,7 @@ index 8777a8e41d..43db0332c3 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index 328b67fb87..2f2c859f4e 100644
+index aeaa4514d6..0c02bc4313 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1011,7 +1011,7 @@ index 328b67fb87..2f2c859f4e 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index 3c30ec3a95..e37e719dd4 100644
+index 0970ddbe7e..51f934438d 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1494,7 +1494,7 @@ index 9a4f9eaea8..e03e765433 100644
  ## Example Usage
  
 diff --git a/website/docs/r/disk_encryption_set.html.markdown b/website/docs/r/disk_encryption_set.html.markdown
-index 744e5e6c2a..fd9a42539c 100644
+index 66a285981b..fdc3624b3b 100644
 --- a/website/docs/r/disk_encryption_set.html.markdown
 +++ b/website/docs/r/disk_encryption_set.html.markdown
 @@ -10,6 +10,8 @@ description: |-
@@ -1537,7 +1537,7 @@ index 6b06ca628f..a2e544d3ef 100644
  
  ```hcl
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 59a4f10b41..2cefa94c23 100644
+index 4fad99cea6..ec393da25c 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -237,7 +237,7 @@ The following arguments are supported:
@@ -1755,7 +1755,7 @@ index 84fbd56f53..e46bf51e6c 100644
 --> **NOTE:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
 +-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index 7763cf626a..13d85b0d31 100644
+index 89198d584b..d2c3bee09a 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
 @@ -11,8 +11,11 @@ description: |-
@@ -1799,7 +1799,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index db93f3bc05..9e8b86ca29 100644
+index f7534ac9d8..6f6e8ab542 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1846,7 +1846,7 @@ index db93f3bc05..9e8b86ca29 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -701,8 +695,6 @@ A `network_profile` block supports the following:
+@@ -715,8 +709,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1855,7 +1855,7 @@ index db93f3bc05..9e8b86ca29 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1035,19 +1027,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1061,19 +1053,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1863,12 +1863,12 @@ index db93f3bc05..9e8b86ca29 100644
 -
 -```hcl
 -provider "kubernetes" {
--  host                   = azurerm_kubernetes_cluster.main.kube_config.0.host
--  username               = azurerm_kubernetes_cluster.main.kube_config.0.username
--  password               = azurerm_kubernetes_cluster.main.kube_config.0.password
--  client_certificate     = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_certificate)
--  client_key             = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_key)
--  cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.cluster_ca_certificate)
+-  host                   = azurerm_kubernetes_cluster.main.kube_config[0].host
+-  username               = azurerm_kubernetes_cluster.main.kube_config[0].username
+-  password               = azurerm_kubernetes_cluster.main.kube_config[0].password
+-  client_certificate     = base64decode(azurerm_kubernetes_cluster.main.kube_config[0].client_certificate)
+-  client_key             = base64decode(azurerm_kubernetes_cluster.main.kube_config[0].client_key)
+-  cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.main.kube_config[0].cluster_ca_certificate)
 -}
 -```
 -
@@ -1876,7 +1876,7 @@ index db93f3bc05..9e8b86ca29 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 8089d0dac8..e5dcd3b76a 100644
+index 0332c256cc..15836121d0 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -1926,7 +1926,7 @@ index 656e81119f..b9a4cae44f 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index c6e638189d..54fcbc24a1 100644
+index 6f49ac6c7c..bfddf6471c 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2145,7 +2145,7 @@ index 03f2f27deb..f48028f10c 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index b38cae631a..a552d77504 100644
+index b5bb0103f7..323bde9cfc 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -2369,7 +2369,7 @@ index 06e3f57418..0ac142e857 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 1762024cb4..bb0647ffff 100644
+index 047927201e..8784371603 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
 @@ -340,7 +340,7 @@ A `record_sets` block exports:
@@ -2395,7 +2395,7 @@ index 51e7e1da87..a0da5028ed 100644
  * `fqdn` - Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
  
 diff --git a/website/docs/r/recovery_services_vault.html.markdown b/website/docs/r/recovery_services_vault.html.markdown
-index 1172703ca4..39ddc88e77 100644
+index c82917be5a..131701e1d9 100644
 --- a/website/docs/r/recovery_services_vault.html.markdown
 +++ b/website/docs/r/recovery_services_vault.html.markdown
 @@ -51,6 +51,7 @@ The following arguments are supported:
@@ -2407,7 +2407,7 @@ index 1172703ca4..39ddc88e77 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index 858fed9239..88800f0aba 100644
+index 348ef2cbfa..c7bfd1b5b2 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2419,7 +2419,7 @@ index 858fed9239..88800f0aba 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -156,7 +156,7 @@ redis_configuration {
+@@ -158,7 +158,7 @@ redis_configuration {
  * `rdb_backup_max_snapshot_count` - (Optional) The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
  * `rdb_storage_connection_string` - (Optional) The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
  
@@ -2545,7 +2545,7 @@ index 2536411881..dd2916c58c 100644
  -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index 045d6698fa..2ad58ddbeb 100644
+index 434956c562..e1bc546188 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {
@@ -2672,7 +2672,7 @@ index 6d9c021a59..194133d93b 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic.html.markdown b/website/docs/r/servicebus_topic.html.markdown
-index db6d8b17af..16eec408a6 100644
+index bba0acba5e..28e07f7e10 100644
 --- a/website/docs/r/servicebus_topic.html.markdown
 +++ b/website/docs/r/servicebus_topic.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -2739,7 +2739,7 @@ index 840b9c5189..bb0a73467b 100644
  * `partner_servers` - (Required) A list of `partner_servers` blocks as documented below.
  
 diff --git a/website/docs/r/sql_server.html.markdown b/website/docs/r/sql_server.html.markdown
-index f36a05a175..a6ce114850 100644
+index 8f57c91d06..e08781fa67 100644
 --- a/website/docs/r/sql_server.html.markdown
 +++ b/website/docs/r/sql_server.html.markdown
 @@ -11,10 +11,6 @@ description: |-
@@ -2754,10 +2754,10 @@ index f36a05a175..a6ce114850 100644
  
  ```hcl
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index a5e627762b..22cc099131 100644
+index 04ca0f76e5..f0d311a601 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
-@@ -66,8 +66,6 @@ The following arguments are supported:
+@@ -65,8 +65,6 @@ The following arguments are supported:
  
  * `content_md5` - (Optional) The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
  
@@ -2917,7 +2917,7 @@ index a77a466231..a4c7275acf 100644
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
-index cbe0c221ae..9a2f1fc7f4 100644
+index 20ddbcdb28..79bf235222 100644
 --- a/website/docs/r/virtual_machine.html.markdown
 +++ b/website/docs/r/virtual_machine.html.markdown
 @@ -12,13 +12,13 @@ Manages a Virtual Machine.
@@ -3042,7 +3042,7 @@ index 3efa150d43..2029b1f009 100644
  
  ## Example Usage
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index d7465ead24..e8c1cde1e8 100644
+index 1aa2daca46..5782ed68c1 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Windows Virtual Machine.

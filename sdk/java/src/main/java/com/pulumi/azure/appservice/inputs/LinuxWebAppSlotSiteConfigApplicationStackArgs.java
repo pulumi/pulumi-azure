@@ -254,14 +254,14 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+     * The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
      */
     @Import(name="rubyVersion")
     private @Nullable Output<String> rubyVersion;
 
     /**
-     * @return Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+     * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
      */
     public Optional<Output<String>> rubyVersion() {
@@ -629,7 +629,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param rubyVersion Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         * @param rubyVersion The version of Ruby to run. Possible values include `2.6` and `2.7`.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param rubyVersion Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         * @param rubyVersion The version of Ruby to run. Possible values include `2.6` and `2.7`.
          * 
          * @return builder
          * 

@@ -106,6 +106,10 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly apiMetadata!: pulumi.Output<outputs.appplatform.SpringCloudGatewayApiMetadata | undefined>;
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    public readonly applicationPerformanceMonitoringIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
     public readonly applicationPerformanceMonitoringTypes!: pulumi.Output<string[] | undefined>;
@@ -180,6 +184,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudGatewayState | undefined;
             resourceInputs["apiMetadata"] = state ? state.apiMetadata : undefined;
+            resourceInputs["applicationPerformanceMonitoringIds"] = state ? state.applicationPerformanceMonitoringIds : undefined;
             resourceInputs["applicationPerformanceMonitoringTypes"] = state ? state.applicationPerformanceMonitoringTypes : undefined;
             resourceInputs["clientAuthorization"] = state ? state.clientAuthorization : undefined;
             resourceInputs["cors"] = state ? state.cors : undefined;
@@ -201,6 +206,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
             resourceInputs["apiMetadata"] = args ? args.apiMetadata : undefined;
+            resourceInputs["applicationPerformanceMonitoringIds"] = args ? args.applicationPerformanceMonitoringIds : undefined;
             resourceInputs["applicationPerformanceMonitoringTypes"] = args ? args.applicationPerformanceMonitoringTypes : undefined;
             resourceInputs["clientAuthorization"] = args ? args.clientAuthorization : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
@@ -232,6 +238,10 @@ export interface SpringCloudGatewayState {
      * A `apiMetadata` block as defined below.
      */
     apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata>;
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
@@ -302,6 +312,10 @@ export interface SpringCloudGatewayArgs {
      * A `apiMetadata` block as defined below.
      */
     apiMetadata?: pulumi.Input<inputs.appplatform.SpringCloudGatewayApiMetadata>;
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */

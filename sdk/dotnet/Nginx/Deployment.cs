@@ -86,6 +86,7 @@ namespace Pulumi.Azure.Nginx
     ///         Location = example.Location,
     ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,
+    ///         AutomaticUpgradeChannel = "stable",
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
     ///         {
     ///             IpAddresses = new[]
@@ -118,6 +119,12 @@ namespace Pulumi.Azure.Nginx
     [AzureResourceType("azure:nginx/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+        /// </summary>
+        [Output("automaticUpgradeChannel")]
+        public Output<string?> AutomaticUpgradeChannel { get; private set; } = null!;
+
         /// <summary>
         /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
         /// 
@@ -205,7 +212,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -262,6 +269,12 @@ namespace Pulumi.Azure.Nginx
 
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+        /// </summary>
+        [Input("automaticUpgradeChannel")]
+        public Input<string>? AutomaticUpgradeChannel { get; set; }
+
         /// <summary>
         /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
         /// 
@@ -355,7 +368,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -380,6 +393,12 @@ namespace Pulumi.Azure.Nginx
 
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+        /// </summary>
+        [Input("automaticUpgradeChannel")]
+        public Input<string>? AutomaticUpgradeChannel { get; set; }
+
         /// <summary>
         /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
         /// 
@@ -485,7 +504,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+        /// Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`. Changing this forces a new Nginx Deployment to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

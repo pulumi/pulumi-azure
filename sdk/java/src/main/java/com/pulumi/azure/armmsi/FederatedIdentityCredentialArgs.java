@@ -17,14 +17,14 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     public static final FederatedIdentityCredentialArgs Empty = new FederatedIdentityCredentialArgs();
 
     /**
-     * Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the audience for this Federated Identity Credential.
      * 
      */
     @Import(name="audience", required=true)
     private Output<String> audience;
 
     /**
-     * @return Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the audience for this Federated Identity Credential.
      * 
      */
     public Output<String> audience() {
@@ -32,14 +32,14 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the issuer of this Federated Identity Credential.
      * 
      */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
     /**
-     * @return Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the issuer of this Federated Identity Credential.
      * 
      */
     public Output<String> issuer() {
@@ -47,14 +47,14 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the name of this Federated Identity Credential.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the name of this Federated Identity Credential.
      * 
      */
     public Optional<Output<String>> name() {
@@ -92,14 +92,14 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * Specifies the subject for this Federated Identity Credential.
      * 
      */
     @Import(name="subject", required=true)
     private Output<String> subject;
 
     /**
-     * @return Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @return Specifies the subject for this Federated Identity Credential.
      * 
      */
     public Output<String> subject() {
@@ -136,7 +136,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param audience Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param audience Specifies the audience for this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param audience Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param audience Specifies the audience for this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param issuer Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param issuer Specifies the issuer of this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param issuer Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param issuer Specifies the issuer of this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param name Specifies the name of this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param name Specifies the name of this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subject Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param subject Specifies the subject for this Federated Identity Credential.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subject Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * @param subject Specifies the subject for this Federated Identity Credential.
          * 
          * @return builder
          * 

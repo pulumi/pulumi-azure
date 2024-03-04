@@ -48,7 +48,7 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicate that system assigned identity should be used or not. Defaults to `true`.
+     * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
      * 
      * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
      * 
@@ -59,7 +59,7 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<Boolean> useSystemAssignedIdentity;
 
     /**
-     * @return Indicate that system assigned identity should be used or not. Defaults to `true`.
+     * @return Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
      * 
      * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
      * 
@@ -155,7 +155,7 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`.
+         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
          * 
          * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          * 
@@ -170,7 +170,7 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`.
+         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
          * 
          * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          * 

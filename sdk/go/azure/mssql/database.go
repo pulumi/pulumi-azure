@@ -273,8 +273,12 @@ type Database struct {
 	ReadScale pulumi.BoolOutput `pulumi:"readScale"`
 	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
 	RecoverDatabaseId pulumi.StringPtrOutput `pulumi:"recoverDatabaseId"`
+	// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+	RecoveryPointId pulumi.StringPtrOutput `pulumi:"recoveryPointId"`
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId pulumi.StringPtrOutput `pulumi:"restoreDroppedDatabaseId"`
+	// The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+	RestoreLongTermRetentionBackupId pulumi.StringPtrOutput `pulumi:"restoreLongTermRetentionBackupId"`
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -392,8 +396,12 @@ type databaseState struct {
 	ReadScale *bool `pulumi:"readScale"`
 	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
 	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
+	// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+	RecoveryPointId *string `pulumi:"recoveryPointId"`
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId *string `pulumi:"restoreDroppedDatabaseId"`
+	// The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+	RestoreLongTermRetentionBackupId *string `pulumi:"restoreLongTermRetentionBackupId"`
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -479,8 +487,12 @@ type DatabaseState struct {
 	ReadScale pulumi.BoolPtrInput
 	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
 	RecoverDatabaseId pulumi.StringPtrInput
+	// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+	RecoveryPointId pulumi.StringPtrInput
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId pulumi.StringPtrInput
+	// The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+	RestoreLongTermRetentionBackupId pulumi.StringPtrInput
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -570,8 +582,12 @@ type databaseArgs struct {
 	ReadScale *bool `pulumi:"readScale"`
 	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
 	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
+	// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+	RecoveryPointId *string `pulumi:"recoveryPointId"`
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId *string `pulumi:"restoreDroppedDatabaseId"`
+	// The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+	RestoreLongTermRetentionBackupId *string `pulumi:"restoreLongTermRetentionBackupId"`
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -658,8 +674,12 @@ type DatabaseArgs struct {
 	ReadScale pulumi.BoolPtrInput
 	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
 	RecoverDatabaseId pulumi.StringPtrInput
+	// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+	RecoveryPointId pulumi.StringPtrInput
 	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 	RestoreDroppedDatabaseId pulumi.StringPtrInput
+	// The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+	RestoreLongTermRetentionBackupId pulumi.StringPtrInput
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -888,9 +908,19 @@ func (o DatabaseOutput) RecoverDatabaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RecoverDatabaseId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `createMode` is `Recovery`.
+func (o DatabaseOutput) RecoveryPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RecoveryPointId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
 func (o DatabaseOutput) RestoreDroppedDatabaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RestoreDroppedDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the long term retention backup to be restored. This property is only applicable when the `createMode` is `RestoreLongTermRetentionBackup`.
+func (o DatabaseOutput) RestoreLongTermRetentionBackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RestoreLongTermRetentionBackupId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore` databases.

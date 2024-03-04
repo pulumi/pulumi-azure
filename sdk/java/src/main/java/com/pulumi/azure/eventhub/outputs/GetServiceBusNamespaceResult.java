@@ -56,6 +56,11 @@ public final class GetServiceBusNamespaceResult {
      */
     private String location;
     private String name;
+    /**
+     * @return The messaging partitions of the ServiceBus Namespace.
+     * 
+     */
+    private Integer premiumMessagingPartitions;
     private String resourceGroupName;
     /**
      * @return The Tier used for the ServiceBus Namespace.
@@ -135,6 +140,13 @@ public final class GetServiceBusNamespaceResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The messaging partitions of the ServiceBus Namespace.
+     * 
+     */
+    public Integer premiumMessagingPartitions() {
+        return this.premiumMessagingPartitions;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -178,6 +190,7 @@ public final class GetServiceBusNamespaceResult {
         private String id;
         private String location;
         private String name;
+        private Integer premiumMessagingPartitions;
         private String resourceGroupName;
         private String sku;
         private Map<String,String> tags;
@@ -194,6 +207,7 @@ public final class GetServiceBusNamespaceResult {
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.premiumMessagingPartitions = defaults.premiumMessagingPartitions;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
     	      this.tags = defaults.tags;
@@ -273,6 +287,14 @@ public final class GetServiceBusNamespaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder premiumMessagingPartitions(Integer premiumMessagingPartitions) {
+            if (premiumMessagingPartitions == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "premiumMessagingPartitions");
+            }
+            this.premiumMessagingPartitions = premiumMessagingPartitions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "resourceGroupName");
@@ -315,6 +337,7 @@ public final class GetServiceBusNamespaceResult {
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.premiumMessagingPartitions = premiumMessagingPartitions;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.sku = sku;
             _resultValue.tags = tags;

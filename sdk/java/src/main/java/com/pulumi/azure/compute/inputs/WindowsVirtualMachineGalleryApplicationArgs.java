@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class WindowsVirtualMachineGalleryApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WindowsVirtualMachineGalleryApplicationArgs Empty = new WindowsVirtualMachineGalleryApplicationArgs();
+
+    /**
+     * Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+     * 
+     */
+    @Import(name="automaticUpgradeEnabled")
+    private @Nullable Output<Boolean> automaticUpgradeEnabled;
+
+    /**
+     * @return Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> automaticUpgradeEnabled() {
+        return Optional.ofNullable(this.automaticUpgradeEnabled);
+    }
 
     /**
      * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
@@ -63,6 +79,21 @@ public final class WindowsVirtualMachineGalleryApplicationArgs extends com.pulum
     }
 
     /**
+     * Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+     * 
+     */
+    @Import(name="treatFailureAsDeploymentFailureEnabled")
+    private @Nullable Output<Boolean> treatFailureAsDeploymentFailureEnabled;
+
+    /**
+     * @return Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> treatFailureAsDeploymentFailureEnabled() {
+        return Optional.ofNullable(this.treatFailureAsDeploymentFailureEnabled);
+    }
+
+    /**
      * Specifies the Gallery Application Version resource ID.
      * 
      */
@@ -80,9 +111,11 @@ public final class WindowsVirtualMachineGalleryApplicationArgs extends com.pulum
     private WindowsVirtualMachineGalleryApplicationArgs() {}
 
     private WindowsVirtualMachineGalleryApplicationArgs(WindowsVirtualMachineGalleryApplicationArgs $) {
+        this.automaticUpgradeEnabled = $.automaticUpgradeEnabled;
         this.configurationBlobUri = $.configurationBlobUri;
         this.order = $.order;
         this.tag = $.tag;
+        this.treatFailureAsDeploymentFailureEnabled = $.treatFailureAsDeploymentFailureEnabled;
         this.versionId = $.versionId;
     }
 
@@ -102,6 +135,27 @@ public final class WindowsVirtualMachineGalleryApplicationArgs extends com.pulum
 
         public Builder(WindowsVirtualMachineGalleryApplicationArgs defaults) {
             $ = new WindowsVirtualMachineGalleryApplicationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param automaticUpgradeEnabled Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpgradeEnabled(@Nullable Output<Boolean> automaticUpgradeEnabled) {
+            $.automaticUpgradeEnabled = automaticUpgradeEnabled;
+            return this;
+        }
+
+        /**
+         * @param automaticUpgradeEnabled Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpgradeEnabled(Boolean automaticUpgradeEnabled) {
+            return automaticUpgradeEnabled(Output.of(automaticUpgradeEnabled));
         }
 
         /**
@@ -165,6 +219,27 @@ public final class WindowsVirtualMachineGalleryApplicationArgs extends com.pulum
          */
         public Builder tag(String tag) {
             return tag(Output.of(tag));
+        }
+
+        /**
+         * @param treatFailureAsDeploymentFailureEnabled Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder treatFailureAsDeploymentFailureEnabled(@Nullable Output<Boolean> treatFailureAsDeploymentFailureEnabled) {
+            $.treatFailureAsDeploymentFailureEnabled = treatFailureAsDeploymentFailureEnabled;
+            return this;
+        }
+
+        /**
+         * @param treatFailureAsDeploymentFailureEnabled Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder treatFailureAsDeploymentFailureEnabled(Boolean treatFailureAsDeploymentFailureEnabled) {
+            return treatFailureAsDeploymentFailureEnabled(Output.of(treatFailureAsDeploymentFailureEnabled));
         }
 
         /**

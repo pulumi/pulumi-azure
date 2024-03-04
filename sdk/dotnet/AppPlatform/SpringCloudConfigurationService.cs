@@ -92,6 +92,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies how often to check repository updates. Minimum value is 0.
+        /// </summary>
+        [Output("refreshIntervalInSeconds")]
+        public Output<int?> RefreshIntervalInSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `repository` blocks as defined below.
         /// </summary>
         [Output("repositories")]
@@ -161,6 +167,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies how often to check repository updates. Minimum value is 0.
+        /// </summary>
+        [Input("refreshIntervalInSeconds")]
+        public Input<int>? RefreshIntervalInSeconds { get; set; }
+
         [Input("repositories")]
         private InputList<Inputs.SpringCloudConfigurationServiceRepositoryArgs>? _repositories;
 
@@ -198,6 +210,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies how often to check repository updates. Minimum value is 0.
+        /// </summary>
+        [Input("refreshIntervalInSeconds")]
+        public Input<int>? RefreshIntervalInSeconds { get; set; }
 
         [Input("repositories")]
         private InputList<Inputs.SpringCloudConfigurationServiceRepositoryGetArgs>? _repositories;

@@ -15,6 +15,7 @@ public final class GetCacheRedisConfiguration {
     private Boolean aofBackupEnabled;
     private String aofStorageConnectionString0;
     private String aofStorageConnectionString1;
+    private String dataPersistenceAuthenticationMethod;
     /**
      * @return Specifies if authentication is enabled
      * 
@@ -77,6 +78,9 @@ public final class GetCacheRedisConfiguration {
     }
     public String aofStorageConnectionString1() {
         return this.aofStorageConnectionString1;
+    }
+    public String dataPersistenceAuthenticationMethod() {
+        return this.dataPersistenceAuthenticationMethod;
     }
     /**
      * @return Specifies if authentication is enabled
@@ -167,6 +171,7 @@ public final class GetCacheRedisConfiguration {
         private Boolean aofBackupEnabled;
         private String aofStorageConnectionString0;
         private String aofStorageConnectionString1;
+        private String dataPersistenceAuthenticationMethod;
         private Boolean enableAuthentication;
         private Integer maxclients;
         private Integer maxfragmentationmemoryReserved;
@@ -185,6 +190,7 @@ public final class GetCacheRedisConfiguration {
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
     	      this.aofStorageConnectionString0 = defaults.aofStorageConnectionString0;
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
+    	      this.dataPersistenceAuthenticationMethod = defaults.dataPersistenceAuthenticationMethod;
     	      this.enableAuthentication = defaults.enableAuthentication;
     	      this.maxclients = defaults.maxclients;
     	      this.maxfragmentationmemoryReserved = defaults.maxfragmentationmemoryReserved;
@@ -221,6 +227,14 @@ public final class GetCacheRedisConfiguration {
               throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "aofStorageConnectionString1");
             }
             this.aofStorageConnectionString1 = aofStorageConnectionString1;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataPersistenceAuthenticationMethod(String dataPersistenceAuthenticationMethod) {
+            if (dataPersistenceAuthenticationMethod == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "dataPersistenceAuthenticationMethod");
+            }
+            this.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             return this;
         }
         @CustomType.Setter
@@ -324,6 +338,7 @@ public final class GetCacheRedisConfiguration {
             _resultValue.aofBackupEnabled = aofBackupEnabled;
             _resultValue.aofStorageConnectionString0 = aofStorageConnectionString0;
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;
+            _resultValue.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             _resultValue.enableAuthentication = enableAuthentication;
             _resultValue.maxclients = maxclients;
             _resultValue.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;

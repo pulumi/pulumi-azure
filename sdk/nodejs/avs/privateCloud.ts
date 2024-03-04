@@ -81,8 +81,8 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly hcxCloudManagerEndpoint!: pulumi.Output<string>;
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     public readonly internetConnectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -91,7 +91,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * A `managementCluster` block as defined below.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     public readonly managementCluster!: pulumi.Output<outputs.avs.PrivateCloudManagementCluster>;
     /**
@@ -237,8 +237,8 @@ export interface PrivateCloudState {
      */
     hcxCloudManagerEndpoint?: pulumi.Input<string>;
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     internetConnectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -247,7 +247,7 @@ export interface PrivateCloudState {
     location?: pulumi.Input<string>;
     /**
      * A `managementCluster` block as defined below.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     managementCluster?: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
     /**
@@ -313,8 +313,8 @@ export interface PrivateCloudState {
  */
 export interface PrivateCloudArgs {
     /**
-     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster[0].size` together.
+     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     internetConnectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -323,7 +323,7 @@ export interface PrivateCloudArgs {
     location?: pulumi.Input<string>;
     /**
      * A `managementCluster` block as defined below.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
+     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     managementCluster: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
     /**

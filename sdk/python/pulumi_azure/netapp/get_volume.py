@@ -22,7 +22,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, account_name=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -65,6 +65,12 @@ class GetVolumeResult:
         if service_level and not isinstance(service_level, str):
             raise TypeError("Expected argument 'service_level' to be a str")
         pulumi.set(__self__, "service_level", service_level)
+        if smb_access_based_enumeration_enabled and not isinstance(smb_access_based_enumeration_enabled, bool):
+            raise TypeError("Expected argument 'smb_access_based_enumeration_enabled' to be a bool")
+        pulumi.set(__self__, "smb_access_based_enumeration_enabled", smb_access_based_enumeration_enabled)
+        if smb_non_browsable_enabled and not isinstance(smb_non_browsable_enabled, bool):
+            raise TypeError("Expected argument 'smb_non_browsable_enabled' to be a bool")
+        pulumi.set(__self__, "smb_non_browsable_enabled", smb_non_browsable_enabled)
         if storage_quota_in_gb and not isinstance(storage_quota_in_gb, int):
             raise TypeError("Expected argument 'storage_quota_in_gb' to be a int")
         pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
@@ -173,6 +179,23 @@ class GetVolumeResult:
         return pulumi.get(self, "service_level")
 
     @property
+    @pulumi.getter(name="smbAccessBasedEnumerationEnabled")
+    def smb_access_based_enumeration_enabled(self) -> bool:
+        """
+        Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+        ---
+        """
+        return pulumi.get(self, "smb_access_based_enumeration_enabled")
+
+    @property
+    @pulumi.getter(name="smbNonBrowsableEnabled")
+    def smb_non_browsable_enabled(self) -> bool:
+        """
+        Limits clients from browsing for an SMB share.
+        """
+        return pulumi.get(self, "smb_non_browsable_enabled")
+
+    @property
     @pulumi.getter(name="storageQuotaInGb")
     def storage_quota_in_gb(self) -> int:
         """
@@ -225,6 +248,8 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             resource_group_name=self.resource_group_name,
             security_style=self.security_style,
             service_level=self.service_level,
+            smb_access_based_enumeration_enabled=self.smb_access_based_enumeration_enabled,
+            smb_non_browsable_enabled=self.smb_non_browsable_enabled,
             storage_quota_in_gb=self.storage_quota_in_gb,
             subnet_id=self.subnet_id,
             volume_path=self.volume_path,
@@ -284,6 +309,8 @@ def get_volume(account_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         security_style=pulumi.get(__ret__, 'security_style'),
         service_level=pulumi.get(__ret__, 'service_level'),
+        smb_access_based_enumeration_enabled=pulumi.get(__ret__, 'smb_access_based_enumeration_enabled'),
+        smb_non_browsable_enabled=pulumi.get(__ret__, 'smb_non_browsable_enabled'),
         storage_quota_in_gb=pulumi.get(__ret__, 'storage_quota_in_gb'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         volume_path=pulumi.get(__ret__, 'volume_path'),

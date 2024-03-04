@@ -22,6 +22,11 @@ public final class WorkspaceCustomerManagedKey {
      * 
      */
     private String keyVersionlessId;
+    /**
+     * @return The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+     * 
+     */
+    private @Nullable String userAssignedIdentityId;
 
     private WorkspaceCustomerManagedKey() {}
     /**
@@ -38,6 +43,13 @@ public final class WorkspaceCustomerManagedKey {
     public String keyVersionlessId() {
         return this.keyVersionlessId;
     }
+    /**
+     * @return The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+     * 
+     */
+    public Optional<String> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +62,13 @@ public final class WorkspaceCustomerManagedKey {
     public static final class Builder {
         private @Nullable String keyName;
         private String keyVersionlessId;
+        private @Nullable String userAssignedIdentityId;
         public Builder() {}
         public Builder(WorkspaceCustomerManagedKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyName = defaults.keyName;
     	      this.keyVersionlessId = defaults.keyVersionlessId;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
@@ -71,10 +85,17 @@ public final class WorkspaceCustomerManagedKey {
             this.keyVersionlessId = keyVersionlessId;
             return this;
         }
+        @CustomType.Setter
+        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
+            this.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
         public WorkspaceCustomerManagedKey build() {
             final var _resultValue = new WorkspaceCustomerManagedKey();
             _resultValue.keyName = keyName;
             _resultValue.keyVersionlessId = keyVersionlessId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
             return _resultValue;
         }
     }

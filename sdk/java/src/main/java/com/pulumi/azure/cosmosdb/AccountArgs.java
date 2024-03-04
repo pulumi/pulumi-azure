@@ -365,6 +365,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * 
+     */
+    @Import(name="minimalTlsVersion")
+    private @Nullable Output<String> minimalTlsVersion;
+
+    /**
+     * @return Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * 
+     */
+    public Optional<Output<String>> minimalTlsVersion() {
+        return Optional.ofNullable(this.minimalTlsVersion);
+    }
+
+    /**
      * The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
      * 
      */
@@ -557,6 +572,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.kind = $.kind;
         this.localAuthenticationDisabled = $.localAuthenticationDisabled;
         this.location = $.location;
+        this.minimalTlsVersion = $.minimalTlsVersion;
         this.mongoServerVersion = $.mongoServerVersion;
         this.name = $.name;
         this.networkAclBypassForAzureServices = $.networkAclBypassForAzureServices;
@@ -1067,6 +1083,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimalTlsVersion(@Nullable Output<String> minimalTlsVersion) {
+            $.minimalTlsVersion = minimalTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimalTlsVersion(String minimalTlsVersion) {
+            return minimalTlsVersion(Output.of(minimalTlsVersion));
         }
 
         /**

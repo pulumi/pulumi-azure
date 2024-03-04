@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Synapse
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        /// An `aad_admin` block as defined below.
         /// </summary>
         [Output("aadAdmin")]
         public Output<Outputs.WorkspaceAadAdmin> AadAdmin { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Synapse
         public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        /// A `customer_managed_key` block as defined below.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.WorkspaceCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        /// An `aad_admin` block as defined below.
         /// </summary>
         [Input("aadAdmin")]
         public Input<Inputs.WorkspaceAadAdminArgs>? AadAdmin { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? ComputeSubnetId { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        /// A `customer_managed_key` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.WorkspaceCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
@@ -561,7 +561,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        /// An `aad_admin` block as defined below.
         /// </summary>
         [Input("aadAdmin")]
         public Input<Inputs.WorkspaceAadAdminGetArgs>? AadAdmin { get; set; }
@@ -597,7 +597,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        /// A `customer_managed_key` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.WorkspaceCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }

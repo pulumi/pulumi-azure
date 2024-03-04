@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly string? AofStorageConnectionString1;
         /// <summary>
+        /// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+        /// </summary>
+        public readonly string? DataPersistenceAuthenticationMethod;
+        /// <summary>
         /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
@@ -98,6 +102,8 @@ namespace Pulumi.Azure.Redis.Outputs
 
             string? aofStorageConnectionString1,
 
+            string? dataPersistenceAuthenticationMethod,
+
             bool? enableAuthentication,
 
             int? maxclients,
@@ -126,6 +132,7 @@ namespace Pulumi.Azure.Redis.Outputs
             AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;
+            DataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             EnableAuthentication = enableAuthentication;
             Maxclients = maxclients;
             MaxfragmentationmemoryReserved = maxfragmentationmemoryReserved;

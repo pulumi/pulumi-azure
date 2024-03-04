@@ -67,6 +67,21 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+     * 
+     */
+    @Import(name="tier")
+    private @Nullable Output<String> tier;
+
+    /**
+     * @return The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+     * 
+     */
+    public Optional<Output<String>> tier() {
+        return Optional.ofNullable(this.tier);
+    }
+
+    /**
      * The type of the `backup`. Possible values are `Continuous` and `Periodic`.
      * 
      * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -91,6 +106,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         this.intervalInMinutes = $.intervalInMinutes;
         this.retentionInHours = $.retentionInHours;
         this.storageRedundancy = $.storageRedundancy;
+        this.tier = $.tier;
         this.type = $.type;
     }
 
@@ -177,6 +193,27 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageRedundancy(String storageRedundancy) {
             return storageRedundancy(Output.of(storageRedundancy));
+        }
+
+        /**
+         * @param tier The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tier(@Nullable Output<String> tier) {
+            $.tier = tier;
+            return this;
+        }
+
+        /**
+         * @param tier The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tier(String tier) {
+            return tier(Output.of(tier));
         }
 
         /**

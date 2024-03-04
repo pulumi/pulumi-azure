@@ -41,9 +41,7 @@ class TopicArgs:
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
-               the Topic requires duplicate detection. Defaults to false. Changing this forces
-               a new resource to be created.
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
@@ -199,9 +197,7 @@ class TopicArgs:
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether Changing this forces a new resource to be created.
-        the Topic requires duplicate detection. Defaults to false. Changing this forces
-        a new resource to be created.
+        Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         """
         return pulumi.get(self, "requires_duplicate_detection")
 
@@ -266,9 +262,7 @@ class _TopicState:
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
-               the Topic requires duplicate detection. Defaults to false. Changing this forces
-               a new resource to be created.
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
@@ -438,9 +432,7 @@ class _TopicState:
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether Changing this forces a new resource to be created.
-        the Topic requires duplicate detection. Defaults to false. Changing this forces
-        a new resource to be created.
+        Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         """
         return pulumi.get(self, "requires_duplicate_detection")
 
@@ -551,9 +543,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
-               the Topic requires duplicate detection. Defaults to false. Changing this forces
-               a new resource to be created.
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
@@ -699,9 +689,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
-               the Topic requires duplicate detection. Defaults to false. Changing this forces
-               a new resource to be created.
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
@@ -817,9 +805,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether Changing this forces a new resource to be created.
-        the Topic requires duplicate detection. Defaults to false. Changing this forces
-        a new resource to be created.
+        Boolean flag which controls whether the Topic requires duplicate detection. Defaults to false. Changing this forcesa new resource to be created.
         """
         return pulumi.get(self, "requires_duplicate_detection")
 

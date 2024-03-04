@@ -990,14 +990,14 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
                  ssh_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth'] = None):
         """
         :param str url: Specifies Git repository URL for the accelerator.
-        :param 'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs' basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        :param 'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs' basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param str branch: Specifies the Git repository branch to be used.
         :param str ca_certificate_id: Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
         :param str commit: Specifies the Git repository commit to be used.
         :param str git_tag: Specifies the Git repository tag to be used.
         :param int interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
         :param str path: Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
-        :param 'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        :param 'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         pulumi.set(__self__, "url", url)
         if basic_auth is not None:
@@ -1029,7 +1029,7 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth']:
         """
-        A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -1085,7 +1085,7 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
     @pulumi.getter(name="sshAuth")
     def ssh_auth(self) -> Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth']:
         """
-        A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         return pulumi.get(self, "ssh_auth")
 

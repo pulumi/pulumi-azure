@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineGalleryApplication
     {
         /// <summary>
+        /// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+        /// </summary>
+        public readonly bool? AutomaticUpgradeEnabled;
+        /// <summary>
         /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
         /// </summary>
         public readonly string? ConfigurationBlobUri;
@@ -26,23 +30,33 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Tag;
         /// <summary>
+        /// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+        /// </summary>
+        public readonly bool? TreatFailureAsDeploymentFailureEnabled;
+        /// <summary>
         /// Specifies the Gallery Application Version resource ID.
         /// </summary>
         public readonly string VersionId;
 
         [OutputConstructor]
         private WindowsVirtualMachineGalleryApplication(
+            bool? automaticUpgradeEnabled,
+
             string? configurationBlobUri,
 
             int? order,
 
             string? tag,
 
+            bool? treatFailureAsDeploymentFailureEnabled,
+
             string versionId)
         {
+            AutomaticUpgradeEnabled = automaticUpgradeEnabled;
             ConfigurationBlobUri = configurationBlobUri;
             Order = order;
             Tag = tag;
+            TreatFailureAsDeploymentFailureEnabled = treatFailureAsDeploymentFailureEnabled;
             VersionId = versionId;
         }
     }

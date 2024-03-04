@@ -143,6 +143,669 @@ func (o ConnectedRegistryNotificationArrayOutput) Index(i pulumi.IntInput) Conne
 	}).(ConnectedRegistryNotificationOutput)
 }
 
+type FleetUpdateRunManagedClusterUpdate struct {
+	// A `nodeImageSelection` block as defined below.
+	NodeImageSelection *FleetUpdateRunManagedClusterUpdateNodeImageSelection `pulumi:"nodeImageSelection"`
+	// A `upgrade` block as defined below.
+	Upgrade FleetUpdateRunManagedClusterUpdateUpgrade `pulumi:"upgrade"`
+}
+
+// FleetUpdateRunManagedClusterUpdateInput is an input type that accepts FleetUpdateRunManagedClusterUpdateArgs and FleetUpdateRunManagedClusterUpdateOutput values.
+// You can construct a concrete instance of `FleetUpdateRunManagedClusterUpdateInput` via:
+//
+//	FleetUpdateRunManagedClusterUpdateArgs{...}
+type FleetUpdateRunManagedClusterUpdateInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunManagedClusterUpdateOutput() FleetUpdateRunManagedClusterUpdateOutput
+	ToFleetUpdateRunManagedClusterUpdateOutputWithContext(context.Context) FleetUpdateRunManagedClusterUpdateOutput
+}
+
+type FleetUpdateRunManagedClusterUpdateArgs struct {
+	// A `nodeImageSelection` block as defined below.
+	NodeImageSelection FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrInput `pulumi:"nodeImageSelection"`
+	// A `upgrade` block as defined below.
+	Upgrade FleetUpdateRunManagedClusterUpdateUpgradeInput `pulumi:"upgrade"`
+}
+
+func (FleetUpdateRunManagedClusterUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunManagedClusterUpdate)(nil)).Elem()
+}
+
+func (i FleetUpdateRunManagedClusterUpdateArgs) ToFleetUpdateRunManagedClusterUpdateOutput() FleetUpdateRunManagedClusterUpdateOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunManagedClusterUpdateArgs) ToFleetUpdateRunManagedClusterUpdateOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateOutput)
+}
+
+func (i FleetUpdateRunManagedClusterUpdateArgs) ToFleetUpdateRunManagedClusterUpdatePtrOutput() FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunManagedClusterUpdateArgs) ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateOutput).ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(ctx)
+}
+
+// FleetUpdateRunManagedClusterUpdatePtrInput is an input type that accepts FleetUpdateRunManagedClusterUpdateArgs, FleetUpdateRunManagedClusterUpdatePtr and FleetUpdateRunManagedClusterUpdatePtrOutput values.
+// You can construct a concrete instance of `FleetUpdateRunManagedClusterUpdatePtrInput` via:
+//
+//	        FleetUpdateRunManagedClusterUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetUpdateRunManagedClusterUpdatePtrInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunManagedClusterUpdatePtrOutput() FleetUpdateRunManagedClusterUpdatePtrOutput
+	ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(context.Context) FleetUpdateRunManagedClusterUpdatePtrOutput
+}
+
+type fleetUpdateRunManagedClusterUpdatePtrType FleetUpdateRunManagedClusterUpdateArgs
+
+func FleetUpdateRunManagedClusterUpdatePtr(v *FleetUpdateRunManagedClusterUpdateArgs) FleetUpdateRunManagedClusterUpdatePtrInput {
+	return (*fleetUpdateRunManagedClusterUpdatePtrType)(v)
+}
+
+func (*fleetUpdateRunManagedClusterUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetUpdateRunManagedClusterUpdate)(nil)).Elem()
+}
+
+func (i *fleetUpdateRunManagedClusterUpdatePtrType) ToFleetUpdateRunManagedClusterUpdatePtrOutput() FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *fleetUpdateRunManagedClusterUpdatePtrType) ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdatePtrOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunManagedClusterUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunManagedClusterUpdate)(nil)).Elem()
+}
+
+func (o FleetUpdateRunManagedClusterUpdateOutput) ToFleetUpdateRunManagedClusterUpdateOutput() FleetUpdateRunManagedClusterUpdateOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateOutput) ToFleetUpdateRunManagedClusterUpdateOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateOutput) ToFleetUpdateRunManagedClusterUpdatePtrOutput() FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return o.ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o FleetUpdateRunManagedClusterUpdateOutput) ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetUpdateRunManagedClusterUpdate) *FleetUpdateRunManagedClusterUpdate {
+		return &v
+	}).(FleetUpdateRunManagedClusterUpdatePtrOutput)
+}
+
+// A `nodeImageSelection` block as defined below.
+func (o FleetUpdateRunManagedClusterUpdateOutput) NodeImageSelection() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return o.ApplyT(func(v FleetUpdateRunManagedClusterUpdate) *FleetUpdateRunManagedClusterUpdateNodeImageSelection {
+		return v.NodeImageSelection
+	}).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput)
+}
+
+// A `upgrade` block as defined below.
+func (o FleetUpdateRunManagedClusterUpdateOutput) Upgrade() FleetUpdateRunManagedClusterUpdateUpgradeOutput {
+	return o.ApplyT(func(v FleetUpdateRunManagedClusterUpdate) FleetUpdateRunManagedClusterUpdateUpgrade { return v.Upgrade }).(FleetUpdateRunManagedClusterUpdateUpgradeOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunManagedClusterUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetUpdateRunManagedClusterUpdate)(nil)).Elem()
+}
+
+func (o FleetUpdateRunManagedClusterUpdatePtrOutput) ToFleetUpdateRunManagedClusterUpdatePtrOutput() FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdatePtrOutput) ToFleetUpdateRunManagedClusterUpdatePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdatePtrOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdatePtrOutput) Elem() FleetUpdateRunManagedClusterUpdateOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdate) FleetUpdateRunManagedClusterUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret FleetUpdateRunManagedClusterUpdate
+		return ret
+	}).(FleetUpdateRunManagedClusterUpdateOutput)
+}
+
+// A `nodeImageSelection` block as defined below.
+func (o FleetUpdateRunManagedClusterUpdatePtrOutput) NodeImageSelection() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdate) *FleetUpdateRunManagedClusterUpdateNodeImageSelection {
+		if v == nil {
+			return nil
+		}
+		return v.NodeImageSelection
+	}).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput)
+}
+
+// A `upgrade` block as defined below.
+func (o FleetUpdateRunManagedClusterUpdatePtrOutput) Upgrade() FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdate) *FleetUpdateRunManagedClusterUpdateUpgrade {
+		if v == nil {
+			return nil
+		}
+		return &v.Upgrade
+	}).(FleetUpdateRunManagedClusterUpdateUpgradePtrOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateNodeImageSelection struct {
+	// Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+	Type string `pulumi:"type"`
+}
+
+// FleetUpdateRunManagedClusterUpdateNodeImageSelectionInput is an input type that accepts FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs and FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput values.
+// You can construct a concrete instance of `FleetUpdateRunManagedClusterUpdateNodeImageSelectionInput` via:
+//
+//	FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs{...}
+type FleetUpdateRunManagedClusterUpdateNodeImageSelectionInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput
+	ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutputWithContext(context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput
+}
+
+type FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs struct {
+	// Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateNodeImageSelection)(nil)).Elem()
+}
+
+func (i FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput)
+}
+
+func (i FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput).ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(ctx)
+}
+
+// FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrInput is an input type that accepts FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs, FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtr and FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput values.
+// You can construct a concrete instance of `FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrInput` via:
+//
+//	        FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput
+	ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput
+}
+
+type fleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrType FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs
+
+func FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtr(v *FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs) FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrInput {
+	return (*fleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrType)(v)
+}
+
+func (*fleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetUpdateRunManagedClusterUpdateNodeImageSelection)(nil)).Elem()
+}
+
+func (i *fleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrType) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrType) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateNodeImageSelection)(nil)).Elem()
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return o.ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetUpdateRunManagedClusterUpdateNodeImageSelection) *FleetUpdateRunManagedClusterUpdateNodeImageSelection {
+		return &v
+	}).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput)
+}
+
+// Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetUpdateRunManagedClusterUpdateNodeImageSelection) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetUpdateRunManagedClusterUpdateNodeImageSelection)(nil)).Elem()
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput() FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput) ToFleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput) Elem() FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdateNodeImageSelection) FleetUpdateRunManagedClusterUpdateNodeImageSelection {
+		if v != nil {
+			return *v
+		}
+		var ret FleetUpdateRunManagedClusterUpdateNodeImageSelection
+		return ret
+	}).(FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput)
+}
+
+// Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+func (o FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdateNodeImageSelection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateUpgrade struct {
+	// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+	Type string `pulumi:"type"`
+}
+
+// FleetUpdateRunManagedClusterUpdateUpgradeInput is an input type that accepts FleetUpdateRunManagedClusterUpdateUpgradeArgs and FleetUpdateRunManagedClusterUpdateUpgradeOutput values.
+// You can construct a concrete instance of `FleetUpdateRunManagedClusterUpdateUpgradeInput` via:
+//
+//	FleetUpdateRunManagedClusterUpdateUpgradeArgs{...}
+type FleetUpdateRunManagedClusterUpdateUpgradeInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunManagedClusterUpdateUpgradeOutput() FleetUpdateRunManagedClusterUpdateUpgradeOutput
+	ToFleetUpdateRunManagedClusterUpdateUpgradeOutputWithContext(context.Context) FleetUpdateRunManagedClusterUpdateUpgradeOutput
+}
+
+type FleetUpdateRunManagedClusterUpdateUpgradeArgs struct {
+	// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+	KubernetesVersion pulumi.StringPtrInput `pulumi:"kubernetesVersion"`
+	// Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FleetUpdateRunManagedClusterUpdateUpgradeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateUpgrade)(nil)).Elem()
+}
+
+func (i FleetUpdateRunManagedClusterUpdateUpgradeArgs) ToFleetUpdateRunManagedClusterUpdateUpgradeOutput() FleetUpdateRunManagedClusterUpdateUpgradeOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateUpgradeOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunManagedClusterUpdateUpgradeArgs) ToFleetUpdateRunManagedClusterUpdateUpgradeOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateUpgradeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateUpgradeOutput)
+}
+
+func (i FleetUpdateRunManagedClusterUpdateUpgradeArgs) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutput() FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunManagedClusterUpdateUpgradeArgs) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateUpgradeOutput).ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(ctx)
+}
+
+// FleetUpdateRunManagedClusterUpdateUpgradePtrInput is an input type that accepts FleetUpdateRunManagedClusterUpdateUpgradeArgs, FleetUpdateRunManagedClusterUpdateUpgradePtr and FleetUpdateRunManagedClusterUpdateUpgradePtrOutput values.
+// You can construct a concrete instance of `FleetUpdateRunManagedClusterUpdateUpgradePtrInput` via:
+//
+//	        FleetUpdateRunManagedClusterUpdateUpgradeArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetUpdateRunManagedClusterUpdateUpgradePtrInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutput() FleetUpdateRunManagedClusterUpdateUpgradePtrOutput
+	ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(context.Context) FleetUpdateRunManagedClusterUpdateUpgradePtrOutput
+}
+
+type fleetUpdateRunManagedClusterUpdateUpgradePtrType FleetUpdateRunManagedClusterUpdateUpgradeArgs
+
+func FleetUpdateRunManagedClusterUpdateUpgradePtr(v *FleetUpdateRunManagedClusterUpdateUpgradeArgs) FleetUpdateRunManagedClusterUpdateUpgradePtrInput {
+	return (*fleetUpdateRunManagedClusterUpdateUpgradePtrType)(v)
+}
+
+func (*fleetUpdateRunManagedClusterUpdateUpgradePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetUpdateRunManagedClusterUpdateUpgrade)(nil)).Elem()
+}
+
+func (i *fleetUpdateRunManagedClusterUpdateUpgradePtrType) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutput() FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return i.ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(context.Background())
+}
+
+func (i *fleetUpdateRunManagedClusterUpdateUpgradePtrType) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunManagedClusterUpdateUpgradePtrOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateUpgradeOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunManagedClusterUpdateUpgradeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateUpgrade)(nil)).Elem()
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradeOutput) ToFleetUpdateRunManagedClusterUpdateUpgradeOutput() FleetUpdateRunManagedClusterUpdateUpgradeOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradeOutput) ToFleetUpdateRunManagedClusterUpdateUpgradeOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateUpgradeOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradeOutput) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutput() FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return o.ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(context.Background())
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradeOutput) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetUpdateRunManagedClusterUpdateUpgrade) *FleetUpdateRunManagedClusterUpdateUpgrade {
+		return &v
+	}).(FleetUpdateRunManagedClusterUpdateUpgradePtrOutput)
+}
+
+// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+func (o FleetUpdateRunManagedClusterUpdateUpgradeOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetUpdateRunManagedClusterUpdateUpgrade) *string { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+func (o FleetUpdateRunManagedClusterUpdateUpgradeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetUpdateRunManagedClusterUpdateUpgrade) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FleetUpdateRunManagedClusterUpdateUpgradePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunManagedClusterUpdateUpgradePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetUpdateRunManagedClusterUpdateUpgrade)(nil)).Elem()
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradePtrOutput) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutput() FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradePtrOutput) ToFleetUpdateRunManagedClusterUpdateUpgradePtrOutputWithContext(ctx context.Context) FleetUpdateRunManagedClusterUpdateUpgradePtrOutput {
+	return o
+}
+
+func (o FleetUpdateRunManagedClusterUpdateUpgradePtrOutput) Elem() FleetUpdateRunManagedClusterUpdateUpgradeOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdateUpgrade) FleetUpdateRunManagedClusterUpdateUpgrade {
+		if v != nil {
+			return *v
+		}
+		var ret FleetUpdateRunManagedClusterUpdateUpgrade
+		return ret
+	}).(FleetUpdateRunManagedClusterUpdateUpgradeOutput)
+}
+
+// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+func (o FleetUpdateRunManagedClusterUpdateUpgradePtrOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdateUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubernetesVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+func (o FleetUpdateRunManagedClusterUpdateUpgradePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetUpdateRunManagedClusterUpdateUpgrade) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetUpdateRunStage struct {
+	// Specifies the time in seconds to wait at the end of this stage before starting the next one.
+	AfterStageWaitInSeconds *int `pulumi:"afterStageWaitInSeconds"`
+	// One or more `group` blocks as defined below.
+	Groups []FleetUpdateRunStageGroup `pulumi:"groups"`
+	// The name which should be used for this stage.
+	Name string `pulumi:"name"`
+}
+
+// FleetUpdateRunStageInput is an input type that accepts FleetUpdateRunStageArgs and FleetUpdateRunStageOutput values.
+// You can construct a concrete instance of `FleetUpdateRunStageInput` via:
+//
+//	FleetUpdateRunStageArgs{...}
+type FleetUpdateRunStageInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunStageOutput() FleetUpdateRunStageOutput
+	ToFleetUpdateRunStageOutputWithContext(context.Context) FleetUpdateRunStageOutput
+}
+
+type FleetUpdateRunStageArgs struct {
+	// Specifies the time in seconds to wait at the end of this stage before starting the next one.
+	AfterStageWaitInSeconds pulumi.IntPtrInput `pulumi:"afterStageWaitInSeconds"`
+	// One or more `group` blocks as defined below.
+	Groups FleetUpdateRunStageGroupArrayInput `pulumi:"groups"`
+	// The name which should be used for this stage.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FleetUpdateRunStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunStage)(nil)).Elem()
+}
+
+func (i FleetUpdateRunStageArgs) ToFleetUpdateRunStageOutput() FleetUpdateRunStageOutput {
+	return i.ToFleetUpdateRunStageOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunStageArgs) ToFleetUpdateRunStageOutputWithContext(ctx context.Context) FleetUpdateRunStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunStageOutput)
+}
+
+// FleetUpdateRunStageArrayInput is an input type that accepts FleetUpdateRunStageArray and FleetUpdateRunStageArrayOutput values.
+// You can construct a concrete instance of `FleetUpdateRunStageArrayInput` via:
+//
+//	FleetUpdateRunStageArray{ FleetUpdateRunStageArgs{...} }
+type FleetUpdateRunStageArrayInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunStageArrayOutput() FleetUpdateRunStageArrayOutput
+	ToFleetUpdateRunStageArrayOutputWithContext(context.Context) FleetUpdateRunStageArrayOutput
+}
+
+type FleetUpdateRunStageArray []FleetUpdateRunStageInput
+
+func (FleetUpdateRunStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateRunStage)(nil)).Elem()
+}
+
+func (i FleetUpdateRunStageArray) ToFleetUpdateRunStageArrayOutput() FleetUpdateRunStageArrayOutput {
+	return i.ToFleetUpdateRunStageArrayOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunStageArray) ToFleetUpdateRunStageArrayOutputWithContext(ctx context.Context) FleetUpdateRunStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunStageArrayOutput)
+}
+
+type FleetUpdateRunStageOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunStage)(nil)).Elem()
+}
+
+func (o FleetUpdateRunStageOutput) ToFleetUpdateRunStageOutput() FleetUpdateRunStageOutput {
+	return o
+}
+
+func (o FleetUpdateRunStageOutput) ToFleetUpdateRunStageOutputWithContext(ctx context.Context) FleetUpdateRunStageOutput {
+	return o
+}
+
+// Specifies the time in seconds to wait at the end of this stage before starting the next one.
+func (o FleetUpdateRunStageOutput) AfterStageWaitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetUpdateRunStage) *int { return v.AfterStageWaitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// One or more `group` blocks as defined below.
+func (o FleetUpdateRunStageOutput) Groups() FleetUpdateRunStageGroupArrayOutput {
+	return o.ApplyT(func(v FleetUpdateRunStage) []FleetUpdateRunStageGroup { return v.Groups }).(FleetUpdateRunStageGroupArrayOutput)
+}
+
+// The name which should be used for this stage.
+func (o FleetUpdateRunStageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetUpdateRunStage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FleetUpdateRunStageArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateRunStage)(nil)).Elem()
+}
+
+func (o FleetUpdateRunStageArrayOutput) ToFleetUpdateRunStageArrayOutput() FleetUpdateRunStageArrayOutput {
+	return o
+}
+
+func (o FleetUpdateRunStageArrayOutput) ToFleetUpdateRunStageArrayOutputWithContext(ctx context.Context) FleetUpdateRunStageArrayOutput {
+	return o
+}
+
+func (o FleetUpdateRunStageArrayOutput) Index(i pulumi.IntInput) FleetUpdateRunStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetUpdateRunStage {
+		return vs[0].([]FleetUpdateRunStage)[vs[1].(int)]
+	}).(FleetUpdateRunStageOutput)
+}
+
+type FleetUpdateRunStageGroup struct {
+	// The name which should be used for this group.
+	Name string `pulumi:"name"`
+}
+
+// FleetUpdateRunStageGroupInput is an input type that accepts FleetUpdateRunStageGroupArgs and FleetUpdateRunStageGroupOutput values.
+// You can construct a concrete instance of `FleetUpdateRunStageGroupInput` via:
+//
+//	FleetUpdateRunStageGroupArgs{...}
+type FleetUpdateRunStageGroupInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunStageGroupOutput() FleetUpdateRunStageGroupOutput
+	ToFleetUpdateRunStageGroupOutputWithContext(context.Context) FleetUpdateRunStageGroupOutput
+}
+
+type FleetUpdateRunStageGroupArgs struct {
+	// The name which should be used for this group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FleetUpdateRunStageGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunStageGroup)(nil)).Elem()
+}
+
+func (i FleetUpdateRunStageGroupArgs) ToFleetUpdateRunStageGroupOutput() FleetUpdateRunStageGroupOutput {
+	return i.ToFleetUpdateRunStageGroupOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunStageGroupArgs) ToFleetUpdateRunStageGroupOutputWithContext(ctx context.Context) FleetUpdateRunStageGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunStageGroupOutput)
+}
+
+// FleetUpdateRunStageGroupArrayInput is an input type that accepts FleetUpdateRunStageGroupArray and FleetUpdateRunStageGroupArrayOutput values.
+// You can construct a concrete instance of `FleetUpdateRunStageGroupArrayInput` via:
+//
+//	FleetUpdateRunStageGroupArray{ FleetUpdateRunStageGroupArgs{...} }
+type FleetUpdateRunStageGroupArrayInput interface {
+	pulumi.Input
+
+	ToFleetUpdateRunStageGroupArrayOutput() FleetUpdateRunStageGroupArrayOutput
+	ToFleetUpdateRunStageGroupArrayOutputWithContext(context.Context) FleetUpdateRunStageGroupArrayOutput
+}
+
+type FleetUpdateRunStageGroupArray []FleetUpdateRunStageGroupInput
+
+func (FleetUpdateRunStageGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateRunStageGroup)(nil)).Elem()
+}
+
+func (i FleetUpdateRunStageGroupArray) ToFleetUpdateRunStageGroupArrayOutput() FleetUpdateRunStageGroupArrayOutput {
+	return i.ToFleetUpdateRunStageGroupArrayOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateRunStageGroupArray) ToFleetUpdateRunStageGroupArrayOutputWithContext(ctx context.Context) FleetUpdateRunStageGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateRunStageGroupArrayOutput)
+}
+
+type FleetUpdateRunStageGroupOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunStageGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateRunStageGroup)(nil)).Elem()
+}
+
+func (o FleetUpdateRunStageGroupOutput) ToFleetUpdateRunStageGroupOutput() FleetUpdateRunStageGroupOutput {
+	return o
+}
+
+func (o FleetUpdateRunStageGroupOutput) ToFleetUpdateRunStageGroupOutputWithContext(ctx context.Context) FleetUpdateRunStageGroupOutput {
+	return o
+}
+
+// The name which should be used for this group.
+func (o FleetUpdateRunStageGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetUpdateRunStageGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FleetUpdateRunStageGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateRunStageGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateRunStageGroup)(nil)).Elem()
+}
+
+func (o FleetUpdateRunStageGroupArrayOutput) ToFleetUpdateRunStageGroupArrayOutput() FleetUpdateRunStageGroupArrayOutput {
+	return o
+}
+
+func (o FleetUpdateRunStageGroupArrayOutput) ToFleetUpdateRunStageGroupArrayOutputWithContext(ctx context.Context) FleetUpdateRunStageGroupArrayOutput {
+	return o
+}
+
+func (o FleetUpdateRunStageGroupArrayOutput) Index(i pulumi.IntInput) FleetUpdateRunStageGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetUpdateRunStageGroup {
+		return vs[0].([]FleetUpdateRunStageGroup)[vs[1].(int)]
+	}).(FleetUpdateRunStageGroupOutput)
+}
+
 type FleetUpdateStrategyStage struct {
 	// Specifies the time in seconds to wait at the end of this stage before starting the next one.
 	AfterStageWaitInSeconds *int `pulumi:"afterStageWaitInSeconds"`
@@ -6712,7 +7375,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId *string `pulumi:"podSubnetId"`
@@ -6828,7 +7491,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
@@ -7090,7 +7753,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
@@ -7460,7 +8123,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -10366,7 +11029,7 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 }
 
 type KubernetesClusterKeyManagementService struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess *string `pulumi:"keyVaultNetworkAccess"`
@@ -10384,7 +11047,7 @@ type KubernetesClusterKeyManagementServiceInput interface {
 }
 
 type KubernetesClusterKeyManagementServiceArgs struct {
-	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess pulumi.StringPtrInput `pulumi:"keyVaultNetworkAccess"`
@@ -10467,7 +11130,7 @@ func (o KubernetesClusterKeyManagementServiceOutput) ToKubernetesClusterKeyManag
 	}).(KubernetesClusterKeyManagementServicePtrOutput)
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
@@ -10501,7 +11164,7 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) Elem() KubernetesCluster
 	}).(KubernetesClusterKeyManagementServiceOutput)
 }
 
-// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
 		if v == nil {
@@ -13147,7 +13810,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
@@ -13221,7 +13884,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
@@ -13397,7 +14060,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 func (o KubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
@@ -13584,7 +14247,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 func (o KubernetesClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -21298,7 +21961,7 @@ func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TokenPasswordPassword1 struct {
-	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -21316,7 +21979,7 @@ type TokenPasswordPassword1Input interface {
 }
 
 type TokenPasswordPassword1Args struct {
-	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -21399,7 +22062,7 @@ func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutputWithConte
 	}).(TokenPasswordPassword1PtrOutput)
 }
 
-// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -21433,7 +22096,7 @@ func (o TokenPasswordPassword1PtrOutput) Elem() TokenPasswordPassword1Output {
 	}).(TokenPasswordPassword1Output)
 }
 
-// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword1) *string {
 		if v == nil {
@@ -21454,7 +22117,7 @@ func (o TokenPasswordPassword1PtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TokenPasswordPassword2 struct {
-	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -21472,7 +22135,7 @@ type TokenPasswordPassword2Input interface {
 }
 
 type TokenPasswordPassword2Args struct {
-	// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -21555,7 +22218,7 @@ func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutputWithConte
 	}).(TokenPasswordPassword2PtrOutput)
 }
 
-// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -21589,7 +22252,7 @@ func (o TokenPasswordPassword2PtrOutput) Elem() TokenPasswordPassword2Output {
 	}).(TokenPasswordPassword2Output)
 }
 
-// The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword2) *string {
 		if v == nil {
@@ -24673,6 +25336,16 @@ func (o GetKubernetesClusterWindowsProfileArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryNotificationInput)(nil)).Elem(), ConnectedRegistryNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryNotificationArrayInput)(nil)).Elem(), ConnectedRegistryNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateInput)(nil)).Elem(), FleetUpdateRunManagedClusterUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunManagedClusterUpdatePtrInput)(nil)).Elem(), FleetUpdateRunManagedClusterUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateNodeImageSelectionInput)(nil)).Elem(), FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrInput)(nil)).Elem(), FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateUpgradeInput)(nil)).Elem(), FleetUpdateRunManagedClusterUpdateUpgradeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunManagedClusterUpdateUpgradePtrInput)(nil)).Elem(), FleetUpdateRunManagedClusterUpdateUpgradeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunStageInput)(nil)).Elem(), FleetUpdateRunStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunStageArrayInput)(nil)).Elem(), FleetUpdateRunStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunStageGroupInput)(nil)).Elem(), FleetUpdateRunStageGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateRunStageGroupArrayInput)(nil)).Elem(), FleetUpdateRunStageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageInput)(nil)).Elem(), FleetUpdateStrategyStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageArrayInput)(nil)).Elem(), FleetUpdateStrategyStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageGroupInput)(nil)).Elem(), FleetUpdateStrategyStageGroupArgs{})
@@ -24943,6 +25616,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileArrayInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArray{})
 	pulumi.RegisterOutputType(ConnectedRegistryNotificationOutput{})
 	pulumi.RegisterOutputType(ConnectedRegistryNotificationArrayOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunManagedClusterUpdateOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunManagedClusterUpdatePtrOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunManagedClusterUpdateNodeImageSelectionOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunManagedClusterUpdateNodeImageSelectionPtrOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunManagedClusterUpdateUpgradeOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunManagedClusterUpdateUpgradePtrOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunStageOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunStageArrayOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunStageGroupOutput{})
+	pulumi.RegisterOutputType(FleetUpdateRunStageGroupArrayOutput{})
 	pulumi.RegisterOutputType(FleetUpdateStrategyStageOutput{})
 	pulumi.RegisterOutputType(FleetUpdateStrategyStageArrayOutput{})
 	pulumi.RegisterOutputType(FleetUpdateStrategyStageGroupOutput{})

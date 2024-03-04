@@ -1309,15 +1309,15 @@ func (o InferenceClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type InferenceClusterSsl struct {
-	// The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	Cert *string `pulumi:"cert"`
-	// The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	Cname *string `pulumi:"cname"`
-	// The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	Key *string `pulumi:"key"`
-	// The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	LeafDomainLabel *string `pulumi:"leafDomainLabel"`
-	// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	OverwriteExistingDomain *bool `pulumi:"overwriteExistingDomain"`
 }
 
@@ -1333,15 +1333,15 @@ type InferenceClusterSslInput interface {
 }
 
 type InferenceClusterSslArgs struct {
-	// The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
-	// The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	LeafDomainLabel pulumi.StringPtrInput `pulumi:"leafDomainLabel"`
-	// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+	// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 	OverwriteExistingDomain pulumi.BoolPtrInput `pulumi:"overwriteExistingDomain"`
 }
 
@@ -1422,27 +1422,27 @@ func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutputWithContext(ctx
 	}).(InferenceClusterSslPtrOutput)
 }
 
-// The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
-// The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslOutput) LeafDomainLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.LeafDomainLabel }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslOutput) OverwriteExistingDomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *bool { return v.OverwriteExistingDomain }).(pulumi.BoolPtrOutput)
 }
@@ -1471,7 +1471,7 @@ func (o InferenceClusterSslPtrOutput) Elem() InferenceClusterSslOutput {
 	}).(InferenceClusterSslOutput)
 }
 
-// The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslPtrOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -1481,7 +1481,7 @@ func (o InferenceClusterSslPtrOutput) Cert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslPtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -1491,7 +1491,7 @@ func (o InferenceClusterSslPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -1501,7 +1501,7 @@ func (o InferenceClusterSslPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslPtrOutput) LeafDomainLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -1511,7 +1511,7 @@ func (o InferenceClusterSslPtrOutput) LeafDomainLabel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+// Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
 func (o InferenceClusterSslPtrOutput) OverwriteExistingDomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *bool {
 		if v == nil {
@@ -2291,6 +2291,143 @@ func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceManagedNetwork struct {
+	// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+	IsolationMode *string `pulumi:"isolationMode"`
+}
+
+// WorkspaceManagedNetworkInput is an input type that accepts WorkspaceManagedNetworkArgs and WorkspaceManagedNetworkOutput values.
+// You can construct a concrete instance of `WorkspaceManagedNetworkInput` via:
+//
+//	WorkspaceManagedNetworkArgs{...}
+type WorkspaceManagedNetworkInput interface {
+	pulumi.Input
+
+	ToWorkspaceManagedNetworkOutput() WorkspaceManagedNetworkOutput
+	ToWorkspaceManagedNetworkOutputWithContext(context.Context) WorkspaceManagedNetworkOutput
+}
+
+type WorkspaceManagedNetworkArgs struct {
+	// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+	IsolationMode pulumi.StringPtrInput `pulumi:"isolationMode"`
+}
+
+func (WorkspaceManagedNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceManagedNetwork)(nil)).Elem()
+}
+
+func (i WorkspaceManagedNetworkArgs) ToWorkspaceManagedNetworkOutput() WorkspaceManagedNetworkOutput {
+	return i.ToWorkspaceManagedNetworkOutputWithContext(context.Background())
+}
+
+func (i WorkspaceManagedNetworkArgs) ToWorkspaceManagedNetworkOutputWithContext(ctx context.Context) WorkspaceManagedNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedNetworkOutput)
+}
+
+func (i WorkspaceManagedNetworkArgs) ToWorkspaceManagedNetworkPtrOutput() WorkspaceManagedNetworkPtrOutput {
+	return i.ToWorkspaceManagedNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceManagedNetworkArgs) ToWorkspaceManagedNetworkPtrOutputWithContext(ctx context.Context) WorkspaceManagedNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedNetworkOutput).ToWorkspaceManagedNetworkPtrOutputWithContext(ctx)
+}
+
+// WorkspaceManagedNetworkPtrInput is an input type that accepts WorkspaceManagedNetworkArgs, WorkspaceManagedNetworkPtr and WorkspaceManagedNetworkPtrOutput values.
+// You can construct a concrete instance of `WorkspaceManagedNetworkPtrInput` via:
+//
+//	        WorkspaceManagedNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceManagedNetworkPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceManagedNetworkPtrOutput() WorkspaceManagedNetworkPtrOutput
+	ToWorkspaceManagedNetworkPtrOutputWithContext(context.Context) WorkspaceManagedNetworkPtrOutput
+}
+
+type workspaceManagedNetworkPtrType WorkspaceManagedNetworkArgs
+
+func WorkspaceManagedNetworkPtr(v *WorkspaceManagedNetworkArgs) WorkspaceManagedNetworkPtrInput {
+	return (*workspaceManagedNetworkPtrType)(v)
+}
+
+func (*workspaceManagedNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceManagedNetwork)(nil)).Elem()
+}
+
+func (i *workspaceManagedNetworkPtrType) ToWorkspaceManagedNetworkPtrOutput() WorkspaceManagedNetworkPtrOutput {
+	return i.ToWorkspaceManagedNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceManagedNetworkPtrType) ToWorkspaceManagedNetworkPtrOutputWithContext(ctx context.Context) WorkspaceManagedNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceManagedNetworkPtrOutput)
+}
+
+type WorkspaceManagedNetworkOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceManagedNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceManagedNetwork)(nil)).Elem()
+}
+
+func (o WorkspaceManagedNetworkOutput) ToWorkspaceManagedNetworkOutput() WorkspaceManagedNetworkOutput {
+	return o
+}
+
+func (o WorkspaceManagedNetworkOutput) ToWorkspaceManagedNetworkOutputWithContext(ctx context.Context) WorkspaceManagedNetworkOutput {
+	return o
+}
+
+func (o WorkspaceManagedNetworkOutput) ToWorkspaceManagedNetworkPtrOutput() WorkspaceManagedNetworkPtrOutput {
+	return o.ToWorkspaceManagedNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceManagedNetworkOutput) ToWorkspaceManagedNetworkPtrOutputWithContext(ctx context.Context) WorkspaceManagedNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceManagedNetwork) *WorkspaceManagedNetwork {
+		return &v
+	}).(WorkspaceManagedNetworkPtrOutput)
+}
+
+// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+func (o WorkspaceManagedNetworkOutput) IsolationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceManagedNetwork) *string { return v.IsolationMode }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceManagedNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceManagedNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceManagedNetwork)(nil)).Elem()
+}
+
+func (o WorkspaceManagedNetworkPtrOutput) ToWorkspaceManagedNetworkPtrOutput() WorkspaceManagedNetworkPtrOutput {
+	return o
+}
+
+func (o WorkspaceManagedNetworkPtrOutput) ToWorkspaceManagedNetworkPtrOutputWithContext(ctx context.Context) WorkspaceManagedNetworkPtrOutput {
+	return o
+}
+
+func (o WorkspaceManagedNetworkPtrOutput) Elem() WorkspaceManagedNetworkOutput {
+	return o.ApplyT(func(v *WorkspaceManagedNetwork) WorkspaceManagedNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceManagedNetwork
+		return ret
+	}).(WorkspaceManagedNetworkOutput)
+}
+
+// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+func (o WorkspaceManagedNetworkPtrOutput) IsolationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceManagedNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IsolationMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetWorkspaceIdentity struct {
 	// A list of User Assigned Identity IDs assigned to this Machine Learning Workspace.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -2440,6 +2577,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFeatureStorePtrInput)(nil)).Elem(), WorkspaceFeatureStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityPtrInput)(nil)).Elem(), WorkspaceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedNetworkInput)(nil)).Elem(), WorkspaceManagedNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedNetworkPtrInput)(nil)).Elem(), WorkspaceManagedNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityInput)(nil)).Elem(), GetWorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityArrayInput)(nil)).Elem(), GetWorkspaceIdentityArray{})
 	pulumi.RegisterOutputType(ComputeClusterIdentityOutput{})
@@ -2466,6 +2605,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceFeatureStorePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceManagedNetworkOutput{})
+	pulumi.RegisterOutputType(WorkspaceManagedNetworkPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityArrayOutput{})
 }

@@ -121,7 +121,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> E { get; private set; } = null!;
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         /// </summary>
         [Output("expirationDate")]
         public Output<string?> ExpirationDate { get; private set; } = null!;
@@ -164,6 +164,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// 
+        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Output("notBeforeDate")]
         public Output<string?> NotBeforeDate { get; private set; } = null!;
@@ -281,7 +283,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Curve { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -324,6 +326,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// 
+        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
@@ -367,7 +371,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? E { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -416,6 +420,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// 
+        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }

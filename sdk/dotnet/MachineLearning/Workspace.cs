@@ -450,6 +450,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `managed_network` block as defined below.
+        /// </summary>
+        [Output("managedNetwork")]
+        public Output<Outputs.WorkspaceManagedNetwork> ManagedNetwork { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -482,7 +488,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+        /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -634,6 +640,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `managed_network` block as defined below.
+        /// </summary>
+        [Input("managedNetwork")]
+        public Input<Inputs.WorkspaceManagedNetworkArgs>? ManagedNetwork { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -666,7 +678,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+        /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -786,6 +798,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `managed_network` block as defined below.
+        /// </summary>
+        [Input("managedNetwork")]
+        public Input<Inputs.WorkspaceManagedNetworkGetArgs>? ManagedNetwork { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -818,7 +836,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+        /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

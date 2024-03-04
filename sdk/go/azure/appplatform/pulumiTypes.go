@@ -2258,7 +2258,7 @@ func (o SpringCloudContainerDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrO
 }
 
 type SpringCloudCustomizedAcceleratorGitRepository struct {
-	// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	// A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 	BasicAuth *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth `pulumi:"basicAuth"`
 	// Specifies the Git repository branch to be used.
 	Branch *string `pulumi:"branch"`
@@ -2272,7 +2272,7 @@ type SpringCloudCustomizedAcceleratorGitRepository struct {
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
 	Path *string `pulumi:"path"`
-	// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	// A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 	SshAuth *SpringCloudCustomizedAcceleratorGitRepositorySshAuth `pulumi:"sshAuth"`
 	// Specifies Git repository URL for the accelerator.
 	Url string `pulumi:"url"`
@@ -2290,7 +2290,7 @@ type SpringCloudCustomizedAcceleratorGitRepositoryInput interface {
 }
 
 type SpringCloudCustomizedAcceleratorGitRepositoryArgs struct {
-	// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	// A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 	BasicAuth SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput `pulumi:"basicAuth"`
 	// Specifies the Git repository branch to be used.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
@@ -2304,7 +2304,7 @@ type SpringCloudCustomizedAcceleratorGitRepositoryArgs struct {
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	// A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 	SshAuth SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput `pulumi:"sshAuth"`
 	// Specifies Git repository URL for the accelerator.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -2387,7 +2387,7 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToSpringCloudCustom
 	}).(SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput)
 }
 
-// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+// A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) BasicAuth() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
 		return v.BasicAuth
@@ -2424,7 +2424,7 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Path() pulumi.Strin
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+// A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) SshAuth() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
 		return v.SshAuth
@@ -2460,7 +2460,7 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Elem() SpringClo
 	}).(SpringCloudCustomizedAcceleratorGitRepositoryOutput)
 }
 
-// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+// A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) BasicAuth() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
 	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
 		if v == nil {
@@ -2530,7 +2530,7 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Path() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+// A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) SshAuth() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
 	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
 		if v == nil {

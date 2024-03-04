@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings {
     private @Nullable List<String> azureDnsServers;
     /**
-     * @return Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+     * @return Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
      * 
      */
     private @Nullable List<String> dnsServers;
     /**
-     * @return Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+     * @return Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
      * 
      */
     private @Nullable Boolean useAzureDns;
@@ -30,14 +30,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
         return this.azureDnsServers == null ? List.of() : this.azureDnsServers;
     }
     /**
-     * @return Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+     * @return Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
      * 
      */
     public List<String> dnsServers() {
         return this.dnsServers == null ? List.of() : this.dnsServers;
     }
     /**
-     * @return Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+     * @return Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
      * 
      */
     public Optional<Boolean> useAzureDns() {

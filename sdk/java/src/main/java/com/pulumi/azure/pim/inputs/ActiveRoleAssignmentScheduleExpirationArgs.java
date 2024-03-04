@@ -17,14 +17,14 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
     public static final ActiveRoleAssignmentScheduleExpirationArgs Empty = new ActiveRoleAssignmentScheduleExpirationArgs();
 
     /**
-     * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+     * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
      * 
      */
     @Import(name="durationDays")
     private @Nullable Output<Integer> durationDays;
 
     /**
-     * @return The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
      * 
      */
     public Optional<Output<Integer>> durationDays() {
@@ -32,14 +32,14 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
     }
 
     /**
-     * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+     * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
      * 
      */
     @Import(name="durationHours")
     private @Nullable Output<Integer> durationHours;
 
     /**
-     * @return The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
      * 
      */
     public Optional<Output<Integer>> durationHours() {
@@ -47,14 +47,14 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
     }
 
     /**
-     * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+     * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
      * 
      */
     @Import(name="endDateTime")
     private @Nullable Output<String> endDateTime;
 
     /**
-     * @return The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+     * @return The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
      * 
      */
     public Optional<Output<String>> endDateTime() {
@@ -88,7 +88,7 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
         }
 
         /**
-         * @param durationDays The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * @param durationDays The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
         }
 
         /**
-         * @param durationDays The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * @param durationDays The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
         }
 
         /**
-         * @param durationHours The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * @param durationHours The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
         }
 
         /**
-         * @param durationHours The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * @param durationHours The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
         }
 
         /**
-         * @param endDateTime The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+         * @param endDateTime The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ActiveRoleAssignmentScheduleExpirationArgs extends com.pulumi
         }
 
         /**
-         * @param endDateTime The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+         * @param endDateTime The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
          * 
          * @return builder
          * 

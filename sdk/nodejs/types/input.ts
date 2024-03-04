@@ -110,6 +110,7 @@ export interface ProviderFeaturesVirtualMachine {
 
 export interface ProviderFeaturesVirtualMachineScaleSet {
     forceDelete?: pulumi.Input<boolean>;
+    reimageOnManualUpgrade?: pulumi.Input<boolean>;
     rollInstancesWhenRequired?: pulumi.Input<boolean>;
     scaleToZeroBeforeDeletion?: pulumi.Input<boolean>;
 }
@@ -2560,7 +2561,7 @@ export namespace appplatform {
 
     export interface SpringCloudCustomizedAcceleratorGitRepository {
         /**
-         * A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          */
         basicAuth?: pulumi.Input<inputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth>;
         /**
@@ -2588,7 +2589,7 @@ export namespace appplatform {
          */
         path?: pulumi.Input<string>;
         /**
-         * A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          */
         sshAuth?: pulumi.Input<inputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositorySshAuth>;
         /**
@@ -7502,7 +7503,7 @@ export namespace appservice {
          */
         pythonVersion?: pulumi.Input<string>;
         /**
-         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         * The version of Ruby to run. Possible values include `2.6` and `2.7`.
          */
         rubyVersion?: pulumi.Input<string>;
     }
@@ -8620,7 +8621,7 @@ export namespace appservice {
          */
         pythonVersion?: pulumi.Input<string>;
         /**
-         * Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+         * The version of Ruby to run. Possible values include `2.6` and `2.7`.
          */
         rubyVersion?: pulumi.Input<string>;
     }
@@ -15396,7 +15397,7 @@ export namespace batch {
          */
         name: pulumi.Input<string>;
         /**
-         * The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+         * JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
          */
         protectedSettings?: pulumi.Input<string>;
         /**
@@ -15408,7 +15409,7 @@ export namespace batch {
          */
         publisher: pulumi.Input<string>;
         /**
-         * JSON formatted public settings for the extension.
+         * JSON formatted public settings for the extension, the value should be encoded with `jsonencode` function.
          */
         settingsJson?: pulumi.Input<string>;
         /**
@@ -17902,6 +17903,10 @@ export namespace compute {
 
     export interface LinuxVirtualMachineGalleryApplication {
         /**
+         * Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: pulumi.Input<boolean>;
+        /**
          * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
          */
         configurationBlobUri?: pulumi.Input<string>;
@@ -17913,6 +17918,10 @@ export namespace compute {
          * Specifies a passthrough value for more generic context. This field can be any valid `string` value.
          */
         tag?: pulumi.Input<string>;
+        /**
+         * Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+         */
+        treatFailureAsDeploymentFailureEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the Gallery Application Version resource ID.
          */
@@ -18002,6 +18011,13 @@ export namespace compute {
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineOsImageNotification {
+        /**
+         * Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+         */
+        timeout?: pulumi.Input<string>;
     }
 
     export interface LinuxVirtualMachinePlan {
@@ -18661,13 +18677,13 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * The size of the Data Disk which should be created.
+         * The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
          */
-        diskSizeGb: pulumi.Input<number>;
+        diskSizeGb?: pulumi.Input<number>;
         /**
-         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
          */
-        lun: pulumi.Input<number>;
+        lun?: pulumi.Input<number>;
         /**
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          */
@@ -20244,6 +20260,10 @@ export namespace compute {
 
     export interface WindowsVirtualMachineGalleryApplication {
         /**
+         * Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: pulumi.Input<boolean>;
+        /**
          * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
          */
         configurationBlobUri?: pulumi.Input<string>;
@@ -20255,6 +20275,10 @@ export namespace compute {
          * Specifies a passthrough value for more generic context. This field can be any valid `string` value.
          */
         tag?: pulumi.Input<string>;
+        /**
+         * Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+         */
+        treatFailureAsDeploymentFailureEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the Gallery Application Version resource ID.
          */
@@ -20344,6 +20368,13 @@ export namespace compute {
          * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
          */
         placement?: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineOsImageNotification {
+        /**
+         * Length of time a notification to be sent to the VM on the instance metadata server till the VM gets OS upgraded. The only possible value is `PT15M`. Defaults to `PT15M`.
+         */
+        timeout?: pulumi.Input<string>;
     }
 
     export interface WindowsVirtualMachinePlan {
@@ -22092,6 +22123,57 @@ export namespace containerservice {
         tag?: pulumi.Input<string>;
     }
 
+    export interface FleetUpdateRunManagedClusterUpdate {
+        /**
+         * A `nodeImageSelection` block as defined below.
+         */
+        nodeImageSelection?: pulumi.Input<inputs.containerservice.FleetUpdateRunManagedClusterUpdateNodeImageSelection>;
+        /**
+         * A `upgrade` block as defined below.
+         */
+        upgrade: pulumi.Input<inputs.containerservice.FleetUpdateRunManagedClusterUpdateUpgrade>;
+    }
+
+    export interface FleetUpdateRunManagedClusterUpdateNodeImageSelection {
+        /**
+         * Specifies the node image upgrade type. Possible values are `Latest` and `Consistent`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FleetUpdateRunManagedClusterUpdateUpgrade {
+        /**
+         * Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+         */
+        kubernetesVersion?: pulumi.Input<string>;
+        /**
+         * Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FleetUpdateRunStage {
+        /**
+         * Specifies the time in seconds to wait at the end of this stage before starting the next one.
+         */
+        afterStageWaitInSeconds?: pulumi.Input<number>;
+        /**
+         * One or more `group` blocks as defined below.
+         */
+        groups: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateRunStageGroup>[]>;
+        /**
+         * The name which should be used for this stage.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface FleetUpdateRunStageGroup {
+        /**
+         * The name which should be used for this group.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface FleetUpdateStrategyStage {
         /**
          * Specifies the time in seconds to wait at the end of this stage before starting the next one.
@@ -23058,7 +23140,7 @@ export namespace containerservice {
          */
         osDiskType?: pulumi.Input<string>;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
          */
         osSku?: pulumi.Input<string>;
         /**
@@ -23474,7 +23556,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterKeyManagementService {
         /**
-         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
+         * Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
          */
         keyVaultKeyId: pulumi.Input<string>;
         /**
@@ -23840,7 +23922,7 @@ export namespace containerservice {
          */
         networkPolicy?: pulumi.Input<string>;
         /**
-         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          */
         outboundType?: pulumi.Input<string>;
         /**
@@ -24700,7 +24782,7 @@ export namespace containerservice {
 
     export interface TokenPasswordPassword1 {
         /**
-         * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
          */
         expiry?: pulumi.Input<string>;
         /**
@@ -24711,7 +24793,7 @@ export namespace containerservice {
 
     export interface TokenPasswordPassword2 {
         /**
-         * The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
          */
         expiry?: pulumi.Input<string>;
         /**
@@ -25315,6 +25397,10 @@ export namespace cosmosdb {
          * > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
          */
         storageRedundancy?: pulumi.Input<string>;
+        /**
+         * The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+         */
+        tier?: pulumi.Input<string>;
         /**
          * The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
          *
@@ -28229,6 +28315,20 @@ export namespace desktopvirtualization {
 }
 
 export namespace devcenter {
+    export interface CatalogCatalogAdogit {
+        branch: pulumi.Input<string>;
+        keyVaultKeyUrl: pulumi.Input<string>;
+        path: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
+    }
+
+    export interface CatalogCatalogGithub {
+        branch: pulumi.Input<string>;
+        keyVaultKeyUrl: pulumi.Input<string>;
+        path: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
+    }
+
     export interface DevCenterIdentity {
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
@@ -36421,23 +36521,23 @@ export namespace machinelearning {
 
     export interface InferenceClusterSsl {
         /**
-         * The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         cert?: pulumi.Input<string>;
         /**
-         * The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         cname?: pulumi.Input<string>;
         /**
-         * The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         key?: pulumi.Input<string>;
         /**
-         * The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         leafDomainLabel?: pulumi.Input<string>;
         /**
-         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         overwriteExistingDomain?: pulumi.Input<boolean>;
     }
@@ -36516,6 +36616,13 @@ export namespace machinelearning {
          * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceManagedNetwork {
+        /**
+         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         */
+        isolationMode?: pulumi.Input<string>;
     }
 }
 
@@ -41672,7 +41779,7 @@ export namespace mssql {
 
     export interface ServerAzureadAdministrator {
         /**
-         * Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
+         * Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
          */
         azureadAuthenticationOnly?: pulumi.Input<boolean>;
         /**
@@ -42108,7 +42215,7 @@ export namespace mysql {
         /**
          * The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
          *
-         * > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
+         * > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
          */
         mode: pulumi.Input<string>;
         standbyAvailabilityZone?: pulumi.Input<string>;
@@ -43014,7 +43121,7 @@ export namespace network {
         /**
          * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          *
-         * > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+         * > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
          */
         priority?: pulumi.Input<number>;
         /**
@@ -45335,7 +45442,7 @@ export namespace network {
          */
         name?: pulumi.Input<string>;
         /**
-         * Defines how the private IP address of the gateways virtual interface is assigned. Valid options are `Static` or `Dynamic`. Defaults to `Dynamic`.
+         * Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
          */
         privateIpAddressAllocation?: pulumi.Input<string>;
         /**
@@ -46524,11 +46631,11 @@ export namespace paloalto {
     export interface NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings {
         azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
          */
         useAzureDns?: pulumi.Input<boolean>;
     }
@@ -46616,11 +46723,11 @@ export namespace paloalto {
     export interface NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
         azureDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
+         * Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
          */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
+         * Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
          */
         useAzureDns?: pulumi.Input<boolean>;
     }
@@ -46708,15 +46815,15 @@ export namespace pim {
 
     export interface ActiveRoleAssignmentScheduleExpiration {
         /**
-         * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          */
         durationDays?: pulumi.Input<number>;
         /**
-         * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
+         * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Active Role Assignment to be created.
          */
         durationHours?: pulumi.Input<number>;
         /**
-         * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
+         * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Active Role Assignment to be created.
          */
         endDateTime?: pulumi.Input<string>;
     }
@@ -46745,15 +46852,15 @@ export namespace pim {
 
     export interface EligibleRoleAssignmentScheduleExpiration {
         /**
-         * The duration of the role assignment in days. Conflicts with `schedule.0.expiration.0.duration_hours`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The duration of the role assignment in days. Conflicts with `schedule[0].expiration[0].duration_hours`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
          */
         durationDays?: pulumi.Input<number>;
         /**
-         * The duration of the role assignment in hours. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The duration of the role assignment in hours. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].end_date_time` Changing this forces a new Pim Eligible Role Assignment to be created.
          */
         durationHours?: pulumi.Input<number>;
         /**
-         * The end date time of the role assignment. Conflicts with `schedule.0.expiration.0.duration_days`,`schedule.0.expiration.0.duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
+         * The end date time of the role assignment. Conflicts with `schedule[0].expiration[0].duration_days`,`schedule[0].expiration[0].duration_hours` Changing this forces a new Pim Eligible Role Assignment to be created.
          */
         endDateTime?: pulumi.Input<string>;
     }
@@ -46878,13 +46985,13 @@ export namespace postgresql {
         /**
          * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
          *
-         * > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+         * > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
          */
         geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
         /**
          * The ID of the Key Vault Key.
          */
-        keyVaultKeyId?: pulumi.Input<string>;
+        keyVaultKeyId: pulumi.Input<string>;
         /**
          * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
          */
@@ -47026,7 +47133,7 @@ export namespace privatedns {
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+         * Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
          */
         privateIpAllocationMethod?: pulumi.Input<string>;
         /**
@@ -47292,7 +47399,7 @@ export namespace recoveryservices {
          */
         keyId: pulumi.Input<string>;
         /**
-         * Indicate that system assigned identity should be used or not. Defaults to `true`.
+         * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          *
          * !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          *
@@ -47525,6 +47632,10 @@ export namespace redis {
          * Example usage:
          */
         aofStorageConnectionString1?: pulumi.Input<string>;
+        /**
+         * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+         */
+        dataPersistenceAuthenticationMethod?: pulumi.Input<string>;
         /**
          * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          *
@@ -51495,6 +51606,10 @@ export namespace synapse {
          * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
          */
         keyVersionlessId: pulumi.Input<string>;
+        /**
+         * The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface WorkspaceGithubRepo {

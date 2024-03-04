@@ -209,10 +209,10 @@ type FlexibleServerCustomerManagedKey struct {
 	GeoBackupKeyVaultKeyId *string `pulumi:"geoBackupKeyVaultKeyId"`
 	// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
 	//
-	// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+	// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
 	// The ID of the Key Vault Key.
-	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 }
@@ -233,10 +233,10 @@ type FlexibleServerCustomerManagedKeyArgs struct {
 	GeoBackupKeyVaultKeyId pulumi.StringPtrInput `pulumi:"geoBackupKeyVaultKeyId"`
 	// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
 	//
-	// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+	// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
 	// The ID of the Key Vault Key.
-	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
 }
@@ -325,14 +325,14 @@ func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupKeyVaultKeyId() pulumi.
 
 // The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
 //
-// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Key Vault Key.
-func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
 // Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
@@ -376,7 +376,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupKeyVaultKeyId() pulu
 
 // The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
 //
-// > **NOTE:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
+// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -392,7 +392,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return v.KeyVaultKeyId
+		return &v.KeyVaultKeyId
 	}).(pulumi.StringPtrOutput)
 }
 

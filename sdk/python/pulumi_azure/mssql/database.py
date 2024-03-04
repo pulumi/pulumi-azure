@@ -36,7 +36,9 @@ class DatabaseArgs:
                  read_replica_count: Optional[pulumi.Input[int]] = None,
                  read_scale: Optional[pulumi.Input[bool]] = None,
                  recover_database_id: Optional[pulumi.Input[str]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
@@ -84,7 +86,9 @@ class DatabaseArgs:
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] recovery_point_id: The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
@@ -142,8 +146,12 @@ class DatabaseArgs:
             pulumi.set(__self__, "read_scale", read_scale)
         if recover_database_id is not None:
             pulumi.set(__self__, "recover_database_id", recover_database_id)
+        if recovery_point_id is not None:
+            pulumi.set(__self__, "recovery_point_id", recovery_point_id)
         if restore_dropped_database_id is not None:
             pulumi.set(__self__, "restore_dropped_database_id", restore_dropped_database_id)
+        if restore_long_term_retention_backup_id is not None:
+            pulumi.set(__self__, "restore_long_term_retention_backup_id", restore_long_term_retention_backup_id)
         if restore_point_in_time is not None:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
@@ -422,6 +430,18 @@ class DatabaseArgs:
         pulumi.set(self, "recover_database_id", value)
 
     @property
+    @pulumi.getter(name="recoveryPointId")
+    def recovery_point_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+        """
+        return pulumi.get(self, "recovery_point_id")
+
+    @recovery_point_id.setter
+    def recovery_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_point_id", value)
+
+    @property
     @pulumi.getter(name="restoreDroppedDatabaseId")
     def restore_dropped_database_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -432,6 +452,18 @@ class DatabaseArgs:
     @restore_dropped_database_id.setter
     def restore_dropped_database_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_dropped_database_id", value)
+
+    @property
+    @pulumi.getter(name="restoreLongTermRetentionBackupId")
+    def restore_long_term_retention_backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+        """
+        return pulumi.get(self, "restore_long_term_retention_backup_id")
+
+    @restore_long_term_retention_backup_id.setter
+    def restore_long_term_retention_backup_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_long_term_retention_backup_id", value)
 
     @property
     @pulumi.getter(name="restorePointInTime")
@@ -594,7 +626,9 @@ class _DatabaseState:
                  read_replica_count: Optional[pulumi.Input[int]] = None,
                  read_scale: Optional[pulumi.Input[bool]] = None,
                  recover_database_id: Optional[pulumi.Input[str]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -640,7 +674,9 @@ class _DatabaseState:
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] recovery_point_id: The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
@@ -700,8 +736,12 @@ class _DatabaseState:
             pulumi.set(__self__, "read_scale", read_scale)
         if recover_database_id is not None:
             pulumi.set(__self__, "recover_database_id", recover_database_id)
+        if recovery_point_id is not None:
+            pulumi.set(__self__, "recovery_point_id", recovery_point_id)
         if restore_dropped_database_id is not None:
             pulumi.set(__self__, "restore_dropped_database_id", restore_dropped_database_id)
+        if restore_long_term_retention_backup_id is not None:
+            pulumi.set(__self__, "restore_long_term_retention_backup_id", restore_long_term_retention_backup_id)
         if restore_point_in_time is not None:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
@@ -968,6 +1008,18 @@ class _DatabaseState:
         pulumi.set(self, "recover_database_id", value)
 
     @property
+    @pulumi.getter(name="recoveryPointId")
+    def recovery_point_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+        """
+        return pulumi.get(self, "recovery_point_id")
+
+    @recovery_point_id.setter
+    def recovery_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_point_id", value)
+
+    @property
     @pulumi.getter(name="restoreDroppedDatabaseId")
     def restore_dropped_database_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -978,6 +1030,18 @@ class _DatabaseState:
     @restore_dropped_database_id.setter
     def restore_dropped_database_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_dropped_database_id", value)
+
+    @property
+    @pulumi.getter(name="restoreLongTermRetentionBackupId")
+    def restore_long_term_retention_backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+        """
+        return pulumi.get(self, "restore_long_term_retention_backup_id")
+
+    @restore_long_term_retention_backup_id.setter
+    def restore_long_term_retention_backup_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_long_term_retention_backup_id", value)
 
     @property
     @pulumi.getter(name="restorePointInTime")
@@ -1156,7 +1220,9 @@ class Database(pulumi.CustomResource):
                  read_replica_count: Optional[pulumi.Input[int]] = None,
                  read_scale: Optional[pulumi.Input[bool]] = None,
                  recover_database_id: Optional[pulumi.Input[str]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -1337,7 +1403,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] recovery_point_id: The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
@@ -1533,7 +1601,9 @@ class Database(pulumi.CustomResource):
                  read_replica_count: Optional[pulumi.Input[int]] = None,
                  read_scale: Optional[pulumi.Input[bool]] = None,
                  recover_database_id: Optional[pulumi.Input[str]] = None,
+                 recovery_point_id: Optional[pulumi.Input[str]] = None,
                  restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -1574,7 +1644,9 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["read_replica_count"] = read_replica_count
             __props__.__dict__["read_scale"] = read_scale
             __props__.__dict__["recover_database_id"] = recover_database_id
+            __props__.__dict__["recovery_point_id"] = recovery_point_id
             __props__.__dict__["restore_dropped_database_id"] = restore_dropped_database_id
+            __props__.__dict__["restore_long_term_retention_backup_id"] = restore_long_term_retention_backup_id
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
             __props__.__dict__["sample_name"] = sample_name
             if server_id is None and not opts.urn:
@@ -1618,7 +1690,9 @@ class Database(pulumi.CustomResource):
             read_replica_count: Optional[pulumi.Input[int]] = None,
             read_scale: Optional[pulumi.Input[bool]] = None,
             recover_database_id: Optional[pulumi.Input[str]] = None,
+            recovery_point_id: Optional[pulumi.Input[str]] = None,
             restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+            restore_long_term_retention_backup_id: Optional[pulumi.Input[str]] = None,
             restore_point_in_time: Optional[pulumi.Input[str]] = None,
             sample_name: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
@@ -1669,7 +1743,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] recovery_point_id: The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        :param pulumi.Input[str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
@@ -1714,7 +1790,9 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["read_replica_count"] = read_replica_count
         __props__.__dict__["read_scale"] = read_scale
         __props__.__dict__["recover_database_id"] = recover_database_id
+        __props__.__dict__["recovery_point_id"] = recovery_point_id
         __props__.__dict__["restore_dropped_database_id"] = restore_dropped_database_id
+        __props__.__dict__["restore_long_term_retention_backup_id"] = restore_long_term_retention_backup_id
         __props__.__dict__["restore_point_in_time"] = restore_point_in_time
         __props__.__dict__["sample_name"] = sample_name
         __props__.__dict__["server_id"] = server_id
@@ -1894,12 +1972,28 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "recover_database_id")
 
     @property
+    @pulumi.getter(name="recoveryPointId")
+    def recovery_point_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the `create_mode` is `Recovery`.
+        """
+        return pulumi.get(self, "recovery_point_id")
+
+    @property
     @pulumi.getter(name="restoreDroppedDatabaseId")
     def restore_dropped_database_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         """
         return pulumi.get(self, "restore_dropped_database_id")
+
+    @property
+    @pulumi.getter(name="restoreLongTermRetentionBackupId")
+    def restore_long_term_retention_backup_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
+        """
+        return pulumi.get(self, "restore_long_term_retention_backup_id")
 
     @property
     @pulumi.getter(name="restorePointInTime")

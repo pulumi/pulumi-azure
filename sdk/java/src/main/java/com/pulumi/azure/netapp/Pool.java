@@ -95,6 +95,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
+     * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="encryptionType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encryptionType;
+
+    /**
+     * @return The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> encryptionType() {
+        return Codegen.optional(this.encryptionType);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -151,14 +165,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serviceLevel", refs={String.class}, tree="[0]")
     private Output<String> serviceLevel;
 
     /**
-     * @return The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+     * @return The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serviceLevel() {

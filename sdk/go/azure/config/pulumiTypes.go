@@ -1948,6 +1948,7 @@ func (o FeaturesVirtualMachinePtrOutput) SkipShutdownAndForceDelete() pulumi.Boo
 
 type FeaturesVirtualMachineScaleSet struct {
 	ForceDelete               *bool `pulumi:"forceDelete"`
+	ReimageOnManualUpgrade    *bool `pulumi:"reimageOnManualUpgrade"`
 	RollInstancesWhenRequired *bool `pulumi:"rollInstancesWhenRequired"`
 	ScaleToZeroBeforeDeletion *bool `pulumi:"scaleToZeroBeforeDeletion"`
 }
@@ -1965,6 +1966,7 @@ type FeaturesVirtualMachineScaleSetInput interface {
 
 type FeaturesVirtualMachineScaleSetArgs struct {
 	ForceDelete               pulumi.BoolPtrInput `pulumi:"forceDelete"`
+	ReimageOnManualUpgrade    pulumi.BoolPtrInput `pulumi:"reimageOnManualUpgrade"`
 	RollInstancesWhenRequired pulumi.BoolPtrInput `pulumi:"rollInstancesWhenRequired"`
 	ScaleToZeroBeforeDeletion pulumi.BoolPtrInput `pulumi:"scaleToZeroBeforeDeletion"`
 }
@@ -2050,6 +2052,10 @@ func (o FeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
+func (o FeaturesVirtualMachineScaleSetOutput) ReimageOnManualUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) *bool { return v.ReimageOnManualUpgrade }).(pulumi.BoolPtrOutput)
+}
+
 func (o FeaturesVirtualMachineScaleSetOutput) RollInstancesWhenRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) *bool { return v.RollInstancesWhenRequired }).(pulumi.BoolPtrOutput)
 }
@@ -2088,6 +2094,15 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) ForceDelete() pulumi.BoolPtrOut
 			return nil
 		}
 		return v.ForceDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesVirtualMachineScaleSetPtrOutput) ReimageOnManualUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReimageOnManualUpgrade
 	}).(pulumi.BoolPtrOutput)
 }
 

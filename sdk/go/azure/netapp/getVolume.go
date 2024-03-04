@@ -90,6 +90,11 @@ type LookupVolumeResult struct {
 	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system.
 	ServiceLevel string `pulumi:"serviceLevel"`
+	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+	// ---
+	SmbAccessBasedEnumerationEnabled bool `pulumi:"smbAccessBasedEnumerationEnabled"`
+	// Limits clients from browsing for an SMB share.
+	SmbNonBrowsableEnabled bool `pulumi:"smbNonBrowsableEnabled"`
 	// The maximum Storage Quota in Gigabytes allowed for a file system.
 	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
 	// The ID of a Subnet in which the NetApp Volume resides.
@@ -208,6 +213,17 @@ func (o LookupVolumeResultOutput) SecurityStyle() pulumi.StringPtrOutput {
 // The service level of the file system.
 func (o LookupVolumeResultOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+// ---
+func (o LookupVolumeResultOutput) SmbAccessBasedEnumerationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVolumeResult) bool { return v.SmbAccessBasedEnumerationEnabled }).(pulumi.BoolOutput)
+}
+
+// Limits clients from browsing for an SMB share.
+func (o LookupVolumeResultOutput) SmbNonBrowsableEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVolumeResult) bool { return v.SmbNonBrowsableEnabled }).(pulumi.BoolOutput)
 }
 
 // The maximum Storage Quota in Gigabytes allowed for a file system.

@@ -105,6 +105,15 @@ export interface GetVolumeResult {
      */
     readonly serviceLevel: string;
     /**
+     * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share.
+     * ---
+     */
+    readonly smbAccessBasedEnumerationEnabled: boolean;
+    /**
+     * Limits clients from browsing for an SMB share.
+     */
+    readonly smbNonBrowsableEnabled: boolean;
+    /**
      * The maximum Storage Quota in Gigabytes allowed for a file system.
      */
     readonly storageQuotaInGb: number;

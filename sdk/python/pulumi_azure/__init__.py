@@ -120,6 +120,8 @@ if typing.TYPE_CHECKING:
     eventgrid = __eventgrid
     import pulumi_azure.eventhub as __eventhub
     eventhub = __eventhub
+    import pulumi_azure.expressroute as __expressroute
+    expressroute = __expressroute
     import pulumi_azure.fluidrelay as __fluidrelay
     fluidrelay = __fluidrelay
     import pulumi_azure.frontdoor as __frontdoor
@@ -262,6 +264,8 @@ if typing.TYPE_CHECKING:
     streamanalytics = __streamanalytics
     import pulumi_azure.synapse as __synapse
     synapse = __synapse
+    import pulumi_azure.systemcenter as __systemcenter
+    systemcenter = __systemcenter
     import pulumi_azure.trafficmanager as __trafficmanager
     trafficmanager = __trafficmanager
     import pulumi_azure.videoanalyzer as __videoanalyzer
@@ -328,6 +332,7 @@ else:
     elasticsan = _utilities.lazy_import('pulumi_azure.elasticsan')
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
+    expressroute = _utilities.lazy_import('pulumi_azure.expressroute')
     fluidrelay = _utilities.lazy_import('pulumi_azure.fluidrelay')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
     graph = _utilities.lazy_import('pulumi_azure.graph')
@@ -399,6 +404,7 @@ else:
     storage = _utilities.lazy_import('pulumi_azure.storage')
     streamanalytics = _utilities.lazy_import('pulumi_azure.streamanalytics')
     synapse = _utilities.lazy_import('pulumi_azure.synapse')
+    systemcenter = _utilities.lazy_import('pulumi_azure.systemcenter')
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
     videoanalyzer = _utilities.lazy_import('pulumi_azure.videoanalyzer')
     voice = _utilities.lazy_import('pulumi_azure.voice')
@@ -2610,6 +2616,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/fleetUpdateRun",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/fleetUpdateRun:FleetUpdateRun": "FleetUpdateRun"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/fleetUpdateStrategy",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -3838,6 +3852,14 @@ _utilities.register(
   "fqn": "pulumi_azure.desktopvirtualization",
   "classes": {
    "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation": "WorkspaceApplicationGroupAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "devcenter/catalog",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/catalog:Catalog": "Catalog"
   }
  },
  {
@@ -9006,6 +9028,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/workspaceVulnerabilityAssessment:WorkspaceVulnerabilityAssessment": "WorkspaceVulnerabilityAssessment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerServer",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer": "VirtualMachineManagerServer"
   }
  },
  {

@@ -64,6 +64,8 @@ type LookupPoolArgs struct {
 // A collection of values returned by getPool.
 type LookupPoolResult struct {
 	AccountName string `pulumi:"accountName"`
+	// The encryption type of the pool.
+	EncryptionType string `pulumi:"encryptionType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Pool exists.
@@ -120,6 +122,11 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.
 
 func (o LookupPoolResultOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The encryption type of the pool.
+func (o LookupPoolResultOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

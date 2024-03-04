@@ -105,6 +105,11 @@ export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null a
 export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
 
+export { GetTableEntitiesArgs, GetTableEntitiesResult, GetTableEntitiesOutputArgs } from "./getTableEntities";
+export const getTableEntities: typeof import("./getTableEntities").getTableEntities = null as any;
+export const getTableEntitiesOutput: typeof import("./getTableEntities").getTableEntitiesOutput = null as any;
+utilities.lazyLoad(exports, ["getTableEntities","getTableEntitiesOutput"], () => require("./getTableEntities"));
+
 export { GetTableEntityArgs, GetTableEntityResult, GetTableEntityOutputArgs } from "./getTableEntity";
 export const getTableEntity: typeof import("./getTableEntity").getTableEntity = null as any;
 export const getTableEntityOutput: typeof import("./getTableEntity").getTableEntityOutput = null as any;

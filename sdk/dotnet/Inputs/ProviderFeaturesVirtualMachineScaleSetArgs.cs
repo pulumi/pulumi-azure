@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Inputs
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
+        [Input("reimageOnManualUpgrade")]
+        public Input<bool>? ReimageOnManualUpgrade { get; set; }
+
         [Input("rollInstancesWhenRequired")]
         public Input<bool>? RollInstancesWhenRequired { get; set; }
 

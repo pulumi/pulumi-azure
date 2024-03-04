@@ -91,6 +91,18 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     *
+     * > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+     */
+    public readonly retentionDurationInDays!: pulumi.Output<number | undefined>;
+    /**
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     *
+     * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+     */
+    public readonly softDelete!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Backup Vault.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -114,6 +126,8 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["redundancy"] = state ? state.redundancy : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionDurationInDays"] = state ? state.retentionDurationInDays : undefined;
+            resourceInputs["softDelete"] = state ? state.softDelete : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as BackupVaultArgs | undefined;
@@ -132,6 +146,8 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redundancy"] = args ? args.redundancy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDurationInDays"] = args ? args.retentionDurationInDays : undefined;
+            resourceInputs["softDelete"] = args ? args.softDelete : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -170,6 +186,18 @@ export interface BackupVaultState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     *
+     * > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+     */
+    retentionDurationInDays?: pulumi.Input<number>;
+    /**
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     *
+     * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+     */
+    softDelete?: pulumi.Input<string>;
+    /**
      * A mapping of tags which should be assigned to the Backup Vault.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -205,6 +233,18 @@ export interface BackupVaultArgs {
      * The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
+     *
+     * > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
+     */
+    retentionDurationInDays?: pulumi.Input<number>;
+    /**
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     *
+     * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
+     */
+    softDelete?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Backup Vault.
      */

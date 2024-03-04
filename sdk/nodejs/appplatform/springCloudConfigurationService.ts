@@ -91,6 +91,10 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies how often to check repository updates. Minimum value is 0.
+     */
+    public readonly refreshIntervalInSeconds!: pulumi.Output<number | undefined>;
+    /**
      * One or more `repository` blocks as defined below.
      */
     public readonly repositories!: pulumi.Output<outputs.appplatform.SpringCloudConfigurationServiceRepository[] | undefined>;
@@ -114,6 +118,7 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
             const state = argsOrState as SpringCloudConfigurationServiceState | undefined;
             resourceInputs["generation"] = state ? state.generation : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["refreshIntervalInSeconds"] = state ? state.refreshIntervalInSeconds : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
             resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
         } else {
@@ -123,6 +128,7 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
             }
             resourceInputs["generation"] = args ? args.generation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["refreshIntervalInSeconds"] = args ? args.refreshIntervalInSeconds : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
             resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
         }
@@ -143,6 +149,10 @@ export interface SpringCloudConfigurationServiceState {
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies how often to check repository updates. Minimum value is 0.
+     */
+    refreshIntervalInSeconds?: pulumi.Input<number>;
     /**
      * One or more `repository` blocks as defined below.
      */
@@ -165,6 +175,10 @@ export interface SpringCloudConfigurationServiceArgs {
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies how often to check repository updates. Minimum value is 0.
+     */
+    refreshIntervalInSeconds?: pulumi.Input<number>;
     /**
      * One or more `repository` blocks as defined below.
      */

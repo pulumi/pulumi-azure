@@ -74,7 +74,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? PythonVersion;
         /// <summary>
-        /// Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        /// The version of Ruby to run. Possible values include `2.6` and `2.7`.
         /// </summary>
         public readonly string? RubyVersion;
 

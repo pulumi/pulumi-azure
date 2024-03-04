@@ -48,7 +48,7 @@ class VaultEncryption(dict):
         """
         :param bool infrastructure_encryption_enabled: Enabling/Disabling the Double Encryption state.
         :param str key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
-        :param bool use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`.
+        :param bool use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
                
                !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
                
@@ -82,7 +82,7 @@ class VaultEncryption(dict):
     @pulumi.getter(name="useSystemAssignedIdentity")
     def use_system_assigned_identity(self) -> Optional[bool]:
         """
-        Indicate that system assigned identity should be used or not. Defaults to `true`.
+        Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
         !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 

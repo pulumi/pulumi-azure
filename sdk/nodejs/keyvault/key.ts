@@ -116,7 +116,7 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly e!: pulumi.Output<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
      */
     public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
@@ -145,6 +145,8 @@ export class Key extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     *
+     * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
     public readonly notBeforeDate!: pulumi.Output<string | undefined>;
     /**
@@ -271,7 +273,7 @@ export interface KeyState {
      */
     e?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -300,6 +302,8 @@ export interface KeyState {
     name?: pulumi.Input<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     *
+     * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
     notBeforeDate?: pulumi.Input<string>;
     /**
@@ -353,7 +357,7 @@ export interface KeyArgs {
      */
     curve?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -378,6 +382,8 @@ export interface KeyArgs {
     name?: pulumi.Input<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     *
+     * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
     notBeforeDate?: pulumi.Input<string>;
     /**

@@ -16920,7 +16920,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
-        :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        :param str ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
             pulumi.set(__self__, "docker_image", docker_image)
@@ -17079,7 +17079,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="rubyVersion")
     def ruby_version(self) -> Optional[str]:
         """
-        Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         return pulumi.get(self, "ruby_version")
 
@@ -21083,7 +21083,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
-        :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        :param str ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
             pulumi.set(__self__, "docker_image", docker_image)
@@ -21242,7 +21242,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="rubyVersion")
     def ruby_version(self) -> Optional[str]:
         """
-        Te version of Ruby to run. Possible values include `2.6` and `2.7`.
+        The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         return pulumi.get(self, "ruby_version")
 

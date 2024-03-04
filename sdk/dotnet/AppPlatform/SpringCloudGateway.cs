@@ -117,6 +117,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudGatewayApiMetadata?> ApiMetadata { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        [Output("applicationPerformanceMonitoringIds")]
+        public Output<ImmutableArray<string>> ApplicationPerformanceMonitoringIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         /// </summary>
         [Output("applicationPerformanceMonitoringTypes")]
@@ -262,6 +268,18 @@ namespace Pulumi.Azure.AppPlatform
         [Input("apiMetadata")]
         public Input<Inputs.SpringCloudGatewayApiMetadataArgs>? ApiMetadata { get; set; }
 
+        [Input("applicationPerformanceMonitoringIds")]
+        private InputList<string>? _applicationPerformanceMonitoringIds;
+
+        /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringIds
+        {
+            get => _applicationPerformanceMonitoringIds ?? (_applicationPerformanceMonitoringIds = new InputList<string>());
+            set => _applicationPerformanceMonitoringIds = value;
+        }
+
         [Input("applicationPerformanceMonitoringTypes")]
         private InputList<string>? _applicationPerformanceMonitoringTypes;
 
@@ -381,6 +399,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("apiMetadata")]
         public Input<Inputs.SpringCloudGatewayApiMetadataGetArgs>? ApiMetadata { get; set; }
+
+        [Input("applicationPerformanceMonitoringIds")]
+        private InputList<string>? _applicationPerformanceMonitoringIds;
+
+        /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringIds
+        {
+            get => _applicationPerformanceMonitoringIds ?? (_applicationPerformanceMonitoringIds = new InputList<string>());
+            set => _applicationPerformanceMonitoringIds = value;
+        }
 
         [Input("applicationPerformanceMonitoringTypes")]
         private InputList<string>? _applicationPerformanceMonitoringTypes;

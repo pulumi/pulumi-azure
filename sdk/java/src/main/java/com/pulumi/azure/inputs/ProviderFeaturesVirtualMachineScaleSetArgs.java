@@ -22,6 +22,13 @@ public final class ProviderFeaturesVirtualMachineScaleSetArgs extends com.pulumi
         return Optional.ofNullable(this.forceDelete);
     }
 
+    @Import(name="reimageOnManualUpgrade")
+    private @Nullable Output<Boolean> reimageOnManualUpgrade;
+
+    public Optional<Output<Boolean>> reimageOnManualUpgrade() {
+        return Optional.ofNullable(this.reimageOnManualUpgrade);
+    }
+
     @Import(name="rollInstancesWhenRequired")
     private @Nullable Output<Boolean> rollInstancesWhenRequired;
 
@@ -40,6 +47,7 @@ public final class ProviderFeaturesVirtualMachineScaleSetArgs extends com.pulumi
 
     private ProviderFeaturesVirtualMachineScaleSetArgs(ProviderFeaturesVirtualMachineScaleSetArgs $) {
         this.forceDelete = $.forceDelete;
+        this.reimageOnManualUpgrade = $.reimageOnManualUpgrade;
         this.rollInstancesWhenRequired = $.rollInstancesWhenRequired;
         this.scaleToZeroBeforeDeletion = $.scaleToZeroBeforeDeletion;
     }
@@ -69,6 +77,15 @@ public final class ProviderFeaturesVirtualMachineScaleSetArgs extends com.pulumi
 
         public Builder forceDelete(Boolean forceDelete) {
             return forceDelete(Output.of(forceDelete));
+        }
+
+        public Builder reimageOnManualUpgrade(@Nullable Output<Boolean> reimageOnManualUpgrade) {
+            $.reimageOnManualUpgrade = reimageOnManualUpgrade;
+            return this;
+        }
+
+        public Builder reimageOnManualUpgrade(Boolean reimageOnManualUpgrade) {
+            return reimageOnManualUpgrade(Output.of(reimageOnManualUpgrade));
         }
 
         public Builder rollInstancesWhenRequired(@Nullable Output<Boolean> rollInstancesWhenRequired) {

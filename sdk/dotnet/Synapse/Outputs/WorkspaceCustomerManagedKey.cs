@@ -21,15 +21,22 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
         /// </summary>
         public readonly string KeyVersionlessId;
+        /// <summary>
+        /// The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+        /// </summary>
+        public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]
         private WorkspaceCustomerManagedKey(
             string? keyName,
 
-            string keyVersionlessId)
+            string keyVersionlessId,
+
+            string? userAssignedIdentityId)
         {
             KeyName = keyName;
             KeyVersionlessId = keyVersionlessId;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

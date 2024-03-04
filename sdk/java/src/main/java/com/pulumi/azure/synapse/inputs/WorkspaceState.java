@@ -25,14 +25,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceState Empty = new WorkspaceState();
 
     /**
-     * An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+     * An `aad_admin` block as defined below.
      * 
      */
     @Import(name="aadAdmin")
     private @Nullable Output<WorkspaceAadAdminArgs> aadAdmin;
 
     /**
-     * @return An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+     * @return An `aad_admin` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceAadAdminArgs>> aadAdmin() {
@@ -100,14 +100,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+     * A `customer_managed_key` block as defined below.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<WorkspaceCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+     * @return A `customer_managed_key` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceCustomerManagedKeyArgs>> customerManagedKey() {
@@ -416,7 +416,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aadAdmin An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+         * @param aadAdmin An `aad_admin` block as defined below.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aadAdmin An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+         * @param aadAdmin An `aad_admin` block as defined below.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+         * @param customerManagedKey A `customer_managed_key` block as defined below.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+         * @param customerManagedKey A `customer_managed_key` block as defined below.
          * 
          * @return builder
          * 

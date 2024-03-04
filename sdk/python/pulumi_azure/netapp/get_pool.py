@@ -21,10 +21,13 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, id=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
+    def __init__(__self__, account_name=None, encryption_type=None, id=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if encryption_type and not isinstance(encryption_type, str):
+            raise TypeError("Expected argument 'encryption_type' to be a str")
+        pulumi.set(__self__, "encryption_type", encryption_type)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,6 +51,14 @@ class GetPoolResult:
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        The encryption type of the pool.
+        """
+        return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter
@@ -99,6 +110,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             account_name=self.account_name,
+            encryption_type=self.encryption_type,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -140,6 +152,7 @@ def get_pool(account_name: Optional[str] = None,
 
     return AwaitableGetPoolResult(
         account_name=pulumi.get(__ret__, 'account_name'),
+        encryption_type=pulumi.get(__ret__, 'encryption_type'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),

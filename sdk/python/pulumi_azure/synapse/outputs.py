@@ -508,6 +508,8 @@ class WorkspaceCustomerManagedKey(dict):
             suggest = "key_versionless_id"
         elif key == "keyName":
             suggest = "key_name"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkspaceCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
@@ -522,14 +524,18 @@ class WorkspaceCustomerManagedKey(dict):
 
     def __init__(__self__, *,
                  key_versionless_id: str,
-                 key_name: Optional[str] = None):
+                 key_name: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
         """
         :param str key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
         :param str key_name: An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+        :param str user_assigned_identity_id: The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         pulumi.set(__self__, "key_versionless_id", key_versionless_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyVersionlessId")
@@ -546,6 +552,14 @@ class WorkspaceCustomerManagedKey(dict):
         An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
         """
         return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

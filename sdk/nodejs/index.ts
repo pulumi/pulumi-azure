@@ -69,6 +69,7 @@ import * as elasticcloud from "./elasticcloud";
 import * as elasticsan from "./elasticsan";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
+import * as expressroute from "./expressroute";
 import * as fluidrelay from "./fluidrelay";
 import * as frontdoor from "./frontdoor";
 import * as graph from "./graph";
@@ -140,6 +141,7 @@ import * as stack from "./stack";
 import * as storage from "./storage";
 import * as streamanalytics from "./streamanalytics";
 import * as synapse from "./synapse";
+import * as systemcenter from "./systemcenter";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as videoanalyzer from "./videoanalyzer";
@@ -203,6 +205,7 @@ export {
     elasticsan,
     eventgrid,
     eventhub,
+    expressroute,
     fluidrelay,
     frontdoor,
     graph,
@@ -274,6 +277,7 @@ export {
     storage,
     streamanalytics,
     synapse,
+    systemcenter,
     trafficmanager,
     types,
     videoanalyzer,

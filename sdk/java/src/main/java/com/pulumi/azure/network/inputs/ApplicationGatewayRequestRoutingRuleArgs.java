@@ -140,7 +140,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     /**
      * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
-     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
      * 
      */
     @Import(name="priority")
@@ -149,7 +149,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
-     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -475,7 +475,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         /**
          * @param priority Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          * 
-         * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+         * &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         /**
          * @param priority Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          * 
-         * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+         * &gt; **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
          * 
          * @return builder
          * 

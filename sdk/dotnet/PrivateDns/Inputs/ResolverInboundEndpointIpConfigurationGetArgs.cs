@@ -19,7 +19,7 @@ namespace Pulumi.Azure.PrivateDns.Inputs
         public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
-        /// Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
+        /// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
         /// </summary>
         [Input("privateIpAllocationMethod")]
         public Input<string>? PrivateIpAllocationMethod { get; set; }

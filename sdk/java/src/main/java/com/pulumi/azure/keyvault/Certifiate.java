@@ -345,7 +345,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
         return this.certificateDataBase64;
     }
     /**
-     * A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
@@ -354,7 +354,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
     private Output<CertifiateCertificatePolicy> certificatePolicy;
 
     /**
-     * @return A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+     * @return A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
      * 
      * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 

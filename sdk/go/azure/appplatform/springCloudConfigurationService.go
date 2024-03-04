@@ -91,6 +91,8 @@ type SpringCloudConfigurationService struct {
 	Generation pulumi.StringPtrOutput `pulumi:"generation"`
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies how often to check repository updates. Minimum value is 0.
+	RefreshIntervalInSeconds pulumi.IntPtrOutput `pulumi:"refreshIntervalInSeconds"`
 	// One or more `repository` blocks as defined below.
 	Repositories SpringCloudConfigurationServiceRepositoryArrayOutput `pulumi:"repositories"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -134,6 +136,8 @@ type springCloudConfigurationServiceState struct {
 	Generation *string `pulumi:"generation"`
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name *string `pulumi:"name"`
+	// Specifies how often to check repository updates. Minimum value is 0.
+	RefreshIntervalInSeconds *int `pulumi:"refreshIntervalInSeconds"`
 	// One or more `repository` blocks as defined below.
 	Repositories []SpringCloudConfigurationServiceRepository `pulumi:"repositories"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -145,6 +149,8 @@ type SpringCloudConfigurationServiceState struct {
 	Generation pulumi.StringPtrInput
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringPtrInput
+	// Specifies how often to check repository updates. Minimum value is 0.
+	RefreshIntervalInSeconds pulumi.IntPtrInput
 	// One or more `repository` blocks as defined below.
 	Repositories SpringCloudConfigurationServiceRepositoryArrayInput
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -160,6 +166,8 @@ type springCloudConfigurationServiceArgs struct {
 	Generation *string `pulumi:"generation"`
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name *string `pulumi:"name"`
+	// Specifies how often to check repository updates. Minimum value is 0.
+	RefreshIntervalInSeconds *int `pulumi:"refreshIntervalInSeconds"`
 	// One or more `repository` blocks as defined below.
 	Repositories []SpringCloudConfigurationServiceRepository `pulumi:"repositories"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -172,6 +180,8 @@ type SpringCloudConfigurationServiceArgs struct {
 	Generation pulumi.StringPtrInput
 	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringPtrInput
+	// Specifies how often to check repository updates. Minimum value is 0.
+	RefreshIntervalInSeconds pulumi.IntPtrInput
 	// One or more `repository` blocks as defined below.
 	Repositories SpringCloudConfigurationServiceRepositoryArrayInput
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -273,6 +283,11 @@ func (o SpringCloudConfigurationServiceOutput) Generation() pulumi.StringPtrOutp
 // The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 func (o SpringCloudConfigurationServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConfigurationService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies how often to check repository updates. Minimum value is 0.
+func (o SpringCloudConfigurationServiceOutput) RefreshIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConfigurationService) pulumi.IntPtrOutput { return v.RefreshIntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
 // One or more `repository` blocks as defined below.

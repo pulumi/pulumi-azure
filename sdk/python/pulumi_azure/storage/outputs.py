@@ -74,6 +74,7 @@ __all__ = [
     'GetPolicyRuleFilterMatchBlobIndexTagResult',
     'GetShareAclResult',
     'GetShareAclAccessPolicyResult',
+    'GetTableEntitiesItemResult',
 ]
 
 @pulumi.output_type
@@ -4217,5 +4218,45 @@ class GetShareAclAccessPolicyResult(dict):
         The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GetTableEntitiesItemResult(dict):
+    def __init__(__self__, *,
+                 partition_key: str,
+                 properties: Mapping[str, str],
+                 row_key: str):
+        """
+        :param str partition_key: Partition Key of the Entity.
+        :param Mapping[str, str] properties: A map of any additional properties in key-value format.
+        :param str row_key: Row Key of the Entity.
+        """
+        pulumi.set(__self__, "partition_key", partition_key)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "row_key", row_key)
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> str:
+        """
+        Partition Key of the Entity.
+        """
+        return pulumi.get(self, "partition_key")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
+        """
+        A map of any additional properties in key-value format.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="rowKey")
+    def row_key(self) -> str:
+        """
+        Row Key of the Entity.
+        """
+        return pulumi.get(self, "row_key")
 
 
