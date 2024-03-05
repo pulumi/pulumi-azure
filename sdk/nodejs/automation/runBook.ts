@@ -39,42 +39,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Custom Content
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as local from "@pulumi/local";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     name: "account1",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const example = local.getFile({
- *     filename: `${notImplemented("path.module")}/example.ps1`,
- * });
- * const exampleRunBook = new azure.automation.RunBook("example", {
- *     name: "Get-AzureVMTutorial",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
- *     logVerbose: true,
- *     logProgress: true,
- *     description: "This is an example runbook",
- *     runbookType: "PowerShell",
- *     content: example.then(example => example.content),
- * });
- * ```
  *
  * ## Import
  *

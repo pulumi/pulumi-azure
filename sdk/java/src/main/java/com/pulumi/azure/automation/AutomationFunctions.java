@@ -831,16 +831,12 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args) {
         return getVariableObject(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args) {
@@ -849,16 +845,12 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args, InvokeOptions options) {

@@ -12,38 +12,6 @@ import (
 )
 
 // Use this data source to access information about an existing Subscription Template Deployment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.LookupSubscriptionTemplateDeployment(ctx, &core.LookupSubscriptionTemplateDeploymentArgs{
-//				Name: "existing",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", example.Id)
-//			ctx.Export("exampleOutput", notImplemented("jsondecode(data.azurerm_subscription_template_deployment.example.output_content)").ExampleOutput.Value)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSubscriptionTemplateDeployment(ctx *pulumi.Context, args *LookupSubscriptionTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionTemplateDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubscriptionTemplateDeploymentResult

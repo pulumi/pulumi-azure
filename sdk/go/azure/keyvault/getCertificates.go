@@ -12,37 +12,6 @@ import (
 )
 
 // Use this data source to retrieve a list of certificate names from an existing Key Vault.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := keyvault.GetCertificates(ctx, &keyvault.GetCertificatesArgs{
-//				KeyVaultId: existing.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ := "TODO: For expression"
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCertificates(ctx *pulumi.Context, args *GetCertificatesArgs, opts ...pulumi.InvokeOption) (*GetCertificatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCertificatesResult
