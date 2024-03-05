@@ -76,7 +76,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "operator", &authorization.AssignmentArgs{
-//				Scope:              *pulumi.String(example.Id),
+//				Scope:              pulumi.String(example.Id),
 //				RoleDefinitionName: pulumi.String("Blueprint Operator"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
@@ -84,7 +84,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "owner", &authorization.AssignmentArgs{
-//				Scope:              *pulumi.String(example.Id),
+//				Scope:              pulumi.String(example.Id),
 //				RoleDefinitionName: pulumi.String("Owner"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
@@ -93,12 +93,12 @@ import (
 //			}
 //			_, err = blueprint.NewAssignment(ctx, "example", &blueprint.AssignmentArgs{
 //				Name:                 pulumi.String("testAccBPAssignment"),
-//				TargetSubscriptionId: *pulumi.String(example.Id),
-//				VersionId:            *pulumi.String(exampleGetPublishedVersion.Id),
+//				TargetSubscriptionId: pulumi.String(example.Id),
+//				VersionId:            pulumi.String(exampleGetPublishedVersion.Id),
 //				Location:             exampleResourceGroup.Location,
 //				LockMode:             pulumi.String("AllResourcesDoNotDelete"),
 //				LockExcludePrincipals: pulumi.StringArray{
-//					*pulumi.String(current.ObjectId),
+//					pulumi.String(current.ObjectId),
 //				},
 //				Identity: &blueprint.AssignmentIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),

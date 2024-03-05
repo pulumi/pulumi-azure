@@ -41,7 +41,7 @@ import (
 //			_, err = management.NewGroupTemplateDeployment(ctx, "example", &management.GroupTemplateDeploymentArgs{
 //				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
-//				ManagementGroupId: *pulumi.String(example.Id),
+//				ManagementGroupId: pulumi.String(example.Id),
 //				TemplateContent: pulumi.String(`{
 //	  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 //	  "contentVersion": "1.0.0.0",
@@ -131,7 +131,7 @@ import (
 //			_, err = management.NewGroupTemplateDeployment(ctx, "example", &management.GroupTemplateDeploymentArgs{
 //				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
-//				ManagementGroupId: *pulumi.String(example.Id),
+//				ManagementGroupId: pulumi.String(example.Id),
 //				TemplateContent:   invokeFile.Result,
 //				ParametersContent: invokeFile1.Result,
 //			})
@@ -174,8 +174,8 @@ import (
 //			_, err = management.NewGroupTemplateDeployment(ctx, "example", &management.GroupTemplateDeploymentArgs{
 //				Name:                  pulumi.String("example"),
 //				Location:              pulumi.String("West Europe"),
-//				ManagementGroupId:     *pulumi.String(example.Id),
-//				TemplateSpecVersionId: *pulumi.String(exampleGetTemplateSpecVersion.Id),
+//				ManagementGroupId:     pulumi.String(example.Id),
+//				TemplateSpecVersionId: pulumi.String(exampleGetTemplateSpecVersion.Id),
 //			})
 //			if err != nil {
 //				return err

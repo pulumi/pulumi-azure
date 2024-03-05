@@ -61,12 +61,12 @@ import (
 //				Name:              pulumi.String("example-keyvault"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          *pulumi.String(current.TenantId),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(current.ObjectId),
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -78,7 +78,7 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(current.TenantId),
+//						TenantId: pulumi.String(current.TenantId),
 //						ObjectId: pulumi.Any(testAzurermSignalrService.Identity[0].PrincipalId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Create"),

@@ -74,7 +74,7 @@ import (
 //				Description:       pulumi.String("Test Managed App Definition"),
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
-//						ServicePrincipalId: *pulumi.String(current.ObjectId),
+//						ServicePrincipalId: pulumi.String(current.ObjectId),
 //						RoleDefinitionId:   invokeSplit.Result[len(invokeSplit1.Result)-1],
 //					},
 //				},

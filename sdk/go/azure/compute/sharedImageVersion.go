@@ -45,14 +45,14 @@ import (
 //			}
 //			_, err = compute.NewSharedImageVersion(ctx, "example", &compute.SharedImageVersionArgs{
 //				Name:              pulumi.String("0.0.1"),
-//				GalleryName:       *pulumi.String(existingGetSharedImage.GalleryName),
-//				ImageName:         *pulumi.String(existingGetSharedImage.Name),
-//				ResourceGroupName: *pulumi.String(existingGetSharedImage.ResourceGroupName),
-//				Location:          *pulumi.String(existingGetSharedImage.Location),
-//				ManagedImageId:    *pulumi.String(existing.Id),
+//				GalleryName:       pulumi.String(existingGetSharedImage.GalleryName),
+//				ImageName:         pulumi.String(existingGetSharedImage.Name),
+//				ResourceGroupName: pulumi.String(existingGetSharedImage.ResourceGroupName),
+//				Location:          pulumi.String(existingGetSharedImage.Location),
+//				ManagedImageId:    pulumi.String(existing.Id),
 //				TargetRegions: compute.SharedImageVersionTargetRegionArray{
 //					&compute.SharedImageVersionTargetRegionArgs{
-//						Name:                 *pulumi.String(existingGetSharedImage.Location),
+//						Name:                 pulumi.String(existingGetSharedImage.Location),
 //						RegionalReplicaCount: pulumi.Int(5),
 //						StorageAccountType:   pulumi.String("Standard_LRS"),
 //					},
