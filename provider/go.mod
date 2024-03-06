@@ -11,7 +11,7 @@ require (
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.0.10
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
-	github.com/pulumi/pulumi/sdk/v3 v3.107.0
+	github.com/pulumi/pulumi/sdk/v3 v3.108.1
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -277,3 +277,7 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 	software.sslmate.com/src/go-pkcs12 v0.4.0 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.108.2-0.20240306184644-72e5712075a4
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.108.2-0.20240306184644-72e5712075a4
